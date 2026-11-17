@@ -255,7 +255,7 @@ impl crate::app::App {
     fn scan_scripts(&mut self) {
         let dir = self.scripts_dir();
         if !dir.is_dir() && std::fs::create_dir_all(&dir).is_ok() {
-            let ex = if crate::i18n::lang() == crate::i18n::Lang::En { EXAMPLES_EN } else { EXAMPLES };
+            let ex = if crate::i18n::lang() != crate::i18n::Lang::De { EXAMPLES_EN } else { EXAMPLES };
             for (n, c) in ex {
                 let _ = std::fs::write(dir.join(n), c);
             }
@@ -265,7 +265,7 @@ impl crate::app::App {
         self.scripts.files = v;
         self.scripts.scanned = true;
         if self.scripts.code.is_empty() {
-            self.scripts.code = if crate::i18n::lang() == crate::i18n::Lang::En {
+            self.scripts.code = if crate::i18n::lang() != crate::i18n::Lang::De {
                 "-- Lua script: every tool via amboss.call(name, {…}), see the help on the right\nprint(amboss.info().brushes .. \" brushes in the map\")\n".into()
             } else {
                 "-- Lua-Skript: alle Werkzeuge über amboss.call(name, {…}), siehe Hilfe rechts\nprint(amboss.info().brushes .. \" Brushes in der Map\")\n".into()

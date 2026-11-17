@@ -392,6 +392,11 @@ pub fn dialog(ctx: &egui::Context, open: &mut bool, d: &Dlg, mut f: impl FnMut(&
         return;
     }
     let th = t();
+    // nie größer als das Fenster (hohe Skalierung, kleine Bildschirme) – dann wird gescrollt
+    let scr = ctx.screen_rect();
+    let width = d.width.min(scr.width() - 24.0).max(280.0);
+    let height = d.height.map(|h| h.min(scr.height() - 24.0).max(200.0));
+    let squeezed = d.height.is_some_and(|h| h > scr.height() - 24.0);
     let frame = egui::Frame::new()
         .fill(th.panel)
         .stroke(Stroke::new(1.0f32, th.line_strong))
@@ -401,9 +406,9 @@ pub fn dialog(ctx: &egui::Context, open: &mut bool, d: &Dlg, mut f: impl FnMut(&
     let id = egui::Id::new(("amboss_dlg", d.id.clone().unwrap_or_else(|| d.title.clone())));
     // feste Breite, nicht skalierbar: Inhalte brechen um statt den Dialog zu verbreitern (sonst enden
     // Kopf-Trennlinie und Fuß vor dem rechten Rand); Höhe folgt dem Inhalt bzw. ist fest
-    let mut w = egui::Window::new(d.title.clone()).id(id).title_bar(false).frame(frame).resizable(false).collapsible(false).fixed_size([d.width, d.height.unwrap_or(0.0)]);
-    if d.height.is_none() {
-        w = egui::Window::new(d.title.clone()).id(id).title_bar(false).frame(frame).resizable(false).collapsible(false).default_width(d.width).min_width(d.width).max_width(d.width);
+    let mut w = egui::Window::new(d.title.clone()).id(id).title_bar(false).frame(frame).resizable(false).collapsible(false).fixed_size([width, height.unwrap_or(0.0)]);
+    if height.is_none() {
+        w = egui::Window::new(d.title.clone()).id(id).title_bar(false).frame(frame).resizable(false).collapsible(false).default_width(width).min_width(width).max_width(width);
     }
     if d.modal_center {
         w = w.anchor(egui::Align2::CENTER_CENTER, [0.0, 0.0]);
@@ -422,10 +427,10 @@ pub fn dialog(ctx: &egui::Context, open: &mut bool, d: &Dlg, mut f: impl FnMut(&
     }
     let mut close = false;
     w.show(ctx, |ui| {
-        ui.set_width(d.width);
+        ui.set_width(width);
         ui.spacing_mut().item_spacing.y = 0.0;
         // Kopf
-        let (hr, _) = ui.allocate_exact_size(Vec2::new(d.width, 52.0), egui::Sense::hover());
+        let (hr, _) = ui.allocate_exact_size(Vec2::new(width, 52.0), egui::Sense::hover());
         let mut header = ui.new_child(egui::UiBuilder::new().max_rect(hr.shrink2(Vec2::new(0.0, 0.0))).layout(egui::Layout::left_to_right(egui::Align::Center)));
         header.add_space(20.0);
         header.label(RichText::new(&d.title).font(FontId::new(15.0, semibold())));
@@ -452,14 +457,14 @@ pub fn dialog(ctx: &egui::Context, open: &mut bool, d: &Dlg, mut f: impl FnMut(&
         ui.painter().hline(hr.x_range(), hr.bottom(), Stroke::new(1.0f32, th.line));
         // Inhalt
         let footer_h = if d.footer { 60.0 } else { 0.0 };
-        let body_max = d.height.map(|h| h - 52.0 - footer_h).unwrap_or_else(|| (ctx.screen_rect().height() * 0.8 - 52.0 - footer_h).max(120.0));
+        let body_max = height.map(|h| h - 52.0 - footer_h).unwrap_or_else(|| (ctx.screen_rect().height() * 0.8 - 52.0 - footer_h).max(120.0));
         egui::Frame::new().inner_margin(egui::Margin { left: 20, right: 20, top: 16, bottom: 18 }).show(ui, |ui| {
             ui.spacing_mut().item_spacing.y = 8.0;
-            ui.set_width(d.width - 40.0);
-            if let Some(h) = d.height {
+            ui.set_width(width - 40.0);
+            if let Some(h) = height {
                 ui.set_height(h - 52.0 - footer_h - 34.0);
             }
-            if d.scroll {
+            if d.scroll || squeezed {
                 egui::ScrollArea::vertical().max_height(body_max - 34.0).auto_shrink([false, true]).show(ui, |ui| f(ui, Part::Body));
             } else {
                 f(ui, Part::Body);
@@ -467,7 +472,7 @@ pub fn dialog(ctx: &egui::Context, open: &mut bool, d: &Dlg, mut f: impl FnMut(&
         });
         // Fuß
         if d.footer {
-            let (fr, _) = ui.allocate_exact_size(Vec2::new(d.width, 60.0), egui::Sense::hover());
+            let (fr, _) = ui.allocate_exact_size(Vec2::new(width, 60.0), egui::Sense::hover());
             ui.painter().rect_filled(fr, CornerRadius { nw: 0, ne: 0, sw: 12, se: 12 }, th.raised);
             ui.painter().hline(fr.x_range(), fr.top(), Stroke::new(1.0f32, th.line));
             let mut fui = ui.new_child(egui::UiBuilder::new().max_rect(egui::Rect::from_min_max(fr.min + Vec2::new(20.0, 0.0), fr.max - Vec2::new(16.0, 0.0))).layout(egui::Layout::right_to_left(egui::Align::Center)));

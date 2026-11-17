@@ -1207,7 +1207,7 @@ impl View2D {
         let wc = theme::alpha(th.accent_text, 0.6);
         painter.line_segment([wp - Vec2::new(5.0, 0.0), wp + Vec2::new(5.0, 0.0)], Stroke::new(1.0f32, wc));
         painter.line_segment([wp - Vec2::new(0.0, 5.0), wp + Vec2::new(0.0, 5.0)], Stroke::new(1.0f32, wc));
-        let _ = CameraDef { pos: DVec3::ZERO, look: DVec3::ZERO };
+        let _ = CameraDef { pos: DVec3::ZERO, look: DVec3::ZERO, name: String::new() };
     }
 
     fn draw_grid(&self, painter: &egui::Painter, rect: Rect, grid: f64, limit: f64) {

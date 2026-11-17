@@ -80,10 +80,12 @@ impl App {
             // nur aufgeklappt darüber)
             let face_mode = self.panel_tab == 0 && self.ed.tool == Tool::Face;
             let avail = full.bottom() - tabs_rect.bottom();
+            ctx.data_mut(|d| d.insert_temp(egui::Id::new("amboss_simple_ui"), self.settings.simple_ui));
             let tex_h = if face_mode {
                 if self.face_opts_open { (avail * 0.55).max(260.0).min(avail - 120.0) } else { avail - 46.0 }
             } else if self.panel_tab == 0 {
-                250.0
+                // höhenverstellbar (Trennlinie ziehen) und einklappbar
+                if self.settings.layout.tex_collapsed { 44.0 } else { self.settings.layout.tex_h.clamp(120.0, (avail - 140.0).max(120.0)) }
             } else {
                 0.0
             };
@@ -128,6 +130,21 @@ impl App {
                 let tr = egui::Rect::from_min_max(egui::pos2(full.left(), full.bottom() - tex_h), full.max);
                 self.ui_rects.insert("textures", tr);
                 ui.painter().hline(full.x_range(), tr.top(), Stroke::new(1.0f32, th.line));
+                // Trennlinie ziehen = Höhe des Texturbereichs ändern
+                if !face_mode && !self.settings.layout.tex_collapsed {
+                    let grip = egui::Rect::from_min_max(egui::pos2(full.left(), tr.top() - 4.0), egui::pos2(full.right(), tr.top() + 4.0));
+                    let gr = ui.interact(grip, ui.id().with("tex_split"), egui::Sense::drag());
+                    if gr.hovered() || gr.dragged() {
+                        ui.ctx().set_cursor_icon(egui::CursorIcon::ResizeVertical);
+                        ui.painter().hline(full.x_range(), tr.top(), Stroke::new(2.0f32, th.accent));
+                    }
+                    if gr.dragged() {
+                        self.settings.layout.tex_h = (tex_h - gr.drag_delta().y).clamp(120.0, (avail - 140.0).max(120.0));
+                    }
+                    if gr.double_clicked() {
+                        self.settings.layout.tex_h = 250.0;
+                    }
+                }
                 let mut tui = ui.new_child(egui::UiBuilder::new().max_rect(tr.shrink2(Vec2::new(14.0, 12.0))));
                 self.texture_grid(&mut tui, face_mode);
             }
@@ -146,7 +163,7 @@ impl App {
             let e = self.ed.map.entity(ents[0]).unwrap();
             let faces: usize = e.solids.iter().map(|s| s.sides.len()).sum();
             let kind = if e.is_brush_entity() { crate::i18n::tr_dyn(&format!("Brush-Entity · {faces} Flächen")) } else { crate::i18n::tr("Punkt-Entity").to_string() };
-            (if e.is_brush_entity() { "block" } else { "entity" }, e.targetname().unwrap_or(e.classname()).to_string(), format!("{} · {kind}", e.classname()))
+            (crate::icons::entity_icon(e.classname()), e.targetname().unwrap_or(e.classname()).to_string(), format!("{} · {kind}", e.classname()))
         } else if ents.is_empty() {
             let faces: usize = solids.iter().filter_map(|id| self.ed.map.solid(*id)).map(|s| s.sides.len()).sum();
             ("block", if solids.len() == 1 { format!("Brush {}", solids[0]) } else { crate::i18n::count(solids.len(), "Brush", "Brushes") }, crate::i18n::tr_dyn(&format!("Welt · {faces} Flächen")))
@@ -188,6 +205,17 @@ impl App {
     fn texture_grid(&mut self, ui: &mut egui::Ui, big: bool) {
         let th = theme::t();
         ui.horizontal(|ui| {
+            if !big {
+                // Texturbereich ein-/ausklappen
+                let collapsed = self.settings.layout.tex_collapsed;
+                let (r, resp) = ui.allocate_exact_size(Vec2::new(16.0, 16.0), Sense::click());
+                let c = r.center();
+                let pts = if collapsed { vec![c + Vec2::new(-4.0, 2.0), c + Vec2::new(0.0, -2.0), c + Vec2::new(4.0, 2.0)] } else { vec![c + Vec2::new(-4.0, -2.0), c + Vec2::new(0.0, 2.0), c + Vec2::new(4.0, -2.0)] };
+                ui.painter().add(egui::Shape::line(pts, Stroke::new(1.5f32, if resp.hovered() { th.text } else { th.text3 })));
+                if resp.on_hover_text(if collapsed { crate::i18n::tr("Texturen aufklappen") } else { crate::i18n::tr("Texturen einklappen (Trennlinie ziehen ändert die Höhe)") }).clicked() {
+                    self.settings.layout.tex_collapsed = !collapsed;
+                }
+            }
             theme::section(ui, crate::i18n::tr("Texturen"));
             ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
                 if ui.small_button(crate::i18n::tr("Browser…")).clicked() {
@@ -196,6 +224,9 @@ impl App {
                 ui.add(egui::TextEdit::singleline(&mut self.tex_filter).hint_text(crate::theme::hint(crate::i18n::tr("filtern"))).desired_width(130.0));
             });
         });
+        if !big && self.settings.layout.tex_collapsed {
+            return;
+        }
         let f = self.tex_filter.to_ascii_lowercase();
         let mut list: Vec<String> = if f.is_empty() {
             let mut v: Vec<String> = self.settings.recent_materials.iter().map(|m| m.to_ascii_lowercase()).collect();
@@ -316,11 +347,21 @@ impl App {
                 ui.label(crate::i18n::tr("2D: Linie ziehen · 3D: zwei Punkte auf Flächen anklicken. Esc löscht."));
                 if let Some((a, b)) = self.ed.measure {
                     let d = b - a;
-                    ui.label(RichText::new(crate::i18n::tr_dyn(&format!("Länge {:.2}\nΔX {:.1}  ΔY {:.1}  ΔZ {:.1}\n≈ {:.2} m", d.length(), d.x, d.y, d.z, d.length() * 0.0254))).monospace());
-                    if ui.button(crate::i18n::tr("Messung löschen")).clicked() {
-                        self.ed.measure = None;
-                        self.ed.touch();
-                    }
+                    let text = crate::i18n::tr_dyn(&format!("Länge {:.2}\nΔX {:.1}  ΔY {:.1}  ΔZ {:.1}\n≈ {:.2} m", d.length(), d.x, d.y, d.z, d.length() * 0.0254));
+                    theme::section(ui, crate::i18n::tr("Ergebnis"));
+                    egui::Frame::new().fill(theme::t().raised).corner_radius(6).inner_margin(8).show(ui, |ui| {
+                        ui.label(RichText::new(&text).monospace());
+                    });
+                    ui.horizontal(|ui| {
+                        if ui.button(crate::i18n::tr("Kopieren")).on_hover_text(crate::i18n::tr("Ergebnis in die Zwischenablage")).clicked() {
+                            ui.ctx().copy_text(format!("{:.2}\t{:.1}\t{:.1}\t{:.1}", d.length(), d.x, d.y, d.z));
+                            self.ed.status = crate::i18n::tr("Messung kopiert").into();
+                        }
+                        if ui.button(crate::i18n::tr("Messung löschen")).clicked() {
+                            self.ed.measure = None;
+                            self.ed.touch();
+                        }
+                    });
                 }
             }
         }
@@ -331,19 +372,28 @@ impl App {
         let mut remove = None;
         for i in 0..self.ed.map.cameras.len() {
             ui.horizontal(|ui| {
-                if ui.radio(self.ed.map.active_camera == i, crate::i18n::tr_dyn(&format!("Kamera {}", i + 1))).clicked() {
+                if ui.radio(self.ed.map.active_camera == i, "").on_hover_text(crate::i18n::tr("Diese Kamera benutzen")).clicked() {
                     self.ed.map.active_camera = i;
                     self.ed.camera_changed = true;
                 }
-                if self.ed.map.cameras.len() > 1 && ui.small_button("✖").clicked() {
+                // Name direkt umbenennen (leer = „Kamera n“)
+                let hint = crate::i18n::tr_dyn(&format!("Kamera {}", i + 1));
+                let w = (ui.available_width() - 34.0).clamp(80.0, 220.0);
+                let r = ui.add(egui::TextEdit::singleline(&mut self.ed.map.cameras[i].name).hint_text(crate::theme::hint(&hint)).desired_width(w));
+                if r.changed() {
+                    self.ed.dirty = true;
+                }
+                if ui.small_button("✖").on_hover_text(crate::i18n::tr("Kamera löschen")).clicked() {
                     remove = Some(i);
                 }
             });
         }
         if let Some(i) = remove {
+            self.ed.checkpoint();
             self.ed.map.cameras.remove(i);
             self.ed.map.active_camera = self.ed.map.active_camera.min(self.ed.map.cameras.len().saturating_sub(1));
             self.ed.camera_changed = true;
+            self.ed.touch();
         }
         if ui.button(crate::i18n::tr("Neue Kamera an aktueller Position")).clicked() {
             let c = self.view3d.camera_def();
@@ -352,12 +402,9 @@ impl App {
     }
 
     fn block_section(&mut self, ui: &mut egui::Ui) {
+        // die Form selbst wird oben in der Kontextleiste gewählt
         let p = &mut self.ed.shape;
-        egui::ComboBox::from_id_salt("shape").selected_text(p.shape.label()).show_ui(ui, |ui| {
-            for s in Shape::ALL {
-                ui.selectable_value(&mut p.shape, s, s.label());
-            }
-        });
+        ui.label(RichText::new(crate::i18n::tr_dyn(&format!("Form: {} (oben in der Leiste wählen)", p.shape.label()))).color(theme::t().text2));
         egui::Grid::new("shapeparams").num_columns(2).show(ui, |ui| {
             if matches!(p.shape, Shape::Cylinder | Shape::Spike | Shape::Sphere | Shape::Arch | Shape::Torus) {
                 ui.label(if matches!(p.shape, Shape::Arch | Shape::Torus) { "Segmente" } else { crate::i18n::tr("Seiten") });
@@ -675,31 +722,65 @@ impl App {
         theme::section(ui, crate::i18n::tr("Visgroups"));
         {
             let mut action: Option<(u32, u8)> = None;
+            let th = theme::t();
+            // Anzahl der Objekte je Visgroup
+            let mut counts: std::collections::HashMap<u32, usize> = Default::default();
+            for (e, s) in self.ed.map.solids_owned() {
+                if e.is_none() {
+                    for id in &s.editor.visgroups {
+                        *counts.entry(*id).or_default() += 1;
+                    }
+                }
+            }
+            for e in &self.ed.map.entities {
+                for id in &e.editor.visgroups {
+                    *counts.entry(*id).or_default() += 1;
+                }
+            }
+            let icon_btn = |ui: &mut egui::Ui, icon: &str, on: bool, tip: &str| -> bool {
+                let (r, resp) = ui.allocate_exact_size(Vec2::new(20.0, 20.0), Sense::click());
+                if resp.hovered() {
+                    ui.painter().rect_filled(r, 4.0, th.hover);
+                }
+                crate::icons::draw(ui.painter(), r.shrink(3.0), icon, if on { th.text } else { th.text3.gamma_multiply(0.5) }, 1.3);
+                if !on {
+                    ui.painter().line_segment([r.left_bottom() + Vec2::new(3.0, -3.0), r.right_top() + Vec2::new(-3.0, 3.0)], Stroke::new(1.2f32, th.text3));
+                }
+                resp.on_hover_text(tip).clicked()
+            };
+            // senkrechte Liste: Auge, Farbe, Name, Anzahl, Schloss; Aktionen rechts
             for v in self.ed.map.visgroups.clone() {
                 ui.horizontal(|ui| {
-                    let mut vis = v.visible;
-                    if crate::theme::checkbox(ui, &mut vis, "").changed() {
-                        action = Some((v.id, if vis { 1 } else { 0 }));
+                    ui.spacing_mut().item_spacing.x = 4.0;
+                    if icon_btn(ui, "eye", v.visible, crate::i18n::tr("Ein-/Ausblenden")) {
+                        action = Some((v.id, if v.visible { 0 } else { 1 }));
                     }
-                    let (r, p) = ui.allocate_painter(Vec2::splat(10.0), Sense::hover());
-                    p.rect_filled(r.rect, egui::CornerRadius::ZERO, Color32::from_rgb(v.color[0], v.color[1], v.color[2]));
-                    ui.label(&v.name);
-                    if ui.small_button(crate::i18n::tr("Wählen")).clicked() {
-                        action = Some((v.id, 2));
-                    }
-                    if ui.small_button("+").on_hover_text(crate::i18n::tr("Auswahl hinzufügen")).clicked() {
-                        action = Some((v.id, 3));
-                    }
-                    if ui.small_button("−").on_hover_text(crate::i18n::tr("Auswahl entfernen")).clicked() {
-                        action = Some((v.id, 4));
-                    }
-                    if ui.small_button("✖").on_hover_text(crate::i18n::tr("Visgroup löschen")).clicked() {
-                        action = Some((v.id, 5));
-                    }
-                    if ui.small_button(if v.locked { "🔒" } else { "🔓" }).on_hover_text(crate::i18n::tr("Ebene sperren (nicht anklickbar)")).clicked() {
+                    if icon_btn(ui, "lock", v.locked, crate::i18n::tr("Ebene sperren (nicht anklickbar)")) {
                         action = Some((v.id, if v.locked { 7 } else { 6 }));
                     }
+                    let (r, p) = ui.allocate_painter(Vec2::splat(12.0), Sense::hover());
+                    p.rect_filled(r.rect, 3.0, Color32::from_rgb(v.color[0], v.color[1], v.color[2]));
+                    let n = counts.get(&v.id).copied().unwrap_or(0);
+                    let l = ui.add(egui::Label::new(RichText::new(&v.name).color(if v.visible { th.text } else { th.text3 })).truncate().sense(Sense::click()));
+                    if l.on_hover_text(crate::i18n::tr("Klick wählt alle Objekte dieser Visgroup")).clicked() {
+                        action = Some((v.id, 2));
+                    }
+                    ui.label(RichText::new(n.to_string()).font(theme::mono(11.0)).color(th.text3));
+                    ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
+                        if ui.small_button("✖").on_hover_text(crate::i18n::tr("Visgroup löschen")).clicked() {
+                            action = Some((v.id, 5));
+                        }
+                        if ui.small_button("−").on_hover_text(crate::i18n::tr("Auswahl entfernen")).clicked() {
+                            action = Some((v.id, 4));
+                        }
+                        if ui.small_button("+").on_hover_text(crate::i18n::tr("Auswahl hinzufügen")).clicked() {
+                            action = Some((v.id, 3));
+                        }
+                    });
                 });
+            }
+            if self.ed.map.visgroups.is_empty() {
+                ui.label(RichText::new(crate::i18n::tr("Noch keine Visgroups – Objekte auswählen, Namen eingeben, „Aus Auswahl“.")).size(12.0).color(th.text3));
             }
             if let Some((id, a)) = action {
                 match a {
@@ -747,10 +828,7 @@ impl App {
         }
         if solids > 0 {
             theme::section(ui, crate::i18n::tr("Brushes"));
-            let label = if solids == 1 { crate::i18n::tr("In Entity umwandeln…").to_string() } else { crate::i18n::tr_dyn(&format!("{solids} Brushes in Entity umwandeln…")) };
-            if ui.add(egui::Button::new(label).shortcut_text(crate::i18n::keys("Strg+T"))).clicked() {
-                self.open_convert_dialog();
-            }
+            self.brush_panel(ui, solids);
         }
         if ents.len() == 1 {
             let id = ents[0];
@@ -771,6 +849,120 @@ impl App {
         } else if ents.len() > 1 {
             self.multi_edit(ui, &ents);
         }
+    }
+
+    /// Brush-Auswahl: Größe und Position (genau eintippen), benutzte Materialien, Schnellknöpfe
+    fn brush_panel(&mut self, ui: &mut egui::Ui, solids: usize) {
+        let th = theme::t();
+        let b = self.ed.selection_bounds();
+        if !b.is_empty() {
+            let size = b.size();
+            let lw = set_label_w(ui);
+            let mut new_size = size;
+            let mut new_min = b.min;
+            let mut begin = false;
+            for (label, v, tip) in [(crate::i18n::tr("Größe"), &mut new_size, crate::i18n::tr("Breite × Tiefe × Höhe der Auswahl – ändern skaliert sie (Ecke unten links bleibt)")), (crate::i18n::tr("Position"), &mut new_min, crate::i18n::tr("Ecke unten links der Auswahl – ändern verschiebt sie"))] {
+                ui.horizontal(|ui| {
+                    grid_label_w(ui, label, tip, lw);
+                    ui.spacing_mut().item_spacing.x = 3.0;
+                    let fw = ((ui.available_width() - 3.0 * 14.0 - 12.0) / 3.0).clamp(34.0, 80.0);
+                    for (i, (axis, col)) in [("X", Color32::from_rgb(230, 90, 90)), ("Y", Color32::from_rgb(110, 200, 110)), ("Z", Color32::from_rgb(100, 150, 240))].into_iter().enumerate() {
+                        ui.label(RichText::new(axis).color(col).strong().size(11.0));
+                        let r = ui.add_sized([fw, 20.0], crate::theme::dv(egui::DragValue::new(&mut v[i]).speed(1.0).max_decimals(2)));
+                        begin |= r.drag_started() || r.gained_focus();
+                    }
+                });
+            }
+            // ein Rückgängig-Schritt pro Ziehen bzw. Eingabe
+            if begin {
+                self.ed.checkpoint();
+            }
+            if (new_size - size).abs().max_element() > 1e-6 && new_size.min_element() > 0.5 {
+                let to = crate::geometry::Aabb::new(b.min, b.min + new_size);
+                self.ed.apply_xform(&crate::editor::Editor::scale_xform(b, to), true);
+                self.ed.touch();
+            } else if (new_min - b.min).abs().max_element() > 1e-6 {
+                self.ed.translate_selection(new_min - b.min);
+            }
+        }
+        // Materialien der ausgewählten Brushes
+        let mut mats: Vec<(String, usize)> = Vec::new();
+        for id in self.ed.selected_solid_ids() {
+            if let Some(s) = self.ed.map.solid(id) {
+                for side in &s.sides {
+                    match mats.iter_mut().find(|m| m.0.eq_ignore_ascii_case(&side.material)) {
+                        Some(m) => m.1 += 1,
+                        None => mats.push((side.material.clone(), 1)),
+                    }
+                }
+            }
+        }
+        mats.sort_by(|a, b| b.1.cmp(&a.1));
+        if !mats.is_empty() {
+            ui.add_space(4.0);
+            ui.label(RichText::new(crate::i18n::tr_dyn(&format!("Materialien ({})", mats.len()))).size(12.0).color(th.text3));
+            for (m, n) in mats.iter().take(8) {
+                ui.horizontal(|ui| {
+                    let (r, resp) = ui.allocate_exact_size(Vec2::splat(22.0), Sense::click());
+                    match self.mats.thumb(m) {
+                        Some(t) => {
+                            egui::Image::new((t.id(), r.size())).corner_radius(4).paint_at(ui, r);
+                        }
+                        None => {
+                            let c = crate::view3d::material_color(m);
+                            ui.painter().rect_filled(r, 4.0, Color32::from_rgb((c[0] * 255.0) as u8, (c[1] * 255.0) as u8, (c[2] * 255.0) as u8));
+                        }
+                    }
+                    let short = m.rsplit('/').next().unwrap_or(m).to_ascii_lowercase();
+                    let l = ui.add(egui::Label::new(RichText::new(format!("{short}  ×{n}")).font(theme::mono(11.5)).color(th.text2)).truncate().sense(Sense::click()));
+                    if resp.clicked() || l.clicked() {
+                        self.ed.material = m.clone();
+                    }
+                    if ui.small_button(crate::i18n::tr("ersetzen")).on_hover_text(crate::i18n::tr_dyn(&format!("Alle Flächen der Auswahl mit {short} auf die aktuelle Textur ({}) setzen", self.ed.material.to_ascii_lowercase()))).clicked() {
+                        let (from, to) = (m.clone(), self.ed.material.clone());
+                        self.ed.checkpoint();
+                        for id in self.ed.selected_solid_ids() {
+                            if let Some(s) = self.ed.map.solid_mut(id) {
+                                for side in s.sides.iter_mut().filter(|sd| sd.material.eq_ignore_ascii_case(&from)) {
+                                    side.material = to.clone();
+                                }
+                            }
+                        }
+                        self.ed.touch();
+                    }
+                });
+            }
+            if mats.len() > 8 {
+                ui.label(RichText::new(crate::i18n::tr_dyn(&format!("… und {} weitere", mats.len() - 8))).size(11.5).color(th.text3));
+            }
+        }
+        // Schnellknöpfe
+        ui.add_space(4.0);
+        ui.horizontal_wrapped(|ui| {
+            ui.spacing_mut().item_spacing = Vec2::new(4.0, 4.0);
+            if ui.small_button(crate::i18n::tr("Aushöhlen")).on_hover_text(crate::i18n::keys("Strg+H")).clicked() {
+                self.ed.hollow(self.hollow_thickness);
+            }
+            if ui.small_button(crate::i18n::tr("Carve")).on_hover_text(crate::i18n::keys("Strg+Shift+C")).clicked() {
+                self.ed.carve();
+            }
+            if ui.small_button(crate::i18n::tr("Am Raster")).on_hover_text(crate::i18n::keys("Strg+B")).clicked() {
+                self.ed.snap_selection_to_grid();
+            }
+            if ui.small_button(crate::i18n::tr("Spiegeln X")).clicked() {
+                self.ed.flip_selection(0);
+            }
+            if ui.small_button(crate::i18n::tr("Spiegeln Y")).clicked() {
+                self.ed.flip_selection(1);
+            }
+            if ui.small_button(crate::i18n::tr("90° drehen")).on_hover_text(crate::i18n::tr("Um die Hochachse")).clicked() {
+                self.ed.rotate_selection(2, -90.0);
+            }
+            let label = if solids == 1 { crate::i18n::tr("In Entity umwandeln…").to_string() } else { crate::i18n::tr_dyn(&format!("{solids} Brushes in Entity umwandeln…")) };
+            if ui.small_button(label).on_hover_text(crate::i18n::keys("Strg+T")).clicked() {
+                self.open_convert_dialog();
+            }
+        });
     }
 
     pub(crate) fn handle_actions(&mut self, id: u32, e: &Entity, actions: Vec<EdAction>) {
@@ -995,8 +1187,14 @@ pub(crate) fn entity_editor(ui: &mut egui::Ui, fgd: &Fgd, map: &Map, e: &mut Ent
             let r = yaw_compass(ui, &mut a.y);
             begin |= r.drag_started() || r.clicked();
             ch |= r.changed();
-            for (v, l) in [(&mut a.x, "P "), (&mut a.y, "Y "), (&mut a.z, "R ")] {
-                let r = ui.add(crate::theme::dv(egui::DragValue::new(v)).speed(1.0).prefix(l));
+            // Zahlenfelder mit farbigem Buchstaben (Pitch rot, Yaw grün, Roll blau – wie die Drehachsen)
+            for (v, l, col) in [(&mut a.x, "P", Color32::from_rgb(230, 90, 90)), (&mut a.y, "Y", Color32::from_rgb(110, 200, 110)), (&mut a.z, "R", Color32::from_rgb(100, 150, 240))] {
+                ui.label(RichText::new(l).color(col).strong().size(11.0)).on_hover_text(match l {
+                    "P" => crate::i18n::tr("Pitch (neigen)"),
+                    "Y" => crate::i18n::tr("Yaw (drehen)"),
+                    _ => crate::i18n::tr("Roll (rollen)"),
+                });
+                let r = ui.add(crate::theme::dv(egui::DragValue::new(v)).speed(1.0).max_decimals(2));
                 begin |= r.drag_started() || r.gained_focus();
                 ch |= r.changed();
             }
@@ -1022,15 +1220,36 @@ pub(crate) fn entity_editor(ui: &mut egui::Ui, fgd: &Fgd, map: &Map, e: &mut Ent
     }
 
     let props = fgd.all_props(&class);
-    theme::section(ui, crate::i18n::tr("Schlüsselwerte"));
+    // Schalter „Rohwerte“ (Schlüssel/Wert wie in der Datei) und im Einfach-Modus nur wichtige Schlüssel
+    let raw_id = egui::Id::new("amboss_raw_kv");
+    let all_id = egui::Id::new(("amboss_all_kv", e.id));
+    let mut raw = ui.data_mut(|d| d.get_persisted::<bool>(raw_id)).unwrap_or(false);
+    let simple = ui.data(|d| d.get_temp::<bool>(egui::Id::new("amboss_simple_ui"))).unwrap_or(false);
+    let mut show_all = ui.data(|d| d.get_temp::<bool>(all_id)).unwrap_or(false);
+    ui.horizontal(|ui| {
+        theme::section(ui, crate::i18n::tr("Schlüsselwerte"));
+        ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
+            if theme::checkbox(ui, &mut raw, crate::i18n::tr("Rohwerte")).on_hover_text(crate::i18n::tr("Schlüssel und Werte so zeigen, wie sie in der VMF stehen (ohne Anzeigenamen und Auswahllisten)")).changed() {
+                ui.data_mut(|d| d.insert_persisted(raw_id, raw));
+            }
+        });
+    });
+    let important = |p: &crate::fgd::Property, cur: Option<&str>| -> bool {
+        const KEYS: [&str; 24] = ["targetname", "parentname", "model", "skin", "_light", "_ambient", "pitch", "_cone", "_inner_cone", "target", "speed", "wait", "message", "health", "rendercolor", "renderamt", "effect_name", "start_active", "skyname", "texture", "fogcolor", "fogstart", "fogend", "filtername"];
+        KEYS.contains(&p.name.to_ascii_lowercase().as_str()) || cur.is_some_and(|v| !v.trim().is_empty() && v.trim() != p.default.trim())
+    };
+    let hidden_count = if simple && !show_all && !raw { props.iter().filter(|p| p.kind != "flags" && !p.name.eq_ignore_ascii_case("angles") && !important(p, e.get(&p.name))).count() } else { 0 };
     // Breite der Wertespalte EINMAL außerhalb des Grids bestimmen: im Grid liefert available_width()
     // die Spaltenbreite des letzten Bildes – darauf aufbauende Felder würden die Spalte immer breiter machen
     let lw = set_label_w(ui);
     // 16 px: Innenabstand der Eingabefelder kommt zur gewünschten Breite hinzu
     let col_w = (ui.available_width() - lw - ui.spacing().item_spacing.x * 2.0 - 16.0).max(80.0);
     egui::Grid::new(("kv", e.id)).num_columns(2).striped(true).min_col_width(100.0).show(ui, |ui| {
-        for p in &props {
+        for p in props.iter().filter(|_| !raw) {
             if p.kind == "flags" || p.name.eq_ignore_ascii_case("angles") && !is_world {
+                continue;
+            }
+            if hidden_count > 0 && !important(p, e.get(&p.name)) {
                 continue;
             }
             let current = e.get(&p.name).map(|s| s.to_string());
@@ -1060,7 +1279,20 @@ pub(crate) fn entity_editor(ui: &mut egui::Ui, fgd: &Fgd, map: &Map, e: &mut Ent
                     let ln = p.name.to_ascii_lowercase();
                     let light_key = matches!(ln.as_str(), "_light" | "_ambient" | "_lighthdr" | "_ambienthdr");
                     let is_color = p.kind == "color255" || light_key;
-                    if is_color {
+                    // HDR-Farbe „-1 -1 -1 1“ heißt: wie die normale Helligkeit – als Haken statt schwarzer Fläche
+                    let hdr_key = light_key && ln.ends_with("hdr");
+                    let src0 = if val.trim().is_empty() { p.default.clone() } else { val.clone() };
+                    let same_as_ldr = hdr_key && src0.split_whitespace().next().and_then(|s| s.parse::<f64>().ok()).is_some_and(|v| v < 0.0);
+                    if hdr_key {
+                        let mut same = same_as_ldr;
+                        if theme::checkbox(ui, &mut same, crate::i18n::tr("wie Brightness")).on_hover_text(crate::i18n::tr("HDR-Licht übernimmt Farbe und Helligkeit des normalen Lichts (Wert „-1 -1 -1 1“)")).changed() {
+                            begin |= !changed;
+                            val = if same { "-1 -1 -1 1".to_string() } else { e.get(&ln.trim_end_matches("hdr").to_string()).filter(|v| !v.trim().is_empty()).unwrap_or("255 255 255 200").to_string() };
+                            e.set(&p.name, val.clone());
+                            changed = true;
+                        }
+                    }
+                    if is_color && !(hdr_key && same_as_ldr) {
                         let src = if val.trim().is_empty() { p.default.clone() } else { val.clone() };
                         let mut rgb = parse_color(&src).unwrap_or([255, 255, 255]);
                         if ui.color_edit_button_srgb(&mut rgb).on_hover_text(crate::i18n::tr("Farbe wählen")).changed() {
@@ -1132,8 +1364,8 @@ pub(crate) fn entity_editor(ui: &mut egui::Ui, fgd: &Fgd, map: &Map, e: &mut Ent
             }
             ui.end_row();
         }
-        // Schlüssel ohne FGD-Definition
-        let known: Vec<String> = props.iter().map(|p| p.name.to_ascii_lowercase()).collect();
+        // Schlüssel ohne FGD-Definition (bei „Rohwerte“ alle Schlüssel)
+        let known: Vec<String> = if raw { Vec::new() } else { props.iter().map(|p| p.name.to_ascii_lowercase()).collect() };
         let mut remove = None;
         for (i, (k, v)) in e.props.iter_mut().enumerate() {
             let lk = k.to_ascii_lowercase();
@@ -1183,6 +1415,14 @@ pub(crate) fn entity_editor(ui: &mut egui::Ui, fgd: &Fgd, map: &Map, e: &mut Ent
             changed = true;
         }
     });
+    if hidden_count > 0 {
+        if ui.button(crate::i18n::tr_dyn(&format!("Alle Eigenschaften ({})", hidden_count))).on_hover_text(crate::i18n::tr("Im Einfach-Modus stehen hier nur die wichtigen Schlüssel")).clicked() {
+            show_all = true;
+        }
+    } else if simple && show_all && !raw && ui.small_button(crate::i18n::tr("Nur wichtige Eigenschaften")).clicked() {
+        show_all = false;
+    }
+    ui.data_mut(|d| d.insert_temp(all_id, show_all));
 
     ui.horizontal(|ui| {
         let w = ((ui.available_width() - 96.0) / 2.0).max(50.0);

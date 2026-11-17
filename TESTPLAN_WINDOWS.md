@@ -243,7 +243,7 @@ Für jede Optimierung: zuerst **„Nur prüfen“**, Markierungen ansehen, dann 
 | O11 | worldspawn `skyname` = `sky_day01_01` (bzw. eigener Himmel), Ansicht → Himmel-Vorschau | Himmel rundum richtig ausgerichtet (Horizont unten, Sonne wie im Spiel) – mit dem Spiel vergleichen |
 | O12 | `env_fog_controller` mit fogenable 1, Farbe, Start/Ende | Entfernte Flächen gehen in die Nebelfarbe über; Ansicht → Nebel schaltet ab |
 | O13 | `move_rope` mit NextKey auf `keyframe_rope`, Slack 50 | Seil hängt durch wie im Spiel, mit Seil-Textur; in 2D als Linie |
-| O14 | Version prüfen | „0.9.10“ neben dem Logo, im Fenstertitel und unter Hilfe → Über Amboss |
+| O14 | Version prüfen | „0.10.0“ neben dem Logo, im Fenstertitel und unter Hilfe → Über Amboss |
 | O15 | Hilfe → Tutorial…, Kapitel 6–9 mit echten Inhalten durchspielen (auch „Zeig es mir“) | Jeder Schritt wird erkannt; Gelände, Himmel, Nebel, Partikel, Overlay, Decal sehen richtig aus |
 | O16 | Trigger mit Output: Ziel-Feld anklicken und einen Buchstaben tippen | Liste passender Namen mit Klasse; Pfeiltasten + Enter oder Klick übernimmt |
 | O17 | Generatoren → Räume mit Höhenstufen 2, eigenen Texturen für Boden/Wände/Decke → Erzeugen → Kompilieren & starten | Kein Leck; Räume unterschiedlich hoch, Treppen in den Gängen begehbar; Texturen wie gewählt |
@@ -267,6 +267,21 @@ Für jede Optimierung: zuerst **„Nur prüfen“**, Markierungen ansehen, dann 
 | O35 | Obere Leiste: etwas bauen, Pfeil zurück, Pfeil vor | Ohne Verlauf sind beide Pfeile grau; zurück macht die letzte Änderung rückgängig, vor stellt sie wieder her; Tooltip zeigt Strg+Z / Strg+Y |
 | O36 | prop_static/prop_physics mit Modell setzen, info_player_start setzen | In Oben/Vorne/Seite ist die Form des Modells als Umriss zu sehen (kein Rechteck); ausgewählt in Akzentfarbe |
 | O37 | Alte Map mit light ohne `_light` öffnen (z. B. unbenannt.vmf), kompilieren und starten | Protokoll: „Fehlende Standardwerte ergänzt: light: _light …“; Raum im Spiel beleuchtet |
+
+## P. Version 0.10.0: Code-Verbindung, Updates, Installer, Sprachen
+
+| Nr. | Schritt | Erwartung |
+|---|---|---|
+| P1 | Zwei PCs in **verschiedenen** Netzen (z. B. einer per Handy-Hotspot). A: Live-Sitzung → Gastgeber sein → Sitzung starten → „Einladungscode erstellen“, Code an B schicken | Code beginnt mit `AMB1-`; kein Hinweis „nur im selben Netz“ |
+| P2 | B: Beitreten → „Mit Code“ → Code einfügen → „Antwortcode erzeugen und verbinden“, Antwortcode an A; A fügt ihn ein → Verbinden | Innerhalb weniger Sekunden verbunden, B hat die Map; Bearbeiten, Sperren, Chat wie bei der normalen Sitzung |
+| P3 | Falsches Passwort bei B | „Falsches Passwort“, keine Verbindung |
+| P4 | P1–P2 im selben Heimnetz | Verbindung klappt ebenfalls |
+| P5 | Einstellungen → Oberfläche → Updates → „Jetzt suchen“ (mit dieser Version als neuestem Release) | Statuszeile „Amboss 0.10.0 ist aktuell.“ |
+| P6 | Erst ab dem nächsten Release möglich (0.9.10 hat noch keine Update-Funktion): 0.10.0 aus einem Ordner starten, in dem man schreiben darf, wenn es ein neueres Release gibt | Hinweis „Amboss 0.10.0 ist verfügbar“ → „Jetzt aktualisieren“ → „Installiert“ → „Jetzt neu starten“ startet die neue Version; `amboss.old.exe` ist danach weg |
+| P7 | Haken „Beim Start nach neuen Versionen suchen“ aus, neu starten | Kein Hinweis |
+| P8 | `amboss-0.10.0-windows-setup.exe` ausführen (ohne Admin), mit Desktop- und .vmf-Verknüpfung | Amboss im Startmenü, Desktop-Symbol mit Amboss-Icon, Doppelklick auf .vmf öffnet Amboss; Deinstallation über „Apps“ entfernt alles außer eigenen Maps |
+| P9 | Einstellungen → Sprache: Français, Español, Polski, Русский nacheinander; Menüs, Panel, Kompilieren-Dialog, Tutorial ansehen | Texte in der Sprache, keine deutschen Reste (Entity-Beschreibungen auf Englisch sind gewollt), kyrillische Schrift sauber |
+| P10 | Windows-Skalierung 150 % und 200 %; zusätzlich „Größe der Oberfläche“ 125 % | Alles scharf, 3D/2D-Ansichten füllen ihre Fläche, Klicks treffen; große Dialoge passen ins Fenster und scrollen |
 
 ## L. Nach dem Test
 

@@ -48,21 +48,37 @@ impl App {
         let mut select: Option<(Obj, bool)> = None;
         let mut toggle_hide: Option<Obj> = None;
         let mut toggle_lock: Option<Obj> = None;
+        let mut select_group: Option<u32> = None;
         {
             ui.add(egui::TextEdit::singleline(&mut self.dlg.outliner_filter).hint_text(crate::theme::hint(crate::i18n::tr("Filtern (Klasse, Name, Material)"))).desired_width(f32::INFINITY));
             let f = self.dlg.outliner_filter.to_ascii_lowercase();
-            ui.label(RichText::new(crate::i18n::tr("Klick wählt · Doppelklick zentriert · 👁 ausblenden · 🔒 sperren")).small());
+            ui.label(RichText::new(crate::i18n::tr("Klick wählt · Doppelklick zentriert · Auge = ausblenden · Schloss = sperren")).small());
             ui.separator();
             let ed = &self.ed;
+            let th_ = crate::theme::t();
+            // kleines Symbol-Knöpfchen (Auge/Schloss), gedämpft wenn aus
+            let icon_btn = |ui: &mut egui::Ui, icon: &str, on: bool, tip: &str| -> bool {
+                let (r, resp) = ui.allocate_exact_size(egui::vec2(18.0, 18.0), egui::Sense::click());
+                if resp.hovered() {
+                    ui.painter().rect_filled(r, 4.0, th_.hover);
+                }
+                crate::icons::draw(ui.painter(), r.shrink(3.0), icon, if on { th_.text2 } else { th_.text3.gamma_multiply(0.5) }, 1.3);
+                if !on {
+                    ui.painter().line_segment([r.left_bottom() + egui::vec2(3.0, -3.0), r.right_top() + egui::vec2(-3.0, 3.0)], egui::Stroke::new(1.2f32, th_.text3));
+                }
+                resp.on_hover_text(tip).clicked()
+            };
             let row = |ui: &mut egui::Ui, o: Obj, text: String, hidden: bool, locked: bool, sel: &mut Option<(Obj, bool)>, th: &mut Option<Obj>, tl: &mut Option<Obj>| {
                 ui.horizontal(|ui| {
-                    if ui.small_button(if hidden { "◌" } else { "👁" }).on_hover_text(crate::i18n::tr("Ausblenden/Einblenden")).clicked() {
+                    ui.spacing_mut().item_spacing.x = 2.0;
+                    if icon_btn(ui, "eye", !hidden, crate::i18n::tr("Ausblenden/Einblenden")) {
                         *th = Some(o);
                     }
-                    if ui.small_button(if locked { "🔒" } else { "🔓" }).on_hover_text(crate::i18n::tr("Sperren/Entsperren")).clicked() {
+                    if icon_btn(ui, "lock", locked, crate::i18n::tr("Sperren/Entsperren")) {
                         *tl = Some(o);
                     }
-                    let r = ui.selectable_label(ed.sel.contains(&o), RichText::new(text).color(if hidden { Color32::GRAY } else { Color32::from_gray(220) }));
+                    ui.add_space(4.0);
+                    let r = ui.selectable_label(ed.sel.contains(&o), RichText::new(text).color(if hidden { th_.text3 } else { th_.text }));
                     if r.double_clicked() {
                         *sel = Some((o, true));
                     } else if r.clicked() {
@@ -106,8 +122,32 @@ impl App {
                         }
                     });
                 }
+                // Gruppen als Knoten mit ihren Mitgliedern
                 if !ed.map.groups.is_empty() {
-                    ui.label(RichText::new(crate::i18n::count(ed.map.groups.len(), "Gruppe", "Gruppen")).weak());
+                    egui::CollapsingHeader::new(crate::i18n::tr_dyn(&format!("Gruppen ({})", ed.map.groups.len()))).id_salt("ol_groups").show(ui, |ui| {
+                        for g in &ed.map.groups {
+                            let solids: Vec<&crate::map::Solid> = ed.map.world.solids.iter().filter(|s| s.editor.groupid == Some(g.id)).map(|s| &**s).collect();
+                            let ents: Vec<&crate::map::Entity> = ed.map.entities.iter().filter(|e| e.editor.groupid == Some(g.id)).map(|e| &**e).collect();
+                            let n = solids.len() + ents.len();
+                            if n == 0 {
+                                continue;
+                            }
+                            let hdr = egui::CollapsingHeader::new(crate::i18n::tr_dyn(&format!("Gruppe #{} ({})", g.id, n))).id_salt(("ol_g", g.id)).show(ui, |ui| {
+                                for s in &solids {
+                                    let mat = s.sides.first().map(|x| x.material.to_ascii_lowercase()).unwrap_or_default();
+                                    row(ui, Obj::Solid(s.id), format!("#{} {}", s.id, mat.rsplit('/').next().unwrap_or("")), s.editor.hidden, s.editor.locked, &mut select, &mut toggle_hide, &mut toggle_lock);
+                                }
+                                for e in &ents {
+                                    row(ui, Obj::Entity(e.id), format!("#{} {} {}", e.id, e.classname(), e.targetname().unwrap_or("")), e.editor.hidden, e.editor.locked, &mut select, &mut toggle_hide, &mut toggle_lock);
+                                }
+                            });
+                            // Klick auf die Kopfzeile mit Strg wählt die ganze Gruppe
+                            if hdr.header_response.clicked() && ui.input(|i| i.modifiers.command) {
+                                select_group = Some(g.id);
+                            }
+                            hdr.header_response.on_hover_text(crate::i18n::tr("Strg+Klick wählt die ganze Gruppe"));
+                        }
+                    });
                 }
             });
         }
@@ -134,6 +174,16 @@ impl App {
                 }
             }
             self.ed.sel.remove(&o);
+            self.ed.touch();
+        }
+        if let Some(gid) = select_group {
+            self.ed.sel.clear();
+            for s in self.ed.map.world.solids.iter().filter(|s| s.editor.groupid == Some(gid)) {
+                self.ed.sel.insert(Obj::Solid(s.id));
+            }
+            for e in self.ed.map.entities.iter().filter(|e| e.editor.groupid == Some(gid)) {
+                self.ed.sel.insert(Obj::Entity(e.id));
+            }
             self.ed.touch();
         }
         if let Some((o, center)) = select {

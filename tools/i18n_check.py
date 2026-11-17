@@ -36,6 +36,8 @@ def norm_fmt(s):
 def unescape(s):
     return s.replace('\\"', '"').replace("\\n", "\n").replace("\\\\", "\\")
 
+# Texte, die in jeder Sprache gleich bleiben
+KEEP = {"Amboss", "Enter", "HDR", "Text", "prop_static", "prop_physics"}
 GERMAN = re.compile(r"[äöüÄÖÜß]|\b(und|oder|nicht|keine?|wird|werden|ist|sind|mit|aus|für|beim|zum|zur|der|die|das|den|dem|eine?n?|Datei|Ordner|Fehler|Warnung|Auswahl|ausgewählt|gefunden|geladen|Spiel|Textur|Fläche|wählen|Einstellungen|Speichern|Öffnen|Schließen|Abbrechen|Zurück|Weiter|Neu|Löschen|Kopieren|Einfügen|Ansicht|Werkzeug)\b")
 LIT = r'"((?:[^"\\]|\\.)*)"'
 missing, raw = [], []
@@ -55,7 +57,7 @@ for path in sorted(glob.glob(os.path.join(ROOT, "src/**/*.rs"), recursive=True))
             s = unescape(m.group(1))
             if "format!(" in m.group(0):
                 s = norm_fmt(s)
-            if not known(s) and GERMAN.search(s):
+            if not known(s) and (GERMAN.search(s) or (re.search(r"[A-Za-zÄÖÜäöüß]{3}", s) and s not in KEEP)):
                 missing.append((rel, i, s))
         # rohe UI-Literale ohne tr
         if re.search(r"\btr(_dyn)?\(|tr_keys|i18n::keys|eprintln!|println!|log::|debug!|panic!|expect\(|assert|Err\(|#\[|serde|\.join\(|key\s*==|==\s*\"|starts_with|ends_with|contains\(|strip_prefix|replace\(", code):

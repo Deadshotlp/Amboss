@@ -80,6 +80,8 @@ pub(crate) struct Windows {
 pub(crate) struct DialogState {
     /// MSAA-Stufe (aus grafik.txt, None = noch nicht gelesen)
     pub msaa: Option<u16>,
+    /// neue Oberflächengröße, im nächsten Bild anwenden
+    pub pending_zoom: Option<f32>,
     pub start_filter: String,
     /// Zeitpunkt der letzten Änderung am Spielordner (für automatisches Neuladen)
     pub gamedir_changed: Option<Instant>,
@@ -90,6 +92,13 @@ pub(crate) struct DialogState {
     pub ps_rot: [f64; 3],
     pub ps_group: bool,
     pub rep_find: String,
+    /// Kachelgröße im Textur-Browser (px)
+    pub browser_tile: f32,
+    /// Drehpunkt beim Transformieren: 0 Mitte der Auswahl, 1 Weltursprung, 2 eigener Punkt
+    pub transform_pivot: usize,
+    pub transform_pivot_pt: [f64; 3],
+    /// „Gehe zu“: 0 automatisch, 1 Brush, 2 Seite, 3 Entity, 4 Name
+    pub goto_kind: usize,
     pub rep_with: String,
     pub rep_sel: bool,
     pub rep_partial: bool,
@@ -110,6 +119,8 @@ pub(crate) struct DialogState {
     pub treat_as_one: bool,
     pub logical_pan: egui::Vec2,
     pub logical_zoom: f32,
+    /// Suche in der logischen Ansicht
+    pub logical_filter: String,
     pub logical_drag: Option<u32>,
     pub palette_filter: String,
     pub palette_index: usize,
@@ -126,6 +137,7 @@ pub(crate) struct DialogState {
 impl Default for DialogState {
     fn default() -> Self {
         DialogState {
+            pending_zoom: None,
             msaa: None,
             start_filter: String::new(),
             gamedir_changed: None,
@@ -136,6 +148,10 @@ impl Default for DialogState {
             ps_rot: [0.0; 3],
             ps_group: false,
             rep_find: String::new(),
+            browser_tile: 96.0,
+            transform_pivot: 0,
+            transform_pivot_pt: [0.0; 3],
+            goto_kind: 0,
             rep_with: String::new(),
             rep_sel: false,
             rep_partial: true,
@@ -155,6 +171,7 @@ impl Default for DialogState {
             treat_as_one: false,
             logical_pan: egui::Vec2::ZERO,
             logical_zoom: 1.0,
+            logical_filter: String::new(),
             logical_drag: None,
             palette_filter: String::new(),
             palette_index: 0,
@@ -243,6 +260,7 @@ pub struct App {
     pub(crate) versions_dlg: Option<crate::merge_ui::VersionsDialog>,
     pub(crate) collab: Option<crate::collab::Collab>,
     pub(crate) collab_form: crate::collab_ui::CollabForm,
+    pub(crate) upd: crate::update_ui::UpdateUi,
     /// Zeitpunkt des letzten Speicherns
     pub(crate) last_saved: Option<Instant>,
     /// Rechtes Panel: 0 Eigenschaften, 1 Objekte, 2 Visgroups
@@ -277,6 +295,8 @@ impl App {
         crate::i18n::set_lang(crate::i18n::Lang::from_code(&settings.language));
         crate::theme::install_fonts(&cc.egui_ctx);
         crate::theme::apply(&cc.egui_ctx, settings.theme_dark);
+        settings.ui_scale = if settings.ui_scale.is_finite() { settings.ui_scale.clamp(0.75, 2.5) } else { 1.0 };
+        cc.egui_ctx.set_zoom_factor(settings.ui_scale);
 
         let (fgd, fgd_messages) = load_fgds(&settings.fgd_files);
         let mut ed = Editor::new(fgd);
@@ -349,6 +369,7 @@ impl App {
             versions_dlg: None,
             collab: None,
             collab_form: Default::default(),
+            upd: Default::default(),
             last_saved: None,
             panel_tab: 0,
             active_view: Some(1),
@@ -381,6 +402,10 @@ impl App {
         crate::i18n::set_lang(crate::i18n::Lang::from_code(&app.settings.language));
         app.maybe_start_setup();
         app.apply_debug_open();
+        crate::update::cleanup();
+        if app.settings.check_updates && std::env::var_os("AMBOSS_DEBUG_OPEN").is_none() && std::env::var_os("AMBOSS_NO_UPDATE").is_none() {
+            app.start_update_check(false);
+        }
         app
     }
 
@@ -931,6 +956,26 @@ impl App {
                 "palette" => self.win.palette = true,
                 "optimize" => self.win.optimize = true,
                 "collab" => self.win.collab = true,
+                "lang" => {
+                    let l = crate::i18n::Lang::from_code(v);
+                    crate::i18n::set_lang(l);
+                    self.settings.language = l.code().into();
+                }
+                "zoom" => {
+                    if let Ok(z) = v.parse::<f32>() {
+                        self.settings.ui_scale = z;
+                        self.dlg.pending_zoom = Some(z);
+                    }
+                }
+                "update_demo" => {
+                    self.upd.available = Some(crate::update::Release { version: "0.10.1".into(), notes: "- Beispiel-Neuerung\n- Fehler behoben".into(), page: "https://github.com/Deadshotlp/Amboss/releases".into(), asset: Some(("amboss-windows.zip".into(), String::new())) });
+                    self.upd.show_notes = true;
+                }
+                "collab_code" => {
+                    self.win.collab = true;
+                    self.collab_form.mode = 1;
+                    self.collab_form.join_mode = 1;
+                }
                 "tutorial" => self.win.tutorial = true,
                 "particles" => self.pb.open = true,
                 "heightmap" => {
@@ -1738,6 +1783,10 @@ impl App {
                 }
                 ui.close_menu();
             }
+            if ui.button(tr("Nach Updates suchen")).clicked() {
+                self.start_update_check(true);
+                ui.close_menu();
+            }
             if ui.button(tr("Über Amboss…")).clicked() {
                 self.win.about = true;
                 ui.close_menu();
@@ -2131,6 +2180,12 @@ impl eframe::App for App {
         }
     }
 
+    fn on_exit(&mut self, _gl: Option<&eframe::glow::Context>) {
+        if self.upd.relaunch && self.upd.installed {
+            crate::update::relaunch();
+        }
+    }
+
     fn save(&mut self, storage: &mut dyn eframe::Storage) {
         self.settings.store_profile();
         self.store_layout();
@@ -2195,6 +2250,14 @@ impl App {
         self.background(ctx);
         self.poll_mcp();
         self.poll_collab(ctx);
+        self.update_notice(ctx);
+        if let Some(z) = self.dlg.pending_zoom.take() {
+            ctx.set_zoom_factor(z.clamp(0.75, 2.5));
+        }
+        // Strg+Plus/Minus/0 (egui) ändert die Größe – merken
+        else if (ctx.zoom_factor() - self.settings.ui_scale).abs() > 0.001 {
+            self.settings.ui_scale = ctx.zoom_factor();
+        }
         self.shortcuts(ctx);
         if self.win.start {
             self.start_page(ctx);
@@ -2223,7 +2286,7 @@ impl App {
 
         // Kamera: Änderungen aus dem Kamera-Werkzeug übernehmen, sonst 3D-Kamera speichern
         if self.ed.camera_changed {
-            if let Some(c) = self.ed.map.cameras.get(self.ed.map.active_camera).copied() {
+            if let Some(c) = self.ed.map.cameras.get(self.ed.map.active_camera).cloned() {
                 self.view3d.set_from_camera(&c);
             }
             self.ed.camera_changed = false;

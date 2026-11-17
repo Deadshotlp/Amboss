@@ -167,12 +167,13 @@ dependencies = [
 
 [[package]]
 name = "amboss"
-version = "0.9.10"
+version = "0.10.0"
 dependencies = [
  "bytemuck",
  "eframe",
  "getrandom 0.2.17",
  "glam",
+ "miniz_oxide 0.8.9",
  "mlua",
  "png",
  "rfd",

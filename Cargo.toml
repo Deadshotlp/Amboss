@@ -1,6 +1,6 @@
 [package]
 name = "amboss"
-version = "0.9.10"
+version = "0.10.0"
 edition = "2021"
 description = "Map-Editor für Source-1 / Garry's Mod (VMF)"
 authors = ["Deadshot"]
@@ -17,6 +17,7 @@ serde_json = "1"
 bytemuck = "1"
 getrandom = "0.2"
 png = "0.18"
+miniz_oxide = "0.8"
 mlua = { version = "0.10", features = ["lua54", "vendored", "serialize"] }
 
 [profile.dev]

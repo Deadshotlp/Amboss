@@ -1,0 +1,2100 @@
+# Amboss – pl. Format: Deutsch<TAB>Übersetzung. {} = Platzhalter (gleiche Anzahl und Reihenfolge). Fehlende Zeilen kommen aus en.tsv.
+Datei	Plik
+Neu aus Vorlage…	Nowy z szablonu…
+Öffnen…	Otwórz…
+Zuletzt geöffnet	Ostatnie pliki
+(leer)	(pusto)
+Live-Sitzung (Zusammenarbeit)…	Sesja na żywo…
+OBJ in Metern (statt Source-Einheiten)	OBJ w metrach (zamiast jednostek Source)
+Autosave öffnen…	Otwórz autozapis…
+Speichern	Zapisz
+Speichern unter…	Zapisz jako…
+Prefabs…	Prefaby…
+Beenden	Zakończ
+Bearbeiten	Edycja
+Rückgängig	Cofnij
+Wiederholen	Ponów
+Kopieren	Kopiuj
+Einfügen	Wklej
+Inhalte einfügen…	Wklej specjalnie…
+Löschen	Usuń
+Alles auswählen	Zaznacz wszystko
+Auswahl aufheben	Odznacz wszystko
+Texturen ersetzen…	Zamień tekstury…
+Aktuelle Textur anwenden	Nałóż bieżącą teksturę
+Einstellungen…	Ustawienia…
+Ansicht	Widok
+Raster verkleinern	Mniejsza siatka
+Raster vergrößern	Większa siatka
+3D-Darstellung	Renderowanie 3D
+Texturen	Tekstury
+Modelle anzeigen	Pokaż modele
+3D-Skybox-Vorschau	Podgląd skyboxa 3D
+Helfer (Lichtkegel, Verbindungen)	Pomocniki (stożki światła, połączenia)
+Displacement-Alpha anzeigen	Pokaż alfę displacementów
+2D auf Auswahl zentrieren	Wyśrodkuj 2D na zaznaczeniu
+3D auf Auswahl zentrieren	Wyśrodkuj 3D na zaznaczeniu
+Logische Ansicht (Entity-I/O)	Widok logiczny (wejścia/wyjścia encji)
+3D-Gizmo (Verschieben/Drehen)	Gizmo 3D (przesuń/obróć)
+2D: Farben nach Visgroup	2D: kolory według visgroup
+4 Ansichten	4 widoki
+Werkzeuge	Narzędzia
+Gruppieren	Grupuj
+Gruppe auflösen	Rozgrupuj
+In Welt verschieben	Przenieś do świata
+Transformieren…	Przekształć…
+Am Raster ausrichten	Przyciągnij do siatki
+Horizontal spiegeln	Odbij w poziomie
+Vertikal spiegeln	Odbij w pionie
+90° drehen	Obróć o 90°
+Objekte ausrichten	Wyrównaj obiekty
+Carve	Wytnij (carve)
+Aushöhlen	Wydrąż
+Instanzen einklappen	Scal instancje
+Auswahl ausblenden	Ukryj zaznaczenie
+Unausgewähltes ausblenden	Ukryj niezaznaczone
+Alles einblenden	Pokaż wszystko
+Prefab aus Auswahl…	Prefab z zaznaczenia…
+Modell-Browser…	Przeglądarka modeli…
+Sound-Browser…	Przeglądarka dźwięków…
+Partikel-Browser…	Przeglądarka cząsteczek…
+Map-Eigenschaften (worldspawn)…	Właściwości mapy (worldspawn)…
+Auf Probleme prüfen…	Szukaj problemów…
+Entity-Report…	Raport encji…
+Gehe zu Brush/Entity-Nummer…	Idź do numeru brusha/encji…
+Map-Info…	Informacje o mapie…
+Kompilieren	Kompiluj
+Kompilieren & Starten	Kompiluj i uruchom
+Kompilieren & starten	Kompiluj i uruchom
+Compile-Fenster	Okno kompilacji
+Automatische Optimierungen…	Automatyczne optymalizacje…
+Pointfile laden (.lin)…	Wczytaj pointfile (.lin)…
+Pointfile entladen	Usuń pointfile
+Kamera zum Leck	Kamera do wycieku
+Portalfile laden (.prt)…	Wczytaj plik portali (.prt)…
+Portalfile entladen	Usuń plik portali
+Hilfe	Pomoc
+Tastenkürzel & Bedienung	Skróty i sterowanie
+Startbildschirm	Ekran startowy
+Darstellung	Wygląd
+Modelle	Modele
+3D-Skybox	Skybox 3D
+Helfer	Pomocniki
+Fehler beim Laden: {}	Błąd wczytywania: {}
+Autosave: {}	Autozapis: {}
+Autosave fehlgeschlagen: {}	Autozapis nieudany: {}
+Cordon-Export fehlgeschlagen: {}	Eksport kordonu nieudany: {}
+Leck gefunden – roter Pfad zeigt den Weg ins Freie (Kompilieren → Leck-Suche)	Znaleziono wyciek – czerwona ścieżka pokazuje drogę na zewnątrz (Mapa → Pointfile)
+Leck, aber kein Pointfile: {}	Wyciek, ale brak pointfile: {}
+Kamera-Lesezeichen {} gespeichert (Strg+{} springt hin)	Zakładka kamery {} zapisana (Ctrl+{} przenosi tam)
+Kamera-Lesezeichen {}	Zakładka kamery {}
+Lesezeichen {} ist leer (Strg+Shift+{} speichert)	Zakładka {} jest pusta (Ctrl+Shift+{} zapisuje)
+{} Portale geladen	Wczytano {} portali
+Spielinhalte konnten nicht geladen werden: {}	Nie udało się wczytać zawartości gry: {}
+Spielinhalte konnten nicht geladen werden (Lade-Thread beendet)	Nie udało się wczytać zawartości gry (wątek wczytywania zakończył się)
+Auswahl	Zaznaczanie
+Lupe	Lupa
+Kamera	Kamera
+Entity platzieren	Umieść encję
+Block-Werkzeug	Narzędzie bloku
+Textur anwenden	Nałóż teksturę
+Decal	Kalkomania
+Overlay	Overlay
+Clip	Przycinanie (clip)
+Vertex bearbeiten	Edycja wierzchołków
+Displacement & Sculpt	Displacement i rzeźbienie
+Cordon	Kordon
+Messen	Pomiar
+gerade eben	przed chwilą
+Befehlspalette (Strg+K / Strg+P)	Paleta poleceń (Ctrl+K / Ctrl+P)
+Live-Sitzung	Sesja na żywo
+Live-Sitzung starten oder beitreten	Rozpocznij sesję na żywo lub dołącz do niej
+Kompilier-Profil wählen	Wybierz profil kompilacji
+F9 – Map speichern, kompilieren und im Spiel starten	F9 – zapisz, skompiluj i uruchom mapę w grze
+Spielprofil	Profil gry
+Kompilieren-Fenster…	Okno kompilacji…
+Danach Spiel starten	Potem uruchom grę
+Neuer Tab (Strg+N)	Nowa karta (Ctrl+N)
+Noch nicht gespeichert	Jeszcze niezapisane
+Gespeichert	Zapisano
+Textur	Tekstura
+Raster	Siatka
+Auswahlmodus: was ein Klick auswählt	Tryb zaznaczania: co zaznacza kliknięcie
+Aktionen	Akcje
+Griffe:	Uchwyty:
+Strg+H	Ctrl+H
+Negativ = Wände außen	Ujemne = ściany na zewnątrz
+Form	Kształt
+Schneiden	Wytnij
+Klasse	Klasa
+Klasse wählen (Suche, Favoriten, alle Entities)	Wybierz klasę (wyszukiwanie, ulubione, wszystkie encje)
+Kein Spielordner eingestellt – keine Texturvorschau	Nie ustawiono folderu gry – brak podglądu tekstur
+Zuletzt benutzt	Ostatnio używane
+Schnellauswahl	Szybki wybór
+Textur-Browser…	Przeglądarka tekstur…
+Auf Auswahl anwenden	Nałóż na zaznaczenie
+Keine Visgroups – im Panel unter „Visgroups“ anlegen	Brak visgroup – utwórz je w panelu w sekcji „Visgroups”
+Visgroups verwalten…	Zarządzaj visgroupami…
+Auswahl: 1 Objekt	Zaznaczenie: 1 obiekt
+Klick: Einrasten an/aus (Alt+G)	Kliknięcie: przyciąganie wł./wył. (Alt+G)
+Cordon aktiv	Kordon aktywny
+Klasse suchen…	Szukaj klasy…
+In Entity umwandeln	Powiąż z encją
+Danach Eigenschaften öffnen	Potem otwórz właściwości
+Jeden Brush einzeln umwandeln	Konwertuj każdy brush osobno
+Umwandeln	Konwertuj
+Abbrechen	Anuluj
+{} ist eine Brush-Entity: erst Brushes auswählen, dann umwandeln (Strg+T)	{} to encja brushowa: najpierw zaznacz brushe, potem konwertuj (Ctrl+T)
+keine Antwort – Firewall/Router des Gastgebers lässt den Port nicht durch?	brak odpowiedzi – czy zapora/router gospodarza blokuje port?
+abgelehnt – läuft beim Gastgeber eine Sitzung auf diesem Port?	odrzucono – czy u gospodarza działa sesja na tym porcie?
+IPv6 nicht erreichbar – hast du selbst eine IPv6-Internetverbindung?	IPv6 nieosiągalne – czy masz połączenie internetowe IPv6?
+{} Teilnehmer	Uczestnicy: {}
+Verbindung zum Gastgeber getrennt – die Map bleibt als lokale Kopie offen	Rozłączono z gospodarzem – mapa pozostaje otwarta jako kopia lokalna
+Verbunden – {} Teilnehmer	Połączono – uczestnicy: {}
+Abgelehnt: {}	Odrzucono: {}
+Version von {} übernommen: {}	Przyjęto wersję {}: {}
+Später entscheiden (deine Version bleibt vorerst)	Zdecyduj później (na razie zostaje twoja wersja)
+Meins behalten	Zachowaj moją
+Gäste verbinden sich mit	Goście łączą się z
+Keine öffentliche IPv6-Adresse gefunden – über das Internet dann nur per Portweiterleitung (IPv4) oder VPN.	Nie znaleziono publicznego adresu IPv6 – przez internet tylko z przekierowaniem portów (IPv4) lub przez VPN.
+Nachricht…	Wiadomość…
+Senden	Wyślij
+Von anderen ausgewählte Objekte sind für dich gesperrt (in ihrer Farbe umrandet). Strg+Z nimmt nur deine eigenen Schritte zurück.	Obiekty zaznaczone przez innych są dla ciebie zablokowane (obrysowane ich kolorem). Ctrl+Z cofa tylko twoje własne kroki.
+Dein Name	Twoje imię
+Passwort	Hasło
+Gastgeber sein	Bądź gospodarzem
+Die aktuell offene Map wird geteilt.	Bieżąca mapa zostanie udostępniona.
+Port	Port
+Sitzung starten	Rozpocznij sesję
+Beitreten	Dołącz
+Adresse	Adres
+192.168.0.10 oder [2001:db8::1]:3918	192.168.0.10 lub [2001:db8::1]:3918
+Verbinden	Połącz
+Die Verbindung ist verschlüsselt; Schlüssel kommen aus dem Passwort – für das Internet ein langes Passwort wählen (mind. 12 Zeichen). Über das Internet geht es direkt per IPv6, wenn beide IPv6 haben und die Router-Firewall des Gastgebers den Port freigibt. Beide brauchen dieselbe Amboss-Version.	Połączenie jest szyfrowane; klucze pochodzą z hasła – przez internet użyj długiego hasła (co najmniej 12 znaków). Przez internet działa bezpośrednio przez IPv6, jeśli obie strony mają IPv6, a zapora routera gospodarza przepuszcza port. Obie strony potrzebują tej samej wersji Amboss.
+Live-Sitzung beendet (Tab geschlossen)	Sesja na żywo zakończona (karta zamknięta)
+Sitzung beigetreten – {}	Dołączono do sesji – {}
+Beitritt abgelehnt: {}	Odmowa dołączenia: {}
+Sitzung beendet	Sesja zakończona
+Sitzung beenden	Zakończ sesję
+Trennen	Rozłącz
+Neue Map (neuer Tab)	Nowa mapa (nowa karta)
+Map öffnen	Otwórz mapę
+Speichern unter	Zapisz jako
+Neuer Tab	Nowa karta
+Tab schließen	Zamknij kartę
+Nächster Tab	Następna karta
+Importieren (.map)	Importuj (.map)
+Map zusammenführen…	Scal mapę…
+Mit anderem Map-Stand vergleichen…	Porównaj z inną wersją mapy…
+3-Wege-Zusammenführen (Basis / andere Version)…	Scalanie trójstronne (baza / inna wersja)…
+Exportieren (.obj)	Eksportuj (.obj)
+Rückgängig-Verlauf	Historia cofania
+Inhalte einfügen	Wklej specjalnie
+Duplizieren	Duplikuj
+Auswahl sperren	Zablokuj zaznaczenie
+Alles entsperren	Odblokuj wszystko
+Transformieren	Przekształć
+90° im Uhrzeigersinn drehen	Obróć o 90° w prawo
+90° gegen den Uhrzeigersinn drehen	Obróć o 90° w lewo
+Texturen ersetzen	Zamień tekstury
+Verdeckte Flächen auf nodraw setzen	Ustaw ukryte ściany na nodraw
+Textur-Browser	Przeglądarka tekstur
+Modell-Browser	Przeglądarka modeli
+Sound-Browser	Przeglądarka dźwięków
+Partikel-Browser	Przeglądarka cząsteczek
+Auf Probleme prüfen	Szukaj problemów
+Am Raster einrasten (an/aus)	Przyciąganie do siatki (wł./wył.)
+Live-Sitzung…	Sesja na żywo…
+Entity-Eigenschaften kopieren	Kopiuj właściwości encji
+Entity-Eigenschaften auf Auswahl übertragen	Wklej właściwości encji do zaznaczenia
+Berührende Objekte zur Auswahl hinzufügen	Dodaj stykające się obiekty do zaznaczenia
+An Eckpunkten einrasten (an/aus)	Przyciąganie do wierzchołków (wł./wył.)
+Optimierungen prüfen (KI-Netz, Leck, Vorschläge)	Sprawdź optymalizacje (graf AI, wyciek, sugestie)
+Entity-Report	Raport encji
+Objektliste (Outliner)	Lista obiektów (outliner)
+Gehe zu Nummer/Koordinate	Idź do numeru/współrzędnej
+Map-Info	Informacje o mapie
+Logische Ansicht	Widok logiczny
+Prefabs	Prefaby
+Einstellungen	Ustawienia
+Befehlspalette	Paleta poleceń
+Nächste Kamera	Następna kamera
+Ansicht maximieren	Maksymalizuj widok
+3D-Gizmo ein/aus	Gizmo 3D wł./wył.
+Pointfile laden	Wczytaj pointfile
+Messung löschen	Wyczyść pomiar
+An Eckpunkten einrasten: {}	Przyciąganie do wierzchołków: {}
+3D-Gizmo {}	Gizmo 3D {}
+Ungespeicherte Änderungen	Niezapisane zmiany
+Änderungen an	Zapisać zmiany w
+speichern?	?
+Nicht speichern	Nie zapisuj
+Map-Eigenschaften (worldspawn)	Właściwości mapy (worldspawn)
+Licht · VRAD	Oświetlenie · VRAD
+Automatische Optimierungen	Automatyczne optymalizacje
+Läuft auf einer Kopie: KI-Nodes, Leckprüfung, func_detail, nodraw, Cubemaps…	Działa na kopii: węzły AI, test wycieku, func_detail, nodraw, cubemapy…
+BSP kopieren	Kopiuj BSP
+Cubemaps	Cubemapy
+Spiel starten	Uruchom grę
+Zusatzparameter	Dodatkowe parametry
+Programme: Pfad oder $vbsp/$vvis/$vrad/$bspzip/$game/$gamewait/$copy · Variablen: $vmf $path $file $gamedir $bspdir	Programy: ścieżka lub $vbsp/$vvis/$vrad/$bspzip/$game/$gamewait/$copy · Zmienne: $vmf $path $file $gamedir $bspdir
+nach oben	w górę
++ Schritt	+ Krok
+Auf Standard zurücksetzen	Przywróć domyślne
+Cordon aktiv: nur der Bereich wird kompiliert	Kordon aktywny: kompilowany jest tylko ten obszar
+Spielordner fehlt (Bearbeiten → Einstellungen)	Brak folderu gry (Edycja → Ustawienia)
+Protokoll	Dziennik
+Noch nicht kompiliert.	Jeszcze nie skompilowano.
+Klicken: zu diesem Objekt springen	Kliknięcie: przejdź do tego obiektu
+Läuft…	Trwa…
+Letzter Lauf erfolgreich	Ostatnie uruchomienie powiodło się
+Letzter Lauf fehlgeschlagen	Ostatnie uruchomienie nie powiodło się
+Letzter Lauf abgebrochen	Ostatnie uruchomienie anulowano
+Speichert die Map vor dem Kompilieren	Zapisuje mapę przed kompilacją
+Name	Nazwa
+GMod automatisch finden	Znajdź GMod automatycznie
+📁 GarrysMod-Ordner wählen…	📁 Wybierz folder GarrysMod…
+Startparameter	Parametry uruchamiania
+{} wird durch den Map-Namen ersetzt	{} zostanie zastąpione nazwą mapy
+Wrapper	Wrapper
+Unter Linux/macOS z. B. 'wine' für die Windows-Compiler. Unter Windows leer lassen.	W Linuksie/macOS np. „wine” dla kompilatorów Windows. W Windows zostaw puste.
+Inhalte aus Addons laden (Workshop-.gma und addons-Ordner)	Wczytuj zawartość z addonów (.gma z Warsztatu i folder addons)
+Aus: nur Inhalte aus dem Spielverzeichnis (VPKs, garrysmod-Ordner, eingebundene Spiele). So siehst du, was ohne Addons fehlt – fehlende Texturen erscheinen dann als Ersatzfarbe.	Wyłączone: tylko zawartość z folderu gry (VPK, folder garrysmod, zamontowane gry). Pokazuje, czego brakuje bez addonów – brakujące tekstury mają kolor zastępczy.
+Spielinhalte neu laden	Wczytaj ponownie zawartość gry
+VPKs, Addons und Materiallisten aus dem Spielordner neu einlesen	Wczytaj ponownie VPK, addony i listy materiałów z folderu gry
+FGD-Dateien (Entity-Definitionen)	Pliki FGD (definicje encji)
+Für GMod: GarrysMod/bin/garrysmod.fgd (lädt base.fgd und halflife2.fgd automatisch mit).	Dla GMod: GarrysMod/bin/garrysmod.fgd (automatycznie wczytuje base.fgd i halflife2.fgd).
+FGD hinzufügen…	Dodaj FGD…
+Neu laden	Wczytaj ponownie
+Spielinhalte	Zawartość gry
+Inhalte neu einlesen	Wczytaj zawartość ponownie
+Autosave	Autozapis
+(0 = aus), behalte	(0 = wył.), zachowaj
+Dateien	plików
+Grafik	Grafika
+Design	Motyw
+Dunkel	Ciemny
+Hell	Jasny
+Kantenglättung (MSAA)	Wygładzanie krawędzi (MSAA)
+Kantenglättung gilt ab dem nächsten Start. Startet Amboss danach nicht, die Datei grafik.txt im Einstellungsordner löschen.	Wygładzanie działa od następnego uruchomienia. Jeśli Amboss potem się nie uruchomi, usuń grafik.txt z folderu ustawień.
+Bedienung	Sterowanie
+Kein Spielordner gesetzt – unter Extras / Einstellungen „GMod automatisch finden“ wählen.	Nie ustawiono folderu gry – wybierz „Znajdź GMod automatycznie” w Ustawieniach.
+Filter:	Filtr:
+z. B. concrete, brick, dev/	np. concrete, brick, dev/
+Nur in der Map verwendete Materialien	Tylko materiały użyte w mapie
+★ Favoriten	★ Ulubione
+Zuletzt	Ostatnie
+Rechtsklick auf eine Textur: Favorit an/aus	Prawy klik na teksturze: ulubiona tak/nie
+Versatz (Einheiten)	Przesunięcie (jednostki)
+Winkel (Grad)	Kąt (stopnie)
+Faktor	Współczynnik
+Anwenden	Zastosuj
+Kopien	Kopie
+Versatz je Kopie	Przesunięcie na kopię
+Drehung je Kopie (°)	Obrót na kopię (°)
+Jede Kopie als eigene Gruppe	Każda kopia jako osobna grupa
+Fügt die Zwischenablage (Strg+C) mehrfach ein	Wkleja schowek (Ctrl+C) wielokrotnie
+Zwischenablage ist leer – erst etwas kopieren (Strg+C)	Schowek jest pusty – najpierw coś skopiuj (Ctrl+C)
+Suchen	Szukaj
+Ersetzen durch	Zamień na
+Aktuelles Material einsetzen	Użyj bieżącego materiału
+Nur in der Auswahl	Tylko w zaznaczeniu
+Teiltreffer ersetzen (z. B. nur Ordnername)	Zamieniaj dopasowania częściowe (np. tylko nazwę folderu)
+Ersetzen	Zamień
+Ein Rückgängig-Schritt	Jeden krok cofania
+Probleme	Problemy
+Keine Probleme gefunden.	Nie znaleziono problemów.
+Auswählen	Zaznacz
+Erneut prüfen	Sprawdź ponownie
+Suche:	Szukaj:
+Klasse, Name oder Schlüsselwert	Klasa, nazwa lub wartość klucza
+Gehe zu	Idź do
+Gehe zu Nummer	Idź do numeru
+Brush-, Seiten- oder Entity-ID	ID brusha, ściany lub encji
+z. B. 2207 aus einer VBSP-Meldung	np. 2207 z komunikatu VBSP
+Nur Ziffern erlaubt	Tylko cyfry
+Oder Koordinate (x y z)	Lub współrzędna (x y z)
+Hinspringen	Przejdź tam
+Sounds filtern (z. B. ambient/, door)	Filtruj dźwięki (np. ambient/, door)
+Abspielen ist in dieser Version nur unter Windows verfügbar.	W tej wersji odtwarzanie działa tylko w Windows.
+Übernehmen	Zastosuj
+Knoten ziehen zum Anordnen · Klick wählt · Mausrad zoomt · Rechte Taste verschiebt	Przeciągaj węzły, by je ułożyć · kliknięcie zaznacza · kółko przybliża · prawy przycisk przesuwa
+Diese Klasse ist in keiner geladenen FGD beschrieben.	Ta klasa nie jest opisana w żadnym wczytanym FGD.
+Schlüssel	Klucze
+Inputs	Wejścia
+Outputs	Wyjścia
+Objekt {} ausgewählt	Zaznaczono obiekt {}
+Keine Brush/Seite/Entity mit Nummer {}	Brak brusha/ściany/encji o numerze {}
+Garry's Mod gefunden: {}	Znaleziono Garry's Mod: {}
+Koordinate {}	Współrzędna {}
+Ungültige Koordinate	Nieprawidłowa współrzędna
+Sound gewählt: {}	Wybrano dźwięk: {}
+Objektliste	Lista obiektów
+Filtern (Klasse, Name, Material)	Filtr (klasa, nazwa, materiał)
+Klick wählt · Doppelklick zentriert · 👁 ausblenden · 🔒 sperren	Kliknięcie zaznacza · dwuklik centruje · 👁 ukryj · 🔒 zablokuj
+Ausblenden/Einblenden	Ukryj/pokaż
+Sperren/Entsperren	Zablokuj/odblokuj
+Klick springt zu diesem Stand	Kliknięcie: wróć do tego stanu
+Bis vor diese Aktion zurückgehen	Wróć do stanu sprzed tej akcji
+▶ Aktueller Stand	▶ Bieżący stan
+Wiederholen bis hier	Ponów do tego miejsca
+Tastenkürzel	Skróty klawiszowe
+Suchen…	Szukaj…
+Alle zurücksetzen	Przywróć wszystko
+Ändern	Zmień
+Kein Kürzel	Brak skrótu
+Standard	Domyślne
+gelöscht	usunięto
+geändert	zmieniono
+Anheben	Podnieś
+Absenken	Obniż
+Glätten	Wygładź
+Auf Höhe setzen	Ustaw wysokość
+Alpha malen	Maluj alfę
+Alpha entfernen	Wymaż alfę
+Entity	Encja
+Block	Blok
+Flächen/Textur	Ściany/tekstura
+Vertex	Wierzchołek
+Terrain	Teren
+Skalieren	Skaluj
+Drehen	Obróć
+Scheren	Pochyl
+Geladen: {} ({} Brushes, {} Entities)	Wczytano: {} (brushe: {}, encje: {})
+Gespeichert: {}	Zapisano: {}
+Das angeklickte Objekt hat keinen Namen (targetname)	Kliknięty obiekt nie ma nazwy (targetname)
+Gedreht um {}°	Obrócono o {}°
+Gespiegelt ({})	Odbito ({})
+Am Raster ausgerichtet	Przyciągnięto do siatki
+Form konnte nicht erzeugt werden	Nie udało się utworzyć kształtu
+{} erstellt: {} × {} × {}	Utworzono {}: {} × {} × {}
+{} platziert bei {}	Umieszczono {} w {}
+Decal {} platziert	Umieszczono kalkomanię {}
+Overlay {} platziert	Umieszczono overlay {}
+{} Objekt(e) gelöscht	Usunięte obiekty: {}
+{} Objekt(e) kopiert	Skopiowane obiekty: {}
+Eingefügt	Wklejono
+{} Kopie(n) eingefügt	Wklejone kopie: {}
+Keine Brushes ausgewählt	Nie zaznaczono brushy
+In {} umgewandelt	Przekonwertowano na {}
+In die Welt verschoben	Przeniesiono do świata
+Keine Brushes zum Aushöhlen ausgewählt	Nie zaznaczono brushy do wydrążenia
+Ausgehöhlt (Wandstärke {})	Wydrążono (grubość ścian {})
+Carve: {} Brush(es) geschnitten	Wycinanie: przecięte brushe: {}
+Zum Schneiden zuerst Brushes auswählen	Najpierw zaznacz brushe do przecięcia
+Geschnitten	Przetnij
+Material {} angewendet	Nałożono materiał {}
+{} Fläche(n) ersetzt	Zamienione ściany: {}
+Zum Gruppieren mindestens zwei Objekte auswählen	Zaznacz co najmniej dwa obiekty do zgrupowania
+Gruppe {} erstellt ({} Objekte)	Utworzono grupę {} (obiekty: {})
+Gruppe aufgelöst	Rozwiązano grupę
+Ausgeblendet (U = alles einblenden)	Ukryto (U = pokaż wszystko)
+Alles eingeblendet	Wszystko widoczne
+Prefab {} eingefügt	Wstawiono prefab {}
+Zuerst Flächen im Flächen-Werkzeug auswählen	Najpierw zaznacz ściany narzędziem ścian
+Keine Displacements ausgewählt	Nie zaznaczono displacementów
+{} Displacement(s) entfernt	Usunięte displacementy: {}
+Rauschen auf {} Displacement(s)	Szum na displacementach: {}
+{} Displacement(s) auf Power {} umgerechnet	Displacementy ({}) przekonwertowano na potęgę {}
+{} Displacement(s) unterteilt (geglättet)	Podzielone (wygładzone) displacementy: {}
+Keine gemeinsamen Kanten gefunden	Nie znaleziono wspólnych krawędzi
+{} Randpunkte vernäht	Zszyte punkty krawędzi: {}
+Cordon: {} × {} × {}	Kordon: {} × {} × {}
+Keine func_instance ausgewählt	Nie zaznaczono func_instance
+Instanz-Datei {} nicht gefunden	Nie znaleziono pliku instancji {}
+Instanz(en) eingeklappt	Scalono instancje
+Raster: {}	Siatka: {}
+{} Objekt(e) dupliziert	Zduplikowane obiekty: {}
+Gesperrt – nicht mehr anklickbar (Shift+L entsperrt alles)	Zablokowano – nie można kliknąć (Shift+L odblokowuje wszystko)
+Alles entsperrt	Wszystko odblokowane
+Keine verdeckten Flächen gefunden	Nie znaleziono ukrytych ścian
+{} verdeckte Fläche(n) auf nodraw gesetzt	Ukryte ściany ustawione na nodraw: {}
+{} Objekt(e) aus der Zwischenablage eingefügt	Obiekty wklejone ze schowka: {}
+Prefab eingefügt – {} Name(n) umbenannt	Wstawiono prefab – zmienione nazwy: {}
+Prefab eingefügt	Wstawiono prefab
+Erst eine Entity auswählen	Najpierw zaznacz encję
+{} Eigenschaft(en) von {} kopiert	Skopiowano właściwości ({}) z {}
+Nichts kopiert (Eigenschaften kopieren zuerst)	Nic nie skopiowano (najpierw skopiuj właściwości)
+Keine Entities ausgewählt	Nie zaznaczono encji
+Eigenschaften auf {} Entity/Entities übertragen	Wklejono właściwości do encji: {}
+Erst etwas auswählen	Najpierw coś zaznacz
+{} berührende(s) Objekt(e) hinzugefügt	Dodano stykające się obiekty: {}
+Oben · X/Y	Góra · X/Y
+Vorn · Y/Z	Przód · Y/Z
+Seite · X/Z	Bok · X/Z
+MCP: {} erstellt	MCP: utworzono {}
+MCP: Entity {} geändert	MCP: zmieniono encję {}
+MCP: Output hinzugefügt	MCP: dodano wyjście
+MCP: Raum erstellt	MCP: utworzono pomieszczenie
+MCP: verschoben	MCP: przesunięto
+MCP: gedreht	MCP: obrócono
+3-Wege-Zusammenführen: {}	Scalanie trójstronne: {}
+Optimierungen übernommen (MCP): {} Änderung(en)	Zastosowano optymalizacje (MCP): zmiany: {}
+Umbenannt	Zmieniono nazwę
+Hinweise	Uwagi
+Position	Pozycja
+Optionen	Opcje
+Gruppen und Visgroups der anderen Map übernehmen	Przejmij grupy i visgroupy z drugiej mapy
+Doppelte Entity-Namen werden automatisch umbenannt (name_2), Verweise ziehen mit.	Powtarzające się nazwy encji zmieniane są automatycznie (nazwa_2), odwołania są aktualizowane.
+Unterschiedliche Map-Eigenschaften · Haken = Wert der anderen Map	Różne właściwości mapy · zaznaczone = wartość z drugiej mapy
+offene Map	otwarta mapa
+andere Map	druga mapa
+Fertig	Gotowe
+Neue Objekte sind ausgewählt · Strg+Z macht alles rückgängig	Nowe obiekty są zaznaczone · Ctrl+Z cofa wszystko
+Zusammenführen	Scal
+Konflikte (Klick wählt das Objekt):	Konflikty (kliknięcie zaznacza obiekt):
+Strg+Z nimmt das Zusammenführen komplett zurück.	Ctrl+Z cofa całe scalanie.
+Markierungen aus	Znaczniki wył.
+Klick: anwählen und hinzoomen	Kliknięcie: zaznacz i przybliż
+Vergleich mit {}: {}	Porównanie z {}: {}
+Filtern, z. B. props_junk crate	Filtr, np. props_junk crate
+Skin	Skórka
+Modell wird geladen…	Wczytywanie modelu…
+Links ein Modell anklicken.	Kliknij model po lewej.
+Ziel: Modell für neue Props	Cel: model dla nowych propów
+Ansicht zurücksetzen	Resetuj widok
+Modell: {}	Model: {}
+Beim Kompilieren automatisch anwenden	Stosuj automatycznie przy kompilacji
+Läuft auf einer Kopie (Ordner amboss_build neben der VMF) vor VBSP. Deine Map bleibt unverändert.	Działa na kopii (folder amboss_build obok VMF) przed VBSP. Twoja mapa pozostaje bez zmian.
+🔍 Nur prüfen	🔍 Tylko sprawdź
+Läuft auf einer Kopie und zeigt Netz, Markierungen und Bericht – die Map bleibt unverändert	Działa na kopii i pokazuje graf, znaczniki i raport – mapa pozostaje bez zmian
+✔ Auf Map anwenden	✔ Zastosuj do mapy
+Ergebnis in die Map übernehmen (ein Rückgängig-Schritt)	Zastosuj wynik do mapy (jeden krok cofania)
+Markierungen löschen	Wyczyść znaczniki
+Bericht	Raport
+Grün = NPC-Verbindungen, Rot = Probleme, Gelb = Hint-Vorschläge, Blau = dunkle Bereiche. Maus über eine Markierung in 2D zeigt den Text.	Zielony = połączenia NPC, czerwony = problemy, żółty = sugestie hint, niebieski = ciemne obszary. Najechanie na znacznik w 2D pokazuje jego opis.
+Abstand	Odstęp
+Sichtbarkeit (VVIS)	Widoczność (VVIS)
+Licht	Oświetlenie
+Geometrie	Geometria
+Props und Entities	Propy i encje
+Optimierungen übernommen: {} Änderung(en) – Strg+Z macht sie rückgängig	Zastosowano optymalizacje: zmiany: {} – Ctrl+Z je cofa
+Optimierung: nichts zu ändern	Optymalizacja: nic do zmiany
+Prüfung: {} mögliche Änderung(en), Map unverändert	Sprawdzenie: możliwe zmiany: {}, mapa bez zmian
+{} Siehe Karte -> Automatische Optimierungen.	{} Zobacz Mapa -> Automatyczne optymalizacje.
+Werkzeug	Narzędzie
+Suchen…   @ Entities · # Texturen · > Befehle	Szukaj…   @ encje · # tekstury · > polecenia
+Aktuelle Textur: {} (Shift+T wendet sie auf die Auswahl an)	Bieżąca tekstura: {} (Shift+T nakłada ją na zaznaczenie)
+Browser…	Przeglądarka…
+Klick auf eine Auswahl wechselt die Griffe:	Kliknięcie zaznaczenia przełącza uchwyty:
+Drehen rastet in 15°-Schritten ein (Shift = frei).	Obrót przyciąga co 15° (Shift = swobodnie).
+Linksklick vergrößert, Rechtsklick verkleinert (2D).	Lewy klik przybliża, prawy oddala (2D).
+Material oben wählen (z. B. decals/…), dann in 3D auf eine Fläche klicken.	Wybierz materiał powyżej (np. decals/…), potem kliknij ścianę w 3D.
+Material oben wählen, dann in 3D auf eine Brush-Fläche klicken.\nGröße/Ausrichtung danach in den Eigenschaften (uv0–uv3, Start/End U/V).	Wybierz materiał powyżej, potem kliknij ścianę brusha w 3D.\nRozmiar/wyrównanie potem we właściwościach (uv0–uv3, start/end U/V).
+In einer 2D-Ansicht eine Schnittlinie ziehen. Endpunkte lassen sich verschieben.	Przeciągnij linię cięcia w widoku 2D. Końce można przesuwać.
+Beide	Obie
+Vorne	Przód
+Hinten	Tył
+Schneiden (Enter)	Przetnij (Enter)
+Linie löschen	Wyczyść linię
+Brush auswählen, dann Eckpunkte (Quadrate) oder Kanten (Kreise) in 2D ziehen.\nStrg = mehrere, Rahmen ziehen = mehrere, Pfeiltasten = verschieben.	Zaznacz brush, potem przeciągaj wierzchołki (kwadraty) lub krawędzie (kółka) w 2D.\nCtrl = kilka, ramka = kilka, strzałki = przesuń.
+2D: Linie ziehen · 3D: zwei Punkte auf Flächen anklicken. Esc löscht.	2D: przeciągnij linię · 3D: kliknij dwa punkty na ścianach. Esc czyści.
+In 2D ziehen: neue Kamera (Start = Position, Ende = Blickziel). Punkte lassen sich verschieben. Bild↑/↓ wechselt.	Przeciągnij w 2D: nowa kamera (początek = pozycja, koniec = cel). Punkty można przesuwać. PgUp/PgDn przełącza.
+Neue Kamera an aktueller Position	Nowa kamera w bieżącym położeniu
+Bogen (°)	Łuk (°)
+Startwinkel (°)	Kąt początkowy (°)
+Höhe pro Segment	Wysokość na segment
+Querschnitt-Seiten	Boki przekroju
+In einer 2D-Ansicht ein Rechteck ziehen. Die Höhe wird vom letzten Block übernommen.	Przeciągnij prostokąt w widoku 2D. Wysokość jest brana z ostatniego bloku.
+Klick in 2D/3D platziert:	Kliknięcie w 2D/3D umieszcza:
+Modell:	Model:
+Klick in 3D wählt Flächen (Strg = mehrere).\nRechtsklick: Material anwenden · Alt+Rechtsklick: nahtlos ausrichten.	Kliknięcie w 3D zaznacza ściany (Ctrl = kilka).\nPrawy klik: nałóż materiał · Alt+prawy klik: owiń bez szwów.
+Skalierung	Skala
+Verschiebung	Przesunięcie
+Rotation	Obrót
+Lightmap	Lightmapa
+Smoothing	Wygładzanie
+Ausrichten	Wyrównaj
+Als Einheit	Jako całość
+An Welt	Do świata
+An Fläche	Do ściany
+Material übernehmen	Pobierz materiał
+Material dieser Fläche als aktuelles setzen	Użyj materiału tej ściany jako bieżącego
+Displacement	Displacement
+Power	Potęga
+Erstellen	Utwórz
+Entfernen	Usuń
+In 3D mit gedrückter linker Maustaste malen. Strg kehrt Anheben/Absenken um.	Maluj w 3D, trzymając lewy przycisk myszy. Ctrl odwraca podnoszenie/obniżanie.
+Radius	Promień
+Stärke	Siła
+Richtung	Kierunek
+Z-Achse	Oś Z
+Flächennormale	Normalna ściany
+Alpha (Überblendung) anzeigen	Pokaż alfę (mieszanie)
+Auf ausgewählte Displacements anwenden	Zastosuj do zaznaczonych displacementów
+Rauschen	Szum
+Nähen (Sew)	Zszyj
+Gemeinsame Kanten benachbarter Displacements angleichen	Dopasuj wspólne krawędzie sąsiednich displacementów
+Alpha invertieren	Odwróć alfę
+Unterteilen	Podziel
+Glättet alle ausgewählten Displacements gemeinsam (Catmull-Clark) – z. B. wird ein Würfel aus 6 Displacements rund	Wygładza razem wszystkie zaznaczone displacementy (Catmull-Clark) – np. sześcian z 6 displacementów staje się okrągły
+Feinheit:	Rozdzielczość:
+Auflösung ändern, Form und Alpha bleiben erhalten	Zmień rozdzielczość, kształt i alfa zostają zachowane
+Flag auf Auswahl setzen (Shift+Klick: entfernen)	Ustaw flagę na zaznaczeniu (Shift+klik: usuń)
+Erstellen: im Flächen-Werkzeug Flächen wählen → „Displacement erstellen“.	Tworzenie: zaznacz ściany narzędziem ścian → „Utwórz displacement”.
+In einer 2D-Ansicht einen Bereich ziehen. Beim Kompilieren wird nur dieser Teil gebaut (abgedichtet).	Przeciągnij obszar w widoku 2D. Przy kompilacji budowana jest tylko ta część (zamknięta).
+Cordon entfernen	Usuń kordon
+Noch kein Cordon gesetzt.	Nie ustawiono jeszcze kordonu.
+Visgroups	Visgroupy
+Wählen	Zaznacz
+Auswahl hinzufügen	Dodaj zaznaczenie
+Auswahl entfernen	Usuń zaznaczenie
+Visgroup löschen	Usuń visgroup
+Ebene sperren (nicht anklickbar)	Zablokuj warstwę (nieklikalna)
+Aus Auswahl	Z zaznaczenia
+Automatische Filter	Filtry automatyczne
+Welt	Świat
+Trigger	Triggery
+Tool-Texturen	Tekstury narzędziowe
+Brush-Entities	Encje brushowe
+Punkt-Entities	Encje punktowe
+Lichter	Światła
+Props	Propy
+Displacements	Displacementy
+Brushes	Brushe
+Yaw (Blickrichtung) – klicken/ziehen	Yaw (kierunek) – kliknij/przeciągnij
+Allgemein	Ogólne
+Hilfe zu dieser Klasse	Pomoc dla tej klasy
+Eigenschaften kopieren (Strg+Alt+C)	Kopiuj właściwości (Ctrl+Alt+C)
+Übertragen	Wklej
+Kopierte Eigenschaften auf alle ausgewählten Entities übertragen (Strg+Alt+V)	Wklej skopiowane właściwości do wszystkich zaznaczonych encji (Ctrl+Alt+V)
+Unbekannte Klasse (nicht in der FGD)	Nieznana klasa (brak w FGD)
+Winkel	Kąty
+Drehen:	Obrót:
+Schlüsselwerte	Wartości kluczy
+Pipette: Ziel in einer Ansicht anklicken	Pipeta: kliknij cel w widoku
+Schlüssel entfernen	Usuń klucz
+Wert	Wartość
+Flags	Flagi
+Ausgänge	Wyjścia
+Output	Wyjście
+(eigener Name)	(własna nazwa)
+Pipette: Ziel-Entity in einer Ansicht anklicken	Pipeta: kliknij docelową encję w widoku
+Systeme filtern…	Filtruj systemy…
+Keine .pcf-Dateien im Spielordner gefunden (particles/).	Nie znaleziono plików .pcf w folderze gry (particles/).
+Links ein Partikelsystem wählen.	Wybierz system cząsteczek po lewej.
+Partikelsystem	System cząsteczek
+Wird als effect_name in info_particle_system eingetragen.	Wpisuje się jako effect_name w info_particle_system.
+Partikelsystem {} in die Zwischenablage kopiert	System cząsteczek {} skopiowano do schowka
+Partikelsystem: {}	System cząsteczek: {}
+Prefab-Bibliothek	Biblioteka prefabów
+Neu einlesen	Skanuj ponownie
+Speichern als	Zapisz jako
+(Hauptordner)	(folder główny)
+neue Kategorie	nowa kategoria
+Auswahl speichern	Zapisz zaznaczenie
+Hammer-Bibliothek (.ol/.rmf) importieren…	Importuj bibliotekę Hammera (.ol/.rmf)…
+Wandelt alle Prefabs in VMF-Dateien in einem eigenen Unterordner um	Konwertuje wszystkie prefaby na pliki VMF we własnym podfolderze
+Mitgelieferte als VMF kopieren	Skopiuj wbudowane jako VMF
+Zum Anpassen in den Prefab-Ordner schreiben	Zapisz je w folderze prefabów do edycji
+Suchen:	Szukaj:
+Ziehen in eine Ansicht oder anklicken und dann in eine Ansicht klicken (Shift = mehrfach)	Przeciągnij do widoku albo kliknij, a potem kliknij w widoku (Shift = kilka)
+Datei löschen	Usuń plik
+Als Map öffnen	Otwórz jako mapę
+Prefab „{}“ eingefügt{}	Wstawiono prefab „{}”{}
+Prefab „{}“: {}	Prefab „{}”: {}
+Prefab gespeichert ({} Objekte): {}	Zapisano prefab (obiekty: {}): {}
+{} Prefab(s) aus {} importiert	Zaimportowane prefaby ({}) z {}
+{} Prefabs nach {} kopiert	Skopiowano prefaby ({}) do {}
+Prefab „{}“: in eine Ansicht klicken	Prefab „{}”: kliknij w widoku
+Keil	Klin
+Zylinder	Walec
+Spitze	Kolec
+Kugel	Kula
+Bogen	Łuk
+Torus	Torus
+Treppe	Schody
+Wendeltreppe	Schody kręcone
+Rampe	Rampa
+Rohr	Rura
+Kuppel	Kopuła
+Zaun/Geländer	Płot/balustrada
+Outputs entfernen	Usuń wyjścia
+Material ersetzen	Zamień materiał
+Leere Seiten entfernen	Usuń puste ściany
+Displacement entfernen	Usuń displacement
+Brushes in Welt verschieben	Przenieś brushe do świata
+info_player_start erstellen	Utwórz info_player_start
+info_player_start bei {} erstellt	Utworzono info_player_start w {}
+MCP-Server (KI-Fernsteuerung)	Serwer MCP (zdalne sterowanie przez AI)
+Ohne offenes Fenster: amboss --mcp-stdio --map pfad.vmf [--game-dir…/garrysmod]	Bez otwartego okna: amboss --mcp-stdio --map ścieżka.vmf [--game-dir…/garrysmod]
+{} importiert: {} Brushes, {} Entities – bitte als VMF speichern	Zaimportowano {}: brushe: {}, encje: {} – zapisz jako VMF
+läuft auf http://127.0.0.1:{}/mcp	działa pod http://127.0.0.1:{}/mcp
+Map-Editor für Source	Edytor map dla Source
+Zum Editor	Do edytora
+Startseite schließen	Zamknij stronę startową
+Maps und Vorlagen suchen	Szukaj map i szablonów
+Nicht gespeicherte Änderungen gefunden	Znaleziono niezapisane zmiany
+Verwerfen	Odrzuć
+Wiederherstellen	Przywróć
+Neu aus Vorlage	Nowy z szablonu
+Noch keine Maps geöffnet.	Nie otwarto jeszcze żadnej mapy.
+Neue Map aus Vorlage „{}“	Nowa mapa z szablonu „{}”
+Schließen (Esc)	Zamknij (Esc)
+Beide behalten	Zachowaj obie
+Vorderseite behalten	Zachowaj przód
+Rückseite behalten	Zachowaj tył
+Ungültige Form – Eckpunkt hier nicht möglich	Nieprawidłowy kształt – wierzchołek tutaj niemożliwy
+Eckpunkte verschoben um {} {} {}	Wierzchołki przesunięto o {} {} {}
+Abstand: {} Einheiten	Odległość: {} jednostek
+Griffe: {}	Uchwyty: {}
+Texturiert	Teksturowany
+Einfarbig	Płaski
+Drahtgitter	Siatka drutowa
+Lightmap-Raster	Siatka lightmapy
+Smoothing-Gruppen	Grupy wygładzania
+Lichtvorschau (ohne Schatten)	Podgląd światła (bez cieni)
+Fläche lässt sich nicht so weit verschieben	Ściany nie można przesunąć tak daleko
+{} Objekt(e) im Rahmen ausgewählt	Zaznaczone obiekty w ramce: {}
+Material übernommen: {}	Pobrano materiał: {}
+Overlay: auf eine Brush-Fläche klicken	Overlay: kliknij ścianę brusha
+Zuerst eine Quell-Fläche auswählen	Najpierw zaznacz ścianę źródłową
+Neue Map	Nowa mapa
+Map öffnen…	Otwórz mapę…
+Live-Sitzung beitreten	Dołącz do sesji na żywo
+Bedienung & Hilfe	Sterowanie i pomoc
+Neu	Nowy
+Eigenschaften	Właściwości
+Objekte	Obiekty
+Nichts ausgewählt	Nic nie zaznaczono
+Objekt in einer Ansicht anklicken	Kliknij obiekt w widoku
+Einrasten	Przyciąganie
+An Eckpunkten	Do wierzchołków
+Texturen fixieren	Blokuj tekstury
+Gruppen	Grupy
+Spielinhalte laden…	Wczytywanie zawartości gry…
+Keine Spielinhalte	Brak zawartości gry
+MCP verbunden	MCP połączony
+Materialien	materiałów
+Sprache	Język
+Spielordner	Folder gry
+alle	co
+aus	wył.
+Bereit	Gotowe
+Befehle, Entities, Texturen suchen…	Szukaj poleceń, encji, tekstur…
+nicht gespeichert	niezapisane
+Kein Profil	Brak profilu
+Eine Ansicht (Shift+Z)	Jeden widok (Shift+Z)
+Vier Ansichten	Cztery widoki
+An Eckpunkten anderer Objekte einrasten (Alt+V)	Przyciągaj do wierzchołków innych obiektów (Alt+V)
+Textur-Lock: Texturen beim Verschieben/Drehen mitbewegen	Blokada tekstur: tekstury podążają za obiektami przy przesuwaniu/obracaniu
+Gruppe lösen	Rozgrupuj
+Zurück in Welt	Z powrotem do świata
+Ausblenden	Ukryj
+Sperren	Zablokuj
+Berührende hinzufügen	Dodaj stykające się
+{} Eckpunkt(e) gewählt	Zaznaczone wierzchołki: {}
+ · Blend-Material (Alpha malen mischt die 2. Textur)	 · materiał mieszany (malowanie alfy wmieszuje 2. teksturę)
+ungültig	nieprawidłowe
+nicht eingestellt	nie ustawiono
+MCP aus	MCP wył.
+Leere Map	Pusta mapa
+Nichts außer den Map-Eigenschaften.	Tylko właściwości mapy.
+Raum mit Licht und Spawn	Pomieszczenie ze światłem i spawnem
+Abgedichteter Raum 512 × 512 × 256 mit Spawn, Licht und Cubemap – sofort kompilierbar.	Zamknięte pomieszczenie 512 × 512 × 256 ze spawnem, światłem i cubemapą – gotowe do kompilacji.
+Außenbereich	Teren otwarty
+Himmel, Sonne (light_environment) und Boden 2048 × 2048.	Niebo, słońce (light_environment) i podłoże 2048 × 2048.
+Große Bauwiese	Duża łąka do budowania
+Sehr großer flacher Außenbereich (8192 × 8192) zum Bauen im Sandbox-Modus, mit Sonne und Spawnpunkten.	Bardzo duży płaski teren (8192 × 8192) do budowania w trybie sandbox, ze słońcem i punktami spawnu.
+Arena (Deathmatch)	Arena (deathmatch)
+Halle 2048 × 2048 × 512 mit Säulen, vier Spawnpunkten, Lichtern und Cubemap.	Hala 2048 × 2048 × 512 z filarami, czterema punktami spawnu, światłami i cubemapą.
+Zwei Räume mit Tür (NPC-Test)	Dwa pomieszczenia z drzwiami (test NPC)
+Zwei Räume, verbunden durch eine Schiebetür mit Knöpfen – gut zum Testen von KI-Nodes und Areaportals.	Dwa pomieszczenia połączone drzwiami przesuwnymi z przyciskami – dobre do testowania węzłów AI i areaportali.
+Kein Spielordner – Einstellungen	Brak folderu gry – ustawienia
+Keine Spielinhalte – Spielordner prüfen	Brak zawartości gry – sprawdź folder gry
+Compiler nicht gefunden	Nie znaleziono kompilatorów
+VBSP · VVIS · VRAD gefunden	Znaleziono VBSP · VVIS · VRAD
+Willkommen	Witaj
+Willkommen zurück	Witaj ponownie
+{} Materialien geladen	Wczytano materiały: {}
+Spielinhalte werden geladen…	Wczytywanie zawartości gry…
+FGD geladen – {} Entity-Klassen	Wczytano FGD – klasy encji: {}
+Eingebaute Entity-Liste ({} Klassen)	Wbudowana lista encji (klasy: {})
+· automatisch gesichert vor {}	· autozapis {} temu
+vor {} Std.	{} godz. temu
+vor {} Min.	{} min temu
+vor {} Tagen	{} dni temu
+gestern	wczoraj
+Brush-Entity · {} Flächen	Encja brushowa · ściany: {}
+Welt · {} Flächen	Świat · ściany: {}
+{}\nKlick: auswählen · Doppelklick: auf Auswahl anwenden	{}\nKliknięcie: zaznacz · dwuklik: nałóż na zaznaczenie
+{} Eckpunkt(e) ausgewählt	Zaznaczone wierzchołki: {}
+Seiten	Boki
+Wandstärke	Grubość ścian
+{} Fläche(n) ausgewählt	Zaznaczone ściany: {}
+Einpassen	Dopasuj
+Keine Physik	Bez fizyki
+Kein Hull	Bez otoczki
+Kein Ray	Bez promienia
+{} Entities ausgewählt – Änderungen gelten für alle	Zaznaczone encje: {} – zmiany dotyczą wszystkich
+Verzög.	Opóźnienie
++ Output hinzufügen	+ Dodaj wyjście
+{} Schritt(e) im Verlauf. Ohne Speichern gehen die Änderungen verloren.	Kroki w historii: {}. Bez zapisania zmiany przepadną.
+Einstellen…	Konfiguruj…
+{} mögliche Probleme	Możliwe problemy: {}
+Anzeigen	Pokaż
+GarrysMod-Hauptordner (enthält 'garrysmod' und 'bin')	Główny folder GarrysMod (zawiera „garrysmod” i „bin”)
+Ordner für gespeicherte Prefabs	Folder zapisanych prefabów
+lädt…	wczytywanie…
+Konnte Grafik-Einstellung nicht speichern: {}	Nie udało się zapisać ustawienia grafiki: {}
+1. Block (Shift+B), in Top ein Rechteck ziehen. 2. Strg+H höhlt zum Raum aus. 3. Entity (Shift+E): info_player_start und light setzen. 4. F9.	1. Blok (Shift+B), przeciągnij prostokąt w widoku Góra. 2. Ctrl+H wydrąża go w pomieszczenie. 3. Encja (Shift+E): umieść info_player_start i light. 4. F9.
+Shift+S Auswahl · G Lupe · C Kamera · E Entity · B Block · A Flächen · D Decal · O Overlay · X Clip · V Vertex · P Terrain · K Cordon	Shift+S zaznaczanie · G lupa · C kamera · E encja · B blok · A ściany · D kalkomania · O overlay · X przycinanie · V wierzchołki · P teren · K kordon
+Klick wählt, Strg = hinzufügen, Rahmen ziehen. Klick auf Auswahl: Skalieren → Drehen → Scheren	Kliknięcie zaznacza, Ctrl = dodaj, przeciągnij ramkę. Kliknięcie zaznaczenia: skala → obrót → pochylenie
+Linie ziehen, Enter schneidet, Shift+X wechselt Vorne/Hinten/Beide	Przeciągnij linię, Enter tnie, Shift+X przełącza przód/tył/obie
+Eckpunkte/Kanten ziehen; ungültige Formen werden abgelehnt	Przeciągaj wierzchołki/krawędzie; nieprawidłowe kształty są odrzucane
+Fläche (Shift+A) wählen → Displacement erstellen, dann Shift+P und in 3D malen	Zaznacz ścianę (Shift+A) → utwórz displacement, potem Shift+P i maluj w 3D
+Mausrad zoomen, mittlere Taste/Leertaste verschieben, Pfeiltasten verschieben Auswahl	Kółko myszy przybliża, środkowy przycisk/spacja przesuwa, strzałki przesuwają zaznaczenie
+Flächen	Ściany
+Rechtsklick: Material anwenden · Alt+Rechtsklick: Ausrichtung nahtlos übernehmen	Prawy klik: nałóż materiał · Alt+prawy klik: kontynuuj wyrównanie bez szwów
+Rückgängig / Wiederholen	Cofnij / ponów
+Kopieren / Einfügen / Ausschneiden · Strg+Shift+V Paste Special	Kopiuj / wklej / wytnij · Ctrl+Shift+V wklej specjalnie
+Gruppieren / Gruppe lösen	Grupuj / rozgrupuj
+Ausblenden / Unausgewähltes ausblenden / Alles einblenden	Ukryj / ukryj niezaznaczone / pokaż wszystko
+In Entity umwandeln / zurück in Welt	Powiąż z encją / przenieś z powrotem do świata
+Aushöhlen / Carve	Wydrąż / wytnij
+Transformieren-Dialog / Am Raster ausrichten	Okno przekształcania / przyciągnij do siatki
+Spiegeln horizontal / vertikal, 90° drehen (Ansicht unter der Maus)	Odbij w poziomie / pionie, obróć o 90° (widok pod myszą)
+Auf Probleme prüfen (mit Auto-Fix)	Szukaj problemów (z automatyczną naprawą)
+Raster verkleinern / vergrößern	Mniejsza / większa siatka
+Kompilieren und in GMod starten	Kompiluj i uruchom w GMod
+Befehlspalette: jeden Befehl per Suche ausführen	Paleta poleceń: uruchom dowolne polecenie przez wyszukiwanie
+Shift+Ziehen (2D) / Shift am Gizmo	Shift+przeciągnij (2D) / Shift na gizmo
+Auswahl duplizieren und verschieben · Strg+D dupliziert direkt	Duplikuj i przesuń zaznaczenie · Ctrl+D duplikuje w miejscu
+Pfeile verschieben, Ringe drehen (15°-Raster, Shift frei) · Shift+W schaltet ihn ein/aus	Strzałki przesuwają, pierścienie obracają (co 15°, Shift swobodnie) · Shift+W włącza/wyłącza
+Flächen-Werkzeug in 3D	Narzędzie ścian w 3D
+Shift+Ziehen: Fläche verschieben (Brush wächst) · Alt+Ziehen: neuen Brush herausziehen	Shift+przeciągnij: przesuń ścianę (brush rośnie) · Alt+przeciągnij: wyciągnij nowy brush
+Pipette: Material einer Fläche übernehmen	Pipeta: pobierz materiał ściany
+Auswahl sperren / alles entsperren	Zablokuj zaznaczenie / odblokuj wszystko
+Kamera-Lesezeichen speichern / anspringen	Zapisz / przejdź do zakładek kamery
+Objektliste / Rückgängig-Verlauf	Lista obiektów / historia cofania
+Nächster Tab / Tab schließen	Następna karta / zamknij kartę
+Am Raster einrasten an/aus · an Eckpunkten anderer Objekte einrasten an/aus	Przyciąganie do siatki wł./wył. · przyciąganie do wierzchołków innych obiektów wł./wył.
+3D: Ziehen mit links	3D: przeciągnij lewym przyciskiem
+Rahmenauswahl (Strg = hinzufügen, Alt = auch berührte Objekte) · Strg+Alt+A: berührende auswählen	Zaznaczanie ramką (Ctrl = dodaj, Alt = także dotknięte obiekty) · Ctrl+Alt+A: zaznacz stykające się
+Entity-Eigenschaften kopieren / auf alle ausgewählten übertragen	Kopiuj właściwości encji / wklej do wszystkich zaznaczonych
+Datei → Map zusammenführen	Plik → Scal mapę
+Andere Map übernehmen: doppelte Namen werden umbenannt, Visgroup „Import“, Warnungen bei Überlappung	Dołącz inną mapę: powtarzające się nazwy są zmieniane, visgroup „Import”, ostrzeżenia przy nakładaniu
+Unterschiede zu einem anderen Stand farbig anzeigen · Änderungen zweier Personen zusammenführen	Pokaż kolorem różnice względem innej wersji · scal zmiany dwóch osób
+Live-Sitzung: Gastgeber teilt die Map, Gäste treten mit Adresse und Passwort bei · Strg+Z nimmt nur eigene Schritte zurück	Sesja na żywo: gospodarz udostępnia mapę, goście dołączają z adresem i hasłem · Ctrl+Z cofa tylko twoje kroki
+Karte → Automatische Optimierungen	Mapa → Automatyczne optymalizacje
+KI-Nodes, Leckprüfung, func_detail, nodraw, Areaportals, Cubemaps, Lightmaps… · „Nur prüfen“ zeigt das NPC-Netz (grün) und Probleme, „Auf Map anwenden“ übernimmt (Strg+Z), oder beim Kompilieren automatisch auf einer Kopie	Węzły AI, test wycieku, func_detail, nodraw, areaportale, cubemapy, lightmapy… · „Tylko sprawdź” pokazuje graf NPC (zielony) i problemy, „Zastosuj do mapy” stosuje (Ctrl+Z), albo automatycznie na kopii przy kompilacji
+Verschieben	Przesuń
+Drehen und Skalieren um die Mitte der Auswahl	Obracaj i skaluj wokół środka zaznaczenia
+Zuerst etwas auswählen	Najpierw coś zaznacz
+{} Kopien einfügen	Wklej kopie: {}
+{} Kopie einfügen	Wklej kopię: {}
+Warnungen	Ostrzeżenia
+(nicht gespeichert)	(niezapisane)
+Verschiedene Texturen	Różne tekstury
+Gruppen / Visgroups	Grupy / visgroupy
+Rückgängig-Speicher	Pamięć cofania
+Verwendete Texturen	Użyte tekstury
+Datei fehlt im Spielordner	Brak pliku w folderze gry
+(ohne Namen)	(bez nazwy)
+Keine benannten Entities oder Outputs	Brak nazwanych encji i wyjść
+Neue Taste für „{}“ drücken… (Esc bricht ab)	Naciśnij nowy klawisz dla „{}”… (Esc anuluje)
+Neue Visgroup	Nowa visgroup
+Konnte {} nicht laden:\n{}	Nie udało się wczytać {}:\n{}
+Suche Garry's Mod in den Steam-Bibliotheken…	Szukanie Garry's Mod w bibliotekach Steam…
+Vier Ansichten (Shift+Z)	Cztery widoki (Shift+Z)
+Ansicht maximieren (Shift+Z)	Maksymalizuj widok (Shift+Z)
+Kein Spielordner eingestellt – Bearbeiten → Einstellungen → „Automatisch suchen“ (oder…/GarrysMod/garrysmod eintragen)	Nie ustawiono folderu gry – Edycja → Ustawienia → „Znajdź automatycznie” (lub wpisz…/GarrysMod/garrysmod)
+keine VPK-Dateien und kein materials-Ordner in {}	brak plików VPK i folderu materials w {}
+Keine Materialien gefunden: {}. Der Spielordner muss…/GarrysMod/garrysmod sein.	Nie znaleziono materiałów: {}. Folder gry musi być…/GarrysMod/garrysmod.
+Spielinhalte: {} Materialien aus {} – Addons werden noch eingelesen…	Zawartość gry: materiały ({}) z {} – trwa wczytywanie addonów…
+Spielinhalte geladen: {} Materialien aus {} – Addons ausgeschaltet (Einstellungen)	Wczytano zawartość gry: materiały ({}) z {} – addony wyłączone (ustawienia)
+Spielinhalte geladen: {} Materialien aus {} und {}	Wczytano zawartość gry: materiały ({}) z {} i {}
+Spielinhalte werden im Hintergrund geladen…	Zawartość gry wczytuje się w tle…
+FGD konnte nicht geladen werden: {}	Nie udało się wczytać FGD: {}
+Im Namen	W nazwie
+In der Beschreibung	W opisie
+Favoriten	Ulubione
+Keine Klasse gefunden	Nie znaleziono klasy
+Meintest du {}?	Czy chodziło o {}?
+Punkt-Entity – nicht für Brushes · {}	Encja punktowa – nie dla brushy · {}
+{} Brush(es) ausgewählt	Zaznaczone brushe: {}
+aus {} · {} Brush-Klassen	z {} · klasy brushowe: {}
+eingebaute Liste · {} Brush-Klassen	lista wbudowana · klasy brushowe: {}
+In {} umwandeln	Konwertuj na {}
+garrysmod.fgd nicht gefunden – eingebaute Liste mit {} Klassen.	Nie znaleziono garrysmod.fgd – lista wbudowana (klasy: {}).
+Alle	Wszystkie
+Punkt	Punktowe
+Entities in der Map	Encje w mapie
+Befehle	Polecenia
+{} Flächen	Ściany: {}
+{} · {} Flächen	{} · ściany: {}
+Alle {} anzeigen	Pokaż wszystkie ({})
+Nichts gefunden	Nic nie znaleziono
+wählen	zaznacz
+ausführen / auswählen	uruchom / zaznacz
+nächste Gruppe	następna grupa
+Keine Modelle gefunden – Spielordner in den Einstellungen prüfen.	Nie znaleziono modeli – sprawdź folder gry w ustawieniach.
+Kein Modell passt zum Filter.	Żaden model nie pasuje do filtra.
+Größe	Rozmiar
+Polygone	Wielokąty
+Kollisionsmodell	Model kolizji
+vorhanden	jest
+keins	brak
+Keine Auswahl	Brak zaznaczenia
+Ziehen dreht · Rad zoomt	Przeciąganie obraca · kółko przybliża
+Kollision	Kolizja
+{} Modelle	Modele: {}
+{} Sounds	Dźwięki: {}
+Ziel: Entity {} / {}	Cel: encja {} / {}
+{} .pcf-Dateien · {} Systeme	Pliki .pcf: {} · systemy: {}
+{} .pcf-Dateien · {} Systeme · {} Treffer	Pliki .pcf: {} · systemy: {} · trafienia: {}
+{} Kinder	Potomne: {}
+Kinder-Systeme	Systemy potomne
+Im Manifest	W manifeście
+ja	tak
+nein	nie
+Aufbau	Struktura
+{} Treffer	Trafienia: {}
+ hat dasselbe Objekt geändert	 zmienił(a) ten sam obiekt
+{} übernehmen	Przyjmij wersję {}
+Deins	Twoja
+Ohne Wahl bleibt deins · 0:{}	Bez wyboru zostaje twoja · 0:{}
++{} weitere Konflikte	+{} kolejnych konfliktów
++{} weitere	+{} więcej
+Für das Internet muss die Router-Firewall eingehende IPv6-Verbindungen auf TCP-Port {} zu diesem PC erlauben (z. B. FRITZ!Box: Internet → Freigaben → Gerät → IPv6). Die Adresse kann sich täglich ändern.	Przez internet zapora routera musi przepuszczać przychodzące połączenia IPv6 na porcie TCP {} do tego komputera (np. FRITZ!Box: Internet → Udostępnianie → urządzenie → IPv6). Adres może zmieniać się codziennie.
+Heimnetz	Sieć domowa
+Internet (IPv6)	Internet (IPv6)
+KI (NPCs)	AI (NPC)
+Bodennodes (info_node) automatisch setzen	Automatycznie rozmieść węzły naziemne (info_node)
+Raster auf begehbaren Flächen, dichter an Türen und Engstellen; vorhandene Nodes bleiben	Siatka na powierzchniach do chodzenia, gęstsza przy drzwiach i przewężeniach; istniejące węzły zostają
+Luftnodes (info_node_air) für fliegende NPCs	Węzły powietrzne (info_node_air) dla latających NPC
+Gitter alle 256 Einheiten in hohen, freien Räumen	Siatka co 256 jednostek w wysokich, otwartych pomieszczeniach
+Türen: info_node_link_controller	Drzwi: info_node_link_controller
+NPC-Wege durch Türen nur bei offener Tür (Ausgaben OnOpen/OnClose werden ergänzt)	Ścieżki NPC przez drzwi tylko, gdy są otwarte (dodawane są wyjścia OnOpen/OnClose)
+info_hint für Deckung und Engstellen	info_hint dla osłon i przewężeń
+Hinweise an halbhohen Deckungen und Durchgängen	Hinty przy osłonach do połowy wysokości i przejściach
+Navmesh (NextBots) beim Spielstart erzeugen	Generuj navmesh (NextBoty) przy uruchomieniu gry
+Hängt +sv_cheats 1 +nav_generate an den Spielstart an; die .nav landet in maps/	Dodaje +sv_cheats 1 +nav_generate do uruchomienia; plik .nav trafia do maps/
+Leckprüfung vor VBSP (mit Pfad)	Test wycieku przed VBSP (ze ścieżką)
+Flutfüllung von allen Punkt-Entities – findet Löcher zur Leere ohne VBSP-Lauf	Wypełnianie od wszystkich encji punktowych – znajduje dziury do pustki bez uruchamiania VBSP
+Verdeckte Flächen -> nodraw	Ukryte ściany -> nodraw
+Flächen, die vollständig an anderen Brushes anliegen	Ściany całkowicie zakryte przez inne brushe
+Kleine/schräge Brushes -> func_detail	Małe/ukośne brushe -> func_detail
+Brushes ohne Kontakt zur Leere; Trennwände und Türrahmen bleiben Welt	Brushe bez kontaktu z pustką; ścianki działowe i futryny zostają w świecie
+Areaportals in Tür-Öffnungen	Areaportale w otworach drzwiowych
+func_areaportal an func_door* (nur wenn die Öffnung vollständig von Welt eingefasst ist)	func_areaportal przy func_door* (tylko gdy otwór jest całkowicie otoczony światem)
+Hint-Brush-Vorschläge markieren	Oznacz sugestie brushy hint
+Gelbe Markierungen an Durchgängen – wird nicht automatisch gebaut	Żółte znaczniki przy przejściach – nie są budowane automatycznie
+Lightmap-Auflösung automatisch	Automatyczna rozdzielczość lightmap
+Nahe an Lichtern 8, große/entfernte Flächen 32 (nur Flächen mit Standardwert 16)	Przy światłach 8, duże/odległe ściany 32 (tylko ściany z domyślnym 16)
+env_cubemap automatisch verteilen	Automatycznie rozmieść env_cubemap
+In offenen Bereichen ca. alle 768 Einheiten; danach „Cubemaps bauen“	Mniej więcej co 768 jednostek na otwartych obszarach; potem „zbuduj cubemapy”
+Lichtprüfung	Kontrola świateł
+Lichter in Brushes, zu viele schaltbare Lichter, dunkle Bereiche	Światła w brushach, za dużo przełączalnych świateł, ciemne obszary
+Eckpunkte auf ganze Einheiten runden	Zaokrąglij wierzchołki do pełnych jednostek
+Verhindert Mini-Lecks und „Invalid solid“	Zapobiega drobnym wyciekom i „Invalid solid”
+Gleiche Quader zusammenführen	Scal identyczne prostopadłościany
+Nebeneinander liegende, gleich texturierte Quader werden ein Brush	Sąsiednie prostopadłościany z tymi samymi teksturami stają się jednym brushem
+Splitter und doppelte Brushes entfernen	Usuń drzazgi i zduplikowane brushe
+Ungültige, hauchdünne (< 1 Einheit) und exakt doppelte Brushes	Nieprawidłowe, cieniutkie (< 1 jednostki) i dokładnie zduplikowane brushe
+Flache Displacements vereinfachen	Uprość płaskie displacementy
+Displacements ohne Höhen/Alpha werden normale Flächen	Displacementy bez wysokości/alfy wracają do zwykłych ścian
+Ausblend-Distanz für Props	Odległość zanikania propów
+Nach Modellgröße, nur wenn keine gesetzt ist	Według rozmiaru modelu, tylko jeśli nie ustawiono
+Schatten kleiner Props aus	Wyłącz cienie małych propów
+disableshadows bei sehr kleinen Modellen	disableshadows na bardzo małych modelach
+Wirkungslose Logik entfernen	Usuń zbędną logikę
+logic_* ohne Ausgaben, leere Brush-Entities, doppelte Cubemaps	logic_* bez wyjść, puste encje brushowe, zduplikowane cubemapy
+Eigene Inhalte in die BSP packen (bspzip)	Pakuj własną zawartość do BSP (bspzip)
+Materialien/Modelle, die lose im Spielordner liegen, werden nach VRAD eingepackt	Materiały/modele luzem w folderze gry są pakowane po VRAD
+Bei Leck abbrechen (spart den VBSP-Lauf)	Przerwij przy wycieku (oszczędza przebieg VBSP)
+Map konnte nicht geladen werden	Nie udało się wczytać mapy
+Zusammengeführt	Scalono
+Map zusammenführen	Scal mapę
+Koordinaten behalten	Zachowaj współrzędne
+Teile liegen an derselben Stelle wie in der anderen Map	Elementy zostają w tym samym miejscu co w drugiej mapie
+Neben die offene Map setzen	Umieść obok otwartej mapy
+Verschiebt um die Breite der offenen Map (+X)	Przesuwa o szerokość otwartej mapy (+X)
+Verschieben um	Przesuń o
+Älteren oder anderen Stand der Map wählen	Wybierz starszą lub inną wersję mapy
+Vergleich mit {}	Porównanie z {}
+1/2: Gemeinsamen Ausgangsstand (Basis) wählen	1/2: wybierz wspólną wersję bazową
+2/2: Version der anderen Person wählen	2/2: wybierz wersję drugiej osoby
+Zusammengeführt mit {}	Scalono z {}
+Keine Konflikte.	Brak konfliktów.
+Cordon (aus)	Kordon (wył.)
+Kein OpenGL-Kontext verfügbar	Brak kontekstu OpenGL
+Fläche verschoben:	Przesunięto ścianę:
+Prefab: auf eine Fläche klicken bzw. loslassen (Esc bricht ab)	Prefab: kliknij lub upuść na ścianie (Esc anuluje)
+3D nicht verfügbar	3D niedostępne
+Pinsel: {} · Radius {} · Stärke {} (Strg = umkehren)	Pędzel: {} · promień {} · siła {} (Ctrl = odwróć)
+Schiebetür mit Knöpfen	Drzwi przesuwne z przyciskami
+Türen & Fenster	Drzwi i okna
+Wand mit func_door (fährt nach oben) und je einem Knopf auf beiden Seiten.	Ściana z func_door (unosi się) i przyciskiem po każdej stronie.
+Drehtür	Drzwi obrotowe
+Wand mit func_door_rotating (Scharnier über Origin-Brush), öffnet per Benutzen.	Ściana z func_door_rotating (zawias przez brush origin), otwiera się przy użyciu.
+Fenster mit Glas	Okno z szybą
+Wand mit Fensteröffnung und zerbrechlicher Glasscheibe (func_breakable).	Ściana z otworem okiennym i tłukącą się szybą (func_breakable).
+Bauteile	Elementy budowlane
+Leiter	Drabina
+Sprossenleiter (func_detail) mit unsichtbarem Kletter-Brush (toolsinvisibleladder).	Drabina ze szczeblami (func_detail) z niewidzialnym brushem wspinaczki (toolsinvisibleladder).
+Deckenlampe	Lampa sufitowa
+Lampengehäuse mit Licht darunter. Auf eine Decke ziehen.	Obudowa lampy ze światłem pod spodem. Przeciągnij na sufit.
+Technik & Logik	Technika i logika
+Lichtschalter	Włącznik światła
+Knopf, der eine benannte Lampe ein- und ausschaltet.	Przycisk, który włącza i wyłącza nazwaną lampę.
+Teleporter-Paar	Para teleporterów
+trigger_teleport mit Ziel (info_teleport_destination) 256 Einheiten daneben.	trigger_teleport z celem (info_teleport_destination) 256 jednostek obok.
+Schadenszone	Strefa obrażeń
+trigger_hurt, der Spielern pro Sekunde Schaden zufügt.	trigger_hurt, który co sekundę zadaje obrażenia graczom.
+Räume	Pomieszczenia
+Spawn-Raum	Pokój spawnu
+Abgedichteter Raum (512 × 512 × 256) mit info_player_start, Licht und env_cubemap. Sofort kompilierbar.	Zamknięte pomieszczenie (512 × 512 × 256) z info_player_start, light i env_cubemap. Gotowe do kompilacji.
+Außenbereich mit Himmel	Teren otwarty z niebem
+2048 × 2048 × 1024 große Skybox-Hülle mit Boden, light_environment und Spawn.	Powłoka skyboxa 2048 × 2048 × 1024 z podłożem, light_environment i spawnem.
+Wasserbecken	Basen
+Offenes Becken mit Wasser-Brush (Wasseroberfläche oben, sonst nodraw).	Otwarty basen z brushem wody (powierzchnia wody na górze, reszta nodraw).
+Treppe mit Podest	Schody z podestem
+8 Stufen (16 hoch) auf 128 Einheiten Höhe mit Podest und Geländer.	8 stopni (wys. 16) do 128 jednostek z podestem i balustradą.
+Säule	Filar
+Runde Säule mit Sockel und Kapitell (func_detail).	Okrągły filar z bazą i kapitelem (func_detail).
+Physik-Kiste	Skrzynia fizyczna
+prop_physics mit Holzkiste.	prop_physics z drewnianą skrzynią.
+ohne Namen	bez nazwy
+Aufräumen: {} Splitter/ungültige und {} doppelte Brushes entfernt	Porządki: usunięto drzazgi/nieprawidłowe ({}) i zduplikowane brushe ({})
+Eckpunkte: {} Brush(es) auf ganze Einheiten gerundet (verhindert Mini-Lecks)	Wierzchołki: zaokrąglono brushe do pełnych jednostek: {} (zapobiega drobnym wyciekom)
+Displacements: {} flache Displacement(s) in normale Flächen zurückverwandelt	Displacementy: płaskie displacementy zamienione z powrotem na zwykłe ściany: {}
+Brushes zusammengeführt: {} Paar(e) gleicher Quader	Scalone brushe: pary identycznych prostopadłościanów: {}
+LECK gefunden – ausgehend von {}. Der rote Pfad führt ins Nichts.	Znaleziono WYCIEK – początek w {}. Czerwona ścieżka prowadzi w pustkę.
+Leckprüfung: Map ist dicht.	Test wycieku: mapa jest szczelna.
+Leckprüfung: keine Welt-Brushes.	Test wycieku: brak brushy świata.
+func_detail: {} Brush(es), die nicht abdichten, umgewandelt (VVIS wird schneller)	func_detail: przekonwertowano nieuszczelniające brushe: {} (VVIS przyspiesza)
+func_detail übersprungen (Map nicht dicht)	Pominięto func_detail (mapa nieszczelna)
+nodraw: {} vollständig verdeckte Fläche(n)	nodraw: całkowicie ukryte ściany: {}
+Hint-Vorschläge: {} Durchgang/Durchgänge markiert (gelb)	Sugestie hint: oznaczone przejścia: {} (żółte)
+Türen: {} info_node_link_controller (NPC-Wege nur bei offener Tür)	Drzwi: info_node_link_controller: {} (ścieżki NPC tylko przy otwartych)
+Areaportals: {} an Türen gesetzt{}	Areaportale: umieszczone przy drzwiach: {}{}
+, {} übersprungen (Öffnung nicht eindeutig)	, pominięte: {} (otwór niejednoznaczny)
+Cubemaps: {} env_cubemap gesetzt – nach dem Kompilieren „Cubemaps bauen“ ausführen	Cubemapy: umieszczone env_cubemap: {} – po kompilacji uruchom „zbuduj cubemapy”
+Lightmaps: {} Fläche(n) gröber (32), {} feiner (8) – weniger Compile-Zeit, schärferes Licht wo nötig	Lightmapy: ściany grubsze (32): {}, drobniejsze (8): {} – krótsza kompilacja, ostrzejsze światło tam, gdzie trzeba
+Props: {} mit Ausblend-Distanz, {} kleine ohne Schatten	Propy: z odległością zanikania: {}, małe bez cieni: {}
+Inhalte packen: {} eigene Datei(en) werden mit bspzip in die BSP gepackt	Pakowanie: własne pliki ({}) zostaną spakowane do BSP przez bspzip
+Packliste konnte nicht geschrieben werden: {}	Nie udało się zapisać listy pakowania: {}
+Ergebnis: {} -> {} Brushes, {} -> {} Entities, {} Änderung(en)	Wynik: brushe {} -> {}, encje {} -> {}, zmiany: {}
+KI-Netz: {} Nodes, {} Verbindungen, {} zusammenhängende Bereiche, {} isolierte Nodes (rot)	Graf AI: węzły {}, połączenia {}, połączone obszary {}, odizolowane węzły {} (czerwone)
+Dunkel: kein Licht in der Nähe	Ciemno: brak światła w pobliżu
+Kompilieren abgebrochen: Die Map hat ein Leck (roter Pfad).	Przerwano kompilację: mapa ma wyciek (czerwona ścieżka).
+Optimierte Kopie konnte nicht geschrieben werden: {}	Nie udało się zapisać zoptymalizowanej kopii: {}
+Kopie: {} (Original bleibt unverändert)	Kopia: {} (oryginał pozostaje bez zmian)
+Am Raster einrasten: aus (1 Einheit)	Przyciąganie do siatki: wył. (1 jednostka)
+Am Raster einrasten: an	Przyciąganie do siatki: wł.
+Auswahl: {} Objekte	Zaznaczenie: obiekty: {}
+{} Brushes · {} Entities	Brushe: {} · encje: {}
+{} Materialien	Materiały: {}
+Sprache / Language	Język / Language
+Map-Eigenschaften	Właściwości mapy
+Werkzeug · Entity	Narzędzie · encja
+Brushes in Welt	Brushe w świecie
+Schritt	Krok
+Programm	Program
+Parameter	Parametry
+Einfach	Prosty
+Experte	Ekspert
+Normal	Normalny
+Schnell	Szybki
+Final	Finalny
+Aus	Wył.
+Raster {}	Siatka {}
+Raster {} (frei)	Siatka {} (swobodnie)
+filtern	filtruj
+vor {} Tag(en)	{} dni temu
+vor {} Tg.	{} dn. temu
+Spiel (exe)	Gra (exe)
+Prefab-Ordner	Folder prefabów
+.../GarrysMod/bin/vrad.exe	.../GarrysMod/bin/vrad.exe
+.../GarrysMod/hl2.exe oder gmod.exe	.../GarrysMod/hl2.exe lub gmod.exe
+{} Entity-Klassen geladen	Wczytano klasy encji: {}
+{} Materialien · {} Modelle · {} Sounds	Materiały: {} · modele: {} · dźwięki: {}
+Weich	Miękko
+Linear	Liniowo
+Hart	Twardo
+Terrassen	Tarasy
+Schärfen	Wyostrz
+Abfall	Zanik
+Stufenhöhe	Wysokość stopnia
+Gelände aus Heightmap…	Teren z mapy wysokości…
+Gelände aus Heightmap	Teren z mapy wysokości
+Bild wählen… (PNG oder RAW 16 Bit)	Wybierz obraz… (PNG lub RAW 16-bit)
+{} × {} Pixel	{} × {} pikseli
+Kantenlänge	Długość krawędzi
+Höhe (Weiß)	Wysokość (biel)
+Kacheln pro Seite	Kafelki na bok
+Ecke links unten	Lewy dolny róg
+{} Kacheln · Auflösung {} × {} Punkte	Kafelki: {} · rozdzielczość {} × {} punktów
+Keine Vorschau	Brak podglądu
+Gelände erstellen	Utwórz teren
+Weiß = hoch, Schwarz = tief · Ein Rückgängig-Schritt	Biel = wysoko, czerń = nisko · jeden krok cofania
+Gelände aus Heightmap: {} Kacheln ({} × {} Einheiten, Höhe {})	Teren z mapy wysokości: kafelki {} ({} × {} jednostek, wysokość {})
+Material	Materiał
+Auswahl als Modell (Prop)…	Zaznaczenie do modelu (prop)…
+Auswahl als Modell (Prop)	Zaznaczenie do modelu (prop)
+{} Brushes ausgewählt	Zaznaczone brushe: {}
+Ordner unter models/	Folder w models/
+Oberfläche ($surfaceprop)	Powierzchnia ($surfaceprop)
+Typ	Typ
+Masse	Masa
+Brushes nach dem Kompilieren durch das Prop ersetzen	Po kompilacji zastąp brushe propem
+studiomdl: {}	studiomdl: {}
+studiomdl nicht gefunden (wird neben vbsp gesucht) – nur Export möglich	Nie znaleziono studiomdl (szukano obok vbsp) – tylko eksport
+Werkzeug-Texturen werden nicht ins Modell übernommen, zählen aber zur Kollision.	Tekstury narzędziowe są pomijane w modelu, ale liczą się do kolizji.
+Kompiliere…	Kompilowanie…
+Exportieren & kompilieren	Eksportuj i kompiluj
+Nur SMD/QC	Tylko SMD/QC
+Schließen	Zamknij
+Brushes durch {} ersetzt	Brushe zastąpione przez {}
+Modell kompiliert: {}	Skompilowano model: {}
+Modell-Kompilierung fehlgeschlagen (siehe Log)	Kompilacja modelu nieudana (zobacz dziennik)
+Kollisionsmodelle der Props	Modele kolizji propów
+Map-Grenze ±	Granice mapy ±
+Source/GMod: 16384 – größer nur für Spiele mit erweitertem Limit	Source/GMod: 16384 – więcej tylko dla gier z rozszerzonym limitem
+Layout zurücksetzen	Resetuj układ
+Schatten (Lichtvorschau)	Cienie (podgląd światła)
+Schatten in der Lichtvorschau	Cienie w podglądzie światła
+Lichtvorschau	Podgląd światła
+Inhalte in BSP packen…	Pakuj zawartość do BSP…
+Inhalte in BSP packen	Pakuj zawartość do BSP
+{} von {} Dateien ausgewählt · {}	Wybrano {} z {} plików · {}
+BSP-Datei	Plik BSP
+Inhalt anzeigen	Pokaż zawartość
+Neu ermitteln	Skanuj ponownie
+Datei hinzufügen…	Dodaj plik…
+Alle eigenen	Wszystkie własne pliki
+Addons dazu	Uwzględnij addony
+Keine eigenen Inhalte gefunden – alles, was die Map benutzt, gehört zum Spiel.	Nie znaleziono własnej zawartości – wszystko, czego używa mapa, należy do gry.
+eigene Datei	własny plik
+Addon: {}	Addon: {}
+hinzugefügt	dodano
+Schon in der BSP: {} Datei(en)	Już w BSP: pliki: {}
+In BSP packen	Pakuj do BSP
+Eigene Dateien sind vorgewählt, Addon-Inhalte besser im Workshop verlinken	Własne pliki są wstępnie zaznaczone; zawartość addonów lepiej podlinkować w Warsztacie
+Spielinhalte sind noch nicht geladen (Einstellungen → Spielverzeichnis).	Zawartość gry nie jest jeszcze wczytana (Ustawienia → folder gry).
+Eigene Inhalte in die BSP packen	Pakuj własną zawartość do BSP
+Materialien, Modelle, Sounds, Partikel, Soundscapes und Nav-Mesh, die nicht zum Spiel gehören, werden nach VRAD eingepackt (Auswahl: Kompilieren → Inhalte in BSP packen…)	Materiały, modele, dźwięki, cząsteczki, soundscape'y i navmesh spoza gry są pakowane po VRAD (wybór: Kompiluj → Pakuj zawartość do BSP…)
+{} Datei(en) in {} gepackt	Spakowane pliki: {} do {}
+BSP dekompilieren…	Dekompiluj BSP…
+Map-Decompiler	Dekompilator map
+Nicht wiederherstellbar: Visgroups, Gruppen, Instanzen, Areaportal- und Occluder-Brushes, originale IDs. Displacements stehen als dünne Brushes mit Displacement oben in der Welt.	Nie do odzyskania: visgroupy, grupy, instancje, brushe areaportal i occluder, oryginalne ID. Displacementy to cienkie brushe z displacementem na wierzchu, w świecie.
+BSP-Version {}	Wersja BSP {}
+{} Brushes (davon {} func_detail), {} Brush-Entities	Brushe: {} (w tym func_detail: {}), encje brushowe: {}
+{} Entities, {} statische Props, {} Displacements	Encje: {}, statyczne propy: {}, displacementy: {}
+{} Overlays, {} Cubemaps	Overlaye: {}, cubemapy: {}
+{} Brushes ließen sich nicht rekonstruieren (ungültige Form)	Nie udało się odbudować brushy: {} (nieprawidłowy kształt)
+Instanz in Tab öffnen	Otwórz instancję w karcie
+Instanzen neu laden	Wczytaj instancje ponownie
+{} Instanzen in der Map – bitte eine func_instance auswählen	Instancje w mapie: {} – zaznacz jedną func_instance
+Keine func_instance mit gefundener Datei ausgewählt	Nie zaznaczono func_instance z istniejącym plikiem
+Instanz-Kreis: {} bindet sich selbst ein – übersprungen	Pętla instancji: {} zawiera samą siebie – pominięto
+Instanz-Datei {} (in {}) nicht gefunden	Nie znaleziono pliku instancji {} (w {})
+In Entity umwandeln ({})	Powiąż z encją ({})
+Auswahl: 1 Objekt ({})	Zaznaczenie: 1 obiekt ({})
+Punkt-Entity	Encja punktowa
+Punktlicht.	Światło punktowe.
+Spotlicht.	Reflektor.
+Wiederholbarer Trigger.	Powtarzalny trigger.
+Am Raster einrasten (Alt+G)	Przyciągnij do siatki (Alt+G)
+Lua-Skripte…	Skrypty Lua…
+Lua-Skripte	Skrypty Lua
+ungespeichert	niezapisane
+Skripte	Skrypty
+Ordner neu einlesen	Skanuj folder ponownie
+Ausgabe von print() erscheint hier.	Tutaj pojawia się wynik print().
+Alle Werkzeuge für amboss.call:	Wszystkie narzędzia dla amboss.call:
+Ausführen	Uruchom
+dateiname	nazwa pliku
+Ein Rückgängig-Schritt pro Skript · Zeitlimit 10 s	Jeden krok cofania na skrypt · limit 10 s
+Bitte unten einen Dateinamen eingeben	Wpisz poniżej nazwę pliku
+Eingehende Verbindungen ({})	Połączenia przychodzące ({})
+Inputs dieser Klasse ({})	Wejścia tej klasy ({})
+Werkzeug · {}	Narzędzie · {}
+Kamera {}	Kamera {}
+Hilfe: {}	Pomoc: {}
+Navmesh erzeugen	Generuj navmesh
+Begehbare Bereiche ab den Spawnpunkten berechnen und als maps/<map>.nav speichern (für NextBots)	Oblicz obszary do chodzenia od punktów spawnu i zapisz jako maps/<map>.nav (dla NextBotów)
+Navmesh laden (.nav)…	Wczytaj navmesh (.nav)…
+Navmesh anzeigen	Pokaż navmesh
+Navmesh (NextBots) beim Kompilieren erzeugen	Generuj navmesh (NextBoty) przy kompilacji
+Eingebauter Generator: begehbare Bereiche ab den Spawnpunkten, gespeichert als maps/<map>.nav und mit „Inhalte packen“ in die BSP	Wbudowany generator: obszary do chodzenia od punktów spawnu, zapisane jako maps/<map>.nav i spakowane do BSP przez „Pakuj zawartość”
+Navmesh wird erzeugt…	Generowanie navmesha…
+Navmesh: {}	Navmesh: {}
+Navmesh: {} Bereiche ({} geduckt) aus {} Rasterpunkten ab {} Spawnpunkt(en) in {} ms → {}	Navmesh: obszary {} (kucanie {}) z punktów siatki {} z punktów spawnu {} w {} ms → {}
+Navmesh geladen: {} Bereiche ({})	Wczytano navmesh: obszary {} ({})
+Navmesh konnte nicht gelesen werden: {}	Nie udało się odczytać navmesha: {}
+Kompilierte Map (BSP) – wird dekompiliert	Skompilowana mapa (BSP) – zostanie zdekompilowana
+Öffnen… (VMF oder BSP)	Otwórz… (VMF lub BSP)
+Importieren	Import
+Exportieren	Eksport
+Oberfläche:	Interfejs:
+Fensteraufteilung	Układ okien
+Nur 3D	Tylko 3D
+Nur Oben	Tylko góra
+Nur Vorn	Tylko przód
+Nur Seite	Tylko bok
+Kamera-Geschwindigkeit	Prędkość kamery
+Sichtfeld	Pole widzenia
+Ausblenden & Sperren	Ukrywanie i blokowanie
+Objekt	Obiekt
+Brush-Operationen	Operacje na brushach
+Instanzen	Instancje
+Als Prefab speichern…	Zapisz jako prefab…
+Versionen & Zusammenführen	Wersje i scalanie
+Cordon deaktivieren	Wyłącz kordon
+Cordon aktivieren	Włącz kordon
+Kompilieren & Exportieren…	Kompiluj i eksportuj…
+Sofort kompilieren & starten	Kompiluj i uruchom teraz
+Leck-Suche	Szukanie wycieku
+Tutorial: Erste Schritte…	Samouczek: pierwsze kroki…
+Einrichtungs-Assistent…	Asystent konfiguracji…
+Kompilieren & Exportieren	Kompiluj i eksportuj
+Eigene Schritte	Własne kroki
+Navmesh für NextBots erzeugen	Generuj navmesh dla NextBotów
+BSP in den maps-Ordner des Spiels kopieren	Kopiuj BSP do folderu maps gry
+Materialien, Modelle, Sounds, Partikel, Soundscapes und Nav-Mesh, die nicht zum Spiel gehören, werden nach VRAD eingepackt	Materiały, modele, dźwięki, cząsteczki, soundscape'y i navmesh spoza gry są pakowane po VRAD
+Die Liste der benötigten Workshop-Addons wird immer als <map>_addons.txt neben die VMF geschrieben.	Lista wymaganych addonów z Warsztatu jest zawsze zapisywana jako <map>_addons.txt obok VMF.
+Cubemaps bauen	Buduj cubemapy
+Zusatzparameter für VBSP/VVIS/VRAD	Dodatkowe parametry dla VBSP/VVIS/VRAD
+Nur packen	Tylko pakuj
+Eigene Inhalte sofort in die zuletzt kompilierte BSP packen, ohne neu zu kompilieren	Od razu spakuj własną zawartość do ostatnio skompilowanego BSP, bez ponownej kompilacji
+Oberfläche	Interfejs
+Grundwerkzeuge, kurze Menüs – ideal zum Einstieg	Podstawowe narzędzia, krótkie menu – idealne na początek
+Alle Werkzeuge und Spezialfunktionen	Wszystkie narzędzia i funkcje specjalne
+In Map	W mapie
+Sichtbarkeit · VVIS	Widoczność · VVIS
+Vorher	Przed
+Danach	Po
+Keine kompilierte BSP gefunden – erst kompilieren	Nie znaleziono skompilowanego BSP – najpierw skompiluj
+Die kompilierte Map wird wieder in eine bearbeitbare VMF umgewandelt und danach geöffnet.	Skompilowana mapa zostanie z powrotem zamieniona na edytowalny VMF i otwarta.
+keine gültige BSP	nieprawidłowy BSP
+Brushes mit Materialien und Texturausrichtung · func_detail · Türen, Trigger und andere Brush-Entities · alle Entities · Displacements · statische Props · Overlays · Cubemaps	Brushe z materiałami i wyrównaniem tekstur · func_detail · drzwi, triggery i inne encje brushowe · wszystkie encje · displacementy · statyczne propy · overlaye · cubemapy
+Dekompilieren & öffnen	Dekompiluj i otwórz
+BSP dekompilieren	Dekompiluj BSP
+Quelle	Źródło
+Was zurückkommt	Co da się odzyskać
+Spielordner mit gameinfo.txt	Folder gry z gameinfo.txt
+Compiler VBSP / VVIS / VRAD	Kompilatory VBSP / VVIS / VRAD
+Spiel (zum Testen der Map)	Gra (do testowania mapy)
+Entity-Liste: eingebaut (456 Klassen)	Lista encji: wbudowana (456 klas)
+Entity-Liste: garrysmod.fgd gefunden	Lista encji: znaleziono garrysmod.fgd
+Willkommen bei Amboss	Witaj w Amboss
+Garry's Mod finden	Znajdź Garry's Mod
+Inhalte	Zawartość
+Fertig!	Gotowe!
+Amboss ist ein Map-Editor für Garry's Mod und andere Source-Spiele. In vier kurzen Schritten ist alles bereit.	Amboss to edytor map dla Garry's Mod i innych gier Source. Cztery krótkie kroki i wszystko gotowe.
+Die wichtigsten Werkzeuge und kurze Menüs. Ideal, wenn du neu mit dem Mappen beginnst.	Najważniejsze narzędzia i krótkie menu. Idealne, jeśli dopiero zaczynasz mapować.
+Alle Werkzeuge: Vertex-Bearbeitung, Displacements, Overlays, Instanzen, Lua, Versionen…	Wszystkie narzędzia: edycja wierzchołków, displacementy, overlaye, instancje, Lua, wersje…
+Beides lässt sich jederzeit unter Ansicht → Oberfläche umschalten.	Możesz to zmienić w każdej chwili w Widok → Interfejs.
+Amboss braucht den Ordner von Garry's Mod: für Texturen und Modelle, die Compiler (VBSP, VVIS, VRAD) und um die Map zu testen.	Amboss potrzebuje folderu Garry's Mod: dla tekstur i modeli, kompilatorów (VBSP, VVIS, VRAD) i do testowania mapy.
+Automatisch suchen	Szukaj automatycznie
+Ordner wählen…	Wybierz folder…
+(noch nicht gesetzt)	(jeszcze nie ustawiono)
+Gesucht wird in allen Steam-Bibliotheken. Gewählt werden kann der Ordner „GarrysMod“ oder „GarrysMod/garrysmod“.	Przeszukiwane są wszystkie biblioteki Steam. Możesz wybrać folder „GarrysMod” lub „GarrysMod/garrysmod”.
+Welche Texturen und Modelle soll Amboss anbieten?	Jakie tekstury i modele ma oferować Amboss?
+Inhalte aus Addons und dem Workshop verwenden	Używaj zawartości z addonów i Warsztatu
+Abonnierte Workshop-Addons und Ordner unter garrysmod/addons. Benutzt deine Map solche Inhalte, erstellt Amboss beim Kompilieren eine Liste zum Verlinken im Workshop.	Subskrybowane addony z Warsztatu i foldery w garrysmod/addons. Jeśli twoja mapa używa takiej zawartości, Amboss przy kompilacji zapisze listę do podlinkowania w Warsztacie.
+Keine. Inhalte von Counter-Strike: Source oder anderen Source-Spielen werden über garrysmod/cfg/mount.cfg eingebunden (in GMod: Hauptmenü → Spiele-Symbol).	Żadnych. Zawartość z Counter-Strike: Source lub innych gier Source montuje się przez garrysmod/cfg/mount.cfg (w GMod: menu główne → ikona gier).
+Mit „Weiter“ werden die Inhalte eingelesen – das läuft im Hintergrund weiter.	„Dalej” wczytuje zawartość – to trwa dalej w tle.
+Alles bereit. Wie möchtest du anfangen?	Wszystko gotowe. Jak chcesz zacząć?
+Tutorial starten	Uruchom samouczek
+Schritt für Schritt zur ersten eigenen Map – empfohlen für Einsteiger.	Krok po kroku do pierwszej własnej mapy – polecane dla początkujących.
+Neue Map aus Vorlage	Nowa mapa z szablonu
+Fertigen Raum mit Licht und Spawnpunkt öffnen und loslegen.	Otwórz gotowe pomieszczenie ze światłem i punktem spawnu i zaczynaj.
+Zum Startbildschirm	Do ekranu startowego
+Vorlagen, zuletzt geöffnete Maps, Map öffnen.	Szablony, ostatnio otwierane mapy, otwórz mapę.
+Weiter	Dalej
+Zurück	Wstecz
+Überspringen	Pomiń
+Eingebundene Spiele (mount.cfg)	Zamontowane gry (mount.cfg)
+Das Tutorial führt dich Schritt für Schritt durch deine erste Map. Jeder Schritt prüft selbst, ob er erledigt ist – und mit „Zeig es mir“ macht Amboss ihn vor.	Samouczek prowadzi cię krok po kroku przez pierwszą mapę. Każdy krok sam sprawdza, czy został wykonany – a z „Pokaż mi” Amboss zrobi to za ciebie.
+Tutorial beenden	Zakończ samouczek
+Erledigt!	Gotowe!
+Zeig es mir	Pokaż mi
+Amboss erledigt diesen Schritt für dich	Amboss wykona ten krok za ciebie
+Kapitel abschließen	Zakończ rozdział
+1 · Die erste Map	1 · Pierwsza mapa
+Oberfläche kennenlernen, einen Raum bauen, Kamera bewegen, speichern.	Poznaj interfejs, zbuduj pomieszczenie, poruszaj kamerą, zapisz.
+Willkommen!	Witaj!
+Links oben siehst du die 3D-Ansicht, daneben und darunter drei 2D-Ansichten von oben, vorn und von der Seite. In 2D baust du genau auf dem Raster, in 3D schaust du dir das Ergebnis an. Links ist die Werkzeugleiste, rechts stehen die Eigenschaften und unten rechts die Texturen.	W lewym górnym rogu jest widok 3D; obok i poniżej trzy widoki 2D z góry, z przodu i z boku. W 2D budujesz dokładnie na siatce, w 3D oglądasz efekt. Pasek narzędzi jest po lewej, właściwości po prawej, a tekstury w prawym dolnym rogu.
+Eine neue Map	Nowa mapa
+Lege eine leere Map an: Datei → Neu (Strg+N). Sie öffnet sich in einem eigenen Tab.	Utwórz pustą mapę: Plik → Nowy (Ctrl+N). Otworzy się we własnej karcie.
+Das Block-Werkzeug	Narzędzie bloku
+Mit dem Block-Werkzeug baust du Wände, Böden und alles Feste. Klicke es in der Werkzeugleiste an oder drücke Shift+B.	Narzędziem bloku budujesz ściany, podłogi i wszystko, co lite. Kliknij je na pasku narzędzi lub naciśnij Shift+B.
+Einen großen Block aufziehen	Narysuj duży blok
+Ziehe in der Ansicht „Oben“ mit gedrückter linker Maustaste ein großes Rechteck auf (etwa 512 × 512). In „Vorn“ oder „Seite“ kannst du die Höhe ziehen (etwa 256). Drücke dann Enter.	W widoku „Góra” przeciągnij duży prostokąt, trzymając lewy przycisk myszy (ok. 512 × 512). W „Przód” lub „Bok” możesz przeciągnąć wysokość (ok. 256). Potem naciśnij Enter.
+Aushöhlen – ein Raum entsteht	Wydrąż – powstaje pomieszczenie
+Ein Raum ist ein hohler Block. Wähle den Block mit dem Auswahl-Werkzeug (Shift+S) und wähle Objekt → Brush-Operationen → Aushöhlen (Strg+H). Aus dem Block werden sechs Wände.	Pomieszczenie to pusty w środku blok. Zaznacz blok narzędziem zaznaczania (Shift+S) i wybierz Obiekt → Operacje na brushach → Wydrąż (Ctrl+H). Blok zamieni się w sześć ścian.
+Umsehen in 3D	Rozejrzyj się w 3D
+Speichere die Map: Datei → Speichern (Strg+S). Leg sie am besten in einen eigenen Ordner, z. B. „Dokumente/Maps“.	Zapisz mapę: Plik → Zapisz (Ctrl+S). Najlepiej we własnym folderze, np. „Dokumenty/Mapy”.
+2 · Texturen und Formen	2 · Tekstury i kształty
+Texturen wählen und auftragen, Kisten bauen, kopieren und mit dem Clip-Werkzeug schneiden.	Wybieraj i nakładaj tekstury, buduj skrzynie, kopiuj je i tnij narzędziem przycinania.
+Eine Textur wählen	Wybierz teksturę
+Unten rechts siehst du die Texturen. Klicke eine an, zum Beispiel eine Ziegelwand. Mit „Browser…“ kannst du alle Texturen durchsuchen.	Tekstury są w prawym dolnym rogu. Kliknij jedną, na przykład ścianę z cegły. „Przeglądarka…” pozwala przeszukać wszystkie tekstury.
+Textur auftragen	Nałóż teksturę
+Wähle eine Wand mit dem Auswahl-Werkzeug und drücke Shift+T (Bearbeiten → Aktuelle Textur anwenden). Für einzelne Flächen gibt es das Textur-Werkzeug (Shift+A): Fläche in 3D anklicken, Textur anklicken.	Zaznacz ścianę narzędziem zaznaczania i naciśnij Shift+T (Edycja → Nałóż bieżącą teksturę). Dla pojedynczych ścian jest narzędzie tekstur (Shift+A): kliknij ścianę w 3D, potem teksturę.
+Eine Kiste bauen	Zbuduj skrzynię
+Nimm wieder das Block-Werkzeug (Shift+B) und ziehe im Raum einen kleinen Block auf, etwa 64 × 64 × 64. Enter bestätigt.	Weź ponownie narzędzie bloku (Shift+B) i przeciągnij mały blok w pomieszczeniu, ok. 64 × 64 × 64. Enter zatwierdza.
+Wähle die Kiste (Shift+S, dann anklicken) und drücke Strg+D, um sie zu duplizieren. Die Kopie kannst du in 2D an einen anderen Platz ziehen.	Zaznacz skrzynię (Shift+S, potem ją kliknij) i naciśnij Ctrl+D, by ją zduplikować. Kopię możesz przeciągnąć w inne miejsce w 2D.
+Schneiden mit dem Clip-Werkzeug	Cięcie narzędziem przycinania
+Das Clip-Werkzeug (Shift+X) schneidet Blöcke entlang einer Linie – so entstehen Schrägen und Rampen. Wähle eine Kiste, nimm das Clip-Werkzeug und ziehe in einer 2D-Ansicht schräg über die Kiste. Enter schneidet.	Narzędzie przycinania (Shift+X) tnie bloki wzdłuż linii – tak powstają skosy i rampy. Zaznacz skrzynię, weź narzędzie przycinania i przeciągnij ukośnie przez skrzynię w widoku 2D. Enter tnie.
+Spawnpunkt, Licht und ein Prop setzen und ihre Eigenschaften ändern.	Umieść punkt spawnu, światło i prop i zmień ich właściwości.
+Was sind Entities?	Czym są encje?
+Entities sind alles, was nicht einfach feste Geometrie ist: Spawnpunkte, Lichter, Props, Türen, Trigger, Sounds… Gesetzt werden sie mit dem Entity-Werkzeug (Shift+E). Die Klasse wählst du rechts im Panel: ins Feld tippen (mit Vorschlägen) oder über den Pfeil daneben aus der Liste.	Encje to wszystko, co nie jest zwykłą litą geometrią: punkty spawnu, światła, propy, drzwi, triggery, dźwięki… Umieszczasz je narzędziem encji (Shift+E). Klasę wybierz w panelu po prawej: wpisz w pole (z podpowiedziami) albo wybierz z listy strzałką obok.
+Ein Spawnpunkt	Punkt spawnu
+Ohne Spawnpunkt kann man die Map nicht betreten. Nimm das Entity-Werkzeug, wähle die Klasse „info_player_start“ und klicke in 3D auf den Boden des Raums.	Bez punktu spawnu nikt nie wejdzie do mapy. Weź narzędzie encji, wybierz klasę „info_player_start” i kliknij podłogę pomieszczenia w 3D.
+Ohne Licht ist die Map im Spiel stockdunkel. Setze ein Entity der Klasse „light“ in die Mitte des Raums, etwas unter die Decke.	Bez światła mapa w grze jest zupełnie ciemna. Umieść encję klasy „light” na środku pomieszczenia, trochę poniżej sufitu.
+Eigenschaften ändern	Zmień właściwości
+Wähle das Licht aus. Rechts im Panel stehen jetzt seine Eigenschaften. Ändere die Helligkeit „Brightness“ – zum Beispiel über das Farbfeld – auf ein warmes Gelb.	Zaznacz światło. Jego właściwości są teraz w panelu po prawej. Zmień „Brightness” – na przykład polem koloru – na ciepły żółty.
+Ein Prop	Prop
+Props sind Modelle, zum Beispiel Kisten, Fässer oder Stühle. Setze ein „prop_physics“ und wähle beim Feld „World Model“ über „…“ im Modell-Browser ein Modell aus.	Propy to modele, np. skrzynie, beczki czy krzesła. Umieść „prop_physics” i wybierz model w przeglądarce modeli przez „…” obok „World Model”.
+4 · Tür und Trigger	4 · Drzwi i trigger
+Eine Schiebetür bauen, einen Trigger setzen und beide mit einem Ausgang verknüpfen.	Zbuduj drzwi przesuwne, umieść trigger i połącz oba wyjściem.
+Eine Tür aus einem Block	Drzwi z bloku
+Baue einen schmalen Block als Türblatt (etwa 8 × 64 × 112) und wandle ihn um: Objekt → In Entity umwandeln (Strg+T) und als Klasse „func_door“ wählen.	Zbuduj wąski blok jako skrzydło drzwi (ok. 8 × 64 × 112) i przekonwertuj go: Obiekt → Powiąż z encją (Ctrl+T) i wybierz klasę „func_door”.
+Name und Richtung	Nazwa i kierunek
+Gib der Tür rechts im Panel den Namen „tuer“. Bei „Move Direction“ legst du fest, wohin sie fährt – zum Beispiel „-90 0 0“ für nach oben. Der gelbe Pfeil zeigt die Bewegung.	W panelu po prawej nazwij drzwi „door”. „Move Direction” określa, dokąd się przesuwają – np. „-90 0 0” w górę. Żółta strzałka pokazuje ruch.
+Ein Trigger	Trigger
+Ein Trigger ist ein unsichtbarer Bereich, der etwas auslöst. Wähle die Textur „TOOLS/TOOLSTRIGGER“, baue einen Block vor die Tür und wandle ihn mit Strg+T in „trigger_multiple“ um.	Trigger to niewidzialny obszar, który coś wyzwala. Weź teksturę „TOOLS/TOOLSTRIGGER”, zbuduj blok przed drzwiami i przekonwertuj go przez Ctrl+T na „trigger_multiple”.
+Verknüpfen: der Ausgang	Połączenie: wyjście
+Wähle den Trigger. Rechts unter „Ausgänge“: „+ Output hinzufügen“ → „OnStartTouch“, als Ziel „tuer“ und als Input „Open“. Jetzt öffnet sich die Tür, sobald jemand den Trigger betritt.	Zaznacz trigger. Po prawej w „Wyjścia”: „+ Dodaj wyjście” → „OnStartTouch”, cel „door” i wejście „Open”. Teraz drzwi otwierają się, gdy tylko ktoś wejdzie w trigger.
+5 · Kompilieren und testen	5 · Kompilacja i test
+Map prüfen, kompilieren und in Garry's Mod ausprobieren.	Sprawdź mapę, skompiluj ją i wypróbuj w Garry's Mod.
+Bevor du kompilierst: Map → Auf Probleme prüfen (Alt+P). Amboss findet Lecks, fehlende Spawnpunkte, kaputte Brushes und vieles mehr – oft mit „Beheben“-Knopf.	Przed kompilacją: Mapa → Szukaj problemów (Alt+P). Amboss znajduje wycieki, brakujące punkty spawnu, uszkodzone brushe i wiele więcej – często z przyciskiem „Napraw”.
+Öffne Kompilieren → Kompilieren & Exportieren… Hier stellst du die Qualität ein und kannst eigene Inhalte in die BSP packen und ein Navmesh erzeugen lassen.	Otwórz Kompiluj → Kompiluj i eksportuj… Tu ustawiasz jakość, możesz spakować własną zawartość do BSP i wygenerować navmesh.
+Los!	Start!
+Klicke im Dialog auf „Kompilieren & Exportieren“ (oder drücke F9). Das Protokoll zeigt den Fortschritt. Ist „Spiel starten“ angehakt, startet Garry's Mod danach direkt mit deiner Map.	Kliknij w oknie „Kompiluj i eksportuj” (lub naciśnij F9). Dziennik pokazuje postęp. Jeśli zaznaczono „Uruchom grę”, Garry's Mod wystartuje z twoją mapą zaraz potem.
+Geschafft!	Udało się!
+Deine erste Map ist fertig. In Garry's Mod lädst du sie auch über die Konsole: „map <name>“. Weiter geht es mit Displacements für Gelände, Props aus dem Modell-Browser und der Experten-Oberfläche (Ansicht → Oberfläche).	Twoja pierwsza mapa jest gotowa. W Garry's Mod możesz ją też wczytać z konsoli: „map <nazwa>”. Dalej: displacementy do terenu, propy z przeglądarki modeli i interfejs eksperta (Widok → Interfejs).
+Tutorial: Erste Schritte	Samouczek: pierwsze kroki
+Ziel	Cel
+Anz.	Liczba
+Schritt {} von {}	Krok {} z {}
+{} von {} Kapiteln erledigt	Ukończono {} z {} rozdziałów
+{} Schritte	Kroki: {}
+Ordner gesetzt: {}	Ustawiono folder: {}
+Starten	Start
+Dekompiliere… → {}	Dekompilacja… → {}
+Dekompiliert: {} Brushes, {} Entities → {}	Zdekompilowano: brushe {}, encje {} → {}
+{} Datei(en) in {} gepackt: {} neu, {} ersetzt, {} waren schon drin · {}	Spakowano pliki ({}) do {}: nowe {}, zastąpione {}, już obecne {} · {}
+1 Addon	1 addon
+{} Addons	Addony: {}
+· automatisch gesichert {}	· autozapis {}
+Fehler: {} · Warnungen: {}	Błędy: {} · Ostrzeżenia: {}
+{}\nKlick: Einstellungen	{}\nKliknięcie: ustawienia
+{}: an Minimum	{}: na minimum
+{}: an Maximum	{}: na maksimum
+Aktuell: {}	Bieżące: {}
+{} {} einfügen	Wklej {} {}
+{} Gruppen	Grupy: {}
+In Visgroup „Import: {}“ legen	Umieść w visgroup „Import: {}”
+Map-Eigenschaft {}: {} -> {}	Właściwość mapy {}: {} -> {}
+Länge {}\nΔX {}  ΔY {}  ΔZ {}\n≈ {} m	Długość {}\nΔX {}  ΔY {}  ΔZ {}\n≈ {} m
+In Entity umwandeln… ({} Brush(es), Strg+T)	Powiąż z encją… (brushe: {}, Ctrl+T)
+AUFBAU	STRUKTURA
+unbekannter Fehler	nieznany błąd
+Inhalte packen: keine eigenen Dateien gefunden	Pakowanie: nie znaleziono własnych plików
+Inhalte packen: {} Datei(en), {} MB werden nach VRAD in die BSP gepackt (Auswahl: Kompilieren → Inhalte in BSP packen…)	Pakowanie: pliki {}, {} MB zostaną spakowane do BSP po VRAD (wybór: Kompiluj i eksportuj → Pakuj własną zawartość)
+Benötigte Addons für die Map "{}" (erstellt von Amboss)\n	Wymagane addony dla mapy „{}” (utworzone przez Amboss)\n
+Beim Hochladen in den Steam-Workshop unter "Benötigte Objekte" / "Required Items" verlinken,\n	Przy wysyłaniu do Warsztatu Steam podlinkuj je w „Required Items”,\n
+oder die Inhalte selbst in die BSP packen.\n\n	albo sam spakuj zawartość do BSP.\n\n
+Keine Inhalte aus Addons – die Map braucht nur das Spiel	Brak zawartości z addonów – mapa potrzebuje tylko gry
+ und eigene, lose Dateien.\n	 i twoich własnych luźnych plików.\n
+   (keine Workshop-ID gefunden – lokale Datei: {})\n	   (nie znaleziono ID Warsztatu – plik lokalny: {})\n
+   {} Datei(en), z. B.:\n	   pliki: {}, np.:\n
+     … und {} weitere\n	     … i {} więcej\n
+Außerdem {} eigene Datei(en), die lose im Spielordner liegen (nicht in einem Addon) – mit "Eigene Inhalte in die BSP packen" einpacken.\n	Dodatkowo własne pliki ({}) leżą luzem w folderze gry (nie w addonie) – spakuj je przez „Pakuj własną zawartość do BSP”.\n
+Addons: keine benötigt (Liste: {})	Addony: żadne nie są wymagane (lista: {})
+Addons: die Map benutzt Inhalte aus {} Addon(s) – Liste mit Workshop-Links: {}	Addony: mapa używa zawartości z addonów ({}) – lista z linkami do Warsztatu: {}
+  • {} ({} Datei(en)){}	  • {} (pliki: {}){}
+Addon-Liste konnte nicht gespeichert werden: {}	Nie udało się zapisać listy addonów: {}
+dein Rechner hat keine IPv6-Internetverbindung (prüfen: test-ipv6.com). Ausweg: im Router IPv6 einschalten, über einen Handy-Hotspot verbinden, oder der Gastgeber gibt Port 3918 (TCP) im Router frei und du verbindest dich mit seiner IPv4-Adresse	twój komputer nie ma połączenia internetowego IPv6 (sprawdź: test-ipv6.com). Wyjście: włącz IPv6 w routerze, połącz się przez hotspot w telefonie albo gospodarz przekieruje port 3918 (TCP) w swoim routerze, a ty połączysz się z jego adresem IPv4
+{} (geändert)	{} (zmieniono)
+Gastgeber auf Port {} – warte auf Gäste	Gospodarz na porcie {} – czekam na gości
+{} ist beigetreten	{} dołączył(a)
+{} hat die Sitzung verlassen	{} opuścił(a) sesję
+Werkzeug: {}	Narzędzie: {}
+Garry's Mod wurde nicht gefunden (auch nicht in weiteren Steam-Bibliotheken). Bitte den Ordner…/GarrysMod/garrysmod manuell eintragen.	Nie znaleziono Garry's Mod (także w innych bibliotekach Steam). Wpisz folder…/GarrysMod/garrysmod ręcznie.
+** Abgebrochen **	** Anulowano **
+\n===== {} =====	\n===== {} =====
+\n===== Fertig =====	\n===== Gotowe =====
+Übersprungen: {} ({})	Pominięto: {} ({})
+{} Datei(en) in {} gepackt ({} neu, {} ersetzt, {} vorhanden), {} MB	Spakowano pliki ({}) do {} (nowe {}, zastąpione {}, już obecne {}), {} MB
+Packen fehlgeschlagen: {}	Pakowanie nieudane: {}
+Kopieren fehlgeschlagen ({} → {}): {}	Kopiowanie nieudane ({} → {}): {}
+Fehler: {} konnte nicht gestartet werden: {}	Błąd: nie można uruchomić {}: {}
+{} ist mit Code {} fehlgeschlagen.	{} zakończył się błędem z kodem {}.
+Die Map hat ein LECK (Loch zur Leere). Das Pointfile wird geladen und zeigt den Weg.	Mapa ma WYCIEK (dziurę do pustki). Pointfile jest wczytany i pokazuje drogę.
+*** WARNUNG: Die Map hat ein LECK! ***	*** UWAGA: mapa ma WYCIEK! ***
+{}: Brushes nicht rekonstruierbar (z. B. Areaportal/Occluder) – Entity bleibt als Punkt-Entity	{}: brushy nie da się odbudować (np. area portal/occluder) – encja pozostaje punktowa
+Statische Props sind komprimiert (LZMA) – nicht unterstützt	Statyczne propy są skompresowane (LZMA) – nieobsługiwane
+Unbekanntes Format der statischen Props (Version {})	Nieznany format statycznych propów (wersja {})
+Overlay {} ({}): keine passende Fläche gefunden	Overlay {} ({}): nie znaleziono pasującej ściany
+Aktuelle Textur anwenden / Textur-Browser	Nałóż bieżącą teksturę / przeglądarka tekstur
+{} neu, {} gelöscht, {} geändert, {} Map-Eigenschaft(en) anders	Dodane: {}, usunięte: {}, zmienione: {}, różne właściwości mapy: {}
+{} Änderung(en) der anderen Seite übernommen, {} Konflikt(e), {} Objekt(e) neu nummeriert	Przyjęte zmiany z drugiej strony: {}, konflikty: {}, przenumerowane obiekty: {}
+{}: bei uns gelöscht, bei der anderen Seite geändert – geänderte Version wiederhergestellt	{}: usunięte tutaj, zmienione po drugiej stronie – przywrócono zmienioną wersję
+{}: bei uns geändert, bei der anderen Seite gelöscht – unsere Version behalten	{}: zmienione tutaj, usunięte po drugiej stronie – zachowano naszą wersję
+{}: auf beiden Seiten verschieden geändert – unsere Version behalten, die andere liegt ausgeblendet in „Konflikt: andere Version“	{}: zmienione inaczej po obu stronach – zachowano naszą wersję, druga jest ukryta w „Konflikt: inna wersja”
+Map-Eigenschaft {}: beide geändert ({} / {}) – unser Wert bleibt	Właściwość mapy {}: zmieniona po obu stronach ({} / {}) – zostaje nasza wartość
+Änderung	Zmień
+{}: ungültige VPK	{}: nieprawidłowy VPK
+Spielordner nicht gefunden: {}	Nie znaleziono folderu gry: {}
+PNG zu groß	PNG za duży
+Skript ausgeführt ({} Aufrufe) – Rückgängig nimmt alles auf einmal zurück	Skrypt zakończony (wywołania: {}) – Cofnij cofa wszystko naraz
+Skript-Fehler: {}	Błąd skryptu: {}
+kein Einstellungsordner	brak folderu ustawień
+{}: VMT nicht gefunden	{}: nie znaleziono VMT
+{}: VTF {} nicht gefunden	{}: nie znaleziono VTF {}
+Datei zu kurz (Offset {})	Plik za krótki (offset {})
+Datei zu kurz	Plik za krótki
+ungültiger String-Offset	nieprawidłowy offset ciągu
+{} nicht gefunden	Nie znaleziono {}
+{}.vvd nicht gefunden	Nie znaleziono {}.vvd
+{}.vtx nicht gefunden	Nie znaleziono {}.vtx
+Vertex-Index außerhalb	indeks wierzchołka poza zakresem
+Zusammengeführt: {} Brushes, {} Entities	Scalono: brushe {}, encje {}
+zwei Sonnen – Source benutzt nur eine	dwa słońca – Source używa tylko jednego
+zwei 3D-Skybox-Kameras – nur eine ist erlaubt	dwie kamery skyboxa 3D – dozwolona jest tylko jedna
+mehrere Nebel-Controller – prüfen, welcher aktiv ist	kilka kontrolerów mgły – sprawdź, który jest aktywny
+Die Bereiche überlappen sich ({} Brushes der offenen Map liegen im Bereich der neuen) – evtl. „Daneben setzen“ wählen	Obszary nachodzą na siebie (brushe otwartej mapy w nowej: {}) – rozważ „Umieść obok”
+{} Spawnpunkt(e) aus der anderen Map kommen hinzu	Zostaną dodane punkty spawnu z drugiej mapy: {}
+Teile liegen außerhalb der Map-Grenzen (±{})	Elementy leżą poza granicami mapy (±{})
+Instanz-Datei {} nicht gefunden – Pfad prüfen	Nie znaleziono pliku instancji {} – sprawdź ścieżkę
+{}: liegt nicht unter materials/, models/, sound/ … – Pfad im Spiel unklar	{}: nie w materials/, models/, sound/ … – ścieżka w grze niejasna
+Eintrag nicht gefunden	Nie znaleziono wpisu
+Prefab-Daten außerhalb der Datei	Dane prefabu poza plikiem
+Kein info_player_start vorhanden.	Brak info_player_start.
+Keine Lichtquelle – die Map wird nach VRAD komplett dunkel.	Brak źródła światła – po VRAD mapa będzie zupełnie ciemna.
+Ungültiger Brush (ID {}).	Nieprawidłowy brush (ID {}).
+Brush {} hat Seiten ohne Fläche.	Brush {} ma ściany bez powierzchni.
+Displacement auf nicht-viereckiger Fläche (Brush {}).	Displacement na ścianie, która nie jest czworokątem (brush {}).
+Brush {} liegt außerhalb der Map-Grenze (±{}).	Brush {} leży poza granicami mapy (±{}).
+Brush {} ist ein Duplikat von {}.	Brush {} jest duplikatem {}.
+Material "{}" wurde in den Spielinhalten nicht gefunden ({} Brush(es)).	Nie znaleziono materiału „{}” w zawartości gry (brushe: {}).
+Unbekannte Entity-Klasse "{}" (ID {}).	Nieznana klasa encji „{}” (ID {}).
+Brush-Entity {} (ID {}) hat keine Brushes.	Encja brushowa {} (ID {}) nie ma brushy.
+Punkt-Entity {} (ID {}) enthält Brushes.	Encja punktowa {} (ID {}) zawiera brushe.
+Entity {} hat keine Klasse.	Encja {} nie ma klasy.
+{} (ID {}): Schlüssel nicht in der FGD: {}	{} (ID {}): klucze spoza FGD: {}
+{} (ID {}): {} Output(s) zielen auf nicht existierende Namen.	{} (ID {}): wyjścia ({}) celują w nieistniejące nazwy.
+{} (ID {}) liegt außerhalb der Map-Grenze.	{} (ID {}) leży poza granicami mapy.
+Spawnpunkt {} steckt in einem Brush.	Punkt spawnu {} utknął w brushu.
+{} (ID {}) hat keinen Ursprung.	{} (ID {}) nie ma origin.
+Cordon aktiv, aber kein Spawnpunkt im Cordon-Bereich.	Kordon aktywny, ale w kordonie nie ma punktu spawnu.
+studiomdl konnte nicht gestartet werden: {}	Nie można uruchomić studiomdl: {}
+studiomdl ist fehlgeschlagen – Brushes bleiben unverändert.	studiomdl nie powiódł się – brushe pozostają bez zmian.
+Kein Spielverzeichnis eingestellt (Einstellungen → Spiel).	Nie ustawiono folderu gry (Ustawienia → Gra).
+studiomdl wurde nicht neben vbsp gefunden – QC liegt bereit und kann manuell kompiliert werden.	Nie znaleziono studiomdl obok vbsp – QC jest gotowy i można go skompilować ręcznie.
+VTF beschädigt	Uszkodzony VTF
+VTF-Format {} nicht unterstützt	Format VTF {} nieobsługiwany
+aus 	z 
+ · {} Klassen	 · klasy: {}
+Bibliothek / {}	Biblioteka / {}
+mein_prefab	moj_prefab
+mein_prop	moj_prop
+(verschieden)	(mieszane)
+Zwischenablage leer	Schowek pusty
+Ausdehnung	Wymiary
+{} gespeicherte Brushes	Zapisane brushe: {}
+Welt-Brushes ({})	Brushe świata ({})
+Nur Brush-Entities	Tylko encje brushowe
+Punkt-Entity – nicht für Brushes	Encja punktowa – nie dla brushy
+1 Hinweis	1 uwaga
+{} Hinweise	Uwagi: {}
+1 Warnung	1 ostrzeżenie
+{} Warnungen	Ostrzeżenia: {}
+1 Fehler	1 błąd
+{} Fehler	Błędy: {}
+Aktuell	Bieżące
+1 Kind	1 potomny
+{} · R {} · S {} · Strg = umkehren	{} · R {} · S {} · Ctrl = odwróć
+Werkzeuge → Versionen & Zusammenführen → Map zusammenführen	Narzędzia → Wersje i scalanie → Scal mapę
+Werkzeuge → Versionen & Zusammenführen → Vergleichen / 3-Wege	Narzędzia → Wersje i scalanie → Porównaj / trójstronnie
+Werkzeuge → Live-Sitzung	Narzędzia → Sesja na żywo
+Kompilieren → Automatische Optimierungen	Kompiluj → Automatyczne optymalizacje
+Entity-Report / Gehe zu Nummer	Raport encji / idź do numeru
+Kamera wechseln	Przełącz kamerę
+Messwerkzeug (2D ziehen, 3D zwei Punkte)	Narzędzie pomiaru (przeciągnij w 2D, dwa punkty w 3D)
+Kopieren / Einfügen / Ausschneiden · Strg+Shift+V Inhalte einfügen	Kopiuj / wklej / wytnij · Ctrl+Shift+V wklej specjalnie
+3D-Gizmo	Gizmo 3D
+Alt+Klick (3D)	Alt+klik (3D)
+Shift+S Auswahl · G Lupe · C Kamera · E Entity · B Block · A Textur · D Decal · O Overlay · X Clip · V Vertex · P Displacement · K Cordon	Shift+S zaznaczanie · G lupa · C kamera · E encja · B blok · A tekstura · D kalkomania · O overlay · X przycinanie · V wierzchołki · P displacement · K kordon
+1. Block (Shift+B), in der Ansicht Oben ein Rechteck ziehen. 2. Strg+H höhlt zum Raum aus. 3. Entity (Shift+E): info_player_start und light setzen. 4. F9.	1. Blok (Shift+B), przeciągnij prostokąt w widoku Góra. 2. Ctrl+H wydrąża go w pomieszczenie. 3. Encja (Shift+E): umieść info_player_start i light. 4. F9.
+Erste Schritte	Pierwsze kroki
+1 Objekt	1 obiekt
+{} Objekte	Obiekty: {}
+1 Entity	1 encja
+{} Entities	Encje: {}
+1 Brush	1 brush
+{} Brushes	Brushe: {}
+1 Aufruf	1 wywołanie
+{} Aufrufe	Wywołania: {}
+✓ fertig in {} ms, {}	✓ gotowe w {} ms, {}
+tuer	drzwi
+Bedienung & Tastenkürzel	Sterowanie i skróty
+Tastenbelegung ändern…	Dostosuj skróty…
+Lege zuerst mit dem Cordon-Werkzeug (Shift+K) einen Bereich fest.	Najpierw wyznacz obszar narzędziem kordonu (Shift+K).
+Einstellungsordner öffnen	Otwórz folder ustawień
+Ordner mit Einstellungen, Autosaves und grafik.txt	Folder z ustawieniami, autozapisami i grafik.txt
+Über Amboss…	O programie Amboss…
+Über Amboss	O programie Amboss
+Map-Editor für Source 1 und Garry's Mod	Edytor map dla Source 1 i Garry's Mod
+Verwendete Bibliotheken	Użyte biblioteki
+Fehler gefunden? Beschreibe Schritte, Map und Fehlermeldung – die Einstellungen und Autosaves liegen im Einstellungsordner (Hilfe → Einstellungsordner öffnen).	Znalazłeś błąd? Opisz kroki, mapę i komunikat błędu – ustawienia i autozapisy są w folderze ustawień (Pomoc → Otwórz folder ustawień).
+Ausschneiden	Wytnij
+In Entity umwandeln…	Powiąż z encją…
+Nur aktiv, wenn automatisch angewendet wird	Tylko przy automatycznym stosowaniu
+Um die Hochachse drehen (Yaw)	Obróć wokół osi pionowej (yaw)
+Input des Ziels	Wejście celu
+Parameter (optional)	Parametr (opcjonalny)
+Verzögerung in Sekunden	Opóźnienie w sekundach
+Anzahl Auslösungen (−1 = immer)	Liczba wyzwoleń (−1 = zawsze)
+Kein Objekt mit diesem Namen in der Map	W mapie nie ma obiektu o tej nazwie
+Das Ziel kennt diesen Input nicht	Cel nie ma takiego wejścia
+Diese Klasse hat keinen Output mit diesem Namen	Ta klasa nie ma wyjścia o tej nazwie
+Klick in 2D oder auf eine Fläche in 3D platziert:	Kliknij w 2D lub na ścianę w 3D, aby umieścić:
+Klasse ändern…	Zmień klasę…
+Hilfe zur Klasse	Pomoc klasy
+Material rechts bei den Texturen wählen (z. B. decals/…), dann in 3D auf eine Fläche klicken.	Wybierz materiał w teksturach po prawej (np. decals/…), potem kliknij ścianę w 3D.
+Material rechts bei den Texturen wählen, dann in 3D auf eine Brush-Fläche klicken.\nGröße und Ausrichtung danach mit den Griffen in der Ansicht oder in den Eigenschaften (uv0–uv3).	Wybierz materiał w teksturach po prawej, potem kliknij ścianę brusha w 3D.\nRozmiar i wyrównanie dopasuj uchwytami w widoku lub we właściwościach (uv0–uv3).
+In 2D eine Schnittlinie ziehen. Beide/Vorne/Hinten bestimmt, welche Teile bleiben. Enter schneidet.	Przeciągnij linię cięcia w 2D. Obie/Przód/Tył określa, co zostaje. Enter tnie.
+Keine Eckpunkte ausgewählt	Nie zaznaczono wierzchołków
+{} ausgewählt	Zaznaczono: {}
+1 Eckpunkt	1 wierzchołek
+{} Eckpunkte	Wierzchołki: {}
+{} Brushes in Entity umwandeln…	Powiąż brushe ({}) z encją…
+1 Gruppe	1 grupa
+{} gelöscht	Usunięto: {}
+{} kopiert	Skopiowano: {}
+Carve: {} geschnitten	Wycinanie: przecięto: {}
+{} ersetzt	Zamieniono: {}
+{} dupliziert	Zduplikowano: {}
+{} auf nodraw gesetzt	Ustawiono na nodraw: {}
+{} aus der Zwischenablage eingefügt	Wklejono ze schowka: {}
+{} hinzugefügt	Dodano: {}
+{} im Rahmen ausgewählt	Zaznaczono w ramce: {}
+1 Fläche	1 ściana
+1 verdeckte Fläche	1 ukryta ściana
+{} verdeckte Flächen	Ukryte ściany: {}
+1 berührendes Objekt	1 stykający się obiekt
+{} berührende Objekte	Stykające się obiekty: {}
+1 Modell	1 model
+Fast fertig – {} fehlen noch.	Prawie gotowe – brakuje jeszcze: {}.
+1 Punkt	1 element
+{} Punkte	Elementy: {}
+Zu Schritt 2	Wróć do kroku 2
+Trotzdem weiter	Kontynuuj mimo to
+Los geht's	Zaczynamy
+Keine Spiele eingebunden. Inhalte anderer Source-Spiele (z. B. Counter-Strike: Source) bindest du in Garry's Mod ein: Hauptmenü → Spiele-Symbol.	Brak zamontowanych gier. Aby używać zawartości innych gier Source (np. Counter-Strike: Source), zamontuj je w Garry's Mod: menu główne → ikona gier.
+Entity löschen (Strg+Z macht es rückgängig)	Usuń encję (Ctrl+Z cofa)
+Modus	Tryb
+Pinsel	Pędzel
+Keine Displacements ausgewählt.	Nie zaznaczono displacementów.
+Min 	Min. 
+Max 	Maks. 
+Nähen	Zszyj
+Keine Physik-Kollision	Bez kolizji fizycznej
+Keine Hull-Kollision	Bez kolizji otoczki
+Keine Strahl-Kollision	Bez kolizji promienia
+Neue Displacements: im Textur-Werkzeug Flächen wählen →	Nowe displacementy: zaznacz ściany narzędziem tekstur →
+Displacement erstellen	Utwórz displacement
+Aus den im Textur-Werkzeug ausgewählten Flächen	Ze ścian zaznaczonych narzędziem tekstur
+neues Skript	nowy skrypt
+amboss.room(min, max, mat, wand) → ids	amboss.room(min, max, mat, wall) → ids
+amboss.entity(klasse, pos, keys, winkel) → id	amboss.entity(class, pos, keys, angles) → id
+amboss.get(id) → Tabelle	amboss.get(id) → table
+amboss.output(id, out, ziel, input, param, verz.)	amboss.output(id, out, target, input, param, delay)
+amboss.move(ids, versatz)	amboss.move(ids, offset)
+amboss.entities([klasse])	amboss.entities([class])
+Spiel & Pfade	Gra i ścieżki
+KI-Steuerung (MCP)	Sterowanie AI (MCP)
+Intervall (Minuten, 0 = aus)	Interwał (minuty, 0 = wył.)
+Anzahl Sicherungen	Liczba kopii
+📁 Spielordner wählen…	📁 Wybierz folder gry…
+Eigener Wert	Własna wartość
+Material-Editor	Edytor materiałów
+Material-Editor…	Edytor materiałów…
+Eigene Materialien anlegen, Bilder als Textur importieren	Twórz własne materiały, importuj obrazy jako tekstury
+Keine VMT gefunden – neues Material.	Nie znaleziono VMT – nowy materiał.
+Bitte einen Materialnamen eingeben, z. B. amboss/wand_rot	Wpisz nazwę materiału, np. amboss/sciana_czerwona
+Kein Spielordner eingestellt (Einstellungen → Spiel & Pfade).	Nie ustawiono folderu gry (Ustawienia → Gra i ścieżki).
+Keine Basistextur	Brak tekstury bazowej
+Gekachelt (2 × 2)	Kafelkowo (2 × 2)
+Pfad unter materials/, ohne .vmt	Ścieżka w materials/, bez .vmt
+Shader	Shader
+Pfad unter materials/	Ścieżka w materials/
+Bild…	Obraz…
+PNG importieren (wird beim Speichern zu VTF)	Importuj PNG (przy zapisie konwertowany na VTF)
+Importiert – wird beim Speichern geschrieben	Zaimportowano – zapis przy zapisywaniu
+Basistextur	Tekstura bazowa
+Farbbild der Oberfläche	Kolorowy obraz powierzchni
+Normalmap	Normal mapa
+Oberflächenrelief für Licht	Rzeźba powierzchni dla oświetlenia
+Zweite Textur	Druga tekstura
+Wird über die Alpha-Werte des Displacements eingeblendet	Mieszana według wartości alfa displacementu
+Zweite Normalmap	Druga normal mapa
+Relief der zweiten Textur	Rzeźba drugiej tekstury
+Detailtextur	Tekstura detalu
+Feine Struktur, die über die Basistextur gelegt wird	Drobna struktura nałożona na teksturę bazową
+Detail-Skalierung	Skala detalu
+Oberflächenart	Rodzaj powierzchni
+(keine)	(brak)
+$surfaceprop: Schritt-Geräusche, Einschusslöcher, Physik	$surfaceprop: odgłosy kroków, trafienia pocisków, fizyka
+Farbe	Kolor
+Zurücksetzen	Resetuj
+Durchscheinend	Półprzezroczysty
+Alpha-Test	Test alfy
+Beidseitig	Dwustronny
+Selbstleuchtend	Samoświecący
+Additiv	Addytywny
+Alpha-Kanal als Transparenz (weiche Kanten, sortiert)	Kanał alfa jako przezroczystość (miękkie krawędzie, sortowane)
+Harte Kanten (Zäune, Blätter) – schneller als durchscheinend	Twarde krawędzie (płoty, liście) – szybsze niż półprzezroczystość
+Auch von hinten sichtbar	Widoczny także od tyłu
+Leuchtet unabhängig vom Licht (Maske im Alpha-Kanal)	Świeci niezależnie od oświetlenia (maska w kanale alfa)
+Hellt den Hintergrund auf (Licht, Feuer)	Rozjaśnia tło (światło, ogień)
+Spiegelung	Odbicie
+$envmap env_cubemap – spiegelt die nächste env_cubemap	$envmap env_cubemap – odbija najbliższą env_cubemap
+Alle Parameter	Wszystkie parametry
+Parameter entfernen	Usuń parametr
++ Parameter	+ Parametr
+{} Unterblöcke (z. B. Proxies) bleiben unverändert erhalten.	Podbloki ({}, np. proxies) pozostają bez zmian.
+Als aktuelles Material	Jako bieżący materiał
+Speichern und als aktuelle Textur für neue Brushes setzen	Zapisz i ustaw jako bieżącą teksturę dla nowych brushy
+Wird lose im Spielordner gespeichert und beim Kompilieren mit eingepackt	Zapisano jako luźny plik w folderze gry i pakowane przy kompilacji
+Bild geladen: {} × {} px	Wczytano obraz: {} × {} px
+Bild konnte nicht geladen werden: {}	Nie udało się wczytać obrazu: {}
+Wände, Böden, alles auf Brushes	Ściany, podłogi, wszystko na brushach
+Modelle (Props)	Modele (propy)
+Ohne Licht (Leuchtschilder, Skybox-Teile)	Bez oświetlenia (szyldy, części skyboxa)
+Überblendung zweier Texturen auf Displacements	Mieszanie dwóch tekstur na displacementach
+Zwei Texturen ohne Licht	Dwie tekstury, bez oświetlenia
+Glas mit Lichtbrechung	Szkło z refrakcją
+Partikel-Editor	Edytor cząsteczek
+Partikel-Editor…	Edytor cząsteczek…
+Partikeleffekte (.pcf) anlegen und bearbeiten, mit Vorschau	Twórz i edytuj efekty cząsteczkowe (.pcf) z podglądem
+neue Datei	nowy plik
+Partikelsysteme	Systemy cząsteczek
++ Neu	+ Nowy
+Rauch	Dym
+Funken	Iskry
+Feuer	Ogień
+Staub	Kurz
+System entfernen	Usuń system
+Pause	Pauza
+Abspielen	Odtwórz
+Neu starten	Uruchom ponownie
+{} Partikel · {} s	Cząsteczki: {} · {} s
+Ziehen dreht, Mausrad zoomt · vereinfachte Vorschau	Przeciąganie obraca, kółko przybliża · uproszczony podgląd
+Kein Partikelsystem in der Datei.	Brak systemu cząsteczek w pliku.
+System	System
+Emitter	Emitery
+Initialisierer	Inicjalizatory
+Operatoren	Operatory
+Renderer	Renderery
+Kräfte	Siły
+Einschränkungen	Ograniczenia
++ Hinzufügen	+ Dodaj
+In Map-Partikelliste eintragen	Dodaj do listy cząsteczek mapy
+Schreibt maps/<map>_particles.txt, damit die Map die Datei lädt	Zapisuje maps/<map>_particles.txt, aby mapa wczytała plik
+({} Einträge)	(wpisy: {})
+Konnte nicht geöffnet werden: {}	Nie można otworzyć: {}
+Erst speichern	Najpierw zapisz
+Die Datei muss im Spielordner liegen (particles/…)	Plik musi być w folderze gry (particles/…)
+Eingetragen in {}	Dodano do {}
+kein DMX	to nie jest plik DMX
+kein binäres DMX	to nie jest binarny plik DMX
+String-Index außerhalb	indeks ciągu poza zakresem
+DMX-Version {} wird nicht unterstützt	Wersja DMX {} nie jest obsługiwana
+Text ohne Ende	niezakończony ciąg
+unbekannter Attributtyp {}	nieznany typ atrybutu {}
+Im Partikel-Editor öffnen	Otwórz w edytorze cząsteczek
+Aus den Spielinhalten geladen – bitte unter neuem Namen speichern	Wczytano z zawartości gry – zapisz pod nową nazwą
+Indirektes Licht in der Lichtvorschau (GI)	Światło pośrednie w podglądzie oświetlenia (GI)
+Indirektes Licht (GI)	Światło pośrednie (GI)
+Von Wänden zurückgeworfenes Licht, wird im Hintergrund berechnet und laufend verfeinert	Światło odbite od ścian, liczone w tle i stale dopracowywane
+Indirektes Licht: {} %	Światło pośrednie: {} %
+Zuerst Props (Punkt-Entities) auswählen	Najpierw zaznacz propy (encje punktowe)
+Physik: {} fallen – Esc bricht ab	Fizyka: spada {} – Esc anuluje
+Physik abgebrochen	Fizyka anulowana
+Physik: {} liegen nach {} s	Fizyka: {} w spoczynku po {} s
+Vegetation streuen	Rozsiej roślinność
+Vegetation streuen…	Rozsiej roślinność…
+Bäume, Büsche, Steine mit einem Pinsel in 3D verteilen	Maluj drzewa, krzaki i skały w 3D pędzlem
+Mit Physik fallen lassen	Zrzuć z fizyką
+Noch keine Modelle – im Modell-Browser eines wählen und hier hinzufügen.	Jeszcze brak modeli – wybierz jeden w przeglądarce modeli i dodaj go tutaj.
++ Aktuelles Modell	+ Bieżący model
+Verteilung	Rozkład
+Pinselradius	Promień pędzla
+Dichte	Gęstość
+Objekte je 256 × 256 Einheiten	Obiekty na 256 × 256 jednostek
+Mindestabstand	Minimalny odstęp
+Größte Neigung	Maksymalne nachylenie
+Steilere Hänge bleiben frei	Bardziej strome zbocza zostają puste
+Zufällige Neigung	Losowe przechylenie
+Einsinken	Zagłębienie
+Wie tief die Modelle in den Boden ragen (Wurzeln, Steine)	Jak głęboko modele sięgają w podłoże (korzenie, skały)
+Zufällig drehen	Losowy obrót
+An der Oberfläche ausrichten	Wyrównaj do powierzchni
+Pinsel aktiv – in 3D malen, Shift radiert	Pędzel aktywny – maluj w 3D, Shift usuwa
+Auswahl füllen	Wypełnij zaznaczenie
+Oberseiten der ausgewählten Brushes und Displacements bestreuen	Rozsiej na górnych ścianach zaznaczonych brushy i displacementów
+Ein Pinselstrich ist ein Rückgängig-Schritt	Jedno pociągnięcie pędzla to jeden krok cofania
+{} gestreut	Rozsiano: {}
+Labyrinth	Labirynt
+Stadtblock	Kwartał miasta
+Stadt	Miasto
+Kreis	Pierścień
+Prozedurale Generatoren	Generatory proceduralne
+Prozedurale Generatoren…	Generatory proceduralne…
+Labyrinth, Räume mit Gängen, Stadtblock, Kreis-Anordnung	Labirynt, pomieszczenia z korytarzami, kwartał miasta, układ w pierścień
+Zufälliges Labyrinth mit Eingang und Ausgang.	Losowy labirynt z wejściem i wyjściem.
+Räume mit Gängen, geschlossen und sofort kompilierbar (mit Licht und Spawnpunkt).	Pomieszczenia z korytarzami, szczelne i gotowe do kompilacji (ze światłami i punktem spawnu).
+Straßenraster mit Häusern zufälliger Höhe.	Siatka ulic z budynkami o losowej wysokości.
+Die Auswahl im Kreis um ihren Mittelpunkt vervielfältigen.	Powtórz zaznaczenie po okręgu wokół jego środka.
+Zellen (Breite)	Komórki (szerokość)
+Zellen (Tiefe)	Komórki (głębokość)
+Gangbreite	Szerokość korytarza
+Raumgröße min. (Zellen)	Min. rozmiar pomieszczenia (komórki)
+Raumgröße max. (Zellen)	Maks. rozmiar pomieszczenia (komórki)
+Gangbreite (Zellen)	Szerokość korytarza (komórki)
+Rastergröße (Zellen)	Rozmiar siatki (komórki)
+Zellgröße	Rozmiar komórki
+Blöcke (Breite)	Kwartały (szerokość)
+Blöcke (Tiefe)	Kwartały (głębokość)
+Blockgröße	Rozmiar kwartału
+Straßenbreite	Szerokość ulicy
+Haushöhe	Wysokość budynków
+Anzahl (mit Original)	Liczba (z oryginałem)
+Winkelbereich	Zakres kąta
+Raumhöhe	Wysokość pomieszczeń
+Zufallszahl	Ziarno
+Würfeln	Losuj
+Licht in jedem Raum, Spawnpunkt im ersten	Światło w każdym pomieszczeniu, punkt spawnu w pierwszym
+Wände bekommen die aktuelle Textur, der Boden die zweite des Generators. Eingefügt wird dort, wohin die 3D-Kamera blickt.	Ściany dostają bieżącą teksturę, podłoga drugą teksturę generatora. Wstawiane tam, gdzie patrzy kamera 3D.
+Erzeugen	Generuj
+Erst Objekte auswählen	Najpierw zaznacz obiekty
+Ein Rückgängig-Schritt; das Ergebnis ist gruppiert	Jeden krok cofania; wynik jest zgrupowany
+{} im Kreis angeordnet	Ułożono w pierścień: {}
+Tile-Set	Zestaw kafli
+Tile-Set…	Zestaw kafli…
+Bausteine auf einem Raster setzen: Boden, Wand, Ecke, Tür, Treppe …	Układaj elementy na siatce: podłoga, ściana, narożnik, drzwi, schody…
+Bausteine · Innenraum	Elementy · wnętrze
+Boden	Podłoga
+Wand	Ściana
+Ecke	Narożnik
+Sackgasse	Ślepy zaułek
+Gang	Korytarz
+Tür	Drzwi
+Fenster	Okno
+Nur Boden (und Decke)	Tylko podłoga (i sufit)
+Boden mit einer Wand	Podłoga z jedną ścianą
+Zwei Wände über Eck	Dwie ściany w narożniku
+Drei Wände	Trzy ściany
+Zwei gegenüberliegende Wände	Dwie przeciwległe ściany
+Wand mit Durchgang	Ściana z otworem drzwiowym
+Wand mit Fensteröffnung	Ściana z otworem okiennym
+Boden mit Säule in der Mitte	Podłoga z filarem pośrodku
+Stufen bis zur nächsten Ebene	Stopnie na następny poziom
+Drehung	Obrót
+(R in der 3D-Ansicht)	(R w widoku 3D)
+Feldgröße	Rozmiar komórki
+Bauebene (Höhe)	Poziom (wysokość)
+Eine Etage höher	Piętro wyżej
+tiefer	niżej
+Mit Decke	Z sufitem
+Wände: aktuelle Textur	Ściany: bieżąca tekstura
+Boden: aktuelle Textur	Podłoga: bieżąca tekstura
+Setzen aktiv – in 3D klicken oder ziehen, Shift entfernt	Umieszczanie aktywne – kliknij lub przeciągnij w 3D, Shift usuwa
+Jeder Baustein ist eine Gruppe aus Brushes	Każdy element to grupa brushy
+{} gesetzt ({}°)	Umieszczono: {} ({}°)
+Warnung: {} Polygon-Mesh(es) noch nicht zum Modell kompiliert (Werkzeuge → Polygon-Mesh…): {}	Uwaga: siatki wielokątów ({}) nie są jeszcze skompilowane do modelu (Narzędzia → Siatka wielokątów…): {}
+Freie Netze: aus Brushes erstellen oder OBJ importieren, Punkte und Flächen ziehen, extrudieren	Swobodne siatki: utwórz z brushy lub zaimportuj OBJ, przeciągaj wierzchołki i ściany, wyciągaj
+Eine Displacement-Fläche mit 16 Kontrollpunkten glatt biegen	Płynnie wygnij powierzchnię displacementu 16 punktami kontrolnymi
+Erst Brushes auswählen	Najpierw zaznacz brushe
+Mesh aus {} Brush(es) erstellt	Utworzono siatkę z brushy: {}
+Erst Flächen auswählen	Najpierw zaznacz ściany
+Erst eine Fläche oder einen Brush auswählen	Najpierw zaznacz ścianę lub brush
+Die Fläche braucht genau vier Ecken	Ściana musi mieć dokładnie cztery narożniki
+Bezier-Patch: Kontrollpunkte in der 3D-Ansicht ziehen	Płat Béziera: przeciągaj punkty kontrolne w widoku 3D
+Bearbeite {}: {} · {} · {} gewählt	Edycja {}: {} · {} · zaznaczono {}
+Freie Netze mit beliebiger Form. Sie gehören zu einem prop_static und werden beim Kompilieren zum Modell; die Netzdaten liegen neben der VMF in <map>.meshes.json.	Swobodne siatki dowolnego kształtu. Każda należy do prop_static i jest kompilowana do modelu; dane siatki są zapisywane obok VMF w <map>.meshes.json.
+Einheit der Datei	Jednostki pliku
+Ein Bezier-Patch biegt eine Displacement-Fläche mit 16 Kontrollpunkten glatt – für Bögen, Wellen, Röhrenstücke und Kuppeln. Das Ergebnis ist ein normales Displacement.	Płat Béziera płynnie wygina powierzchnię displacementu 16 punktami kontrolnymi – na łuki, fale, odcinki rur i kopuły. Wynikiem jest zwykły displacement.
+{} von 16 Kontrollpunkten gewählt	Zaznaczono {} z 16 punktów kontrolnych
+Modell vorhanden – nach Änderungen neu kompilieren.	Model istnieje – po zmianach skompiluj ponownie.
+Noch nicht kompiliert: vor dem Kompilieren der Map nötig.	Jeszcze nieskompilowane: wymagane przed kompilacją mapy.
+Kein Mesh gewählt	Nie zaznaczono siatki
+Griffe in der 3D-Ansicht ziehen · Shift fügt hinzu · Esc beendet	Przeciągaj uchwyty w widoku 3D · Shift dodaje · Esc kończy
+Bezier-Patch · Punkte ziehen, Shift fügt hinzu, Rahmen wählt mehrere	Płat Béziera · przeciągaj punkty, Shift dodaje, ramka zaznacza kilka
+Mesh bearbeiten · Punkte ziehen, Shift fügt hinzu, Rahmen wählt mehrere	Edycja siatki · przeciągaj punkty, Shift dodaje, ramka zaznacza kilka
+Gewählte Flächen um den Abstand herausziehen (neue Seitenflächen)	Wyciągnij zaznaczone ściany o podaną odległość (nowe ściany boczne)
+Punkte zum Mittel ihrer Nachbarn ziehen (ohne Auswahl: alle)	Przesuń wierzchołki w stronę średniej sąsiadów (bez zaznaczenia: wszystkie)
+Jede Fläche in Vierecke teilen (für feinere Formen)	Podziel każdą ścianę na czworokąty (dla drobniejszych kształtów)
+Vorder- und Rückseite der Flächen tauschen	Zamień przód i tył ścian
+Gewählte Flächen entfernen (Entf)	Usuń zaznaczone ściany (Del)
+Alle Punkte bzw. Flächen (Strg+A)	Wszystkie wierzchołki lub ściany (Ctrl+A)
+Aktuelle Textur zuweisen	Nałóż bieżącą teksturę
+Auf die gewählten Flächen, ohne Auswahl auf das ganze Mesh	Na zaznaczone ściany, bez zaznaczenia na całą siatkę
+Ausgewähltes Mesh bearbeiten	Edytuj zaznaczoną siatkę
+Aus ausgewählten Brushes erstellen	Utwórz z zaznaczonych brushy
+Die Brushes werden durch ein Mesh ersetzt (Displacements als Raster)	Brushe zostaną zastąpione siatką (displacementy jako siatka)
+OBJ-Datei wählen…	Wybierz plik OBJ…
+Wavefront OBJ mit Flächen (v, f, usemtl); eingefügt dort, wohin die 3D-Kamera blickt	Wavefront OBJ ze ścianami (v, f, usemtl); wstawiany tam, gdzie patrzy kamera 3D
+Flach zurücksetzen	Spłaszcz
+Alle Punkte auf die Ebene der vier Ecken	Wszystkie punkty na płaszczyznę czterech narożników
+Patch auf Auswahl beginnen	Rozpocznij płat na zaznaczeniu
+Gewählte Fläche (Flächen-Werkzeug) oder Oberseite des gewählten Brushes; ohne Displacement wird eines angelegt	Zaznaczona ściana (narzędzie ścian) lub góra zaznaczonego brusha; jeśli nie ma displacementu, zostanie utworzony
+SMD/QC schreiben und studiomdl starten (Spielverzeichnis aus den Einstellungen)	Zapisz SMD/QC i uruchom studiomdl (folder gry z ustawień)
+Extrudieren	Wyciągnij
+Umdrehen	Odwróć
+Punkte	Wierzchołki
+Modell	Model
+OBJ importieren	Importuj OBJ
+Source-Einheiten	Jednostki Source
+Meter	Metry
+Zentimeter	Centymetry
+Y zeigt nach oben (Blender-Export)	Y w górę (eksport z Blendera)
+Polygon-Mesh…	Siatka wielokątów…
+Bezier-Patch…	Płat Béziera…
+Polygon-Mesh / Bezier-Patch	Siatka wielokątów / płat Béziera
+Polygon-Mesh	Siatka wielokątów
+Bezier-Patch	Płat Béziera
+Kompiliert …	Kompilowanie…
+Zum Modell kompilieren	Kompiluj do modelu
+OBJ importiert: {}	Zaimportowano OBJ: {}
+info_particle_system zeigt seinen Effekt (bis 3000 Einheiten um die Kamera, vereinfachte Simulation)	info_particle_system odtwarza swój efekt (do 3000 jednostek wokół kamery, uproszczona symulacja)
+Partikel-Effekte abspielen	Odtwarzaj efekty cząsteczkowe
+Partikel	Cząsteczki
+Live-Abgleich mit dem Spiel…	Synchronizacja na żywo z grą…
+Änderungen sofort im laufenden Garry's Mod sehen, ohne neu zu kompilieren	Zobacz zmiany od razu w uruchomionym Garry's Mod, bez ponownej kompilacji
+Im Spiel testen ab 3D-Kamera	Testuj w grze z kamery 3D
+Begehen (im Editor spielen)	Chodzenie (graj w edytorze)
+Begehen · WASD · Leertaste springt · Strg duckt · Esc beendet	Chodzenie · WASD · Spacja skacze · Ctrl kuca · Esc kończy
+Begehen: WASD laufen, Leertaste springen, Strg ducken, Esc beendet	Chodzenie: WASD ruch, Spacja skok, Ctrl kucanie, Esc wyjście
+Live-Brücke installiert – wirkt nach dem nächsten Start von Garry's Mod	Zainstalowano most na żywo – działa po następnym uruchomieniu Garry's Mod
+Live-Abgleich mit dem Spiel	Synchronizacja na żywo z grą
+Änderungen erscheinen sofort im laufenden Garry's Mod, ohne neu zu kompilieren: Entities verschieben, Werte ändern, neue Props und Entities, Löschen. Neue oder geänderte Brushes erscheinen als begehbare Vorschau.	Zmiany pojawiają się od razu w uruchomionym Garry's Mod bez ponownej kompilacji: przesuwanie encji, zmiana wartości, nowe propy i encje, usuwanie. Nowe lub zmienione brushe pojawiają się jako podgląd, po którym można chodzić.
+Brücke nicht installiert	Most nie jest zainstalowany
+Brücke veraltet – neu installieren	Most nieaktualny – zainstaluj ponownie
+Kein Spiel verbunden – Map in Garry's Mod starten (Einzelspieler)	Brak połączonej gry – uruchom mapę w Garry's Mod (jeden gracz)
+Das Spiel nutzt noch Brücke {} – Garry's Mod neu starten, damit die neue geladen wird.	Gra nadal używa mostu {} – uruchom ponownie Garry's Mod, aby wczytać nowy.
+Verbunden: {} · Spieler bei {} {} {}	Połączono: {} · gracz w {} {} {}
+Brücke installieren	Zainstaluj most
+Legt addons/amboss_live an; danach Garry's Mod einmal neu starten.	Tworzy addons/amboss_live; potem raz uruchom ponownie Garry's Mod.
+Testen	Testowanie
+Kompilieren; der Spieler startet dort, wo die 3D-Kamera steht. Läuft das Spiel schon, wird die Map dort neu geladen.	Kompiluje; gracz startuje tam, gdzie jest kamera 3D. Jeśli gra już działa, mapa zostanie tam wczytana ponownie.
+Spieler zur 3D-Kamera	Gracz do kamery 3D
+3D-Kamera zum Spieler	Kamera 3D do gracza
+Noclip an/aus	Przełącz noclip
+3D-Kamera folgt dem Spieler	Kamera 3D podąża za graczem
+Abgleich	Synchronizacja
+Änderungen automatisch übertragen	Wysyłaj zmiany automatycznie
+Jetzt übertragen	Wyślij teraz
+Map neu laden	Wczytaj mapę ponownie
+Lädt die zuletzt kompilierte Map im Spiel neu (live übertragene Änderungen gehen verloren)	Wczytuje ponownie w grze ostatnio skompilowaną mapę (zmiany na żywo przepadają)
+Spielstand = jetzige Map	Stan gry = bieżąca mapa
+Wenn die Map im Spiel genau dem jetzigen Stand entspricht (z. B. außerhalb von Amboss kompiliert)	Gdy mapa w grze dokładnie odpowiada bieżącemu stanowi (np. skompilowana poza Amboss)
+Noch kein Bezug: beim Verbinden gilt der jetzige Stand als das, was im Spiel geladen ist.	Brak punktu odniesienia: przy połączeniu przyjmuje się, że bieżący stan jest tym, co wczytano w grze.
+Übertragen: {} geändert · {} neu · {} entfernt · {} Brush-Vorschau	Wysłano: zmienione {} · nowe {} · usunięte {} · podgląd brushy {}
+{} gelöschte Brushes	Usunięte brushe: {}
+Braucht Kompilieren: {}	Wymaga kompilacji: {}
+Input auslösen	Wyzwól wejście
+Ziel (targetname)	Cel (targetname)
+Input	Wejście
+Auslösen	Wyzwól
+Letzter Fehler im Spiel: {}	Ostatni błąd w grze: {}
+Nur im Einzelspieler bzw. auf dem eigenen Server	Tylko gra jednoosobowa lub własny serwer
+Verbunden mit {} – Bezug ist der jetzige Stand der Map	Połączono z {} – punktem odniesienia jest bieżący stan mapy
+Map geladen: {}	Wczytano mapę: {}
+Fehler im Spiel: {}	Błąd w grze: {}
+Bezug gesetzt: jetziger Stand der Map	Ustawiono punkt odniesienia: bieżący stan mapy
+Installiert: {}	Zainstalowano: {}
+Spieler	Gracz
+Himmel-Vorschau (2D-Himmel und 3D-Skybox)	Podgląd nieba (niebo 2D i skybox 3D)
+In 2D eine Schnittlinie ziehen oder in 3D drei Punkte auf Flächen anklicken (schräge Schnitte). Beide/Vorne/Hinten bestimmt, welche Teile bleiben. Enter schneidet.	Przeciągnij linię cięcia w 2D lub kliknij trzy punkty na powierzchniach w 3D (cięcia ukośne). Obie/Przód/Tył określa, co zostaje. Enter tnie.
+Nebel (env_fog_controller)	Mgła (env_fog_controller)
+Nebel	Mgła
+Himmel	Niebo
+Clip: Punkt {} von 3 – auf Flächen klicken	Cięcie: punkt {} z 3 – klikaj na powierzchnie
+Clip-Ebene steht – Enter schneidet, Shift+X wechselt die Seite	Ustawiono płaszczyznę cięcia – Enter tnie, Shift+X zmienia stronę
+Die drei Punkte liegen auf einer Linie – neu setzen	Trzy punkty leżą na jednej linii – ustaw je ponownie
+6 · Gelände mit Displacements	6 · Teren z displacementów
+Eine Fläche in ein Displacement verwandeln, Hügel malen, glätten und zwei Texturen überblenden.	Zamień ścianę w displacement, maluj wzgórza, wygładzaj je i mieszaj dwie tekstury.
+Was sind Displacements?	Czym są displacementy?
+Ein Displacement verwandelt eine flache Brush-Fläche in ein feines Raster, dessen Punkte du verschieben kannst – so entstehen Hügel, Täler, Höhlenwände und Wege. Displacements dichten die Map nicht ab: darunter muss immer noch ein Brush oder die Skybox liegen.	Displacement zamienia płaską ścianę brusha w gęstą siatkę, której punkty można przesuwać – tak powstają wzgórza, doliny, ściany jaskiń i ścieżki. Displacementy nie uszczelniają mapy: pod spodem nadal musi być brush lub skybox.
+Eine Bodenplatte	Płyta podłoża
+Baue mit dem Block-Werkzeug (Shift+B) eine große, flache Platte, etwa 1024 × 1024 Einheiten und 16 hoch. Tipp: Die Textur „NATURE/BLENDGRASSGRAVEL001A“ mischt später Gras und Kies.	Narzędziem bloku (Shift+B) zbuduj dużą, płaską płytę, ok. 1024 × 1024 jednostek i 16 wysokości. Wskazówka: tekstura „NATURE/BLENDGRASSGRAVEL001A” później zmiesza trawę i żwir.
+Die Oberseite auswählen	Zaznacz górną ścianę
+Nimm das Textur-Werkzeug (Shift+A) und klicke in der 3D-Ansicht auf die Oberseite der Platte. Nur ausgewählte Flächen werden zu Displacements.	Weź narzędzie tekstur (Shift+A) i kliknij górę płyty w widoku 3D. Tylko zaznaczone ściany stają się displacementami.
+Rechts im Panel unter „Displacement“: Power 3 lassen und „Erstellen“ klicken. Power bestimmt die Feinheit – 2 ist grob, 4 sehr fein (und teuer).	W panelu po prawej w „Displacement”: zostaw potęgę 3 i kliknij „Utwórz”. Potęga określa rozdzielczość – 2 jest zgrubna, 4 bardzo drobna (i kosztowna).
+Einen Hügel malen	Namaluj wzgórze
+Wähle das Terrain-Werkzeug (Shift+P), Modus „Anheben“. Male mit gedrückter linker Maustaste in der 3D-Ansicht über das Gelände. Radius und Stärke stehen im Panel; Strg kehrt Anheben ↔ Absenken um.	Wybierz narzędzie terenu (Shift+P), tryb „Podnieś”. Maluj po terenie w widoku 3D z wciśniętym lewym przyciskiem. Promień i siła są w panelu; Ctrl zamienia podnoszenie ↔ obniżanie.
+Stelle im Panel den Modus „Glätten“ ein und male über steile Kanten – sie werden weicher. Mit gedrückter Strg-Taste wird geschärft. Weitere Modi: Auf Höhe setzen, Rauschen, Terrassen.	Ustaw w panelu tryb „Wygładź” i maluj po stromych krawędziach – złagodnieją. Z wciśniętym Ctrl wyostrza. Więcej trybów: ustaw wysokość, szum, tarasy.
+Texturen überblenden	Mieszanie tekstur
+Mit einer Blend-Textur (zwei Texturen in einer, z. B. Gras und Kies) malst du im Modus „Alpha malen“ die zweite Textur ins Gelände – etwa einen Weg. „Alpha anzeigen“ im Panel macht die Bemalung blau sichtbar.	Teksturą mieszaną (dwie tekstury w jednej, np. trawa i żwir) malujesz drugą teksturę w terenie w trybie „Maluj alfę” – na przykład ścieżkę. „Pokaż alfę” w panelu pokazuje malowanie na niebiesko.
+Noch mehr Gelände-Werkzeuge	Więcej narzędzi terenu
+Im Panel findest du außerdem: Rauschen (zufällige Unebenheit), Nähen (Kanten benachbarter Displacements angleichen), Unterteilen (macht z. B. aus einem Würfel eine Kugel) und das Ändern der Power ohne Formverlust. Große Landschaften entstehen schnell mit Map → „Gelände aus Heightmap…“.	Panel ma też: szum (losowe nierówności), zszywanie (dopasowanie krawędzi sąsiednich displacementów), podział (zamienia np. sześcian w kulę) i zmianę potęgi bez utraty kształtu. Duże krajobrazy szybko zrobisz przez Mapa → „Teren z mapy wysokości…”.
+7 · Licht, Himmel und Nebel	7 · Światło, niebo i mgła
+Lichtvorschau nutzen, Sonne und Himmel einrichten, indirektes Licht, Nebel und einen Partikel-Effekt.	Użyj podglądu światła, ustaw słońce i niebo, światło pośrednie, mgłę i efekt cząsteczkowy.
+Die Lichtvorschau	Podgląd światła
+Klicke oben links in der 3D-Ansicht auf „3D · Texturiert“ und wähle „Lichtvorschau“. Jetzt siehst du die Lichter der Map mit Schatten – ohne zu kompilieren.	Kliknij „3D · Teksturowany” w lewym górnym rogu widoku 3D i wybierz „Podgląd światła”. Teraz widzisz światła mapy z cieniami – bez kompilacji.
+Die Sonne: light_environment	Słońce: light_environment
+Für Außenbereiche setzt du genau ein „light_environment“ (Entity-Werkzeug, Shift+E). Sein Winkel „Pitch“ bestimmt, wie hoch die Sonne steht; „Ambient“ hellt die Schatten auf.	Na otwartym terenie umieszczasz dokładnie jedno „light_environment” (narzędzie encji, Shift+E). Kąt „Pitch” ustala, jak wysoko jest słońce; „Ambient” rozjaśnia cienie.
+Der Himmel	Niebo
+Öffne die Map-Eigenschaften (nichts auswählen, dann „Map-Eigenschaften“ im Panel) und trage bei „skyname“ einen Himmel ein, z. B. „sky_day01_05“. Flächen mit TOOLS/TOOLSSKYBOX zeigen im Spiel diesen Himmel – mit Ansicht → „Himmel-Vorschau“ auch im Editor.	Otwórz właściwości mapy (nic nie zaznaczaj, potem „Właściwości mapy” w panelu) i wpisz niebo w „skyname”, np. „sky_day01_05”. Ściany z TOOLS/TOOLSSKYBOX pokazują to niebo w grze – a w edytorze przez Widok → „Podgląd nieba”.
+Indirektes Licht	Światło pośrednie
+Licht prallt im Spiel von Wänden ab und färbt die Umgebung. Schalte es in der Lichtvorschau ein: Ansicht → „Indirektes Licht in der Lichtvorschau (GI)“. Die Berechnung läuft im Hintergrund und wird immer feiner.	W grze światło odbija się od ścian i barwi otoczenie. Włącz je w podglądzie: Widok → „Światło pośrednie w podglądzie oświetlenia (GI)”. Jest liczone w tle i stale się wyostrza.
+Setze ein „env_fog_controller“, stelle „Fog Enable“ auf Ja und wähle Farbe, Start und Ende. Entfernte Flächen verschwinden im Nebel – das sieht stimmungsvoll aus und spart Leistung.	Umieść „env_fog_controller”, ustaw „Fog Enable” na Yes i wybierz kolor, początek i koniec. Odległe ściany znikają we mgle – to klimatyczne i oszczędza wydajność.
+Ein Partikel-Effekt	Efekt cząsteczkowy
+Setze ein „info_particle_system“ und wähle bei „Particle System Name“ einen Effekt, z. B. „fire_small_01“ (Partikel-Browser über „…“). Der Effekt läuft direkt im 3D-Fenster; „Start Active“ lässt ihn im Spiel von Anfang an laufen.	Umieść „info_particle_system” i wybierz efekt w „Particle System Name”, np. „fire_small_01” (przeglądarka cząsteczek przez „…”). Efekt odtwarza się od razu w widoku 3D; „Start Active” sprawia, że w grze działa od początku.
+8 · Feinarbeit: Vertex, Clip, Overlays	8 · Praca nad detalami: wierzchołki, cięcie, overlaye
+Eckpunkte verschieben, schräg schneiden mit drei Punkten, Overlays und Decals auftragen.	Przesuwaj wierzchołki, tnij ukośnie trzema punktami, nakładaj overlaye i kalkomanie.
+Das Vertex-Werkzeug	Narzędzie wierzchołków
+Wähle einen Block und drücke Shift+V. An den Ecken erscheinen Griffe: Ziehe einen oberen Eckpunkt in einer 2D-Ansicht zur Seite – so entstehen Schrägen und Dächer. Ungültige Formen (nicht konvex) lehnt Amboss ab.	Zaznacz blok i naciśnij Shift+V. W narożnikach pojawią się uchwyty: przeciągnij górny wierzchołek w bok w widoku 2D – tak powstają skosy i dachy. Amboss odrzuca nieprawidłowe (niewypukłe) kształty.
+Schräg schneiden mit drei Punkten	Cięcie ukośne trzema punktami
+Wähle einen Block, nimm das Clip-Werkzeug (Shift+X) und klicke in der 3D-Ansicht nacheinander drei Punkte auf seine Flächen. Die Ebene durch die drei Punkte wird als Vorschau gezeigt; Enter schneidet, Shift+X wechselt, welche Seite bleibt.	Zaznacz blok, weź narzędzie przycinania (Shift+X) i kliknij trzy punkty na jego ścianach w widoku 3D. Płaszczyzna przez trzy punkty jest pokazywana w podglądzie; Enter tnie, Shift+X zmienia, która strona zostaje.
+Ein Overlay	Overlay
+Overlays sind Bilder, die auf Flächen liegen – Schilder, Risse, Wegmarkierungen. Wähle rechts bei den Texturen eine Overlay-Textur, nimm das Overlay-Werkzeug (Shift+O) und klicke auf eine Fläche. Mit den runden Griffen änderst du Größe und Drehung.	Overlaye to obrazy leżące na ścianach – szyldy, pęknięcia, oznaczenia na drodze. Wybierz teksturę overlay po prawej, weź narzędzie overlay (Shift+O) i kliknij ścianę. Okrągłe uchwyty zmieniają rozmiar i obrót.
+Ein Decal	Kalkomania
+Decals sind kleine Bilder wie Einschusslöcher oder Flecken. Nimm das Decal-Werkzeug (Shift+D), wähle eine Textur aus „decals/…“ und klicke auf eine Wand. Anders als Overlays haben Decals eine feste Größe.	Kalkomanie to małe obrazki, np. dziury po kulach czy plamy. Weź narzędzie kalkomanii (Shift+D), wybierz teksturę z „decals/…” i kliknij ścianę. W przeciwieństwie do overlayów kalkomanie mają stały rozmiar.
+Sauber arbeiten	Czysta praca
+Hilfreich für die Feinarbeit: Alt+V rastet an Eckpunkten anderer Objekte ein, Alt+G schaltet das Raster-Einrasten ab, H blendet die Auswahl aus, und mit Strg+G gruppierst du Teile, die zusammengehören.	Przydatne przy detalach: Alt+V przyciąga do wierzchołków innych obiektów, Alt+G wyłącza przyciąganie do siatki, H ukrywa zaznaczenie, a Ctrl+G grupuje elementy, które do siebie należą.
+9 · Schneller bauen und testen	9 · Buduj szybciej i testuj
+Fertige Bauteile aus der Prefab-Bibliothek, Räume per Generator, durch die Map laufen und im Spiel testen.	Gotowe elementy z biblioteki prefabów, pomieszczenia z generatora, chodzenie po mapie i test w grze.
+Die Prefab-Bibliothek	Biblioteka prefabów
+Öffne Datei → Prefabs… Hier liegen fertige Bauteile: Türen mit Knöpfen, Leitern, Lampen, Treppen, ganze Räume. Eigene Prefabs speicherst du aus der Auswahl.	Otwórz Plik → Prefaby… Zawiera gotowe elementy: drzwi z przyciskami, drabiny, lampy, schody, całe pomieszczenia. Własne prefaby zapisujesz z zaznaczenia.
+Ein Prefab einsetzen	Wstaw prefab
+Ziehe eine Kachel in die 3D-Ansicht auf den Boden – das Prefab richtet sich an der Fläche aus. Alternativ: Kachel anklicken, dann in eine Ansicht klicken (Shift = mehrmals).	Przeciągnij kafelek na podłogę w widoku 3D – prefab dopasuje się do ściany. Albo: kliknij kafelek, potem kliknij w widoku (Shift = kilka razy).
+Räume per Generator	Pomieszczenia z generatora
+Werkzeuge → Prozedurale Generatoren… erzeugt Labyrinthe, Räume mit Gängen oder ganze Stadtblöcke – abgedichtet und sofort kompilierbar. Probiere „Räume“ mit „Erzeugen“; ein Rückgängig-Schritt nimmt alles wieder weg.	Narzędzia → Generatory proceduralne… tworzy labirynty, pomieszczenia z korytarzami lub całe kwartały miasta – szczelne i gotowe do kompilacji. Wypróbuj „Pomieszczenia” z „Generuj”; jeden krok cofania usuwa wszystko.
+Durch die Map laufen	Chodzenie po mapie
+Drücke F6: Jetzt läufst du mit Spielergröße durch die Map – WASD, Leertaste springt, Strg duckt. So prüfst du schnell, ob Türen breit genug und Stufen nicht zu hoch sind. Esc beendet.	Naciśnij F6: teraz chodzisz po mapie w rozmiarze gracza – WASD, Spacja skacze, Ctrl kuca. Szybko sprawdzisz, czy drzwi są dość szerokie, a stopnie nie za wysokie. Esc kończy.
+Im Spiel testen	Test w grze
+Shift+F9 kompiliert und startet Garry's Mod so, dass du dort stehst, wo die 3D-Kamera ist. Mit Kompilieren → „Live-Abgleich mit dem Spiel…“ erscheinen Änderungen sogar sofort im laufenden Spiel.	Shift+F9 kompiluje i uruchamia Garry's Mod, a ty stoisz tam, gdzie kamera 3D. Z Kompiluj → „Synchronizacja na żywo z grą…” zmiany pojawiają się nawet od razu w działającej grze.
+Tutorial	Samouczek
+Tutorial…	Samouczek…
+Kapitel 1–5 führen Schritt für Schritt durch die erste Map, Kapitel 6–9 zeigen weitere Werkzeuge. Jeder Schritt prüft selbst, ob er erledigt ist – und mit „Zeig es mir“ macht Amboss ihn vor.	Rozdziały 1–5 prowadzą krok po kroku przez pierwszą mapę, rozdziały 6–9 pokazują kolejne narzędzia. Każdy krok sam sprawdza, czy został wykonany – a z „Pokaż mi” Amboss go zademonstruje.
+Deine erste Map ist fertig. In Garry's Mod lädst du sie auch über die Konsole: „map <name>“. Weiter geht es mit den nächsten Kapiteln: Gelände mit Displacements, Licht und Himmel, Feinarbeit und schneller bauen.	Twoja pierwsza mapa jest gotowa. W Garry's Mod możesz ją też wczytać z konsoli: „map <nazwa>”. Dalej kolejne rozdziały: teren z displacementów, światło i niebo, praca nad detalami i szybsze budowanie.
+Map-Editor für Source · Version {}	Edytor map dla Source · wersja {}
+Version – Hilfe → Über Amboss	Wersja – Pomoc → O programie Amboss
+auslösende Entity	encja aktywująca
+sendende Entity	encja wywołująca
+diese Entity	ta encja
+Spieler-Blickziel	cel, w który celuje gracz
+Räume mit eigener Höhe und Bodenstufe, verbunden durch Gänge mit Treppen – geschlossen und sofort kompilierbar (mit Licht und Spawnpunkt).	Pomieszczenia z własną wysokością i poziomem podłogi, połączone korytarzami ze schodami – szczelne i gotowe do kompilacji (ze światłem i punktem spawnu).
+Ganghöhe	Wysokość korytarzy
+Höhenstufen	Poziomy podłóg
+Wie viele Stufen Böden nach oben und unten springen dürfen (0 = alle gleich hoch)	O ile stopni podłogi mogą się podnosić lub obniżać (0 = wszystkie na tej samej wysokości)
+Aktuelle Textur übernehmen: {}	Użyj bieżącej tekstury: {}
+Jeder Raum und jeder Gang wird eine eigene Gruppe – einzeln anklicken, verschieben oder mit Strg+U auflösen. Eingefügt wird dort, wohin die 3D-Kamera blickt.	Każde pomieszczenie i każdy korytarz to osobna grupa – klikaj, przesuwaj lub rozgrupowuj (Ctrl+U) pojedynczo. Wstawiane tam, gdzie patrzy kamera 3D.
+Eingefügt wird dort, wohin die 3D-Kamera blickt.	Wstawiane tam, gdzie patrzy kamera 3D.
+Wände	Ściany
+Decke	Sufit
+← aktuelle	← bieżąca
+Bild	Obraz
+Rausch-Generator	Generator szumu
+Hügelgröße	Wielkość wzgórz
+Detail-Lagen	Warstwy detalu
+Rauheit	Chropowatość
+Talboden	Dno doliny
+Startwert	Ziarno
+Bergkämme	Grzbiety
+Ränder flach	Płaskie krawędzie
+Als PNG speichern…	Zapisz jako PNG…
+16-Bit-Graustufenbild, z. B. zum Weiterbearbeiten	Obraz w skali szarości 16-bit, np. do dalszej obróbki
+Klein = viele kleine Hügel, groß = wenige weite Berge	Mało = wiele małych wzgórz, dużo = kilka szerokich gór
+Alles unterhalb dieser Höhe wird flach – gut für begehbare Täler	Wszystko poniżej tej wysokości staje się płaskie – dobre na doliny do chodzenia
+Heightmap gespeichert: {}	Zapisano mapę wysokości: {}
+Eine Fläche in ein Displacement verwandeln, Hügel malen, Texturen überblenden – und große Landschaften aus einer Heightmap oder per Rausch-Generator.	Zamień ścianę w displacement, maluj wzgórza, mieszaj tekstury – i duże krajobrazy z mapy wysokości lub generatorem szumu.
+Große Landschaften: Heightmap	Duże krajobrazy: mapa wysokości
+Für große Gelände malst du nicht jede Kachel einzeln: Map → „Gelände aus Heightmap…“ macht aus einem Graustufenbild (Weiß = hoch, Schwarz = tief) ein Gelände aus vielen nahtlosen Displacement-Kacheln. Kantenlänge, Höhe, Kacheln und Power stellst du im Dialog ein.	Dużego terenu nie maluje się kafelek po kafelku: Mapa → „Teren z mapy wysokości…” zamienia obraz w skali szarości (biel = wysoko, czerń = nisko) w teren z wielu bezszwowych kafelków displacementu. W oknie ustawisz długość krawędzi, wysokość, kafelki i potęgę.
+Gelände per Rauschen	Teren z szumu
+Kein Bild zur Hand? Wähle oben im Dialog „Rauschen“: Amboss erzeugt das Höhenbild selbst. Hügelgröße, Rauheit, Talboden, Bergkämme und Terrassen formen die Landschaft, „Würfeln“ liefert eine neue Form. Mit „Gelände erstellen“ landet es in der Map – „Als PNG speichern…“ hebt das Bild für später auf.	Nie masz obrazu? Wybierz „Szum” u góry okna: Amboss sam utworzy obraz wysokości. Wielkość wzgórz, chropowatość, dno doliny, grzbiety i tarasy kształtują krajobraz, „Losuj” daje nowy kształt. „Utwórz teren” wstawia go do mapy – „Zapisz jako PNG…” zachowuje obraz na później.
+Im Panel findest du außerdem: Rauschen (zufällige Unebenheit), Nähen (Kanten benachbarter Displacements angleichen), Unterteilen (macht z. B. aus einem Würfel eine Kugel) und das Ändern der Power ohne Formverlust.	Panel ma też: szum (losowe nierówności), zszywanie (dopasowanie krawędzi sąsiednich displacementów), podział (zamienia np. sześcian w kulę) i zmianę potęgi bez utraty kształtu.
+{}: {} in {} Gruppen	{}: {} w grupach: {}
+Abstand der Räume (Zellen)	Odstęp pomieszczeń (komórki)
+Windungen	Kręcenie
+0 = möglichst gerade Gänge, 1 = mehr Abbiegungen; zwischen zwei Abbiegungen liegt immer ein längeres gerades Stück	0 = korytarze możliwie proste, 1 = więcej zakrętów; między dwoma zakrętami zawsze jest dłuższy prosty odcinek
+Zusätzliche Verbindungen	Dodatkowe połączenia
+Mehr Verbindungen ergeben Schleifen und Kreuzungen; 0 = jeder Raum genau über einen Weg erreichbar	Więcej połączeń tworzy pętle i skrzyżowania; 0 = każde pomieszczenie osiągalne dokładnie jedną drogą
+Räume mit eigener Höhe und Bodenstufe, kurze Treppen an den Türen, Gänge mit langen Geraden, runden Kurven und Abzweigungen, dünne Wände – jedes Raumpaar höchstens einmal verbunden, geschlossen und sofort kompilierbar (mit Licht und Spawnpunkt).	Pomieszczenia z własną wysokością i poziomem podłogi, krótkie schody przy drzwiach, korytarze z długimi prostymi, okrągłymi łukami i rozwidleniami, cienkie ściany – każda para pomieszczeń połączona najwyżej raz, szczelne i gotowe do kompilacji (ze światłem i punktem spawnu).
+Abbiegungen	Zakręty
+als runde Kurve	jako okrągły łuk
+Ecken der Gänge werden zu Kurven mit runder Außen- und Innenwand, wo Platz ist; sonst bleibt eine gerade Ecke	Narożniki korytarzy stają się łukami z okrągłą ścianą zewnętrzną i wewnętrzną, gdzie jest miejsce; w przeciwnym razie zostaje kąt prosty
+Zellen	komórki
+Innenradius der Kurve; 0 = nur die Außenwand rund	Promień wewnętrzny łuku; 0 = tylko ściana zewnętrzna jest okrągła
+Wände sitzen als dünne Platte am Rand der Zelle, unabhängig von der Zellgröße (höchstens eine halbe Zelle)	Ściany to cienkie płyty na krawędzi komórki, niezależnie od rozmiaru komórki (najwyżej pół komórki)
+2D: bei Auswahl andere Ebenen abdunkeln	2D: przyciemnij inne poziomy, gdy coś jest zaznaczone
+Objekte, die nicht auf derselben Tiefe wie die Auswahl liegen (±10 Einheiten), werden blasser gezeichnet. Oben: gleiche Höhe (Z), Vorne: gleiches X, Seite: gleiches Y.	Obiekty, które nie leżą na tej samej głębokości co zaznaczenie (±10 jednostek), są rysowane bledziej. Góra: ta sama wysokość (Z), Przód: to samo X, Bok: to samo Y.
+Zelle	komórka
+Mittlere Maustaste (Mausrad gedrückt) + Ziehen umsehen, W A S D fliegen, Q/E runter/hoch, Shift beim Umsehen schneller – änderbar unter Einstellungen → Tastenkürzel	Przytrzymaj środkowy przycisk (wciśnij kółko) + przeciągnij, aby się rozglądać, W A S D – lot, Q/E w dół/w górę, Shift przy rozglądaniu = szybciej – zmiana w Ustawienia → Skróty
+Halte in der 3D-Ansicht die mittlere Maustaste (Mausrad drücken) gedrückt und bewege die Maus, um dich umzusehen. Mit W, A, S, D fliegst du dabei herum. Fliege in deinen Raum hinein. (Die Tasten lassen sich unter Einstellungen → Tastenkürzel ändern.)	W widoku 3D przytrzymaj środkowy przycisk myszy (wciśnij kółko) i ruszaj myszą, aby się rozglądać. W, A, S, D służą do latania. Wleć do swojego pomieszczenia. (Klawisze zmienisz w Ustawienia → Skróty.)
+3D-Kamera: Bewegen und Umsehen	Kamera 3D: poruszanie i rozglądanie
+Mittlere Maustaste (Mausrad drücken)	Środkowy przycisk myszy (wciśnięte kółko)
+Rechte Maustaste	Prawy przycisk myszy
+Kamera-Steuerung zurücksetzen	Resetuj sterowanie kamerą
+Ohne gedrückte Umsehen-Taste bewegen die Tasten die Kamera nur ohne Umschalt/Alt – Shift+Buchstabe wählt dann das Werkzeug (z. B. Shift+A = Textur). Beim Umsehen gehören alle Tasten der Kamera.	Bez przytrzymanego przycisku rozglądania klawisze ruszają kamerą tylko bez Shift/Alt – Shift+litera wybiera wtedy narzędzie (np. Shift+A = tekstura). Podczas rozglądania wszystkie klawisze należą do kamery.
+Umsehen	Rozglądanie
+Empfindlichkeit	Czułość
+Maus-Y umkehren	Odwróć oś Y myszy
+Schneller fliegen	Szybszy lot
+Umschalt	Shift
+Alt	Alt
+Vorwärts	Naprzód
+Rückwärts	Wstecz
+Links	W lewo
+Rechts	W prawo
+Hoch	W górę
+Hoch (2. Taste)	W górę (2. klawisz)
+Runter	W dół
+Keine Taste	Brak klawisza
+Flächen-Einstellungen ausblenden	Ukryj ustawienia ściany
+Flächen-Einstellungen anzeigen	Pokaż ustawienia ściany
+Fläche gewählt	zaznaczona ściana
+Flächen gewählt	zaznaczone ściany
+{} Materialien · Klick: auswählen und auf gewählte Flächen anwenden	Materiały: {} · kliknięcie: zaznacz i nałóż na zaznaczone ściany
+Skalierung, Verschiebung, Drehung, Ausrichten, Lightmap …	Skala, przesunięcie, obrót, wyrównanie, lightmapa…
+Zur Maus drehen (mit Vorschau)	Obróć w stronę myszy (z podglądem)
+Erst etwas auswählen, dann Strg+R	Najpierw coś zaznacz, potem Ctrl+R
+Drehen: Maus bewegen (15°-Schritte, Shift = frei) · Linksklick übernehmen · Rechtsklick oder Esc bricht ab	Obrót: ruszaj myszą (co 15°, Shift = swobodnie) · lewy klik zatwierdza · prawy klik lub Esc anuluje
+Modell-Browser öffnen – Modell wählen und „Übernehmen“ setzt es hier ein	Otwórz przeglądarkę modeli – wybierz model, a „Zastosuj” wstawi go tutaj
+Drehen: Linksklick übernimmt · Rechtsklick/Esc bricht ab · Shift = frei	Obrót: lewy klik zatwierdza · prawy klik/Esc anuluje · Shift = swobodnie
+Drehen abgebrochen	Obrót anulowany
+Farbe wählen	Wybierz kolor
+Helligkeit (4. Wert)	Jasność (4. wartość)
+Farbe · Helligkeit	Kolor · jasność
+Umgebung: Farbe · Helligkeit	Otoczenie: kolor · jasność
+fehlt	brak
+vor {} s	{} s temu
+Austausch: {} · out.txt (Server): {} · alive.txt (Client): {}	Wymiana: {} · out.txt (serwer): {} · alive.txt (klient): {}
+Fehlen beide Dateien, obwohl die Map läuft: In der GMod-Konsole „amboss_live_status“ eingeben. Ist dort ein anderer Ordner zu sehen, ist in Amboss ein anderer Spielordner eingetragen als der, aus dem GMod startet.	Jeśli brakuje obu plików, choć mapa działa: wpisz „amboss_live_status” w konsoli GMod. Jeśli pokaże inny folder, Amboss ma ustawiony inny folder gry niż ten, z którego startuje GMod.
+Ziel: ausgewählte Entities	Cel: zaznaczone encje
+Alle Klassen anzeigen (Suche, Favoriten, Gruppen)	Pokaż wszystkie klasy (wyszukiwanie, ulubione, grupy)
+Fehlende Standardwerte ergänzt: {}	Uzupełniono brakujące wartości domyślne: {}
+© 2026 Deadshot · Open Source unter MIT oder Apache-2.0	© 2026 Deadshot · open source na licencji MIT lub Apache-2.0
+Über das Internet ohne Portfreigabe	Przez internet bez przekierowania portów
+1. Schick diesen Einladungscode an deinen Gast:	1. Wyślij ten kod zaproszenia swojemu gościowi:
+2. Antwortcode des Gasts hier einfügen:	2. Wklej tutaj kod odpowiedzi gościa:
+Verbinde… (bis 40 Sekunden). Für weitere Gäste einen neuen Code erstellen.	Łączenie… (do 40 sekund). Dla każdego kolejnego gościa utwórz nowy kod.
+Jeder Gast bekommt einen eigenen Code. Beide Seiten müssen den Code des anderen innerhalb weniger Minuten eingeben.	Każdy gość dostaje własny kod. Obie strony muszą wpisać kod drugiej w ciągu kilku minut.
+Internet-Adresse nicht ermittelbar – dieser Code klappt nur im selben Netz.	Nie udało się ustalić twojego adresu internetowego – ten kod działa tylko w tej samej sieci.
+Einladungscode erstellen	Utwórz kod zaproszenia
+Ermittle deine Internet-Adresse…	Ustalanie twojego adresu internetowego…
+2. Schick diesen Antwortcode an den Gastgeber:	2. Wyślij ten kod odpowiedzi gospodarzowi:
+Warte auf den Gastgeber (bis 3 Minuten)…	Czekam na gospodarza (do 3 minut)…
+1. Einladungscode des Gastgebers einfügen:	1. Wklej kod zaproszenia od gospodarza:
+Antwortcode erzeugen und verbinden	Utwórz kod odpowiedzi i połącz
+Klappt mit den meisten Heim-Routern, ohne Portfreigabe. Nicht in manchen Mobilfunk- und Firmennetzen – dann IPv6, Portweiterleitung oder ein VPN nutzen.	Działa z większością domowych routerów, bez przekierowania portów. Nie w niektórych sieciach komórkowych i firmowych – tam użyj IPv6, przekierowania portów lub VPN.
+Deine Internet-Adresse ließ sich nicht ermitteln (UDP ins Internet gesperrt?). Über das Internet geht es so nicht.	Nie udało się ustalić twojego adresu internetowego (UDP do internetu zablokowane?). Przez internet to nie zadziała.
+Mit Adresse	Z adresem
+Mit Code (ohne Portfreigabe)	Z kodem (bez przekierowania portów)
+Das ist kein Amboss-Verbindungscode (beginnt mit „AMB1-“)	To nie jest kod połączenia Amboss (zaczyna się od „AMB1-”)
+Code ist beschädigt (unerlaubte Zeichen)	Kod jest uszkodzony (niedozwolone znaki)
+Code ist unvollständig – bitte komplett kopieren	Kod jest niepełny – skopiuj go w całości
+Der Code der Gegenseite enthält keine Adresse	Kod drugiej strony nie zawiera adresu
+Keine Verbindung zustande gekommen. Beide Codes richtig ausgetauscht und beide gleichzeitig am Verbinden? Manche Netze (Mobilfunk, Firmen) lassen das nicht zu – dann IPv6, Portweiterleitung oder ein VPN wie Tailscale nutzen.	Nie udało się nawiązać połączenia. Czy oba kody zostały poprawnie wymienione i obie strony łączą się jednocześnie? Niektóre sieci (komórkowe, firmowe) na to nie pozwalają – tam użyj IPv6, przekierowania portów lub VPN, np. Tailscale.
+Eigene Internet-Adresse nicht ermittelbar ({}) – UDP ins Internet gesperrt?	Nie udało się ustalić twojego adresu internetowego ({}) – UDP do internetu zablokowane?
+Nur der Gastgeber kann Gäste annehmen	Tylko gospodarz może przyjmować gości
+Anmeldung von {} abgelehnt (falsches Passwort)	Odrzucono logowanie z {} (złe hasło)
+nicht gesetzt	nie ustawiono
+gefunden	znaleziono
+nicht gefunden	nie znaleziono
+Größe der Oberfläche	Rozmiar interfejsu
+Zusätzlich zur Windows-Skalierung. Auch mit Strg+Plus / Strg+Minus, Strg+0 setzt zurück.	Dodatkowo do skalowania Windows. Także Ctrl+Plus / Ctrl+Minus, Ctrl+0 resetuje.
+Kachelgröße	Rozmiar kafelków
+Mitte der Auswahl	Środek zaznaczenia
+Drehen und Skalieren um den gewählten Drehpunkt	Obracaj i skaluj wokół wybranego punktu obrotu
+Suchen: Name, Klasse oder Output	Szukaj: nazwa, klasa lub wyjście
+Noch keine Logik in dieser Map	W tej mapie nie ma jeszcze logiki
+Hier erscheinen Entities mit Namen (targetname) oder Outputs – z. B. ein Knopf, der eine Tür öffnet.	Tu pojawiają się encje z nazwą (targetname) lub wyjściami – np. przycisk, który otwiera drzwi.
+Kein Knoten passt zur Suche	Żaden węzeł nie pasuje do wyszukiwania
+– keine –	– brak –
+{} mit Namen „{}“	{} o nazwie „{}”
+Klick wählt · Doppelklick zentriert · Auge = ausblenden · Schloss = sperren	Kliknięcie zaznacza · dwuklik centruje · oko = ukryj · kłódka = zablokuj
+Strg+Klick wählt die ganze Gruppe	Ctrl+klik zaznacza całą grupę
+Texturen einklappen (Trennlinie ziehen ändert die Höhe)	Zwiń tekstury (przeciągnięcie linii podziału zmienia wysokość)
+Ergebnis in die Zwischenablage	Kopiuj wynik do schowka
+Form: {} (oben in der Leiste wählen)	Kształt: {} (wybierz na pasku u góry)
+Klick wählt alle Objekte dieser Visgroup	Kliknięcie zaznacza wszystkie obiekty tej visgroup
+Noch keine Visgroups – Objekte auswählen, Namen eingeben, „Aus Auswahl“.	Brak visgroup – zaznacz obiekty, wpisz nazwę, „Z zaznaczenia”.
+Breite × Tiefe × Höhe der Auswahl – ändern skaliert sie (Ecke unten links bleibt)	Szerokość × głębokość × wysokość zaznaczenia – zmiana skaluje je (lewy dolny róg zostaje)
+Ecke unten links der Auswahl – ändern verschiebt sie	Lewy dolny róg zaznaczenia – zmiana je przesuwa
+Alle Flächen der Auswahl mit {} auf die aktuelle Textur ({}) setzen	Ustaw wszystkie ściany zaznaczenia z {} na bieżącą teksturę ({})
+… und {} weitere	… i {} więcej
+Um die Hochachse	Wokół osi pionowej
+Schlüssel und Werte so zeigen, wie sie in der VMF stehen (ohne Anzeigenamen und Auswahllisten)	Pokaż klucze i wartości tak, jak są w VMF (bez nazw wyświetlanych i list wyboru)
+HDR-Licht übernimmt Farbe und Helligkeit des normalen Lichts (Wert „-1 -1 -1 1“)	Światło HDR przejmuje kolor i jasność zwykłego światła (wartość „-1 -1 -1 1”)
+Im Einfach-Modus stehen hier nur die wichtigen Schlüssel	W trybie prostym widać tu tylko ważne klucze
+Einrichtungs-Assistent öffnen	Otwórz asystenta konfiguracji
+Amboss {} ist aktuell.	Amboss {} jest aktualny.
+Amboss {} ist verfügbar	Dostępny jest Amboss {}
+Du hast {}.	Masz {}.
+Was ist neu?	Co nowego?
+Neuerungen ausblenden	Ukryj nowości
+Lade und installiere…	Pobieranie i instalacja…
+Installiert – aktiv nach dem Neustart.	Zainstalowano – działa po ponownym uruchomieniu.
+Jetzt neu starten	Uruchom ponownie teraz
+Später	Później
+Jetzt aktualisieren	Aktualizuj teraz
+Release-Seite	Strona wydania
+Diese Version überspringen	Pomiń tę wersję
+Updates abschalten: Einstellungen → Oberfläche.	Wyłączanie aktualizacji: Ustawienia → Interfejs.
+Updates	Aktualizacje
+Beim Start nach neuen Versionen suchen (GitHub)	Sprawdzaj nowe wersje przy uruchomieniu (GitHub)
+Jetzt suchen	Sprawdź teraz
+Es wird nur die öffentliche Versionsliste abgerufen; Amboss sendet dabei keine Daten über dich oder deine Maps.	Pobierana jest tylko publiczna lista wersji; Amboss nie wysyła żadnych danych o tobie ani twoich mapach.
+Nach Updates suchen	Sprawdź aktualizacje
+Suche nach Updates…	Sprawdzanie aktualizacji…
+Update-Suche fehlgeschlagen: {}	Sprawdzanie aktualizacji nie powiodło się: {}
+Keine Verbindung zu GitHub	Brak połączenia z GitHub
+Antwort von GitHub nicht lesbar	Nie można odczytać odpowiedzi GitHub
+Kein Schreibrecht im Programmordner ({}). Bitte das Paket von der Release-Seite laden und entpacken.	Brak uprawnień do zapisu w folderze programu ({}). Pobierz pakiet ze strony wydania i rozpakuj go.
+Programmdatei lässt sich nicht ersetzen ({})	Nie można zastąpić pliku programu ({})
+Für dieses System gibt es kein Paket – bitte die Release-Seite öffnen	Brak pakietu dla tego systemu – otwórz stronę wydania
+Heruntergeladene Datei ist zu klein – Update abgebrochen	Pobrany plik jest za mały – aktualizację przerwano
+{} nicht im Paket gefunden	Nie znaleziono {} w pakiecie
+Kein gültiges ZIP	To nie jest prawidłowy ZIP
+ZIP beschädigt	ZIP uszkodzony
+ZIP unvollständig	ZIP niekompletny
+Maps (VMF, BSP)	Mapy (VMF, BSP)
+Browser	Przeglądarki
+Navmesh	Navmesh
+Map	Mapa
+Drehpunkt	Punkt obrotu
+Ursprung 0 0 0	Początek 0 0 0
+Eigener Punkt	Własny punkt
+Arbeitspunkt	Punkt roboczy
+Suchbegriff eingeben	Wpisz szukany tekst
+Treffer: {} auf {}	Trafienia: {} na {}
+Auto	Auto
+Seite	Ściana
+Brush-ID	ID brusha
+Seiten-ID	ID ściany
+Entity-ID	ID encji
+Entity-Name (targetname, * als Platzhalter)	Nazwa encji (targetname, * jako symbol wieloznaczny)
+z. B. tuer_1	np. drzwi_1
+Bedeutung	Znaczenie
+Brush {}	Brush {}
+Seite {} von Brush {}	Ściana {} brusha {}
+Gruppen ({})	Grupy ({})
+Gruppe #{} ({})	Grupa nr {} ({})
+Texturen aufklappen	Rozwiń tekstury
+Ergebnis	Wynik
+Diese Kamera benutzen	Użyj tej kamery
+Ein-/Ausblenden	Pokaż/ukryj
+Materialien ({})	Materiały ({})
+ersetzen	zamień
+Am Raster	Do siatki
+Spiegeln X	Odbij X
+Spiegeln Y	Odbij Y
+Pitch (neigen)	Pitch (pochylenie)
+Yaw (drehen)	Yaw (obrót)
+Roll (rollen)	Roll (przechył)
+Rohwerte	Surowe wartości
+wie Brightness	jak Brightness
+Alle Eigenschaften ({})	Wszystkie właściwości ({})
+Nur wichtige Eigenschaften	Tylko ważne właściwości
+Einrichten…	Skonfiguruj…
+Nach dem Start erscheinen hier deine Adressen und ein Einladungscode für Gäste ohne Portfreigabe.	Po uruchomieniu pojawią się tu twoje adresy i kod zaproszenia dla gości bez przekierowania portów.

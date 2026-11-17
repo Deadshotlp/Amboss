@@ -1,0 +1,119 @@
+# Baut und testet Amboss. Bei einem veröffentlichten Release werden die Pakete
+# (Windows-ZIP + Installer, macOS, Linux) automatisch an das Release gehängt –
+# daraus holt sich auch die Update-Funktion von Amboss die neue Version.
+name: Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+      - run: sudo apt-get update && sudo apt-get install -y libxkbcommon-dev libgl1-mesa-dev
+      - run: cargo test --release
+      - run: python3 tools/i18n_check.py
+
+  windows:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: x86_64-pc-windows-gnu
+      - uses: Swatinem/rust-cache@v2
+      - run: sudo apt-get update && sudo apt-get install -y mingw-w64 nsis zip
+      - run: cargo build --release --target x86_64-pc-windows-gnu
+      - name: Pakete
+        run: |
+          VER=$(grep -m1 '^version' Cargo.toml | cut -d'"' -f2)
+          mkdir -p dist/pack/amboss
+          cp target/x86_64-pc-windows-gnu/release/amboss.exe dist/pack/amboss/
+          x86_64-w64-mingw32-strip dist/pack/amboss/amboss.exe
+          cp README.md CHANGELOG.md ROADMAP.md TESTPLAN_WINDOWS.md LICENSE-MIT LICENSE-APACHE assets/fonts/*-OFL.txt dist/pack/amboss/
+          cp examples/*.vmf dist/pack/amboss/ 2>/dev/null || true
+          (cd dist/pack && zip -qr ../amboss-$VER-windows.zip amboss)
+          (cd installer && makensis -V2 -DVERSION=$VER -DSRC=../dist/pack/amboss -DOUTFILE=../dist/amboss-$VER-windows-setup.exe amboss.nsi)
+      - uses: actions/upload-artifact@v4
+        with:
+          name: windows
+          path: dist/amboss-*
+
+  macos:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: x86_64-apple-darwin,aarch64-apple-darwin
+      - uses: Swatinem/rust-cache@v2
+      - run: cargo build --release --target aarch64-apple-darwin
+      - run: cargo build --release --target x86_64-apple-darwin
+      - name: App-Paket (Universal)
+        run: |
+          VER=$(grep -m1 '^version' Cargo.toml | cut -d'"' -f2)
+          APP=dist/Amboss.app
+          mkdir -p $APP/Contents/MacOS $APP/Contents/Resources
+          lipo -create -output $APP/Contents/MacOS/amboss target/aarch64-apple-darwin/release/amboss target/x86_64-apple-darwin/release/amboss
+          mkdir amboss.iconset
+          for s in 16 32 128 256; do
+            sips -z $s $s assets/icon/amboss.png --out amboss.iconset/icon_${s}x${s}.png
+            sips -z $((s*2)) $((s*2)) assets/icon/amboss.png --out amboss.iconset/icon_${s}x${s}@2x.png
+          done
+          iconutil -c icns amboss.iconset -o $APP/Contents/Resources/amboss.icns
+          sed "s/@VERSION@/$VER/g" installer/Info.plist > $APP/Contents/Info.plist
+          codesign --force --deep -s - $APP
+          cp README.md LICENSE-MIT LICENSE-APACHE dist/
+          (cd dist && zip -qry amboss-$VER-macos.zip Amboss.app README.md LICENSE-MIT LICENSE-APACHE)
+      - uses: actions/upload-artifact@v4
+        with:
+          name: macos
+          path: dist/amboss-*-macos.zip
+
+  linux:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+      - run: sudo apt-get update && sudo apt-get install -y libxkbcommon-dev libgl1-mesa-dev zip
+      - run: cargo build --release
+      - name: Paket
+        run: |
+          VER=$(grep -m1 '^version' Cargo.toml | cut -d'"' -f2)
+          mkdir -p dist/amboss
+          cp target/release/amboss dist/amboss/ && strip dist/amboss/amboss
+          cp README.md LICENSE-MIT LICENSE-APACHE assets/icon/amboss.png dist/amboss/
+          (cd dist && zip -qr amboss-$VER-linux.zip amboss)
+      - uses: actions/upload-artifact@v4
+        with:
+          name: linux
+          path: dist/amboss-*-linux.zip
+
+  release:
+    if: github.event_name == 'release'
+    needs: [test, windows, macos, linux]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: out
+          merge-multiple: true
+      - name: An das Release hängen
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release upload "${{ github.event.release.tag_name }}" out/* --clobber --repo "${{ github.repository }}"

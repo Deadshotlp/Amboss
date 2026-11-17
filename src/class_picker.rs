@@ -299,10 +299,16 @@ impl ClassList {
                         // Farbpunkt: Kreis = Punkt-Entity, Quadrat = Brush
                         let c = fade(e.color.unwrap_or(th.text3));
                         let pc = egui::pos2(r.left() + 12.0, r.center().y);
-                        if e.solid {
-                            ui.painter().rect_filled(Rect::from_center_size(pc, Vec2::splat(8.0)), 2.0, c);
+                        // Symbol nach Art (Licht, NPC, Trigger, Logik …) in der Klassenfarbe
+                        let icon = crate::icons::entity_icon(&e.name);
+                        if icon == "entity" {
+                            if e.solid {
+                                ui.painter().rect_filled(Rect::from_center_size(pc, Vec2::splat(8.0)), 2.0, c);
+                            } else {
+                                ui.painter().circle_filled(pc, 4.0, c);
+                            }
                         } else {
-                            ui.painter().circle_filled(pc, 4.0, c);
+                            crate::icons::draw(ui.painter(), Rect::from_center_size(pc, Vec2::splat(13.0)), icon, c, 1.3);
                         }
                         // Kennzeichen rechts
                         let badge = if e.solid { "Brush" } else { crate::i18n::tr("Punkt") };

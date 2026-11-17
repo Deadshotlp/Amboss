@@ -2,7 +2,9 @@
 
 use crate::app::App;
 use crate::collab::{Collab, Notice, Role, DEFAULT_PORT};
+use crate::p2p::Invite;
 use eframe::egui::{self, Color32, RichText};
+use std::sync::mpsc::Receiver;
 
 pub(crate) struct CollabForm {
     pub name: String,
@@ -13,12 +15,51 @@ pub(crate) struct CollabForm {
     pub v6: Option<Option<std::net::Ipv6Addr>>,
     pub chat: String,
     pub error: String,
+    /// 0 = Gastgeber sein, 1 = Beitreten
+    pub mode: usize,
+    /// Beitreten: 0 = Adresse, 1 = Verbindungscode (ohne Portfreigabe)
+    pub join_mode: usize,
+    /// Gastgeber: Einladung wird erstellt / ist fertig
+    pub invite_rx: Option<Receiver<Result<Invite, String>>>,
+    pub invite: Option<Invite>,
+    pub invite_code: String,
+    pub reply_in: String,
+    pub host_info: String,
+    /// Gast: Code des Gastgebers, eigener Antwortcode, laufender Versuch
+    pub code_in: String,
+    pub reply_code: String,
+    pub guest_rx: Option<Receiver<P2pEvent>>,
+}
+
+/// Fortschritt beim Beitritt über Code (läuft im Hintergrund)
+pub(crate) enum P2pEvent {
+    /// eigener Antwortcode steht fest – jetzt dem Gastgeber schicken
+    Code(String),
+    Done(Result<Collab, String>),
 }
 
 impl Default for CollabForm {
     fn default() -> Self {
         let name = std::env::var("USERNAME").or_else(|_| std::env::var("USER")).unwrap_or_else(|_| "Mapper".into());
-        CollabForm { name, port: DEFAULT_PORT, password: String::new(), address: String::new(), v6: None, chat: String::new(), error: String::new() }
+        CollabForm {
+            name,
+            port: DEFAULT_PORT,
+            password: String::new(),
+            address: String::new(),
+            v6: None,
+            chat: String::new(),
+            error: String::new(),
+            mode: 0,
+            join_mode: 0,
+            invite_rx: None,
+            invite: None,
+            invite_code: String::new(),
+            reply_in: String::new(),
+            host_info: String::new(),
+            code_in: String::new(),
+            reply_code: String::new(),
+            guest_rx: None,
+        }
     }
 }
 
@@ -48,6 +89,68 @@ fn addr_row(ui: &mut egui::Ui, label: &str, addr: &str) {
             ui.ctx().copy_text(addr.to_string());
         }
     });
+}
+
+/// Code in einer Box mit Kopieren-Knopf
+fn code_box(ui: &mut egui::Ui, code: &str) {
+    let th = crate::theme::t();
+    egui::Frame::new().fill(th.raised).stroke(egui::Stroke::new(1.0f32, th.line)).corner_radius(6).inner_margin(egui::Margin::symmetric(8, 6)).show(ui, |ui| {
+        ui.horizontal(|ui| {
+            ui.add(egui::Label::new(RichText::new(code).monospace()).selectable(true));
+            ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
+                if ui.small_button(crate::i18n::tr("Kopieren")).clicked() {
+                    ui.ctx().copy_text(code.to_string());
+                }
+            });
+        });
+    });
+}
+
+/// Gastgeber: Gäste über Verbindungscodes einladen (ohne Portfreigabe)
+fn host_code_ui(ui: &mut egui::Ui, c: &mut Collab, f: &mut CollabForm) {
+    ui.label(RichText::new(crate::i18n::tr("Über das Internet ohne Portfreigabe")).strong());
+    if f.invite_rx.is_some() {
+        ui.horizontal(|ui| {
+            ui.spinner();
+            ui.label(crate::i18n::tr("Ermittle deine Internet-Adresse…"));
+        });
+    } else if f.invite.is_some() {
+        ui.label(crate::i18n::tr("1. Schick diesen Einladungscode an deinen Gast:"));
+        code_box(ui, &f.invite_code);
+        ui.label(crate::i18n::tr("2. Antwortcode des Gasts hier einfügen:"));
+        ui.horizontal(|ui| {
+            ui.add(egui::TextEdit::singleline(&mut f.reply_in).hint_text(crate::theme::hint("AMB1-…")).font(egui::TextStyle::Monospace).desired_width(300.0));
+            if ui.add_enabled(!f.reply_in.trim().is_empty(), egui::Button::new(crate::i18n::tr("Verbinden"))).clicked() {
+                match crate::p2p::parse_code(&f.reply_in) {
+                    Ok(peer) => {
+                        if let Some(inv) = f.invite.take() {
+                            match c.accept_punched(inv, peer) {
+                                Ok(()) => f.host_info = crate::i18n::tr("Verbinde… (bis 40 Sekunden). Für weitere Gäste einen neuen Code erstellen.").to_string(),
+                                Err(e) => f.host_info = e,
+                            }
+                        }
+                        f.reply_in.clear();
+                    }
+                    Err(e) => f.host_info = crate::i18n::tr_dyn(&e).to_string(),
+                }
+            }
+        });
+        if ui.small_button(crate::i18n::tr("Abbrechen")).clicked() {
+            f.invite = None;
+            f.host_info.clear();
+        }
+    } else if ui.button(crate::i18n::tr("Einladungscode erstellen")).clicked() {
+        let (tx, rx) = std::sync::mpsc::channel();
+        std::thread::spawn(move || {
+            let _ = tx.send(Invite::new());
+        });
+        f.invite_rx = Some(rx);
+        f.host_info.clear();
+    }
+    if !f.host_info.is_empty() {
+        ui.label(RichText::new(crate::i18n::tr_dyn(&f.host_info)).small().color(crate::theme::t().warn));
+    }
+    ui.label(RichText::new(crate::i18n::tr("Jeder Gast bekommt einen eigenen Code. Beide Seiten müssen den Code des anderen innerhalb weniger Minuten eingeben.")).small().weak());
 }
 
 fn c32(c: [u8; 3]) -> Color32 {
@@ -105,6 +208,63 @@ impl App {
             self.ed.remote_locked_entities.clear();
         }
         ctx.request_repaint_after(std::time::Duration::from_millis(100));
+    }
+
+    /// Hintergrund-Arbeit für Verbindungscodes abholen (auch wenn das Fenster zu ist)
+    fn poll_p2p(&mut self, ctx: &egui::Context) {
+        let f = &mut self.collab_form;
+        if let Some(rx) = &f.invite_rx {
+            match rx.try_recv() {
+                Ok(Ok(inv)) => {
+                    f.invite_code = inv.code();
+                    f.host_info = if inv.public.is_none() { crate::i18n::tr("Internet-Adresse nicht ermittelbar – dieser Code klappt nur im selben Netz.").to_string() } else { String::new() };
+                    f.invite = Some(inv);
+                    f.invite_rx = None;
+                }
+                Ok(Err(e)) => {
+                    f.host_info = e;
+                    f.invite_rx = None;
+                }
+                Err(std::sync::mpsc::TryRecvError::Empty) => ctx.request_repaint_after(std::time::Duration::from_millis(150)),
+                Err(_) => f.invite_rx = None,
+            }
+        }
+        let mut joined = None;
+        if let Some(rx) = &f.guest_rx {
+            loop {
+                match rx.try_recv() {
+                    Ok(P2pEvent::Code(c)) => f.reply_code = c,
+                    Ok(P2pEvent::Done(r)) => {
+                        f.guest_rx = None;
+                        f.reply_code.clear();
+                        match r {
+                            Ok(c) => joined = Some(c),
+                            Err(e) => f.error = e,
+                        }
+                        break;
+                    }
+                    Err(std::sync::mpsc::TryRecvError::Empty) => {
+                        ctx.request_repaint_after(std::time::Duration::from_millis(150));
+                        break;
+                    }
+                    Err(_) => {
+                        f.guest_rx = None;
+                        break;
+                    }
+                }
+            }
+        }
+        if let Some(c) = joined {
+            self.end_session();
+            self.collab_form.error.clear();
+            self.collab_form.code_in.clear();
+            if !self.is_pristine_pub() {
+                self.new_tab();
+            }
+            self.ed.collab_session = true;
+            self.ed.status = c.status.clone();
+            self.collab = Some(c);
+        }
     }
 
     fn end_session(&mut self) {
@@ -246,6 +406,7 @@ impl App {
     }
 
     pub(crate) fn collab_window(&mut self, ctx: &egui::Context) {
+        self.poll_p2p(ctx);
         if !self.win.collab {
             return;
         }
@@ -285,6 +446,8 @@ impl App {
                                 ui.label(RichText::new(crate::i18n::tr("Keine öffentliche IPv6-Adresse gefunden – über das Internet dann nur per Portweiterleitung (IPv4) oder VPN.")).small().weak());
                             }
                         }
+                        ui.separator();
+                        host_code_ui(ui, c, f);
                     }
                     ui.separator();
                     egui::ScrollArea::vertical().max_height(180.0).stick_to_bottom(true).show(ui, |ui| {
@@ -322,8 +485,10 @@ impl App {
                         ui.label(crate::i18n::tr("Passwort"));
                         ui.add(egui::TextEdit::singleline(&mut f.password).password(true));
                     });
-                    ui.separator();
-                    ui.label(RichText::new(crate::i18n::tr("Gastgeber sein")).strong());
+                    ui.add_space(4.0);
+                    f.mode = crate::theme::segmented(ui, f.mode, &[crate::i18n::tr("Gastgeber sein"), crate::i18n::tr("Beitreten")], true);
+                    ui.add_space(4.0);
+                    if f.mode == 0 {
                     ui.label(RichText::new(crate::i18n::tr("Die aktuell offene Map wird geteilt.")).small());
                     ui.horizontal(|ui| {
                         ui.label(crate::i18n::tr("Port"));
@@ -332,17 +497,46 @@ impl App {
                             action = Some(1);
                         }
                     });
-                    ui.separator();
-                    ui.label(RichText::new(crate::i18n::tr("Beitreten")).strong());
-                    ui.horizontal(|ui| {
-                        ui.label(crate::i18n::tr("Adresse"));
-                        ui.add(egui::TextEdit::singleline(&mut f.address).hint_text(crate::theme::hint(crate::i18n::tr("192.168.0.10 oder [2001:db8::1]:3918"))).desired_width(230.0));
-                        if ui.button(crate::i18n::tr("Verbinden")).clicked() {
-                            action = Some(2);
+                    ui.label(RichText::new(crate::i18n::tr("Nach dem Start erscheinen hier deine Adressen und ein Einladungscode für Gäste ohne Portfreigabe.")).small().weak());
+                    } else {
+                    f.join_mode = crate::theme::segmented(ui, f.join_mode, &[crate::i18n::tr("Mit Adresse"), crate::i18n::tr("Mit Code (ohne Portfreigabe)")], true);
+                    if f.join_mode == 0 {
+                        ui.horizontal(|ui| {
+                            ui.label(crate::i18n::tr("Adresse"));
+                            ui.add(egui::TextEdit::singleline(&mut f.address).hint_text(crate::theme::hint(crate::i18n::tr("192.168.0.10 oder [2001:db8::1]:3918"))).desired_width(230.0));
+                            if ui.button(crate::i18n::tr("Verbinden")).clicked() {
+                                action = Some(2);
+                            }
+                        });
+                    } else if f.guest_rx.is_some() {
+                        if f.reply_code.is_empty() {
+                            ui.horizontal(|ui| {
+                                ui.spinner();
+                                ui.label(crate::i18n::tr("Ermittle deine Internet-Adresse…"));
+                            });
+                        } else {
+                            ui.label(crate::i18n::tr("2. Schick diesen Antwortcode an den Gastgeber:"));
+                            code_box(ui, &f.reply_code);
+                            ui.horizontal(|ui| {
+                                ui.spinner();
+                                ui.label(RichText::new(crate::i18n::tr("Warte auf den Gastgeber (bis 3 Minuten)…")).small());
+                            });
                         }
-                    });
+                        if ui.button(crate::i18n::tr("Abbrechen")).clicked() {
+                            f.guest_rx = None;
+                            f.reply_code.clear();
+                        }
+                    } else {
+                        ui.label(crate::i18n::tr("1. Einladungscode des Gastgebers einfügen:"));
+                        ui.add(egui::TextEdit::singleline(&mut f.code_in).hint_text(crate::theme::hint("AMB1-…")).font(egui::TextStyle::Monospace).desired_width(f32::INFINITY));
+                        if ui.add_enabled(!f.code_in.trim().is_empty(), egui::Button::new(crate::i18n::tr("Antwortcode erzeugen und verbinden"))).clicked() {
+                            action = Some(3);
+                        }
+                        ui.label(RichText::new(crate::i18n::tr("Klappt mit den meisten Heim-Routern, ohne Portfreigabe. Nicht in manchen Mobilfunk- und Firmennetzen – dann IPv6, Portweiterleitung oder ein VPN nutzen.")).small().weak());
+                    }
+                    }
                     if !f.error.is_empty() {
-                        ui.colored_label(Color32::LIGHT_RED, &f.error);
+                        ui.colored_label(Color32::LIGHT_RED, crate::i18n::tr_dyn(&f.error));
                     }
                     ui.separator();
                     ui.label(
@@ -382,6 +576,33 @@ impl App {
                     Err(e) => self.collab_form.error = e,
                 }
             }
+            Some(3) => match crate::p2p::parse_code(&self.collab_form.code_in) {
+                Ok(peer) => {
+                    self.collab_form.error.clear();
+                    self.collab_form.reply_code.clear();
+                    let (tx, rx) = std::sync::mpsc::channel();
+                    let (name, pw) = (self.collab_form.name.clone(), self.collab_form.password.clone());
+                    std::thread::spawn(move || {
+                        let inv = match Invite::new() {
+                            Ok(i) => i,
+                            Err(e) => {
+                                let _ = tx.send(P2pEvent::Done(Err(e)));
+                                return;
+                            }
+                        };
+                        if inv.public.is_none() && !peer.public.ip().is_unspecified() {
+                            let _ = tx.send(P2pEvent::Done(Err(crate::i18n::tr("Deine Internet-Adresse ließ sich nicht ermitteln (UDP ins Internet gesperrt?). Über das Internet geht es so nicht.").to_string())));
+                            return;
+                        }
+                        if tx.send(P2pEvent::Code(inv.code())).is_err() {
+                            return;
+                        }
+                        let _ = tx.send(P2pEvent::Done(Collab::join_code(&name, inv, &peer, &pw, std::time::Duration::from_secs(180))));
+                    });
+                    self.collab_form.guest_rx = Some(rx);
+                }
+                Err(e) => self.collab_form.error = crate::i18n::tr_dyn(&e).to_string(),
+            },
             Some(9) => {
                 self.end_session();
                 self.ed.status = crate::i18n::tr("Sitzung beendet").into();

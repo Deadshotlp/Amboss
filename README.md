@@ -1,20 +1,24 @@
 # Amboss – Map editor for Source 1 / Garry's Mod
 
-**Version 0.9.10** – shown next to the logo, in the window title and under Help → About Amboss. See `CHANGELOG.md` for what's new (the changelog is in German).
+**Version 0.10.0** – shown next to the logo, in the window title and under Help → About Amboss. See `CHANGELOG.md` for what's new (the changelog is in German).
 
 Amboss is a standalone level editor written in **Rust**, inspired by Hammer/Hammer++.
 It edits **VMF files**, shows the real **textures and models from the GMod/HL2 VPKs** and
 compiles the map with Valve's original tools (**VBSP / VVIS / VRAD**). Afterwards it
 launches Garry's Mod straight into the new map.
 
-The user interface is available in **English and German** (Settings → Graphics → Language).
+The user interface is available in **English, German, French, Spanish, Polish and Russian** (Settings → Interface → Language).
 
 ![Built with](https://img.shields.io/badge/Rust-egui%20%2B%20OpenGL-orange) ![License](https://img.shields.io/badge/license-MIT%20or%20Apache--2.0-blue)
 
 ## Download
 
-Ready-to-run Windows builds are on the [Releases page](https://github.com/Deadshotlp/Amboss/releases).
-Unzip anywhere and start `amboss.exe` – nothing gets installed.
+Ready-to-run builds are on the [Releases page](https://github.com/Deadshotlp/Amboss/releases):
+
+* **Windows:** `amboss-…-windows-setup.exe` installs Amboss for the current user (no admin rights, Start menu entry, optional desktop shortcut and `.vmf` association). Or take the ZIP, unzip anywhere and start `amboss.exe` – nothing gets installed.
+* **macOS** (Apple Silicon and Intel) and **Linux:** ZIP files built automatically by GitHub Actions. The macOS app is not notarised: open it the first time with right click → Open.
+
+**Updates:** at startup Amboss asks GitHub whether a newer release exists and offers to install it (the program file is swapped, active after a restart). Only the public release list is fetched; this can be switched off under Settings → Interface → Updates, and Help → "Check for updates" checks by hand.
 
 > Amboss is under active development. It has mostly been tested with automated tests and a
 > simulated game setup; please report problems with real Garry's Mod installations as issues.
@@ -27,7 +31,7 @@ Unzip anywhere and start `amboss.exe` – nothing gets installed.
 * **Simple and expert interface** (View → Interface or Settings): Simple shows only the basic tools (select, block, entity, texture, decal, clip), short menus and fewer switches; Expert shows everything.
 
 ### Interface
-**Language:** English or German (Settings → Graphics → Language, applies instantly) – including the descriptions of the built-in entity list (classes, keys, choices, flags, inputs/outputs). Further languages: add a table `assets/lang/<code>.tsv`.
+**Language:** English, German, French, Spanish, Polish or Russian (Settings → Interface → Language, applies instantly; on first start the system language is used). The descriptions of the built-in entity list are in English and German; the other languages fall back to English there. **Interface size** 90–200 % on top of the Windows scaling (Settings → Interface, also Ctrl+Plus/Minus, Ctrl+0); dialogs never get larger than the window.
 **Dark and light theme** (sun/moon toggle at the top right or Settings → Graphics → Theme):
 top bar with menus, command search (Ctrl+K), live session and "Compile & run" with profile selection · tabs with save state and game profile ·
 slim tool bar with icons · context bar per tool (shape, undo/redo arrows, grid, snap, snap to vertices, texture lock, visgroups, 1/4 views) ·
@@ -126,7 +130,8 @@ git config merge.amboss.driver "amboss --merge3 %O %A %B"
   Changes appear for everyone immediately; whatever someone has selected is locked for the others and outlined in their colour;
   the other people's cameras are visible in 2D/3D; chat; **Ctrl+Z only undoes your own steps**. Every person gets their own ID range.
   The connection is encrypted (ChaCha20 + HMAC-SHA256, key derived from the password and random values; the password itself is never sent). Default port 3918.
-  **Over the internet without a server:** the host listens on IPv4 and IPv6. If both have IPv6, the guest connects directly to the IPv6 address shown in the session window (e.g. `[2001:db8::1]:3918`). The host's router firewall must allow incoming connections on TCP port 3918 to that PC (and possibly the Windows firewall). Without IPv6 it works via IPv4 port forwarding (not with DS-Lite/CGNAT) or a VPN such as Tailscale/ZeroTier. Use a long password for internet sessions.
+  **Over the internet without port forwarding (code):** the host clicks "Create invite code" and sends the short code (`AMB1-…`, e.g. via Discord) to the guest; the guest pastes it under "Join → With code", gets a reply code and sends it back; the host pastes it and both connect directly (UDP hole punching, the own internet address is looked up via public STUN servers – no map data goes there). Works with most home routers; not with some mobile/corporate networks (symmetric NAT/CGNAT) – then use IPv6, port forwarding or a VPN.
+  **Over the internet with an address:** the host listens on IPv4 and IPv6. If both have IPv6, the guest connects directly to the IPv6 address shown in the session window (e.g. `[2001:db8::1]:3918`). The host's router firewall must allow incoming connections on TCP port 3918 to that PC (and possibly the Windows firewall). Without IPv6 it works via IPv4 port forwarding (not with DS-Lite/CGNAT) or a VPN such as Tailscale/ZeroTier. Use a long password for internet sessions.
 * Via MCP: `merge_map`, `compare_map`, `merge_versions`.
 
 ### New map from template
@@ -204,7 +209,8 @@ cargo build --release
 On Linux you also need the usual X11/Wayland libraries (`libxkbcommon-x11-0`, OpenGL).
 Valve's compile tools are Windows programs; on Linux enter `wine` as the *wrapper* in the settings.
 
-Windows builds can be cross-compiled from Linux with `cargo build --release --target x86_64-pc-windows-gnu` (needs the MinGW toolchain).
+Windows builds can be cross-compiled from Linux with `cargo build --release --target x86_64-pc-windows-gnu` (needs the MinGW toolchain; `build.rs` embeds the icon with `windres`). The installer is built with NSIS: `makensis -DVERSION=… -DSRC=<folder with amboss.exe> installer/amboss.nsi`.
+`.github/workflows/build.yml` tests every push and, for a published release, builds Windows (ZIP + installer), macOS (universal app) and Linux and attaches them to the release.
 
 ## First steps
 
@@ -307,6 +313,8 @@ src/
   collab.rs      Live collaboration: protocol, login, per-object sync, IPv4/IPv6
   netcrypt.rs    Encryption of the live session (ChaCha20, HMAC-SHA256)
   collab_ui.rs   "Live session" window, display of the other participants
+  p2p.rs         Connection without port forwarding: STUN, connection codes, UDP hole punching, reliable stream
+  update.rs, update_ui.rs   Update check against GitHub releases, download and swap of the program file
   templates.rs   Templates for new maps, start page
   theme.rs       Dark/light colour schemes, fonts, UI building blocks
   icons.rs       Icons (SVG paths from the UI concept) drawn with egui
@@ -335,7 +343,7 @@ Source code comments and most documentation (`CHANGELOG.md`, `ROADMAP.md`, `TEST
 
 ## Translations
 
-The interface exists in German and English (`assets/lang/en.tsv`). Two helper scripts find missing translations:
+German is the source language. Translations are tables `German<TAB>translation` in `assets/lang/` (`en.tsv`, `fr.tsv`, `es.tsv`, `pl.tsv`, `ru.tsv`; entity descriptions in `en_fgd.tsv`). Missing lines fall back to English, then German. `{}` are placeholders and must stay in the same number and order. Corrections by native speakers are very welcome. Two helper scripts find missing translations:
 
 * `python3 tools/i18n_check.py` – searches the source code for German texts without an entry in the table.
 * `AMBOSS_I18N_AUDIT=texts.txt amboss.exe` writes every drawn text into the file; `python3 tools/i18n_audit.py texts.txt` then lists German leftovers in the English interface.

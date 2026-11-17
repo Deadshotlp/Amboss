@@ -1,0 +1,2100 @@
+# Amboss – es. Format: Deutsch<TAB>Übersetzung. {} = Platzhalter (gleiche Anzahl und Reihenfolge). Fehlende Zeilen kommen aus en.tsv.
+Datei	Archivo
+Neu aus Vorlage…	Nuevo desde plantilla…
+Öffnen…	Abrir…
+Zuletzt geöffnet	Archivos recientes
+(leer)	(vacío)
+Live-Sitzung (Zusammenarbeit)…	Sesión en directo…
+OBJ in Metern (statt Source-Einheiten)	OBJ en metros (en lugar de unidades Source)
+Autosave öffnen…	Abrir autoguardado…
+Speichern	Guardar
+Speichern unter…	Guardar como…
+Prefabs…	Prefabs…
+Beenden	Salir
+Bearbeiten	Editar
+Rückgängig	Deshacer
+Wiederholen	Rehacer
+Kopieren	Copiar
+Einfügen	Pegar
+Inhalte einfügen…	Pegado especial…
+Löschen	Eliminar
+Alles auswählen	Seleccionar todo
+Auswahl aufheben	No seleccionar nada
+Texturen ersetzen…	Reemplazar texturas…
+Aktuelle Textur anwenden	Aplicar textura actual
+Einstellungen…	Ajustes…
+Ansicht	Ver
+Raster verkleinern	Cuadrícula más fina
+Raster vergrößern	Cuadrícula más grande
+3D-Darstellung	Renderizado 3D
+Texturen	Texturas
+Modelle anzeigen	Mostrar modelos
+3D-Skybox-Vorschau	Vista previa de skybox 3D
+Helfer (Lichtkegel, Verbindungen)	Ayudas (conos de luz, conexiones)
+Displacement-Alpha anzeigen	Mostrar alfa de displacements
+2D auf Auswahl zentrieren	Centrar 2D en la selección
+3D auf Auswahl zentrieren	Centrar 3D en la selección
+Logische Ansicht (Entity-I/O)	Vista lógica (E/S de entidades)
+3D-Gizmo (Verschieben/Drehen)	Gizmo 3D (mover/rotar)
+2D: Farben nach Visgroup	2D: colores por visgroup
+4 Ansichten	4 vistas
+Werkzeuge	Herramientas
+Gruppieren	Agrupar
+Gruppe auflösen	Desagrupar
+In Welt verschieben	Mover al mundo
+Transformieren…	Transformar…
+Am Raster ausrichten	Ajustar a la cuadrícula
+Horizontal spiegeln	Voltear horizontalmente
+Vertikal spiegeln	Voltear verticalmente
+90° drehen	Rotar 90°
+Objekte ausrichten	Alinear objetos
+Carve	Recortar (carve)
+Aushöhlen	Vaciar
+Instanzen einklappen	Contraer instancias
+Auswahl ausblenden	Ocultar selección
+Unausgewähltes ausblenden	Ocultar lo no seleccionado
+Alles einblenden	Mostrar todo
+Prefab aus Auswahl…	Prefab desde la selección…
+Modell-Browser…	Explorador de modelos…
+Sound-Browser…	Explorador de sonidos…
+Partikel-Browser…	Explorador de partículas…
+Map-Eigenschaften (worldspawn)…	Propiedades del mapa (worldspawn)…
+Auf Probleme prüfen…	Buscar problemas…
+Entity-Report…	Informe de entidades…
+Gehe zu Brush/Entity-Nummer…	Ir al número de brush/entidad…
+Map-Info…	Información del mapa…
+Kompilieren	Compilar
+Kompilieren & Starten	Compilar y ejecutar
+Kompilieren & starten	Compilar y ejecutar
+Compile-Fenster	Ventana de compilación
+Automatische Optimierungen…	Optimizaciones automáticas…
+Pointfile laden (.lin)…	Cargar pointfile (.lin)…
+Pointfile entladen	Descargar pointfile
+Kamera zum Leck	Cámara a la fuga
+Portalfile laden (.prt)…	Cargar archivo de portales (.prt)…
+Portalfile entladen	Descargar archivo de portales
+Hilfe	Ayuda
+Tastenkürzel & Bedienung	Atajos y controles
+Startbildschirm	Pantalla de inicio
+Darstellung	Apariencia
+Modelle	Modelos
+3D-Skybox	Skybox 3D
+Helfer	Ayudas
+Fehler beim Laden: {}	Error al cargar: {}
+Autosave: {}	Autoguardado: {}
+Autosave fehlgeschlagen: {}	Error de autoguardado: {}
+Cordon-Export fehlgeschlagen: {}	Error al exportar el cordón: {}
+Leck gefunden – roter Pfad zeigt den Weg ins Freie (Kompilieren → Leck-Suche)	Fuga encontrada – el camino rojo muestra la salida (Mapa → Pointfile)
+Leck, aber kein Pointfile: {}	Fuga, pero sin pointfile: {}
+Kamera-Lesezeichen {} gespeichert (Strg+{} springt hin)	Marcador de cámara {} guardado (Ctrl+{} salta allí)
+Kamera-Lesezeichen {}	Marcador de cámara {}
+Lesezeichen {} ist leer (Strg+Shift+{} speichert)	El marcador {} está vacío (Ctrl+Mayús+{} lo guarda)
+{} Portale geladen	{} portales cargados
+Spielinhalte konnten nicht geladen werden: {}	No se pudo cargar el contenido del juego: {}
+Spielinhalte konnten nicht geladen werden (Lade-Thread beendet)	No se pudo cargar el contenido del juego (el hilo de carga terminó)
+Auswahl	Seleccionar
+Lupe	Lupa
+Kamera	Cámara
+Entity platzieren	Colocar entidad
+Block-Werkzeug	Herramienta de bloque
+Textur anwenden	Aplicar textura
+Decal	Calcomanía
+Overlay	Overlay
+Clip	Cortar (clip)
+Vertex bearbeiten	Editar vértices
+Displacement & Sculpt	Displacement y esculpido
+Cordon	Cordón
+Messen	Medir
+gerade eben	ahora mismo
+Befehlspalette (Strg+K / Strg+P)	Paleta de comandos (Ctrl+K / Ctrl+P)
+Live-Sitzung	Sesión en directo
+Live-Sitzung starten oder beitreten	Iniciar o unirse a una sesión en directo
+Kompilier-Profil wählen	Elegir perfil de compilación
+F9 – Map speichern, kompilieren und im Spiel starten	F9 – guardar, compilar y ejecutar el mapa en el juego
+Spielprofil	Perfil de juego
+Kompilieren-Fenster…	Ventana de compilación…
+Danach Spiel starten	Ejecutar el juego después
+Neuer Tab (Strg+N)	Nueva pestaña (Ctrl+N)
+Noch nicht gespeichert	Aún no guardado
+Gespeichert	Guardado
+Textur	Textura
+Raster	Cuadrícula
+Auswahlmodus: was ein Klick auswählt	Modo de selección: qué selecciona un clic
+Aktionen	Acciones
+Griffe:	Tiradores:
+Strg+H	Ctrl+H
+Negativ = Wände außen	Negativo = paredes hacia fuera
+Form	Forma
+Schneiden	Cortar
+Klasse	Clase
+Klasse wählen (Suche, Favoriten, alle Entities)	Elegir clase (búsqueda, favoritos, todas las entidades)
+Kein Spielordner eingestellt – keine Texturvorschau	No hay carpeta del juego – sin vista previa de texturas
+Zuletzt benutzt	Usadas recientemente
+Schnellauswahl	Selección rápida
+Textur-Browser…	Explorador de texturas…
+Auf Auswahl anwenden	Aplicar a la selección
+Keine Visgroups – im Panel unter „Visgroups“ anlegen	No hay visgroups – créalos en el panel en «Visgroups»
+Visgroups verwalten…	Gestionar visgroups…
+Auswahl: 1 Objekt	Selección: 1 objeto
+Klick: Einrasten an/aus (Alt+G)	Clic: ajuste activado/desactivado (Alt+G)
+Cordon aktiv	Cordón activo
+Klasse suchen…	Buscar clase…
+In Entity umwandeln	Vincular a entidad
+Danach Eigenschaften öffnen	Abrir propiedades después
+Jeden Brush einzeln umwandeln	Convertir cada brush por separado
+Umwandeln	Convertir
+Abbrechen	Cancelar
+{} ist eine Brush-Entity: erst Brushes auswählen, dann umwandeln (Strg+T)	{} es una entidad brush: primero selecciona brushes y luego convierte (Ctrl+T)
+keine Antwort – Firewall/Router des Gastgebers lässt den Port nicht durch?	sin respuesta – ¿el cortafuegos/router del anfitrión bloquea el puerto?
+abgelehnt – läuft beim Gastgeber eine Sitzung auf diesem Port?	rechazado – ¿hay una sesión en este puerto en el anfitrión?
+IPv6 nicht erreichbar – hast du selbst eine IPv6-Internetverbindung?	IPv6 inalcanzable – ¿tienes tú una conexión a Internet IPv6?
+{} Teilnehmer	{} participantes
+Verbindung zum Gastgeber getrennt – die Map bleibt als lokale Kopie offen	Desconectado del anfitrión – el mapa sigue abierto como copia local
+Verbunden – {} Teilnehmer	Conectado – {} participantes
+Abgelehnt: {}	Rechazado: {}
+Version von {} übernommen: {}	Se adoptó la versión de {}: {}
+Später entscheiden (deine Version bleibt vorerst)	Decidir más tarde (tu versión se mantiene por ahora)
+Meins behalten	Mantener la mía
+Gäste verbinden sich mit	Los invitados se conectan a
+Keine öffentliche IPv6-Adresse gefunden – über das Internet dann nur per Portweiterleitung (IPv4) oder VPN.	No se encontró una dirección IPv6 pública – por Internet solo con redirección de puertos (IPv4) o VPN.
+Nachricht…	Mensaje…
+Senden	Enviar
+Von anderen ausgewählte Objekte sind für dich gesperrt (in ihrer Farbe umrandet). Strg+Z nimmt nur deine eigenen Schritte zurück.	Los objetos seleccionados por otros están bloqueados para ti (con el contorno de su color). Ctrl+Z solo deshace tus propios pasos.
+Dein Name	Tu nombre
+Passwort	Contraseña
+Gastgeber sein	Ser anfitrión
+Die aktuell offene Map wird geteilt.	Se comparte el mapa abierto actualmente.
+Port	Puerto
+Sitzung starten	Iniciar sesión
+Beitreten	Unirse
+Adresse	Dirección
+192.168.0.10 oder [2001:db8::1]:3918	192.168.0.10 o [2001:db8::1]:3918
+Verbinden	Conectar
+Die Verbindung ist verschlüsselt; Schlüssel kommen aus dem Passwort – für das Internet ein langes Passwort wählen (mind. 12 Zeichen). Über das Internet geht es direkt per IPv6, wenn beide IPv6 haben und die Router-Firewall des Gastgebers den Port freigibt. Beide brauchen dieselbe Amboss-Version.	La conexión está cifrada; las claves salen de la contraseña – usa una contraseña larga para Internet (al menos 12 caracteres). Por Internet funciona directamente con IPv6 si ambos tienen IPv6 y el cortafuegos del router del anfitrión permite el puerto. Ambos necesitan la misma versión de Amboss.
+Live-Sitzung beendet (Tab geschlossen)	Sesión en directo terminada (pestaña cerrada)
+Sitzung beigetreten – {}	Te uniste a la sesión – {}
+Beitritt abgelehnt: {}	Unión rechazada: {}
+Sitzung beendet	Sesión terminada
+Sitzung beenden	Terminar sesión
+Trennen	Desconectar
+Neue Map (neuer Tab)	Mapa nuevo (nueva pestaña)
+Map öffnen	Abrir mapa
+Speichern unter	Guardar como
+Neuer Tab	Nueva pestaña
+Tab schließen	Cerrar pestaña
+Nächster Tab	Pestaña siguiente
+Importieren (.map)	Importar (.map)
+Map zusammenführen…	Fusionar mapa…
+Mit anderem Map-Stand vergleichen…	Comparar con otra versión del mapa…
+3-Wege-Zusammenführen (Basis / andere Version)…	Fusión a 3 bandas (base / otra versión)…
+Exportieren (.obj)	Exportar (.obj)
+Rückgängig-Verlauf	Historial de deshacer
+Inhalte einfügen	Pegado especial
+Duplizieren	Duplicar
+Auswahl sperren	Bloquear selección
+Alles entsperren	Desbloquear todo
+Transformieren	Transformar
+90° im Uhrzeigersinn drehen	Rotar 90° en sentido horario
+90° gegen den Uhrzeigersinn drehen	Rotar 90° en sentido antihorario
+Texturen ersetzen	Reemplazar texturas
+Verdeckte Flächen auf nodraw setzen	Poner caras ocultas en nodraw
+Textur-Browser	Explorador de texturas
+Modell-Browser	Explorador de modelos
+Sound-Browser	Explorador de sonidos
+Partikel-Browser	Explorador de partículas
+Auf Probleme prüfen	Buscar problemas
+Am Raster einrasten (an/aus)	Ajustar a la cuadrícula (sí/no)
+Live-Sitzung…	Sesión en directo…
+Entity-Eigenschaften kopieren	Copiar propiedades de la entidad
+Entity-Eigenschaften auf Auswahl übertragen	Pegar propiedades de entidad en la selección
+Berührende Objekte zur Auswahl hinzufügen	Añadir objetos en contacto a la selección
+An Eckpunkten einrasten (an/aus)	Ajustar a vértices (sí/no)
+Optimierungen prüfen (KI-Netz, Leck, Vorschläge)	Comprobar optimizaciones (grafo IA, fuga, sugerencias)
+Entity-Report	Informe de entidades
+Objektliste (Outliner)	Lista de objetos (outliner)
+Gehe zu Nummer/Koordinate	Ir a número/coordenada
+Map-Info	Información del mapa
+Logische Ansicht	Vista lógica
+Prefabs	Prefabs
+Einstellungen	Ajustes
+Befehlspalette	Paleta de comandos
+Nächste Kamera	Cámara siguiente
+Ansicht maximieren	Maximizar vista
+3D-Gizmo ein/aus	Gizmo 3D sí/no
+Pointfile laden	Cargar pointfile
+Messung löschen	Borrar medición
+An Eckpunkten einrasten: {}	Ajustar a vértices: {}
+3D-Gizmo {}	Gizmo 3D {}
+Ungespeicherte Änderungen	Cambios sin guardar
+Änderungen an	Guardar cambios en
+speichern?	?
+Nicht speichern	No guardar
+Map-Eigenschaften (worldspawn)	Propiedades del mapa (worldspawn)
+Licht · VRAD	Iluminación · VRAD
+Automatische Optimierungen	Optimizaciones automáticas
+Läuft auf einer Kopie: KI-Nodes, Leckprüfung, func_detail, nodraw, Cubemaps…	Trabaja sobre una copia: nodos IA, comprobación de fugas, func_detail, nodraw, cubemaps…
+BSP kopieren	Copiar BSP
+Cubemaps	Cubemaps
+Spiel starten	Ejecutar juego
+Zusatzparameter	Parámetros adicionales
+Programme: Pfad oder $vbsp/$vvis/$vrad/$bspzip/$game/$gamewait/$copy · Variablen: $vmf $path $file $gamedir $bspdir	Programas: ruta o $vbsp/$vvis/$vrad/$bspzip/$game/$gamewait/$copy · Variables: $vmf $path $file $gamedir $bspdir
+nach oben	subir
++ Schritt	+ Paso
+Auf Standard zurücksetzen	Restablecer valores predeterminados
+Cordon aktiv: nur der Bereich wird kompiliert	Cordón activo: solo se compila esa zona
+Spielordner fehlt (Bearbeiten → Einstellungen)	Falta la carpeta del juego (Editar → Ajustes)
+Protokoll	Registro
+Noch nicht kompiliert.	Aún no compilado.
+Klicken: zu diesem Objekt springen	Clic: saltar a este objeto
+Läuft…	En curso…
+Letzter Lauf erfolgreich	La última ejecución tuvo éxito
+Letzter Lauf fehlgeschlagen	La última ejecución falló
+Letzter Lauf abgebrochen	La última ejecución se canceló
+Speichert die Map vor dem Kompilieren	Guarda el mapa antes de compilar
+Name	Nombre
+GMod automatisch finden	Buscar GMod automáticamente
+📁 GarrysMod-Ordner wählen…	📁 Elegir carpeta GarrysMod…
+Startparameter	Parámetros de inicio
+{} wird durch den Map-Namen ersetzt	{} se sustituye por el nombre del mapa
+Wrapper	Wrapper
+Unter Linux/macOS z. B. 'wine' für die Windows-Compiler. Unter Windows leer lassen.	En Linux/macOS, p. ej. «wine» para los compiladores de Windows. Déjalo vacío en Windows.
+Inhalte aus Addons laden (Workshop-.gma und addons-Ordner)	Cargar contenido de addons (.gma del Workshop y carpeta addons)
+Aus: nur Inhalte aus dem Spielverzeichnis (VPKs, garrysmod-Ordner, eingebundene Spiele). So siehst du, was ohne Addons fehlt – fehlende Texturen erscheinen dann als Ersatzfarbe.	Desactivado: solo contenido de la carpeta del juego (VPK, carpeta garrysmod, juegos montados). Muestra lo que falta sin addons – las texturas que faltan aparecen con un color de sustitución.
+Spielinhalte neu laden	Recargar contenido del juego
+VPKs, Addons und Materiallisten aus dem Spielordner neu einlesen	Volver a leer VPK, addons y listas de materiales de la carpeta del juego
+FGD-Dateien (Entity-Definitionen)	Archivos FGD (definiciones de entidades)
+Für GMod: GarrysMod/bin/garrysmod.fgd (lädt base.fgd und halflife2.fgd automatisch mit).	Para GMod: GarrysMod/bin/garrysmod.fgd (carga base.fgd y halflife2.fgd automáticamente).
+FGD hinzufügen…	Añadir FGD…
+Neu laden	Recargar
+Spielinhalte	Contenido del juego
+Inhalte neu einlesen	Volver a leer contenido
+Autosave	Autoguardado
+(0 = aus), behalte	(0 = desactivado), conservar
+Dateien	archivos
+Grafik	Gráficos
+Design	Tema
+Dunkel	Oscuro
+Hell	Claro
+Kantenglättung (MSAA)	Antialiasing (MSAA)
+Kantenglättung gilt ab dem nächsten Start. Startet Amboss danach nicht, die Datei grafik.txt im Einstellungsordner löschen.	El antialiasing se aplica desde el próximo inicio. Si Amboss no arranca después, borra grafik.txt en la carpeta de ajustes.
+Bedienung	Controles
+Kein Spielordner gesetzt – unter Extras / Einstellungen „GMod automatisch finden“ wählen.	No hay carpeta del juego – elige «Buscar GMod automáticamente» en Ajustes.
+Filter:	Filtro:
+z. B. concrete, brick, dev/	p. ej. concrete, brick, dev/
+Nur in der Map verwendete Materialien	Solo materiales usados en el mapa
+★ Favoriten	★ Favoritos
+Zuletzt	Recientes
+Rechtsklick auf eine Textur: Favorit an/aus	Clic derecho en una textura: favorito sí/no
+Versatz (Einheiten)	Desplazamiento (unidades)
+Winkel (Grad)	Ángulo (grados)
+Faktor	Factor
+Anwenden	Aplicar
+Kopien	Copias
+Versatz je Kopie	Desplazamiento por copia
+Drehung je Kopie (°)	Rotación por copia (°)
+Jede Kopie als eigene Gruppe	Cada copia como grupo propio
+Fügt die Zwischenablage (Strg+C) mehrfach ein	Pega el portapapeles (Ctrl+C) varias veces
+Zwischenablage ist leer – erst etwas kopieren (Strg+C)	El portapapeles está vacío – copia algo primero (Ctrl+C)
+Suchen	Buscar
+Ersetzen durch	Reemplazar por
+Aktuelles Material einsetzen	Usar material actual
+Nur in der Auswahl	Solo en la selección
+Teiltreffer ersetzen (z. B. nur Ordnername)	Reemplazar coincidencias parciales (p. ej. solo el nombre de la carpeta)
+Ersetzen	Reemplazar
+Ein Rückgängig-Schritt	Un solo paso de deshacer
+Probleme	Problemas
+Keine Probleme gefunden.	No se encontraron problemas.
+Auswählen	Seleccionar
+Erneut prüfen	Comprobar de nuevo
+Suche:	Buscar:
+Klasse, Name oder Schlüsselwert	Clase, nombre o valor de clave
+Gehe zu	Ir a
+Gehe zu Nummer	Ir al número
+Brush-, Seiten- oder Entity-ID	ID de brush, cara o entidad
+z. B. 2207 aus einer VBSP-Meldung	p. ej. 2207 de un mensaje de VBSP
+Nur Ziffern erlaubt	Solo dígitos
+Oder Koordinate (x y z)	O coordenada (x y z)
+Hinspringen	Saltar allí
+Sounds filtern (z. B. ambient/, door)	Filtrar sonidos (p. ej. ambient/, door)
+Abspielen ist in dieser Version nur unter Windows verfügbar.	En esta versión la reproducción solo está disponible en Windows.
+Übernehmen	Aplicar
+Knoten ziehen zum Anordnen · Klick wählt · Mausrad zoomt · Rechte Taste verschiebt	Arrastra nodos para ordenarlos · clic selecciona · rueda hace zoom · botón derecho desplaza
+Diese Klasse ist in keiner geladenen FGD beschrieben.	Esta clase no está descrita en ningún FGD cargado.
+Schlüssel	Claves
+Inputs	Entradas
+Outputs	Salidas
+Objekt {} ausgewählt	Objeto {} seleccionado
+Keine Brush/Seite/Entity mit Nummer {}	No hay brush/cara/entidad con el número {}
+Garry's Mod gefunden: {}	Garry's Mod encontrado: {}
+Koordinate {}	Coordenada {}
+Ungültige Koordinate	Coordenada no válida
+Sound gewählt: {}	Sonido elegido: {}
+Objektliste	Lista de objetos
+Filtern (Klasse, Name, Material)	Filtro (clase, nombre, material)
+Klick wählt · Doppelklick zentriert · 👁 ausblenden · 🔒 sperren	Clic selecciona · doble clic centra · 👁 ocultar · 🔒 bloquear
+Ausblenden/Einblenden	Ocultar/mostrar
+Sperren/Entsperren	Bloquear/desbloquear
+Klick springt zu diesem Stand	Clic: volver a este estado
+Bis vor diese Aktion zurückgehen	Volver a antes de esta acción
+▶ Aktueller Stand	▶ Estado actual
+Wiederholen bis hier	Rehacer hasta aquí
+Tastenkürzel	Atajos de teclado
+Suchen…	Buscar…
+Alle zurücksetzen	Restablecer todo
+Ändern	Cambiar
+Kein Kürzel	Sin atajo
+Standard	Predeterminado
+gelöscht	eliminado
+geändert	modificado
+Anheben	Elevar
+Absenken	Bajar
+Glätten	Suavizar
+Auf Höhe setzen	Fijar altura
+Alpha malen	Pintar alfa
+Alpha entfernen	Borrar alfa
+Entity	Entidad
+Block	Bloque
+Flächen/Textur	Caras/textura
+Vertex	Vértice
+Terrain	Terreno
+Skalieren	Escalar
+Drehen	Rotar
+Scheren	Inclinar
+Geladen: {} ({} Brushes, {} Entities)	Cargado: {} ({} brushes, {} entidades)
+Gespeichert: {}	Guardado: {}
+Das angeklickte Objekt hat keinen Namen (targetname)	El objeto pulsado no tiene nombre (targetname)
+Gedreht um {}°	Rotado {}°
+Gespiegelt ({})	Volteado ({})
+Am Raster ausgerichtet	Ajustado a la cuadrícula
+Form konnte nicht erzeugt werden	No se pudo crear la forma
+{} erstellt: {} × {} × {}	{} creado: {} × {} × {}
+{} platziert bei {}	{} colocado en {}
+Decal {} platziert	Calcomanía {} colocada
+Overlay {} platziert	Overlay {} colocado
+{} Objekt(e) gelöscht	{} objeto(s) eliminado(s)
+{} Objekt(e) kopiert	{} objeto(s) copiado(s)
+Eingefügt	Pegado
+{} Kopie(n) eingefügt	{} copias pegadas
+Keine Brushes ausgewählt	No hay brushes seleccionados
+In {} umgewandelt	Convertido en {}
+In die Welt verschoben	Movido al mundo
+Keine Brushes zum Aushöhlen ausgewählt	No hay brushes seleccionados para vaciar
+Ausgehöhlt (Wandstärke {})	Vaciado (grosor de pared {})
+Carve: {} Brush(es) geschnitten	Recorte: {} brush(es) cortado(s)
+Zum Schneiden zuerst Brushes auswählen	Primero selecciona los brushes a cortar
+Geschnitten	Cortar
+Material {} angewendet	Material {} aplicado
+{} Fläche(n) ersetzt	{} cara(s) reemplazada(s)
+Zum Gruppieren mindestens zwei Objekte auswählen	Selecciona al menos dos objetos para agrupar
+Gruppe {} erstellt ({} Objekte)	Grupo {} creado ({} objetos)
+Gruppe aufgelöst	Grupo disuelto
+Ausgeblendet (U = alles einblenden)	Oculto (U = mostrar todo)
+Alles eingeblendet	Todo visible
+Prefab {} eingefügt	Prefab {} insertado
+Zuerst Flächen im Flächen-Werkzeug auswählen	Primero selecciona caras con la herramienta de caras
+Keine Displacements ausgewählt	No hay displacements seleccionados
+{} Displacement(s) entfernt	{} displacement(s) eliminado(s)
+Rauschen auf {} Displacement(s)	Ruido en {} displacement(s)
+{} Displacement(s) auf Power {} umgerechnet	{} displacement(s) convertido(s) a potencia {}
+{} Displacement(s) unterteilt (geglättet)	{} displacement(s) subdividido(s) (suavizado(s))
+Keine gemeinsamen Kanten gefunden	No se encontraron aristas compartidas
+{} Randpunkte vernäht	{} puntos de arista cosidos
+Cordon: {} × {} × {}	Cordón: {} × {} × {}
+Keine func_instance ausgewählt	No hay func_instance seleccionada
+Instanz-Datei {} nicht gefunden	No se encontró el archivo de instancia {}
+Instanz(en) eingeklappt	Instancia(s) contraída(s)
+Raster: {}	Cuadrícula: {}
+{} Objekt(e) dupliziert	{} objeto(s) duplicado(s)
+Gesperrt – nicht mehr anklickbar (Shift+L entsperrt alles)	Bloqueado – ya no se puede pulsar (Mayús+L desbloquea todo)
+Alles entsperrt	Todo desbloqueado
+Keine verdeckten Flächen gefunden	No se encontraron caras ocultas
+{} verdeckte Fläche(n) auf nodraw gesetzt	{} cara(s) oculta(s) puesta(s) en nodraw
+{} Objekt(e) aus der Zwischenablage eingefügt	{} objeto(s) pegado(s) desde el portapapeles
+Prefab eingefügt – {} Name(n) umbenannt	Prefab insertado – {} nombre(s) renombrado(s)
+Prefab eingefügt	Prefab insertado
+Erst eine Entity auswählen	Primero selecciona una entidad
+{} Eigenschaft(en) von {} kopiert	{} propiedad(es) copiada(s) de {}
+Nichts kopiert (Eigenschaften kopieren zuerst)	No se copió nada (copia primero propiedades)
+Keine Entities ausgewählt	No hay entidades seleccionadas
+Eigenschaften auf {} Entity/Entities übertragen	Propiedades pegadas en {} entidad(es)
+Erst etwas auswählen	Primero selecciona algo
+{} berührende(s) Objekt(e) hinzugefügt	{} objeto(s) en contacto añadido(s)
+Oben · X/Y	Arriba · X/Y
+Vorn · Y/Z	Frente · Y/Z
+Seite · X/Z	Lado · X/Z
+MCP: {} erstellt	MCP: {} creado
+MCP: Entity {} geändert	MCP: entidad {} modificada
+MCP: Output hinzugefügt	MCP: salida añadida
+MCP: Raum erstellt	MCP: sala creada
+MCP: verschoben	MCP: movido
+MCP: gedreht	MCP: rotado
+3-Wege-Zusammenführen: {}	Fusión a 3 bandas: {}
+Optimierungen übernommen (MCP): {} Änderung(en)	Optimizaciones aplicadas (MCP): {} cambio(s)
+Umbenannt	Renombrado
+Hinweise	Notas
+Position	Posición
+Optionen	Opciones
+Gruppen und Visgroups der anderen Map übernehmen	Adoptar grupos y visgroups del otro mapa
+Doppelte Entity-Namen werden automatisch umbenannt (name_2), Verweise ziehen mit.	Los nombres de entidad duplicados se renombran automáticamente (nombre_2), las referencias se actualizan.
+Unterschiedliche Map-Eigenschaften · Haken = Wert der anderen Map	Propiedades de mapa distintas · marcado = valor del otro mapa
+offene Map	mapa abierto
+andere Map	otro mapa
+Fertig	Listo
+Neue Objekte sind ausgewählt · Strg+Z macht alles rückgängig	Los objetos nuevos quedan seleccionados · Ctrl+Z lo deshace todo
+Zusammenführen	Fusionar
+Konflikte (Klick wählt das Objekt):	Conflictos (clic selecciona el objeto):
+Strg+Z nimmt das Zusammenführen komplett zurück.	Ctrl+Z deshace toda la fusión.
+Markierungen aus	Marcadores desactivados
+Klick: anwählen und hinzoomen	Clic: seleccionar y hacer zoom
+Vergleich mit {}: {}	Comparación con {}: {}
+Filtern, z. B. props_junk crate	Filtro, p. ej. props_junk crate
+Skin	Skin
+Modell wird geladen…	Cargando modelo…
+Links ein Modell anklicken.	Haz clic en un modelo a la izquierda.
+Ziel: Modell für neue Props	Destino: modelo para props nuevos
+Ansicht zurücksetzen	Restablecer vista
+Modell: {}	Modelo: {}
+Beim Kompilieren automatisch anwenden	Aplicar automáticamente al compilar
+Läuft auf einer Kopie (Ordner amboss_build neben der VMF) vor VBSP. Deine Map bleibt unverändert.	Se ejecuta sobre una copia (carpeta amboss_build junto al VMF) antes de VBSP. Tu mapa no cambia.
+🔍 Nur prüfen	🔍 Solo comprobar
+Läuft auf einer Kopie und zeigt Netz, Markierungen und Bericht – die Map bleibt unverändert	Se ejecuta sobre una copia y muestra grafo, marcadores e informe – el mapa no cambia
+✔ Auf Map anwenden	✔ Aplicar al mapa
+Ergebnis in die Map übernehmen (ein Rückgängig-Schritt)	Aplicar el resultado al mapa (un paso de deshacer)
+Markierungen löschen	Borrar marcadores
+Bericht	Informe
+Grün = NPC-Verbindungen, Rot = Probleme, Gelb = Hint-Vorschläge, Blau = dunkle Bereiche. Maus über eine Markierung in 2D zeigt den Text.	Verde = conexiones de PNJ, rojo = problemas, amarillo = sugerencias de hint, azul = zonas oscuras. Al pasar sobre un marcador en 2D se muestra su texto.
+Abstand	Espaciado
+Sichtbarkeit (VVIS)	Visibilidad (VVIS)
+Licht	Iluminación
+Geometrie	Geometría
+Props und Entities	Props y entidades
+Optimierungen übernommen: {} Änderung(en) – Strg+Z macht sie rückgängig	Optimizaciones aplicadas: {} cambio(s) – Ctrl+Z las deshace
+Optimierung: nichts zu ändern	Optimización: nada que cambiar
+Prüfung: {} mögliche Änderung(en), Map unverändert	Comprobación: {} cambio(s) posible(s), mapa sin cambios
+{} Siehe Karte -> Automatische Optimierungen.	{} Ver Mapa -> Optimizaciones automáticas.
+Werkzeug	Herramienta
+Suchen…   @ Entities · # Texturen · > Befehle	Buscar…   @ entidades · # texturas · > comandos
+Aktuelle Textur: {} (Shift+T wendet sie auf die Auswahl an)	Textura actual: {} (Mayús+T la aplica a la selección)
+Browser…	Explorador…
+Klick auf eine Auswahl wechselt die Griffe:	Al hacer clic en una selección cambian los tiradores:
+Drehen rastet in 15°-Schritten ein (Shift = frei).	La rotación se ajusta en pasos de 15° (Mayús = libre).
+Linksklick vergrößert, Rechtsklick verkleinert (2D).	Clic izquierdo acerca, clic derecho aleja (2D).
+Material oben wählen (z. B. decals/…), dann in 3D auf eine Fläche klicken.	Elige un material arriba (p. ej. decals/…) y luego haz clic en una cara en 3D.
+Material oben wählen, dann in 3D auf eine Brush-Fläche klicken.\nGröße/Ausrichtung danach in den Eigenschaften (uv0–uv3, Start/End U/V).	Elige un material arriba y luego haz clic en una cara de brush en 3D.\nTamaño/alineación después en las propiedades (uv0–uv3, start/end U/V).
+In einer 2D-Ansicht eine Schnittlinie ziehen. Endpunkte lassen sich verschieben.	Traza una línea de corte en una vista 2D. Los extremos se pueden mover.
+Beide	Ambos
+Vorne	Delante
+Hinten	Detrás
+Schneiden (Enter)	Cortar (Intro)
+Linie löschen	Borrar línea
+Brush auswählen, dann Eckpunkte (Quadrate) oder Kanten (Kreise) in 2D ziehen.\nStrg = mehrere, Rahmen ziehen = mehrere, Pfeiltasten = verschieben.	Selecciona un brush y arrastra vértices (cuadrados) o aristas (círculos) en 2D.\nCtrl = varios, recuadro = varios, flechas = mover.
+2D: Linie ziehen · 3D: zwei Punkte auf Flächen anklicken. Esc löscht.	2D: traza una línea · 3D: haz clic en dos puntos de caras. Esc borra.
+In 2D ziehen: neue Kamera (Start = Position, Ende = Blickziel). Punkte lassen sich verschieben. Bild↑/↓ wechselt.	Arrastra en 2D: cámara nueva (inicio = posición, fin = objetivo). Los puntos se pueden mover. RePág/AvPág cambia.
+Neue Kamera an aktueller Position	Cámara nueva en la posición actual
+Bogen (°)	Arco (°)
+Startwinkel (°)	Ángulo inicial (°)
+Höhe pro Segment	Altura por segmento
+Querschnitt-Seiten	Lados de la sección
+In einer 2D-Ansicht ein Rechteck ziehen. Die Höhe wird vom letzten Block übernommen.	Traza un rectángulo en una vista 2D. La altura se toma del último bloque.
+Klick in 2D/3D platziert:	Un clic en 2D/3D coloca:
+Modell:	Modelo:
+Klick in 3D wählt Flächen (Strg = mehrere).\nRechtsklick: Material anwenden · Alt+Rechtsklick: nahtlos ausrichten.	Un clic en 3D selecciona caras (Ctrl = varias).\nClic derecho: aplicar material · Alt+clic derecho: envolver sin costuras.
+Skalierung	Escala
+Verschiebung	Desplazamiento
+Rotation	Rotación
+Lightmap	Lightmap
+Smoothing	Suavizado
+Ausrichten	Justificar
+Als Einheit	Como unidad
+An Welt	Al mundo
+An Fläche	A la cara
+Material übernehmen	Tomar material
+Material dieser Fläche als aktuelles setzen	Usar el material de esta cara como actual
+Displacement	Displacement
+Power	Potencia
+Erstellen	Crear
+Entfernen	Quitar
+In 3D mit gedrückter linker Maustaste malen. Strg kehrt Anheben/Absenken um.	Pinta en 3D manteniendo el botón izquierdo. Ctrl invierte elevar/bajar.
+Radius	Radio
+Stärke	Intensidad
+Richtung	Dirección
+Z-Achse	Eje Z
+Flächennormale	Normal de la cara
+Alpha (Überblendung) anzeigen	Mostrar alfa (mezcla)
+Auf ausgewählte Displacements anwenden	Aplicar a los displacements seleccionados
+Rauschen	Ruido
+Nähen (Sew)	Coser
+Gemeinsame Kanten benachbarter Displacements angleichen	Igualar las aristas compartidas de displacements vecinos
+Alpha invertieren	Invertir alfa
+Unterteilen	Subdividir
+Glättet alle ausgewählten Displacements gemeinsam (Catmull-Clark) – z. B. wird ein Würfel aus 6 Displacements rund	Suaviza juntos todos los displacements seleccionados (Catmull-Clark) – p. ej. un cubo de 6 displacements se vuelve redondo
+Feinheit:	Resolución:
+Auflösung ändern, Form und Alpha bleiben erhalten	Cambiar resolución; forma y alfa se conservan
+Flag auf Auswahl setzen (Shift+Klick: entfernen)	Poner marca en la selección (Mayús+clic: quitar)
+Erstellen: im Flächen-Werkzeug Flächen wählen → „Displacement erstellen“.	Crear: selecciona caras con la herramienta de caras → «Crear displacement».
+In einer 2D-Ansicht einen Bereich ziehen. Beim Kompilieren wird nur dieser Teil gebaut (abgedichtet).	Traza un área en una vista 2D. Al compilar solo se construye esa parte (sellada).
+Cordon entfernen	Quitar cordón
+Noch kein Cordon gesetzt.	Aún no hay cordón.
+Visgroups	Visgroups
+Wählen	Seleccionar
+Auswahl hinzufügen	Añadir selección
+Auswahl entfernen	Quitar selección
+Visgroup löschen	Eliminar visgroup
+Ebene sperren (nicht anklickbar)	Bloquear capa (no se puede pulsar)
+Aus Auswahl	Desde la selección
+Automatische Filter	Filtros automáticos
+Welt	Mundo
+Trigger	Triggers
+Tool-Texturen	Texturas de herramienta
+Brush-Entities	Entidades brush
+Punkt-Entities	Entidades puntuales
+Lichter	Luces
+Props	Props
+Displacements	Displacements
+Brushes	Brushes
+Yaw (Blickrichtung) – klicken/ziehen	Yaw (orientación) – clic/arrastrar
+Allgemein	General
+Hilfe zu dieser Klasse	Ayuda para esta clase
+Eigenschaften kopieren (Strg+Alt+C)	Copiar propiedades (Ctrl+Alt+C)
+Übertragen	Pegar
+Kopierte Eigenschaften auf alle ausgewählten Entities übertragen (Strg+Alt+V)	Pegar las propiedades copiadas en todas las entidades seleccionadas (Ctrl+Alt+V)
+Unbekannte Klasse (nicht in der FGD)	Clase desconocida (no está en el FGD)
+Winkel	Ángulos
+Drehen:	Rotar:
+Schlüsselwerte	Valores de claves
+Pipette: Ziel in einer Ansicht anklicken	Cuentagotas: haz clic en el objetivo en una vista
+Schlüssel entfernen	Quitar clave
+Wert	Valor
+Flags	Marcas
+Ausgänge	Salidas
+Output	Salida
+(eigener Name)	(nombre propio)
+Pipette: Ziel-Entity in einer Ansicht anklicken	Cuentagotas: haz clic en la entidad objetivo en una vista
+Systeme filtern…	Filtrar sistemas…
+Keine .pcf-Dateien im Spielordner gefunden (particles/).	No se encontraron archivos .pcf en la carpeta del juego (particles/).
+Links ein Partikelsystem wählen.	Elige un sistema de partículas a la izquierda.
+Partikelsystem	Sistema de partículas
+Wird als effect_name in info_particle_system eingetragen.	Se introduce como effect_name en info_particle_system.
+Partikelsystem {} in die Zwischenablage kopiert	Sistema de partículas {} copiado al portapapeles
+Partikelsystem: {}	Sistema de partículas: {}
+Prefab-Bibliothek	Biblioteca de prefabs
+Neu einlesen	Volver a escanear
+Speichern als	Guardar como
+(Hauptordner)	(carpeta principal)
+neue Kategorie	nueva categoría
+Auswahl speichern	Guardar selección
+Hammer-Bibliothek (.ol/.rmf) importieren…	Importar biblioteca de Hammer (.ol/.rmf)…
+Wandelt alle Prefabs in VMF-Dateien in einem eigenen Unterordner um	Convierte todos los prefabs en archivos VMF en su propia subcarpeta
+Mitgelieferte als VMF kopieren	Copiar los integrados como VMF
+Zum Anpassen in den Prefab-Ordner schreiben	Escribirlos en la carpeta de prefabs para editarlos
+Suchen:	Buscar:
+Ziehen in eine Ansicht oder anklicken und dann in eine Ansicht klicken (Shift = mehrfach)	Arrastra a una vista, o haz clic y luego clic en una vista (Mayús = varios)
+Datei löschen	Eliminar archivo
+Als Map öffnen	Abrir como mapa
+Prefab „{}“ eingefügt{}	Prefab «{}» insertado{}
+Prefab „{}“: {}	Prefab «{}»: {}
+Prefab gespeichert ({} Objekte): {}	Prefab guardado ({} objetos): {}
+{} Prefab(s) aus {} importiert	{} prefab(s) importado(s) de {}
+{} Prefabs nach {} kopiert	{} prefabs copiados a {}
+Prefab „{}“: in eine Ansicht klicken	Prefab «{}»: haz clic en una vista
+Keil	Cuña
+Zylinder	Cilindro
+Spitze	Pico
+Kugel	Esfera
+Bogen	Arco
+Torus	Toro
+Treppe	Escalera
+Wendeltreppe	Escalera de caracol
+Rampe	Rampa
+Rohr	Tubería
+Kuppel	Cúpula
+Zaun/Geländer	Valla/barandilla
+Outputs entfernen	Quitar salidas
+Material ersetzen	Reemplazar material
+Leere Seiten entfernen	Quitar caras vacías
+Displacement entfernen	Quitar displacement
+Brushes in Welt verschieben	Mover brushes al mundo
+info_player_start erstellen	Crear info_player_start
+info_player_start bei {} erstellt	info_player_start creado en {}
+MCP-Server (KI-Fernsteuerung)	Servidor MCP (control remoto por IA)
+Ohne offenes Fenster: amboss --mcp-stdio --map pfad.vmf [--game-dir…/garrysmod]	Sin ventana abierta: amboss --mcp-stdio --map ruta.vmf [--game-dir…/garrysmod]
+{} importiert: {} Brushes, {} Entities – bitte als VMF speichern	{} importado: {} brushes, {} entidades – guárdalo como VMF
+läuft auf http://127.0.0.1:{}/mcp	activo en http://127.0.0.1:{}/mcp
+Map-Editor für Source	Editor de mapas para Source
+Zum Editor	Al editor
+Startseite schließen	Cerrar página de inicio
+Maps und Vorlagen suchen	Buscar mapas y plantillas
+Nicht gespeicherte Änderungen gefunden	Se encontraron cambios sin guardar
+Verwerfen	Descartar
+Wiederherstellen	Restaurar
+Neu aus Vorlage	Nuevo desde plantilla
+Noch keine Maps geöffnet.	Aún no se ha abierto ningún mapa.
+Neue Map aus Vorlage „{}“	Mapa nuevo desde la plantilla «{}»
+Schließen (Esc)	Cerrar (Esc)
+Beide behalten	Mantener ambos
+Vorderseite behalten	Mantener delante
+Rückseite behalten	Mantener detrás
+Ungültige Form – Eckpunkt hier nicht möglich	Forma no válida – aquí no es posible un vértice
+Eckpunkte verschoben um {} {} {}	Vértices movidos {} {} {}
+Abstand: {} Einheiten	Distancia: {} unidades
+Griffe: {}	Tiradores: {}
+Texturiert	Texturizado
+Einfarbig	Plano
+Drahtgitter	Alambre
+Lightmap-Raster	Cuadrícula de lightmap
+Smoothing-Gruppen	Grupos de suavizado
+Lichtvorschau (ohne Schatten)	Vista previa de luz (sin sombras)
+Fläche lässt sich nicht so weit verschieben	La cara no se puede mover tan lejos
+{} Objekt(e) im Rahmen ausgewählt	{} objeto(s) seleccionado(s) en el recuadro
+Material übernommen: {}	Material tomado: {}
+Overlay: auf eine Brush-Fläche klicken	Overlay: haz clic en una cara de brush
+Zuerst eine Quell-Fläche auswählen	Primero selecciona una cara de origen
+Neue Map	Mapa nuevo
+Map öffnen…	Abrir mapa…
+Live-Sitzung beitreten	Unirse a sesión en directo
+Bedienung & Hilfe	Controles y ayuda
+Neu	Nuevo
+Eigenschaften	Propiedades
+Objekte	Objetos
+Nichts ausgewählt	Nada seleccionado
+Objekt in einer Ansicht anklicken	Haz clic en un objeto en una vista
+Einrasten	Ajuste
+An Eckpunkten	A vértices
+Texturen fixieren	Bloquear texturas
+Gruppen	Grupos
+Spielinhalte laden…	Cargando contenido del juego…
+Keine Spielinhalte	Sin contenido del juego
+MCP verbunden	MCP conectado
+Materialien	materiales
+Sprache	Idioma
+Spielordner	Carpeta del juego
+alle	cada
+aus	desactivado
+Bereit	Listo
+Befehle, Entities, Texturen suchen…	Buscar comandos, entidades, texturas…
+nicht gespeichert	sin guardar
+Kein Profil	Sin perfil
+Eine Ansicht (Shift+Z)	Una vista (Mayús+Z)
+Vier Ansichten	Cuatro vistas
+An Eckpunkten anderer Objekte einrasten (Alt+V)	Ajustar a vértices de otros objetos (Alt+V)
+Textur-Lock: Texturen beim Verschieben/Drehen mitbewegen	Bloqueo de texturas: las texturas siguen a los objetos al mover/rotar
+Gruppe lösen	Desagrupar
+Zurück in Welt	Volver al mundo
+Ausblenden	Ocultar
+Sperren	Bloquear
+Berührende hinzufügen	Añadir en contacto
+{} Eckpunkt(e) gewählt	{} vértice(s) seleccionado(s)
+ · Blend-Material (Alpha malen mischt die 2. Textur)	 · material de mezcla (pintar alfa mezcla la 2.ª textura)
+ungültig	no válido
+nicht eingestellt	sin definir
+MCP aus	MCP desactivado
+Leere Map	Mapa vacío
+Nichts außer den Map-Eigenschaften.	Solo las propiedades del mapa.
+Raum mit Licht und Spawn	Sala con luz y spawn
+Abgedichteter Raum 512 × 512 × 256 mit Spawn, Licht und Cubemap – sofort kompilierbar.	Sala cerrada 512 × 512 × 256 con spawn, luz y cubemap – lista para compilar.
+Außenbereich	Exterior
+Himmel, Sonne (light_environment) und Boden 2048 × 2048.	Cielo, sol (light_environment) y suelo de 2048 × 2048.
+Große Bauwiese	Gran prado para construir
+Sehr großer flacher Außenbereich (8192 × 8192) zum Bauen im Sandbox-Modus, mit Sonne und Spawnpunkten.	Zona exterior plana muy grande (8192 × 8192) para construir en modo sandbox, con sol y puntos de spawn.
+Arena (Deathmatch)	Arena (deathmatch)
+Halle 2048 × 2048 × 512 mit Säulen, vier Spawnpunkten, Lichtern und Cubemap.	Sala de 2048 × 2048 × 512 con pilares, cuatro puntos de spawn, luces y cubemap.
+Zwei Räume mit Tür (NPC-Test)	Dos salas con puerta (prueba de PNJ)
+Zwei Räume, verbunden durch eine Schiebetür mit Knöpfen – gut zum Testen von KI-Nodes und Areaportals.	Dos salas unidas por una puerta corredera con botones – ideal para probar nodos IA y areaportals.
+Kein Spielordner – Einstellungen	Sin carpeta del juego – ajustes
+Keine Spielinhalte – Spielordner prüfen	Sin contenido del juego – revisa la carpeta del juego
+Compiler nicht gefunden	No se encontraron los compiladores
+VBSP · VVIS · VRAD gefunden	VBSP · VVIS · VRAD encontrados
+Willkommen	Bienvenido
+Willkommen zurück	Bienvenido de nuevo
+{} Materialien geladen	{} materiales cargados
+Spielinhalte werden geladen…	Cargando contenido del juego…
+FGD geladen – {} Entity-Klassen	FGD cargado – {} clases de entidad
+Eingebaute Entity-Liste ({} Klassen)	Lista de entidades integrada ({} clases)
+· automatisch gesichert vor {}	· autoguardado hace {}
+vor {} Std.	hace {} h
+vor {} Min.	hace {} min
+vor {} Tagen	hace {} días
+gestern	ayer
+Brush-Entity · {} Flächen	Entidad brush · {} caras
+Welt · {} Flächen	Mundo · {} caras
+{}\nKlick: auswählen · Doppelklick: auf Auswahl anwenden	{}\nClic: seleccionar · doble clic: aplicar a la selección
+{} Eckpunkt(e) ausgewählt	{} vértice(s) seleccionado(s)
+Seiten	Lados
+Wandstärke	Grosor de pared
+{} Fläche(n) ausgewählt	{} cara(s) seleccionada(s)
+Einpassen	Ajustar
+Keine Physik	Sin física
+Kein Hull	Sin envolvente
+Kein Ray	Sin rayo
+{} Entities ausgewählt – Änderungen gelten für alle	{} entidades seleccionadas – los cambios se aplican a todas
+Verzög.	Retardo
++ Output hinzufügen	+ Añadir salida
+{} Schritt(e) im Verlauf. Ohne Speichern gehen die Änderungen verloren.	{} paso(s) en el historial. Sin guardar, los cambios se pierden.
+Einstellen…	Configurar…
+{} mögliche Probleme	{} posibles problemas
+Anzeigen	Mostrar
+GarrysMod-Hauptordner (enthält 'garrysmod' und 'bin')	Carpeta principal de GarrysMod (contiene «garrysmod» y «bin»)
+Ordner für gespeicherte Prefabs	Carpeta de prefabs guardados
+lädt…	cargando…
+Konnte Grafik-Einstellung nicht speichern: {}	No se pudo guardar el ajuste gráfico: {}
+1. Block (Shift+B), in Top ein Rechteck ziehen. 2. Strg+H höhlt zum Raum aus. 3. Entity (Shift+E): info_player_start und light setzen. 4. F9.	1. Bloque (Mayús+B), traza un rectángulo en Arriba. 2. Ctrl+H lo vacía en una sala. 3. Entidad (Mayús+E): coloca info_player_start y light. 4. F9.
+Shift+S Auswahl · G Lupe · C Kamera · E Entity · B Block · A Flächen · D Decal · O Overlay · X Clip · V Vertex · P Terrain · K Cordon	Mayús+S seleccionar · G lupa · C cámara · E entidad · B bloque · A caras · D calcomanía · O overlay · X cortar · V vértices · P terreno · K cordón
+Klick wählt, Strg = hinzufügen, Rahmen ziehen. Klick auf Auswahl: Skalieren → Drehen → Scheren	Clic selecciona, Ctrl = añadir, traza un recuadro. Clic en la selección: escalar → rotar → inclinar
+Linie ziehen, Enter schneidet, Shift+X wechselt Vorne/Hinten/Beide	Traza una línea, Intro corta, Mayús+X alterna delante/detrás/ambos
+Eckpunkte/Kanten ziehen; ungültige Formen werden abgelehnt	Arrastra vértices/aristas; las formas no válidas se rechazan
+Fläche (Shift+A) wählen → Displacement erstellen, dann Shift+P und in 3D malen	Selecciona una cara (Mayús+A) → crear displacement, luego Mayús+P y pinta en 3D
+Mausrad zoomen, mittlere Taste/Leertaste verschieben, Pfeiltasten verschieben Auswahl	La rueda hace zoom, botón central/espacio desplaza, las flechas mueven la selección
+Flächen	Caras
+Rechtsklick: Material anwenden · Alt+Rechtsklick: Ausrichtung nahtlos übernehmen	Clic derecho: aplicar material · Alt+clic derecho: continuar la alineación sin costuras
+Rückgängig / Wiederholen	Deshacer / rehacer
+Kopieren / Einfügen / Ausschneiden · Strg+Shift+V Paste Special	Copiar / pegar / cortar · Ctrl+Mayús+V pegado especial
+Gruppieren / Gruppe lösen	Agrupar / desagrupar
+Ausblenden / Unausgewähltes ausblenden / Alles einblenden	Ocultar / ocultar lo no seleccionado / mostrar todo
+In Entity umwandeln / zurück in Welt	Vincular a entidad / devolver al mundo
+Aushöhlen / Carve	Vaciar / recortar
+Transformieren-Dialog / Am Raster ausrichten	Diálogo de transformación / ajustar a la cuadrícula
+Spiegeln horizontal / vertikal, 90° drehen (Ansicht unter der Maus)	Voltear horizontal / verticalmente, rotar 90° (vista bajo el ratón)
+Auf Probleme prüfen (mit Auto-Fix)	Buscar problemas (con corrección automática)
+Raster verkleinern / vergrößern	Cuadrícula más fina / más grande
+Kompilieren und in GMod starten	Compilar y ejecutar en GMod
+Befehlspalette: jeden Befehl per Suche ausführen	Paleta de comandos: ejecuta cualquier comando buscándolo
+Shift+Ziehen (2D) / Shift am Gizmo	Mayús+arrastrar (2D) / Mayús en el gizmo
+Auswahl duplizieren und verschieben · Strg+D dupliziert direkt	Duplicar y mover la selección · Ctrl+D duplica en el sitio
+Pfeile verschieben, Ringe drehen (15°-Raster, Shift frei) · Shift+W schaltet ihn ein/aus	Las flechas mueven, los anillos rotan (pasos de 15°, Mayús libre) · Mayús+W lo activa/desactiva
+Flächen-Werkzeug in 3D	Herramienta de caras en 3D
+Shift+Ziehen: Fläche verschieben (Brush wächst) · Alt+Ziehen: neuen Brush herausziehen	Mayús+arrastrar: mover cara (el brush crece) · Alt+arrastrar: extruir un brush nuevo
+Pipette: Material einer Fläche übernehmen	Cuentagotas: tomar el material de una cara
+Auswahl sperren / alles entsperren	Bloquear selección / desbloquear todo
+Kamera-Lesezeichen speichern / anspringen	Guardar / saltar a marcadores de cámara
+Objektliste / Rückgängig-Verlauf	Lista de objetos / historial de deshacer
+Nächster Tab / Tab schließen	Pestaña siguiente / cerrar pestaña
+Am Raster einrasten an/aus · an Eckpunkten anderer Objekte einrasten an/aus	Ajuste a la cuadrícula sí/no · ajuste a vértices de otros objetos sí/no
+3D: Ziehen mit links	3D: arrastrar con el botón izquierdo
+Rahmenauswahl (Strg = hinzufügen, Alt = auch berührte Objekte) · Strg+Alt+A: berührende auswählen	Selección por recuadro (Ctrl = añadir, Alt = también objetos tocados) · Ctrl+Alt+A: seleccionar en contacto
+Entity-Eigenschaften kopieren / auf alle ausgewählten übertragen	Copiar propiedades de entidad / pegar en todas las seleccionadas
+Datei → Map zusammenführen	Archivo → Fusionar mapa
+Andere Map übernehmen: doppelte Namen werden umbenannt, Visgroup „Import“, Warnungen bei Überlappung	Traer otro mapa: los nombres duplicados se renombran, visgroup «Import», avisos si se solapan
+Unterschiede zu einem anderen Stand farbig anzeigen · Änderungen zweier Personen zusammenführen	Mostrar en color las diferencias con otra versión · fusionar cambios de dos personas
+Live-Sitzung: Gastgeber teilt die Map, Gäste treten mit Adresse und Passwort bei · Strg+Z nimmt nur eigene Schritte zurück	Sesión en directo: el anfitrión comparte el mapa, los invitados se unen con dirección y contraseña · Ctrl+Z solo deshace tus propios pasos
+Karte → Automatische Optimierungen	Mapa → Optimizaciones automáticas
+KI-Nodes, Leckprüfung, func_detail, nodraw, Areaportals, Cubemaps, Lightmaps… · „Nur prüfen“ zeigt das NPC-Netz (grün) und Probleme, „Auf Map anwenden“ übernimmt (Strg+Z), oder beim Kompilieren automatisch auf einer Kopie	Nodos IA, comprobación de fugas, func_detail, nodraw, areaportals, cubemaps, lightmaps… · «Solo comprobar» muestra el grafo de PNJ (verde) y los problemas, «Aplicar al mapa» aplica (Ctrl+Z), o automáticamente sobre una copia al compilar
+Verschieben	Mover
+Drehen und Skalieren um die Mitte der Auswahl	Rotar y escalar alrededor del centro de la selección
+Zuerst etwas auswählen	Primero selecciona algo
+{} Kopien einfügen	Pegar {} copias
+{} Kopie einfügen	Pegar {} copia
+Warnungen	Advertencias
+(nicht gespeichert)	(sin guardar)
+Verschiedene Texturen	Texturas distintas
+Gruppen / Visgroups	Grupos / visgroups
+Rückgängig-Speicher	Memoria de deshacer
+Verwendete Texturen	Texturas usadas
+Datei fehlt im Spielordner	Falta el archivo en la carpeta del juego
+(ohne Namen)	(sin nombre)
+Keine benannten Entities oder Outputs	No hay entidades con nombre ni salidas
+Neue Taste für „{}“ drücken… (Esc bricht ab)	Pulsa una tecla nueva para «{}»… (Esc cancela)
+Neue Visgroup	Visgroup nuevo
+Konnte {} nicht laden:\n{}	No se pudo cargar {}:\n{}
+Suche Garry's Mod in den Steam-Bibliotheken…	Buscando Garry's Mod en las bibliotecas de Steam…
+Vier Ansichten (Shift+Z)	Cuatro vistas (Mayús+Z)
+Ansicht maximieren (Shift+Z)	Maximizar vista (Mayús+Z)
+Kein Spielordner eingestellt – Bearbeiten → Einstellungen → „Automatisch suchen“ (oder…/GarrysMod/garrysmod eintragen)	No hay carpeta del juego – Editar → Ajustes → «Buscar automáticamente» (o introduce…/GarrysMod/garrysmod)
+keine VPK-Dateien und kein materials-Ordner in {}	no hay archivos VPK ni carpeta materials en {}
+Keine Materialien gefunden: {}. Der Spielordner muss…/GarrysMod/garrysmod sein.	No se encontraron materiales: {}. La carpeta del juego debe ser…/GarrysMod/garrysmod.
+Spielinhalte: {} Materialien aus {} – Addons werden noch eingelesen…	Contenido del juego: {} materiales de {} – leyendo aún los addons…
+Spielinhalte geladen: {} Materialien aus {} – Addons ausgeschaltet (Einstellungen)	Contenido del juego cargado: {} materiales de {} – addons desactivados (ajustes)
+Spielinhalte geladen: {} Materialien aus {} und {}	Contenido del juego cargado: {} materiales de {} y {}
+Spielinhalte werden im Hintergrund geladen…	El contenido del juego se carga en segundo plano…
+FGD konnte nicht geladen werden: {}	No se pudo cargar el FGD: {}
+Im Namen	En el nombre
+In der Beschreibung	En la descripción
+Favoriten	Favoritos
+Keine Klasse gefunden	No se encontró ninguna clase
+Meintest du {}?	¿Quisiste decir {}?
+Punkt-Entity – nicht für Brushes · {}	Entidad puntual – no para brushes · {}
+{} Brush(es) ausgewählt	{} brush(es) seleccionado(s)
+aus {} · {} Brush-Klassen	de {} · {} clases brush
+eingebaute Liste · {} Brush-Klassen	lista integrada · {} clases brush
+In {} umwandeln	Convertir en {}
+garrysmod.fgd nicht gefunden – eingebaute Liste mit {} Klassen.	No se encontró garrysmod.fgd – lista integrada con {} clases.
+Alle	Todas
+Punkt	Puntual
+Entities in der Map	Entidades del mapa
+Befehle	Comandos
+{} Flächen	{} caras
+{} · {} Flächen	{} · {} caras
+Alle {} anzeigen	Mostrar todo ({})
+Nichts gefunden	No se encontró nada
+wählen	seleccionar
+ausführen / auswählen	ejecutar / seleccionar
+nächste Gruppe	grupo siguiente
+Keine Modelle gefunden – Spielordner in den Einstellungen prüfen.	No se encontraron modelos – revisa la carpeta del juego en los ajustes.
+Kein Modell passt zum Filter.	Ningún modelo coincide con el filtro.
+Größe	Tamaño
+Polygone	Polígonos
+Kollisionsmodell	Modelo de colisión
+vorhanden	presente
+keins	ninguno
+Keine Auswahl	Sin selección
+Ziehen dreht · Rad zoomt	Arrastrar rota · rueda hace zoom
+Kollision	Colisión
+{} Modelle	{} modelos
+{} Sounds	{} sonidos
+Ziel: Entity {} / {}	Destino: entidad {} / {}
+{} .pcf-Dateien · {} Systeme	{} archivos .pcf · {} sistemas
+{} .pcf-Dateien · {} Systeme · {} Treffer	{} archivos .pcf · {} sistemas · {} resultados
+{} Kinder	{} hijos
+Kinder-Systeme	Sistemas hijos
+Im Manifest	En el manifiesto
+ja	sí
+nein	no
+Aufbau	Estructura
+{} Treffer	{} resultados
+ hat dasselbe Objekt geändert	 cambió el mismo objeto
+{} übernehmen	Adoptar la de {}
+Deins	La tuya
+Ohne Wahl bleibt deins · 0:{}	Si no eliges, se queda la tuya · 0:{}
++{} weitere Konflikte	+{} conflictos más
++{} weitere	+{} más
+Für das Internet muss die Router-Firewall eingehende IPv6-Verbindungen auf TCP-Port {} zu diesem PC erlauben (z. B. FRITZ!Box: Internet → Freigaben → Gerät → IPv6). Die Adresse kann sich täglich ändern.	Para Internet, el cortafuegos del router debe permitir conexiones IPv6 entrantes en el puerto TCP {} hacia este PC (p. ej. FRITZ!Box: Internet → Permitir acceso → dispositivo → IPv6). La dirección puede cambiar a diario.
+Heimnetz	Red doméstica
+Internet (IPv6)	Internet (IPv6)
+KI (NPCs)	IA (PNJ)
+Bodennodes (info_node) automatisch setzen	Colocar nodos de suelo (info_node) automáticamente
+Raster auf begehbaren Flächen, dichter an Türen und Engstellen; vorhandene Nodes bleiben	Cuadrícula sobre superficies transitables, más densa en puertas y pasos estrechos; los nodos existentes se mantienen
+Luftnodes (info_node_air) für fliegende NPCs	Nodos aéreos (info_node_air) para PNJ voladores
+Gitter alle 256 Einheiten in hohen, freien Räumen	Cuadrícula cada 256 unidades en salas altas y abiertas
+Türen: info_node_link_controller	Puertas: info_node_link_controller
+NPC-Wege durch Türen nur bei offener Tür (Ausgaben OnOpen/OnClose werden ergänzt)	Rutas de PNJ por puertas solo si están abiertas (se añaden salidas OnOpen/OnClose)
+info_hint für Deckung und Engstellen	info_hint para coberturas y pasos estrechos
+Hinweise an halbhohen Deckungen und Durchgängen	Hints en coberturas a media altura y pasos
+Navmesh (NextBots) beim Spielstart erzeugen	Generar navmesh (NextBots) al iniciar el juego
+Hängt +sv_cheats 1 +nav_generate an den Spielstart an; die .nav landet in maps/	Añade +sv_cheats 1 +nav_generate al inicio; el .nav acaba en maps/
+Leckprüfung vor VBSP (mit Pfad)	Comprobación de fugas antes de VBSP (con ruta)
+Flutfüllung von allen Punkt-Entities – findet Löcher zur Leere ohne VBSP-Lauf	Relleno desde todas las entidades puntuales – encuentra agujeros al vacío sin ejecutar VBSP
+Verdeckte Flächen -> nodraw	Caras ocultas -> nodraw
+Flächen, die vollständig an anderen Brushes anliegen	Caras completamente cubiertas por otros brushes
+Kleine/schräge Brushes -> func_detail	Brushes pequeños/inclinados -> func_detail
+Brushes ohne Kontakt zur Leere; Trennwände und Türrahmen bleiben Welt	Brushes sin contacto con el vacío; tabiques y marcos de puertas siguen en el mundo
+Areaportals in Tür-Öffnungen	Areaportals en los huecos de puertas
+func_areaportal an func_door* (nur wenn die Öffnung vollständig von Welt eingefasst ist)	func_areaportal en func_door* (solo si el hueco está totalmente cerrado por mundo)
+Hint-Brush-Vorschläge markieren	Marcar sugerencias de brushes hint
+Gelbe Markierungen an Durchgängen – wird nicht automatisch gebaut	Marcadores amarillos en los pasos – no se construyen automáticamente
+Lightmap-Auflösung automatisch	Resolución de lightmap automática
+Nahe an Lichtern 8, große/entfernte Flächen 32 (nur Flächen mit Standardwert 16)	Cerca de luces 8, caras grandes/lejanas 32 (solo caras con el 16 predeterminado)
+env_cubemap automatisch verteilen	Repartir env_cubemap automáticamente
+In offenen Bereichen ca. alle 768 Einheiten; danach „Cubemaps bauen“	Aproximadamente cada 768 unidades en zonas abiertas; luego «construir cubemaps»
+Lichtprüfung	Comprobación de luces
+Lichter in Brushes, zu viele schaltbare Lichter, dunkle Bereiche	Luces dentro de brushes, demasiadas luces conmutables, zonas oscuras
+Eckpunkte auf ganze Einheiten runden	Redondear vértices a unidades enteras
+Verhindert Mini-Lecks und „Invalid solid“	Evita fugas diminutas e «Invalid solid»
+Gleiche Quader zusammenführen	Fusionar cajas idénticas
+Nebeneinander liegende, gleich texturierte Quader werden ein Brush	Las cajas contiguas con las mismas texturas se convierten en un brush
+Splitter und doppelte Brushes entfernen	Quitar astillas y brushes duplicados
+Ungültige, hauchdünne (< 1 Einheit) und exakt doppelte Brushes	Brushes no válidos, finísimos (< 1 unidad) y duplicados exactos
+Flache Displacements vereinfachen	Simplificar displacements planos
+Displacements ohne Höhen/Alpha werden normale Flächen	Los displacements sin alturas/alfa vuelven a ser caras normales
+Ausblend-Distanz für Props	Distancia de desvanecimiento de props
+Nach Modellgröße, nur wenn keine gesetzt ist	Según el tamaño del modelo, solo si no hay ninguna
+Schatten kleiner Props aus	Desactivar sombras de props pequeños
+disableshadows bei sehr kleinen Modellen	disableshadows en modelos muy pequeños
+Wirkungslose Logik entfernen	Quitar lógica inútil
+logic_* ohne Ausgaben, leere Brush-Entities, doppelte Cubemaps	logic_* sin salidas, entidades brush vacías, cubemaps duplicados
+Eigene Inhalte in die BSP packen (bspzip)	Empaquetar contenido propio en el BSP (bspzip)
+Materialien/Modelle, die lose im Spielordner liegen, werden nach VRAD eingepackt	Los materiales/modelos sueltos en la carpeta del juego se empaquetan después de VRAD
+Bei Leck abbrechen (spart den VBSP-Lauf)	Abortar si hay fuga (ahorra la pasada de VBSP)
+Map konnte nicht geladen werden	No se pudo cargar el mapa
+Zusammengeführt	Fusionado
+Map zusammenführen	Fusionar mapa
+Koordinaten behalten	Mantener coordenadas
+Teile liegen an derselben Stelle wie in der anderen Map	Las piezas quedan en el mismo sitio que en el otro mapa
+Neben die offene Map setzen	Colocar junto al mapa abierto
+Verschiebt um die Breite der offenen Map (+X)	Desplaza el ancho del mapa abierto (+X)
+Verschieben um	Desplazar
+Älteren oder anderen Stand der Map wählen	Elige una versión anterior u otra del mapa
+Vergleich mit {}	Comparación con {}
+1/2: Gemeinsamen Ausgangsstand (Basis) wählen	1/2: elige la versión base común
+2/2: Version der anderen Person wählen	2/2: elige la versión de la otra persona
+Zusammengeführt mit {}	Fusionado con {}
+Keine Konflikte.	Sin conflictos.
+Cordon (aus)	Cordón (desactivado)
+Kein OpenGL-Kontext verfügbar	No hay contexto OpenGL disponible
+Fläche verschoben:	Cara movida:
+Prefab: auf eine Fläche klicken bzw. loslassen (Esc bricht ab)	Prefab: haz clic o suelta sobre una cara (Esc cancela)
+3D nicht verfügbar	3D no disponible
+Pinsel: {} · Radius {} · Stärke {} (Strg = umkehren)	Pincel: {} · radio {} · intensidad {} (Ctrl = invertir)
+Schiebetür mit Knöpfen	Puerta corredera con botones
+Türen & Fenster	Puertas y ventanas
+Wand mit func_door (fährt nach oben) und je einem Knopf auf beiden Seiten.	Pared con func_door (sube) y un botón a cada lado.
+Drehtür	Puerta giratoria
+Wand mit func_door_rotating (Scharnier über Origin-Brush), öffnet per Benutzen.	Pared con func_door_rotating (bisagra mediante brush origin), se abre al usarla.
+Fenster mit Glas	Ventana con cristal
+Wand mit Fensteröffnung und zerbrechlicher Glasscheibe (func_breakable).	Pared con hueco de ventana y cristal rompible (func_breakable).
+Bauteile	Elementos de construcción
+Leiter	Escalera de mano
+Sprossenleiter (func_detail) mit unsichtbarem Kletter-Brush (toolsinvisibleladder).	Escalera de peldaños (func_detail) con brush de escalada invisible (toolsinvisibleladder).
+Deckenlampe	Lámpara de techo
+Lampengehäuse mit Licht darunter. Auf eine Decke ziehen.	Carcasa de lámpara con luz debajo. Arrástrala a un techo.
+Technik & Logik	Técnica y lógica
+Lichtschalter	Interruptor de luz
+Knopf, der eine benannte Lampe ein- und ausschaltet.	Botón que enciende y apaga una lámpara con nombre.
+Teleporter-Paar	Par de teletransportadores
+trigger_teleport mit Ziel (info_teleport_destination) 256 Einheiten daneben.	trigger_teleport con destino (info_teleport_destination) a 256 unidades al lado.
+Schadenszone	Zona de daño
+trigger_hurt, der Spielern pro Sekunde Schaden zufügt.	trigger_hurt que daña a los jugadores cada segundo.
+Räume	Salas
+Spawn-Raum	Sala de spawn
+Abgedichteter Raum (512 × 512 × 256) mit info_player_start, Licht und env_cubemap. Sofort kompilierbar.	Sala cerrada (512 × 512 × 256) con info_player_start, light y env_cubemap. Lista para compilar.
+Außenbereich mit Himmel	Exterior con cielo
+2048 × 2048 × 1024 große Skybox-Hülle mit Boden, light_environment und Spawn.	Carcasa de skybox de 2048 × 2048 × 1024 con suelo, light_environment y spawn.
+Wasserbecken	Piscina
+Offenes Becken mit Wasser-Brush (Wasseroberfläche oben, sonst nodraw).	Piscina abierta con brush de agua (superficie de agua arriba, el resto nodraw).
+Treppe mit Podest	Escalera con rellano
+8 Stufen (16 hoch) auf 128 Einheiten Höhe mit Podest und Geländer.	8 escalones (16 de alto) hasta 128 unidades con rellano y barandilla.
+Säule	Pilar
+Runde Säule mit Sockel und Kapitell (func_detail).	Pilar redondo con base y capitel (func_detail).
+Physik-Kiste	Caja física
+prop_physics mit Holzkiste.	prop_physics con una caja de madera.
+ohne Namen	sin nombre
+Aufräumen: {} Splitter/ungültige und {} doppelte Brushes entfernt	Limpieza: {} astillas/no válidos y {} brushes duplicados eliminados
+Eckpunkte: {} Brush(es) auf ganze Einheiten gerundet (verhindert Mini-Lecks)	Vértices: {} brush(es) redondeado(s) a unidades enteras (evita fugas diminutas)
+Displacements: {} flache Displacement(s) in normale Flächen zurückverwandelt	Displacements: {} displacement(s) plano(s) convertido(s) de nuevo en caras normales
+Brushes zusammengeführt: {} Paar(e) gleicher Quader	Brushes fusionados: {} par(es) de cajas idénticas
+LECK gefunden – ausgehend von {}. Der rote Pfad führt ins Nichts.	FUGA encontrada – desde {}. El camino rojo lleva al vacío.
+Leckprüfung: Map ist dicht.	Comprobación de fugas: el mapa está sellado.
+Leckprüfung: keine Welt-Brushes.	Comprobación de fugas: no hay brushes de mundo.
+func_detail: {} Brush(es), die nicht abdichten, umgewandelt (VVIS wird schneller)	func_detail: {} brush(es) que no sellan convertido(s) (VVIS va más rápido)
+func_detail übersprungen (Map nicht dicht)	func_detail omitido (el mapa no está sellado)
+nodraw: {} vollständig verdeckte Fläche(n)	nodraw: {} cara(s) completamente oculta(s)
+Hint-Vorschläge: {} Durchgang/Durchgänge markiert (gelb)	Sugerencias de hint: {} paso(s) marcado(s) (amarillo)
+Türen: {} info_node_link_controller (NPC-Wege nur bei offener Tür)	Puertas: {} info_node_link_controller (rutas de PNJ solo si están abiertas)
+Areaportals: {} an Türen gesetzt{}	Areaportals: {} colocados en puertas{}
+, {} übersprungen (Öffnung nicht eindeutig)	, {} omitido(s) (hueco no despejado)
+Cubemaps: {} env_cubemap gesetzt – nach dem Kompilieren „Cubemaps bauen“ ausführen	Cubemaps: {} env_cubemap colocados – ejecuta «construir cubemaps» después de compilar
+Lightmaps: {} Fläche(n) gröber (32), {} feiner (8) – weniger Compile-Zeit, schärferes Licht wo nötig	Lightmaps: {} cara(s) más gruesa(s) (32), {} más fina(s) (8) – menos tiempo de compilación, luz más nítida donde hace falta
+Props: {} mit Ausblend-Distanz, {} kleine ohne Schatten	Props: {} con distancia de desvanecimiento, {} pequeños sin sombras
+Inhalte packen: {} eigene Datei(en) werden mit bspzip in die BSP gepackt	Empaquetado: {} archivo(s) propio(s) se empaquetan en el BSP con bspzip
+Packliste konnte nicht geschrieben werden: {}	No se pudo escribir la lista de empaquetado: {}
+Ergebnis: {} -> {} Brushes, {} -> {} Entities, {} Änderung(en)	Resultado: {} -> {} brushes, {} -> {} entidades, {} cambio(s)
+KI-Netz: {} Nodes, {} Verbindungen, {} zusammenhängende Bereiche, {} isolierte Nodes (rot)	Grafo IA: {} nodos, {} enlaces, {} zonas conectadas, {} nodos aislados (rojo)
+Dunkel: kein Licht in der Nähe	Oscuro: no hay luz cerca
+Kompilieren abgebrochen: Die Map hat ein Leck (roter Pfad).	Compilación abortada: el mapa tiene una fuga (camino rojo).
+Optimierte Kopie konnte nicht geschrieben werden: {}	No se pudo escribir la copia optimizada: {}
+Kopie: {} (Original bleibt unverändert)	Copia: {} (el original no cambia)
+Am Raster einrasten: aus (1 Einheit)	Ajuste a la cuadrícula: desactivado (1 unidad)
+Am Raster einrasten: an	Ajuste a la cuadrícula: activado
+Auswahl: {} Objekte	Selección: {} objetos
+{} Brushes · {} Entities	{} brushes · {} entidades
+{} Materialien	{} materiales
+Sprache / Language	Idioma / Language
+Map-Eigenschaften	Propiedades del mapa
+Werkzeug · Entity	Herramienta · entidad
+Brushes in Welt	Brushes en el mundo
+Schritt	Paso
+Programm	Programa
+Parameter	Parámetros
+Einfach	Sencillo
+Experte	Experto
+Normal	Normal
+Schnell	Rápido
+Final	Final
+Aus	Desactivado
+Raster {}	Cuadrícula {}
+Raster {} (frei)	Cuadrícula {} (libre)
+filtern	filtrar
+vor {} Tag(en)	hace {} día(s)
+vor {} Tg.	hace {} d
+Spiel (exe)	Juego (exe)
+Prefab-Ordner	Carpeta de prefabs
+.../GarrysMod/bin/vrad.exe	.../GarrysMod/bin/vrad.exe
+.../GarrysMod/hl2.exe oder gmod.exe	.../GarrysMod/hl2.exe o gmod.exe
+{} Entity-Klassen geladen	{} clases de entidad cargadas
+{} Materialien · {} Modelle · {} Sounds	{} materiales · {} modelos · {} sonidos
+Weich	Suave
+Linear	Lineal
+Hart	Duro
+Terrassen	Terrazas
+Schärfen	Afilar
+Abfall	Caída
+Stufenhöhe	Altura del escalón
+Gelände aus Heightmap…	Terreno desde mapa de alturas…
+Gelände aus Heightmap	Terreno desde mapa de alturas
+Bild wählen… (PNG oder RAW 16 Bit)	Elegir imagen… (PNG o RAW de 16 bits)
+{} × {} Pixel	{} × {} píxeles
+Kantenlänge	Longitud del borde
+Höhe (Weiß)	Altura (blanco)
+Kacheln pro Seite	Teselas por lado
+Ecke links unten	Esquina inferior izquierda
+{} Kacheln · Auflösung {} × {} Punkte	{} teselas · resolución {} × {} puntos
+Keine Vorschau	Sin vista previa
+Gelände erstellen	Crear terreno
+Weiß = hoch, Schwarz = tief · Ein Rückgängig-Schritt	Blanco = alto, negro = bajo · un paso de deshacer
+Gelände aus Heightmap: {} Kacheln ({} × {} Einheiten, Höhe {})	Terreno desde mapa de alturas: {} teselas ({} × {} unidades, altura {})
+Material	Material
+Auswahl als Modell (Prop)…	Selección a modelo (prop)…
+Auswahl als Modell (Prop)	Selección a modelo (prop)
+{} Brushes ausgewählt	{} brushes seleccionados
+Ordner unter models/	Carpeta bajo models/
+Oberfläche ($surfaceprop)	Superficie ($surfaceprop)
+Typ	Tipo
+Masse	Masa
+Brushes nach dem Kompilieren durch das Prop ersetzen	Sustituir los brushes por el prop después de compilar
+studiomdl: {}	studiomdl: {}
+studiomdl nicht gefunden (wird neben vbsp gesucht) – nur Export möglich	No se encontró studiomdl (buscado junto a vbsp) – solo exportar
+Werkzeug-Texturen werden nicht ins Modell übernommen, zählen aber zur Kollision.	Las texturas de herramienta se excluyen del modelo, pero cuentan para la colisión.
+Kompiliere…	Compilando…
+Exportieren & kompilieren	Exportar y compilar
+Nur SMD/QC	Solo SMD/QC
+Schließen	Cerrar
+Brushes durch {} ersetzt	Brushes sustituidos por {}
+Modell kompiliert: {}	Modelo compilado: {}
+Modell-Kompilierung fehlgeschlagen (siehe Log)	Falló la compilación del modelo (ver registro)
+Kollisionsmodelle der Props	Modelos de colisión de props
+Map-Grenze ±	Límites del mapa ±
+Source/GMod: 16384 – größer nur für Spiele mit erweitertem Limit	Source/GMod: 16384 – más solo para juegos con límite ampliado
+Layout zurücksetzen	Restablecer disposición
+Schatten (Lichtvorschau)	Sombras (vista previa de luz)
+Schatten in der Lichtvorschau	Sombras en la vista previa de luz
+Lichtvorschau	Vista previa de luz
+Inhalte in BSP packen…	Empaquetar contenido en el BSP…
+Inhalte in BSP packen	Empaquetar contenido en el BSP
+{} von {} Dateien ausgewählt · {}	{} de {} archivos seleccionados · {}
+BSP-Datei	Archivo BSP
+Inhalt anzeigen	Mostrar contenido
+Neu ermitteln	Volver a escanear
+Datei hinzufügen…	Añadir archivo…
+Alle eigenen	Todos los archivos propios
+Addons dazu	Incluir addons
+Keine eigenen Inhalte gefunden – alles, was die Map benutzt, gehört zum Spiel.	No se encontró contenido propio – todo lo que usa el mapa pertenece al juego.
+eigene Datei	archivo propio
+Addon: {}	Addon: {}
+hinzugefügt	añadido
+Schon in der BSP: {} Datei(en)	Ya en el BSP: {} archivo(s)
+In BSP packen	Empaquetar en el BSP
+Eigene Dateien sind vorgewählt, Addon-Inhalte besser im Workshop verlinken	Los archivos propios vienen preseleccionados; el contenido de addons es mejor enlazarlo en el Workshop
+Spielinhalte sind noch nicht geladen (Einstellungen → Spielverzeichnis).	El contenido del juego aún no está cargado (Ajustes → carpeta del juego).
+Eigene Inhalte in die BSP packen	Empaquetar contenido propio en el BSP
+Materialien, Modelle, Sounds, Partikel, Soundscapes und Nav-Mesh, die nicht zum Spiel gehören, werden nach VRAD eingepackt (Auswahl: Kompilieren → Inhalte in BSP packen…)	Materiales, modelos, sonidos, partículas, soundscapes y navmesh que no forman parte del juego se empaquetan después de VRAD (selección: Compilar → Empaquetar contenido en el BSP…)
+{} Datei(en) in {} gepackt	{} archivo(s) empaquetado(s) en {}
+BSP dekompilieren…	Descompilar BSP…
+Map-Decompiler	Descompilador de mapas
+Nicht wiederherstellbar: Visgroups, Gruppen, Instanzen, Areaportal- und Occluder-Brushes, originale IDs. Displacements stehen als dünne Brushes mit Displacement oben in der Welt.	No recuperable: visgroups, grupos, instancias, brushes de areaportal y occluder, ID originales. Los displacements son brushes finos con el displacement encima, en el mundo.
+BSP-Version {}	Versión BSP {}
+{} Brushes (davon {} func_detail), {} Brush-Entities	{} brushes ({} de ellos func_detail), {} entidades brush
+{} Entities, {} statische Props, {} Displacements	{} entidades, {} props estáticos, {} displacements
+{} Overlays, {} Cubemaps	{} overlays, {} cubemaps
+{} Brushes ließen sich nicht rekonstruieren (ungültige Form)	{} brushes no se pudieron reconstruir (forma no válida)
+Instanz in Tab öffnen	Abrir instancia en pestaña
+Instanzen neu laden	Recargar instancias
+{} Instanzen in der Map – bitte eine func_instance auswählen	{} instancias en el mapa – selecciona una func_instance
+Keine func_instance mit gefundener Datei ausgewählt	No hay func_instance seleccionada con un archivo existente
+Instanz-Kreis: {} bindet sich selbst ein – übersprungen	Bucle de instancias: {} se incluye a sí misma – omitida
+Instanz-Datei {} (in {}) nicht gefunden	No se encontró el archivo de instancia {} (en {})
+In Entity umwandeln ({})	Vincular a entidad ({})
+Auswahl: 1 Objekt ({})	Selección: 1 objeto ({})
+Punkt-Entity	Entidad puntual
+Punktlicht.	Luz puntual.
+Spotlicht.	Foco.
+Wiederholbarer Trigger.	Trigger repetible.
+Am Raster einrasten (Alt+G)	Ajustar a la cuadrícula (Alt+G)
+Lua-Skripte…	Scripts Lua…
+Lua-Skripte	Scripts Lua
+ungespeichert	sin guardar
+Skripte	Scripts
+Ordner neu einlesen	Volver a escanear carpeta
+Ausgabe von print() erscheint hier.	La salida de print() aparece aquí.
+Alle Werkzeuge für amboss.call:	Todas las herramientas para amboss.call:
+Ausführen	Ejecutar
+dateiname	nombre de archivo
+Ein Rückgängig-Schritt pro Skript · Zeitlimit 10 s	Un paso de deshacer por script · límite de 10 s
+Bitte unten einen Dateinamen eingeben	Introduce un nombre de archivo abajo
+Eingehende Verbindungen ({})	Conexiones entrantes ({})
+Inputs dieser Klasse ({})	Entradas de esta clase ({})
+Werkzeug · {}	Herramienta · {}
+Kamera {}	Cámara {}
+Hilfe: {}	Ayuda: {}
+Navmesh erzeugen	Generar navmesh
+Begehbare Bereiche ab den Spawnpunkten berechnen und als maps/<map>.nav speichern (für NextBots)	Calcular zonas transitables desde los puntos de spawn y guardar como maps/<map>.nav (para NextBots)
+Navmesh laden (.nav)…	Cargar navmesh (.nav)…
+Navmesh anzeigen	Mostrar navmesh
+Navmesh (NextBots) beim Kompilieren erzeugen	Generar navmesh (NextBots) al compilar
+Eingebauter Generator: begehbare Bereiche ab den Spawnpunkten, gespeichert als maps/<map>.nav und mit „Inhalte packen“ in die BSP	Generador integrado: zonas transitables desde los puntos de spawn, guardadas como maps/<map>.nav y empaquetadas en el BSP con «Empaquetar contenido»
+Navmesh wird erzeugt…	Generando navmesh…
+Navmesh: {}	Navmesh: {}
+Navmesh: {} Bereiche ({} geduckt) aus {} Rasterpunkten ab {} Spawnpunkt(en) in {} ms → {}	Navmesh: {} zonas ({} agachado) desde {} puntos de cuadrícula desde {} punto(s) de spawn en {} ms → {}
+Navmesh geladen: {} Bereiche ({})	Navmesh cargado: {} zonas ({})
+Navmesh konnte nicht gelesen werden: {}	No se pudo leer el navmesh: {}
+Kompilierte Map (BSP) – wird dekompiliert	Mapa compilado (BSP) – se descompilará
+Öffnen… (VMF oder BSP)	Abrir… (VMF o BSP)
+Importieren	Importar
+Exportieren	Exportar
+Oberfläche:	Interfaz:
+Fensteraufteilung	Disposición de ventanas
+Nur 3D	Solo 3D
+Nur Oben	Solo arriba
+Nur Vorn	Solo frente
+Nur Seite	Solo lado
+Kamera-Geschwindigkeit	Velocidad de cámara
+Sichtfeld	Campo de visión
+Ausblenden & Sperren	Ocultar y bloquear
+Objekt	Objeto
+Brush-Operationen	Operaciones de brush
+Instanzen	Instancias
+Als Prefab speichern…	Guardar como prefab…
+Versionen & Zusammenführen	Versiones y fusión
+Cordon deaktivieren	Desactivar cordón
+Cordon aktivieren	Activar cordón
+Kompilieren & Exportieren…	Compilar y exportar…
+Sofort kompilieren & starten	Compilar y ejecutar ahora
+Leck-Suche	Búsqueda de fugas
+Tutorial: Erste Schritte…	Tutorial: primeros pasos…
+Einrichtungs-Assistent…	Asistente de configuración…
+Kompilieren & Exportieren	Compilar y exportar
+Eigene Schritte	Pasos propios
+Navmesh für NextBots erzeugen	Generar navmesh para NextBots
+BSP in den maps-Ordner des Spiels kopieren	Copiar BSP a la carpeta maps del juego
+Materialien, Modelle, Sounds, Partikel, Soundscapes und Nav-Mesh, die nicht zum Spiel gehören, werden nach VRAD eingepackt	Materiales, modelos, sonidos, partículas, soundscapes y navmesh que no forman parte del juego se empaquetan después de VRAD
+Die Liste der benötigten Workshop-Addons wird immer als <map>_addons.txt neben die VMF geschrieben.	La lista de addons del Workshop necesarios siempre se escribe como <map>_addons.txt junto al VMF.
+Cubemaps bauen	Construir cubemaps
+Zusatzparameter für VBSP/VVIS/VRAD	Parámetros adicionales para VBSP/VVIS/VRAD
+Nur packen	Solo empaquetar
+Eigene Inhalte sofort in die zuletzt kompilierte BSP packen, ohne neu zu kompilieren	Empaquetar ahora el contenido propio en el último BSP compilado, sin recompilar
+Oberfläche	Interfaz
+Grundwerkzeuge, kurze Menüs – ideal zum Einstieg	Herramientas básicas, menús cortos – ideal para empezar
+Alle Werkzeuge und Spezialfunktionen	Todas las herramientas y funciones especiales
+In Map	En el mapa
+Sichtbarkeit · VVIS	Visibilidad · VVIS
+Vorher	Antes
+Danach	Después
+Keine kompilierte BSP gefunden – erst kompilieren	No se encontró un BSP compilado – compila primero
+Die kompilierte Map wird wieder in eine bearbeitbare VMF umgewandelt und danach geöffnet.	El mapa compilado se convierte de nuevo en un VMF editable y se abre.
+keine gültige BSP	no es un BSP válido
+Brushes mit Materialien und Texturausrichtung · func_detail · Türen, Trigger und andere Brush-Entities · alle Entities · Displacements · statische Props · Overlays · Cubemaps	Brushes con materiales y alineación de textura · func_detail · puertas, triggers y otras entidades brush · todas las entidades · displacements · props estáticos · overlays · cubemaps
+Dekompilieren & öffnen	Descompilar y abrir
+BSP dekompilieren	Descompilar BSP
+Quelle	Origen
+Was zurückkommt	Qué se recupera
+Spielordner mit gameinfo.txt	Carpeta del juego con gameinfo.txt
+Compiler VBSP / VVIS / VRAD	Compiladores VBSP / VVIS / VRAD
+Spiel (zum Testen der Map)	Juego (para probar el mapa)
+Entity-Liste: eingebaut (456 Klassen)	Lista de entidades: integrada (456 clases)
+Entity-Liste: garrysmod.fgd gefunden	Lista de entidades: garrysmod.fgd encontrado
+Willkommen bei Amboss	Bienvenido a Amboss
+Garry's Mod finden	Buscar Garry's Mod
+Inhalte	Contenido
+Fertig!	¡Listo!
+Amboss ist ein Map-Editor für Garry's Mod und andere Source-Spiele. In vier kurzen Schritten ist alles bereit.	Amboss es un editor de mapas para Garry's Mod y otros juegos Source. Cuatro pasos cortos y todo queda listo.
+Die wichtigsten Werkzeuge und kurze Menüs. Ideal, wenn du neu mit dem Mappen beginnst.	Las herramientas más importantes y menús cortos. Ideal si eres nuevo en el mapeo.
+Alle Werkzeuge: Vertex-Bearbeitung, Displacements, Overlays, Instanzen, Lua, Versionen…	Todas las herramientas: edición de vértices, displacements, overlays, instancias, Lua, versiones…
+Beides lässt sich jederzeit unter Ansicht → Oberfläche umschalten.	Puedes cambiarlo en cualquier momento en Ver → Interfaz.
+Amboss braucht den Ordner von Garry's Mod: für Texturen und Modelle, die Compiler (VBSP, VVIS, VRAD) und um die Map zu testen.	Amboss necesita la carpeta de Garry's Mod: para texturas y modelos, los compiladores (VBSP, VVIS, VRAD) y para probar el mapa.
+Automatisch suchen	Buscar automáticamente
+Ordner wählen…	Elegir carpeta…
+(noch nicht gesetzt)	(aún sin definir)
+Gesucht wird in allen Steam-Bibliotheken. Gewählt werden kann der Ordner „GarrysMod“ oder „GarrysMod/garrysmod“.	Se buscan todas las bibliotecas de Steam. Puedes elegir la carpeta «GarrysMod» o «GarrysMod/garrysmod».
+Welche Texturen und Modelle soll Amboss anbieten?	¿Qué texturas y modelos debe ofrecer Amboss?
+Inhalte aus Addons und dem Workshop verwenden	Usar contenido de addons y del Workshop
+Abonnierte Workshop-Addons und Ordner unter garrysmod/addons. Benutzt deine Map solche Inhalte, erstellt Amboss beim Kompilieren eine Liste zum Verlinken im Workshop.	Addons del Workshop suscritos y carpetas en garrysmod/addons. Si tu mapa usa ese contenido, Amboss escribe al compilar una lista para enlazar en el Workshop.
+Keine. Inhalte von Counter-Strike: Source oder anderen Source-Spielen werden über garrysmod/cfg/mount.cfg eingebunden (in GMod: Hauptmenü → Spiele-Symbol).	Ninguno. El contenido de Counter-Strike: Source u otros juegos Source se monta con garrysmod/cfg/mount.cfg (en GMod: menú principal → icono de juegos).
+Mit „Weiter“ werden die Inhalte eingelesen – das läuft im Hintergrund weiter.	«Siguiente» lee el contenido – sigue en segundo plano.
+Alles bereit. Wie möchtest du anfangen?	Todo listo. ¿Cómo quieres empezar?
+Tutorial starten	Iniciar tutorial
+Schritt für Schritt zur ersten eigenen Map – empfohlen für Einsteiger.	Paso a paso hacia tu primer mapa propio – recomendado para principiantes.
+Neue Map aus Vorlage	Mapa nuevo desde plantilla
+Fertigen Raum mit Licht und Spawnpunkt öffnen und loslegen.	Abre una sala lista con luz y punto de spawn y empieza.
+Zum Startbildschirm	A la pantalla de inicio
+Vorlagen, zuletzt geöffnete Maps, Map öffnen.	Plantillas, mapas abiertos recientemente, abrir mapa.
+Weiter	Siguiente
+Zurück	Atrás
+Überspringen	Omitir
+Eingebundene Spiele (mount.cfg)	Juegos montados (mount.cfg)
+Das Tutorial führt dich Schritt für Schritt durch deine erste Map. Jeder Schritt prüft selbst, ob er erledigt ist – und mit „Zeig es mir“ macht Amboss ihn vor.	El tutorial te guía paso a paso por tu primer mapa. Cada paso comprueba solo si está hecho – y con «Muéstramelo» Amboss lo hace por ti.
+Tutorial beenden	Terminar tutorial
+Erledigt!	¡Listo!
+Zeig es mir	Muéstramelo
+Amboss erledigt diesen Schritt für dich	Amboss hace este paso por ti
+Kapitel abschließen	Terminar capítulo
+1 · Die erste Map	1 · El primer mapa
+Oberfläche kennenlernen, einen Raum bauen, Kamera bewegen, speichern.	Conocer la interfaz, construir una sala, mover la cámara, guardar.
+Willkommen!	¡Bienvenido!
+Links oben siehst du die 3D-Ansicht, daneben und darunter drei 2D-Ansichten von oben, vorn und von der Seite. In 2D baust du genau auf dem Raster, in 3D schaust du dir das Ergebnis an. Links ist die Werkzeugleiste, rechts stehen die Eigenschaften und unten rechts die Texturen.	Arriba a la izquierda está la vista 3D; al lado y debajo, tres vistas 2D desde arriba, de frente y de lado. En 2D construyes exactamente sobre la cuadrícula, en 3D ves el resultado. La barra de herramientas está a la izquierda, las propiedades a la derecha y las texturas abajo a la derecha.
+Eine neue Map	Un mapa nuevo
+Lege eine leere Map an: Datei → Neu (Strg+N). Sie öffnet sich in einem eigenen Tab.	Crea un mapa vacío: Archivo → Nuevo (Ctrl+N). Se abre en su propia pestaña.
+Das Block-Werkzeug	La herramienta de bloque
+Mit dem Block-Werkzeug baust du Wände, Böden und alles Feste. Klicke es in der Werkzeugleiste an oder drücke Shift+B.	Con la herramienta de bloque construyes paredes, suelos y todo lo sólido. Haz clic en ella en la barra de herramientas o pulsa Mayús+B.
+Einen großen Block aufziehen	Traza un bloque grande
+Ziehe in der Ansicht „Oben“ mit gedrückter linker Maustaste ein großes Rechteck auf (etwa 512 × 512). In „Vorn“ oder „Seite“ kannst du die Höhe ziehen (etwa 256). Drücke dann Enter.	En la vista «Arriba», traza un rectángulo grande con el botón izquierdo pulsado (unos 512 × 512). En «Frente» o «Lado» puedes ajustar la altura (unos 256). Luego pulsa Intro.
+Aushöhlen – ein Raum entsteht	Vaciar – aparece una sala
+Ein Raum ist ein hohler Block. Wähle den Block mit dem Auswahl-Werkzeug (Shift+S) und wähle Objekt → Brush-Operationen → Aushöhlen (Strg+H). Aus dem Block werden sechs Wände.	Una sala es un bloque hueco. Selecciona el bloque con la herramienta de selección (Mayús+S) y elige Objeto → Operaciones de brush → Vaciar (Ctrl+H). El bloque se convierte en seis paredes.
+Umsehen in 3D	Mirar alrededor en 3D
+Speichere die Map: Datei → Speichern (Strg+S). Leg sie am besten in einen eigenen Ordner, z. B. „Dokumente/Maps“.	Guarda el mapa: Archivo → Guardar (Ctrl+S). Mejor en su propia carpeta, p. ej. «Documentos/Mapas».
+2 · Texturen und Formen	2 · Texturas y formas
+Texturen wählen und auftragen, Kisten bauen, kopieren und mit dem Clip-Werkzeug schneiden.	Elegir y aplicar texturas, construir cajas, copiarlas y cortarlas con la herramienta de corte.
+Eine Textur wählen	Elige una textura
+Unten rechts siehst du die Texturen. Klicke eine an, zum Beispiel eine Ziegelwand. Mit „Browser…“ kannst du alle Texturen durchsuchen.	Las texturas están abajo a la derecha. Haz clic en una, por ejemplo una pared de ladrillo. «Explorador…» permite buscar todas las texturas.
+Textur auftragen	Aplica una textura
+Wähle eine Wand mit dem Auswahl-Werkzeug und drücke Shift+T (Bearbeiten → Aktuelle Textur anwenden). Für einzelne Flächen gibt es das Textur-Werkzeug (Shift+A): Fläche in 3D anklicken, Textur anklicken.	Selecciona una pared con la herramienta de selección y pulsa Mayús+T (Editar → Aplicar textura actual). Para caras sueltas está la herramienta de texturas (Mayús+A): haz clic en una cara en 3D y luego en una textura.
+Eine Kiste bauen	Construye una caja
+Nimm wieder das Block-Werkzeug (Shift+B) und ziehe im Raum einen kleinen Block auf, etwa 64 × 64 × 64. Enter bestätigt.	Toma otra vez la herramienta de bloque (Mayús+B) y traza un bloque pequeño dentro de la sala, unos 64 × 64 × 64. Intro confirma.
+Wähle die Kiste (Shift+S, dann anklicken) und drücke Strg+D, um sie zu duplizieren. Die Kopie kannst du in 2D an einen anderen Platz ziehen.	Selecciona la caja (Mayús+S y luego clic en ella) y pulsa Ctrl+D para duplicarla. Puedes arrastrar la copia a otro sitio en 2D.
+Schneiden mit dem Clip-Werkzeug	Cortar con la herramienta de corte
+Das Clip-Werkzeug (Shift+X) schneidet Blöcke entlang einer Linie – so entstehen Schrägen und Rampen. Wähle eine Kiste, nimm das Clip-Werkzeug und ziehe in einer 2D-Ansicht schräg über die Kiste. Enter schneidet.	La herramienta de corte (Mayús+X) corta bloques a lo largo de una línea – así se hacen pendientes y rampas. Selecciona una caja, toma la herramienta de corte y traza en diagonal a través de la caja en una vista 2D. Intro corta.
+Spawnpunkt, Licht und ein Prop setzen und ihre Eigenschaften ändern.	Coloca un punto de spawn, una luz y un prop y cambia sus propiedades.
+Was sind Entities?	¿Qué son las entidades?
+Entities sind alles, was nicht einfach feste Geometrie ist: Spawnpunkte, Lichter, Props, Türen, Trigger, Sounds… Gesetzt werden sie mit dem Entity-Werkzeug (Shift+E). Die Klasse wählst du rechts im Panel: ins Feld tippen (mit Vorschlägen) oder über den Pfeil daneben aus der Liste.	Las entidades son todo lo que no es geometría sólida: puntos de spawn, luces, props, puertas, triggers, sonidos… Se colocan con la herramienta de entidad (Mayús+E). Elige la clase en el panel derecho: escribe en el campo (con sugerencias) o elígela en la lista con la flecha de al lado.
+Ein Spawnpunkt	Un punto de spawn
+Ohne Spawnpunkt kann man die Map nicht betreten. Nimm das Entity-Werkzeug, wähle die Klasse „info_player_start“ und klicke in 3D auf den Boden des Raums.	Sin punto de spawn nadie puede entrar en el mapa. Toma la herramienta de entidad, elige la clase «info_player_start» y haz clic en el suelo de la sala en 3D.
+Ohne Licht ist die Map im Spiel stockdunkel. Setze ein Entity der Klasse „light“ in die Mitte des Raums, etwas unter die Decke.	Sin luz el mapa está totalmente oscuro en el juego. Coloca una entidad de clase «light» en el centro de la sala, un poco por debajo del techo.
+Eigenschaften ändern	Cambiar propiedades
+Wähle das Licht aus. Rechts im Panel stehen jetzt seine Eigenschaften. Ändere die Helligkeit „Brightness“ – zum Beispiel über das Farbfeld – auf ein warmes Gelb.	Selecciona la luz. Sus propiedades están ahora en el panel derecho. Cambia «Brightness» – por ejemplo con el campo de color – a un amarillo cálido.
+Ein Prop	Un prop
+Props sind Modelle, zum Beispiel Kisten, Fässer oder Stühle. Setze ein „prop_physics“ und wähle beim Feld „World Model“ über „…“ im Modell-Browser ein Modell aus.	Los props son modelos, por ejemplo cajas, barriles o sillas. Coloca un «prop_physics» y elige un modelo en el explorador de modelos con «…» junto a «World Model».
+4 · Tür und Trigger	4 · Puerta y trigger
+Eine Schiebetür bauen, einen Trigger setzen und beide mit einem Ausgang verknüpfen.	Construye una puerta corredera, coloca un trigger y une ambos con una salida.
+Eine Tür aus einem Block	Una puerta a partir de un bloque
+Baue einen schmalen Block als Türblatt (etwa 8 × 64 × 112) und wandle ihn um: Objekt → In Entity umwandeln (Strg+T) und als Klasse „func_door“ wählen.	Construye un bloque estrecho como hoja de la puerta (unos 8 × 64 × 112) y conviértelo: Objeto → Vincular a entidad (Ctrl+T) y elige la clase «func_door».
+Name und Richtung	Nombre y dirección
+Gib der Tür rechts im Panel den Namen „tuer“. Bei „Move Direction“ legst du fest, wohin sie fährt – zum Beispiel „-90 0 0“ für nach oben. Der gelbe Pfeil zeigt die Bewegung.	En el panel derecho, llama a la puerta «door». «Move Direction» indica hacia dónde se mueve – por ejemplo «-90 0 0» para subir. La flecha amarilla muestra el movimiento.
+Ein Trigger	Un trigger
+Ein Trigger ist ein unsichtbarer Bereich, der etwas auslöst. Wähle die Textur „TOOLS/TOOLSTRIGGER“, baue einen Block vor die Tür und wandle ihn mit Strg+T in „trigger_multiple“ um.	Un trigger es una zona invisible que desencadena algo. Toma la textura «TOOLS/TOOLSTRIGGER», construye un bloque delante de la puerta y conviértelo con Ctrl+T en «trigger_multiple».
+Verknüpfen: der Ausgang	Enlazar: la salida
+Wähle den Trigger. Rechts unter „Ausgänge“: „+ Output hinzufügen“ → „OnStartTouch“, als Ziel „tuer“ und als Input „Open“. Jetzt öffnet sich die Tür, sobald jemand den Trigger betritt.	Selecciona el trigger. A la derecha, en «Salidas»: «+ Añadir salida» → «OnStartTouch», destino «door» y entrada «Open». Ahora la puerta se abre en cuanto alguien entra en el trigger.
+5 · Kompilieren und testen	5 · Compilar y probar
+Map prüfen, kompilieren und in Garry's Mod ausprobieren.	Revisa el mapa, compílalo y pruébalo en Garry's Mod.
+Bevor du kompilierst: Map → Auf Probleme prüfen (Alt+P). Amboss findet Lecks, fehlende Spawnpunkte, kaputte Brushes und vieles mehr – oft mit „Beheben“-Knopf.	Antes de compilar: Mapa → Buscar problemas (Alt+P). Amboss encuentra fugas, puntos de spawn que faltan, brushes rotos y mucho más – a menudo con un botón «Arreglar».
+Öffne Kompilieren → Kompilieren & Exportieren… Hier stellst du die Qualität ein und kannst eigene Inhalte in die BSP packen und ein Navmesh erzeugen lassen.	Abre Compilar → Compilar y exportar… Aquí ajustas la calidad, puedes empaquetar contenido propio en el BSP y generar un navmesh.
+Los!	¡Adelante!
+Klicke im Dialog auf „Kompilieren & Exportieren“ (oder drücke F9). Das Protokoll zeigt den Fortschritt. Ist „Spiel starten“ angehakt, startet Garry's Mod danach direkt mit deiner Map.	Haz clic en «Compilar y exportar» en el diálogo (o pulsa F9). El registro muestra el progreso. Si «Iniciar juego» está marcado, Garry's Mod arranca con tu mapa justo después.
+Geschafft!	¡Lo lograste!
+Deine erste Map ist fertig. In Garry's Mod lädst du sie auch über die Konsole: „map <name>“. Weiter geht es mit Displacements für Gelände, Props aus dem Modell-Browser und der Experten-Oberfläche (Ansicht → Oberfläche).	Tu primer mapa está terminado. En Garry's Mod también puedes cargarlo desde la consola: «map <nombre>». Lo siguiente: displacements para terreno, props del explorador de modelos y la interfaz experta (Ver → Interfaz).
+Tutorial: Erste Schritte	Tutorial: primeros pasos
+Ziel	Destino
+Anz.	Cantidad
+Schritt {} von {}	Paso {} de {}
+{} von {} Kapiteln erledigt	{} de {} capítulos hechos
+{} Schritte	{} pasos
+Ordner gesetzt: {}	Carpeta definida: {}
+Starten	Empezar
+Dekompiliere… → {}	Descompilando… → {}
+Dekompiliert: {} Brushes, {} Entities → {}	Descompilado: {} brushes, {} entidades → {}
+{} Datei(en) in {} gepackt: {} neu, {} ersetzt, {} waren schon drin · {}	{} archivo(s) empaquetado(s) en {}: {} nuevo(s), {} sustituido(s), {} ya dentro · {}
+1 Addon	1 addon
+{} Addons	{} addons
+· automatisch gesichert {}	· autoguardado {}
+Fehler: {} · Warnungen: {}	Errores: {} · Advertencias: {}
+{}\nKlick: Einstellungen	{}\nClic: ajustes
+{}: an Minimum	{}: al mínimo
+{}: an Maximum	{}: al máximo
+Aktuell: {}	Actual: {}
+{} {} einfügen	Pegar {} {}
+{} Gruppen	{} grupos
+In Visgroup „Import: {}“ legen	Poner en el visgroup «Import: {}»
+Map-Eigenschaft {}: {} -> {}	Propiedad del mapa {}: {} -> {}
+Länge {}\nΔX {}  ΔY {}  ΔZ {}\n≈ {} m	Longitud {}\nΔX {}  ΔY {}  ΔZ {}\n≈ {} m
+In Entity umwandeln… ({} Brush(es), Strg+T)	Vincular a entidad… ({} brush(es), Ctrl+T)
+AUFBAU	ESTRUCTURA
+unbekannter Fehler	error desconocido
+Inhalte packen: keine eigenen Dateien gefunden	Empaquetado: no se encontraron archivos propios
+Inhalte packen: {} Datei(en), {} MB werden nach VRAD in die BSP gepackt (Auswahl: Kompilieren → Inhalte in BSP packen…)	Empaquetado: {} archivo(s), {} MB se empaquetarán en el BSP después de VRAD (selección: Compilar y exportar → Empaquetar contenido propio)
+Benötigte Addons für die Map "{}" (erstellt von Amboss)\n	Addons necesarios para el mapa «{}» (creado por Amboss)\n
+Beim Hochladen in den Steam-Workshop unter "Benötigte Objekte" / "Required Items" verlinken,\n	Al subirlo al Steam Workshop, enlázalos en «Required Items»,\n
+oder die Inhalte selbst in die BSP packen.\n\n	o empaqueta tú mismo el contenido en el BSP.\n\n
+Keine Inhalte aus Addons – die Map braucht nur das Spiel	Sin contenido de addons – el mapa solo necesita el juego
+ und eigene, lose Dateien.\n	 y tus propios archivos sueltos.\n
+   (keine Workshop-ID gefunden – lokale Datei: {})\n	   (no se encontró ID del Workshop – archivo local: {})\n
+   {} Datei(en), z. B.:\n	   {} archivo(s), p. ej.:\n
+     … und {} weitere\n	     … y {} más\n
+Außerdem {} eigene Datei(en), die lose im Spielordner liegen (nicht in einem Addon) – mit "Eigene Inhalte in die BSP packen" einpacken.\n	Además, {} archivo(s) propio(s) sueltos en la carpeta del juego (no en un addon) – empaquétalos con «Empaquetar contenido propio en el BSP».\n
+Addons: keine benötigt (Liste: {})	Addons: no se necesita ninguno (lista: {})
+Addons: die Map benutzt Inhalte aus {} Addon(s) – Liste mit Workshop-Links: {}	Addons: el mapa usa contenido de {} addon(s) – lista con enlaces del Workshop: {}
+  • {} ({} Datei(en)){}	  • {} ({} archivo(s)){}
+Addon-Liste konnte nicht gespeichert werden: {}	No se pudo guardar la lista de addons: {}
+dein Rechner hat keine IPv6-Internetverbindung (prüfen: test-ipv6.com). Ausweg: im Router IPv6 einschalten, über einen Handy-Hotspot verbinden, oder der Gastgeber gibt Port 3918 (TCP) im Router frei und du verbindest dich mit seiner IPv4-Adresse	tu ordenador no tiene conexión a Internet IPv6 (compruébalo: test-ipv6.com). Solución: activa IPv6 en el router, conéctate mediante el punto de acceso del móvil, o el anfitrión redirige el puerto 3918 (TCP) en su router y te conectas a su dirección IPv4
+{} (geändert)	{} (modificado)
+Gastgeber auf Port {} – warte auf Gäste	Anfitrión en el puerto {} – esperando invitados
+{} ist beigetreten	{} se unió
+{} hat die Sitzung verlassen	{} salió de la sesión
+Werkzeug: {}	Herramienta: {}
+Garry's Mod wurde nicht gefunden (auch nicht in weiteren Steam-Bibliotheken). Bitte den Ordner…/GarrysMod/garrysmod manuell eintragen.	No se encontró Garry's Mod (tampoco en otras bibliotecas de Steam). Introduce la carpeta…/GarrysMod/garrysmod manualmente.
+** Abgebrochen **	** Cancelado **
+\n===== {} =====	\n===== {} =====
+\n===== Fertig =====	\n===== Listo =====
+Übersprungen: {} ({})	Omitido: {} ({})
+{} Datei(en) in {} gepackt ({} neu, {} ersetzt, {} vorhanden), {} MB	{} archivo(s) empaquetado(s) en {} ({} nuevo(s), {} sustituido(s), {} ya estaban), {} MB
+Packen fehlgeschlagen: {}	Error al empaquetar: {}
+Kopieren fehlgeschlagen ({} → {}): {}	Error al copiar ({} → {}): {}
+Fehler: {} konnte nicht gestartet werden: {}	Error: no se pudo iniciar {}: {}
+{} ist mit Code {} fehlgeschlagen.	{} falló con el código {}.
+Die Map hat ein LECK (Loch zur Leere). Das Pointfile wird geladen und zeigt den Weg.	El mapa tiene una FUGA (agujero al vacío). El pointfile está cargado y muestra el camino.
+*** WARNUNG: Die Map hat ein LECK! ***	*** ATENCIÓN: ¡el mapa tiene una FUGA! ***
+{}: Brushes nicht rekonstruierbar (z. B. Areaportal/Occluder) – Entity bleibt als Punkt-Entity	{}: los brushes no se pueden reconstruir (p. ej. area portal/occluder) – la entidad queda como puntual
+Statische Props sind komprimiert (LZMA) – nicht unterstützt	Los props estáticos están comprimidos (LZMA) – no compatible
+Unbekanntes Format der statischen Props (Version {})	Formato de props estáticos desconocido (versión {})
+Overlay {} ({}): keine passende Fläche gefunden	Overlay {} ({}): no se encontró una cara adecuada
+Aktuelle Textur anwenden / Textur-Browser	Aplicar textura actual / explorador de texturas
+{} neu, {} gelöscht, {} geändert, {} Map-Eigenschaft(en) anders	{} añadido(s), {} eliminado(s), {} modificado(s), {} propiedad(es) del mapa distinta(s)
+{} Änderung(en) der anderen Seite übernommen, {} Konflikt(e), {} Objekt(e) neu nummeriert	{} cambio(s) adoptado(s) del otro lado, {} conflicto(s), {} objeto(s) renumerado(s)
+{}: bei uns gelöscht, bei der anderen Seite geändert – geänderte Version wiederhergestellt	{}: eliminado aquí, modificado en el otro lado – se restauró la versión modificada
+{}: bei uns geändert, bei der anderen Seite gelöscht – unsere Version behalten	{}: modificado aquí, eliminado en el otro lado – se mantuvo nuestra versión
+{}: auf beiden Seiten verschieden geändert – unsere Version behalten, die andere liegt ausgeblendet in „Konflikt: andere Version“	{}: modificado de forma distinta en ambos lados – se mantuvo nuestra versión, la otra está oculta en «Conflicto: otra versión»
+Map-Eigenschaft {}: beide geändert ({} / {}) – unser Wert bleibt	Propiedad del mapa {}: cambiada en ambos lados ({} / {}) – se mantiene nuestro valor
+Änderung	Cambiar
+{}: ungültige VPK	{}: VPK no válido
+Spielordner nicht gefunden: {}	No se encontró la carpeta del juego: {}
+PNG zu groß	PNG demasiado grande
+Skript ausgeführt ({} Aufrufe) – Rückgängig nimmt alles auf einmal zurück	Script terminado ({} llamadas) – Deshacer lo revierte todo de una vez
+Skript-Fehler: {}	Error de script: {}
+kein Einstellungsordner	no hay carpeta de ajustes
+{}: VMT nicht gefunden	{}: no se encontró el VMT
+{}: VTF {} nicht gefunden	{}: no se encontró el VTF {}
+Datei zu kurz (Offset {})	Archivo demasiado corto (offset {})
+Datei zu kurz	Archivo demasiado corto
+ungültiger String-Offset	offset de cadena no válido
+{} nicht gefunden	No se encontró {}
+{}.vvd nicht gefunden	No se encontró {}.vvd
+{}.vtx nicht gefunden	No se encontró {}.vtx
+Vertex-Index außerhalb	índice de vértice fuera de rango
+Zusammengeführt: {} Brushes, {} Entities	Fusionado: {} brushes, {} entidades
+zwei Sonnen – Source benutzt nur eine	dos soles – Source solo usa uno
+zwei 3D-Skybox-Kameras – nur eine ist erlaubt	dos cámaras de skybox 3D – solo se permite una
+mehrere Nebel-Controller – prüfen, welcher aktiv ist	varios controladores de niebla – comprueba cuál está activo
+Die Bereiche überlappen sich ({} Brushes der offenen Map liegen im Bereich der neuen) – evtl. „Daneben setzen“ wählen	Las zonas se solapan ({} brushes del mapa abierto están dentro del nuevo) – considera «Colocar al lado»
+{} Spawnpunkt(e) aus der anderen Map kommen hinzu	Se añaden {} punto(s) de spawn del otro mapa
+Teile liegen außerhalb der Map-Grenzen (±{})	Hay piezas fuera de los límites del mapa (±{})
+Instanz-Datei {} nicht gefunden – Pfad prüfen	No se encontró el archivo de instancia {} – revisa la ruta
+{}: liegt nicht unter materials/, models/, sound/ … – Pfad im Spiel unklar	{}: no está bajo materials/, models/, sound/ … – ruta en el juego dudosa
+Eintrag nicht gefunden	Entrada no encontrada
+Prefab-Daten außerhalb der Datei	Datos de prefab fuera del archivo
+Kein info_player_start vorhanden.	No hay info_player_start.
+Keine Lichtquelle – die Map wird nach VRAD komplett dunkel.	No hay fuente de luz – el mapa quedará totalmente oscuro tras VRAD.
+Ungültiger Brush (ID {}).	Brush no válido (ID {}).
+Brush {} hat Seiten ohne Fläche.	El brush {} tiene caras sin área.
+Displacement auf nicht-viereckiger Fläche (Brush {}).	Displacement en una cara que no es cuadrilátera (brush {}).
+Brush {} liegt außerhalb der Map-Grenze (±{}).	El brush {} está fuera de los límites del mapa (±{}).
+Brush {} ist ein Duplikat von {}.	El brush {} es un duplicado de {}.
+Material "{}" wurde in den Spielinhalten nicht gefunden ({} Brush(es)).	No se encontró el material «{}» en el contenido del juego ({} brush(es)).
+Unbekannte Entity-Klasse "{}" (ID {}).	Clase de entidad desconocida «{}» (ID {}).
+Brush-Entity {} (ID {}) hat keine Brushes.	La entidad brush {} (ID {}) no tiene brushes.
+Punkt-Entity {} (ID {}) enthält Brushes.	La entidad puntual {} (ID {}) contiene brushes.
+Entity {} hat keine Klasse.	La entidad {} no tiene clase.
+{} (ID {}): Schlüssel nicht in der FGD: {}	{} (ID {}): claves que no están en el FGD: {}
+{} (ID {}): {} Output(s) zielen auf nicht existierende Namen.	{} (ID {}): {} salida(s) apuntan a nombres que no existen.
+{} (ID {}) liegt außerhalb der Map-Grenze.	{} (ID {}) está fuera de los límites del mapa.
+Spawnpunkt {} steckt in einem Brush.	El punto de spawn {} está atascado en un brush.
+{} (ID {}) hat keinen Ursprung.	{} (ID {}) no tiene origen.
+Cordon aktiv, aber kein Spawnpunkt im Cordon-Bereich.	Cordón activo, pero no hay punto de spawn dentro del cordón.
+studiomdl konnte nicht gestartet werden: {}	No se pudo iniciar studiomdl: {}
+studiomdl ist fehlgeschlagen – Brushes bleiben unverändert.	studiomdl falló – los brushes no cambian.
+Kein Spielverzeichnis eingestellt (Einstellungen → Spiel).	No hay carpeta del juego (Ajustes → Juego).
+studiomdl wurde nicht neben vbsp gefunden – QC liegt bereit und kann manuell kompiliert werden.	No se encontró studiomdl junto a vbsp – el QC está listo y se puede compilar a mano.
+VTF beschädigt	VTF dañado
+VTF-Format {} nicht unterstützt	Formato VTF {} no compatible
+aus 	de 
+ · {} Klassen	 · {} clases
+Bibliothek / {}	Biblioteca / {}
+mein_prefab	mi_prefab
+mein_prop	mi_prop
+(verschieden)	(mixto)
+Zwischenablage leer	Portapapeles vacío
+Ausdehnung	Dimensiones
+{} gespeicherte Brushes	{} brushes guardados
+Welt-Brushes ({})	Brushes del mundo ({})
+Nur Brush-Entities	Solo entidades brush
+Punkt-Entity – nicht für Brushes	Entidad puntual – no para brushes
+1 Hinweis	1 nota
+{} Hinweise	{} notas
+1 Warnung	1 advertencia
+{} Warnungen	{} advertencias
+1 Fehler	1 error
+{} Fehler	{} errores
+Aktuell	Actual
+1 Kind	1 hijo
+{} · R {} · S {} · Strg = umkehren	{} · R {} · I {} · Ctrl = invertir
+Werkzeuge → Versionen & Zusammenführen → Map zusammenführen	Herramientas → Versiones y fusión → Fusionar mapa
+Werkzeuge → Versionen & Zusammenführen → Vergleichen / 3-Wege	Herramientas → Versiones y fusión → Comparar / 3 bandas
+Werkzeuge → Live-Sitzung	Herramientas → Sesión en directo
+Kompilieren → Automatische Optimierungen	Compilar → Optimizaciones automáticas
+Entity-Report / Gehe zu Nummer	Informe de entidades / ir al número
+Kamera wechseln	Cambiar de cámara
+Messwerkzeug (2D ziehen, 3D zwei Punkte)	Herramienta de medición (arrastrar en 2D, dos puntos en 3D)
+Kopieren / Einfügen / Ausschneiden · Strg+Shift+V Inhalte einfügen	Copiar / pegar / cortar · Ctrl+Mayús+V pegado especial
+3D-Gizmo	Gizmo 3D
+Alt+Klick (3D)	Alt+clic (3D)
+Shift+S Auswahl · G Lupe · C Kamera · E Entity · B Block · A Textur · D Decal · O Overlay · X Clip · V Vertex · P Displacement · K Cordon	Mayús+S seleccionar · G lupa · C cámara · E entidad · B bloque · A textura · D calcomanía · O overlay · X cortar · V vértices · P displacement · K cordón
+1. Block (Shift+B), in der Ansicht Oben ein Rechteck ziehen. 2. Strg+H höhlt zum Raum aus. 3. Entity (Shift+E): info_player_start und light setzen. 4. F9.	1. Bloque (Mayús+B), traza un rectángulo en la vista Arriba. 2. Ctrl+H lo vacía en una sala. 3. Entidad (Mayús+E): coloca info_player_start y light. 4. F9.
+Erste Schritte	Primeros pasos
+1 Objekt	1 objeto
+{} Objekte	{} objetos
+1 Entity	1 entidad
+{} Entities	{} entidades
+1 Brush	1 brush
+{} Brushes	{} brushes
+1 Aufruf	1 llamada
+{} Aufrufe	{} llamadas
+✓ fertig in {} ms, {}	✓ hecho en {} ms, {}
+tuer	puerta
+Bedienung & Tastenkürzel	Controles y atajos
+Tastenbelegung ändern…	Personalizar atajos…
+Lege zuerst mit dem Cordon-Werkzeug (Shift+K) einen Bereich fest.	Primero define un área con la herramienta de cordón (Mayús+K).
+Einstellungsordner öffnen	Abrir carpeta de ajustes
+Ordner mit Einstellungen, Autosaves und grafik.txt	Carpeta con ajustes, autoguardados y grafik.txt
+Über Amboss…	Acerca de Amboss…
+Über Amboss	Acerca de Amboss
+Map-Editor für Source 1 und Garry's Mod	Editor de mapas para Source 1 y Garry's Mod
+Verwendete Bibliotheken	Bibliotecas usadas
+Fehler gefunden? Beschreibe Schritte, Map und Fehlermeldung – die Einstellungen und Autosaves liegen im Einstellungsordner (Hilfe → Einstellungsordner öffnen).	¿Encontraste un error? Describe los pasos, el mapa y el mensaje de error – los ajustes y autoguardados están en la carpeta de ajustes (Ayuda → Abrir carpeta de ajustes).
+Ausschneiden	Cortar
+In Entity umwandeln…	Vincular a entidad…
+Nur aktiv, wenn automatisch angewendet wird	Solo al aplicar automáticamente
+Um die Hochachse drehen (Yaw)	Rotar alrededor del eje vertical (yaw)
+Input des Ziels	Entrada del destino
+Parameter (optional)	Parámetro (opcional)
+Verzögerung in Sekunden	Retardo en segundos
+Anzahl Auslösungen (−1 = immer)	Veces que se dispara (−1 = siempre)
+Kein Objekt mit diesem Namen in der Map	No hay ningún objeto con este nombre en el mapa
+Das Ziel kennt diesen Input nicht	El destino no tiene esta entrada
+Diese Klasse hat keinen Output mit diesem Namen	Esta clase no tiene ninguna salida con este nombre
+Klick in 2D oder auf eine Fläche in 3D platziert:	Haz clic en 2D o en una cara en 3D para colocar:
+Klasse ändern…	Cambiar clase…
+Hilfe zur Klasse	Ayuda de la clase
+Material rechts bei den Texturen wählen (z. B. decals/…), dann in 3D auf eine Fläche klicken.	Elige un material en las texturas de la derecha (p. ej. decals/…) y luego haz clic en una cara en 3D.
+Material rechts bei den Texturen wählen, dann in 3D auf eine Brush-Fläche klicken.\nGröße und Ausrichtung danach mit den Griffen in der Ansicht oder in den Eigenschaften (uv0–uv3).	Elige un material en las texturas de la derecha y luego haz clic en una cara de brush en 3D.\nAjusta tamaño y alineación con los tiradores en la vista o en las propiedades (uv0–uv3).
+In 2D eine Schnittlinie ziehen. Beide/Vorne/Hinten bestimmt, welche Teile bleiben. Enter schneidet.	Traza una línea de corte en 2D. Ambos/Delante/Detrás define qué partes quedan. Intro corta.
+Keine Eckpunkte ausgewählt	No hay vértices seleccionados
+{} ausgewählt	{} seleccionado(s)
+1 Eckpunkt	1 vértice
+{} Eckpunkte	{} vértices
+{} Brushes in Entity umwandeln…	Vincular {} brushes a entidad…
+1 Gruppe	1 grupo
+{} gelöscht	{} eliminado(s)
+{} kopiert	{} copiado(s)
+Carve: {} geschnitten	Recorte: {} cortado(s)
+{} ersetzt	{} reemplazado(s)
+{} dupliziert	{} duplicado(s)
+{} auf nodraw gesetzt	{} puesto(s) en nodraw
+{} aus der Zwischenablage eingefügt	{} pegado(s) desde el portapapeles
+{} hinzugefügt	{} añadido(s)
+{} im Rahmen ausgewählt	{} seleccionado(s) en el recuadro
+1 Fläche	1 cara
+1 verdeckte Fläche	1 cara oculta
+{} verdeckte Flächen	{} caras ocultas
+1 berührendes Objekt	1 objeto en contacto
+{} berührende Objekte	{} objetos en contacto
+1 Modell	1 modelo
+Fast fertig – {} fehlen noch.	Casi listo – aún falta {}.
+1 Punkt	1 elemento
+{} Punkte	{} elementos
+Zu Schritt 2	Volver al paso 2
+Trotzdem weiter	Continuar de todos modos
+Los geht's	Vamos
+Keine Spiele eingebunden. Inhalte anderer Source-Spiele (z. B. Counter-Strike: Source) bindest du in Garry's Mod ein: Hauptmenü → Spiele-Symbol.	No hay juegos montados. Para usar contenido de otros juegos Source (p. ej. Counter-Strike: Source), móntalos en Garry's Mod: menú principal → icono de juegos.
+Entity löschen (Strg+Z macht es rückgängig)	Eliminar entidad (Ctrl+Z lo deshace)
+Modus	Modo
+Pinsel	Pincel
+Keine Displacements ausgewählt.	No hay displacements seleccionados.
+Min 	Mín. 
+Max 	Máx. 
+Nähen	Coser
+Keine Physik-Kollision	Sin colisión física
+Keine Hull-Kollision	Sin colisión de envolvente
+Keine Strahl-Kollision	Sin colisión de rayo
+Neue Displacements: im Textur-Werkzeug Flächen wählen →	Displacements nuevos: selecciona caras con la herramienta de texturas →
+Displacement erstellen	Crear displacement
+Aus den im Textur-Werkzeug ausgewählten Flächen	A partir de las caras seleccionadas con la herramienta de texturas
+neues Skript	script nuevo
+amboss.room(min, max, mat, wand) → ids	amboss.room(min, max, mat, wall) → ids
+amboss.entity(klasse, pos, keys, winkel) → id	amboss.entity(class, pos, keys, angles) → id
+amboss.get(id) → Tabelle	amboss.get(id) → table
+amboss.output(id, out, ziel, input, param, verz.)	amboss.output(id, out, target, input, param, delay)
+amboss.move(ids, versatz)	amboss.move(ids, offset)
+amboss.entities([klasse])	amboss.entities([class])
+Spiel & Pfade	Juego y rutas
+KI-Steuerung (MCP)	Control por IA (MCP)
+Intervall (Minuten, 0 = aus)	Intervalo (minutos, 0 = desactivado)
+Anzahl Sicherungen	Número de copias
+📁 Spielordner wählen…	📁 Elegir carpeta del juego…
+Eigener Wert	Valor propio
+Material-Editor	Editor de materiales
+Material-Editor…	Editor de materiales…
+Eigene Materialien anlegen, Bilder als Textur importieren	Crea tus propios materiales, importa imágenes como texturas
+Keine VMT gefunden – neues Material.	No se encontró VMT – material nuevo.
+Bitte einen Materialnamen eingeben, z. B. amboss/wand_rot	Introduce un nombre de material, p. ej. amboss/pared_roja
+Kein Spielordner eingestellt (Einstellungen → Spiel & Pfade).	No hay carpeta del juego (Ajustes → Juego y rutas).
+Keine Basistextur	Sin textura base
+Gekachelt (2 × 2)	En mosaico (2 × 2)
+Pfad unter materials/, ohne .vmt	Ruta bajo materials/, sin .vmt
+Shader	Shader
+Pfad unter materials/	Ruta bajo materials/
+Bild…	Imagen…
+PNG importieren (wird beim Speichern zu VTF)	Importar PNG (se convierte a VTF al guardar)
+Importiert – wird beim Speichern geschrieben	Importado – se escribe al guardar
+Basistextur	Textura base
+Farbbild der Oberfläche	Imagen de color de la superficie
+Normalmap	Normal map
+Oberflächenrelief für Licht	Relieve de la superficie para la iluminación
+Zweite Textur	Segunda textura
+Wird über die Alpha-Werte des Displacements eingeblendet	Se mezcla según los valores alfa del displacement
+Zweite Normalmap	Segundo normal map
+Relief der zweiten Textur	Relieve de la segunda textura
+Detailtextur	Textura de detalle
+Feine Struktur, die über die Basistextur gelegt wird	Estructura fina superpuesta a la textura base
+Detail-Skalierung	Escala del detalle
+Oberflächenart	Tipo de superficie
+(keine)	(ninguno)
+$surfaceprop: Schritt-Geräusche, Einschusslöcher, Physik	$surfaceprop: pasos, impactos de bala, física
+Farbe	Color
+Zurücksetzen	Restablecer
+Durchscheinend	Translúcido
+Alpha-Test	Prueba alfa
+Beidseitig	Doble cara
+Selbstleuchtend	Autoiluminado
+Additiv	Aditivo
+Alpha-Kanal als Transparenz (weiche Kanten, sortiert)	Canal alfa como transparencia (bordes suaves, ordenado)
+Harte Kanten (Zäune, Blätter) – schneller als durchscheinend	Bordes duros (vallas, hojas) – más rápido que translúcido
+Auch von hinten sichtbar	Visible también por detrás
+Leuchtet unabhängig vom Licht (Maske im Alpha-Kanal)	Brilla sin depender de la luz (máscara en el canal alfa)
+Hellt den Hintergrund auf (Licht, Feuer)	Aclara el fondo (luz, fuego)
+Spiegelung	Reflejo
+$envmap env_cubemap – spiegelt die nächste env_cubemap	$envmap env_cubemap – refleja el env_cubemap más cercano
+Alle Parameter	Todos los parámetros
+Parameter entfernen	Quitar parámetro
++ Parameter	+ Parámetro
+{} Unterblöcke (z. B. Proxies) bleiben unverändert erhalten.	{} subbloques (p. ej. proxies) se conservan sin cambios.
+Als aktuelles Material	Como material actual
+Speichern und als aktuelle Textur für neue Brushes setzen	Guardar y usar como textura actual para brushes nuevos
+Wird lose im Spielordner gespeichert und beim Kompilieren mit eingepackt	Guardado como archivo suelto en la carpeta del juego y empaquetado al compilar
+Bild geladen: {} × {} px	Imagen cargada: {} × {} px
+Bild konnte nicht geladen werden: {}	No se pudo cargar la imagen: {}
+Wände, Böden, alles auf Brushes	Paredes, suelos, todo lo que va sobre brushes
+Modelle (Props)	Modelos (props)
+Ohne Licht (Leuchtschilder, Skybox-Teile)	Sin iluminación (carteles, partes de skybox)
+Überblendung zweier Texturen auf Displacements	Mezcla de dos texturas en displacements
+Zwei Texturen ohne Licht	Dos texturas, sin iluminación
+Glas mit Lichtbrechung	Cristal con refracción
+Partikel-Editor	Editor de partículas
+Partikel-Editor…	Editor de partículas…
+Partikeleffekte (.pcf) anlegen und bearbeiten, mit Vorschau	Crear y editar efectos de partículas (.pcf) con vista previa
+neue Datei	archivo nuevo
+Partikelsysteme	Sistemas de partículas
++ Neu	+ Nuevo
+Rauch	Humo
+Funken	Chispas
+Feuer	Fuego
+Staub	Polvo
+System entfernen	Quitar sistema
+Pause	Pausa
+Abspielen	Reproducir
+Neu starten	Reiniciar
+{} Partikel · {} s	{} partículas · {} s
+Ziehen dreht, Mausrad zoomt · vereinfachte Vorschau	Arrastrar rota, rueda hace zoom · vista previa simplificada
+Kein Partikelsystem in der Datei.	No hay sistemas de partículas en el archivo.
+System	Sistema
+Emitter	Emisores
+Initialisierer	Inicializadores
+Operatoren	Operadores
+Renderer	Renderizadores
+Kräfte	Fuerzas
+Einschränkungen	Restricciones
++ Hinzufügen	+ Añadir
+In Map-Partikelliste eintragen	Añadir a la lista de partículas del mapa
+Schreibt maps/<map>_particles.txt, damit die Map die Datei lädt	Escribe maps/<map>_particles.txt para que el mapa cargue el archivo
+({} Einträge)	({} entradas)
+Konnte nicht geöffnet werden: {}	No se pudo abrir: {}
+Erst speichern	Guarda primero
+Die Datei muss im Spielordner liegen (particles/…)	El archivo debe estar dentro de la carpeta del juego (particles/…)
+Eingetragen in {}	Añadido a {}
+kein DMX	no es un archivo DMX
+kein binäres DMX	no es un archivo DMX binario
+String-Index außerhalb	índice de cadena fuera de rango
+DMX-Version {} wird nicht unterstützt	La versión DMX {} no es compatible
+Text ohne Ende	cadena sin terminar
+unbekannter Attributtyp {}	tipo de atributo desconocido {}
+Im Partikel-Editor öffnen	Abrir en el editor de partículas
+Aus den Spielinhalten geladen – bitte unter neuem Namen speichern	Cargado desde el contenido del juego – guárdalo con otro nombre
+Indirektes Licht in der Lichtvorschau (GI)	Luz indirecta en la vista previa de iluminación (GI)
+Indirektes Licht (GI)	Luz indirecta (GI)
+Von Wänden zurückgeworfenes Licht, wird im Hintergrund berechnet und laufend verfeinert	Luz rebotada en las paredes, calculada en segundo plano y refinada continuamente
+Indirektes Licht: {} %	Luz indirecta: {} %
+Zuerst Props (Punkt-Entities) auswählen	Primero selecciona props (entidades puntuales)
+Physik: {} fallen – Esc bricht ab	Física: {} cayendo – Esc cancela
+Physik abgebrochen	Física cancelada
+Physik: {} liegen nach {} s	Física: {} en reposo tras {} s
+Vegetation streuen	Esparcir vegetación
+Vegetation streuen…	Esparcir vegetación…
+Bäume, Büsche, Steine mit einem Pinsel in 3D verteilen	Pinta árboles, arbustos y rocas en 3D con un pincel
+Mit Physik fallen lassen	Dejar caer con física
+Noch keine Modelle – im Modell-Browser eines wählen und hier hinzufügen.	Aún no hay modelos – elige uno en el explorador de modelos y añádelo aquí.
++ Aktuelles Modell	+ Modelo actual
+Verteilung	Distribución
+Pinselradius	Radio del pincel
+Dichte	Densidad
+Objekte je 256 × 256 Einheiten	Objetos por 256 × 256 unidades
+Mindestabstand	Distancia mínima
+Größte Neigung	Pendiente máxima
+Steilere Hänge bleiben frei	Las pendientes más pronunciadas quedan vacías
+Zufällige Neigung	Inclinación aleatoria
+Einsinken	Hundir
+Wie tief die Modelle in den Boden ragen (Wurzeln, Steine)	Cuánto se hunden los modelos en el suelo (raíces, rocas)
+Zufällig drehen	Rotación aleatoria
+An der Oberfläche ausrichten	Alinear a la superficie
+Pinsel aktiv – in 3D malen, Shift radiert	Pincel activo – pinta en 3D, Mayús borra
+Auswahl füllen	Rellenar selección
+Oberseiten der ausgewählten Brushes und Displacements bestreuen	Esparcir sobre las caras superiores de los brushes y displacements seleccionados
+Ein Pinselstrich ist ein Rückgängig-Schritt	Una pincelada es un paso de deshacer
+{} gestreut	{} esparcido(s)
+Labyrinth	Laberinto
+Stadtblock	Manzana urbana
+Stadt	Ciudad
+Kreis	Anillo
+Prozedurale Generatoren	Generadores procedurales
+Prozedurale Generatoren…	Generadores procedurales…
+Labyrinth, Räume mit Gängen, Stadtblock, Kreis-Anordnung	Laberinto, salas con pasillos, manzana urbana, matriz en anillo
+Zufälliges Labyrinth mit Eingang und Ausgang.	Laberinto aleatorio con entrada y salida.
+Räume mit Gängen, geschlossen und sofort kompilierbar (mit Licht und Spawnpunkt).	Salas con pasillos, selladas y listas para compilar (con luces y punto de spawn).
+Straßenraster mit Häusern zufälliger Höhe.	Cuadrícula de calles con edificios de altura aleatoria.
+Die Auswahl im Kreis um ihren Mittelpunkt vervielfältigen.	Repetir la selección en círculo alrededor de su centro.
+Zellen (Breite)	Celdas (ancho)
+Zellen (Tiefe)	Celdas (fondo)
+Gangbreite	Ancho del pasillo
+Raumgröße min. (Zellen)	Tamaño mín. de sala (celdas)
+Raumgröße max. (Zellen)	Tamaño máx. de sala (celdas)
+Gangbreite (Zellen)	Ancho del pasillo (celdas)
+Rastergröße (Zellen)	Tamaño de la cuadrícula (celdas)
+Zellgröße	Tamaño de celda
+Blöcke (Breite)	Manzanas (ancho)
+Blöcke (Tiefe)	Manzanas (fondo)
+Blockgröße	Tamaño de manzana
+Straßenbreite	Ancho de calle
+Haushöhe	Altura de edificios
+Anzahl (mit Original)	Cantidad (con el original)
+Winkelbereich	Rango de ángulo
+Raumhöhe	Altura de sala
+Zufallszahl	Semilla
+Würfeln	Aleatorio
+Licht in jedem Raum, Spawnpunkt im ersten	Luz en cada sala, punto de spawn en la primera
+Wände bekommen die aktuelle Textur, der Boden die zweite des Generators. Eingefügt wird dort, wohin die 3D-Kamera blickt.	Las paredes reciben la textura actual, el suelo la segunda del generador. Se inserta donde mira la cámara 3D.
+Erzeugen	Generar
+Erst Objekte auswählen	Primero selecciona objetos
+Ein Rückgängig-Schritt; das Ergebnis ist gruppiert	Un paso de deshacer; el resultado queda agrupado
+{} im Kreis angeordnet	{} dispuesto(s) en anillo
+Tile-Set	Conjunto de piezas
+Tile-Set…	Conjunto de piezas…
+Bausteine auf einem Raster setzen: Boden, Wand, Ecke, Tür, Treppe …	Coloca piezas en una cuadrícula: suelo, pared, esquina, puerta, escalera…
+Bausteine · Innenraum	Piezas · interior
+Boden	Suelo
+Wand	Pared
+Ecke	Esquina
+Sackgasse	Callejón sin salida
+Gang	Pasillo
+Tür	Puerta
+Fenster	Ventana
+Nur Boden (und Decke)	Solo suelo (y techo)
+Boden mit einer Wand	Suelo con una pared
+Zwei Wände über Eck	Dos paredes en esquina
+Drei Wände	Tres paredes
+Zwei gegenüberliegende Wände	Dos paredes opuestas
+Wand mit Durchgang	Pared con hueco de puerta
+Wand mit Fensteröffnung	Pared con hueco de ventana
+Boden mit Säule in der Mitte	Suelo con un pilar en el centro
+Stufen bis zur nächsten Ebene	Escalones al siguiente nivel
+Drehung	Rotación
+(R in der 3D-Ansicht)	(R en la vista 3D)
+Feldgröße	Tamaño de celda
+Bauebene (Höhe)	Nivel (altura)
+Eine Etage höher	Un piso más arriba
+tiefer	abajo
+Mit Decke	Con techo
+Wände: aktuelle Textur	Paredes: textura actual
+Boden: aktuelle Textur	Suelo: textura actual
+Setzen aktiv – in 3D klicken oder ziehen, Shift entfernt	Colocación activa – haz clic o arrastra en 3D, Mayús quita
+Jeder Baustein ist eine Gruppe aus Brushes	Cada pieza es un grupo de brushes
+{} gesetzt ({}°)	{} colocado(s) ({}°)
+Warnung: {} Polygon-Mesh(es) noch nicht zum Modell kompiliert (Werkzeuge → Polygon-Mesh…): {}	Atención: {} malla(s) poligonal(es) aún sin compilar en modelo (Herramientas → Malla poligonal…): {}
+Freie Netze: aus Brushes erstellen oder OBJ importieren, Punkte und Flächen ziehen, extrudieren	Mallas libres: crear desde brushes o importar OBJ, arrastrar vértices y caras, extruir
+Eine Displacement-Fläche mit 16 Kontrollpunkten glatt biegen	Curvar suavemente una superficie de displacement con 16 puntos de control
+Erst Brushes auswählen	Primero selecciona brushes
+Mesh aus {} Brush(es) erstellt	Malla creada a partir de {} brush(es)
+Erst Flächen auswählen	Primero selecciona caras
+Erst eine Fläche oder einen Brush auswählen	Primero selecciona una cara o un brush
+Die Fläche braucht genau vier Ecken	La cara necesita exactamente cuatro esquinas
+Bezier-Patch: Kontrollpunkte in der 3D-Ansicht ziehen	Parche Bézier: arrastra los puntos de control en la vista 3D
+Bearbeite {}: {} · {} · {} gewählt	Editando {}: {} · {} · {} seleccionado(s)
+Freie Netze mit beliebiger Form. Sie gehören zu einem prop_static und werden beim Kompilieren zum Modell; die Netzdaten liegen neben der VMF in <map>.meshes.json.	Mallas libres de cualquier forma. Cada una pertenece a un prop_static y se compila como modelo; los datos de la malla se guardan junto al VMF en <map>.meshes.json.
+Einheit der Datei	Unidades del archivo
+Ein Bezier-Patch biegt eine Displacement-Fläche mit 16 Kontrollpunkten glatt – für Bögen, Wellen, Röhrenstücke und Kuppeln. Das Ergebnis ist ein normales Displacement.	Un parche Bézier curva suavemente una superficie de displacement con 16 puntos de control – para arcos, olas, tramos de tubería y cúpulas. El resultado es un displacement normal.
+{} von 16 Kontrollpunkten gewählt	{} de 16 puntos de control seleccionados
+Modell vorhanden – nach Änderungen neu kompilieren.	El modelo existe – recompila tras los cambios.
+Noch nicht kompiliert: vor dem Kompilieren der Map nötig.	Aún sin compilar: necesario antes de compilar el mapa.
+Kein Mesh gewählt	No hay malla seleccionada
+Griffe in der 3D-Ansicht ziehen · Shift fügt hinzu · Esc beendet	Arrastra los tiradores en la vista 3D · Mayús añade · Esc termina
+Bezier-Patch · Punkte ziehen, Shift fügt hinzu, Rahmen wählt mehrere	Parche Bézier · arrastra puntos, Mayús añade, recuadro para seleccionar varios
+Mesh bearbeiten · Punkte ziehen, Shift fügt hinzu, Rahmen wählt mehrere	Editar malla · arrastra puntos, Mayús añade, recuadro para seleccionar varios
+Gewählte Flächen um den Abstand herausziehen (neue Seitenflächen)	Extraer las caras seleccionadas a la distancia indicada (caras laterales nuevas)
+Punkte zum Mittel ihrer Nachbarn ziehen (ohne Auswahl: alle)	Acercar los vértices a la media de sus vecinos (sin selección: todos)
+Jede Fläche in Vierecke teilen (für feinere Formen)	Dividir cada cara en cuadriláteros (para formas más finas)
+Vorder- und Rückseite der Flächen tauschen	Intercambiar el anverso y el reverso de las caras
+Gewählte Flächen entfernen (Entf)	Quitar las caras seleccionadas (Supr)
+Alle Punkte bzw. Flächen (Strg+A)	Todos los vértices o caras (Ctrl+A)
+Aktuelle Textur zuweisen	Aplicar textura actual
+Auf die gewählten Flächen, ohne Auswahl auf das ganze Mesh	A las caras seleccionadas; sin selección, a toda la malla
+Ausgewähltes Mesh bearbeiten	Editar la malla seleccionada
+Aus ausgewählten Brushes erstellen	Crear desde los brushes seleccionados
+Die Brushes werden durch ein Mesh ersetzt (Displacements als Raster)	Los brushes se sustituyen por una malla (displacements como cuadrícula)
+OBJ-Datei wählen…	Elegir archivo OBJ…
+Wavefront OBJ mit Flächen (v, f, usemtl); eingefügt dort, wohin die 3D-Kamera blickt	Wavefront OBJ con caras (v, f, usemtl); se inserta donde mira la cámara 3D
+Flach zurücksetzen	Restablecer a plano
+Alle Punkte auf die Ebene der vier Ecken	Todos los puntos al plano de las cuatro esquinas
+Patch auf Auswahl beginnen	Iniciar parche en la selección
+Gewählte Fläche (Flächen-Werkzeug) oder Oberseite des gewählten Brushes; ohne Displacement wird eines angelegt	Cara seleccionada (herramienta de caras) o parte superior del brush seleccionado; se crea un displacement si no hay
+SMD/QC schreiben und studiomdl starten (Spielverzeichnis aus den Einstellungen)	Escribir SMD/QC y ejecutar studiomdl (carpeta del juego de los ajustes)
+Extrudieren	Extruir
+Umdrehen	Voltear
+Punkte	Vértices
+Modell	Modelo
+OBJ importieren	Importar OBJ
+Source-Einheiten	Unidades Source
+Meter	Metros
+Zentimeter	Centímetros
+Y zeigt nach oben (Blender-Export)	Y hacia arriba (exportación de Blender)
+Polygon-Mesh…	Malla poligonal…
+Bezier-Patch…	Parche Bézier…
+Polygon-Mesh / Bezier-Patch	Malla poligonal / Parche Bézier
+Polygon-Mesh	Malla poligonal
+Bezier-Patch	Parche Bézier
+Kompiliert …	Compilando…
+Zum Modell kompilieren	Compilar a modelo
+OBJ importiert: {}	OBJ importado: {}
+info_particle_system zeigt seinen Effekt (bis 3000 Einheiten um die Kamera, vereinfachte Simulation)	info_particle_system reproduce su efecto (hasta 3000 unidades alrededor de la cámara, simulación simplificada)
+Partikel-Effekte abspielen	Reproducir efectos de partículas
+Partikel	Partículas
+Live-Abgleich mit dem Spiel…	Sincronización en directo con el juego…
+Änderungen sofort im laufenden Garry's Mod sehen, ohne neu zu kompilieren	Ver los cambios al instante en Garry's Mod en ejecución, sin recompilar
+Im Spiel testen ab 3D-Kamera	Probar en el juego desde la cámara 3D
+Begehen (im Editor spielen)	Caminar (jugar en el editor)
+Begehen · WASD · Leertaste springt · Strg duckt · Esc beendet	Caminando · WASD · Espacio salta · Ctrl agacha · Esc sale
+Begehen: WASD laufen, Leertaste springen, Strg ducken, Esc beendet	Caminar: WASD para moverse, Espacio para saltar, Ctrl para agacharse, Esc para salir
+Live-Brücke installiert – wirkt nach dem nächsten Start von Garry's Mod	Puente en directo instalado – se activa tras el próximo inicio de Garry's Mod
+Live-Abgleich mit dem Spiel	Sincronización en directo con el juego
+Änderungen erscheinen sofort im laufenden Garry's Mod, ohne neu zu kompilieren: Entities verschieben, Werte ändern, neue Props und Entities, Löschen. Neue oder geänderte Brushes erscheinen als begehbare Vorschau.	Los cambios aparecen al instante en Garry's Mod en ejecución sin recompilar: mover entidades, cambiar valores, props y entidades nuevos, eliminar. Los brushes nuevos o cambiados aparecen como vista previa transitable.
+Brücke nicht installiert	Puente no instalado
+Brücke veraltet – neu installieren	Puente desactualizado – reinstalar
+Kein Spiel verbunden – Map in Garry's Mod starten (Einzelspieler)	No hay juego conectado – inicia el mapa en Garry's Mod (un jugador)
+Das Spiel nutzt noch Brücke {} – Garry's Mod neu starten, damit die neue geladen wird.	El juego aún usa el puente {} – reinicia Garry's Mod para cargar el nuevo.
+Verbunden: {} · Spieler bei {} {} {}	Conectado: {} · jugador en {} {} {}
+Brücke installieren	Instalar puente
+Legt addons/amboss_live an; danach Garry's Mod einmal neu starten.	Crea addons/amboss_live; después reinicia Garry's Mod una vez.
+Testen	Pruebas
+Kompilieren; der Spieler startet dort, wo die 3D-Kamera steht. Läuft das Spiel schon, wird die Map dort neu geladen.	Compila; el jugador empieza donde está la cámara 3D. Si el juego ya está en marcha, el mapa se recarga allí.
+Spieler zur 3D-Kamera	Jugador a la cámara 3D
+3D-Kamera zum Spieler	Cámara 3D al jugador
+Noclip an/aus	Activar/desactivar noclip
+3D-Kamera folgt dem Spieler	La cámara 3D sigue al jugador
+Abgleich	Sincronización
+Änderungen automatisch übertragen	Enviar cambios automáticamente
+Jetzt übertragen	Enviar ahora
+Map neu laden	Recargar mapa
+Lädt die zuletzt kompilierte Map im Spiel neu (live übertragene Änderungen gehen verloren)	Recarga en el juego el último mapa compilado (los cambios en directo se pierden)
+Spielstand = jetzige Map	Estado del juego = mapa actual
+Wenn die Map im Spiel genau dem jetzigen Stand entspricht (z. B. außerhalb von Amboss kompiliert)	Cuando el mapa en el juego coincide exactamente con el estado actual (p. ej. compilado fuera de Amboss)
+Noch kein Bezug: beim Verbinden gilt der jetzige Stand als das, was im Spiel geladen ist.	Aún no hay referencia: al conectar se supone que el estado actual es lo cargado en el juego.
+Übertragen: {} geändert · {} neu · {} entfernt · {} Brush-Vorschau	Enviado: {} cambiado(s) · {} nuevo(s) · {} eliminado(s) · {} vista(s) previa(s) de brush
+{} gelöschte Brushes	{} brushes eliminados
+Braucht Kompilieren: {}	Hay que compilar: {}
+Input auslösen	Disparar entrada
+Ziel (targetname)	Destino (targetname)
+Input	Entrada
+Auslösen	Disparar
+Letzter Fehler im Spiel: {}	Último error en el juego: {}
+Nur im Einzelspieler bzw. auf dem eigenen Server	Solo un jugador o tu propio servidor
+Verbunden mit {} – Bezug ist der jetzige Stand der Map	Conectado a {} – la referencia es el estado actual del mapa
+Map geladen: {}	Mapa cargado: {}
+Fehler im Spiel: {}	Error en el juego: {}
+Bezug gesetzt: jetziger Stand der Map	Referencia establecida: estado actual del mapa
+Installiert: {}	Instalado: {}
+Spieler	Jugador
+Himmel-Vorschau (2D-Himmel und 3D-Skybox)	Vista previa del cielo (cielo 2D y skybox 3D)
+In 2D eine Schnittlinie ziehen oder in 3D drei Punkte auf Flächen anklicken (schräge Schnitte). Beide/Vorne/Hinten bestimmt, welche Teile bleiben. Enter schneidet.	Traza una línea de corte en 2D o haz clic en tres puntos de superficies en 3D (cortes inclinados). Ambos/Delante/Detrás define qué partes quedan. Intro corta.
+Nebel (env_fog_controller)	Niebla (env_fog_controller)
+Nebel	Niebla
+Himmel	Cielo
+Clip: Punkt {} von 3 – auf Flächen klicken	Corte: punto {} de 3 – haz clic en superficies
+Clip-Ebene steht – Enter schneidet, Shift+X wechselt die Seite	Plano de corte definido – Intro corta, Mayús+X cambia el lado
+Die drei Punkte liegen auf einer Linie – neu setzen	Los tres puntos están en una línea – colócalos de nuevo
+6 · Gelände mit Displacements	6 · Terreno con displacements
+Eine Fläche in ein Displacement verwandeln, Hügel malen, glätten und zwei Texturen überblenden.	Convierte una cara en displacement, pinta colinas, suavízalas y mezcla dos texturas.
+Was sind Displacements?	¿Qué son los displacements?
+Ein Displacement verwandelt eine flache Brush-Fläche in ein feines Raster, dessen Punkte du verschieben kannst – so entstehen Hügel, Täler, Höhlenwände und Wege. Displacements dichten die Map nicht ab: darunter muss immer noch ein Brush oder die Skybox liegen.	Un displacement convierte una cara plana de brush en una cuadrícula fina cuyos puntos puedes mover – así se hacen colinas, valles, paredes de cuevas y caminos. Los displacements no sellan el mapa: debajo tiene que haber un brush o la skybox.
+Eine Bodenplatte	Una placa de suelo
+Baue mit dem Block-Werkzeug (Shift+B) eine große, flache Platte, etwa 1024 × 1024 Einheiten und 16 hoch. Tipp: Die Textur „NATURE/BLENDGRASSGRAVEL001A“ mischt später Gras und Kies.	Con la herramienta de bloque (Mayús+B) construye una placa grande y plana, de unas 1024 × 1024 unidades y 16 de alto. Consejo: la textura «NATURE/BLENDGRASSGRAVEL001A» mezclará después hierba y grava.
+Die Oberseite auswählen	Selecciona la cara superior
+Nimm das Textur-Werkzeug (Shift+A) und klicke in der 3D-Ansicht auf die Oberseite der Platte. Nur ausgewählte Flächen werden zu Displacements.	Toma la herramienta de texturas (Mayús+A) y haz clic en la parte superior de la placa en la vista 3D. Solo las caras seleccionadas se convierten en displacements.
+Rechts im Panel unter „Displacement“: Power 3 lassen und „Erstellen“ klicken. Power bestimmt die Feinheit – 2 ist grob, 4 sehr fein (und teuer).	En el panel derecho, en «Displacement»: deja la potencia en 3 y haz clic en «Crear». La potencia define la resolución – 2 es tosco, 4 muy fino (y costoso).
+Einen Hügel malen	Pinta una colina
+Wähle das Terrain-Werkzeug (Shift+P), Modus „Anheben“. Male mit gedrückter linker Maustaste in der 3D-Ansicht über das Gelände. Radius und Stärke stehen im Panel; Strg kehrt Anheben ↔ Absenken um.	Elige la herramienta de terreno (Mayús+P), modo «Elevar». Pinta sobre el terreno en la vista 3D con el botón izquierdo pulsado. Radio e intensidad están en el panel; Ctrl alterna elevar ↔ bajar.
+Stelle im Panel den Modus „Glätten“ ein und male über steile Kanten – sie werden weicher. Mit gedrückter Strg-Taste wird geschärft. Weitere Modi: Auf Höhe setzen, Rauschen, Terrassen.	Pon el modo «Suavizar» en el panel y pinta sobre los bordes pronunciados – se suavizan. Con Ctrl pulsado se afilan. Más modos: fijar altura, ruido, terrazas.
+Texturen überblenden	Mezclar texturas
+Mit einer Blend-Textur (zwei Texturen in einer, z. B. Gras und Kies) malst du im Modus „Alpha malen“ die zweite Textur ins Gelände – etwa einen Weg. „Alpha anzeigen“ im Panel macht die Bemalung blau sichtbar.	Con una textura de mezcla (dos texturas en una, p. ej. hierba y grava) pintas la segunda textura en el terreno con el modo «Pintar alfa» – por ejemplo un camino. «Mostrar alfa» en el panel muestra lo pintado en azul.
+Noch mehr Gelände-Werkzeuge	Más herramientas de terreno
+Im Panel findest du außerdem: Rauschen (zufällige Unebenheit), Nähen (Kanten benachbarter Displacements angleichen), Unterteilen (macht z. B. aus einem Würfel eine Kugel) und das Ändern der Power ohne Formverlust. Große Landschaften entstehen schnell mit Map → „Gelände aus Heightmap…“.	El panel también tiene: ruido (bultos aleatorios), coser (igualar bordes de displacements vecinos), subdividir (convierte p. ej. un cubo en esfera) y cambiar la potencia sin perder la forma. Los paisajes grandes se hacen rápido con Mapa → «Terreno desde mapa de alturas…».
+7 · Licht, Himmel und Nebel	7 · Luz, cielo y niebla
+Lichtvorschau nutzen, Sonne und Himmel einrichten, indirektes Licht, Nebel und einen Partikel-Effekt.	Usa la vista previa de luz, configura sol y cielo, luz indirecta, niebla y un efecto de partículas.
+Die Lichtvorschau	La vista previa de luz
+Klicke oben links in der 3D-Ansicht auf „3D · Texturiert“ und wähle „Lichtvorschau“. Jetzt siehst du die Lichter der Map mit Schatten – ohne zu kompilieren.	Haz clic en «3D · Texturizado» arriba a la izquierda de la vista 3D y elige «Vista previa de luz». Ahora ves las luces del mapa con sombras – sin compilar.
+Die Sonne: light_environment	El sol: light_environment
+Für Außenbereiche setzt du genau ein „light_environment“ (Entity-Werkzeug, Shift+E). Sein Winkel „Pitch“ bestimmt, wie hoch die Sonne steht; „Ambient“ hellt die Schatten auf.	Para exteriores colocas exactamente un «light_environment» (herramienta de entidad, Mayús+E). Su ángulo «Pitch» fija la altura del sol; «Ambient» aclara las sombras.
+Der Himmel	El cielo
+Öffne die Map-Eigenschaften (nichts auswählen, dann „Map-Eigenschaften“ im Panel) und trage bei „skyname“ einen Himmel ein, z. B. „sky_day01_05“. Flächen mit TOOLS/TOOLSSKYBOX zeigen im Spiel diesen Himmel – mit Ansicht → „Himmel-Vorschau“ auch im Editor.	Abre las propiedades del mapa (no selecciones nada y luego «Propiedades del mapa» en el panel) e introduce un cielo en «skyname», p. ej. «sky_day01_05». Las caras con TOOLS/TOOLSSKYBOX muestran ese cielo en el juego – y en el editor con Ver → «Vista previa del cielo».
+Indirektes Licht	Luz indirecta
+Licht prallt im Spiel von Wänden ab und färbt die Umgebung. Schalte es in der Lichtvorschau ein: Ansicht → „Indirektes Licht in der Lichtvorschau (GI)“. Die Berechnung läuft im Hintergrund und wird immer feiner.	En el juego la luz rebota en las paredes y tiñe su entorno. Actívala en la vista previa: Ver → «Luz indirecta en la vista previa de iluminación (GI)». Se calcula en segundo plano y se va refinando.
+Setze ein „env_fog_controller“, stelle „Fog Enable“ auf Ja und wähle Farbe, Start und Ende. Entfernte Flächen verschwinden im Nebel – das sieht stimmungsvoll aus und spart Leistung.	Coloca un «env_fog_controller», pon «Fog Enable» en Yes y elige color, inicio y fin. Las caras lejanas se funden en la niebla – queda atmosférico y ahorra rendimiento.
+Ein Partikel-Effekt	Un efecto de partículas
+Setze ein „info_particle_system“ und wähle bei „Particle System Name“ einen Effekt, z. B. „fire_small_01“ (Partikel-Browser über „…“). Der Effekt läuft direkt im 3D-Fenster; „Start Active“ lässt ihn im Spiel von Anfang an laufen.	Coloca un «info_particle_system» y elige un efecto en «Particle System Name», p. ej. «fire_small_01» (explorador de partículas con «…»). El efecto se reproduce en la vista 3D; «Start Active» hace que funcione desde el principio en el juego.
+8 · Feinarbeit: Vertex, Clip, Overlays	8 · Trabajo de detalle: vértices, corte, overlays
+Eckpunkte verschieben, schräg schneiden mit drei Punkten, Overlays und Decals auftragen.	Mover vértices, cortar en diagonal con tres puntos, aplicar overlays y calcomanías.
+Das Vertex-Werkzeug	La herramienta de vértices
+Wähle einen Block und drücke Shift+V. An den Ecken erscheinen Griffe: Ziehe einen oberen Eckpunkt in einer 2D-Ansicht zur Seite – so entstehen Schrägen und Dächer. Ungültige Formen (nicht konvex) lehnt Amboss ab.	Selecciona un bloque y pulsa Mayús+V. Aparecen tiradores en las esquinas: arrastra un vértice superior hacia un lado en una vista 2D – así se hacen pendientes y tejados. Amboss rechaza formas no válidas (no convexas).
+Schräg schneiden mit drei Punkten	Corte inclinado con tres puntos
+Wähle einen Block, nimm das Clip-Werkzeug (Shift+X) und klicke in der 3D-Ansicht nacheinander drei Punkte auf seine Flächen. Die Ebene durch die drei Punkte wird als Vorschau gezeigt; Enter schneidet, Shift+X wechselt, welche Seite bleibt.	Selecciona un bloque, toma la herramienta de corte (Mayús+X) y haz clic en tres puntos de sus caras en la vista 3D. Se previsualiza el plano por los tres puntos; Intro corta, Mayús+X cambia el lado que queda.
+Ein Overlay	Un overlay
+Overlays sind Bilder, die auf Flächen liegen – Schilder, Risse, Wegmarkierungen. Wähle rechts bei den Texturen eine Overlay-Textur, nimm das Overlay-Werkzeug (Shift+O) und klicke auf eine Fläche. Mit den runden Griffen änderst du Größe und Drehung.	Los overlays son imágenes sobre caras – carteles, grietas, marcas viales. Elige una textura de overlay a la derecha, toma la herramienta de overlay (Mayús+O) y haz clic en una cara. Los tiradores redondos cambian tamaño y rotación.
+Ein Decal	Una calcomanía
+Decals sind kleine Bilder wie Einschusslöcher oder Flecken. Nimm das Decal-Werkzeug (Shift+D), wähle eine Textur aus „decals/…“ und klicke auf eine Wand. Anders als Overlays haben Decals eine feste Größe.	Las calcomanías son imágenes pequeñas como impactos de bala o manchas. Toma la herramienta de calcomanías (Mayús+D), elige una textura de «decals/…» y haz clic en una pared. A diferencia de los overlays, tienen un tamaño fijo.
+Sauber arbeiten	Trabajar con limpieza
+Hilfreich für die Feinarbeit: Alt+V rastet an Eckpunkten anderer Objekte ein, Alt+G schaltet das Raster-Einrasten ab, H blendet die Auswahl aus, und mit Strg+G gruppierst du Teile, die zusammengehören.	Útil para el detalle: Alt+V ajusta a vértices de otros objetos, Alt+G desactiva el ajuste a la cuadrícula, H oculta la selección y Ctrl+G agrupa las piezas que van juntas.
+9 · Schneller bauen und testen	9 · Construir más rápido y probar
+Fertige Bauteile aus der Prefab-Bibliothek, Räume per Generator, durch die Map laufen und im Spiel testen.	Piezas listas de la biblioteca de prefabs, salas por generador, caminar por el mapa y probar en el juego.
+Die Prefab-Bibliothek	La biblioteca de prefabs
+Öffne Datei → Prefabs… Hier liegen fertige Bauteile: Türen mit Knöpfen, Leitern, Lampen, Treppen, ganze Räume. Eigene Prefabs speicherst du aus der Auswahl.	Abre Archivo → Prefabs… Contiene piezas listas: puertas con botones, escaleras de mano, lámparas, escaleras, salas enteras. Tus propios prefabs los guardas desde la selección.
+Ein Prefab einsetzen	Insertar un prefab
+Ziehe eine Kachel in die 3D-Ansicht auf den Boden – das Prefab richtet sich an der Fläche aus. Alternativ: Kachel anklicken, dann in eine Ansicht klicken (Shift = mehrmals).	Arrastra una ficha al suelo en la vista 3D – el prefab se alinea con la cara. Alternativa: haz clic en una ficha y luego en una vista (Mayús = varias veces).
+Räume per Generator	Salas por generador
+Werkzeuge → Prozedurale Generatoren… erzeugt Labyrinthe, Räume mit Gängen oder ganze Stadtblöcke – abgedichtet und sofort kompilierbar. Probiere „Räume“ mit „Erzeugen“; ein Rückgängig-Schritt nimmt alles wieder weg.	Herramientas → Generadores procedurales… crea laberintos, salas con pasillos o manzanas enteras – selladas y listas para compilar. Prueba «Salas» con «Generar»; un paso de deshacer lo quita todo.
+Durch die Map laufen	Caminar por el mapa
+Drücke F6: Jetzt läufst du mit Spielergröße durch die Map – WASD, Leertaste springt, Strg duckt. So prüfst du schnell, ob Türen breit genug und Stufen nicht zu hoch sind. Esc beendet.	Pulsa F6: ahora caminas por el mapa a tamaño de jugador – WASD, Espacio salta, Ctrl agacha. Así compruebas rápido si las puertas son anchas y los escalones no son muy altos. Esc sale.
+Im Spiel testen	Probar en el juego
+Shift+F9 kompiliert und startet Garry's Mod so, dass du dort stehst, wo die 3D-Kamera ist. Mit Kompilieren → „Live-Abgleich mit dem Spiel…“ erscheinen Änderungen sogar sofort im laufenden Spiel.	Mayús+F9 compila e inicia Garry's Mod contigo donde está la cámara 3D. Con Compilar → «Sincronización en directo con el juego…» los cambios incluso aparecen al instante en el juego en marcha.
+Tutorial	Tutorial
+Tutorial…	Tutorial…
+Kapitel 1–5 führen Schritt für Schritt durch die erste Map, Kapitel 6–9 zeigen weitere Werkzeuge. Jeder Schritt prüft selbst, ob er erledigt ist – und mit „Zeig es mir“ macht Amboss ihn vor.	Los capítulos 1–5 te guían paso a paso por tu primer mapa, los capítulos 6–9 muestran más herramientas. Cada paso comprueba solo si está hecho – y con «Muéstramelo» Amboss lo demuestra.
+Deine erste Map ist fertig. In Garry's Mod lädst du sie auch über die Konsole: „map <name>“. Weiter geht es mit den nächsten Kapiteln: Gelände mit Displacements, Licht und Himmel, Feinarbeit und schneller bauen.	Tu primer mapa está terminado. En Garry's Mod también puedes cargarlo desde la consola: «map <nombre>». Sigue con los siguientes capítulos: terreno con displacements, luz y cielo, trabajo de detalle y construir más rápido.
+Map-Editor für Source · Version {}	Editor de mapas para Source · versión {}
+Version – Hilfe → Über Amboss	Versión – Ayuda → Acerca de Amboss
+auslösende Entity	entidad activadora
+sendende Entity	entidad que llama
+diese Entity	esta entidad
+Spieler-Blickziel	objetivo al que apunta el jugador
+Räume mit eigener Höhe und Bodenstufe, verbunden durch Gänge mit Treppen – geschlossen und sofort kompilierbar (mit Licht und Spawnpunkt).	Salas con su propia altura y nivel de suelo, unidas por pasillos con escaleras – selladas y listas para compilar (con luz y punto de spawn).
+Ganghöhe	Altura de pasillos
+Höhenstufen	Niveles de suelo
+Wie viele Stufen Böden nach oben und unten springen dürfen (0 = alle gleich hoch)	Cuántos escalones pueden subir o bajar los suelos (0 = todos a la misma altura)
+Aktuelle Textur übernehmen: {}	Usar textura actual: {}
+Jeder Raum und jeder Gang wird eine eigene Gruppe – einzeln anklicken, verschieben oder mit Strg+U auflösen. Eingefügt wird dort, wohin die 3D-Kamera blickt.	Cada sala y cada pasillo es su propio grupo – haz clic, muévelos o desagrúpalos (Ctrl+U) por separado. Se inserta donde mira la cámara 3D.
+Eingefügt wird dort, wohin die 3D-Kamera blickt.	Se inserta donde mira la cámara 3D.
+Wände	Paredes
+Decke	Techo
+← aktuelle	← actual
+Bild	Imagen
+Rausch-Generator	Generador de ruido
+Hügelgröße	Tamaño de colinas
+Detail-Lagen	Capas de detalle
+Rauheit	Rugosidad
+Talboden	Fondo de valle
+Startwert	Semilla
+Bergkämme	Crestas
+Ränder flach	Bordes planos
+Als PNG speichern…	Guardar como PNG…
+16-Bit-Graustufenbild, z. B. zum Weiterbearbeiten	Imagen en escala de grises de 16 bits, p. ej. para seguir editándola
+Klein = viele kleine Hügel, groß = wenige weite Berge	Pequeño = muchas colinas pequeñas, grande = pocas montañas amplias
+Alles unterhalb dieser Höhe wird flach – gut für begehbare Täler	Todo lo que esté por debajo de esta altura queda plano – bueno para valles transitables
+Heightmap gespeichert: {}	Mapa de alturas guardado: {}
+Eine Fläche in ein Displacement verwandeln, Hügel malen, Texturen überblenden – und große Landschaften aus einer Heightmap oder per Rausch-Generator.	Convierte una cara en displacement, pinta colinas, mezcla texturas – y paisajes grandes desde un mapa de alturas o con el generador de ruido.
+Große Landschaften: Heightmap	Paisajes grandes: mapa de alturas
+Für große Gelände malst du nicht jede Kachel einzeln: Map → „Gelände aus Heightmap…“ macht aus einem Graustufenbild (Weiß = hoch, Schwarz = tief) ein Gelände aus vielen nahtlosen Displacement-Kacheln. Kantenlänge, Höhe, Kacheln und Power stellst du im Dialog ein.	Para terrenos grandes no se pinta cada tesela a mano: Mapa → «Terreno desde mapa de alturas…» convierte una imagen en escala de grises (blanco = alto, negro = bajo) en un terreno de muchas teselas de displacement sin costuras. En el diálogo ajustas longitud del borde, altura, teselas y potencia.
+Gelände per Rauschen	Terreno desde ruido
+Kein Bild zur Hand? Wähle oben im Dialog „Rauschen“: Amboss erzeugt das Höhenbild selbst. Hügelgröße, Rauheit, Talboden, Bergkämme und Terrassen formen die Landschaft, „Würfeln“ liefert eine neue Form. Mit „Gelände erstellen“ landet es in der Map – „Als PNG speichern…“ hebt das Bild für später auf.	¿No tienes una imagen? Elige «Ruido» arriba en el diálogo: Amboss crea la imagen de alturas. Tamaño de colinas, rugosidad, fondo de valle, crestas y terrazas dan forma al paisaje, «Aleatorio» da una forma nueva. «Crear terreno» lo pone en el mapa – «Guardar como PNG…» guarda la imagen para después.
+Im Panel findest du außerdem: Rauschen (zufällige Unebenheit), Nähen (Kanten benachbarter Displacements angleichen), Unterteilen (macht z. B. aus einem Würfel eine Kugel) und das Ändern der Power ohne Formverlust.	El panel también tiene: ruido (bultos aleatorios), coser (igualar bordes de displacements vecinos), subdividir (convierte p. ej. un cubo en esfera) y cambiar la potencia sin perder la forma.
+{}: {} in {} Gruppen	{}: {} en {} grupos
+Abstand der Räume (Zellen)	Separación de salas (celdas)
+Windungen	Sinuosidad
+0 = möglichst gerade Gänge, 1 = mehr Abbiegungen; zwischen zwei Abbiegungen liegt immer ein längeres gerades Stück	0 = pasillos lo más rectos posible, 1 = más giros; siempre hay un tramo recto largo entre dos giros
+Zusätzliche Verbindungen	Conexiones adicionales
+Mehr Verbindungen ergeben Schleifen und Kreuzungen; 0 = jeder Raum genau über einen Weg erreichbar	Más conexiones crean bucles y cruces; 0 = cada sala accesible por un único camino
+Räume mit eigener Höhe und Bodenstufe, kurze Treppen an den Türen, Gänge mit langen Geraden, runden Kurven und Abzweigungen, dünne Wände – jedes Raumpaar höchstens einmal verbunden, geschlossen und sofort kompilierbar (mit Licht und Spawnpunkt).	Salas con su propia altura y nivel de suelo, escaleras cortas en las puertas, pasillos con rectas largas, curvas redondas y cruces, paredes finas – cada par de salas unido como máximo una vez, selladas y listas para compilar (con luz y punto de spawn).
+Abbiegungen	Giros
+als runde Kurve	como curva redonda
+Ecken der Gänge werden zu Kurven mit runder Außen- und Innenwand, wo Platz ist; sonst bleibt eine gerade Ecke	Las esquinas de pasillo se vuelven curvas con pared exterior e interior redondas donde hay sitio; si no, queda una esquina recta
+Zellen	celdas
+Innenradius der Kurve; 0 = nur die Außenwand rund	Radio interior de la curva; 0 = solo la pared exterior es redonda
+Wände sitzen als dünne Platte am Rand der Zelle, unabhängig von der Zellgröße (höchstens eine halbe Zelle)	Las paredes son placas finas en el borde de una celda, independientes del tamaño de celda (como mucho media celda)
+2D: bei Auswahl andere Ebenen abdunkeln	2D: atenuar otros niveles cuando hay algo seleccionado
+Objekte, die nicht auf derselben Tiefe wie die Auswahl liegen (±10 Einheiten), werden blasser gezeichnet. Oben: gleiche Höhe (Z), Vorne: gleiches X, Seite: gleiches Y.	Los objetos que no están a la misma profundidad que la selección (±10 unidades) se dibujan más tenues. Arriba: misma altura (Z), Frente: misma X, Lado: misma Y.
+Zelle	celda
+Mittlere Maustaste (Mausrad gedrückt) + Ziehen umsehen, W A S D fliegen, Q/E runter/hoch, Shift beim Umsehen schneller – änderbar unter Einstellungen → Tastenkürzel	Mantén el botón central (pulsa la rueda) + arrastra para mirar, W A S D para volar, Q/E bajar/subir, Mayús al mirar = más rápido – se cambia en Ajustes → Atajos
+Halte in der 3D-Ansicht die mittlere Maustaste (Mausrad drücken) gedrückt und bewege die Maus, um dich umzusehen. Mit W, A, S, D fliegst du dabei herum. Fliege in deinen Raum hinein. (Die Tasten lassen sich unter Einstellungen → Tastenkürzel ändern.)	En la vista 3D mantén pulsado el botón central (pulsa la rueda) y mueve el ratón para mirar alrededor. Con W, A, S, D vuelas. Vuela dentro de tu sala. (Las teclas se cambian en Ajustes → Atajos.)
+3D-Kamera: Bewegen und Umsehen	Cámara 3D: moverse y mirar alrededor
+Mittlere Maustaste (Mausrad drücken)	Botón central (pulsar la rueda)
+Rechte Maustaste	Botón derecho
+Kamera-Steuerung zurücksetzen	Restablecer controles de cámara
+Ohne gedrückte Umsehen-Taste bewegen die Tasten die Kamera nur ohne Umschalt/Alt – Shift+Buchstabe wählt dann das Werkzeug (z. B. Shift+A = Textur). Beim Umsehen gehören alle Tasten der Kamera.	Sin mantener el botón de mirar, las teclas mueven la cámara solo sin Mayús/Alt – Mayús+letra elige entonces la herramienta (p. ej. Mayús+A = textura). Al mirar alrededor, todas las teclas son de la cámara.
+Umsehen	Mirar alrededor
+Empfindlichkeit	Sensibilidad
+Maus-Y umkehren	Invertir eje Y del ratón
+Schneller fliegen	Volar más rápido
+Umschalt	Mayús
+Alt	Alt
+Vorwärts	Adelante
+Rückwärts	Atrás
+Links	Izquierda
+Rechts	Derecha
+Hoch	Arriba
+Hoch (2. Taste)	Arriba (2.ª tecla)
+Runter	Abajo
+Keine Taste	Sin tecla
+Flächen-Einstellungen ausblenden	Ocultar ajustes de cara
+Flächen-Einstellungen anzeigen	Mostrar ajustes de cara
+Fläche gewählt	cara seleccionada
+Flächen gewählt	caras seleccionadas
+{} Materialien · Klick: auswählen und auf gewählte Flächen anwenden	{} materiales · clic: seleccionar y aplicar a las caras seleccionadas
+Skalierung, Verschiebung, Drehung, Ausrichten, Lightmap …	Escala, desplazamiento, rotación, alineación, lightmap…
+Zur Maus drehen (mit Vorschau)	Rotar hacia el ratón (con vista previa)
+Erst etwas auswählen, dann Strg+R	Primero selecciona algo y luego Ctrl+R
+Drehen: Maus bewegen (15°-Schritte, Shift = frei) · Linksklick übernehmen · Rechtsklick oder Esc bricht ab	Rotar: mueve el ratón (pasos de 15°, Mayús = libre) · clic izquierdo aplica · clic derecho o Esc cancela
+Modell-Browser öffnen – Modell wählen und „Übernehmen“ setzt es hier ein	Abrir el explorador de modelos – elige un modelo y «Aplicar» lo pone aquí
+Drehen: Linksklick übernimmt · Rechtsklick/Esc bricht ab · Shift = frei	Rotar: clic izquierdo aplica · clic derecho/Esc cancela · Mayús = libre
+Drehen abgebrochen	Rotación cancelada
+Farbe wählen	Elegir color
+Helligkeit (4. Wert)	Brillo (4.º valor)
+Farbe · Helligkeit	Color · brillo
+Umgebung: Farbe · Helligkeit	Ambiente: color · brillo
+fehlt	falta
+vor {} s	hace {} s
+Austausch: {} · out.txt (Server): {} · alive.txt (Client): {}	Intercambio: {} · out.txt (servidor): {} · alive.txt (cliente): {}
+Fehlen beide Dateien, obwohl die Map läuft: In der GMod-Konsole „amboss_live_status“ eingeben. Ist dort ein anderer Ordner zu sehen, ist in Amboss ein anderer Spielordner eingetragen als der, aus dem GMod startet.	Si faltan ambos archivos aunque el mapa esté en marcha: escribe «amboss_live_status» en la consola de GMod. Si muestra otra carpeta, Amboss tiene configurada otra carpeta del juego distinta de la que usa GMod.
+Ziel: ausgewählte Entities	Destino: entidades seleccionadas
+Alle Klassen anzeigen (Suche, Favoriten, Gruppen)	Mostrar todas las clases (búsqueda, favoritos, grupos)
+Fehlende Standardwerte ergänzt: {}	Valores predeterminados que faltaban completados: {}
+© 2026 Deadshot · Open Source unter MIT oder Apache-2.0	© 2026 Deadshot · código abierto bajo MIT o Apache-2.0
+Über das Internet ohne Portfreigabe	Por Internet sin redirección de puertos
+1. Schick diesen Einladungscode an deinen Gast:	1. Envía este código de invitación a tu invitado:
+2. Antwortcode des Gasts hier einfügen:	2. Pega aquí el código de respuesta del invitado:
+Verbinde… (bis 40 Sekunden). Für weitere Gäste einen neuen Code erstellen.	Conectando… (hasta 40 segundos). Crea un código nuevo para cada invitado más.
+Jeder Gast bekommt einen eigenen Code. Beide Seiten müssen den Code des anderen innerhalb weniger Minuten eingeben.	Cada invitado recibe su propio código. Ambos lados deben introducir el código del otro en pocos minutos.
+Internet-Adresse nicht ermittelbar – dieser Code klappt nur im selben Netz.	No se pudo determinar tu dirección de Internet – este código solo funciona en la misma red.
+Einladungscode erstellen	Crear código de invitación
+Ermittle deine Internet-Adresse…	Buscando tu dirección de Internet…
+2. Schick diesen Antwortcode an den Gastgeber:	2. Envía este código de respuesta al anfitrión:
+Warte auf den Gastgeber (bis 3 Minuten)…	Esperando al anfitrión (hasta 3 minutos)…
+1. Einladungscode des Gastgebers einfügen:	1. Pega el código de invitación del anfitrión:
+Antwortcode erzeugen und verbinden	Crear código de respuesta y conectar
+Klappt mit den meisten Heim-Routern, ohne Portfreigabe. Nicht in manchen Mobilfunk- und Firmennetzen – dann IPv6, Portweiterleitung oder ein VPN nutzen.	Funciona con la mayoría de routers domésticos, sin redirección de puertos. No en algunas redes móviles y de empresa – allí usa IPv6, redirección de puertos o una VPN.
+Deine Internet-Adresse ließ sich nicht ermitteln (UDP ins Internet gesperrt?). Über das Internet geht es so nicht.	No se pudo determinar tu dirección de Internet (¿UDP a Internet bloqueado?). Así no funcionará por Internet.
+Mit Adresse	Con dirección
+Mit Code (ohne Portfreigabe)	Con código (sin redirección de puertos)
+Das ist kein Amboss-Verbindungscode (beginnt mit „AMB1-“)	Esto no es un código de conexión de Amboss (empieza por «AMB1-»)
+Code ist beschädigt (unerlaubte Zeichen)	El código está dañado (caracteres no válidos)
+Code ist unvollständig – bitte komplett kopieren	El código está incompleto – cópialo entero
+Der Code der Gegenseite enthält keine Adresse	El código del otro lado no contiene ninguna dirección
+Keine Verbindung zustande gekommen. Beide Codes richtig ausgetauscht und beide gleichzeitig am Verbinden? Manche Netze (Mobilfunk, Firmen) lassen das nicht zu – dann IPv6, Portweiterleitung oder ein VPN wie Tailscale nutzen.	No se pudo establecer la conexión. ¿Se intercambiaron bien ambos códigos y ambos lados conectan a la vez? Algunas redes (móviles, de empresa) no lo permiten – allí usa IPv6, redirección de puertos o una VPN como Tailscale.
+Eigene Internet-Adresse nicht ermittelbar ({}) – UDP ins Internet gesperrt?	No se pudo determinar tu dirección de Internet ({}) – ¿UDP a Internet bloqueado?
+Nur der Gastgeber kann Gäste annehmen	Solo el anfitrión puede aceptar invitados
+Anmeldung von {} abgelehnt (falsches Passwort)	Acceso de {} rechazado (contraseña incorrecta)
+nicht gesetzt	sin definir
+gefunden	encontrado
+nicht gefunden	no encontrado
+Größe der Oberfläche	Tamaño de la interfaz
+Zusätzlich zur Windows-Skalierung. Auch mit Strg+Plus / Strg+Minus, Strg+0 setzt zurück.	Además del escalado de Windows. También con Ctrl+Más / Ctrl+Menos, Ctrl+0 restablece.
+Kachelgröße	Tamaño de miniaturas
+Mitte der Auswahl	Centro de la selección
+Drehen und Skalieren um den gewählten Drehpunkt	Rotar y escalar alrededor del pivote elegido
+Suchen: Name, Klasse oder Output	Buscar: nombre, clase o salida
+Noch keine Logik in dieser Map	Aún no hay lógica en este mapa
+Hier erscheinen Entities mit Namen (targetname) oder Outputs – z. B. ein Knopf, der eine Tür öffnet.	Aquí aparecen las entidades con nombre (targetname) o salidas – p. ej. un botón que abre una puerta.
+Kein Knoten passt zur Suche	Ningún nodo coincide con la búsqueda
+– keine –	– ninguno –
+{} mit Namen „{}“	{} llamado «{}»
+Klick wählt · Doppelklick zentriert · Auge = ausblenden · Schloss = sperren	Clic selecciona · doble clic centra · ojo = ocultar · candado = bloquear
+Strg+Klick wählt die ganze Gruppe	Ctrl+clic selecciona todo el grupo
+Texturen einklappen (Trennlinie ziehen ändert die Höhe)	Contraer texturas (arrastrar el separador cambia la altura)
+Ergebnis in die Zwischenablage	Copiar resultado al portapapeles
+Form: {} (oben in der Leiste wählen)	Forma: {} (elígela en la barra superior)
+Klick wählt alle Objekte dieser Visgroup	Clic selecciona todos los objetos de este visgroup
+Noch keine Visgroups – Objekte auswählen, Namen eingeben, „Aus Auswahl“.	Aún no hay visgroups – selecciona objetos, escribe un nombre, «Desde la selección».
+Breite × Tiefe × Höhe der Auswahl – ändern skaliert sie (Ecke unten links bleibt)	Ancho × fondo × alto de la selección – cambiarlo la escala (la esquina inferior izquierda se mantiene)
+Ecke unten links der Auswahl – ändern verschiebt sie	Esquina inferior izquierda de la selección – cambiarla la mueve
+Alle Flächen der Auswahl mit {} auf die aktuelle Textur ({}) setzen	Poner todas las caras de la selección con {} en la textura actual ({})
+… und {} weitere	… y {} más
+Um die Hochachse	Alrededor del eje vertical
+Schlüssel und Werte so zeigen, wie sie in der VMF stehen (ohne Anzeigenamen und Auswahllisten)	Mostrar claves y valores tal como están en el VMF (sin nombres visibles ni listas de opciones)
+HDR-Licht übernimmt Farbe und Helligkeit des normalen Lichts (Wert „-1 -1 -1 1“)	La luz HDR usa el color y el brillo de la luz normal (valor «-1 -1 -1 1»)
+Im Einfach-Modus stehen hier nur die wichtigen Schlüssel	En modo sencillo aquí solo se muestran las claves importantes
+Einrichtungs-Assistent öffnen	Abrir asistente de configuración
+Amboss {} ist aktuell.	Amboss {} está actualizado.
+Amboss {} ist verfügbar	Amboss {} está disponible
+Du hast {}.	Tienes {}.
+Was ist neu?	¿Qué hay de nuevo?
+Neuerungen ausblenden	Ocultar novedades
+Lade und installiere…	Descargando e instalando…
+Installiert – aktiv nach dem Neustart.	Instalado – activo tras reiniciar.
+Jetzt neu starten	Reiniciar ahora
+Später	Más tarde
+Jetzt aktualisieren	Actualizar ahora
+Release-Seite	Página de la versión
+Diese Version überspringen	Omitir esta versión
+Updates abschalten: Einstellungen → Oberfläche.	Desactivar actualizaciones: Ajustes → Interfaz.
+Updates	Actualizaciones
+Beim Start nach neuen Versionen suchen (GitHub)	Buscar versiones nuevas al iniciar (GitHub)
+Jetzt suchen	Buscar ahora
+Es wird nur die öffentliche Versionsliste abgerufen; Amboss sendet dabei keine Daten über dich oder deine Maps.	Solo se consulta la lista pública de versiones; Amboss no envía datos sobre ti ni tus mapas.
+Nach Updates suchen	Buscar actualizaciones
+Suche nach Updates…	Buscando actualizaciones…
+Update-Suche fehlgeschlagen: {}	Falló la búsqueda de actualizaciones: {}
+Keine Verbindung zu GitHub	Sin conexión con GitHub
+Antwort von GitHub nicht lesbar	No se pudo leer la respuesta de GitHub
+Kein Schreibrecht im Programmordner ({}). Bitte das Paket von der Release-Seite laden und entpacken.	Sin permiso de escritura en la carpeta del programa ({}). Descarga el paquete desde la página de la versión y descomprímelo.
+Programmdatei lässt sich nicht ersetzen ({})	No se puede reemplazar el archivo del programa ({})
+Für dieses System gibt es kein Paket – bitte die Release-Seite öffnen	No hay paquete para este sistema – abre la página de la versión
+Heruntergeladene Datei ist zu klein – Update abgebrochen	El archivo descargado es demasiado pequeño – actualización cancelada
+{} nicht im Paket gefunden	No se encontró {} en el paquete
+Kein gültiges ZIP	No es un ZIP válido
+ZIP beschädigt	ZIP dañado
+ZIP unvollständig	ZIP incompleto
+Maps (VMF, BSP)	Mapas (VMF, BSP)
+Browser	Exploradores
+Navmesh	Navmesh
+Map	Mapa
+Drehpunkt	Pivote
+Ursprung 0 0 0	Origen 0 0 0
+Eigener Punkt	Punto propio
+Arbeitspunkt	Punto de trabajo
+Suchbegriff eingeben	Introduce un término de búsqueda
+Treffer: {} auf {}	Coincidencias: {} en {}
+Auto	Auto
+Seite	Cara
+Brush-ID	ID de brush
+Seiten-ID	ID de cara
+Entity-ID	ID de entidad
+Entity-Name (targetname, * als Platzhalter)	Nombre de entidad (targetname, * como comodín)
+z. B. tuer_1	p. ej. puerta_1
+Bedeutung	Significado
+Brush {}	Brush {}
+Seite {} von Brush {}	Cara {} del brush {}
+Gruppen ({})	Grupos ({})
+Gruppe #{} ({})	Grupo n.º {} ({})
+Texturen aufklappen	Desplegar texturas
+Ergebnis	Resultado
+Diese Kamera benutzen	Usar esta cámara
+Ein-/Ausblenden	Mostrar/ocultar
+Materialien ({})	Materiales ({})
+ersetzen	reemplazar
+Am Raster	A la cuadrícula
+Spiegeln X	Reflejar X
+Spiegeln Y	Reflejar Y
+Pitch (neigen)	Pitch (inclinar)
+Yaw (drehen)	Yaw (girar)
+Roll (rollen)	Roll (alabeo)
+Rohwerte	Valores brutos
+wie Brightness	como Brightness
+Alle Eigenschaften ({})	Todas las propiedades ({})
+Nur wichtige Eigenschaften	Solo propiedades importantes
+Einrichten…	Configurar…
+Nach dem Start erscheinen hier deine Adressen und ein Einladungscode für Gäste ohne Portfreigabe.	Tras iniciar aparecen aquí tus direcciones y un código de invitación para invitados sin redirección de puertos.

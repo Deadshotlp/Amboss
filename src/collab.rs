@@ -13,9 +13,10 @@ use crate::editor::{Editor, Obj};
 use crate::map::{Entity, Map, Solid};
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
-use std::io::{BufRead, BufReader, Write};
+use std::io::{BufRead, BufReader, Read, Write};
 use crate::netcrypt::{self, Opener, Sealer};
 use std::net::{SocketAddr, TcpListener, TcpStream};
+use std::sync::atomic::{AtomicU32, Ordering};
 use std::sync::{Arc, Mutex};
 use std::sync::mpsc::{channel, Receiver, Sender};
 use std::time::{Duration, Instant};
@@ -251,9 +252,43 @@ fn send_line(out: &Sender<String>, m: &Msg) {
 const SWITCH_TO_SEALED: &str = "\u{0}seal";
 type SealSlot = Arc<Mutex<Option<Sealer>>>;
 
+/// Leseseite einer Verbindung (TCP oder der UDP-Datenstrom aus `p2p`)
+pub trait LinkRead: Read + Send + 'static {
+    fn set_timeout(&self, d: Option<Duration>);
+}
+
+/// Schreibseite einer Verbindung
+pub trait LinkWrite: Write + Send + 'static {
+    fn close(&mut self);
+}
+
+impl LinkRead for TcpStream {
+    fn set_timeout(&self, d: Option<Duration>) {
+        let _ = self.set_read_timeout(d);
+    }
+}
+
+impl LinkWrite for TcpStream {
+    fn close(&mut self) {
+        let _ = self.shutdown(std::net::Shutdown::Both);
+    }
+}
+
+impl LinkRead for crate::p2p::RudpReader {
+    fn set_timeout(&self, d: Option<Duration>) {
+        self.set_read_timeout(d);
+    }
+}
+
+impl LinkWrite for crate::p2p::RudpWriter {
+    fn close(&mut self) {
+        crate::p2p::RudpWriter::close(self);
+    }
+}
+
 /// Schreib-Thread. Zeilen werden im Klartext gesendet, bis `SWITCH_TO_SEALED` durch die
 /// Leitung kommt – danach wird jede Zeile verschlüsselt (Reihenfolge bleibt dadurch eindeutig).
-fn writer_thread(mut stream: TcpStream) -> (Sender<String>, SealSlot) {
+fn writer_thread<W: LinkWrite>(mut stream: W) -> (Sender<String>, SealSlot) {
     let (tx, rx) = channel::<String>();
     let slot: SealSlot = Arc::new(Mutex::new(None));
     let slot2 = slot.clone();
@@ -272,7 +307,7 @@ fn writer_thread(mut stream: TcpStream) -> (Sender<String>, SealSlot) {
                 break;
             }
         }
-        let _ = stream.shutdown(std::net::Shutdown::Both);
+        stream.close();
     });
     (tx, slot)
 }
@@ -287,7 +322,7 @@ fn start_sealing(out: &Sender<String>, slot: &SealSlot, s: Sealer) {
 
 /// Eine Zeile lesen. Mit `opener` muss sie verschlüsselt sein; `plain_denied` erlaubt
 /// (nur vor der ersten verschlüsselten Zeile) eine Klartext-Ablehnung des Gastgebers.
-fn read_msg(r: &mut BufReader<TcpStream>, opener: Option<&mut Opener>, plain_denied: &mut bool) -> Option<Msg> {
+fn read_msg<R: LinkRead>(r: &mut BufReader<R>, opener: Option<&mut Opener>, plain_denied: &mut bool) -> Option<Msg> {
     let mut line = String::new();
     loop {
         line.clear();
@@ -314,13 +349,38 @@ fn read_msg(r: &mut BufReader<TcpStream>, opener: Option<&mut Opener>, plain_den
     }
 }
 
-fn reader_loop(mut r: BufReader<TcpStream>, conn: u32, tx: Sender<Event>, mut opener: Opener, mut plain_denied: bool) {
+fn reader_loop<R: LinkRead>(mut r: BufReader<R>, conn: u32, tx: Sender<Event>, mut opener: Opener, mut plain_denied: bool) {
     while let Some(msg) = read_msg(&mut r, Some(&mut opener), &mut plain_denied) {
         if tx.send(Event::Msg { conn, msg }).is_err() {
             return;
         }
     }
     let _ = tx.send(Event::Closed { conn });
+}
+
+/// Gastgeber: Anmeldung eines Gasts prüfen (Challenge-Response), dann verschlüsselt lesen
+fn serve_guest<R: LinkRead, W: LinkWrite>(read: R, write: W, conn: u32, tx: Sender<Event>, pwkey: [u8; 32], label: String) {
+    let (out, slot) = writer_thread(write);
+    let nonce = random_nonce();
+    send_line(&out, &Msg::Challenge { nonce: nonce.clone() });
+    read.set_timeout(Some(Duration::from_secs(15)));
+    let mut r = BufReader::new(read);
+    match read_msg(&mut r, None, &mut false) {
+        Some(Msg::Auth { protocol, name, proof: p, cnonce }) if protocol == PROTOCOL && cnonce.len() >= 32 && cnonce != nonce && p == proof(&nonce, &cnonce, &pwkey) => {
+            r.get_ref().set_timeout(None);
+            let (h2g, g2h) = netcrypt::session_keys(&pwkey, &nonce, &cnonce);
+            start_sealing(&out, &slot, Sealer::new(h2g));
+            let _ = tx.send(Event::Joined { conn, name, out });
+            reader_loop(r, conn, tx, Opener::new(g2h), false);
+        }
+        Some(Msg::Auth { protocol, .. }) if protocol != PROTOCOL => {
+            send_line(&out, &Msg::Denied { reason: "Andere Amboss-Version – bitte beide auf denselben Stand bringen".into() });
+        }
+        _ => {
+            send_line(&out, &Msg::Denied { reason: "Falsches Passwort".into() });
+            let _ = tx.send(Event::Info(format!("Anmeldung von {label} abgelehnt (falsches Passwort)")));
+        }
+    }
 }
 
 /// Verständliche Fehlermeldung für einen gescheiterten Verbindungsversuch
@@ -502,6 +562,14 @@ pub struct Collab {
     pub connected: bool,
     /// offene Konflikte (neueste zuletzt)
     pub conflicts: Vec<Conflict>,
+    /// Gastgeber: Zugang für Gäste, die über Verbindungscodes kommen
+    host_link: Option<HostLink>,
+}
+
+struct HostLink {
+    tx: Sender<Event>,
+    counter: Arc<AtomicU32>,
+    pwkey: [u8; 32],
 }
 
 const COLORS: [[u8; 3]; 8] = [[255, 120, 60], [80, 200, 255], [130, 230, 90], [240, 90, 200], [255, 220, 70], [160, 120, 255], [60, 230, 200], [255, 90, 90]];
@@ -530,44 +598,25 @@ impl Collab {
         let (tx, rx) = channel();
         let stop = std::sync::Arc::new(std::sync::atomic::AtomicBool::new(false));
         let stop2 = stop.clone();
+        let conn_counter = Arc::new(AtomicU32::new(0));
+        let counter2 = conn_counter.clone();
+        let host_tx = tx.clone();
         for l in &listeners {
             l.set_nonblocking(true).map_err(|e| e.to_string())?;
         }
         std::thread::spawn(move || {
-            let mut conn_id = 0u32;
             while !stop2.load(std::sync::atomic::Ordering::SeqCst) {
                 let mut idle = true;
                 for listener in &listeners {
                 match listener.accept() {
                     Ok((stream, addr)) => {
                         idle = false;
-                        conn_id += 1;
-                        let (tx, conn) = (tx.clone(), conn_id);
+                        let (tx, conn) = (tx.clone(), counter2.fetch_add(1, Ordering::SeqCst) + 1);
                         std::thread::spawn(move || {
                             let _ = stream.set_nonblocking(false);
                             let _ = stream.set_nodelay(true);
                             let Ok(ws) = stream.try_clone() else { return };
-                            let (out, slot) = writer_thread(ws);
-                            let nonce = random_nonce();
-                            send_line(&out, &Msg::Challenge { nonce: nonce.clone() });
-                            let _ = stream.set_read_timeout(Some(Duration::from_secs(15)));
-                            let mut r = BufReader::new(stream);
-                            match read_msg(&mut r, None, &mut false) {
-                                Some(Msg::Auth { protocol, name, proof: p, cnonce }) if protocol == PROTOCOL && cnonce.len() >= 32 && cnonce != nonce && p == proof(&nonce, &cnonce, &pwkey) => {
-                                    let _ = r.get_ref().set_read_timeout(None);
-                                    let (h2g, g2h) = netcrypt::session_keys(&pwkey, &nonce, &cnonce);
-                                    start_sealing(&out, &slot, Sealer::new(h2g));
-                                    let _ = tx.send(Event::Joined { conn, name, out });
-                                    reader_loop(r, conn, tx, Opener::new(g2h), false);
-                                }
-                                Some(Msg::Auth { protocol, .. }) if protocol != PROTOCOL => {
-                                    send_line(&out, &Msg::Denied { reason: "Andere Amboss-Version – bitte beide auf denselben Stand bringen".into() });
-                                }
-                                _ => {
-                                    send_line(&out, &Msg::Denied { reason: "Falsches Passwort".into() });
-                                    let _ = tx.send(Event::Info(format!("Anmeldung von {addr} abgelehnt (falsches Passwort)")));
-                                }
-                            }
+                            serve_guest(stream, ws, conn, tx, pwkey, addr.to_string());
                         });
                     }
                     Err(ref e) if e.kind() == std::io::ErrorKind::WouldBlock => {}
@@ -598,7 +647,37 @@ impl Collab {
             stop,
             connected: true,
             conflicts: Vec::new(),
+            host_link: Some(HostLink { tx: host_tx, counter: conn_counter, pwkey }),
         })
+    }
+
+    /// Gastgeber: einen Gast über Verbindungscodes ohne Portfreigabe annehmen. Läuft im
+    /// Hintergrund; Erfolg oder Fehler erscheinen als Meldung (Chat/Statuszeile).
+    pub fn accept_punched(&self, inv: crate::p2p::Invite, peer: crate::p2p::PeerCode) -> Result<(), String> {
+        let Some(h) = &self.host_link else { return Err("Nur der Gastgeber kann Gäste annehmen".into()) };
+        let (tx, counter, pwkey) = (h.tx.clone(), h.counter.clone(), h.pwkey);
+        std::thread::spawn(move || match crate::p2p::punch(inv, &peer, Duration::from_secs(40)) {
+            Ok(link) => {
+                let label = format!("{} (Code)", link.peer());
+                let conn = counter.fetch_add(1, Ordering::SeqCst) + 1;
+                let (r, w) = link.split();
+                serve_guest(r, w, conn, tx, pwkey, label);
+            }
+            Err(e) => {
+                let _ = tx.send(Event::Info(e));
+            }
+        });
+        Ok(())
+    }
+
+    /// Gast: über Verbindungscodes beitreten (blockiert bis zu `timeout`, also im Hintergrund aufrufen)
+    pub fn join_code(name: &str, inv: crate::p2p::Invite, host: &crate::p2p::PeerCode, password: &str, timeout: Duration) -> Result<Collab, String> {
+        let link = crate::p2p::punch(inv, host, timeout)?;
+        let peer = link.peer();
+        let (r, w) = link.split();
+        let mut c = Self::join_link(name, r, w, &format!("{peer} (Code)"), password)?;
+        c.port = peer.port();
+        Ok(c)
     }
 
     /// Mit einem Gastgeber verbinden (IPv4, IPv6 oder Name, Port optional – siehe `resolve_addr`)
@@ -616,11 +695,18 @@ impl Collab {
             }
         }
         let Some((stream, sock)) = found else { return Err(format!("Verbindung zu {addr} fehlgeschlagen: {last_err}")) };
-        let addr = sock.to_string();
         let _ = stream.set_nodelay(true);
-        let (out, slot) = writer_thread(stream.try_clone().map_err(|e| e.to_string())?);
-        let _ = stream.set_read_timeout(Some(Duration::from_secs(15)));
-        let mut r = BufReader::new(stream);
+        let ws = stream.try_clone().map_err(|e| e.to_string())?;
+        let mut c = Self::join_link(name, stream, ws, &sock.to_string(), password)?;
+        c.port = sock.port();
+        Ok(c)
+    }
+
+    /// Anmeldung beim Gastgeber über eine bestehende Leitung
+    fn join_link<R: LinkRead, W: LinkWrite>(name: &str, read: R, write: W, addr: &str, password: &str) -> Result<Collab, String> {
+        let (out, slot) = writer_thread(write);
+        read.set_timeout(Some(Duration::from_secs(15)));
+        let mut r = BufReader::new(read);
         let nonce = match read_msg(&mut r, None, &mut false) {
             Some(Msg::Challenge { nonce }) => nonce,
             _ => return Err("Gastgeber antwortet nicht wie erwartet (andere Amboss-Version?)".into()),
@@ -631,7 +717,7 @@ impl Collab {
         let (h2g, g2h) = netcrypt::session_keys(&pwkey, &nonce, &cnonce);
         start_sealing(&out, &slot, Sealer::new(g2h));
         // Antwort (Willkommen oder Ablehnung) kommt über poll()
-        let _ = r.get_ref().set_read_timeout(None);
+        r.get_ref().set_timeout(None);
         let (tx, rx) = channel();
         std::thread::spawn(move || reader_loop(r, 0, tx, Opener::new(h2g), true));
         Ok(Collab {
@@ -648,10 +734,11 @@ impl Collab {
             last_send: Instant::now(),
             last_presence: Instant::now(),
             last_presence_data: None,
-            port: sock.port(),
+            port: 0,
             stop: Default::default(),
             connected: true,
             conflicts: Vec::new(),
+            host_link: None,
         })
     }
 
@@ -1027,6 +1114,29 @@ mod tests {
         let mut g2 = Collab::join("Cem", &format!("127.0.0.1:{}", host.port), "geheim").unwrap();
         pump(&mut host, &mut ea, &mut g2, &mut ec);
         assert_eq!(ec.map.world.solids.len(), 1, "Gast hat die Map über IPv4");
+    }
+
+    /// Beitritt über Verbindungscodes (UDP-Hole-Punching, hier im selben Rechner)
+    #[test]
+    fn join_with_codes() {
+        let mut ea = Editor::new(Fgd::builtin());
+        ea.create_block(Aabb::new(DVec3::ZERO, DVec3::splat(64.0)));
+        let mut host = Collab::host("Anna", 0, "geheim", &ea).unwrap();
+        let (hi, gi) = (crate::p2p::Invite::local_only(), crate::p2p::Invite::local_only());
+        let host_code = crate::p2p::parse_code(&hi.code()).unwrap();
+        let reply = crate::p2p::parse_code(&gi.code()).unwrap();
+        let g = std::thread::spawn(move || Collab::join_code("Ben", gi, &host_code, "geheim", Duration::from_secs(10)));
+        host.accept_punched(hi, reply).unwrap();
+        let mut guest = g.join().unwrap().expect("verbunden");
+        let mut eb = Editor::new(Fgd::builtin());
+        for _ in 0..4 {
+            pump(&mut host, &mut ea, &mut guest, &mut eb);
+        }
+        assert_eq!(eb.map.world.solids.len(), 1, "Gast hat die Map über den Code-Weg");
+        assert_eq!(host.users.len(), 1);
+        eb.create_block(Aabb::new(DVec3::splat(100.0), DVec3::splat(164.0)));
+        pump(&mut host, &mut ea, &mut guest, &mut eb);
+        assert_eq!(ea.map.to_vmf(), eb.map.to_vmf());
     }
 
     #[test]

@@ -556,10 +556,12 @@ pub struct Group {
     pub editor: EditorInfo,
 }
 
-#[derive(Debug, Clone, Copy, PartialEq)]
+#[derive(Debug, Clone, PartialEq)]
 pub struct CameraDef {
     pub pos: DVec3,
     pub look: DVec3,
+    /// Name (nur Amboss; Hammer liest den Schlüssel nicht und lässt ihn stehen)
+    pub name: String,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq)]
@@ -773,7 +775,7 @@ impl Map {
                     map.active_camera = b.get("activecamera").and_then(|v| v.trim().parse::<i64>().ok()).unwrap_or(0).max(0) as usize;
                     for c in b.blocks() {
                         if let (Some(p), Some(l)) = (c.get("position").and_then(parse_vec), c.get("look").and_then(parse_vec)) {
-                            map.cameras.push(CameraDef { pos: p, look: l });
+                            map.cameras.push(CameraDef { pos: p, look: l, name: c.get("name").unwrap_or("").to_string() });
                         }
                     }
                 }
@@ -900,6 +902,9 @@ impl Map {
             let mut cb = KvBlock::new("camera");
             cb.push("position", format!("[{}]", fmt_vec(c.pos)));
             cb.push("look", format!("[{}]", fmt_vec(c.look)));
+            if !c.name.trim().is_empty() {
+                cb.push("name", c.name.clone());
+            }
             cams.push_block(cb);
         }
         blocks.push(cams);
@@ -1206,7 +1211,7 @@ mod tests {
         map.visgroups.push(Visgroup { id: 7, name: "Spawns".into(), color: [1, 2, 3], parent: None, visible: false, locked: true });
         map.groups.push(Group { id: 50, editor: EditorInfo::default() });
         map.world.solids[0].editor.groupid = Some(50);
-        map.cameras.push(CameraDef { pos: DVec3::new(1.0, 2.0, 3.0), look: DVec3::new(4.0, 5.0, 6.0) });
+        map.cameras.push(CameraDef { pos: DVec3::new(1.0, 2.0, 3.0), look: DVec3::new(4.0, 5.0, 6.0), name: "Eingang".into() });
         map.cordon = Some(Cordon { bounds: Aabb::new(DVec3::splat(-10.0), DVec3::splat(10.0)), active: true });
 
         let text = map.to_vmf();

@@ -218,11 +218,22 @@ impl App {
                 (fgd_ok, fgd_good.as_str(), fgd_bad.as_str()),
                 (tools_ok, crate::i18n::tr("VBSP · VVIS · VRAD gefunden"), crate::i18n::tr("Compiler nicht gefunden")),
             ] {
-                ui.horizontal(|ui| {
+                // Klick auf eine Statuszeile öffnet den Einrichtungs-Assistenten
+                let r = ui.horizontal_wrapped(|ui| {
                     ui.spacing_mut().item_spacing.x = 6.0;
                     theme::dot(ui, if ok { th.ok } else { th.warn });
                     ui.label(RichText::new(if ok { good } else { bad }).size(12.0).color(th.text2));
+                    if !ok {
+                        ui.label(RichText::new(crate::i18n::tr("Einrichten…")).size(12.0).color(th.accent_text));
+                    }
                 });
+                let resp = ui.interact(r.response.rect, ui.id().with(("status", good)), egui::Sense::click());
+                if resp.hovered() {
+                    ui.ctx().set_cursor_icon(egui::CursorIcon::PointingHand);
+                }
+                if resp.on_hover_text(crate::i18n::tr("Einrichtungs-Assistent öffnen")).clicked() {
+                    action = Some(StartAction::Setup);
+                }
             }
             ui.horizontal(|ui| {
                 ui.spacing_mut().item_spacing.x = 6.0;
@@ -233,8 +244,11 @@ impl App {
                 }
                 let r = ui.add(egui::Label::new(RichText::new(content_text).size(12.0).color(th.text2)).sense(egui::Sense::click()));
                 let tip = if self.content_status.is_empty() { self.settings.game_dir.clone() } else { self.content_status.clone() };
+                if r.hovered() {
+                    ui.ctx().set_cursor_icon(egui::CursorIcon::PointingHand);
+                }
                 if r.on_hover_text(tip).clicked() {
-                    action = Some(StartAction::Settings);
+                    action = Some(if content_ok { StartAction::Settings } else { StartAction::Setup });
                 }
             });
             ui.with_layout(egui::Layout::bottom_up(egui::Align::Min), |ui| {
@@ -355,6 +369,10 @@ impl App {
                 self.win.collab = true;
             }
             Some(StartAction::Settings) => self.win.settings = true,
+            Some(StartAction::Setup) => {
+                self.win.setup = true;
+                self.setup.page = 0;
+            }
             Some(StartAction::Help) => self.win.help = true,
             Some(StartAction::Close) => self.win.start = false,
             None => {}
@@ -367,19 +385,38 @@ enum StartAction {
     Open(Option<PathBuf>),
     Collab,
     Settings,
+    Setup,
     Help,
     Close,
 }
 
 /// Infos zu einer zuletzt geöffneten Datei: (Brushes, Alter in Sekunden), None = fehlt
-pub(crate) type RecentInfo = Option<(usize, u64)>;
+pub(crate) type RecentInfo = Option<(usize, u64, Vec<[f32; 4]>)>;
 
 fn file_info(p: &std::path::Path) -> RecentInfo {
     let meta = std::fs::metadata(p).ok()?;
     let age = meta.modified().ok().and_then(|m| m.elapsed().ok()).map(|d| d.as_secs()).unwrap_or(0);
     let text = std::fs::read_to_string(p).ok()?;
     let brushes = text.lines().filter(|l| l.trim() == "solid").count();
-    Some((brushes, age))
+    Some((brushes, age, mini_plan(&text)))
+}
+
+/// Kleine Draufsicht: Grundrisse der Brushes (x0, y0, x1, y1), auf 0..1 normiert (gleicher
+/// Maßstab in x und y), höchstens 600 – die größten zuerst
+fn mini_plan(vmf: &str) -> Vec<[f32; 4]> {
+    let Ok(map) = crate::map::Map::from_vmf(vmf) else { return Vec::new() };
+    let mut rects: Vec<crate::geometry::Aabb> = map.all_solids().map(|(_, s)| s.bounds).filter(|b| !b.is_empty()).collect();
+    if rects.is_empty() {
+        return Vec::new();
+    }
+    let all = rects.iter().fold(crate::geometry::Aabb::EMPTY, |a, b| a.union(b));
+    let size = (all.max.x - all.min.x).max(all.max.y - all.min.y).max(1.0);
+    let off = glam::DVec2::new((size - (all.max.x - all.min.x)) / 2.0, (size - (all.max.y - all.min.y)) / 2.0);
+    rects.sort_by(|a, b| ((b.max.x - b.min.x) * (b.max.y - b.min.y)).total_cmp(&((a.max.x - a.min.x) * (a.max.y - a.min.y))));
+    rects.truncate(600);
+    let n = |v: f64, lo: f64, o: f64| ((v - lo + o) / size) as f32;
+    // y nach oben (Draufsicht wie in der Ansicht „Oben“)
+    rects.iter().map(|b| [n(b.min.x, all.min.x, off.x), 1.0 - n(b.max.y, all.min.y, off.y), n(b.max.x, all.min.x, off.x), 1.0 - n(b.min.y, all.min.y, off.y)]).collect()
 }
 
 fn age_text(secs: u64) -> String {
@@ -521,15 +558,31 @@ fn recent_row(ui: &mut egui::Ui, path: &str, info: &Option<RecentInfo>, divider:
     }
     let tile = egui::Rect::from_min_size(egui::pos2(r.left() + 14.0, r.center().y - 18.0), egui::vec2(52.0, 36.0));
     p.rect(tile, 6.0, th.vp, Stroke::new(1.0f32, th.line), egui::StrokeKind::Inside);
-    let mut x = tile.left() + 9.0;
-    while x < tile.right() {
-        p.vline(x, tile.shrink(1.0).y_range(), Stroke::new(1.0f32, th.grid_major));
-        x += 9.0;
-    }
-    let mut y = tile.top() + 9.0;
-    while y < tile.bottom() {
-        p.hline(tile.shrink(1.0).x_range(), y, Stroke::new(1.0f32, th.grid_major));
-        y += 9.0;
+    match info {
+        // Mini-Draufsicht der Map
+        Some(Some((_, _, plan))) if !plan.is_empty() => {
+            let inner = tile.shrink(3.0);
+            let side = inner.width().min(inner.height());
+            let sq = egui::Rect::from_center_size(inner.center(), egui::vec2(side, side));
+            let pc = p.with_clip_rect(tile.shrink(1.0));
+            for q in plan.iter().rev() {
+                let rr = egui::Rect::from_min_max(egui::pos2(sq.left() + q[0] * side, sq.top() + q[1] * side), egui::pos2(sq.left() + q[2] * side, sq.top() + q[3] * side));
+                let rr = if rr.width() < 1.0 || rr.height() < 1.0 { rr.expand(0.5) } else { rr };
+                pc.rect_stroke(rr, 0.0, Stroke::new(0.7f32, th.text2), egui::StrokeKind::Inside);
+            }
+        }
+        _ => {
+            let mut x = tile.left() + 9.0;
+            while x < tile.right() {
+                p.vline(x, tile.shrink(1.0).y_range(), Stroke::new(1.0f32, th.grid_major));
+                x += 9.0;
+            }
+            let mut y = tile.top() + 9.0;
+            while y < tile.bottom() {
+                p.hline(tile.shrink(1.0).x_range(), y, Stroke::new(1.0f32, th.grid_major));
+                y += 9.0;
+            }
+        }
     }
     let pp = std::path::Path::new(path);
     let name = pp.file_name().map(|n| n.to_string_lossy().to_string()).unwrap_or_default();
@@ -540,7 +593,7 @@ fn recent_row(ui: &mut egui::Ui, path: &str, info: &Option<RecentInfo>, divider:
     let dir_clip = egui::Rect::from_min_max(egui::pos2(tile.right() + 14.0, r.top()), egui::pos2(r.right() - right_w, r.bottom()));
     p.with_clip_rect(dir_clip).text(egui::pos2(tile.right() + 14.0, r.center().y + 10.0), egui::Align2::LEFT_CENTER, dir, theme::sans(12.0), th.text3);
     let (stats, when) = match info {
-        Some(Some((b, age))) => (format!("{} Brushes", crate::chrome::fmt_thousands(*b)), age_text(*age)),
+        Some(Some((b, age, _))) => (format!("{} Brushes", crate::chrome::fmt_thousands(*b)), age_text(*age)),
         Some(None) => ("fehlt".to_string(), String::new()),
         None => ("…".to_string(), String::new()),
     };

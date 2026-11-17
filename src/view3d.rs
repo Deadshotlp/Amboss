@@ -2346,7 +2346,7 @@ impl View3D {
     }
 
     pub fn camera_def(&self) -> crate::map::CameraDef {
-        crate::map::CameraDef { pos: self.cam.pos.as_dvec3(), look: (self.cam.pos + self.cam.forward() * 128.0).as_dvec3() }
+        crate::map::CameraDef { pos: self.cam.pos.as_dvec3(), look: (self.cam.pos + self.cam.forward() * 128.0).as_dvec3(), name: String::new() }
     }
 
     pub fn show(&mut self, ui: &mut Ui, rect: Rect, ed: &mut Editor, mats: &mut MaterialSystem, models: &mut ModelSystem, maximize_toggle: &mut bool) {

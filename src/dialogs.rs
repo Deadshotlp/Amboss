@@ -463,7 +463,7 @@ impl App {
                     }
                 });
                 ui.horizontal(|ui| {
-                    if ui.button(crate::i18n::tr("🔍 GMod automatisch finden")).clicked() {
+                    if ui.button(crate::i18n::tr("GMod automatisch finden")).clicked() {
                         match self.settings.autodetect() {
                             Ok(p) => self.ed.status = format!("Garry's Mod gefunden: {p}"),
                             Err(e) => self.ed.status = e,
@@ -494,10 +494,23 @@ impl App {
               }
               if page == 1 {
                 let before_dir = self.settings.game_dir.clone();
-                egui::Grid::new("paths").num_columns(3).striped(true).show(ui, |ui| {
+                egui::Grid::new("paths").num_columns(4).striped(true).show(ui, |ui| {
+                    let th = crate::theme::t();
                     let row = |ui: &mut egui::Ui, label: &str, val: &mut String, folder: bool, tip: &str| {
+                        // Status-Punkt: grün = gefunden, gelb = Pfad stimmt nicht, grau = leer
+                        let p = std::path::Path::new(val.trim());
+                        let (col, state) = if val.trim().is_empty() {
+                            (th.text3, crate::i18n::tr("nicht gesetzt"))
+                        } else if (folder && p.is_dir()) || (!folder && p.is_file()) {
+                            (th.ok, crate::i18n::tr("gefunden"))
+                        } else {
+                            (th.warn, crate::i18n::tr("nicht gefunden"))
+                        };
+                        let (r, resp) = ui.allocate_exact_size(egui::vec2(10.0, 18.0), egui::Sense::hover());
+                        ui.painter().circle_filled(r.center(), 4.0, col);
+                        resp.on_hover_text(state);
                         ui.label(crate::i18n::tr_dyn(label)).on_hover_text(crate::i18n::tr_dyn(tip));
-                        ui.add_sized([420.0, 20.0], egui::TextEdit::singleline(val));
+                        ui.add_sized([400.0, 20.0], egui::TextEdit::singleline(val));
                         if ui.small_button("…").clicked() {
                             let r = if folder { rfd::FileDialog::new().pick_folder() } else { rfd::FileDialog::new().pick_file() };
                             if let Some(p) = r {
@@ -513,9 +526,11 @@ impl App {
                     row(ui, "VRAD", &mut s.vrad, false, ".../GarrysMod/bin/vrad.exe");
                     row(ui, "Spiel (exe)", &mut s.game_exe, false, ".../GarrysMod/hl2.exe oder gmod.exe");
                     row(ui, "Prefab-Ordner", &mut s.prefab_dir, true, crate::i18n::tr("Ordner für gespeicherte Prefabs"));
+                    ui.label("");
                     ui.label(crate::i18n::tr("Startparameter")).on_hover_text("{map} wird durch den Map-Namen ersetzt");
                     ui.add_sized([420.0, 20.0], egui::TextEdit::singleline(&mut s.launch_args));
                     ui.end_row();
+                    ui.label("");
                     ui.label(crate::i18n::tr("Wrapper")).on_hover_text(crate::i18n::tr("Unter Linux/macOS z. B. 'wine' für die Windows-Compiler. Unter Windows leer lassen."));
                     ui.add_sized([420.0, 20.0], egui::TextEdit::singleline(&mut s.wrapper));
                     ui.end_row();
@@ -612,6 +627,8 @@ impl App {
               }
               if page == 0 {
                 ui.add_space(10.0);
+                self.update_settings_ui(ui);
+                ui.add_space(10.0);
                 ui.label(RichText::new(crate::i18n::tr("Sprache / Language")).strong());
                 {
                     let cur = crate::i18n::Lang::ALL.iter().position(|l| *l == crate::i18n::lang()).unwrap_or(0);
@@ -634,6 +651,19 @@ impl App {
                         crate::theme::apply(ctx, self.settings.theme_dark);
                     }
                 });
+                ui.horizontal(|ui| {
+                    ui.label(crate::i18n::tr("Größe der Oberfläche"));
+                    let vals = [0.9f32, 1.0, 1.15, 1.25, 1.5, 1.75, 2.0];
+                    let cur = vals.iter().enumerate().min_by(|a, b| (a.1 - self.settings.ui_scale).abs().total_cmp(&(b.1 - self.settings.ui_scale).abs())).map(|(i, _)| i).unwrap_or(1);
+                    let labels: Vec<String> = vals.iter().map(|v| format!("{:.0} %", v * 100.0)).collect();
+                    let refs: Vec<&str> = labels.iter().map(|s| s.as_str()).collect();
+                    let n = crate::theme::segmented(ui, cur, &refs, false);
+                    if n != cur {
+                        self.settings.ui_scale = vals[n];
+                        self.dlg.pending_zoom = Some(vals[n]);
+                    }
+                });
+                ui.label(RichText::new(crate::i18n::tr("Zusätzlich zur Windows-Skalierung. Auch mit Strg+Plus / Strg+Minus, Strg+0 setzt zurück.")).small().weak());
                 ui.horizontal(|ui| {
                     ui.label(crate::i18n::tr("Kantenglättung (MSAA)"));
                     let cur = self.dlg.msaa.get_or_insert_with(crate::gfx_msaa_pub);
@@ -835,9 +865,14 @@ impl App {
                 if ui.button(crate::i18n::tr("Auf Auswahl anwenden")).clicked() {
                     apply = true;
                 }
+                ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
+                    ui.add(egui::Slider::new(&mut self.dlg.browser_tile, 48.0..=224.0).show_value(false)).on_hover_text(crate::i18n::tr("Kachelgröße"));
+                    ui.label(RichText::new(crate::i18n::tr("Größe")).color(crate::theme::t().text3));
+                });
             });
             ui.separator();
-            let cell = Vec2::new(112.0, 128.0);
+            let tile = self.dlg.browser_tile.clamp(48.0, 224.0);
+            let cell = Vec2::new(tile + 16.0, tile + 32.0);
             let cols = ((ui.available_width() / cell.x).floor() as usize).max(1);
             let rows = items.len().div_ceil(cols);
             let current = crate::materials::normalize(&self.ed.material);
@@ -847,26 +882,28 @@ impl App {
                         for col in 0..cols {
                             let Some(name) = items.get(row * cols + col) else { break };
                             let (rect, resp) = ui.allocate_exact_size(cell, Sense::click());
+                            let thm = crate::theme::t();
                             if *name == current {
-                                ui.painter().rect_filled(rect, egui::CornerRadius::same(3), Color32::from_rgb(40, 70, 120));
+                                ui.painter().rect(rect, egui::CornerRadius::same(8), thm.accent_soft, egui::Stroke::new(1.5f32, thm.accent), egui::StrokeKind::Inside);
                             } else if resp.hovered() {
-                                ui.painter().rect_filled(rect, egui::CornerRadius::same(3), Color32::from_gray(45));
+                                ui.painter().rect_filled(rect, egui::CornerRadius::same(8), thm.hover);
                             }
-                            let img_rect = egui::Rect::from_min_size(rect.min + Vec2::new(8.0, 4.0), Vec2::splat(96.0));
+                            let img_rect = egui::Rect::from_min_size(rect.min + Vec2::new(8.0, 4.0), Vec2::splat(tile));
                             match self.mats.thumb(name) {
                                 Some(t) => {
                                     let s = t.size_vec2();
-                                    let k = 96.0 / s.x.max(s.y);
+                                    let k = tile / s.x.max(s.y);
                                     egui::Image::new((t.id(), s * k)).paint_at(ui, egui::Rect::from_center_size(img_rect.center(), s * k));
                                 }
                                 None => {
-                                    let c = if self.mats.is_missing(name) { Color32::from_rgb(60, 20, 20) } else { Color32::from_gray(30) };
-                                    ui.painter().rect_filled(img_rect, egui::CornerRadius::ZERO, c);
+                                    let c = if self.mats.is_missing(name) { crate::theme::t().err.gamma_multiply(0.3) } else { crate::theme::t().raised };
+                                    ui.painter().rect_filled(img_rect, egui::CornerRadius::same(6), c);
                                 }
                             }
                             let short = name.rsplit('/').next().unwrap_or(name);
-                            let short = if short.chars().count() > 16 { format!("{}…", short.chars().take(15).collect::<String>()) } else { short.to_string() };
-                            ui.painter().text(egui::pos2(rect.center().x, rect.bottom() - 13.0), Align2::CENTER_CENTER, short, FontId::proportional(11.0), Color32::from_gray(210));
+                            let maxc = ((tile + 16.0) / 7.0) as usize;
+                            let short = if short.chars().count() > maxc { format!("{}…", short.chars().take(maxc.saturating_sub(1)).collect::<String>()) } else { short.to_string() };
+                            ui.painter().text(egui::pos2(rect.center().x, rect.bottom() - 13.0), Align2::CENTER_CENTER, short, crate::theme::mono(10.5), crate::theme::t().text2);
                             let fav = self.settings.favorite_materials.iter().any(|f| f.eq_ignore_ascii_case(name));
                             if fav {
                                 ui.painter().text(rect.right_top() + Vec2::new(-6.0, 4.0), Align2::RIGHT_TOP, "★", FontId::proportional(14.0), Color32::GOLD);
@@ -920,18 +957,38 @@ impl App {
                         ui.add_sized([96.0, 30.0], crate::theme::dv(egui::DragValue::new(&mut self.dlg.transform_val[k])).speed(if self.dlg.transform_mode == 2 { 0.01 } else { 1.0 }));
                     }
                 });
+                if self.dlg.transform_mode > 0 {
+                    ui.add_space(6.0);
+                    crate::theme::section(ui, crate::i18n::tr("Drehpunkt"));
+                    self.dlg.transform_pivot = crate::theme::segmented(ui, self.dlg.transform_pivot, &[crate::i18n::tr("Mitte der Auswahl"), crate::i18n::tr("Ursprung 0 0 0"), crate::i18n::tr("Eigener Punkt")], true);
+                    if self.dlg.transform_pivot == 2 {
+                        ui.horizontal(|ui| {
+                            for (k, l) in ["X", "Y", "Z"].iter().enumerate() {
+                                ui.label(RichText::new(*l).font(crate::theme::mono(11.0)).color(ax[k]));
+                                ui.add_sized([80.0, 26.0], crate::theme::dv(egui::DragValue::new(&mut self.dlg.transform_pivot_pt[k])).speed(1.0));
+                            }
+                            if ui.small_button(crate::i18n::tr("Arbeitspunkt")).on_hover_text(crate::i18n::tr("Zuletzt angeklickten Punkt übernehmen")).clicked() {
+                                self.dlg.transform_pivot_pt = self.ed.work_point.to_array();
+                            }
+                        });
+                    }
+                }
             }
             crate::theme::Part::Footer => {
                 if ui.add_enabled_ui(has_sel, |ui| crate::theme::primary_button(ui, crate::i18n::tr("Anwenden"))).inner.clicked() {
                     apply = true;
                 }
-                crate::theme::footer_hint(ui, if has_sel { crate::i18n::tr("Drehen und Skalieren um die Mitte der Auswahl") } else { crate::i18n::tr("Zuerst etwas auswählen") });
+                crate::theme::footer_hint(ui, if has_sel { crate::i18n::tr("Drehen und Skalieren um den gewählten Drehpunkt") } else { crate::i18n::tr("Zuerst etwas auswählen") });
             }
             _ => {}
         });
         if apply {
             let v = DVec3::from(self.dlg.transform_val);
-            let c = self.ed.selection_bounds().center();
+            let c = match self.dlg.transform_pivot {
+                1 => DVec3::ZERO,
+                2 => DVec3::from(self.dlg.transform_pivot_pt),
+                _ => self.ed.selection_bounds().center(),
+            };
             let x = match self.dlg.transform_mode {
                 0 => Xform::translate(v),
                 1 => Xform::about(c, Xform::rotation(2, v.z) * Xform::rotation(1, v.y) * Xform::rotation(0, v.x)),
@@ -1012,9 +1069,28 @@ impl App {
         let mut run = false;
         crate::theme::dialog(ctx, &mut open, &crate::theme::Dlg::new(crate::i18n::tr("Texturen ersetzen"), 480.0).footer().no_scroll(), |ui, part| match part {
             crate::theme::Part::Body => {
-                crate::theme::field_row(ui, crate::i18n::tr("Suchen"), |ui| ui.add(egui::TextEdit::singleline(&mut self.dlg.rep_find).font(crate::theme::mono(12.0)).desired_width(300.0)));
+                // kleine Vorschau des Materials links neben dem Feld
+                let swatch = |ui: &mut egui::Ui, mats: &mut crate::materials::MaterialSystem, name: &str| {
+                    let (r, _) = ui.allocate_exact_size(Vec2::splat(30.0), Sense::hover());
+                    match mats.thumb(&name.to_ascii_lowercase()) {
+                        Some(t) if !name.trim().is_empty() => {
+                            egui::Image::new((t.id(), r.size())).corner_radius(4).paint_at(ui, r);
+                        }
+                        _ => {
+                            ui.painter().rect(r, 4.0, crate::theme::t().raised, egui::Stroke::new(1.0f32, crate::theme::t().line), egui::StrokeKind::Inside);
+                        }
+                    }
+                };
+                crate::theme::field_row(ui, crate::i18n::tr("Suchen"), |ui| {
+                    swatch(ui, &mut self.mats, &self.dlg.rep_find);
+                    ui.add(egui::TextEdit::singleline(&mut self.dlg.rep_find).font(crate::theme::mono(12.0)).desired_width(220.0));
+                    if ui.button(crate::i18n::tr("Aktuell")).on_hover_text(crate::i18n::tr("Aktuelles Material einsetzen")).clicked() {
+                        self.dlg.rep_find = self.ed.material.clone();
+                    }
+                });
                 crate::theme::field_row(ui, crate::i18n::tr("Ersetzen durch"), |ui| {
-                    ui.add(egui::TextEdit::singleline(&mut self.dlg.rep_with).font(crate::theme::mono(12.0)).desired_width(230.0));
+                    swatch(ui, &mut self.mats, &self.dlg.rep_with);
+                    ui.add(egui::TextEdit::singleline(&mut self.dlg.rep_with).font(crate::theme::mono(12.0)).desired_width(220.0));
                     if ui.button(crate::i18n::tr("Aktuell")).on_hover_text(crate::i18n::tr("Aktuelles Material einsetzen")).clicked() {
                         self.dlg.rep_with = self.ed.material.clone();
                     }
@@ -1022,6 +1098,10 @@ impl App {
                 ui.add_space(4.0);
                 crate::theme::checkbox(ui, &mut self.dlg.rep_sel, crate::i18n::tr("Nur in der Auswahl"));
                 crate::theme::checkbox(ui, &mut self.dlg.rep_partial, crate::i18n::tr("Teiltreffer ersetzen (z. B. nur Ordnername)"));
+                ui.add_space(4.0);
+                let (faces, brushes) = self.ed.count_material_matches(&self.dlg.rep_find, self.dlg.rep_sel, self.dlg.rep_partial);
+                let th = crate::theme::t();
+                ui.label(RichText::new(if self.dlg.rep_find.trim().is_empty() { crate::i18n::tr("Suchbegriff eingeben").to_string() } else { crate::i18n::tr_dyn(&format!("Treffer: {} auf {}", crate::i18n::count_de(faces, "Fläche", "Flächen"), crate::i18n::count_de(brushes, "Brush", "Brushes"))) }).color(if faces > 0 { th.ok } else { th.text3 }));
             }
             crate::theme::Part::Footer => {
                 if crate::theme::primary_button(ui, crate::i18n::tr("Ersetzen")).clicked() {
@@ -1257,11 +1337,16 @@ impl App {
         let mut open = true;
         let mut go = false;
         let mut jump = false;
-        let bad = !self.dlg.goto_text.trim().is_empty() && self.dlg.goto_text.trim().parse::<u32>().is_err();
-        crate::theme::dialog(ctx, &mut open, &crate::theme::Dlg::new(crate::i18n::tr("Gehe zu Nummer"), 420.0).footer().no_scroll(), |ui, part| match part {
+        let by_name = self.dlg.goto_kind == 4;
+        let bad = !by_name && !self.dlg.goto_text.trim().is_empty() && self.dlg.goto_text.trim().parse::<u32>().is_err();
+        // was die Eingabe treffen würde (Vorschau)
+        let preview = goto_preview(&self.ed, self.dlg.goto_kind, self.dlg.goto_text.trim());
+        crate::theme::dialog(ctx, &mut open, &crate::theme::Dlg::new(crate::i18n::tr("Gehe zu Nummer"), 460.0).footer().no_scroll(), |ui, part| match part {
             crate::theme::Part::Body => {
-                crate::theme::section(ui, crate::i18n::tr("Brush-, Seiten- oder Entity-ID"));
-                let r = ui.add(egui::TextEdit::singleline(&mut self.dlg.goto_text).font(crate::theme::mono(13.0)).hint_text(crate::theme::hint(crate::i18n::tr("z. B. 2207 aus einer VBSP-Meldung"))).desired_width(f32::INFINITY));
+                self.dlg.goto_kind = crate::theme::segmented(ui, self.dlg.goto_kind, &[crate::i18n::tr("Auto"), "Brush", crate::i18n::tr("Seite"), "Entity", crate::i18n::tr("Name")], true);
+                ui.add_space(6.0);
+                crate::theme::section(ui, match self.dlg.goto_kind { 1 => crate::i18n::tr("Brush-ID"), 2 => crate::i18n::tr("Seiten-ID"), 3 => crate::i18n::tr("Entity-ID"), 4 => crate::i18n::tr("Entity-Name (targetname, * als Platzhalter)"), _ => crate::i18n::tr("Brush-, Seiten- oder Entity-ID") });
+                let r = ui.add(egui::TextEdit::singleline(&mut self.dlg.goto_text).font(crate::theme::mono(13.0)).hint_text(crate::theme::hint(if by_name { crate::i18n::tr("z. B. tuer_1") } else { crate::i18n::tr("z. B. 2207 aus einer VBSP-Meldung") })).desired_width(f32::INFINITY));
                 r.request_focus();
                 if r.lost_focus() && ui.input(|i| i.key_pressed(egui::Key::Enter)) {
                     go = true;
@@ -1271,6 +1356,12 @@ impl App {
                         crate::theme::severity_mark(ui, 0);
                         ui.label(RichText::new(crate::i18n::tr("Nur Ziffern erlaubt")).size(12.0).color(th.err));
                     });
+                } else if !self.dlg.goto_text.trim().is_empty() {
+                    let (ok, text) = match &preview {
+                        Some((objs, d)) if !objs.is_empty() => (true, d.clone()),
+                        _ => (false, crate::i18n::tr("Nichts gefunden").to_string()),
+                    };
+                    ui.label(RichText::new(text).size(12.0).color(if ok { th.ok } else { th.warn }));
                 }
                 ui.add_space(8.0);
                 crate::theme::section(ui, crate::i18n::tr("Oder Koordinate (x y z)"));
@@ -1306,9 +1397,16 @@ impl App {
             }
         }
         if go {
-            if let Ok(id) = self.dlg.goto_text.trim().parse() {
-                self.goto_id(id);
-                open = false;
+            match goto_preview(&self.ed, self.dlg.goto_kind, self.dlg.goto_text.trim()) {
+                Some((objs, d)) if !objs.is_empty() => {
+                    self.ed.sel = objs.iter().copied().collect();
+                    let b = objs.iter().fold(crate::geometry::Aabb::EMPTY, |b, o| b.union(&self.ed.obj_bounds(*o)));
+                    self.center_on(b);
+                    self.ed.status = d;
+                    self.ed.touch();
+                    open = false;
+                }
+                _ => self.ed.status = crate::i18n::tr("Nichts gefunden").into(),
             }
         }
         if !self.win.goto {
@@ -1535,7 +1633,14 @@ impl App {
         }
         let mut open = true;
         crate::theme::dialog_simple(ctx, &mut open, &crate::theme::Dlg::new(crate::i18n::tr("Logische Ansicht (Entity-I/O)"), 900.0).height(620.0).no_scroll(), |ui| {
-            ui.label(RichText::new(crate::i18n::tr("Knoten ziehen zum Anordnen · Klick wählt · Mausrad zoomt · Rechte Taste verschiebt")).small());
+            let mut jump_to_match = false;
+            ui.horizontal(|ui| {
+                let r = ui.add(egui::TextEdit::singleline(&mut self.dlg.logical_filter).hint_text(crate::theme::hint(crate::i18n::tr("Suchen: Name, Klasse oder Output"))).desired_width(260.0));
+                if r.changed() || (r.lost_focus() && ui.input(|i| i.key_pressed(egui::Key::Enter))) {
+                    jump_to_match = true;
+                }
+                ui.label(RichText::new(crate::i18n::tr("Knoten ziehen zum Anordnen · Klick wählt · Mausrad zoomt · Rechte Taste verschiebt")).small());
+            });
             let (resp, painter) = ui.allocate_painter(ui.available_size(), Sense::click_and_drag());
             let rect = resp.rect;
             painter.rect_filled(rect, egui::CornerRadius::ZERO, Color32::from_gray(20));
@@ -1562,6 +1667,19 @@ impl App {
                     (e.id, e.classname().to_string(), e.targetname().unwrap_or("").to_string(), pos)
                 })
                 .collect();
+            // Suche: passende Knoten hervorheben, beim Tippen den ersten Treffer in die Mitte holen
+            let q = self.dlg.logical_filter.trim().to_ascii_lowercase();
+            let matched: std::collections::HashSet<u32> = ents
+                .iter()
+                .filter(|n| !q.is_empty() && (n.1.to_ascii_lowercase().contains(&q) || n.2.to_ascii_lowercase().contains(&q) || self.ed.map.entity(n.0).is_some_and(|e| e.outputs.iter().any(|(o, v)| o.to_ascii_lowercase().contains(&q) || v.to_ascii_lowercase().contains(&q)))))
+                .map(|n| n.0)
+                .collect();
+            let hit = |id: u32, _class: &str, _name: &str| -> bool { q.is_empty() || matched.contains(&id) };
+            if jump_to_match && !q.is_empty() {
+                if let Some(n) = ents.iter().find(|n| hit(n.0, &n.1, &n.2)) {
+                    self.dlg.logical_pan = rect.size() / 2.0 - Vec2::new(n.3[0] as f32, n.3[1] as f32) * zoom - Vec2::new(85.0, 22.0) * zoom - Vec2::splat(20.0);
+                }
+            }
             let to_screen = |p: [f64; 2]| rect.min + self.dlg.logical_pan + Vec2::new(p[0] as f32, p[1] as f32) * zoom + Vec2::splat(20.0);
             let node_size = Vec2::new(170.0, 44.0) * zoom;
             let node_rect = |p: [f64; 2]| egui::Rect::from_min_size(to_screen(p), node_size);
@@ -1610,13 +1728,20 @@ impl App {
             for (id, class, name, pos) in &ents {
                 let r = node_rect(*pos);
                 let sel = self.ed.sel.contains(&Obj::Entity(*id));
-                painter.rect_filled(r, egui::CornerRadius::same(4), if sel { Color32::from_rgb(110, 40, 40) } else { Color32::from_rgb(45, 50, 65) });
-                painter.rect_stroke(r, egui::CornerRadius::same(4), Stroke::new(1.0f32, Color32::from_gray(140)), egui::StrokeKind::Inside);
+                let matched = !q.is_empty() && hit(*id, class, name);
+                let faded = !q.is_empty() && !matched;
+                let fill = if sel { Color32::from_rgb(110, 40, 40) } else { Color32::from_rgb(45, 50, 65) };
+                painter.rect_filled(r, egui::CornerRadius::same(4), if faded { fill.gamma_multiply(0.35) } else { fill });
+                painter.rect_stroke(r, egui::CornerRadius::same(4), Stroke::new(if matched { 2.0f32 } else { 1.0 }, if matched { crate::theme::t().accent } else { Color32::from_gray(140) }), egui::StrokeKind::Inside);
                 painter.text(r.left_top() + Vec2::new(6.0, 4.0), Align2::LEFT_TOP, if name.is_empty() { crate::i18n::tr("(ohne Namen)") } else { name }, FontId::proportional(12.0 * zoom.max(0.7)), Color32::WHITE);
                 painter.text(r.left_bottom() + Vec2::new(6.0, -4.0), Align2::LEFT_BOTTOM, class, FontId::monospace(10.0 * zoom.max(0.7)), Color32::from_gray(180));
             }
             if ents.is_empty() {
-                painter.text(rect.center(), Align2::CENTER_CENTER, crate::i18n::tr("Keine benannten Entities oder Outputs"), FontId::proportional(14.0), Color32::GRAY);
+                // Leerzustand mit Erklärung
+                painter.text(rect.center() - Vec2::new(0.0, 14.0), Align2::CENTER_CENTER, crate::i18n::tr("Noch keine Logik in dieser Map"), FontId::proportional(16.0), Color32::from_gray(200));
+                painter.text(rect.center() + Vec2::new(0.0, 12.0), Align2::CENTER_CENTER, crate::i18n::tr("Hier erscheinen Entities mit Namen (targetname) oder Outputs – z. B. ein Knopf, der eine Tür öffnet."), FontId::proportional(12.5), Color32::GRAY);
+            } else if !q.is_empty() && !ents.iter().any(|n| hit(n.0, &n.1, &n.2)) {
+                painter.text(rect.center_top() + Vec2::new(0.0, 20.0), Align2::CENTER_TOP, crate::i18n::tr("Kein Knoten passt zur Suche"), FontId::proportional(13.0), Color32::from_rgb(230, 180, 90));
             }
         });
         self.win.logical = open;
@@ -1625,30 +1750,54 @@ impl App {
     fn entity_help_window(&mut self, ctx: &egui::Context) {
         let Some(class) = self.win.entity_help.clone() else { return };
         let mut open = true;
-        crate::theme::dialog_simple(ctx, &mut open, &crate::theme::Dlg::new(crate::i18n::tr_dyn(&format!("Hilfe: {class}")), 560.0), |ui| {
+        crate::theme::dialog_simple(ctx, &mut open, &crate::theme::Dlg::new(crate::i18n::tr_dyn(&format!("Hilfe: {class}")), 720.0).height(600.0), |ui| {
             egui::ScrollArea::vertical().show(ui, |ui| match self.ed.fgd.class(&class) {
                 None => {
                     ui.label(crate::i18n::tr("Diese Klasse ist in keiner geladenen FGD beschrieben."));
                 }
                 Some(c) => {
+                    let th = crate::theme::t();
                     ui.label(crate::i18n::tr_dyn(&c.description));
-                    ui.separator();
-                    ui.label(RichText::new(crate::i18n::tr("Schlüssel")).strong());
-                    for p in self.ed.fgd.all_props(&class) {
-                        ui.label(RichText::new(format!("{} ({}) – {}", p.name, p.kind, crate::i18n::tr_dyn(&p.display))).monospace().small());
-                        if !p.description.is_empty() {
-                            ui.label(RichText::new(crate::i18n::tr_dyn(&p.description)).small().italics());
+                    // Tabellen: Schlüssel, Inputs, Outputs
+                    let table = |ui: &mut egui::Ui, id: &str, head: [&str; 3], rows: Vec<[String; 3]>| {
+                        if rows.is_empty() {
+                            ui.label(RichText::new(crate::i18n::tr("– keine –")).color(th.text3));
+                            return;
                         }
-                    }
-                    ui.separator();
-                    ui.label(RichText::new(crate::i18n::tr("Inputs")).strong());
-                    for i in self.ed.fgd.all_io(&class, false) {
-                        ui.label(RichText::new(format!("{} – {}", i.name, crate::i18n::tr_dyn(&i.description))).small());
-                    }
-                    ui.label(RichText::new(crate::i18n::tr("Outputs")).strong());
-                    for o in self.ed.fgd.all_io(&class, true) {
-                        ui.label(RichText::new(format!("{} – {}", o.name, crate::i18n::tr_dyn(&o.description))).small());
-                    }
+                        egui::Grid::new(id).striped(true).num_columns(3).spacing([12.0, 4.0]).show(ui, |ui| {
+                            for h in head {
+                                ui.label(RichText::new(h).size(11.5).color(th.text3).strong());
+                            }
+                            ui.end_row();
+                            for r in rows {
+                                ui.label(RichText::new(&r[0]).font(crate::theme::mono(11.5)).color(th.text));
+                                ui.label(RichText::new(&r[1]).font(crate::theme::mono(11.0)).color(th.text3));
+                                ui.add(egui::Label::new(RichText::new(&r[2]).size(12.0).color(th.text2)).wrap());
+                                ui.end_row();
+                            }
+                        });
+                    };
+                    ui.add_space(6.0);
+                    crate::theme::section(ui, crate::i18n::tr("Schlüssel"));
+                    let props: Vec<[String; 3]> = self.ed.fgd.all_props(&class).into_iter().map(|p| {
+                        let mut d = crate::i18n::tr_dyn(&p.display);
+                        if !p.description.is_empty() {
+                            d = format!("{d} – {}", crate::i18n::tr_dyn(&p.description));
+                        }
+                        if !p.default.is_empty() {
+                            d = format!("{d}  [{}: {}]", crate::i18n::tr("Standard"), p.default);
+                        }
+                        [p.name.clone(), p.kind.clone(), d]
+                    }).collect();
+                    table(ui, "help_keys", [crate::i18n::tr("Schlüssel"), crate::i18n::tr("Typ"), crate::i18n::tr("Bedeutung")], props);
+                    ui.add_space(6.0);
+                    crate::theme::section(ui, crate::i18n::tr("Inputs"));
+                    let ins: Vec<[String; 3]> = self.ed.fgd.all_io(&class, false).into_iter().map(|i| [i.name.clone(), i.kind.clone(), crate::i18n::tr_dyn(&i.description)]).collect();
+                    table(ui, "help_in", ["Input", crate::i18n::tr("Parameter"), crate::i18n::tr("Bedeutung")], ins);
+                    ui.add_space(6.0);
+                    crate::theme::section(ui, crate::i18n::tr("Outputs"));
+                    let outs: Vec<[String; 3]> = self.ed.fgd.all_io(&class, true).into_iter().map(|o| [o.name.clone(), o.kind.clone(), crate::i18n::tr_dyn(&o.description)]).collect();
+                    table(ui, "help_out", ["Output", crate::i18n::tr("Parameter"), crate::i18n::tr("Bedeutung")], outs);
                 }
             });
         });
@@ -1734,4 +1883,38 @@ fn paste_preview(ui: &mut egui::Ui, cb: Option<crate::geometry::Aabb>, copies: u
     tag("■ Original", r.left_bottom() + Vec2::new(8.0, -8.0), egui::Align2::LEFT_BOTTOM);
     ui.add_space(6.0);
     ui.label(RichText::new(total_label).font(crate::theme::mono(11.5)).color(th.text2));
+}
+
+/// „Gehe zu“: Objekte, die eine Eingabe trifft, und eine kurze Beschreibung.
+/// kind: 0 automatisch, 1 Brush, 2 Seite, 3 Entity, 4 Name (targetname, * = Platzhalter)
+pub(crate) fn goto_preview(ed: &crate::editor::Editor, kind: usize, text: &str) -> Option<(Vec<crate::editor::Obj>, String)> {
+    use crate::editor::Obj;
+    if text.is_empty() {
+        return None;
+    }
+    if kind == 4 {
+        let pat = text.to_ascii_lowercase();
+        let matches = |n: &str| {
+            let n = n.to_ascii_lowercase();
+            match pat.split_once('*') {
+                Some((a, b)) => n.starts_with(a) && n.ends_with(b) && n.len() >= a.len() + b.len(),
+                None => n == pat,
+            }
+        };
+        let objs: Vec<Obj> = ed.map.entities.iter().filter(|e| e.targetname().is_some_and(matches)).map(|e| Obj::Entity(e.id)).collect();
+        let d = crate::i18n::tr_dyn(&format!("{} mit Namen „{text}“", crate::i18n::count_de(objs.len(), "Entity", "Entities")));
+        return Some((objs, d));
+    }
+    let id: u32 = text.parse().ok()?;
+    let brush = || ed.map.solid(id).map(|_| (vec![ed.obj_for(ed.map.solid_owner(id).flatten(), id)], crate::i18n::tr_dyn(&format!("Brush {id}"))));
+    let side = || {
+        ed.map.all_solids().find(|(_, s)| s.sides.iter().any(|sd| sd.id == id)).map(|(owner, s)| (vec![ed.obj_for(owner, s.id)], crate::i18n::tr_dyn(&format!("Seite {id} von Brush {}", s.id))))
+    };
+    let entity = || ed.map.entity(id).map(|e| (vec![Obj::Entity(id)], format!("Entity {id} · {}{}", e.classname(), e.targetname().map(|n| format!(" „{n}“")).unwrap_or_default())));
+    match kind {
+        1 => brush(),
+        2 => side(),
+        3 => entity(),
+        _ => brush().or_else(entity).or_else(side),
+    }
 }

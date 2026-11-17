@@ -1162,7 +1162,7 @@ pub fn mesh_file(vmf: &std::path::Path) -> std::path::PathBuf {
         self.touch();
     }
 
-    fn apply_xform(&mut self, x: &Xform, scale_op: bool) {
+    pub(crate) fn apply_xform(&mut self, x: &Xform, scale_op: bool) {
         if !x.is_valid() {
             return;
         }
@@ -1912,6 +1912,27 @@ pub fn mesh_file(vmf: &std::path::Path) -> std::path::PathBuf {
     }
 
     /// Texturen suchen & ersetzen. Liefert die Anzahl ersetzter Flächen.
+    /// Wie viele Flächen (und Brushes) würde „Texturen ersetzen“ treffen?
+    pub fn count_material_matches(&self, find: &str, only_selection: bool, partial: bool) -> (usize, usize) {
+        let f = find.trim().to_ascii_lowercase();
+        if f.is_empty() {
+            return (0, 0);
+        }
+        let ids: Vec<u32> = if only_selection { self.selected_solid_ids() } else { self.map.all_solids().map(|(_, s)| s.id).collect() };
+        let (mut faces, mut brushes) = (0, 0);
+        for id in ids {
+            if let Some(s) = self.map.solid(id) {
+                let n = s.sides.iter().filter(|sd| {
+                    let m = sd.material.to_ascii_lowercase();
+                    if partial { m.contains(&f) } else { m == f }
+                }).count();
+                faces += n;
+                brushes += usize::from(n > 0);
+            }
+        }
+        (faces, brushes)
+    }
+
     pub fn replace_materials(&mut self, find: &str, replace: &str, only_selection: bool, partial: bool) -> usize {
         let f = find.to_ascii_lowercase();
         if f.is_empty() {
@@ -2677,7 +2698,7 @@ pub fn mesh_file(vmf: &std::path::Path) -> std::path::PathBuf {
 
     /// Neue Kamera in der Map anlegen
     pub fn add_camera(&mut self, pos: DVec3, look: DVec3) {
-        self.map.cameras.push(crate::map::CameraDef { pos, look });
+        self.map.cameras.push(crate::map::CameraDef { pos, look, name: String::new() });
         self.map.active_camera = self.map.cameras.len() - 1;
         self.camera_changed = true;
         self.dirty = true;

@@ -252,7 +252,7 @@ Letzter Lauf fehlgeschlagen	Last run failed
 Letzter Lauf abgebrochen	Last run cancelled
 Speichert die Map vor dem Kompilieren	Saves the map before compiling
 Name	Name
-🔍 GMod automatisch finden	🔍 Find GMod automatically
+GMod automatisch finden	Find GMod automatically
 📁 GarrysMod-Ordner wählen…	📁 Choose GarrysMod folder…
 Startparameter	Launch parameters
 {} wird durch den Map-Namen ersetzt	{} is replaced by the map name
@@ -1975,3 +1975,128 @@ Ziel: ausgewählte Entities	Target: selected entities
 Alle Klassen anzeigen (Suche, Favoriten, Gruppen)	Show all classes (search, favourites, groups)
 Fehlende Standardwerte ergänzt: {}	Filled in missing default values: {}
 © 2026 Deadshot · Open Source unter MIT oder Apache-2.0	© 2026 Deadshot · open source under MIT or Apache-2.0
+Über das Internet ohne Portfreigabe	Over the internet without port forwarding
+1. Schick diesen Einladungscode an deinen Gast:	1. Send this invite code to your guest:
+2. Antwortcode des Gasts hier einfügen:	2. Paste the guest's reply code here:
+Verbinde… (bis 40 Sekunden). Für weitere Gäste einen neuen Code erstellen.	Connecting… (up to 40 seconds). Create a new code for each further guest.
+Jeder Gast bekommt einen eigenen Code. Beide Seiten müssen den Code des anderen innerhalb weniger Minuten eingeben.	Every guest gets their own code. Both sides must enter the other's code within a few minutes.
+Internet-Adresse nicht ermittelbar – dieser Code klappt nur im selben Netz.	Could not determine your internet address – this code only works on the same network.
+Einladungscode erstellen	Create invite code
+Ermittle deine Internet-Adresse…	Finding your internet address…
+2. Schick diesen Antwortcode an den Gastgeber:	2. Send this reply code to the host:
+Warte auf den Gastgeber (bis 3 Minuten)…	Waiting for the host (up to 3 minutes)…
+1. Einladungscode des Gastgebers einfügen:	1. Paste the host's invite code:
+Antwortcode erzeugen und verbinden	Create reply code and connect
+Klappt mit den meisten Heim-Routern, ohne Portfreigabe. Nicht in manchen Mobilfunk- und Firmennetzen – dann IPv6, Portweiterleitung oder ein VPN nutzen.	Works with most home routers, no port forwarding needed. Not on some mobile and corporate networks – use IPv6, port forwarding or a VPN there.
+Deine Internet-Adresse ließ sich nicht ermitteln (UDP ins Internet gesperrt?). Über das Internet geht es so nicht.	Your internet address could not be determined (UDP to the internet blocked?). This won't work over the internet.
+Mit Adresse	With address
+Mit Code (ohne Portfreigabe)	With code (no port forwarding)
+Das ist kein Amboss-Verbindungscode (beginnt mit „AMB1-“)	This is not an Amboss connection code (it starts with "AMB1-")
+Code ist beschädigt (unerlaubte Zeichen)	The code is damaged (invalid characters)
+Code ist unvollständig – bitte komplett kopieren	The code is incomplete – please copy all of it
+Der Code der Gegenseite enthält keine Adresse	The other side's code contains no address
+Keine Verbindung zustande gekommen. Beide Codes richtig ausgetauscht und beide gleichzeitig am Verbinden? Manche Netze (Mobilfunk, Firmen) lassen das nicht zu – dann IPv6, Portweiterleitung oder ein VPN wie Tailscale nutzen.	No connection could be made. Were both codes exchanged correctly and are both sides connecting at the same time? Some networks (mobile, corporate) don't allow this – use IPv6, port forwarding or a VPN such as Tailscale there.
+Eigene Internet-Adresse nicht ermittelbar ({}) – UDP ins Internet gesperrt?	Could not determine your internet address ({}) – UDP to the internet blocked?
+Nur der Gastgeber kann Gäste annehmen	Only the host can accept guests
+Anmeldung von {} abgelehnt (falsches Passwort)	Login from {} rejected (wrong password)
+nicht gesetzt	not set
+gefunden	found
+nicht gefunden	not found
+Größe der Oberfläche	Interface size
+Zusätzlich zur Windows-Skalierung. Auch mit Strg+Plus / Strg+Minus, Strg+0 setzt zurück.	On top of the Windows scaling. Also with Ctrl+Plus / Ctrl+Minus, Ctrl+0 resets.
+Kachelgröße	Tile size
+Mitte der Auswahl	Centre of selection
+Drehen und Skalieren um den gewählten Drehpunkt	Rotate and scale around the chosen pivot
+Suchen: Name, Klasse oder Output	Search: name, class or output
+Noch keine Logik in dieser Map	No logic in this map yet
+Hier erscheinen Entities mit Namen (targetname) oder Outputs – z. B. ein Knopf, der eine Tür öffnet.	Entities with a name (targetname) or outputs appear here – e.g. a button that opens a door.
+Kein Knoten passt zur Suche	No node matches the search
+– keine –	– none –
+{} mit Namen „{}“	{} named "{}"
+Klick wählt · Doppelklick zentriert · Auge = ausblenden · Schloss = sperren	Click selects · double-click centres · eye = hide · lock = lock
+Strg+Klick wählt die ganze Gruppe	Ctrl+click selects the whole group
+Texturen einklappen (Trennlinie ziehen ändert die Höhe)	Collapse textures (drag the divider to change the height)
+Ergebnis in die Zwischenablage	Copy result to the clipboard
+Form: {} (oben in der Leiste wählen)	Shape: {} (choose in the bar at the top)
+Klick wählt alle Objekte dieser Visgroup	Click selects all objects of this visgroup
+Noch keine Visgroups – Objekte auswählen, Namen eingeben, „Aus Auswahl“.	No visgroups yet – select objects, enter a name, "From selection".
+Breite × Tiefe × Höhe der Auswahl – ändern skaliert sie (Ecke unten links bleibt)	Width × depth × height of the selection – changing it scales it (bottom-left corner stays)
+Ecke unten links der Auswahl – ändern verschiebt sie	Bottom-left corner of the selection – changing it moves it
+Alle Flächen der Auswahl mit {} auf die aktuelle Textur ({}) setzen	Set all faces of the selection with {} to the current texture ({})
+… und {} weitere	… and {} more
+Um die Hochachse	Around the vertical axis
+Schlüssel und Werte so zeigen, wie sie in der VMF stehen (ohne Anzeigenamen und Auswahllisten)	Show keys and values as they are in the VMF (without display names and choice lists)
+HDR-Licht übernimmt Farbe und Helligkeit des normalen Lichts (Wert „-1 -1 -1 1“)	HDR light uses the colour and brightness of the normal light (value "-1 -1 -1 1")
+Im Einfach-Modus stehen hier nur die wichtigen Schlüssel	In simple mode only the important keys are shown here
+Einrichtungs-Assistent öffnen	Open setup assistant
+Amboss {} ist aktuell.	Amboss {} is up to date.
+Amboss {} ist verfügbar	Amboss {} is available
+Du hast {}.	You have {}.
+Was ist neu?	What's new?
+Neuerungen ausblenden	Hide what's new
+Lade und installiere…	Downloading and installing…
+Installiert – aktiv nach dem Neustart.	Installed – active after a restart.
+Jetzt neu starten	Restart now
+Später	Later
+Jetzt aktualisieren	Update now
+Release-Seite	Release page
+Diese Version überspringen	Skip this version
+Updates abschalten: Einstellungen → Oberfläche.	Turn off updates: Settings → Interface.
+Updates	Updates
+Beim Start nach neuen Versionen suchen (GitHub)	Check for new versions at startup (GitHub)
+Installiert: {}	Installed: {}
+Jetzt suchen	Check now
+Es wird nur die öffentliche Versionsliste abgerufen; Amboss sendet dabei keine Daten über dich oder deine Maps.	Only the public list of versions is fetched; Amboss sends no data about you or your maps.
+Nach Updates suchen	Check for updates
+Suche nach Updates…	Checking for updates…
+Update-Suche fehlgeschlagen: {}	Update check failed: {}
+Keine Verbindung zu GitHub	No connection to GitHub
+Antwort von GitHub nicht lesbar	Could not read GitHub's response
+Kein Schreibrecht im Programmordner ({}). Bitte das Paket von der Release-Seite laden und entpacken.	No write access to the program folder ({}). Please download the package from the release page and unzip it.
+Programmdatei lässt sich nicht ersetzen ({})	The program file cannot be replaced ({})
+Für dieses System gibt es kein Paket – bitte die Release-Seite öffnen	There is no package for this system – please open the release page
+Heruntergeladene Datei ist zu klein – Update abgebrochen	The downloaded file is too small – update cancelled
+{} nicht im Paket gefunden	{} not found in the package
+Kein gültiges ZIP	Not a valid ZIP
+ZIP beschädigt	ZIP damaged
+ZIP unvollständig	ZIP incomplete
+Maps (VMF, BSP)	Maps (VMF, BSP)
+Browser	Browsers
+Navmesh	Navmesh
+Map	Map
+Drehpunkt	Pivot
+Ursprung 0 0 0	Origin 0 0 0
+Eigener Punkt	Custom point
+Arbeitspunkt	Working point
+Suchbegriff eingeben	Enter a search term
+Treffer: {} auf {}	Matches: {} on {}
+Auto	Auto
+Seite	Side
+Brush-ID	Brush ID
+Seiten-ID	Side ID
+Entity-ID	Entity ID
+Entity-Name (targetname, * als Platzhalter)	Entity name (targetname, * as wildcard)
+z. B. tuer_1	e.g. door_1
+Bedeutung	Meaning
+Brush {}	Brush {}
+Seite {} von Brush {}	Side {} of brush {}
+Gruppen ({})	Groups ({})
+Gruppe #{} ({})	Group #{} ({})
+Texturen aufklappen	Expand textures
+Ergebnis	Result
+Diese Kamera benutzen	Use this camera
+Ein-/Ausblenden	Show/hide
+Materialien ({})	Materials ({})
+ersetzen	replace
+Am Raster	To grid
+Spiegeln X	Mirror X
+Spiegeln Y	Mirror Y
+Pitch (neigen)	Pitch (tilt)
+Yaw (drehen)	Yaw (turn)
+Roll (rollen)	Roll (roll)
+Rohwerte	Raw values
+wie Brightness	same as Brightness
+Alle Eigenschaften ({})	All properties ({})
+Nur wichtige Eigenschaften	Important properties only
+Einrichten…	Set up…
+Nach dem Start erscheinen hier deine Adressen und ein Einladungscode für Gäste ohne Portfreigabe.	After starting, your addresses and an invite code for guests without port forwarding appear here.

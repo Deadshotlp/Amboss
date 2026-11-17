@@ -1,5 +1,31 @@
 # Änderungen
 
+## 0.10.0
+
+**Live-Sitzung ohne Portfreigabe**
+- Neuer Weg „Mit Code (ohne Portfreigabe)“: Der Gastgeber erstellt einen Einladungscode (`AMB1-…`), der Gast fügt ihn ein und schickt seinen Antwortcode zurück – danach verbinden sich beide direkt (UDP-Hole-Punching). Die eigene Internet-Adresse wird über öffentliche STUN-Server erfragt; Map-Daten gehen nie über fremde Server. Darüber läuft ein eigener zuverlässiger Datenstrom mit der bisherigen Verschlüsselung. Klappt mit den meisten Heim-Routern, nicht bei symmetrischem NAT (manche Mobilfunk- und Firmennetze)
+- Fenster „Live-Sitzung“ mit Segment Gastgeber sein / Beitreten, Beitreten mit Adresse oder Code
+
+**Updates, Installer, macOS**
+- Beim Start fragt Amboss bei GitHub nach einer neueren Version (abschaltbar unter Einstellungen → Oberfläche → Updates, von Hand über Hilfe → Nach Updates suchen). Hinweis unten rechts mit „Was ist neu?“, „Jetzt aktualisieren“ (lädt das Paket und tauscht die Programmdatei aus, aktiv nach dem Neustart), „Später“ und „Diese Version überspringen“. Es wird nur die öffentliche Versionsliste abgerufen
+- Windows-Installer (`amboss-…-windows-setup.exe`): installiert ohne Adminrechte nach `%LOCALAPPDATA%\Programs\Amboss`, Startmenü, optional Desktop-Verknüpfung und `.vmf`-Verknüpfung, Deinstallation über die Systemsteuerung
+- Programm-Icon (Fenster, Taskleiste, exe) und Versionsangaben in der exe
+- GitHub Actions: testet jeden Push und baut bei einem veröffentlichten Release Windows (ZIP + Installer), macOS (Universal-App für Apple Silicon und Intel) und Linux und hängt sie ans Release
+
+**Sprachen und Darstellung**
+- Neue Sprachen: Französisch, Spanisch, Polnisch, Russisch (Oberfläche, Meldungen, Tutorial). Fehlende Texte fallen auf Englisch zurück; die Beschreibungen der eingebauten Entity-Liste gibt es weiterhin auf Deutsch und Englisch. Beim ersten Start wird die Systemsprache gewählt
+- Oberflächengröße einstellbar (90–200 %, zusätzlich zur Windows-Skalierung; auch Strg+Plus/Minus, Strg+0), wird gespeichert
+- Hohe DPI geprüft: Dialoge werden nie größer als das Fenster und scrollen dann
+- Rund 40 neuere Texte, die bisher auch im Englischen deutsch blieben, übersetzt; `tools/i18n_check.py` prüft jetzt alle `tr(…)`-Texte
+
+**UI-Prüfung abgeschlossen**
+- Startseite: Status-Zeilen klickbar („Einrichten…“), Mini-Draufsicht bei zuletzt geöffneten Maps
+- Kontextleiste zeigt je Werkzeug nur passende Elemente
+- Panel: „Rohwerte“, Texturbereich einklappbar und in der Höhe ziehbar, Einfach-Modus mit „Alle Eigenschaften (n)“, Brush-Panel (Größe/Position, Materialien, Schnellknöpfe), HDR „wie Brightness“, farbige P/Y/R
+- Objektliste mit Auge/Schloss und Gruppen als Knoten; Visgroups als Liste mit Farbe und Anzahl
+- Kameras umbenennen/löschen, Messergebnis mit Kopieren, Block-Form nur noch in der Kontextleiste
+- Textur-Browser mit Kachelgröße; Ersetzen mit Vorschau und Trefferzahl; Transformieren mit Drehpunkt; Gehe zu mit Brush/Seite/Entity/Name und Vorschau; logische Ansicht mit Suche und Leerzustand; Entity-Hilfe als Tabelle; Icons je Entity-Art; Pfade in den Einstellungen mit Status-Punkt
+
 ## 0.9.10
 
 - **Schwarze Map behoben:** Entities, denen Schlüssel fehlten (z. B. ein `light` ohne `_light`, angelegt mit einer älteren Version), wurden so kompiliert – VRAD rechnet ein Licht ohne `_light` mit Helligkeit 0, die Map blieb schwarz. Vor dem Kompilieren ergänzt Amboss jetzt alle fehlenden Schlüssel mit ihrem FGD-Standardwert (wie Hammer beim Anlegen; vorhandene Werte bleiben, `model` wird nie erfunden) und speichert sie in die VMF. Im Protokoll steht, was ergänzt wurde

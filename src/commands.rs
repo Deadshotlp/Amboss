@@ -311,7 +311,7 @@ pub fn format_shortcut(sc: &KeyboardShortcut) -> String {
 
 /// Anzeige auf Deutsch (Strg statt Ctrl)
 pub fn display_shortcut(s: &str) -> String {
-    if crate::i18n::lang() == crate::i18n::Lang::En {
+    if crate::i18n::lang() != crate::i18n::Lang::De {
         return s.replace("PageDown", "PgDn");
     }
     s.replace("Ctrl", "Strg").replace("Delete", "Entf").replace("PageDown", "Bild↓")

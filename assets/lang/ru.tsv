@@ -1,0 +1,2100 @@
+# Amboss – ru. Format: Deutsch<TAB>Übersetzung. {} = Platzhalter (gleiche Anzahl und Reihenfolge). Fehlende Zeilen kommen aus en.tsv.
+Datei	Файл
+Neu aus Vorlage…	Создать из шаблона…
+Öffnen…	Открыть…
+Zuletzt geöffnet	Недавние файлы
+(leer)	(пусто)
+Live-Sitzung (Zusammenarbeit)…	Совместная сессия…
+OBJ in Metern (statt Source-Einheiten)	OBJ в метрах (вместо единиц Source)
+Autosave öffnen…	Открыть автосохранение…
+Speichern	Сохранить
+Speichern unter…	Сохранить как…
+Prefabs…	Префабы…
+Beenden	Выход
+Bearbeiten	Правка
+Rückgängig	Отменить
+Wiederholen	Повторить
+Kopieren	Копировать
+Einfügen	Вставить
+Inhalte einfügen…	Специальная вставка…
+Löschen	Удалить
+Alles auswählen	Выделить всё
+Auswahl aufheben	Снять выделение
+Texturen ersetzen…	Заменить текстуры…
+Aktuelle Textur anwenden	Применить текущую текстуру
+Einstellungen…	Настройки…
+Ansicht	Вид
+Raster verkleinern	Мельче сетка
+Raster vergrößern	Крупнее сетка
+3D-Darstellung	3D-отображение
+Texturen	Текстуры
+Modelle anzeigen	Показывать модели
+3D-Skybox-Vorschau	Предпросмотр 3D-скайбокса
+Helfer (Lichtkegel, Verbindungen)	Вспомогательные элементы (конусы света, связи)
+Displacement-Alpha anzeigen	Показывать альфу дисплейсментов
+2D auf Auswahl zentrieren	Центрировать 2D на выделении
+3D auf Auswahl zentrieren	Центрировать 3D на выделении
+Logische Ansicht (Entity-I/O)	Логический вид (входы/выходы энтити)
+3D-Gizmo (Verschieben/Drehen)	3D-гизмо (перемещение/поворот)
+2D: Farben nach Visgroup	2D: цвета по visgroup
+4 Ansichten	4 вида
+Werkzeuge	Инструменты
+Gruppieren	Сгруппировать
+Gruppe auflösen	Разгруппировать
+In Welt verschieben	Перенести в мир
+Transformieren…	Трансформировать…
+Am Raster ausrichten	Привязать к сетке
+Horizontal spiegeln	Отразить по горизонтали
+Vertikal spiegeln	Отразить по вертикали
+90° drehen	Повернуть на 90°
+Objekte ausrichten	Выровнять объекты
+Carve	Вырезать (carve)
+Aushöhlen	Сделать полым
+Instanzen einklappen	Развернуть инстансы
+Auswahl ausblenden	Скрыть выделенное
+Unausgewähltes ausblenden	Скрыть невыделенное
+Alles einblenden	Показать всё
+Prefab aus Auswahl…	Префаб из выделения…
+Modell-Browser…	Браузер моделей…
+Sound-Browser…	Браузер звуков…
+Partikel-Browser…	Браузер частиц…
+Map-Eigenschaften (worldspawn)…	Свойства карты (worldspawn)…
+Auf Probleme prüfen…	Найти проблемы…
+Entity-Report…	Отчёт по энтити…
+Gehe zu Brush/Entity-Nummer…	Перейти к номеру браша/энтити…
+Map-Info…	Сведения о карте…
+Kompilieren	Компиляция
+Kompilieren & Starten	Скомпилировать и запустить
+Kompilieren & starten	Скомпилировать и запустить
+Compile-Fenster	Окно компиляции
+Automatische Optimierungen…	Автоматические оптимизации…
+Pointfile laden (.lin)…	Загрузить pointfile (.lin)…
+Pointfile entladen	Выгрузить pointfile
+Kamera zum Leck	Камеру к утечке
+Portalfile laden (.prt)…	Загрузить файл порталов (.prt)…
+Portalfile entladen	Выгрузить файл порталов
+Hilfe	Справка
+Tastenkürzel & Bedienung	Горячие клавиши и управление
+Startbildschirm	Стартовый экран
+Darstellung	Внешний вид
+Modelle	Модели
+3D-Skybox	3D-скайбокс
+Helfer	Вспомогательные элементы
+Fehler beim Laden: {}	Ошибка загрузки: {}
+Autosave: {}	Автосохранение: {}
+Autosave fehlgeschlagen: {}	Ошибка автосохранения: {}
+Cordon-Export fehlgeschlagen: {}	Ошибка экспорта кордона: {}
+Leck gefunden – roter Pfad zeigt den Weg ins Freie (Kompilieren → Leck-Suche)	Найдена утечка – красный путь показывает выход наружу (Карта → Pointfile)
+Leck, aber kein Pointfile: {}	Утечка, но pointfile нет: {}
+Kamera-Lesezeichen {} gespeichert (Strg+{} springt hin)	Закладка камеры {} сохранена (Ctrl+{} – перейти к ней)
+Kamera-Lesezeichen {}	Закладка камеры {}
+Lesezeichen {} ist leer (Strg+Shift+{} speichert)	Закладка {} пуста (Ctrl+Shift+{} – сохранить)
+{} Portale geladen	Загружено порталов: {}
+Spielinhalte konnten nicht geladen werden: {}	Не удалось загрузить игровой контент: {}
+Spielinhalte konnten nicht geladen werden (Lade-Thread beendet)	Не удалось загрузить игровой контент (поток загрузки завершился)
+Auswahl	Выделение
+Lupe	Лупа
+Kamera	Камера
+Entity platzieren	Разместить энтити
+Block-Werkzeug	Инструмент «Блок»
+Textur anwenden	Наложить текстуру
+Decal	Декаль
+Overlay	Оверлей
+Clip	Разрезать (clip)
+Vertex bearbeiten	Правка вершин
+Displacement & Sculpt	Дисплейсмент и скульптинг
+Cordon	Кордон
+Messen	Измерение
+gerade eben	только что
+Befehlspalette (Strg+K / Strg+P)	Палитра команд (Ctrl+K / Ctrl+P)
+Live-Sitzung	Совместная сессия
+Live-Sitzung starten oder beitreten	Начать совместную сессию или присоединиться
+Kompilier-Profil wählen	Выбрать профиль компиляции
+F9 – Map speichern, kompilieren und im Spiel starten	F9 – сохранить, скомпилировать и запустить карту в игре
+Spielprofil	Профиль игры
+Kompilieren-Fenster…	Окно компиляции…
+Danach Spiel starten	Затем запустить игру
+Neuer Tab (Strg+N)	Новая вкладка (Ctrl+N)
+Noch nicht gespeichert	Ещё не сохранено
+Gespeichert	Сохранено
+Textur	Текстура
+Raster	Сетка
+Auswahlmodus: was ein Klick auswählt	Режим выделения: что выделяет щелчок
+Aktionen	Действия
+Griffe:	Маркеры:
+Strg+H	Ctrl+H
+Negativ = Wände außen	Отрицательное = стены наружу
+Form	Форма
+Schneiden	Разрезать
+Klasse	Класс
+Klasse wählen (Suche, Favoriten, alle Entities)	Выбрать класс (поиск, избранное, все энтити)
+Kein Spielordner eingestellt – keine Texturvorschau	Папка игры не задана – нет предпросмотра текстур
+Zuletzt benutzt	Недавние
+Schnellauswahl	Быстрый выбор
+Textur-Browser…	Браузер текстур…
+Auf Auswahl anwenden	Применить к выделению
+Keine Visgroups – im Panel unter „Visgroups“ anlegen	Нет visgroup – создайте их на панели в разделе «Visgroups»
+Visgroups verwalten…	Управление visgroup…
+Auswahl: 1 Objekt	Выделено: 1 объект
+Klick: Einrasten an/aus (Alt+G)	Щелчок: привязка вкл./выкл. (Alt+G)
+Cordon aktiv	Кордон активен
+Klasse suchen…	Поиск класса…
+In Entity umwandeln	Привязать к энтити
+Danach Eigenschaften öffnen	Затем открыть свойства
+Jeden Brush einzeln umwandeln	Преобразовать каждый браш отдельно
+Umwandeln	Преобразовать
+Abbrechen	Отмена
+{} ist eine Brush-Entity: erst Brushes auswählen, dann umwandeln (Strg+T)	{} – это браш-энтити: сначала выделите браши, затем преобразуйте (Ctrl+T)
+keine Antwort – Firewall/Router des Gastgebers lässt den Port nicht durch?	нет ответа – брандмауэр/роутер хоста блокирует порт?
+abgelehnt – läuft beim Gastgeber eine Sitzung auf diesem Port?	отказано – запущена ли у хоста сессия на этом порту?
+IPv6 nicht erreichbar – hast du selbst eine IPv6-Internetverbindung?	IPv6 недоступен – есть ли у вас самих подключение к интернету по IPv6?
+{} Teilnehmer	Участников: {}
+Verbindung zum Gastgeber getrennt – die Map bleibt als lokale Kopie offen	Соединение с хостом потеряно – карта остаётся открытой как локальная копия
+Verbunden – {} Teilnehmer	Подключено – участников: {}
+Abgelehnt: {}	Отказано: {}
+Version von {} übernommen: {}	Принята версия {}: {}
+Später entscheiden (deine Version bleibt vorerst)	Решить позже (пока остаётся ваша версия)
+Meins behalten	Оставить мою
+Gäste verbinden sich mit	Гости подключаются к
+Keine öffentliche IPv6-Adresse gefunden – über das Internet dann nur per Portweiterleitung (IPv4) oder VPN.	Публичный адрес IPv6 не найден – через интернет только с пробросом портов (IPv4) или через VPN.
+Nachricht…	Сообщение…
+Senden	Отправить
+Von anderen ausgewählte Objekte sind für dich gesperrt (in ihrer Farbe umrandet). Strg+Z nimmt nur deine eigenen Schritte zurück.	Объекты, выделенные другими, для вас заблокированы (обведены их цветом). Ctrl+Z отменяет только ваши собственные шаги.
+Dein Name	Ваше имя
+Passwort	Пароль
+Gastgeber sein	Стать хостом
+Die aktuell offene Map wird geteilt.	Текущая открытая карта будет общей.
+Port	Порт
+Sitzung starten	Начать сессию
+Beitreten	Присоединиться
+Adresse	Адрес
+192.168.0.10 oder [2001:db8::1]:3918	192.168.0.10 или [2001:db8::1]:3918
+Verbinden	Подключиться
+Die Verbindung ist verschlüsselt; Schlüssel kommen aus dem Passwort – für das Internet ein langes Passwort wählen (mind. 12 Zeichen). Über das Internet geht es direkt per IPv6, wenn beide IPv6 haben und die Router-Firewall des Gastgebers den Port freigibt. Beide brauchen dieselbe Amboss-Version.	Соединение зашифровано; ключи берутся из пароля – для интернета используйте длинный пароль (не менее 12 символов). Через интернет работает напрямую по IPv6, если у обоих есть IPv6 и брандмауэр роутера хоста пропускает порт. Обоим нужна одна и та же версия Amboss.
+Live-Sitzung beendet (Tab geschlossen)	Совместная сессия завершена (вкладка закрыта)
+Sitzung beigetreten – {}	Вы присоединились к сессии – {}
+Beitritt abgelehnt: {}	В присоединении отказано: {}
+Sitzung beendet	Сессия завершена
+Sitzung beenden	Завершить сессию
+Trennen	Отключиться
+Neue Map (neuer Tab)	Новая карта (новая вкладка)
+Map öffnen	Открыть карту
+Speichern unter	Сохранить как
+Neuer Tab	Новая вкладка
+Tab schließen	Закрыть вкладку
+Nächster Tab	Следующая вкладка
+Importieren (.map)	Импорт (.map)
+Map zusammenführen…	Объединить карту…
+Mit anderem Map-Stand vergleichen…	Сравнить с другой версией карты…
+3-Wege-Zusammenführen (Basis / andere Version)…	Трёхстороннее слияние (база / другая версия)…
+Exportieren (.obj)	Экспорт (.obj)
+Rückgängig-Verlauf	История отмены
+Inhalte einfügen	Специальная вставка
+Duplizieren	Дублировать
+Auswahl sperren	Заблокировать выделение
+Alles entsperren	Разблокировать всё
+Transformieren	Трансформировать
+90° im Uhrzeigersinn drehen	Повернуть на 90° по часовой
+90° gegen den Uhrzeigersinn drehen	Повернуть на 90° против часовой
+Texturen ersetzen	Заменить текстуры
+Verdeckte Flächen auf nodraw setzen	Скрытые грани – в nodraw
+Textur-Browser	Браузер текстур
+Modell-Browser	Браузер моделей
+Sound-Browser	Браузер звуков
+Partikel-Browser	Браузер частиц
+Auf Probleme prüfen	Найти проблемы
+Am Raster einrasten (an/aus)	Привязка к сетке (вкл./выкл.)
+Live-Sitzung…	Совместная сессия…
+Entity-Eigenschaften kopieren	Копировать свойства энтити
+Entity-Eigenschaften auf Auswahl übertragen	Вставить свойства энтити в выделение
+Berührende Objekte zur Auswahl hinzufügen	Добавить соприкасающиеся объекты к выделению
+An Eckpunkten einrasten (an/aus)	Привязка к вершинам (вкл./выкл.)
+Optimierungen prüfen (KI-Netz, Leck, Vorschläge)	Проверить оптимизации (граф ИИ, утечка, советы)
+Entity-Report	Отчёт по энтити
+Objektliste (Outliner)	Список объектов (outliner)
+Gehe zu Nummer/Koordinate	Перейти к номеру/координате
+Map-Info	Сведения о карте
+Logische Ansicht	Логический вид
+Prefabs	Префабы
+Einstellungen	Настройки
+Befehlspalette	Палитра команд
+Nächste Kamera	Следующая камера
+Ansicht maximieren	Развернуть вид
+3D-Gizmo ein/aus	3D-гизмо вкл./выкл.
+Pointfile laden	Загрузить pointfile
+Messung löschen	Сбросить измерение
+An Eckpunkten einrasten: {}	Привязка к вершинам: {}
+3D-Gizmo {}	3D-гизмо {}
+Ungespeicherte Änderungen	Несохранённые изменения
+Änderungen an	Сохранить изменения в
+speichern?	?
+Nicht speichern	Не сохранять
+Map-Eigenschaften (worldspawn)	Свойства карты (worldspawn)
+Licht · VRAD	Освещение · VRAD
+Automatische Optimierungen	Автоматические оптимизации
+Läuft auf einer Kopie: KI-Nodes, Leckprüfung, func_detail, nodraw, Cubemaps…	Работает с копией: узлы ИИ, проверка утечек, func_detail, nodraw, кубмапы…
+BSP kopieren	Копировать BSP
+Cubemaps	Кубмапы
+Spiel starten	Запустить игру
+Zusatzparameter	Дополнительные параметры
+Programme: Pfad oder $vbsp/$vvis/$vrad/$bspzip/$game/$gamewait/$copy · Variablen: $vmf $path $file $gamedir $bspdir	Программы: путь или $vbsp/$vvis/$vrad/$bspzip/$game/$gamewait/$copy · Переменные: $vmf $path $file $gamedir $bspdir
+nach oben	вверх
++ Schritt	+ Шаг
+Auf Standard zurücksetzen	Сбросить по умолчанию
+Cordon aktiv: nur der Bereich wird kompiliert	Кордон активен: компилируется только эта область
+Spielordner fehlt (Bearbeiten → Einstellungen)	Нет папки игры (Правка → Настройки)
+Protokoll	Журнал
+Noch nicht kompiliert.	Ещё не скомпилировано.
+Klicken: zu diesem Objekt springen	Щелчок: перейти к этому объекту
+Läuft…	Выполняется…
+Letzter Lauf erfolgreich	Последний запуск успешен
+Letzter Lauf fehlgeschlagen	Последний запуск завершился ошибкой
+Letzter Lauf abgebrochen	Последний запуск отменён
+Speichert die Map vor dem Kompilieren	Сохраняет карту перед компиляцией
+Name	Имя
+GMod automatisch finden	Найти GMod автоматически
+📁 GarrysMod-Ordner wählen…	📁 Выбрать папку GarrysMod…
+Startparameter	Параметры запуска
+{} wird durch den Map-Namen ersetzt	{} заменяется именем карты
+Wrapper	Обёртка
+Unter Linux/macOS z. B. 'wine' für die Windows-Compiler. Unter Windows leer lassen.	В Linux/macOS, например, «wine» для компиляторов Windows. В Windows оставьте пустым.
+Inhalte aus Addons laden (Workshop-.gma und addons-Ordner)	Загружать контент аддонов (.gma из Мастерской и папка addons)
+Aus: nur Inhalte aus dem Spielverzeichnis (VPKs, garrysmod-Ordner, eingebundene Spiele). So siehst du, was ohne Addons fehlt – fehlende Texturen erscheinen dann als Ersatzfarbe.	Выкл.: только контент из папки игры (VPK, папка garrysmod, подключённые игры). Показывает, чего не хватает без аддонов – отсутствующие текстуры отображаются цветом-заменителем.
+Spielinhalte neu laden	Перезагрузить игровой контент
+VPKs, Addons und Materiallisten aus dem Spielordner neu einlesen	Заново прочитать VPK, аддоны и списки материалов из папки игры
+FGD-Dateien (Entity-Definitionen)	Файлы FGD (определения энтити)
+Für GMod: GarrysMod/bin/garrysmod.fgd (lädt base.fgd und halflife2.fgd automatisch mit).	Для GMod: GarrysMod/bin/garrysmod.fgd (автоматически загружает base.fgd и halflife2.fgd).
+FGD hinzufügen…	Добавить FGD…
+Neu laden	Перезагрузить
+Spielinhalte	Игровой контент
+Inhalte neu einlesen	Перечитать контент
+Autosave	Автосохранение
+(0 = aus), behalte	(0 = выкл.), хранить
+Dateien	файлов
+Grafik	Графика
+Design	Тема
+Dunkel	Тёмная
+Hell	Светлая
+Kantenglättung (MSAA)	Сглаживание (MSAA)
+Kantenglättung gilt ab dem nächsten Start. Startet Amboss danach nicht, die Datei grafik.txt im Einstellungsordner löschen.	Сглаживание вступит в силу при следующем запуске. Если после этого Amboss не запускается, удалите grafik.txt в папке настроек.
+Bedienung	Управление
+Kein Spielordner gesetzt – unter Extras / Einstellungen „GMod automatisch finden“ wählen.	Папка игры не задана – выберите «Найти GMod автоматически» в настройках.
+Filter:	Фильтр:
+z. B. concrete, brick, dev/	например, concrete, brick, dev/
+Nur in der Map verwendete Materialien	Только материалы, используемые в карте
+★ Favoriten	★ Избранное
+Zuletzt	Недавние
+Rechtsklick auf eine Textur: Favorit an/aus	Правый щелчок по текстуре: избранное вкл./выкл.
+Versatz (Einheiten)	Смещение (единицы)
+Winkel (Grad)	Угол (градусы)
+Faktor	Коэффициент
+Anwenden	Применить
+Kopien	Копии
+Versatz je Kopie	Смещение на копию
+Drehung je Kopie (°)	Поворот на копию (°)
+Jede Kopie als eigene Gruppe	Каждая копия – отдельная группа
+Fügt die Zwischenablage (Strg+C) mehrfach ein	Вставляет буфер обмена (Ctrl+C) несколько раз
+Zwischenablage ist leer – erst etwas kopieren (Strg+C)	Буфер обмена пуст – сначала что-нибудь скопируйте (Ctrl+C)
+Suchen	Найти
+Ersetzen durch	Заменить на
+Aktuelles Material einsetzen	Использовать текущий материал
+Nur in der Auswahl	Только в выделении
+Teiltreffer ersetzen (z. B. nur Ordnername)	Заменять частичные совпадения (например, только имя папки)
+Ersetzen	Заменить
+Ein Rückgängig-Schritt	Один шаг отмены
+Probleme	Проблемы
+Keine Probleme gefunden.	Проблем не найдено.
+Auswählen	Выделить
+Erneut prüfen	Проверить снова
+Suche:	Поиск:
+Klasse, Name oder Schlüsselwert	Класс, имя или значение ключа
+Gehe zu	Перейти
+Gehe zu Nummer	Перейти к номеру
+Brush-, Seiten- oder Entity-ID	ID браша, грани или энтити
+z. B. 2207 aus einer VBSP-Meldung	например, 2207 из сообщения VBSP
+Nur Ziffern erlaubt	Только цифры
+Oder Koordinate (x y z)	Или координата (x y z)
+Hinspringen	Перейти туда
+Sounds filtern (z. B. ambient/, door)	Фильтр звуков (например, ambient/, door)
+Abspielen ist in dieser Version nur unter Windows verfügbar.	В этой версии воспроизведение доступно только в Windows.
+Übernehmen	Применить
+Knoten ziehen zum Anordnen · Klick wählt · Mausrad zoomt · Rechte Taste verschiebt	Перетаскивайте узлы для расстановки · щелчок выделяет · колесо масштабирует · правая кнопка сдвигает
+Diese Klasse ist in keiner geladenen FGD beschrieben.	Этот класс не описан ни в одном загруженном FGD.
+Schlüssel	Ключи
+Inputs	Входы
+Outputs	Выходы
+Objekt {} ausgewählt	Выделен объект {}
+Keine Brush/Seite/Entity mit Nummer {}	Нет браша/грани/энтити с номером {}
+Garry's Mod gefunden: {}	Garry's Mod найден: {}
+Koordinate {}	Координата {}
+Ungültige Koordinate	Неверная координата
+Sound gewählt: {}	Выбран звук: {}
+Objektliste	Список объектов
+Filtern (Klasse, Name, Material)	Фильтр (класс, имя, материал)
+Klick wählt · Doppelklick zentriert · 👁 ausblenden · 🔒 sperren	Щелчок выделяет · двойной щелчок центрирует · 👁 скрыть · 🔒 заблокировать
+Ausblenden/Einblenden	Скрыть/показать
+Sperren/Entsperren	Заблокировать/разблокировать
+Klick springt zu diesem Stand	Щелчок: вернуться к этому состоянию
+Bis vor diese Aktion zurückgehen	Вернуться к состоянию до этого действия
+▶ Aktueller Stand	▶ Текущее состояние
+Wiederholen bis hier	Повторить до этого места
+Tastenkürzel	Горячие клавиши
+Suchen…	Поиск…
+Alle zurücksetzen	Сбросить всё
+Ändern	Изменить
+Kein Kürzel	Нет сочетания
+Standard	По умолчанию
+gelöscht	удалено
+geändert	изменено
+Anheben	Поднять
+Absenken	Опустить
+Glätten	Сгладить
+Auf Höhe setzen	Задать высоту
+Alpha malen	Рисовать альфу
+Alpha entfernen	Стирать альфу
+Entity	Энтити
+Block	Блок
+Flächen/Textur	Грани/текстура
+Vertex	Вершины
+Terrain	Рельеф
+Skalieren	Масштаб
+Drehen	Поворот
+Scheren	Сдвиг
+Geladen: {} ({} Brushes, {} Entities)	Загружено: {} (брашей: {}, энтити: {})
+Gespeichert: {}	Сохранено: {}
+Das angeklickte Objekt hat keinen Namen (targetname)	У выбранного объекта нет имени (targetname)
+Gedreht um {}°	Повёрнуто на {}°
+Gespiegelt ({})	Отражено ({})
+Am Raster ausgerichtet	Привязано к сетке
+Form konnte nicht erzeugt werden	Не удалось создать фигуру
+{} erstellt: {} × {} × {}	Создано {}: {} × {} × {}
+{} platziert bei {}	{} размещено в {}
+Decal {} platziert	Декаль {} размещена
+Overlay {} platziert	Оверлей {} размещён
+{} Objekt(e) gelöscht	Удалено объектов: {}
+{} Objekt(e) kopiert	Скопировано объектов: {}
+Eingefügt	Вставлено
+{} Kopie(n) eingefügt	Вставлено копий: {}
+Keine Brushes ausgewählt	Браши не выделены
+In {} umgewandelt	Преобразовано в {}
+In die Welt verschoben	Перенесено в мир
+Keine Brushes zum Aushöhlen ausgewählt	Не выделены браши для придания полости
+Ausgehöhlt (Wandstärke {})	Сделано полым (толщина стен {})
+Carve: {} Brush(es) geschnitten	Вырезание: разрезано брашей: {}
+Zum Schneiden zuerst Brushes auswählen	Сначала выделите браши для разрезания
+Geschnitten	Разрезать
+Material {} angewendet	Материал {} применён
+{} Fläche(n) ersetzt	Заменено граней: {}
+Zum Gruppieren mindestens zwei Objekte auswählen	Выделите не менее двух объектов для группировки
+Gruppe {} erstellt ({} Objekte)	Создана группа {} (объектов: {})
+Gruppe aufgelöst	Группа расформирована
+Ausgeblendet (U = alles einblenden)	Скрыто (U = показать всё)
+Alles eingeblendet	Всё показано
+Prefab {} eingefügt	Префаб {} вставлен
+Zuerst Flächen im Flächen-Werkzeug auswählen	Сначала выделите грани инструментом граней
+Keine Displacements ausgewählt	Дисплейсменты не выделены
+{} Displacement(s) entfernt	Удалено дисплейсментов: {}
+Rauschen auf {} Displacement(s)	Шум на дисплейсментах: {}
+{} Displacement(s) auf Power {} umgerechnet	Дисплейсменты ({}) преобразованы в степень {}
+{} Displacement(s) unterteilt (geglättet)	Подразделено (сглажено) дисплейсментов: {}
+Keine gemeinsamen Kanten gefunden	Общие рёбра не найдены
+{} Randpunkte vernäht	Сшито точек рёбер: {}
+Cordon: {} × {} × {}	Кордон: {} × {} × {}
+Keine func_instance ausgewählt	func_instance не выделен
+Instanz-Datei {} nicht gefunden	Файл инстанса {} не найден
+Instanz(en) eingeklappt	Инстансы развёрнуты
+Raster: {}	Сетка: {}
+{} Objekt(e) dupliziert	Продублировано объектов: {}
+Gesperrt – nicht mehr anklickbar (Shift+L entsperrt alles)	Заблокировано – больше не выделяется щелчком (Shift+L разблокирует всё)
+Alles entsperrt	Всё разблокировано
+Keine verdeckten Flächen gefunden	Скрытые грани не найдены
+{} verdeckte Fläche(n) auf nodraw gesetzt	Скрытых граней переведено в nodraw: {}
+{} Objekt(e) aus der Zwischenablage eingefügt	Вставлено объектов из буфера обмена: {}
+Prefab eingefügt – {} Name(n) umbenannt	Префаб вставлен – переименовано имён: {}
+Prefab eingefügt	Префаб вставлен
+Erst eine Entity auswählen	Сначала выделите энтити
+{} Eigenschaft(en) von {} kopiert	Скопировано свойств ({}) из {}
+Nichts kopiert (Eigenschaften kopieren zuerst)	Ничего не скопировано (сначала скопируйте свойства)
+Keine Entities ausgewählt	Энтити не выделены
+Eigenschaften auf {} Entity/Entities übertragen	Свойства вставлены в энтити: {}
+Erst etwas auswählen	Сначала что-нибудь выделите
+{} berührende(s) Objekt(e) hinzugefügt	Добавлено соприкасающихся объектов: {}
+Oben · X/Y	Сверху · X/Y
+Vorn · Y/Z	Спереди · Y/Z
+Seite · X/Z	Сбоку · X/Z
+MCP: {} erstellt	MCP: создано {}
+MCP: Entity {} geändert	MCP: энтити {} изменена
+MCP: Output hinzugefügt	MCP: выход добавлен
+MCP: Raum erstellt	MCP: комната создана
+MCP: verschoben	MCP: перемещено
+MCP: gedreht	MCP: повёрнуто
+3-Wege-Zusammenführen: {}	Трёхстороннее слияние: {}
+Optimierungen übernommen (MCP): {} Änderung(en)	Оптимизации применены (MCP): изменений: {}
+Umbenannt	Переименовано
+Hinweise	Примечания
+Position	Позиция
+Optionen	Параметры
+Gruppen und Visgroups der anderen Map übernehmen	Перенять группы и visgroup другой карты
+Doppelte Entity-Namen werden automatisch umbenannt (name_2), Verweise ziehen mit.	Повторяющиеся имена энтити переименовываются автоматически (имя_2), ссылки обновляются.
+Unterschiedliche Map-Eigenschaften · Haken = Wert der anderen Map	Различающиеся свойства карты · отмечено = значение другой карты
+offene Map	открытая карта
+andere Map	другая карта
+Fertig	Готово
+Neue Objekte sind ausgewählt · Strg+Z macht alles rückgängig	Новые объекты выделены · Ctrl+Z отменяет всё
+Zusammenführen	Объединить
+Konflikte (Klick wählt das Objekt):	Конфликты (щелчок выделяет объект):
+Strg+Z nimmt das Zusammenführen komplett zurück.	Ctrl+Z отменяет всё слияние.
+Markierungen aus	Маркеры выкл.
+Klick: anwählen und hinzoomen	Щелчок: выделить и приблизить
+Vergleich mit {}: {}	Сравнение с {}: {}
+Filtern, z. B. props_junk crate	Фильтр, например, props_junk crate
+Skin	Скин
+Modell wird geladen…	Загрузка модели…
+Links ein Modell anklicken.	Щёлкните модель слева.
+Ziel: Modell für neue Props	Цель: модель для новых пропов
+Ansicht zurücksetzen	Сбросить вид
+Modell: {}	Модель: {}
+Beim Kompilieren automatisch anwenden	Применять автоматически при компиляции
+Läuft auf einer Kopie (Ordner amboss_build neben der VMF) vor VBSP. Deine Map bleibt unverändert.	Выполняется на копии (папка amboss_build рядом с VMF) перед VBSP. Ваша карта не меняется.
+🔍 Nur prüfen	🔍 Только проверить
+Läuft auf einer Kopie und zeigt Netz, Markierungen und Bericht – die Map bleibt unverändert	Выполняется на копии и показывает граф, маркеры и отчёт – карта не меняется
+✔ Auf Map anwenden	✔ Применить к карте
+Ergebnis in die Map übernehmen (ein Rückgängig-Schritt)	Применить результат к карте (один шаг отмены)
+Markierungen löschen	Убрать маркеры
+Bericht	Отчёт
+Grün = NPC-Verbindungen, Rot = Probleme, Gelb = Hint-Vorschläge, Blau = dunkle Bereiche. Maus über eine Markierung in 2D zeigt den Text.	Зелёный = связи NPC, красный = проблемы, жёлтый = предложения hint, синий = тёмные области. Наведение на маркер в 2D показывает его текст.
+Abstand	Шаг
+Sichtbarkeit (VVIS)	Видимость (VVIS)
+Licht	Освещение
+Geometrie	Геометрия
+Props und Entities	Пропы и энтити
+Optimierungen übernommen: {} Änderung(en) – Strg+Z macht sie rückgängig	Оптимизации применены: изменений: {} – Ctrl+Z отменяет их
+Optimierung: nichts zu ändern	Оптимизация: менять нечего
+Prüfung: {} mögliche Änderung(en), Map unverändert	Проверка: возможных изменений: {}, карта не изменена
+{} Siehe Karte -> Automatische Optimierungen.	{} См. Карта -> Автоматические оптимизации.
+Werkzeug	Инструмент
+Suchen…   @ Entities · # Texturen · > Befehle	Поиск…   @ энтити · # текстуры · > команды
+Aktuelle Textur: {} (Shift+T wendet sie auf die Auswahl an)	Текущая текстура: {} (Shift+T применяет её к выделению)
+Browser…	Браузер…
+Klick auf eine Auswahl wechselt die Griffe:	Щелчок по выделению переключает маркеры:
+Drehen rastet in 15°-Schritten ein (Shift = frei).	Поворот с шагом 15° (Shift = свободно).
+Linksklick vergrößert, Rechtsklick verkleinert (2D).	Левый щелчок приближает, правый отдаляет (2D).
+Material oben wählen (z. B. decals/…), dann in 3D auf eine Fläche klicken.	Выберите материал выше (например, decals/…), затем щёлкните по грани в 3D.
+Material oben wählen, dann in 3D auf eine Brush-Fläche klicken.\nGröße/Ausrichtung danach in den Eigenschaften (uv0–uv3, Start/End U/V).	Выберите материал выше, затем щёлкните по грани браша в 3D.\nРазмер/выравнивание затем в свойствах (uv0–uv3, start/end U/V).
+In einer 2D-Ansicht eine Schnittlinie ziehen. Endpunkte lassen sich verschieben.	Проведите линию разреза в 2D-виде. Концы можно перемещать.
+Beide	Обе
+Vorne	Перед
+Hinten	Зад
+Schneiden (Enter)	Разрезать (Enter)
+Linie löschen	Убрать линию
+Brush auswählen, dann Eckpunkte (Quadrate) oder Kanten (Kreise) in 2D ziehen.\nStrg = mehrere, Rahmen ziehen = mehrere, Pfeiltasten = verschieben.	Выделите браш, затем перетаскивайте вершины (квадраты) или рёбра (круги) в 2D.\nCtrl = несколько, рамка = несколько, стрелки = сдвиг.
+2D: Linie ziehen · 3D: zwei Punkte auf Flächen anklicken. Esc löscht.	2D: проведите линию · 3D: щёлкните две точки на гранях. Esc сбрасывает.
+In 2D ziehen: neue Kamera (Start = Position, Ende = Blickziel). Punkte lassen sich verschieben. Bild↑/↓ wechselt.	Перетаскивание в 2D: новая камера (начало = позиция, конец = цель). Точки можно двигать. PgUp/PgDn переключает.
+Neue Kamera an aktueller Position	Новая камера в текущей позиции
+Bogen (°)	Дуга (°)
+Startwinkel (°)	Начальный угол (°)
+Höhe pro Segment	Высота на сегмент
+Querschnitt-Seiten	Стороны сечения
+In einer 2D-Ansicht ein Rechteck ziehen. Die Höhe wird vom letzten Block übernommen.	Нарисуйте прямоугольник в 2D-виде. Высота берётся от последнего блока.
+Klick in 2D/3D platziert:	Щелчок в 2D/3D размещает:
+Modell:	Модель:
+Klick in 3D wählt Flächen (Strg = mehrere).\nRechtsklick: Material anwenden · Alt+Rechtsklick: nahtlos ausrichten.	Щелчок в 3D выделяет грани (Ctrl = несколько).\nПравый щелчок: применить материал · Alt+правый щелчок: обернуть без швов.
+Skalierung	Масштаб
+Verschiebung	Сдвиг
+Rotation	Поворот
+Lightmap	Лайтмап
+Smoothing	Сглаживание
+Ausrichten	Выравнивание
+Als Einheit	Как единое целое
+An Welt	По миру
+An Fläche	По грани
+Material übernehmen	Взять материал
+Material dieser Fläche als aktuelles setzen	Сделать материал этой грани текущим
+Displacement	Дисплейсмент
+Power	Степень
+Erstellen	Создать
+Entfernen	Удалить
+In 3D mit gedrückter linker Maustaste malen. Strg kehrt Anheben/Absenken um.	Рисуйте в 3D, удерживая левую кнопку мыши. Ctrl меняет поднять/опустить.
+Radius	Радиус
+Stärke	Сила
+Richtung	Направление
+Z-Achse	Ось Z
+Flächennormale	Нормаль грани
+Alpha (Überblendung) anzeigen	Показывать альфу (смешивание)
+Auf ausgewählte Displacements anwenden	Применить к выделенным дисплейсментам
+Rauschen	Шум
+Nähen (Sew)	Сшить
+Gemeinsame Kanten benachbarter Displacements angleichen	Согласовать общие рёбра соседних дисплейсментов
+Alpha invertieren	Инвертировать альфу
+Unterteilen	Подразделить
+Glättet alle ausgewählten Displacements gemeinsam (Catmull-Clark) – z. B. wird ein Würfel aus 6 Displacements rund	Сглаживает все выделенные дисплейсменты вместе (Catmull-Clark) – например, куб из 6 дисплейсментов становится круглым
+Feinheit:	Разрешение:
+Auflösung ändern, Form und Alpha bleiben erhalten	Изменить разрешение, форма и альфа сохраняются
+Flag auf Auswahl setzen (Shift+Klick: entfernen)	Установить флаг на выделении (Shift+щелчок: снять)
+Erstellen: im Flächen-Werkzeug Flächen wählen → „Displacement erstellen“.	Создание: выделите грани инструментом граней → «Создать дисплейсмент».
+In einer 2D-Ansicht einen Bereich ziehen. Beim Kompilieren wird nur dieser Teil gebaut (abgedichtet).	Выделите область в 2D-виде. При компиляции собирается только эта часть (замкнутая).
+Cordon entfernen	Убрать кордон
+Noch kein Cordon gesetzt.	Кордон ещё не задан.
+Visgroups	Visgroups
+Wählen	Выделить
+Auswahl hinzufügen	Добавить выделение
+Auswahl entfernen	Убрать выделение
+Visgroup löschen	Удалить visgroup
+Ebene sperren (nicht anklickbar)	Заблокировать слой (не выделяется)
+Aus Auswahl	Из выделения
+Automatische Filter	Автоматические фильтры
+Welt	Мир
+Trigger	Триггеры
+Tool-Texturen	Служебные текстуры
+Brush-Entities	Браш-энтити
+Punkt-Entities	Точечные энтити
+Lichter	Источники света
+Props	Пропы
+Displacements	Дисплейсменты
+Brushes	Браши
+Yaw (Blickrichtung) – klicken/ziehen	Yaw (направление) – щёлкнуть/перетащить
+Allgemein	Общее
+Hilfe zu dieser Klasse	Справка по этому классу
+Eigenschaften kopieren (Strg+Alt+C)	Копировать свойства (Ctrl+Alt+C)
+Übertragen	Вставить
+Kopierte Eigenschaften auf alle ausgewählten Entities übertragen (Strg+Alt+V)	Вставить скопированные свойства во все выделенные энтити (Ctrl+Alt+V)
+Unbekannte Klasse (nicht in der FGD)	Неизвестный класс (нет в FGD)
+Winkel	Углы
+Drehen:	Поворот:
+Schlüsselwerte	Значения ключей
+Pipette: Ziel in einer Ansicht anklicken	Пипетка: щёлкните цель в виде
+Schlüssel entfernen	Удалить ключ
+Wert	Значение
+Flags	Флаги
+Ausgänge	Выходы
+Output	Выход
+(eigener Name)	(собственное имя)
+Pipette: Ziel-Entity in einer Ansicht anklicken	Пипетка: щёлкните целевую энтити в виде
+Systeme filtern…	Фильтр систем…
+Keine .pcf-Dateien im Spielordner gefunden (particles/).	В папке игры не найдено файлов .pcf (particles/).
+Links ein Partikelsystem wählen.	Выберите систему частиц слева.
+Partikelsystem	Система частиц
+Wird als effect_name in info_particle_system eingetragen.	Указывается как effect_name в info_particle_system.
+Partikelsystem {} in die Zwischenablage kopiert	Система частиц {} скопирована в буфер обмена
+Partikelsystem: {}	Система частиц: {}
+Prefab-Bibliothek	Библиотека префабов
+Neu einlesen	Пересканировать
+Speichern als	Сохранить как
+(Hauptordner)	(главная папка)
+neue Kategorie	новая категория
+Auswahl speichern	Сохранить выделение
+Hammer-Bibliothek (.ol/.rmf) importieren…	Импорт библиотеки Hammer (.ol/.rmf)…
+Wandelt alle Prefabs in VMF-Dateien in einem eigenen Unterordner um	Преобразует все префабы в файлы VMF в отдельной подпапке
+Mitgelieferte als VMF kopieren	Скопировать встроенные как VMF
+Zum Anpassen in den Prefab-Ordner schreiben	Записать в папку префабов для редактирования
+Suchen:	Поиск:
+Ziehen in eine Ansicht oder anklicken und dann in eine Ansicht klicken (Shift = mehrfach)	Перетащите в вид или щёлкните, затем щёлкните в виде (Shift = несколько)
+Datei löschen	Удалить файл
+Als Map öffnen	Открыть как карту
+Prefab „{}“ eingefügt{}	Префаб «{}» вставлен{}
+Prefab „{}“: {}	Префаб «{}»: {}
+Prefab gespeichert ({} Objekte): {}	Префаб сохранён (объектов: {}): {}
+{} Prefab(s) aus {} importiert	Импортировано префабов ({}) из {}
+{} Prefabs nach {} kopiert	Префабы ({}) скопированы в {}
+Prefab „{}“: in eine Ansicht klicken	Префаб «{}»: щёлкните в виде
+Keil	Клин
+Zylinder	Цилиндр
+Spitze	Шип
+Kugel	Сфера
+Bogen	Арка
+Torus	Тор
+Treppe	Лестница
+Wendeltreppe	Винтовая лестница
+Rampe	Пандус
+Rohr	Труба
+Kuppel	Купол
+Zaun/Geländer	Забор/перила
+Outputs entfernen	Удалить выходы
+Material ersetzen	Заменить материал
+Leere Seiten entfernen	Удалить пустые грани
+Displacement entfernen	Удалить дисплейсмент
+Brushes in Welt verschieben	Перенести браши в мир
+info_player_start erstellen	Создать info_player_start
+info_player_start bei {} erstellt	info_player_start создан в {}
+MCP-Server (KI-Fernsteuerung)	Сервер MCP (удалённое управление ИИ)
+Ohne offenes Fenster: amboss --mcp-stdio --map pfad.vmf [--game-dir…/garrysmod]	Без открытого окна: amboss --mcp-stdio --map путь.vmf [--game-dir…/garrysmod]
+{} importiert: {} Brushes, {} Entities – bitte als VMF speichern	{} импортировано: брашей {}, энтити {} – сохраните как VMF
+läuft auf http://127.0.0.1:{}/mcp	работает на http://127.0.0.1:{}/mcp
+Map-Editor für Source	Редактор карт для Source
+Zum Editor	К редактору
+Startseite schließen	Закрыть стартовую страницу
+Maps und Vorlagen suchen	Поиск карт и шаблонов
+Nicht gespeicherte Änderungen gefunden	Найдены несохранённые изменения
+Verwerfen	Отбросить
+Wiederherstellen	Восстановить
+Neu aus Vorlage	Создать из шаблона
+Noch keine Maps geöffnet.	Карты ещё не открывались.
+Neue Map aus Vorlage „{}“	Новая карта из шаблона «{}»
+Schließen (Esc)	Закрыть (Esc)
+Beide behalten	Оставить обе
+Vorderseite behalten	Оставить переднюю
+Rückseite behalten	Оставить заднюю
+Ungültige Form – Eckpunkt hier nicht möglich	Недопустимая форма – здесь вершина невозможна
+Eckpunkte verschoben um {} {} {}	Вершины сдвинуты на {} {} {}
+Abstand: {} Einheiten	Расстояние: {} единиц
+Griffe: {}	Маркеры: {}
+Texturiert	С текстурами
+Einfarbig	Плоский
+Drahtgitter	Каркас
+Lightmap-Raster	Сетка лайтмапа
+Smoothing-Gruppen	Группы сглаживания
+Lichtvorschau (ohne Schatten)	Предпросмотр света (без теней)
+Fläche lässt sich nicht so weit verschieben	Грань нельзя сдвинуть так далеко
+{} Objekt(e) im Rahmen ausgewählt	Выделено объектов в рамке: {}
+Material übernommen: {}	Взят материал: {}
+Overlay: auf eine Brush-Fläche klicken	Оверлей: щёлкните по грани браша
+Zuerst eine Quell-Fläche auswählen	Сначала выделите исходную грань
+Neue Map	Новая карта
+Map öffnen…	Открыть карту…
+Live-Sitzung beitreten	Присоединиться к совместной сессии
+Bedienung & Hilfe	Управление и справка
+Neu	Создать
+Eigenschaften	Свойства
+Objekte	Объекты
+Nichts ausgewählt	Ничего не выделено
+Objekt in einer Ansicht anklicken	Щёлкните объект в виде
+Einrasten	Привязка
+An Eckpunkten	К вершинам
+Texturen fixieren	Фиксировать текстуры
+Gruppen	Группы
+Spielinhalte laden…	Загрузка игрового контента…
+Keine Spielinhalte	Нет игрового контента
+MCP verbunden	MCP подключён
+Materialien	материалов
+Sprache	Язык
+Spielordner	Папка игры
+alle	каждые
+aus	выкл.
+Bereit	Готово
+Befehle, Entities, Texturen suchen…	Поиск команд, энтити, текстур…
+nicht gespeichert	не сохранено
+Kein Profil	Нет профиля
+Eine Ansicht (Shift+Z)	Один вид (Shift+Z)
+Vier Ansichten	Четыре вида
+An Eckpunkten anderer Objekte einrasten (Alt+V)	Привязка к вершинам других объектов (Alt+V)
+Textur-Lock: Texturen beim Verschieben/Drehen mitbewegen	Фиксация текстур: текстуры следуют за объектами при перемещении/повороте
+Gruppe lösen	Разгруппировать
+Zurück in Welt	Обратно в мир
+Ausblenden	Скрыть
+Sperren	Заблокировать
+Berührende hinzufügen	Добавить соприкасающиеся
+{} Eckpunkt(e) gewählt	Выделено вершин: {}
+ · Blend-Material (Alpha malen mischt die 2. Textur)	 · смешанный материал (рисование альфы подмешивает 2-ю текстуру)
+ungültig	недопустимо
+nicht eingestellt	не задано
+MCP aus	MCP выкл.
+Leere Map	Пустая карта
+Nichts außer den Map-Eigenschaften.	Только свойства карты.
+Raum mit Licht und Spawn	Комната со светом и спавном
+Abgedichteter Raum 512 × 512 × 256 mit Spawn, Licht und Cubemap – sofort kompilierbar.	Закрытая комната 512 × 512 × 256 со спавном, светом и кубмапом – готова к компиляции.
+Außenbereich	Открытая местность
+Himmel, Sonne (light_environment) und Boden 2048 × 2048.	Небо, солнце (light_environment) и земля 2048 × 2048.
+Große Bauwiese	Большой луг для строительства
+Sehr großer flacher Außenbereich (8192 × 8192) zum Bauen im Sandbox-Modus, mit Sonne und Spawnpunkten.	Очень большая ровная открытая площадка (8192 × 8192) для строительства в режиме sandbox, с солнцем и точками спавна.
+Arena (Deathmatch)	Арена (deathmatch)
+Halle 2048 × 2048 × 512 mit Säulen, vier Spawnpunkten, Lichtern und Cubemap.	Зал 2048 × 2048 × 512 с колоннами, четырьмя точками спавна, светом и кубмапом.
+Zwei Räume mit Tür (NPC-Test)	Две комнаты с дверью (тест NPC)
+Zwei Räume, verbunden durch eine Schiebetür mit Knöpfen – gut zum Testen von KI-Nodes und Areaportals.	Две комнаты, соединённые раздвижной дверью с кнопками – удобно для проверки узлов ИИ и areaportal.
+Kein Spielordner – Einstellungen	Нет папки игры – настройки
+Keine Spielinhalte – Spielordner prüfen	Нет игрового контента – проверьте папку игры
+Compiler nicht gefunden	Компиляторы не найдены
+VBSP · VVIS · VRAD gefunden	VBSP · VVIS · VRAD найдены
+Willkommen	Добро пожаловать
+Willkommen zurück	С возвращением
+{} Materialien geladen	Загружено материалов: {}
+Spielinhalte werden geladen…	Загрузка игрового контента…
+FGD geladen – {} Entity-Klassen	FGD загружен – классов энтити: {}
+Eingebaute Entity-Liste ({} Klassen)	Встроенный список энтити (классов: {})
+· automatisch gesichert vor {}	· автосохранение {} назад
+vor {} Std.	{} ч назад
+vor {} Min.	{} мин назад
+vor {} Tagen	{} дн. назад
+gestern	вчера
+Brush-Entity · {} Flächen	Браш-энтити · граней: {}
+Welt · {} Flächen	Мир · граней: {}
+{}\nKlick: auswählen · Doppelklick: auf Auswahl anwenden	{}\nЩелчок: выделить · двойной щелчок: применить к выделению
+{} Eckpunkt(e) ausgewählt	Выделено вершин: {}
+Seiten	Стороны
+Wandstärke	Толщина стен
+{} Fläche(n) ausgewählt	Выделено граней: {}
+Einpassen	Подогнать
+Keine Physik	Без физики
+Kein Hull	Без оболочки
+Kein Ray	Без луча
+{} Entities ausgewählt – Änderungen gelten für alle	Выделено энтити: {} – изменения применяются ко всем
+Verzög.	Задержка
++ Output hinzufügen	+ Добавить выход
+{} Schritt(e) im Verlauf. Ohne Speichern gehen die Änderungen verloren.	Шагов в истории: {}. Без сохранения изменения будут потеряны.
+Einstellen…	Настроить…
+{} mögliche Probleme	Возможных проблем: {}
+Anzeigen	Показать
+GarrysMod-Hauptordner (enthält 'garrysmod' und 'bin')	Главная папка GarrysMod (содержит «garrysmod» и «bin»)
+Ordner für gespeicherte Prefabs	Папка для сохранённых префабов
+lädt…	загрузка…
+Konnte Grafik-Einstellung nicht speichern: {}	Не удалось сохранить настройку графики: {}
+1. Block (Shift+B), in Top ein Rechteck ziehen. 2. Strg+H höhlt zum Raum aus. 3. Entity (Shift+E): info_player_start und light setzen. 4. F9.	1. Блок (Shift+B), нарисуйте прямоугольник в виде сверху. 2. Ctrl+H делает из него комнату. 3. Энтити (Shift+E): разместите info_player_start и light. 4. F9.
+Shift+S Auswahl · G Lupe · C Kamera · E Entity · B Block · A Flächen · D Decal · O Overlay · X Clip · V Vertex · P Terrain · K Cordon	Shift+S выделение · G лупа · C камера · E энтити · B блок · A грани · D декаль · O оверлей · X разрез · V вершины · P рельеф · K кордон
+Klick wählt, Strg = hinzufügen, Rahmen ziehen. Klick auf Auswahl: Skalieren → Drehen → Scheren	Щелчок выделяет, Ctrl = добавить, рамка мышью. Щелчок по выделению: масштаб → поворот → сдвиг
+Linie ziehen, Enter schneidet, Shift+X wechselt Vorne/Hinten/Beide	Проведите линию, Enter режет, Shift+X переключает перед/зад/обе
+Eckpunkte/Kanten ziehen; ungültige Formen werden abgelehnt	Перетаскивайте вершины/рёбра; недопустимые формы отклоняются
+Fläche (Shift+A) wählen → Displacement erstellen, dann Shift+P und in 3D malen	Выделите грань (Shift+A) → создать дисплейсмент, затем Shift+P и рисуйте в 3D
+Mausrad zoomen, mittlere Taste/Leertaste verschieben, Pfeiltasten verschieben Auswahl	Колесо масштабирует, средняя кнопка/пробел сдвигает, стрелки перемещают выделение
+Flächen	Грани
+Rechtsklick: Material anwenden · Alt+Rechtsklick: Ausrichtung nahtlos übernehmen	Правый щелчок: применить материал · Alt+правый щелчок: продолжить выравнивание без швов
+Rückgängig / Wiederholen	Отменить / повторить
+Kopieren / Einfügen / Ausschneiden · Strg+Shift+V Paste Special	Копировать / вставить / вырезать · Ctrl+Shift+V специальная вставка
+Gruppieren / Gruppe lösen	Сгруппировать / разгруппировать
+Ausblenden / Unausgewähltes ausblenden / Alles einblenden	Скрыть / скрыть невыделенное / показать всё
+In Entity umwandeln / zurück in Welt	Привязать к энтити / вернуть в мир
+Aushöhlen / Carve	Сделать полым / вырезать
+Transformieren-Dialog / Am Raster ausrichten	Диалог трансформации / привязать к сетке
+Spiegeln horizontal / vertikal, 90° drehen (Ansicht unter der Maus)	Отразить по горизонтали / вертикали, повернуть на 90° (вид под мышью)
+Auf Probleme prüfen (mit Auto-Fix)	Найти проблемы (с автоисправлением)
+Raster verkleinern / vergrößern	Мельче / крупнее сетка
+Kompilieren und in GMod starten	Скомпилировать и запустить в GMod
+Befehlspalette: jeden Befehl per Suche ausführen	Палитра команд: запуск любой команды через поиск
+Shift+Ziehen (2D) / Shift am Gizmo	Shift+перетаскивание (2D) / Shift на гизмо
+Auswahl duplizieren und verschieben · Strg+D dupliziert direkt	Дублировать и сдвинуть выделение · Ctrl+D дублирует на месте
+Pfeile verschieben, Ringe drehen (15°-Raster, Shift frei) · Shift+W schaltet ihn ein/aus	Стрелки двигают, кольца вращают (шаг 15°, Shift свободно) · Shift+W включает/выключает
+Flächen-Werkzeug in 3D	Инструмент граней в 3D
+Shift+Ziehen: Fläche verschieben (Brush wächst) · Alt+Ziehen: neuen Brush herausziehen	Shift+перетаскивание: сдвинуть грань (браш растёт) · Alt+перетаскивание: выдавить новый браш
+Pipette: Material einer Fläche übernehmen	Пипетка: взять материал грани
+Auswahl sperren / alles entsperren	Заблокировать выделение / разблокировать всё
+Kamera-Lesezeichen speichern / anspringen	Сохранить закладки камеры / перейти к ним
+Objektliste / Rückgängig-Verlauf	Список объектов / история отмены
+Nächster Tab / Tab schließen	Следующая вкладка / закрыть вкладку
+Am Raster einrasten an/aus · an Eckpunkten anderer Objekte einrasten an/aus	Привязка к сетке вкл./выкл. · привязка к вершинам других объектов вкл./выкл.
+3D: Ziehen mit links	3D: перетаскивание левой кнопкой
+Rahmenauswahl (Strg = hinzufügen, Alt = auch berührte Objekte) · Strg+Alt+A: berührende auswählen	Выделение рамкой (Ctrl = добавить, Alt = также задетые объекты) · Ctrl+Alt+A: выделить соприкасающиеся
+Entity-Eigenschaften kopieren / auf alle ausgewählten übertragen	Копировать свойства энтити / вставить во все выделенные
+Datei → Map zusammenführen	Файл → Объединить карту
+Andere Map übernehmen: doppelte Namen werden umbenannt, Visgroup „Import“, Warnungen bei Überlappung	Добавить другую карту: повторяющиеся имена переименовываются, visgroup «Import», предупреждения при пересечении
+Unterschiede zu einem anderen Stand farbig anzeigen · Änderungen zweier Personen zusammenführen	Показать цветом отличия от другой версии · объединить изменения двух человек
+Live-Sitzung: Gastgeber teilt die Map, Gäste treten mit Adresse und Passwort bei · Strg+Z nimmt nur eigene Schritte zurück	Совместная сессия: хост открывает доступ к карте, гости подключаются по адресу и паролю · Ctrl+Z отменяет только ваши шаги
+Karte → Automatische Optimierungen	Карта → Автоматические оптимизации
+KI-Nodes, Leckprüfung, func_detail, nodraw, Areaportals, Cubemaps, Lightmaps… · „Nur prüfen“ zeigt das NPC-Netz (grün) und Probleme, „Auf Map anwenden“ übernimmt (Strg+Z), oder beim Kompilieren automatisch auf einer Kopie	Узлы ИИ, проверка утечек, func_detail, nodraw, areaportal, кубмапы, лайтмапы… · «Только проверить» показывает граф NPC (зелёный) и проблемы, «Применить к карте» применяет (Ctrl+Z), либо автоматически на копии при компиляции
+Verschieben	Переместить
+Drehen und Skalieren um die Mitte der Auswahl	Поворот и масштаб вокруг центра выделения
+Zuerst etwas auswählen	Сначала что-нибудь выделите
+{} Kopien einfügen	Вставить копии: {}
+{} Kopie einfügen	Вставить копию: {}
+Warnungen	Предупреждения
+(nicht gespeichert)	(не сохранено)
+Verschiedene Texturen	Разные текстуры
+Gruppen / Visgroups	Группы / visgroups
+Rückgängig-Speicher	Память отмены
+Verwendete Texturen	Используемые текстуры
+Datei fehlt im Spielordner	Файл отсутствует в папке игры
+(ohne Namen)	(без имени)
+Keine benannten Entities oder Outputs	Нет именованных энтити и выходов
+Neue Taste für „{}“ drücken… (Esc bricht ab)	Нажмите новую клавишу для «{}»… (Esc – отмена)
+Neue Visgroup	Новая visgroup
+Konnte {} nicht laden:\n{}	Не удалось загрузить {}:\n{}
+Suche Garry's Mod in den Steam-Bibliotheken…	Поиск Garry's Mod в библиотеках Steam…
+Vier Ansichten (Shift+Z)	Четыре вида (Shift+Z)
+Ansicht maximieren (Shift+Z)	Развернуть вид (Shift+Z)
+Kein Spielordner eingestellt – Bearbeiten → Einstellungen → „Automatisch suchen“ (oder…/GarrysMod/garrysmod eintragen)	Папка игры не задана – Правка → Настройки → «Найти автоматически» (или введите…/GarrysMod/garrysmod)
+keine VPK-Dateien und kein materials-Ordner in {}	нет файлов VPK и папки materials в {}
+Keine Materialien gefunden: {}. Der Spielordner muss…/GarrysMod/garrysmod sein.	Материалы не найдены: {}. Папкой игры должна быть…/GarrysMod/garrysmod.
+Spielinhalte: {} Materialien aus {} – Addons werden noch eingelesen…	Игровой контент: материалов {} из {} – аддоны ещё читаются…
+Spielinhalte geladen: {} Materialien aus {} – Addons ausgeschaltet (Einstellungen)	Игровой контент загружен: материалов {} из {} – аддоны отключены (настройки)
+Spielinhalte geladen: {} Materialien aus {} und {}	Игровой контент загружен: материалов {} из {} и {}
+Spielinhalte werden im Hintergrund geladen…	Игровой контент загружается в фоне…
+FGD konnte nicht geladen werden: {}	Не удалось загрузить FGD: {}
+Im Namen	В имени
+In der Beschreibung	В описании
+Favoriten	Избранное
+Keine Klasse gefunden	Класс не найден
+Meintest du {}?	Возможно, вы имели в виду {}?
+Punkt-Entity – nicht für Brushes · {}	Точечная энтити – не для брашей · {}
+{} Brush(es) ausgewählt	Выделено брашей: {}
+aus {} · {} Brush-Klassen	из {} · браш-классов: {}
+eingebaute Liste · {} Brush-Klassen	встроенный список · браш-классов: {}
+In {} umwandeln	Преобразовать в {}
+garrysmod.fgd nicht gefunden – eingebaute Liste mit {} Klassen.	garrysmod.fgd не найден – встроенный список (классов: {}).
+Alle	Все
+Punkt	Точечные
+Entities in der Map	Энтити в карте
+Befehle	Команды
+{} Flächen	Граней: {}
+{} · {} Flächen	{} · граней: {}
+Alle {} anzeigen	Показать все ({})
+Nichts gefunden	Ничего не найдено
+wählen	выделить
+ausführen / auswählen	выполнить / выделить
+nächste Gruppe	следующая группа
+Keine Modelle gefunden – Spielordner in den Einstellungen prüfen.	Модели не найдены – проверьте папку игры в настройках.
+Kein Modell passt zum Filter.	Ни одна модель не подходит под фильтр.
+Größe	Размер
+Polygone	Полигоны
+Kollisionsmodell	Модель столкновений
+vorhanden	есть
+keins	нет
+Keine Auswahl	Нет выделения
+Ziehen dreht · Rad zoomt	Перетаскивание вращает · колесо масштабирует
+Kollision	Столкновения
+{} Modelle	Моделей: {}
+{} Sounds	Звуков: {}
+Ziel: Entity {} / {}	Цель: энтити {} / {}
+{} .pcf-Dateien · {} Systeme	Файлов .pcf: {} · систем: {}
+{} .pcf-Dateien · {} Systeme · {} Treffer	Файлов .pcf: {} · систем: {} · совпадений: {}
+{} Kinder	Дочерних: {}
+Kinder-Systeme	Дочерние системы
+Im Manifest	В манифесте
+ja	да
+nein	нет
+Aufbau	Структура
+{} Treffer	Совпадений: {}
+ hat dasselbe Objekt geändert	 изменил(а) тот же объект
+{} übernehmen	Взять версию {}
+Deins	Ваша
+Ohne Wahl bleibt deins · 0:{}	Без выбора остаётся ваша · 0:{}
++{} weitere Konflikte	Ещё конфликтов: +{}
++{} weitere	Ещё: +{}
+Für das Internet muss die Router-Firewall eingehende IPv6-Verbindungen auf TCP-Port {} zu diesem PC erlauben (z. B. FRITZ!Box: Internet → Freigaben → Gerät → IPv6). Die Adresse kann sich täglich ändern.	Для интернета брандмауэр роутера должен пропускать входящие IPv6-соединения на TCP-порт {} к этому ПК (например, FRITZ!Box: Интернет → Разрешения → устройство → IPv6). Адрес может меняться ежедневно.
+Heimnetz	Домашняя сеть
+Internet (IPv6)	Интернет (IPv6)
+KI (NPCs)	ИИ (NPC)
+Bodennodes (info_node) automatisch setzen	Автоматически расставить наземные узлы (info_node)
+Raster auf begehbaren Flächen, dichter an Türen und Engstellen; vorhandene Nodes bleiben	Сетка на проходимых поверхностях, плотнее у дверей и в узких местах; существующие узлы остаются
+Luftnodes (info_node_air) für fliegende NPCs	Воздушные узлы (info_node_air) для летающих NPC
+Gitter alle 256 Einheiten in hohen, freien Räumen	Сетка через каждые 256 единиц в высоких открытых помещениях
+Türen: info_node_link_controller	Двери: info_node_link_controller
+NPC-Wege durch Türen nur bei offener Tür (Ausgaben OnOpen/OnClose werden ergänzt)	Пути NPC через двери только когда они открыты (добавляются выходы OnOpen/OnClose)
+info_hint für Deckung und Engstellen	info_hint для укрытий и узких мест
+Hinweise an halbhohen Deckungen und Durchgängen	Хинты у укрытий в половину роста и проходов
+Navmesh (NextBots) beim Spielstart erzeugen	Генерировать navmesh (NextBots) при запуске игры
+Hängt +sv_cheats 1 +nav_generate an den Spielstart an; die .nav landet in maps/	Добавляет +sv_cheats 1 +nav_generate к запуску; файл .nav попадает в maps/
+Leckprüfung vor VBSP (mit Pfad)	Проверка утечек перед VBSP (с путём)
+Flutfüllung von allen Punkt-Entities – findet Löcher zur Leere ohne VBSP-Lauf	Заливка от всех точечных энтити – находит дыры в пустоту без запуска VBSP
+Verdeckte Flächen -> nodraw	Скрытые грани -> nodraw
+Flächen, die vollständig an anderen Brushes anliegen	Грани, полностью закрытые другими брашами
+Kleine/schräge Brushes -> func_detail	Мелкие/наклонные браши -> func_detail
+Brushes ohne Kontakt zur Leere; Trennwände und Türrahmen bleiben Welt	Браши без контакта с пустотой; перегородки и дверные коробки остаются миром
+Areaportals in Tür-Öffnungen	Areaportal в дверных проёмах
+func_areaportal an func_door* (nur wenn die Öffnung vollständig von Welt eingefasst ist)	func_areaportal у func_door* (только если проём полностью окружён миром)
+Hint-Brush-Vorschläge markieren	Отметить предложения hint-брашей
+Gelbe Markierungen an Durchgängen – wird nicht automatisch gebaut	Жёлтые маркеры у проходов – не строятся автоматически
+Lightmap-Auflösung automatisch	Автоматическое разрешение лайтмапов
+Nahe an Lichtern 8, große/entfernte Flächen 32 (nur Flächen mit Standardwert 16)	Рядом со светом 8, большие/дальние грани 32 (только грани со стандартным 16)
+env_cubemap automatisch verteilen	Расставить env_cubemap автоматически
+In offenen Bereichen ca. alle 768 Einheiten; danach „Cubemaps bauen“	Примерно через каждые 768 единиц на открытых участках; затем «построить кубмапы»
+Lichtprüfung	Проверка освещения
+Lichter in Brushes, zu viele schaltbare Lichter, dunkle Bereiche	Свет внутри брашей, слишком много переключаемых источников, тёмные области
+Eckpunkte auf ganze Einheiten runden	Округлить вершины до целых единиц
+Verhindert Mini-Lecks und „Invalid solid“	Предотвращает мелкие утечки и «Invalid solid»
+Gleiche Quader zusammenführen	Объединить одинаковые блоки
+Nebeneinander liegende, gleich texturierte Quader werden ein Brush	Соседние блоки с одинаковыми текстурами становятся одним брашем
+Splitter und doppelte Brushes entfernen	Удалить осколки и дубликаты брашей
+Ungültige, hauchdünne (< 1 Einheit) und exakt doppelte Brushes	Недопустимые, тончайшие (< 1 единицы) и точно продублированные браши
+Flache Displacements vereinfachen	Упростить плоские дисплейсменты
+Displacements ohne Höhen/Alpha werden normale Flächen	Дисплейсменты без высот/альфы снова становятся обычными гранями
+Ausblend-Distanz für Props	Дистанция исчезновения пропов
+Nach Modellgröße, nur wenn keine gesetzt ist	По размеру модели, только если не задана
+Schatten kleiner Props aus	Отключить тени мелких пропов
+disableshadows bei sehr kleinen Modellen	disableshadows для очень мелких моделей
+Wirkungslose Logik entfernen	Удалить бесполезную логику
+logic_* ohne Ausgaben, leere Brush-Entities, doppelte Cubemaps	logic_* без выходов, пустые браш-энтити, дубликаты кубмапов
+Eigene Inhalte in die BSP packen (bspzip)	Упаковать собственный контент в BSP (bspzip)
+Materialien/Modelle, die lose im Spielordner liegen, werden nach VRAD eingepackt	Материалы/модели, лежащие отдельно в папке игры, упаковываются после VRAD
+Bei Leck abbrechen (spart den VBSP-Lauf)	Прервать при утечке (экономит прогон VBSP)
+Map konnte nicht geladen werden	Не удалось загрузить карту
+Zusammengeführt	Объединено
+Map zusammenführen	Объединить карту
+Koordinaten behalten	Сохранить координаты
+Teile liegen an derselben Stelle wie in der anderen Map	Части остаются на тех же местах, что и в другой карте
+Neben die offene Map setzen	Разместить рядом с открытой картой
+Verschiebt um die Breite der offenen Map (+X)	Сдвигает на ширину открытой карты (+X)
+Verschieben um	Сдвинуть на
+Älteren oder anderen Stand der Map wählen	Выберите более старую или другую версию карты
+Vergleich mit {}	Сравнение с {}
+1/2: Gemeinsamen Ausgangsstand (Basis) wählen	1/2: выберите общую базовую версию
+2/2: Version der anderen Person wählen	2/2: выберите версию другого человека
+Zusammengeführt mit {}	Объединено с {}
+Keine Konflikte.	Конфликтов нет.
+Cordon (aus)	Кордон (выкл.)
+Kein OpenGL-Kontext verfügbar	Нет контекста OpenGL
+Fläche verschoben:	Грань сдвинута:
+Prefab: auf eine Fläche klicken bzw. loslassen (Esc bricht ab)	Префаб: щёлкните или отпустите на грани (Esc – отмена)
+3D nicht verfügbar	3D недоступно
+Pinsel: {} · Radius {} · Stärke {} (Strg = umkehren)	Кисть: {} · радиус {} · сила {} (Ctrl = инвертировать)
+Schiebetür mit Knöpfen	Раздвижная дверь с кнопками
+Türen & Fenster	Двери и окна
+Wand mit func_door (fährt nach oben) und je einem Knopf auf beiden Seiten.	Стена с func_door (поднимается) и кнопкой с каждой стороны.
+Drehtür	Поворотная дверь
+Wand mit func_door_rotating (Scharnier über Origin-Brush), öffnet per Benutzen.	Стена с func_door_rotating (петля через браш origin), открывается при использовании.
+Fenster mit Glas	Окно со стеклом
+Wand mit Fensteröffnung und zerbrechlicher Glasscheibe (func_breakable).	Стена с оконным проёмом и бьющимся стеклом (func_breakable).
+Bauteile	Строительные элементы
+Leiter	Лестница-стремянка
+Sprossenleiter (func_detail) mit unsichtbarem Kletter-Brush (toolsinvisibleladder).	Лестница с перекладинами (func_detail) с невидимым брашем для лазания (toolsinvisibleladder).
+Deckenlampe	Потолочный светильник
+Lampengehäuse mit Licht darunter. Auf eine Decke ziehen.	Корпус светильника со светом снизу. Перетащите на потолок.
+Technik & Logik	Техника и логика
+Lichtschalter	Выключатель света
+Knopf, der eine benannte Lampe ein- und ausschaltet.	Кнопка, включающая и выключающая именованный светильник.
+Teleporter-Paar	Пара телепортов
+trigger_teleport mit Ziel (info_teleport_destination) 256 Einheiten daneben.	trigger_teleport с точкой назначения (info_teleport_destination) в 256 единицах рядом.
+Schadenszone	Зона урона
+trigger_hurt, der Spielern pro Sekunde Schaden zufügt.	trigger_hurt, каждую секунду наносящий урон игрокам.
+Räume	Комнаты
+Spawn-Raum	Комната спавна
+Abgedichteter Raum (512 × 512 × 256) mit info_player_start, Licht und env_cubemap. Sofort kompilierbar.	Закрытая комната (512 × 512 × 256) с info_player_start, light и env_cubemap. Готова к компиляции.
+Außenbereich mit Himmel	Открытая местность с небом
+2048 × 2048 × 1024 große Skybox-Hülle mit Boden, light_environment und Spawn.	Оболочка скайбокса 2048 × 2048 × 1024 с землёй, light_environment и спавном.
+Wasserbecken	Бассейн
+Offenes Becken mit Wasser-Brush (Wasseroberfläche oben, sonst nodraw).	Открытый бассейн с брашем воды (поверхность воды сверху, остальное nodraw).
+Treppe mit Podest	Лестница с площадкой
+8 Stufen (16 hoch) auf 128 Einheiten Höhe mit Podest und Geländer.	8 ступеней (высотой 16) до 128 единиц с площадкой и перилами.
+Säule	Колонна
+Runde Säule mit Sockel und Kapitell (func_detail).	Круглая колонна с базой и капителью (func_detail).
+Physik-Kiste	Физический ящик
+prop_physics mit Holzkiste.	prop_physics с деревянным ящиком.
+ohne Namen	без имени
+Aufräumen: {} Splitter/ungültige und {} doppelte Brushes entfernt	Очистка: удалено осколков/недопустимых {} и дубликатов брашей {}
+Eckpunkte: {} Brush(es) auf ganze Einheiten gerundet (verhindert Mini-Lecks)	Вершины: округлено брашей до целых единиц: {} (предотвращает мелкие утечки)
+Displacements: {} flache Displacement(s) in normale Flächen zurückverwandelt	Дисплейсменты: плоских дисплейсментов снова стали обычными гранями: {}
+Brushes zusammengeführt: {} Paar(e) gleicher Quader	Объединено брашей: пар одинаковых блоков {}
+LECK gefunden – ausgehend von {}. Der rote Pfad führt ins Nichts.	Найдена УТЕЧКА – начиная с {}. Красный путь ведёт в пустоту.
+Leckprüfung: Map ist dicht.	Проверка утечек: карта герметична.
+Leckprüfung: keine Welt-Brushes.	Проверка утечек: нет брашей мира.
+func_detail: {} Brush(es), die nicht abdichten, umgewandelt (VVIS wird schneller)	func_detail: преобразовано негерметизирующих брашей: {} (VVIS работает быстрее)
+func_detail übersprungen (Map nicht dicht)	func_detail пропущен (карта не герметична)
+nodraw: {} vollständig verdeckte Fläche(n)	nodraw: полностью скрытых граней: {}
+Hint-Vorschläge: {} Durchgang/Durchgänge markiert (gelb)	Предложения hint: отмечено проходов: {} (жёлтые)
+Türen: {} info_node_link_controller (NPC-Wege nur bei offener Tür)	Двери: info_node_link_controller: {} (пути NPC только при открытых дверях)
+Areaportals: {} an Türen gesetzt{}	Areaportal: размещено у дверей: {}{}
+, {} übersprungen (Öffnung nicht eindeutig)	, пропущено: {} (проём не свободен)
+Cubemaps: {} env_cubemap gesetzt – nach dem Kompilieren „Cubemaps bauen“ ausführen	Кубмапы: размещено env_cubemap: {} – после компиляции выполните «построить кубмапы»
+Lightmaps: {} Fläche(n) gröber (32), {} feiner (8) – weniger Compile-Zeit, schärferes Licht wo nötig	Лайтмапы: граней грубее (32): {}, тоньше (8): {} – быстрее компиляция, чётче свет там, где нужно
+Props: {} mit Ausblend-Distanz, {} kleine ohne Schatten	Пропы: с дистанцией исчезновения {}, мелких без теней {}
+Inhalte packen: {} eigene Datei(en) werden mit bspzip in die BSP gepackt	Упаковка: собственных файлов {} будет упаковано в BSP через bspzip
+Packliste konnte nicht geschrieben werden: {}	Не удалось записать список упаковки: {}
+Ergebnis: {} -> {} Brushes, {} -> {} Entities, {} Änderung(en)	Итог: брашей {} -> {}, энтити {} -> {}, изменений: {}
+KI-Netz: {} Nodes, {} Verbindungen, {} zusammenhängende Bereiche, {} isolierte Nodes (rot)	Граф ИИ: узлов {}, связей {}, связных областей {}, изолированных узлов {} (красные)
+Dunkel: kein Licht in der Nähe	Темно: поблизости нет света
+Kompilieren abgebrochen: Die Map hat ein Leck (roter Pfad).	Компиляция прервана: в карте утечка (красный путь).
+Optimierte Kopie konnte nicht geschrieben werden: {}	Не удалось записать оптимизированную копию: {}
+Kopie: {} (Original bleibt unverändert)	Копия: {} (оригинал не меняется)
+Am Raster einrasten: aus (1 Einheit)	Привязка к сетке: выкл. (1 единица)
+Am Raster einrasten: an	Привязка к сетке: вкл.
+Auswahl: {} Objekte	Выделено объектов: {}
+{} Brushes · {} Entities	Брашей: {} · энтити: {}
+{} Materialien	Материалов: {}
+Sprache / Language	Язык / Language
+Map-Eigenschaften	Свойства карты
+Werkzeug · Entity	Инструмент · энтити
+Brushes in Welt	Браши в мире
+Schritt	Шаг
+Programm	Программа
+Parameter	Параметры
+Einfach	Простой
+Experte	Эксперт
+Normal	Обычный
+Schnell	Быстрый
+Final	Финальный
+Aus	Выкл.
+Raster {}	Сетка {}
+Raster {} (frei)	Сетка {} (свободно)
+filtern	фильтр
+vor {} Tag(en)	{} дн. назад
+vor {} Tg.	{} дн. назад
+Spiel (exe)	Игра (exe)
+Prefab-Ordner	Папка префабов
+.../GarrysMod/bin/vrad.exe	.../GarrysMod/bin/vrad.exe
+.../GarrysMod/hl2.exe oder gmod.exe	.../GarrysMod/hl2.exe или gmod.exe
+{} Entity-Klassen geladen	Загружено классов энтити: {}
+{} Materialien · {} Modelle · {} Sounds	Материалов: {} · моделей: {} · звуков: {}
+Weich	Мягко
+Linear	Линейно
+Hart	Жёстко
+Terrassen	Террасы
+Schärfen	Резкость
+Abfall	Спад
+Stufenhöhe	Высота ступени
+Gelände aus Heightmap…	Рельеф из карты высот…
+Gelände aus Heightmap	Рельеф из карты высот
+Bild wählen… (PNG oder RAW 16 Bit)	Выбрать изображение… (PNG или RAW 16 бит)
+{} × {} Pixel	{} × {} пикселей
+Kantenlänge	Длина стороны
+Höhe (Weiß)	Высота (белый)
+Kacheln pro Seite	Плиток на сторону
+Ecke links unten	Левый нижний угол
+{} Kacheln · Auflösung {} × {} Punkte	Плиток: {} · разрешение {} × {} точек
+Keine Vorschau	Нет предпросмотра
+Gelände erstellen	Создать рельеф
+Weiß = hoch, Schwarz = tief · Ein Rückgängig-Schritt	Белый = высоко, чёрный = низко · один шаг отмены
+Gelände aus Heightmap: {} Kacheln ({} × {} Einheiten, Höhe {})	Рельеф из карты высот: плиток {} ({} × {} единиц, высота {})
+Material	Материал
+Auswahl als Modell (Prop)…	Выделение в модель (проп)…
+Auswahl als Modell (Prop)	Выделение в модель (проп)
+{} Brushes ausgewählt	Выделено брашей: {}
+Ordner unter models/	Папка в models/
+Oberfläche ($surfaceprop)	Поверхность ($surfaceprop)
+Typ	Тип
+Masse	Масса
+Brushes nach dem Kompilieren durch das Prop ersetzen	После компиляции заменить браши пропом
+studiomdl: {}	studiomdl: {}
+studiomdl nicht gefunden (wird neben vbsp gesucht) – nur Export möglich	studiomdl не найден (искали рядом с vbsp) – только экспорт
+Werkzeug-Texturen werden nicht ins Modell übernommen, zählen aber zur Kollision.	Служебные текстуры не входят в модель, но учитываются для столкновений.
+Kompiliere…	Компиляция…
+Exportieren & kompilieren	Экспорт и компиляция
+Nur SMD/QC	Только SMD/QC
+Schließen	Закрыть
+Brushes durch {} ersetzt	Браши заменены на {}
+Modell kompiliert: {}	Модель скомпилирована: {}
+Modell-Kompilierung fehlgeschlagen (siehe Log)	Ошибка компиляции модели (см. журнал)
+Kollisionsmodelle der Props	Модели столкновений пропов
+Map-Grenze ±	Границы карты ±
+Source/GMod: 16384 – größer nur für Spiele mit erweitertem Limit	Source/GMod: 16384 – больше только для игр с расширенным лимитом
+Layout zurücksetzen	Сбросить раскладку
+Schatten (Lichtvorschau)	Тени (предпросмотр света)
+Schatten in der Lichtvorschau	Тени в предпросмотре света
+Lichtvorschau	Предпросмотр света
+Inhalte in BSP packen…	Упаковать контент в BSP…
+Inhalte in BSP packen	Упаковать контент в BSP
+{} von {} Dateien ausgewählt · {}	Выбрано {} из {} файлов · {}
+BSP-Datei	Файл BSP
+Inhalt anzeigen	Показать содержимое
+Neu ermitteln	Пересканировать
+Datei hinzufügen…	Добавить файл…
+Alle eigenen	Все собственные файлы
+Addons dazu	Включить аддоны
+Keine eigenen Inhalte gefunden – alles, was die Map benutzt, gehört zum Spiel.	Собственный контент не найден – всё, что использует карта, входит в игру.
+eigene Datei	собственный файл
+Addon: {}	Аддон: {}
+hinzugefügt	добавлен
+Schon in der BSP: {} Datei(en)	Уже в BSP: файлов {}
+In BSP packen	Упаковать в BSP
+Eigene Dateien sind vorgewählt, Addon-Inhalte besser im Workshop verlinken	Собственные файлы выбраны заранее; контент аддонов лучше привязать в Мастерской
+Spielinhalte sind noch nicht geladen (Einstellungen → Spielverzeichnis).	Игровой контент ещё не загружен (Настройки → папка игры).
+Eigene Inhalte in die BSP packen	Упаковать собственный контент в BSP
+Materialien, Modelle, Sounds, Partikel, Soundscapes und Nav-Mesh, die nicht zum Spiel gehören, werden nach VRAD eingepackt (Auswahl: Kompilieren → Inhalte in BSP packen…)	Материалы, модели, звуки, частицы, soundscape и navmesh, не входящие в игру, упаковываются после VRAD (выбор: Компиляция → Упаковать контент в BSP…)
+{} Datei(en) in {} gepackt	Упаковано файлов: {} в {}
+BSP dekompilieren…	Декомпилировать BSP…
+Map-Decompiler	Декомпилятор карт
+Nicht wiederherstellbar: Visgroups, Gruppen, Instanzen, Areaportal- und Occluder-Brushes, originale IDs. Displacements stehen als dünne Brushes mit Displacement oben in der Welt.	Не восстанавливается: visgroups, группы, инстансы, браши areaportal и occluder, исходные ID. Дисплейсменты – тонкие браши с дисплейсментом сверху, в мире.
+BSP-Version {}	Версия BSP {}
+{} Brushes (davon {} func_detail), {} Brush-Entities	Брашей: {} (из них func_detail: {}), браш-энтити: {}
+{} Entities, {} statische Props, {} Displacements	Энтити: {}, статичных пропов: {}, дисплейсментов: {}
+{} Overlays, {} Cubemaps	Оверлеев: {}, кубмапов: {}
+{} Brushes ließen sich nicht rekonstruieren (ungültige Form)	Не удалось восстановить брашей: {} (недопустимая форма)
+Instanz in Tab öffnen	Открыть инстанс во вкладке
+Instanzen neu laden	Перезагрузить инстансы
+{} Instanzen in der Map – bitte eine func_instance auswählen	Инстансов в карте: {} – выберите один func_instance
+Keine func_instance mit gefundener Datei ausgewählt	Не выбран func_instance с существующим файлом
+Instanz-Kreis: {} bindet sich selbst ein – übersprungen	Цикл инстансов: {} включает сам себя – пропущено
+Instanz-Datei {} (in {}) nicht gefunden	Файл инстанса {} (в {}) не найден
+In Entity umwandeln ({})	Привязать к энтити ({})
+Auswahl: 1 Objekt ({})	Выделено: 1 объект ({})
+Punkt-Entity	Точечная энтити
+Punktlicht.	Точечный свет.
+Spotlicht.	Прожектор.
+Wiederholbarer Trigger.	Повторяющийся триггер.
+Am Raster einrasten (Alt+G)	Привязать к сетке (Alt+G)
+Lua-Skripte…	Скрипты Lua…
+Lua-Skripte	Скрипты Lua
+ungespeichert	не сохранено
+Skripte	Скрипты
+Ordner neu einlesen	Пересканировать папку
+Ausgabe von print() erscheint hier.	Здесь появляется вывод print().
+Alle Werkzeuge für amboss.call:	Все инструменты для amboss.call:
+Ausführen	Выполнить
+dateiname	имя файла
+Ein Rückgängig-Schritt pro Skript · Zeitlimit 10 s	Один шаг отмены на скрипт · лимит 10 с
+Bitte unten einen Dateinamen eingeben	Введите имя файла ниже
+Eingehende Verbindungen ({})	Входящие связи ({})
+Inputs dieser Klasse ({})	Входы этого класса ({})
+Werkzeug · {}	Инструмент · {}
+Kamera {}	Камера {}
+Hilfe: {}	Справка: {}
+Navmesh erzeugen	Сгенерировать navmesh
+Begehbare Bereiche ab den Spawnpunkten berechnen und als maps/<map>.nav speichern (für NextBots)	Вычислить проходимые области от точек спавна и сохранить как maps/<map>.nav (для NextBots)
+Navmesh laden (.nav)…	Загрузить navmesh (.nav)…
+Navmesh anzeigen	Показать navmesh
+Navmesh (NextBots) beim Kompilieren erzeugen	Генерировать navmesh (NextBots) при компиляции
+Eingebauter Generator: begehbare Bereiche ab den Spawnpunkten, gespeichert als maps/<map>.nav und mit „Inhalte packen“ in die BSP	Встроенный генератор: проходимые области от точек спавна, сохраняются как maps/<map>.nav и упаковываются в BSP через «Упаковать контент»
+Navmesh wird erzeugt…	Генерация navmesh…
+Navmesh: {}	Navmesh: {}
+Navmesh: {} Bereiche ({} geduckt) aus {} Rasterpunkten ab {} Spawnpunkt(en) in {} ms → {}	Navmesh: областей {} (присед {}) из точек сетки {} от точек спавна {} за {} мс → {}
+Navmesh geladen: {} Bereiche ({})	Navmesh загружен: областей {} ({})
+Navmesh konnte nicht gelesen werden: {}	Не удалось прочитать navmesh: {}
+Kompilierte Map (BSP) – wird dekompiliert	Скомпилированная карта (BSP) – будет декомпилирована
+Öffnen… (VMF oder BSP)	Открыть… (VMF или BSP)
+Importieren	Импорт
+Exportieren	Экспорт
+Oberfläche:	Интерфейс:
+Fensteraufteilung	Раскладка окон
+Nur 3D	Только 3D
+Nur Oben	Только сверху
+Nur Vorn	Только спереди
+Nur Seite	Только сбоку
+Kamera-Geschwindigkeit	Скорость камеры
+Sichtfeld	Поле зрения
+Ausblenden & Sperren	Скрытие и блокировка
+Objekt	Объект
+Brush-Operationen	Операции с брашами
+Instanzen	Инстансы
+Als Prefab speichern…	Сохранить как префаб…
+Versionen & Zusammenführen	Версии и слияние
+Cordon deaktivieren	Отключить кордон
+Cordon aktivieren	Включить кордон
+Kompilieren & Exportieren…	Компиляция и экспорт…
+Sofort kompilieren & starten	Скомпилировать и запустить сейчас
+Leck-Suche	Поиск утечек
+Tutorial: Erste Schritte…	Обучение: первые шаги…
+Einrichtungs-Assistent…	Мастер настройки…
+Kompilieren & Exportieren	Компиляция и экспорт
+Eigene Schritte	Свои шаги
+Navmesh für NextBots erzeugen	Сгенерировать navmesh для NextBots
+BSP in den maps-Ordner des Spiels kopieren	Копировать BSP в папку maps игры
+Materialien, Modelle, Sounds, Partikel, Soundscapes und Nav-Mesh, die nicht zum Spiel gehören, werden nach VRAD eingepackt	Материалы, модели, звуки, частицы, soundscape и navmesh, не входящие в игру, упаковываются после VRAD
+Die Liste der benötigten Workshop-Addons wird immer als <map>_addons.txt neben die VMF geschrieben.	Список нужных аддонов Мастерской всегда записывается как <map>_addons.txt рядом с VMF.
+Cubemaps bauen	Построить кубмапы
+Zusatzparameter für VBSP/VVIS/VRAD	Дополнительные параметры для VBSP/VVIS/VRAD
+Nur packen	Только упаковать
+Eigene Inhalte sofort in die zuletzt kompilierte BSP packen, ohne neu zu kompilieren	Сразу упаковать собственный контент в последний скомпилированный BSP, без перекомпиляции
+Oberfläche	Интерфейс
+Grundwerkzeuge, kurze Menüs – ideal zum Einstieg	Базовые инструменты, короткие меню – идеально для начала
+Alle Werkzeuge und Spezialfunktionen	Все инструменты и специальные функции
+In Map	В карте
+Sichtbarkeit · VVIS	Видимость · VVIS
+Vorher	До
+Danach	После
+Keine kompilierte BSP gefunden – erst kompilieren	Скомпилированный BSP не найден – сначала скомпилируйте
+Die kompilierte Map wird wieder in eine bearbeitbare VMF umgewandelt und danach geöffnet.	Скомпилированная карта снова превращается в редактируемый VMF и открывается.
+keine gültige BSP	недопустимый BSP
+Brushes mit Materialien und Texturausrichtung · func_detail · Türen, Trigger und andere Brush-Entities · alle Entities · Displacements · statische Props · Overlays · Cubemaps	Браши с материалами и выравниванием текстур · func_detail · двери, триггеры и прочие браш-энтити · все энтити · дисплейсменты · статичные пропы · оверлеи · кубмапы
+Dekompilieren & öffnen	Декомпилировать и открыть
+BSP dekompilieren	Декомпилировать BSP
+Quelle	Источник
+Was zurückkommt	Что восстанавливается
+Spielordner mit gameinfo.txt	Папка игры с gameinfo.txt
+Compiler VBSP / VVIS / VRAD	Компиляторы VBSP / VVIS / VRAD
+Spiel (zum Testen der Map)	Игра (для проверки карты)
+Entity-Liste: eingebaut (456 Klassen)	Список энтити: встроенный (456 классов)
+Entity-Liste: garrysmod.fgd gefunden	Список энтити: найден garrysmod.fgd
+Willkommen bei Amboss	Добро пожаловать в Amboss
+Garry's Mod finden	Найти Garry's Mod
+Inhalte	Контент
+Fertig!	Готово!
+Amboss ist ein Map-Editor für Garry's Mod und andere Source-Spiele. In vier kurzen Schritten ist alles bereit.	Amboss – редактор карт для Garry's Mod и других игр на Source. Четыре коротких шага – и всё готово.
+Die wichtigsten Werkzeuge und kurze Menüs. Ideal, wenn du neu mit dem Mappen beginnst.	Самые важные инструменты и короткие меню. Идеально, если вы только начинаете делать карты.
+Alle Werkzeuge: Vertex-Bearbeitung, Displacements, Overlays, Instanzen, Lua, Versionen…	Все инструменты: правка вершин, дисплейсменты, оверлеи, инстансы, Lua, версии…
+Beides lässt sich jederzeit unter Ansicht → Oberfläche umschalten.	Переключить можно в любой момент в меню Вид → Интерфейс.
+Amboss braucht den Ordner von Garry's Mod: für Texturen und Modelle, die Compiler (VBSP, VVIS, VRAD) und um die Map zu testen.	Amboss нужна папка Garry's Mod: для текстур и моделей, компиляторов (VBSP, VVIS, VRAD) и для проверки карты.
+Automatisch suchen	Искать автоматически
+Ordner wählen…	Выбрать папку…
+(noch nicht gesetzt)	(ещё не задано)
+Gesucht wird in allen Steam-Bibliotheken. Gewählt werden kann der Ordner „GarrysMod“ oder „GarrysMod/garrysmod“.	Поиск идёт по всем библиотекам Steam. Можно выбрать папку «GarrysMod» или «GarrysMod/garrysmod».
+Welche Texturen und Modelle soll Amboss anbieten?	Какие текстуры и модели должен предлагать Amboss?
+Inhalte aus Addons und dem Workshop verwenden	Использовать контент аддонов и Мастерской
+Abonnierte Workshop-Addons und Ordner unter garrysmod/addons. Benutzt deine Map solche Inhalte, erstellt Amboss beim Kompilieren eine Liste zum Verlinken im Workshop.	Подписанные аддоны Мастерской и папки в garrysmod/addons. Если ваша карта использует такой контент, Amboss при компиляции записывает список для привязки в Мастерской.
+Keine. Inhalte von Counter-Strike: Source oder anderen Source-Spielen werden über garrysmod/cfg/mount.cfg eingebunden (in GMod: Hauptmenü → Spiele-Symbol).	Нет. Контент Counter-Strike: Source и других игр на Source подключается через garrysmod/cfg/mount.cfg (в GMod: главное меню → значок игр).
+Mit „Weiter“ werden die Inhalte eingelesen – das läuft im Hintergrund weiter.	«Далее» читает контент – это продолжается в фоне.
+Alles bereit. Wie möchtest du anfangen?	Всё готово. Как хотите начать?
+Tutorial starten	Начать обучение
+Schritt für Schritt zur ersten eigenen Map – empfohlen für Einsteiger.	Шаг за шагом к вашей первой карте – рекомендуется новичкам.
+Neue Map aus Vorlage	Новая карта из шаблона
+Fertigen Raum mit Licht und Spawnpunkt öffnen und loslegen.	Откройте готовую комнату со светом и точкой спавна – и вперёд.
+Zum Startbildschirm	На стартовый экран
+Vorlagen, zuletzt geöffnete Maps, Map öffnen.	Шаблоны, недавно открытые карты, открыть карту.
+Weiter	Далее
+Zurück	Назад
+Überspringen	Пропустить
+Eingebundene Spiele (mount.cfg)	Подключённые игры (mount.cfg)
+Das Tutorial führt dich Schritt für Schritt durch deine erste Map. Jeder Schritt prüft selbst, ob er erledigt ist – und mit „Zeig es mir“ macht Amboss ihn vor.	Обучение шаг за шагом проведёт вас через первую карту. Каждый шаг сам проверяет, выполнен ли он, – а по кнопке «Покажи» Amboss сделает его за вас.
+Tutorial beenden	Завершить обучение
+Erledigt!	Готово!
+Zeig es mir	Покажи
+Amboss erledigt diesen Schritt für dich	Amboss сделает этот шаг за вас
+Kapitel abschließen	Завершить главу
+1 · Die erste Map	1 · Первая карта
+Oberfläche kennenlernen, einen Raum bauen, Kamera bewegen, speichern.	Знакомство с интерфейсом, строим комнату, двигаем камеру, сохраняем.
+Willkommen!	Добро пожаловать!
+Links oben siehst du die 3D-Ansicht, daneben und darunter drei 2D-Ansichten von oben, vorn und von der Seite. In 2D baust du genau auf dem Raster, in 3D schaust du dir das Ergebnis an. Links ist die Werkzeugleiste, rechts stehen die Eigenschaften und unten rechts die Texturen.	Слева вверху – 3D-вид; рядом и ниже – три 2D-вида сверху, спереди и сбоку. В 2D вы строите точно по сетке, в 3D смотрите на результат. Панель инструментов слева, свойства справа, текстуры справа внизу.
+Eine neue Map	Новая карта
+Lege eine leere Map an: Datei → Neu (Strg+N). Sie öffnet sich in einem eigenen Tab.	Создайте пустую карту: Файл → Создать (Ctrl+N). Она откроется в отдельной вкладке.
+Das Block-Werkzeug	Инструмент «Блок»
+Mit dem Block-Werkzeug baust du Wände, Böden und alles Feste. Klicke es in der Werkzeugleiste an oder drücke Shift+B.	Инструментом «Блок» строят стены, полы и всё твёрдое. Щёлкните его на панели инструментов или нажмите Shift+B.
+Einen großen Block aufziehen	Нарисуйте большой блок
+Ziehe in der Ansicht „Oben“ mit gedrückter linker Maustaste ein großes Rechteck auf (etwa 512 × 512). In „Vorn“ oder „Seite“ kannst du die Höhe ziehen (etwa 256). Drücke dann Enter.	В виде «Сверху» растяните большой прямоугольник, удерживая левую кнопку мыши (примерно 512 × 512). В виде «Спереди» или «Сбоку» можно задать высоту (примерно 256). Затем нажмите Enter.
+Aushöhlen – ein Raum entsteht	Сделать полым – появляется комната
+Ein Raum ist ein hohler Block. Wähle den Block mit dem Auswahl-Werkzeug (Shift+S) und wähle Objekt → Brush-Operationen → Aushöhlen (Strg+H). Aus dem Block werden sechs Wände.	Комната – это полый блок. Выделите блок инструментом выделения (Shift+S) и выберите Объект → Операции с брашами → Сделать полым (Ctrl+H). Блок превратится в шесть стен.
+Umsehen in 3D	Осмотритесь в 3D
+Speichere die Map: Datei → Speichern (Strg+S). Leg sie am besten in einen eigenen Ordner, z. B. „Dokumente/Maps“.	Сохраните карту: Файл → Сохранить (Ctrl+S). Лучше в отдельную папку, например «Документы/Карты».
+2 · Texturen und Formen	2 · Текстуры и формы
+Texturen wählen und auftragen, Kisten bauen, kopieren und mit dem Clip-Werkzeug schneiden.	Выбирать и накладывать текстуры, строить ящики, копировать их и резать инструментом разреза.
+Eine Textur wählen	Выберите текстуру
+Unten rechts siehst du die Texturen. Klicke eine an, zum Beispiel eine Ziegelwand. Mit „Browser…“ kannst du alle Texturen durchsuchen.	Текстуры находятся справа внизу. Щёлкните одну, например кирпичную стену. Через «Браузер…» можно искать среди всех текстур.
+Textur auftragen	Наложите текстуру
+Wähle eine Wand mit dem Auswahl-Werkzeug und drücke Shift+T (Bearbeiten → Aktuelle Textur anwenden). Für einzelne Flächen gibt es das Textur-Werkzeug (Shift+A): Fläche in 3D anklicken, Textur anklicken.	Выделите стену инструментом выделения и нажмите Shift+T (Правка → Применить текущую текстуру). Для отдельных граней есть инструмент текстур (Shift+A): щёлкните грань в 3D, затем текстуру.
+Eine Kiste bauen	Постройте ящик
+Nimm wieder das Block-Werkzeug (Shift+B) und ziehe im Raum einen kleinen Block auf, etwa 64 × 64 × 64. Enter bestätigt.	Снова возьмите инструмент «Блок» (Shift+B) и нарисуйте небольшой блок внутри комнаты, примерно 64 × 64 × 64. Enter подтверждает.
+Wähle die Kiste (Shift+S, dann anklicken) und drücke Strg+D, um sie zu duplizieren. Die Kopie kannst du in 2D an einen anderen Platz ziehen.	Выделите ящик (Shift+S, затем щелчок по нему) и нажмите Ctrl+D, чтобы его продублировать. Копию можно перетащить в другое место в 2D.
+Schneiden mit dem Clip-Werkzeug	Разрезание инструментом разреза
+Das Clip-Werkzeug (Shift+X) schneidet Blöcke entlang einer Linie – so entstehen Schrägen und Rampen. Wähle eine Kiste, nimm das Clip-Werkzeug und ziehe in einer 2D-Ansicht schräg über die Kiste. Enter schneidet.	Инструмент разреза (Shift+X) режет блоки по линии – так делают скосы и пандусы. Выделите ящик, возьмите инструмент разреза и проведите линию по диагонали через ящик в 2D-виде. Enter режет.
+Spawnpunkt, Licht und ein Prop setzen und ihre Eigenschaften ändern.	Разместите точку спавна, источник света и проп и измените их свойства.
+Was sind Entities?	Что такое энтити?
+Entities sind alles, was nicht einfach feste Geometrie ist: Spawnpunkte, Lichter, Props, Türen, Trigger, Sounds… Gesetzt werden sie mit dem Entity-Werkzeug (Shift+E). Die Klasse wählst du rechts im Panel: ins Feld tippen (mit Vorschlägen) oder über den Pfeil daneben aus der Liste.	Энтити – всё, что не является простой твёрдой геометрией: точки спавна, свет, пропы, двери, триггеры, звуки… Их размещают инструментом энтити (Shift+E). Класс выбирается на панели справа: введите его в поле (с подсказками) или выберите из списка стрелкой рядом.
+Ein Spawnpunkt	Точка спавна
+Ohne Spawnpunkt kann man die Map nicht betreten. Nimm das Entity-Werkzeug, wähle die Klasse „info_player_start“ und klicke in 3D auf den Boden des Raums.	Без точки спавна никто не попадёт на карту. Возьмите инструмент энтити, выберите класс «info_player_start» и щёлкните по полу комнаты в 3D.
+Ohne Licht ist die Map im Spiel stockdunkel. Setze ein Entity der Klasse „light“ in die Mitte des Raums, etwas unter die Decke.	Без света карта в игре будет полностью тёмной. Поставьте энтити класса «light» в центре комнаты, немного ниже потолка.
+Eigenschaften ändern	Изменить свойства
+Wähle das Licht aus. Rechts im Panel stehen jetzt seine Eigenschaften. Ändere die Helligkeit „Brightness“ – zum Beispiel über das Farbfeld – auf ein warmes Gelb.	Выделите источник света. Его свойства теперь на панели справа. Измените «Brightness» – например, через поле цвета – на тёплый жёлтый.
+Ein Prop	Проп
+Props sind Modelle, zum Beispiel Kisten, Fässer oder Stühle. Setze ein „prop_physics“ und wähle beim Feld „World Model“ über „…“ im Modell-Browser ein Modell aus.	Пропы – это модели, например ящики, бочки или стулья. Поставьте «prop_physics» и выберите модель в браузере моделей через «…» рядом с «World Model».
+4 · Tür und Trigger	4 · Дверь и триггер
+Eine Schiebetür bauen, einen Trigger setzen und beide mit einem Ausgang verknüpfen.	Постройте раздвижную дверь, поставьте триггер и свяжите их выходом.
+Eine Tür aus einem Block	Дверь из блока
+Baue einen schmalen Block als Türblatt (etwa 8 × 64 × 112) und wandle ihn um: Objekt → In Entity umwandeln (Strg+T) und als Klasse „func_door“ wählen.	Постройте узкий блок как створку (примерно 8 × 64 × 112) и преобразуйте его: Объект → Привязать к энтити (Ctrl+T) и выберите класс «func_door».
+Name und Richtung	Имя и направление
+Gib der Tür rechts im Panel den Namen „tuer“. Bei „Move Direction“ legst du fest, wohin sie fährt – zum Beispiel „-90 0 0“ für nach oben. Der gelbe Pfeil zeigt die Bewegung.	На панели справа назовите дверь «door». «Move Direction» задаёт, куда она движется, – например «-90 0 0» вверх. Жёлтая стрелка показывает движение.
+Ein Trigger	Триггер
+Ein Trigger ist ein unsichtbarer Bereich, der etwas auslöst. Wähle die Textur „TOOLS/TOOLSTRIGGER“, baue einen Block vor die Tür und wandle ihn mit Strg+T in „trigger_multiple“ um.	Триггер – невидимая область, которая что-то запускает. Возьмите текстуру «TOOLS/TOOLSTRIGGER», постройте блок перед дверью и преобразуйте его через Ctrl+T в «trigger_multiple».
+Verknüpfen: der Ausgang	Связь: выход
+Wähle den Trigger. Rechts unter „Ausgänge“: „+ Output hinzufügen“ → „OnStartTouch“, als Ziel „tuer“ und als Input „Open“. Jetzt öffnet sich die Tür, sobald jemand den Trigger betritt.	Выделите триггер. Справа в разделе «Выходы»: «+ Добавить выход» → «OnStartTouch», цель «door» и вход «Open». Теперь дверь открывается, как только кто-то входит в триггер.
+5 · Kompilieren und testen	5 · Компиляция и проверка
+Map prüfen, kompilieren und in Garry's Mod ausprobieren.	Проверьте карту, скомпилируйте её и опробуйте в Garry's Mod.
+Bevor du kompilierst: Map → Auf Probleme prüfen (Alt+P). Amboss findet Lecks, fehlende Spawnpunkte, kaputte Brushes und vieles mehr – oft mit „Beheben“-Knopf.	Перед компиляцией: Карта → Найти проблемы (Alt+P). Amboss находит утечки, отсутствующие точки спавна, сломанные браши и многое другое – часто с кнопкой «Исправить».
+Öffne Kompilieren → Kompilieren & Exportieren… Hier stellst du die Qualität ein und kannst eigene Inhalte in die BSP packen und ein Navmesh erzeugen lassen.	Откройте Компиляция → Компиляция и экспорт… Здесь задаётся качество, можно упаковать собственный контент в BSP и сгенерировать navmesh.
+Los!	Поехали!
+Klicke im Dialog auf „Kompilieren & Exportieren“ (oder drücke F9). Das Protokoll zeigt den Fortschritt. Ist „Spiel starten“ angehakt, startet Garry's Mod danach direkt mit deiner Map.	Нажмите в диалоге «Компиляция и экспорт» (или F9). Журнал показывает ход работы. Если отмечено «Запустить игру», Garry's Mod сразу после этого запустится с вашей картой.
+Geschafft!	Получилось!
+Deine erste Map ist fertig. In Garry's Mod lädst du sie auch über die Konsole: „map <name>“. Weiter geht es mit Displacements für Gelände, Props aus dem Modell-Browser und der Experten-Oberfläche (Ansicht → Oberfläche).	Ваша первая карта готова. В Garry's Mod её также можно загрузить через консоль: «map <имя>». Дальше: дисплейсменты для рельефа, пропы из браузера моделей и интерфейс эксперта (Вид → Интерфейс).
+Tutorial: Erste Schritte	Обучение: первые шаги
+Ziel	Цель
+Anz.	Количество
+Schritt {} von {}	Шаг {} из {}
+{} von {} Kapiteln erledigt	Пройдено глав: {} из {}
+{} Schritte	Шагов: {}
+Ordner gesetzt: {}	Папка задана: {}
+Starten	Начать
+Dekompiliere… → {}	Декомпиляция… → {}
+Dekompiliert: {} Brushes, {} Entities → {}	Декомпилировано: брашей {}, энтити {} → {}
+{} Datei(en) in {} gepackt: {} neu, {} ersetzt, {} waren schon drin · {}	Упаковано файлов {} в {}: новых {}, заменено {}, уже было {} · {}
+1 Addon	1 аддон
+{} Addons	Аддонов: {}
+· automatisch gesichert {}	· автосохранение {}
+Fehler: {} · Warnungen: {}	Ошибок: {} · Предупреждений: {}
+{}\nKlick: Einstellungen	{}\nЩелчок: настройки
+{}: an Minimum	{}: на минимуме
+{}: an Maximum	{}: на максимуме
+Aktuell: {}	Текущее: {}
+{} {} einfügen	Вставить {} {}
+{} Gruppen	Групп: {}
+In Visgroup „Import: {}“ legen	Поместить в visgroup «Import: {}»
+Map-Eigenschaft {}: {} -> {}	Свойство карты {}: {} -> {}
+Länge {}\nΔX {}  ΔY {}  ΔZ {}\n≈ {} m	Длина {}\nΔX {}  ΔY {}  ΔZ {}\n≈ {} м
+In Entity umwandeln… ({} Brush(es), Strg+T)	Привязать к энтити… (брашей: {}, Ctrl+T)
+AUFBAU	СТРУКТУРА
+unbekannter Fehler	неизвестная ошибка
+Inhalte packen: keine eigenen Dateien gefunden	Упаковка: собственные файлы не найдены
+Inhalte packen: {} Datei(en), {} MB werden nach VRAD in die BSP gepackt (Auswahl: Kompilieren → Inhalte in BSP packen…)	Упаковка: файлов {}, {} МБ будут упакованы в BSP после VRAD (выбор: Компиляция и экспорт → Упаковать собственный контент)
+Benötigte Addons für die Map "{}" (erstellt von Amboss)\n	Необходимые аддоны для карты «{}» (создано Amboss)\n
+Beim Hochladen in den Steam-Workshop unter "Benötigte Objekte" / "Required Items" verlinken,\n	При загрузке в Мастерскую Steam привяжите их в разделе «Required Items»,\n
+oder die Inhalte selbst in die BSP packen.\n\n	или упакуйте контент в BSP сами.\n\n
+Keine Inhalte aus Addons – die Map braucht nur das Spiel	Нет контента из аддонов – карте нужна только игра
+ und eigene, lose Dateien.\n	 и ваши собственные отдельные файлы.\n
+   (keine Workshop-ID gefunden – lokale Datei: {})\n	   (ID Мастерской не найден – локальный файл: {})\n
+   {} Datei(en), z. B.:\n	   файлов: {}, например:\n
+     … und {} weitere\n	     … и ещё {}\n
+Außerdem {} eigene Datei(en), die lose im Spielordner liegen (nicht in einem Addon) – mit "Eigene Inhalte in die BSP packen" einpacken.\n	Также собственных файлов {} лежат отдельно в папке игры (не в аддоне) – упакуйте их через «Упаковать собственный контент в BSP».\n
+Addons: keine benötigt (Liste: {})	Аддоны: не требуются (список: {})
+Addons: die Map benutzt Inhalte aus {} Addon(s) – Liste mit Workshop-Links: {}	Аддоны: карта использует контент из аддонов ({}) – список со ссылками на Мастерскую: {}
+  • {} ({} Datei(en)){}	  • {} (файлов: {}){}
+Addon-Liste konnte nicht gespeichert werden: {}	Не удалось сохранить список аддонов: {}
+dein Rechner hat keine IPv6-Internetverbindung (prüfen: test-ipv6.com). Ausweg: im Router IPv6 einschalten, über einen Handy-Hotspot verbinden, oder der Gastgeber gibt Port 3918 (TCP) im Router frei und du verbindest dich mit seiner IPv4-Adresse	у вашего компьютера нет подключения к интернету по IPv6 (проверка: test-ipv6.com). Выход: включите IPv6 в роутере, подключитесь через точку доступа телефона, или хост пробросит порт 3918 (TCP) в своём роутере, а вы подключитесь к его IPv4-адресу
+{} (geändert)	{} (изменено)
+Gastgeber auf Port {} – warte auf Gäste	Хост на порту {} – ожидание гостей
+{} ist beigetreten	{} присоединился(-ась)
+{} hat die Sitzung verlassen	{} покинул(а) сессию
+Werkzeug: {}	Инструмент: {}
+Garry's Mod wurde nicht gefunden (auch nicht in weiteren Steam-Bibliotheken). Bitte den Ordner…/GarrysMod/garrysmod manuell eintragen.	Garry's Mod не найден (и в других библиотеках Steam тоже). Укажите папку…/GarrysMod/garrysmod вручную.
+** Abgebrochen **	** Отменено **
+\n===== {} =====	\n===== {} =====
+\n===== Fertig =====	\n===== Готово =====
+Übersprungen: {} ({})	Пропущено: {} ({})
+{} Datei(en) in {} gepackt ({} neu, {} ersetzt, {} vorhanden), {} MB	Упаковано файлов {} в {} (новых {}, заменено {}, уже было {}), {} МБ
+Packen fehlgeschlagen: {}	Ошибка упаковки: {}
+Kopieren fehlgeschlagen ({} → {}): {}	Ошибка копирования ({} → {}): {}
+Fehler: {} konnte nicht gestartet werden: {}	Ошибка: не удалось запустить {}: {}
+{} ist mit Code {} fehlgeschlagen.	{} завершился с кодом {}.
+Die Map hat ein LECK (Loch zur Leere). Das Pointfile wird geladen und zeigt den Weg.	В карте УТЕЧКА (дыра в пустоту). Pointfile загружен и показывает путь.
+*** WARNUNG: Die Map hat ein LECK! ***	*** ВНИМАНИЕ: в карте УТЕЧКА! ***
+{}: Brushes nicht rekonstruierbar (z. B. Areaportal/Occluder) – Entity bleibt als Punkt-Entity	{}: браши невозможно восстановить (например, area portal/occluder) – энтити остаётся точечной
+Statische Props sind komprimiert (LZMA) – nicht unterstützt	Статичные пропы сжаты (LZMA) – не поддерживается
+Unbekanntes Format der statischen Props (Version {})	Неизвестный формат статичных пропов (версия {})
+Overlay {} ({}): keine passende Fläche gefunden	Оверлей {} ({}): подходящая грань не найдена
+Aktuelle Textur anwenden / Textur-Browser	Применить текущую текстуру / браузер текстур
+{} neu, {} gelöscht, {} geändert, {} Map-Eigenschaft(en) anders	Добавлено: {}, удалено: {}, изменено: {}, различающихся свойств карты: {}
+{} Änderung(en) der anderen Seite übernommen, {} Konflikt(e), {} Objekt(e) neu nummeriert	Изменений взято с другой стороны: {}, конфликтов: {}, перенумеровано объектов: {}
+{}: bei uns gelöscht, bei der anderen Seite geändert – geänderte Version wiederhergestellt	{}: удалено здесь, изменено на другой стороне – изменённая версия восстановлена
+{}: bei uns geändert, bei der anderen Seite gelöscht – unsere Version behalten	{}: изменено здесь, удалено на другой стороне – оставлена наша версия
+{}: auf beiden Seiten verschieden geändert – unsere Version behalten, die andere liegt ausgeblendet in „Konflikt: andere Version“	{}: изменено по-разному с обеих сторон – оставлена наша версия, другая скрыта в «Конфликт: другая версия»
+Map-Eigenschaft {}: beide geändert ({} / {}) – unser Wert bleibt	Свойство карты {}: изменено с обеих сторон ({} / {}) – остаётся наше значение
+Änderung	Изменить
+{}: ungültige VPK	{}: недопустимый VPK
+Spielordner nicht gefunden: {}	Папка игры не найдена: {}
+PNG zu groß	PNG слишком большой
+Skript ausgeführt ({} Aufrufe) – Rückgängig nimmt alles auf einmal zurück	Скрипт завершён (вызовов: {}) – Отмена откатывает всё сразу
+Skript-Fehler: {}	Ошибка скрипта: {}
+kein Einstellungsordner	нет папки настроек
+{}: VMT nicht gefunden	{}: VMT не найден
+{}: VTF {} nicht gefunden	{}: VTF {} не найден
+Datei zu kurz (Offset {})	Файл слишком короткий (смещение {})
+Datei zu kurz	Файл слишком короткий
+ungültiger String-Offset	недопустимое смещение строки
+{} nicht gefunden	{} не найден
+{}.vvd nicht gefunden	{}.vvd не найден
+{}.vtx nicht gefunden	{}.vtx не найден
+Vertex-Index außerhalb	индекс вершины вне диапазона
+Zusammengeführt: {} Brushes, {} Entities	Объединено: брашей {}, энтити {}
+zwei Sonnen – Source benutzt nur eine	два солнца – Source использует только одно
+zwei 3D-Skybox-Kameras – nur eine ist erlaubt	две камеры 3D-скайбокса – допускается только одна
+mehrere Nebel-Controller – prüfen, welcher aktiv ist	несколько контроллеров тумана – проверьте, какой активен
+Die Bereiche überlappen sich ({} Brushes der offenen Map liegen im Bereich der neuen) – evtl. „Daneben setzen“ wählen	Области пересекаются (брашей открытой карты внутри новой: {}) – подумайте о «Разместить рядом»
+{} Spawnpunkt(e) aus der anderen Map kommen hinzu	Будут добавлены точки спавна из другой карты: {}
+Teile liegen außerhalb der Map-Grenzen (±{})	Части лежат за границами карты (±{})
+Instanz-Datei {} nicht gefunden – Pfad prüfen	Файл инстанса {} не найден – проверьте путь
+{}: liegt nicht unter materials/, models/, sound/ … – Pfad im Spiel unklar	{}: не в materials/, models/, sound/ … – путь в игре неясен
+Eintrag nicht gefunden	Запись не найдена
+Prefab-Daten außerhalb der Datei	Данные префаба вне файла
+Kein info_player_start vorhanden.	Нет info_player_start.
+Keine Lichtquelle – die Map wird nach VRAD komplett dunkel.	Нет источника света – после VRAD карта будет полностью тёмной.
+Ungültiger Brush (ID {}).	Недопустимый браш (ID {}).
+Brush {} hat Seiten ohne Fläche.	У браша {} есть грани без площади.
+Displacement auf nicht-viereckiger Fläche (Brush {}).	Дисплейсмент на непрямоугольной грани (браш {}).
+Brush {} liegt außerhalb der Map-Grenze (±{}).	Браш {} лежит за границами карты (±{}).
+Brush {} ist ein Duplikat von {}.	Браш {} – дубликат {}.
+Material "{}" wurde in den Spielinhalten nicht gefunden ({} Brush(es)).	Материал «{}» не найден в игровом контенте (брашей: {}).
+Unbekannte Entity-Klasse "{}" (ID {}).	Неизвестный класс энтити «{}» (ID {}).
+Brush-Entity {} (ID {}) hat keine Brushes.	У браш-энтити {} (ID {}) нет брашей.
+Punkt-Entity {} (ID {}) enthält Brushes.	Точечная энтити {} (ID {}) содержит браши.
+Entity {} hat keine Klasse.	У энтити {} нет класса.
+{} (ID {}): Schlüssel nicht in der FGD: {}	{} (ID {}): ключи не из FGD: {}
+{} (ID {}): {} Output(s) zielen auf nicht existierende Namen.	{} (ID {}): выходов ({}) ссылаются на несуществующие имена.
+{} (ID {}) liegt außerhalb der Map-Grenze.	{} (ID {}) лежит за границами карты.
+Spawnpunkt {} steckt in einem Brush.	Точка спавна {} застряла в браше.
+{} (ID {}) hat keinen Ursprung.	У {} (ID {}) нет origin.
+Cordon aktiv, aber kein Spawnpunkt im Cordon-Bereich.	Кордон активен, но внутри кордона нет точки спавна.
+studiomdl konnte nicht gestartet werden: {}	Не удалось запустить studiomdl: {}
+studiomdl ist fehlgeschlagen – Brushes bleiben unverändert.	studiomdl завершился ошибкой – браши не изменены.
+Kein Spielverzeichnis eingestellt (Einstellungen → Spiel).	Папка игры не задана (Настройки → Игра).
+studiomdl wurde nicht neben vbsp gefunden – QC liegt bereit und kann manuell kompiliert werden.	studiomdl не найден рядом с vbsp – QC готов и может быть скомпилирован вручную.
+VTF beschädigt	VTF повреждён
+VTF-Format {} nicht unterstützt	Формат VTF {} не поддерживается
+aus 	из 
+ · {} Klassen	 · классов: {}
+Bibliothek / {}	Библиотека / {}
+mein_prefab	moj_prefab
+mein_prop	moj_prop
+(verschieden)	(разные)
+Zwischenablage leer	Буфер обмена пуст
+Ausdehnung	Размеры
+{} gespeicherte Brushes	Сохранённых брашей: {}
+Welt-Brushes ({})	Браши мира ({})
+Nur Brush-Entities	Только браш-энтити
+Punkt-Entity – nicht für Brushes	Точечная энтити – не для брашей
+1 Hinweis	1 примечание
+{} Hinweise	Примечаний: {}
+1 Warnung	1 предупреждение
+{} Warnungen	Предупреждений: {}
+1 Fehler	1 ошибка
+{} Fehler	Ошибок: {}
+Aktuell	Текущее
+1 Kind	1 дочерний
+{} · R {} · S {} · Strg = umkehren	{} · R {} · S {} · Ctrl = инвертировать
+Werkzeuge → Versionen & Zusammenführen → Map zusammenführen	Инструменты → Версии и слияние → Объединить карту
+Werkzeuge → Versionen & Zusammenführen → Vergleichen / 3-Wege	Инструменты → Версии и слияние → Сравнить / трёхстороннее
+Werkzeuge → Live-Sitzung	Инструменты → Совместная сессия
+Kompilieren → Automatische Optimierungen	Компиляция → Автоматические оптимизации
+Entity-Report / Gehe zu Nummer	Отчёт по энтити / перейти к номеру
+Kamera wechseln	Переключить камеру
+Messwerkzeug (2D ziehen, 3D zwei Punkte)	Инструмент измерения (перетаскивание в 2D, две точки в 3D)
+Kopieren / Einfügen / Ausschneiden · Strg+Shift+V Inhalte einfügen	Копировать / вставить / вырезать · Ctrl+Shift+V специальная вставка
+3D-Gizmo	3D-гизмо
+Alt+Klick (3D)	Alt+щелчок (3D)
+Shift+S Auswahl · G Lupe · C Kamera · E Entity · B Block · A Textur · D Decal · O Overlay · X Clip · V Vertex · P Displacement · K Cordon	Shift+S выделение · G лупа · C камера · E энтити · B блок · A текстура · D декаль · O оверлей · X разрез · V вершины · P дисплейсмент · K кордон
+1. Block (Shift+B), in der Ansicht Oben ein Rechteck ziehen. 2. Strg+H höhlt zum Raum aus. 3. Entity (Shift+E): info_player_start und light setzen. 4. F9.	1. Блок (Shift+B), нарисуйте прямоугольник в виде сверху. 2. Ctrl+H делает из него комнату. 3. Энтити (Shift+E): разместите info_player_start и light. 4. F9.
+Erste Schritte	Первые шаги
+1 Objekt	1 объект
+{} Objekte	Объектов: {}
+1 Entity	1 энтити
+{} Entities	Энтити: {}
+1 Brush	1 браш
+{} Brushes	Брашей: {}
+1 Aufruf	1 вызов
+{} Aufrufe	Вызовов: {}
+✓ fertig in {} ms, {}	✓ выполнено за {} мс, {}
+tuer	дверь
+Bedienung & Tastenkürzel	Управление и горячие клавиши
+Tastenbelegung ändern…	Настроить горячие клавиши…
+Lege zuerst mit dem Cordon-Werkzeug (Shift+K) einen Bereich fest.	Сначала задайте область инструментом «Кордон» (Shift+K).
+Einstellungsordner öffnen	Открыть папку настроек
+Ordner mit Einstellungen, Autosaves und grafik.txt	Папка с настройками, автосохранениями и grafik.txt
+Über Amboss…	О программе Amboss…
+Über Amboss	О программе Amboss
+Map-Editor für Source 1 und Garry's Mod	Редактор карт для Source 1 и Garry's Mod
+Verwendete Bibliotheken	Используемые библиотеки
+Fehler gefunden? Beschreibe Schritte, Map und Fehlermeldung – die Einstellungen und Autosaves liegen im Einstellungsordner (Hilfe → Einstellungsordner öffnen).	Нашли ошибку? Опишите шаги, карту и сообщение об ошибке – настройки и автосохранения лежат в папке настроек (Справка → Открыть папку настроек).
+Ausschneiden	Вырезать
+In Entity umwandeln…	Привязать к энтити…
+Nur aktiv, wenn automatisch angewendet wird	Только при автоматическом применении
+Um die Hochachse drehen (Yaw)	Поворот вокруг вертикальной оси (yaw)
+Input des Ziels	Вход цели
+Parameter (optional)	Параметр (необязательно)
+Verzögerung in Sekunden	Задержка в секундах
+Anzahl Auslösungen (−1 = immer)	Число срабатываний (−1 = всегда)
+Kein Objekt mit diesem Namen in der Map	В карте нет объекта с таким именем
+Das Ziel kennt diesen Input nicht	У цели нет такого входа
+Diese Klasse hat keinen Output mit diesem Namen	У этого класса нет выхода с таким именем
+Klick in 2D oder auf eine Fläche in 3D platziert:	Щёлкните в 2D или по грани в 3D, чтобы разместить:
+Klasse ändern…	Сменить класс…
+Hilfe zur Klasse	Справка по классу
+Material rechts bei den Texturen wählen (z. B. decals/…), dann in 3D auf eine Fläche klicken.	Выберите материал в текстурах справа (например, decals/…), затем щёлкните по грани в 3D.
+Material rechts bei den Texturen wählen, dann in 3D auf eine Brush-Fläche klicken.\nGröße und Ausrichtung danach mit den Griffen in der Ansicht oder in den Eigenschaften (uv0–uv3).	Выберите материал в текстурах справа, затем щёлкните по грани браша в 3D.\nРазмер и выравнивание настраиваются маркерами в виде или в свойствах (uv0–uv3).
+In 2D eine Schnittlinie ziehen. Beide/Vorne/Hinten bestimmt, welche Teile bleiben. Enter schneidet.	Проведите линию разреза в 2D. Обе/Перед/Зад определяет, что останется. Enter режет.
+Keine Eckpunkte ausgewählt	Вершины не выделены
+{} ausgewählt	Выделено: {}
+1 Eckpunkt	1 вершина
+{} Eckpunkte	Вершин: {}
+{} Brushes in Entity umwandeln…	Привязать браши ({}) к энтити…
+1 Gruppe	1 группа
+{} gelöscht	Удалено: {}
+{} kopiert	Скопировано: {}
+Carve: {} geschnitten	Вырезание: разрезано: {}
+{} ersetzt	Заменено: {}
+{} dupliziert	Продублировано: {}
+{} auf nodraw gesetzt	Переведено в nodraw: {}
+{} aus der Zwischenablage eingefügt	Вставлено из буфера обмена: {}
+{} hinzugefügt	Добавлено: {}
+{} im Rahmen ausgewählt	Выделено в рамке: {}
+1 Fläche	1 грань
+1 verdeckte Fläche	1 скрытая грань
+{} verdeckte Flächen	Скрытых граней: {}
+1 berührendes Objekt	1 соприкасающийся объект
+{} berührende Objekte	Соприкасающихся объектов: {}
+1 Modell	1 модель
+Fast fertig – {} fehlen noch.	Почти готово – осталось: {}.
+1 Punkt	1 элемент
+{} Punkte	Элементов: {}
+Zu Schritt 2	Назад к шагу 2
+Trotzdem weiter	Всё равно продолжить
+Los geht's	Поехали
+Keine Spiele eingebunden. Inhalte anderer Source-Spiele (z. B. Counter-Strike: Source) bindest du in Garry's Mod ein: Hauptmenü → Spiele-Symbol.	Игры не подключены. Чтобы использовать контент других игр на Source (например, Counter-Strike: Source), подключите их в Garry's Mod: главное меню → значок игр.
+Entity löschen (Strg+Z macht es rückgängig)	Удалить энтити (Ctrl+Z отменяет)
+Modus	Режим
+Pinsel	Кисть
+Keine Displacements ausgewählt.	Дисплейсменты не выделены.
+Min 	Мин. 
+Max 	Макс. 
+Nähen	Сшить
+Keine Physik-Kollision	Без физических столкновений
+Keine Hull-Kollision	Без столкновений оболочки
+Keine Strahl-Kollision	Без столкновений с лучами
+Neue Displacements: im Textur-Werkzeug Flächen wählen →	Новые дисплейсменты: выделите грани инструментом текстур →
+Displacement erstellen	Создать дисплейсмент
+Aus den im Textur-Werkzeug ausgewählten Flächen	Из граней, выделенных инструментом текстур
+neues Skript	новый скрипт
+amboss.room(min, max, mat, wand) → ids	amboss.room(min, max, mat, wall) → ids
+amboss.entity(klasse, pos, keys, winkel) → id	amboss.entity(class, pos, keys, angles) → id
+amboss.get(id) → Tabelle	amboss.get(id) → table
+amboss.output(id, out, ziel, input, param, verz.)	amboss.output(id, out, target, input, param, delay)
+amboss.move(ids, versatz)	amboss.move(ids, offset)
+amboss.entities([klasse])	amboss.entities([class])
+Spiel & Pfade	Игра и пути
+KI-Steuerung (MCP)	Управление ИИ (MCP)
+Intervall (Minuten, 0 = aus)	Интервал (минуты, 0 = выкл.)
+Anzahl Sicherungen	Число копий
+📁 Spielordner wählen…	📁 Выбрать папку игры…
+Eigener Wert	Своё значение
+Material-Editor	Редактор материалов
+Material-Editor…	Редактор материалов…
+Eigene Materialien anlegen, Bilder als Textur importieren	Создавайте собственные материалы, импортируйте изображения как текстуры
+Keine VMT gefunden – neues Material.	VMT не найден – новый материал.
+Bitte einen Materialnamen eingeben, z. B. amboss/wand_rot	Введите имя материала, например amboss/stena_krasnaya
+Kein Spielordner eingestellt (Einstellungen → Spiel & Pfade).	Папка игры не задана (Настройки → Игра и пути).
+Keine Basistextur	Нет базовой текстуры
+Gekachelt (2 × 2)	Плиткой (2 × 2)
+Pfad unter materials/, ohne .vmt	Путь внутри materials/, без .vmt
+Shader	Шейдер
+Pfad unter materials/	Путь внутри materials/
+Bild…	Изображение…
+PNG importieren (wird beim Speichern zu VTF)	Импорт PNG (при сохранении преобразуется в VTF)
+Importiert – wird beim Speichern geschrieben	Импортировано – записывается при сохранении
+Basistextur	Базовая текстура
+Farbbild der Oberfläche	Цветное изображение поверхности
+Normalmap	Карта нормалей
+Oberflächenrelief für Licht	Рельеф поверхности для освещения
+Zweite Textur	Вторая текстура
+Wird über die Alpha-Werte des Displacements eingeblendet	Подмешивается по значениям альфы дисплейсмента
+Zweite Normalmap	Вторая карта нормалей
+Relief der zweiten Textur	Рельеф второй текстуры
+Detailtextur	Детальная текстура
+Feine Struktur, die über die Basistextur gelegt wird	Мелкая структура поверх базовой текстуры
+Detail-Skalierung	Масштаб детали
+Oberflächenart	Тип поверхности
+(keine)	(нет)
+$surfaceprop: Schritt-Geräusche, Einschusslöcher, Physik	$surfaceprop: звуки шагов, попадания пуль, физика
+Farbe	Цвет
+Zurücksetzen	Сбросить
+Durchscheinend	Полупрозрачный
+Alpha-Test	Альфа-тест
+Beidseitig	Двусторонний
+Selbstleuchtend	Самосвечение
+Additiv	Аддитивный
+Alpha-Kanal als Transparenz (weiche Kanten, sortiert)	Альфа-канал как прозрачность (мягкие края, сортируется)
+Harte Kanten (Zäune, Blätter) – schneller als durchscheinend	Жёсткие края (заборы, листья) – быстрее полупрозрачности
+Auch von hinten sichtbar	Виден и сзади
+Leuchtet unabhängig vom Licht (Maske im Alpha-Kanal)	Светится независимо от освещения (маска в альфа-канале)
+Hellt den Hintergrund auf (Licht, Feuer)	Осветляет фон (свет, огонь)
+Spiegelung	Отражение
+$envmap env_cubemap – spiegelt die nächste env_cubemap	$envmap env_cubemap – отражает ближайший env_cubemap
+Alle Parameter	Все параметры
+Parameter entfernen	Удалить параметр
++ Parameter	+ Параметр
+{} Unterblöcke (z. B. Proxies) bleiben unverändert erhalten.	Подблоки ({}, например proxies) сохраняются без изменений.
+Als aktuelles Material	Как текущий материал
+Speichern und als aktuelle Textur für neue Brushes setzen	Сохранить и сделать текущей текстурой для новых брашей
+Wird lose im Spielordner gespeichert und beim Kompilieren mit eingepackt	Сохранено отдельным файлом в папке игры и упаковывается при компиляции
+Bild geladen: {} × {} px	Изображение загружено: {} × {} пикс.
+Bild konnte nicht geladen werden: {}	Не удалось загрузить изображение: {}
+Wände, Böden, alles auf Brushes	Стены, полы, всё на брашах
+Modelle (Props)	Модели (пропы)
+Ohne Licht (Leuchtschilder, Skybox-Teile)	Без освещения (вывески, части скайбокса)
+Überblendung zweier Texturen auf Displacements	Смешивание двух текстур на дисплейсментах
+Zwei Texturen ohne Licht	Две текстуры, без освещения
+Glas mit Lichtbrechung	Стекло с преломлением
+Partikel-Editor	Редактор частиц
+Partikel-Editor…	Редактор частиц…
+Partikeleffekte (.pcf) anlegen und bearbeiten, mit Vorschau	Создание и правка эффектов частиц (.pcf) с предпросмотром
+neue Datei	новый файл
+Partikelsysteme	Системы частиц
++ Neu	+ Новая
+Rauch	Дым
+Funken	Искры
+Feuer	Огонь
+Staub	Пыль
+System entfernen	Удалить систему
+Pause	Пауза
+Abspielen	Воспроизвести
+Neu starten	Перезапустить
+{} Partikel · {} s	Частиц: {} · {} с
+Ziehen dreht, Mausrad zoomt · vereinfachte Vorschau	Перетаскивание вращает, колесо масштабирует · упрощённый предпросмотр
+Kein Partikelsystem in der Datei.	В файле нет систем частиц.
+System	Система
+Emitter	Эмиттеры
+Initialisierer	Инициализаторы
+Operatoren	Операторы
+Renderer	Рендереры
+Kräfte	Силы
+Einschränkungen	Ограничения
++ Hinzufügen	+ Добавить
+In Map-Partikelliste eintragen	Добавить в список частиц карты
+Schreibt maps/<map>_particles.txt, damit die Map die Datei lädt	Записывает maps/<map>_particles.txt, чтобы карта загружала файл
+({} Einträge)	(записей: {})
+Konnte nicht geöffnet werden: {}	Не удалось открыть: {}
+Erst speichern	Сначала сохраните
+Die Datei muss im Spielordner liegen (particles/…)	Файл должен лежать в папке игры (particles/…)
+Eingetragen in {}	Добавлено в {}
+kein DMX	не файл DMX
+kein binäres DMX	не двоичный файл DMX
+String-Index außerhalb	индекс строки вне диапазона
+DMX-Version {} wird nicht unterstützt	Версия DMX {} не поддерживается
+Text ohne Ende	незавершённая строка
+unbekannter Attributtyp {}	неизвестный тип атрибута {}
+Im Partikel-Editor öffnen	Открыть в редакторе частиц
+Aus den Spielinhalten geladen – bitte unter neuem Namen speichern	Загружено из игрового контента – сохраните под новым именем
+Indirektes Licht in der Lichtvorschau (GI)	Непрямой свет в предпросмотре освещения (GI)
+Indirektes Licht (GI)	Непрямой свет (GI)
+Von Wänden zurückgeworfenes Licht, wird im Hintergrund berechnet und laufend verfeinert	Свет, отражённый от стен, рассчитывается в фоне и постоянно уточняется
+Indirektes Licht: {} %	Непрямой свет: {} %
+Zuerst Props (Punkt-Entities) auswählen	Сначала выделите пропы (точечные энтити)
+Physik: {} fallen – Esc bricht ab	Физика: падает {} – Esc отменяет
+Physik abgebrochen	Физика отменена
+Physik: {} liegen nach {} s	Физика: {} в покое через {} с
+Vegetation streuen	Разбросать растительность
+Vegetation streuen…	Разбросать растительность…
+Bäume, Büsche, Steine mit einem Pinsel in 3D verteilen	Рисуйте деревья, кусты и камни кистью в 3D
+Mit Physik fallen lassen	Сбросить с физикой
+Noch keine Modelle – im Modell-Browser eines wählen und hier hinzufügen.	Моделей пока нет – выберите одну в браузере моделей и добавьте сюда.
++ Aktuelles Modell	+ Текущая модель
+Verteilung	Распределение
+Pinselradius	Радиус кисти
+Dichte	Плотность
+Objekte je 256 × 256 Einheiten	Объектов на 256 × 256 единиц
+Mindestabstand	Минимальное расстояние
+Größte Neigung	Максимальный уклон
+Steilere Hänge bleiben frei	Более крутые склоны остаются пустыми
+Zufällige Neigung	Случайный наклон
+Einsinken	Заглубление
+Wie tief die Modelle in den Boden ragen (Wurzeln, Steine)	Насколько глубоко модели уходят в землю (корни, камни)
+Zufällig drehen	Случайный поворот
+An der Oberfläche ausrichten	Выравнивать по поверхности
+Pinsel aktiv – in 3D malen, Shift radiert	Кисть активна – рисуйте в 3D, Shift стирает
+Auswahl füllen	Заполнить выделение
+Oberseiten der ausgewählten Brushes und Displacements bestreuen	Разбросать по верхним граням выделенных брашей и дисплейсментов
+Ein Pinselstrich ist ein Rückgängig-Schritt	Один мазок кисти – один шаг отмены
+{} gestreut	Разбросано: {}
+Labyrinth	Лабиринт
+Stadtblock	Городской квартал
+Stadt	Город
+Kreis	Кольцо
+Prozedurale Generatoren	Процедурные генераторы
+Prozedurale Generatoren…	Процедурные генераторы…
+Labyrinth, Räume mit Gängen, Stadtblock, Kreis-Anordnung	Лабиринт, комнаты с коридорами, городской квартал, кольцевой массив
+Zufälliges Labyrinth mit Eingang und Ausgang.	Случайный лабиринт со входом и выходом.
+Räume mit Gängen, geschlossen und sofort kompilierbar (mit Licht und Spawnpunkt).	Комнаты с коридорами, герметичные и готовые к компиляции (со светом и точкой спавна).
+Straßenraster mit Häusern zufälliger Höhe.	Сетка улиц со зданиями случайной высоты.
+Die Auswahl im Kreis um ihren Mittelpunkt vervielfältigen.	Повторить выделение по кругу вокруг его центра.
+Zellen (Breite)	Ячейки (ширина)
+Zellen (Tiefe)	Ячейки (глубина)
+Gangbreite	Ширина коридора
+Raumgröße min. (Zellen)	Мин. размер комнаты (ячейки)
+Raumgröße max. (Zellen)	Макс. размер комнаты (ячейки)
+Gangbreite (Zellen)	Ширина коридора (ячейки)
+Rastergröße (Zellen)	Размер сетки (ячейки)
+Zellgröße	Размер ячейки
+Blöcke (Breite)	Кварталы (ширина)
+Blöcke (Tiefe)	Кварталы (глубина)
+Blockgröße	Размер квартала
+Straßenbreite	Ширина улицы
+Haushöhe	Высота зданий
+Anzahl (mit Original)	Количество (с оригиналом)
+Winkelbereich	Диапазон угла
+Raumhöhe	Высота комнат
+Zufallszahl	Зерно
+Würfeln	Случайно
+Licht in jedem Raum, Spawnpunkt im ersten	Свет в каждой комнате, точка спавна в первой
+Wände bekommen die aktuelle Textur, der Boden die zweite des Generators. Eingefügt wird dort, wohin die 3D-Kamera blickt.	Стены получают текущую текстуру, пол – вторую текстуру генератора. Вставляется туда, куда смотрит 3D-камера.
+Erzeugen	Сгенерировать
+Erst Objekte auswählen	Сначала выделите объекты
+Ein Rückgängig-Schritt; das Ergebnis ist gruppiert	Один шаг отмены; результат сгруппирован
+{} im Kreis angeordnet	Расставлено по кольцу: {}
+Tile-Set	Набор плиток
+Tile-Set…	Набор плиток…
+Bausteine auf einem Raster setzen: Boden, Wand, Ecke, Tür, Treppe …	Размещайте элементы по сетке: пол, стена, угол, дверь, лестница…
+Bausteine · Innenraum	Элементы · интерьер
+Boden	Пол
+Wand	Стена
+Ecke	Угол
+Sackgasse	Тупик
+Gang	Коридор
+Tür	Дверь
+Fenster	Окно
+Nur Boden (und Decke)	Только пол (и потолок)
+Boden mit einer Wand	Пол с одной стеной
+Zwei Wände über Eck	Две стены углом
+Drei Wände	Три стены
+Zwei gegenüberliegende Wände	Две противоположные стены
+Wand mit Durchgang	Стена с дверным проёмом
+Wand mit Fensteröffnung	Стена с оконным проёмом
+Boden mit Säule in der Mitte	Пол с колонной посередине
+Stufen bis zur nächsten Ebene	Ступени на следующий уровень
+Drehung	Поворот
+(R in der 3D-Ansicht)	(R в 3D-виде)
+Feldgröße	Размер ячейки
+Bauebene (Höhe)	Уровень (высота)
+Eine Etage höher	На этаж выше
+tiefer	ниже
+Mit Decke	С потолком
+Wände: aktuelle Textur	Стены: текущая текстура
+Boden: aktuelle Textur	Пол: текущая текстура
+Setzen aktiv – in 3D klicken oder ziehen, Shift entfernt	Размещение активно – щёлкните или протяните в 3D, Shift удаляет
+Jeder Baustein ist eine Gruppe aus Brushes	Каждый элемент – группа брашей
+{} gesetzt ({}°)	Размещено: {} ({}°)
+Warnung: {} Polygon-Mesh(es) noch nicht zum Modell kompiliert (Werkzeuge → Polygon-Mesh…): {}	Внимание: полигональных мешей ({}) ещё не скомпилировано в модель (Инструменты → Полигональный меш…): {}
+Freie Netze: aus Brushes erstellen oder OBJ importieren, Punkte und Flächen ziehen, extrudieren	Свободные меши: создать из брашей или импортировать OBJ, двигать вершины и грани, выдавливать
+Eine Displacement-Fläche mit 16 Kontrollpunkten glatt biegen	Плавно изогнуть поверхность дисплейсмента 16 контрольными точками
+Erst Brushes auswählen	Сначала выделите браши
+Mesh aus {} Brush(es) erstellt	Меш создан из брашей: {}
+Erst Flächen auswählen	Сначала выделите грани
+Erst eine Fläche oder einen Brush auswählen	Сначала выделите грань или браш
+Die Fläche braucht genau vier Ecken	У грани должно быть ровно четыре угла
+Bezier-Patch: Kontrollpunkte in der 3D-Ansicht ziehen	Патч Безье: перетаскивайте контрольные точки в 3D-виде
+Bearbeite {}: {} · {} · {} gewählt	Правка {}: {} · {} · выделено {}
+Freie Netze mit beliebiger Form. Sie gehören zu einem prop_static und werden beim Kompilieren zum Modell; die Netzdaten liegen neben der VMF in <map>.meshes.json.	Свободные меши любой формы. Каждый принадлежит prop_static и компилируется в модель; данные меша хранятся рядом с VMF в <map>.meshes.json.
+Einheit der Datei	Единицы файла
+Ein Bezier-Patch biegt eine Displacement-Fläche mit 16 Kontrollpunkten glatt – für Bögen, Wellen, Röhrenstücke und Kuppeln. Das Ergebnis ist ein normales Displacement.	Патч Безье плавно изгибает поверхность дисплейсмента 16 контрольными точками – для арок, волн, участков труб и куполов. Результат – обычный дисплейсмент.
+{} von 16 Kontrollpunkten gewählt	Выделено {} из 16 контрольных точек
+Modell vorhanden – nach Änderungen neu kompilieren.	Модель есть – после изменений перекомпилируйте.
+Noch nicht kompiliert: vor dem Kompilieren der Map nötig.	Ещё не скомпилировано: нужно перед компиляцией карты.
+Kein Mesh gewählt	Меш не выделен
+Griffe in der 3D-Ansicht ziehen · Shift fügt hinzu · Esc beendet	Перетаскивайте маркеры в 3D-виде · Shift добавляет · Esc завершает
+Bezier-Patch · Punkte ziehen, Shift fügt hinzu, Rahmen wählt mehrere	Патч Безье · перетаскивайте точки, Shift добавляет, рамка выделяет несколько
+Mesh bearbeiten · Punkte ziehen, Shift fügt hinzu, Rahmen wählt mehrere	Правка меша · перетаскивайте точки, Shift добавляет, рамка выделяет несколько
+Gewählte Flächen um den Abstand herausziehen (neue Seitenflächen)	Вытянуть выделенные грани на заданное расстояние (новые боковые грани)
+Punkte zum Mittel ihrer Nachbarn ziehen (ohne Auswahl: alle)	Сдвинуть вершины к среднему их соседей (без выделения: все)
+Jede Fläche in Vierecke teilen (für feinere Formen)	Разбить каждую грань на четырёхугольники (для более тонких форм)
+Vorder- und Rückseite der Flächen tauschen	Поменять местами лицевую и обратную сторону граней
+Gewählte Flächen entfernen (Entf)	Удалить выделенные грани (Del)
+Alle Punkte bzw. Flächen (Strg+A)	Все вершины или грани (Ctrl+A)
+Aktuelle Textur zuweisen	Применить текущую текстуру
+Auf die gewählten Flächen, ohne Auswahl auf das ganze Mesh	К выделенным граням, без выделения – ко всему мешу
+Ausgewähltes Mesh bearbeiten	Править выделенный меш
+Aus ausgewählten Brushes erstellen	Создать из выделенных брашей
+Die Brushes werden durch ein Mesh ersetzt (Displacements als Raster)	Браши заменяются мешем (дисплейсменты – как сетка)
+OBJ-Datei wählen…	Выбрать файл OBJ…
+Wavefront OBJ mit Flächen (v, f, usemtl); eingefügt dort, wohin die 3D-Kamera blickt	Wavefront OBJ с гранями (v, f, usemtl); вставляется туда, куда смотрит 3D-камера
+Flach zurücksetzen	Сделать плоским
+Alle Punkte auf die Ebene der vier Ecken	Все точки на плоскость четырёх углов
+Patch auf Auswahl beginnen	Начать патч на выделении
+Gewählte Fläche (Flächen-Werkzeug) oder Oberseite des gewählten Brushes; ohne Displacement wird eines angelegt	Выделенная грань (инструмент граней) или верх выделенного браша; если дисплейсмента нет, он будет создан
+SMD/QC schreiben und studiomdl starten (Spielverzeichnis aus den Einstellungen)	Записать SMD/QC и запустить studiomdl (папка игры из настроек)
+Extrudieren	Выдавить
+Umdrehen	Перевернуть
+Punkte	Вершины
+Modell	Модель
+OBJ importieren	Импорт OBJ
+Source-Einheiten	Единицы Source
+Meter	Метры
+Zentimeter	Сантиметры
+Y zeigt nach oben (Blender-Export)	Y вверх (экспорт из Blender)
+Polygon-Mesh…	Полигональный меш…
+Bezier-Patch…	Патч Безье…
+Polygon-Mesh / Bezier-Patch	Полигональный меш / патч Безье
+Polygon-Mesh	Полигональный меш
+Bezier-Patch	Патч Безье
+Kompiliert …	Компиляция…
+Zum Modell kompilieren	Скомпилировать в модель
+OBJ importiert: {}	OBJ импортирован: {}
+info_particle_system zeigt seinen Effekt (bis 3000 Einheiten um die Kamera, vereinfachte Simulation)	info_particle_system воспроизводит свой эффект (до 3000 единиц вокруг камеры, упрощённая симуляция)
+Partikel-Effekte abspielen	Воспроизводить эффекты частиц
+Partikel	Частицы
+Live-Abgleich mit dem Spiel…	Синхронизация с игрой в реальном времени…
+Änderungen sofort im laufenden Garry's Mod sehen, ohne neu zu kompilieren	Видеть изменения сразу в запущенном Garry's Mod, без перекомпиляции
+Im Spiel testen ab 3D-Kamera	Проверить в игре с 3D-камеры
+Begehen (im Editor spielen)	Ходьба (игра в редакторе)
+Begehen · WASD · Leertaste springt · Strg duckt · Esc beendet	Ходьба · WASD · Пробел – прыжок · Ctrl – присесть · Esc – выход
+Begehen: WASD laufen, Leertaste springen, Strg ducken, Esc beendet	Ходьба: WASD – движение, Пробел – прыжок, Ctrl – присесть, Esc – выход
+Live-Brücke installiert – wirkt nach dem nächsten Start von Garry's Mod	Мост установлен – заработает после следующего запуска Garry's Mod
+Live-Abgleich mit dem Spiel	Синхронизация с игрой в реальном времени
+Änderungen erscheinen sofort im laufenden Garry's Mod, ohne neu zu kompilieren: Entities verschieben, Werte ändern, neue Props und Entities, Löschen. Neue oder geänderte Brushes erscheinen als begehbare Vorschau.	Изменения сразу появляются в запущенном Garry's Mod без перекомпиляции: перемещение энтити, изменение значений, новые пропы и энтити, удаление. Новые или изменённые браши появляются как проходимый предпросмотр.
+Brücke nicht installiert	Мост не установлен
+Brücke veraltet – neu installieren	Мост устарел – переустановите
+Kein Spiel verbunden – Map in Garry's Mod starten (Einzelspieler)	Игра не подключена – запустите карту в Garry's Mod (одиночная игра)
+Das Spiel nutzt noch Brücke {} – Garry's Mod neu starten, damit die neue geladen wird.	Игра ещё использует мост {} – перезапустите Garry's Mod, чтобы загрузить новый.
+Verbunden: {} · Spieler bei {} {} {}	Подключено: {} · игрок в {} {} {}
+Brücke installieren	Установить мост
+Legt addons/amboss_live an; danach Garry's Mod einmal neu starten.	Создаёт addons/amboss_live; затем один раз перезапустите Garry's Mod.
+Testen	Проверка
+Kompilieren; der Spieler startet dort, wo die 3D-Kamera steht. Läuft das Spiel schon, wird die Map dort neu geladen.	Компилирует; игрок появляется там, где 3D-камера. Если игра уже запущена, карта перезагружается в ней.
+Spieler zur 3D-Kamera	Игрока к 3D-камере
+3D-Kamera zum Spieler	3D-камеру к игроку
+Noclip an/aus	Переключить noclip
+3D-Kamera folgt dem Spieler	3D-камера следует за игроком
+Abgleich	Синхронизация
+Änderungen automatisch übertragen	Отправлять изменения автоматически
+Jetzt übertragen	Отправить сейчас
+Map neu laden	Перезагрузить карту
+Lädt die zuletzt kompilierte Map im Spiel neu (live übertragene Änderungen gehen verloren)	Перезагружает в игре последнюю скомпилированную карту (изменения в реальном времени теряются)
+Spielstand = jetzige Map	Состояние игры = текущая карта
+Wenn die Map im Spiel genau dem jetzigen Stand entspricht (z. B. außerhalb von Amboss kompiliert)	Когда карта в игре точно соответствует текущему состоянию (например, скомпилирована вне Amboss)
+Noch kein Bezug: beim Verbinden gilt der jetzige Stand als das, was im Spiel geladen ist.	Опорного состояния ещё нет: при подключении считается, что текущее состояние – то, что загружено в игре.
+Übertragen: {} geändert · {} neu · {} entfernt · {} Brush-Vorschau	Отправлено: изменено {} · новых {} · удалено {} · предпросмотров брашей {}
+{} gelöschte Brushes	Удалено брашей: {}
+Braucht Kompilieren: {}	Нужна компиляция: {}
+Input auslösen	Вызвать вход
+Ziel (targetname)	Цель (targetname)
+Input	Вход
+Auslösen	Вызвать
+Letzter Fehler im Spiel: {}	Последняя ошибка в игре: {}
+Nur im Einzelspieler bzw. auf dem eigenen Server	Только одиночная игра или собственный сервер
+Verbunden mit {} – Bezug ist der jetzige Stand der Map	Подключено к {} – опорное состояние: текущее состояние карты
+Map geladen: {}	Карта загружена: {}
+Fehler im Spiel: {}	Ошибка в игре: {}
+Bezug gesetzt: jetziger Stand der Map	Опорное состояние задано: текущее состояние карты
+Installiert: {}	Установлено: {}
+Spieler	Игрок
+Himmel-Vorschau (2D-Himmel und 3D-Skybox)	Предпросмотр неба (2D-небо и 3D-скайбокс)
+In 2D eine Schnittlinie ziehen oder in 3D drei Punkte auf Flächen anklicken (schräge Schnitte). Beide/Vorne/Hinten bestimmt, welche Teile bleiben. Enter schneidet.	Проведите линию разреза в 2D или щёлкните три точки на поверхностях в 3D (наклонные разрезы). Обе/Перед/Зад определяет, что останется. Enter режет.
+Nebel (env_fog_controller)	Туман (env_fog_controller)
+Nebel	Туман
+Himmel	Небо
+Clip: Punkt {} von 3 – auf Flächen klicken	Разрез: точка {} из 3 – щёлкайте по поверхностям
+Clip-Ebene steht – Enter schneidet, Shift+X wechselt die Seite	Плоскость разреза задана – Enter режет, Shift+X меняет сторону
+Die drei Punkte liegen auf einer Linie – neu setzen	Три точки лежат на одной прямой – задайте их снова
+6 · Gelände mit Displacements	6 · Рельеф из дисплейсментов
+Eine Fläche in ein Displacement verwandeln, Hügel malen, glätten und zwei Texturen überblenden.	Превратите грань в дисплейсмент, нарисуйте холмы, сгладьте их и смешайте две текстуры.
+Was sind Displacements?	Что такое дисплейсменты?
+Ein Displacement verwandelt eine flache Brush-Fläche in ein feines Raster, dessen Punkte du verschieben kannst – so entstehen Hügel, Täler, Höhlenwände und Wege. Displacements dichten die Map nicht ab: darunter muss immer noch ein Brush oder die Skybox liegen.	Дисплейсмент превращает плоскую грань браша в мелкую сетку, точки которой можно двигать, – так делают холмы, долины, стены пещер и тропинки. Дисплейсменты не герметизируют карту: под ними всё равно должен быть браш или скайбокс.
+Eine Bodenplatte	Плита основания
+Baue mit dem Block-Werkzeug (Shift+B) eine große, flache Platte, etwa 1024 × 1024 Einheiten und 16 hoch. Tipp: Die Textur „NATURE/BLENDGRASSGRAVEL001A“ mischt später Gras und Kies.	Инструментом «Блок» (Shift+B) постройте большую плоскую плиту, примерно 1024 × 1024 единиц и высотой 16. Совет: текстура «NATURE/BLENDGRASSGRAVEL001A» потом смешает траву и гравий.
+Die Oberseite auswählen	Выделите верхнюю грань
+Nimm das Textur-Werkzeug (Shift+A) und klicke in der 3D-Ansicht auf die Oberseite der Platte. Nur ausgewählte Flächen werden zu Displacements.	Возьмите инструмент текстур (Shift+A) и щёлкните по верху плиты в 3D-виде. Дисплейсментами становятся только выделенные грани.
+Rechts im Panel unter „Displacement“: Power 3 lassen und „Erstellen“ klicken. Power bestimmt die Feinheit – 2 ist grob, 4 sehr fein (und teuer).	На панели справа в разделе «Дисплейсмент»: оставьте степень 3 и нажмите «Создать». Степень задаёт разрешение – 2 грубо, 4 очень мелко (и затратно).
+Einen Hügel malen	Нарисуйте холм
+Wähle das Terrain-Werkzeug (Shift+P), Modus „Anheben“. Male mit gedrückter linker Maustaste in der 3D-Ansicht über das Gelände. Radius und Stärke stehen im Panel; Strg kehrt Anheben ↔ Absenken um.	Выберите инструмент рельефа (Shift+P), режим «Поднять». Рисуйте по рельефу в 3D-виде, удерживая левую кнопку. Радиус и сила – на панели; Ctrl меняет поднять ↔ опустить.
+Stelle im Panel den Modus „Glätten“ ein und male über steile Kanten – sie werden weicher. Mit gedrückter Strg-Taste wird geschärft. Weitere Modi: Auf Höhe setzen, Rauschen, Terrassen.	Выберите на панели режим «Сгладить» и проведите по крутым краям – они станут мягче. С зажатым Ctrl – резче. Другие режимы: задать высоту, шум, террасы.
+Texturen überblenden	Смешивание текстур
+Mit einer Blend-Textur (zwei Texturen in einer, z. B. Gras und Kies) malst du im Modus „Alpha malen“ die zweite Textur ins Gelände – etwa einen Weg. „Alpha anzeigen“ im Panel macht die Bemalung blau sichtbar.	Смешанной текстурой (две текстуры в одной, например трава и гравий) вы рисуете вторую текстуру по рельефу в режиме «Рисовать альфу» – например тропинку. «Показывать альфу» на панели показывает нарисованное синим.
+Noch mehr Gelände-Werkzeuge	Другие инструменты рельефа
+Im Panel findest du außerdem: Rauschen (zufällige Unebenheit), Nähen (Kanten benachbarter Displacements angleichen), Unterteilen (macht z. B. aus einem Würfel eine Kugel) und das Ändern der Power ohne Formverlust. Große Landschaften entstehen schnell mit Map → „Gelände aus Heightmap…“.	На панели также есть: шум (случайные неровности), сшивание (согласование краёв соседних дисплейсментов), подразделение (превращает, например, куб в шар) и смена степени без потери формы. Большие ландшафты быстро делаются через Карта → «Рельеф из карты высот…».
+7 · Licht, Himmel und Nebel	7 · Свет, небо и туман
+Lichtvorschau nutzen, Sonne und Himmel einrichten, indirektes Licht, Nebel und einen Partikel-Effekt.	Используйте предпросмотр света, настройте солнце и небо, непрямой свет, туман и эффект частиц.
+Die Lichtvorschau	Предпросмотр света
+Klicke oben links in der 3D-Ansicht auf „3D · Texturiert“ und wähle „Lichtvorschau“. Jetzt siehst du die Lichter der Map mit Schatten – ohne zu kompilieren.	Щёлкните «3D · С текстурами» слева вверху 3D-вида и выберите «Предпросмотр света». Теперь вы видите свет карты с тенями – без компиляции.
+Die Sonne: light_environment	Солнце: light_environment
+Für Außenbereiche setzt du genau ein „light_environment“ (Entity-Werkzeug, Shift+E). Sein Winkel „Pitch“ bestimmt, wie hoch die Sonne steht; „Ambient“ hellt die Schatten auf.	Для открытых местностей ставится ровно один «light_environment» (инструмент энтити, Shift+E). Угол «Pitch» задаёт высоту солнца; «Ambient» осветляет тени.
+Der Himmel	Небо
+Öffne die Map-Eigenschaften (nichts auswählen, dann „Map-Eigenschaften“ im Panel) und trage bei „skyname“ einen Himmel ein, z. B. „sky_day01_05“. Flächen mit TOOLS/TOOLSSKYBOX zeigen im Spiel diesen Himmel – mit Ansicht → „Himmel-Vorschau“ auch im Editor.	Откройте свойства карты (ничего не выделяя, затем «Свойства карты» на панели) и укажите небо в «skyname», например «sky_day01_05». Грани с TOOLS/TOOLSSKYBOX показывают это небо в игре – а в редакторе через Вид → «Предпросмотр неба».
+Indirektes Licht	Непрямой свет
+Licht prallt im Spiel von Wänden ab und färbt die Umgebung. Schalte es in der Lichtvorschau ein: Ansicht → „Indirektes Licht in der Lichtvorschau (GI)“. Die Berechnung läuft im Hintergrund und wird immer feiner.	В игре свет отражается от стен и окрашивает окружение. Включите его в предпросмотре: Вид → «Непрямой свет в предпросмотре освещения (GI)». Он рассчитывается в фоне и постепенно уточняется.
+Setze ein „env_fog_controller“, stelle „Fog Enable“ auf Ja und wähle Farbe, Start und Ende. Entfernte Flächen verschwinden im Nebel – das sieht stimmungsvoll aus und spart Leistung.	Поставьте «env_fog_controller», задайте «Fog Enable» = Yes и выберите цвет, начало и конец. Дальние грани растворяются в тумане – это атмосферно и экономит производительность.
+Ein Partikel-Effekt	Эффект частиц
+Setze ein „info_particle_system“ und wähle bei „Particle System Name“ einen Effekt, z. B. „fire_small_01“ (Partikel-Browser über „…“). Der Effekt läuft direkt im 3D-Fenster; „Start Active“ lässt ihn im Spiel von Anfang an laufen.	Поставьте «info_particle_system» и выберите эффект в «Particle System Name», например «fire_small_01» (браузер частиц через «…»). Эффект воспроизводится прямо в 3D-виде; «Start Active» запускает его в игре с самого начала.
+8 · Feinarbeit: Vertex, Clip, Overlays	8 · Детальная работа: вершины, разрез, оверлеи
+Eckpunkte verschieben, schräg schneiden mit drei Punkten, Overlays und Decals auftragen.	Двигайте вершины, режьте наклонно по трём точкам, накладывайте оверлеи и декали.
+Das Vertex-Werkzeug	Инструмент вершин
+Wähle einen Block und drücke Shift+V. An den Ecken erscheinen Griffe: Ziehe einen oberen Eckpunkt in einer 2D-Ansicht zur Seite – so entstehen Schrägen und Dächer. Ungültige Formen (nicht konvex) lehnt Amboss ab.	Выделите блок и нажмите Shift+V. В углах появятся маркеры: перетащите верхнюю вершину вбок в 2D-виде – так получаются скаты и крыши. Amboss отклоняет недопустимые (невыпуклые) формы.
+Schräg schneiden mit drei Punkten	Наклонный разрез по трём точкам
+Wähle einen Block, nimm das Clip-Werkzeug (Shift+X) und klicke in der 3D-Ansicht nacheinander drei Punkte auf seine Flächen. Die Ebene durch die drei Punkte wird als Vorschau gezeigt; Enter schneidet, Shift+X wechselt, welche Seite bleibt.	Выделите блок, возьмите инструмент разреза (Shift+X) и щёлкните три точки на его гранях в 3D-виде. Плоскость через три точки показывается заранее; Enter режет, Shift+X меняет, какая сторона останется.
+Ein Overlay	Оверлей
+Overlays sind Bilder, die auf Flächen liegen – Schilder, Risse, Wegmarkierungen. Wähle rechts bei den Texturen eine Overlay-Textur, nimm das Overlay-Werkzeug (Shift+O) und klicke auf eine Fläche. Mit den runden Griffen änderst du Größe und Drehung.	Оверлеи – изображения на гранях: вывески, трещины, дорожная разметка. Выберите текстуру оверлея справа, возьмите инструмент оверлея (Shift+O) и щёлкните по грани. Круглые маркеры меняют размер и поворот.
+Ein Decal	Декаль
+Decals sind kleine Bilder wie Einschusslöcher oder Flecken. Nimm das Decal-Werkzeug (Shift+D), wähle eine Textur aus „decals/…“ und klicke auf eine Wand. Anders als Overlays haben Decals eine feste Größe.	Декали – маленькие изображения, например следы от пуль или пятна. Возьмите инструмент декалей (Shift+D), выберите текстуру из «decals/…» и щёлкните по стене. В отличие от оверлеев, у декалей фиксированный размер.
+Sauber arbeiten	Аккуратная работа
+Hilfreich für die Feinarbeit: Alt+V rastet an Eckpunkten anderer Objekte ein, Alt+G schaltet das Raster-Einrasten ab, H blendet die Auswahl aus, und mit Strg+G gruppierst du Teile, die zusammengehören.	Полезно для деталей: Alt+V – привязка к вершинам других объектов, Alt+G отключает привязку к сетке, H скрывает выделение, а Ctrl+G группирует части, которые относятся друг к другу.
+9 · Schneller bauen und testen	9 · Строить быстрее и проверять
+Fertige Bauteile aus der Prefab-Bibliothek, Räume per Generator, durch die Map laufen und im Spiel testen.	Готовые части из библиотеки префабов, комнаты из генератора, прогулка по карте и проверка в игре.
+Die Prefab-Bibliothek	Библиотека префабов
+Öffne Datei → Prefabs… Hier liegen fertige Bauteile: Türen mit Knöpfen, Leitern, Lampen, Treppen, ganze Räume. Eigene Prefabs speicherst du aus der Auswahl.	Откройте Файл → Префабы… Там готовые части: двери с кнопками, лестницы, светильники, ступени, целые комнаты. Свои префабы сохраняйте из выделения.
+Ein Prefab einsetzen	Вставить префаб
+Ziehe eine Kachel in die 3D-Ansicht auf den Boden – das Prefab richtet sich an der Fläche aus. Alternativ: Kachel anklicken, dann in eine Ansicht klicken (Shift = mehrmals).	Перетащите плитку на пол в 3D-виде – префаб выровняется по грани. Или: щёлкните плитку, затем щёлкните в виде (Shift = несколько раз).
+Räume per Generator	Комнаты из генератора
+Werkzeuge → Prozedurale Generatoren… erzeugt Labyrinthe, Räume mit Gängen oder ganze Stadtblöcke – abgedichtet und sofort kompilierbar. Probiere „Räume“ mit „Erzeugen“; ein Rückgängig-Schritt nimmt alles wieder weg.	Инструменты → Процедурные генераторы… создают лабиринты, комнаты с коридорами или целые городские кварталы – герметичные и готовые к компиляции. Попробуйте «Комнаты» с «Сгенерировать»; один шаг отмены всё убирает.
+Durch die Map laufen	Пройтись по карте
+Drücke F6: Jetzt läufst du mit Spielergröße durch die Map – WASD, Leertaste springt, Strg duckt. So prüfst du schnell, ob Türen breit genug und Stufen nicht zu hoch sind. Esc beendet.	Нажмите F6: теперь вы ходите по карте в размере игрока – WASD, Пробел – прыжок, Ctrl – присесть. Так быстро видно, достаточно ли широки двери и не слишком ли высоки ступени. Esc – выход.
+Im Spiel testen	Проверка в игре
+Shift+F9 kompiliert und startet Garry's Mod so, dass du dort stehst, wo die 3D-Kamera ist. Mit Kompilieren → „Live-Abgleich mit dem Spiel…“ erscheinen Änderungen sogar sofort im laufenden Spiel.	Shift+F9 компилирует и запускает Garry's Mod, где вы стоите на месте 3D-камеры. С Компиляция → «Синхронизация с игрой в реальном времени…» изменения даже сразу появляются в запущенной игре.
+Tutorial	Обучение
+Tutorial…	Обучение…
+Kapitel 1–5 führen Schritt für Schritt durch die erste Map, Kapitel 6–9 zeigen weitere Werkzeuge. Jeder Schritt prüft selbst, ob er erledigt ist – und mit „Zeig es mir“ macht Amboss ihn vor.	Главы 1–5 шаг за шагом ведут через первую карту, главы 6–9 показывают другие инструменты. Каждый шаг сам проверяет, выполнен ли он, – а по «Покажи» Amboss его демонстрирует.
+Deine erste Map ist fertig. In Garry's Mod lädst du sie auch über die Konsole: „map <name>“. Weiter geht es mit den nächsten Kapiteln: Gelände mit Displacements, Licht und Himmel, Feinarbeit und schneller bauen.	Ваша первая карта готова. В Garry's Mod её также можно загрузить через консоль: «map <имя>». Дальше следующие главы: рельеф из дисплейсментов, свет и небо, детальная работа и быстрое строительство.
+Map-Editor für Source · Version {}	Редактор карт для Source · версия {}
+Version – Hilfe → Über Amboss	Версия – Справка → О программе Amboss
+auslösende Entity	активирующая энтити
+sendende Entity	вызывающая энтити
+diese Entity	эта энтити
+Spieler-Blickziel	цель прицела игрока
+Räume mit eigener Höhe und Bodenstufe, verbunden durch Gänge mit Treppen – geschlossen und sofort kompilierbar (mit Licht und Spawnpunkt).	Комнаты со своей высотой и уровнем пола, соединённые коридорами с лестницами, – герметичные и готовые к компиляции (со светом и точкой спавна).
+Ganghöhe	Высота коридоров
+Höhenstufen	Уровни пола
+Wie viele Stufen Böden nach oben und unten springen dürfen (0 = alle gleich hoch)	На сколько ступеней полы могут подниматься или опускаться (0 = все на одной высоте)
+Aktuelle Textur übernehmen: {}	Использовать текущую текстуру: {}
+Jeder Raum und jeder Gang wird eine eigene Gruppe – einzeln anklicken, verschieben oder mit Strg+U auflösen. Eingefügt wird dort, wohin die 3D-Kamera blickt.	Каждая комната и каждый коридор – отдельная группа: щёлкайте, двигайте или разгруппировывайте (Ctrl+U) по отдельности. Вставляется туда, куда смотрит 3D-камера.
+Eingefügt wird dort, wohin die 3D-Kamera blickt.	Вставляется туда, куда смотрит 3D-камера.
+Wände	Стены
+Decke	Потолок
+← aktuelle	← текущая
+Bild	Изображение
+Rausch-Generator	Генератор шума
+Hügelgröße	Размер холмов
+Detail-Lagen	Слои детализации
+Rauheit	Шероховатость
+Talboden	Дно долины
+Startwert	Зерно
+Bergkämme	Хребты
+Ränder flach	Плоские края
+Als PNG speichern…	Сохранить как PNG…
+16-Bit-Graustufenbild, z. B. zum Weiterbearbeiten	Изображение в оттенках серого 16 бит, например для дальнейшей обработки
+Klein = viele kleine Hügel, groß = wenige weite Berge	Мало = много маленьких холмов, много = несколько широких гор
+Alles unterhalb dieser Höhe wird flach – gut für begehbare Täler	Всё ниже этой высоты становится плоским – удобно для проходимых долин
+Heightmap gespeichert: {}	Карта высот сохранена: {}
+Eine Fläche in ein Displacement verwandeln, Hügel malen, Texturen überblenden – und große Landschaften aus einer Heightmap oder per Rausch-Generator.	Превратите грань в дисплейсмент, рисуйте холмы, смешивайте текстуры – и большие ландшафты из карты высот или генератором шума.
+Große Landschaften: Heightmap	Большие ландшафты: карта высот
+Für große Gelände malst du nicht jede Kachel einzeln: Map → „Gelände aus Heightmap…“ macht aus einem Graustufenbild (Weiß = hoch, Schwarz = tief) ein Gelände aus vielen nahtlosen Displacement-Kacheln. Kantenlänge, Höhe, Kacheln und Power stellst du im Dialog ein.	Большой рельеф не рисуют плитку за плиткой: Карта → «Рельеф из карты высот…» превращает изображение в оттенках серого (белый = высоко, чёрный = низко) в рельеф из множества бесшовных плиток-дисплейсментов. В диалоге задаются длина стороны, высота, плитки и степень.
+Gelände per Rauschen	Рельеф из шума
+Kein Bild zur Hand? Wähle oben im Dialog „Rauschen“: Amboss erzeugt das Höhenbild selbst. Hügelgröße, Rauheit, Talboden, Bergkämme und Terrassen formen die Landschaft, „Würfeln“ liefert eine neue Form. Mit „Gelände erstellen“ landet es in der Map – „Als PNG speichern…“ hebt das Bild für später auf.	Нет изображения? Выберите «Шум» вверху диалога: Amboss сам создаст карту высот. Размер холмов, шероховатость, дно долины, хребты и террасы формируют ландшафт, «Случайно» даёт новую форму. «Создать рельеф» помещает его в карту – «Сохранить как PNG…» сохраняет изображение на потом.
+Im Panel findest du außerdem: Rauschen (zufällige Unebenheit), Nähen (Kanten benachbarter Displacements angleichen), Unterteilen (macht z. B. aus einem Würfel eine Kugel) und das Ändern der Power ohne Formverlust.	На панели также есть: шум (случайные неровности), сшивание (согласование краёв соседних дисплейсментов), подразделение (превращает, например, куб в шар) и смена степени без потери формы.
+{}: {} in {} Gruppen	{}: {} в группах: {}
+Abstand der Räume (Zellen)	Расстояние между комнатами (ячейки)
+Windungen	Извилистость
+0 = möglichst gerade Gänge, 1 = mehr Abbiegungen; zwischen zwei Abbiegungen liegt immer ein längeres gerades Stück	0 = коридоры как можно прямее, 1 = больше поворотов; между двумя поворотами всегда есть длинный прямой участок
+Zusätzliche Verbindungen	Дополнительные связи
+Mehr Verbindungen ergeben Schleifen und Kreuzungen; 0 = jeder Raum genau über einen Weg erreichbar	Больше связей – больше петель и перекрёстков; 0 = каждая комната достижима ровно одним путём
+Räume mit eigener Höhe und Bodenstufe, kurze Treppen an den Türen, Gänge mit langen Geraden, runden Kurven und Abzweigungen, dünne Wände – jedes Raumpaar höchstens einmal verbunden, geschlossen und sofort kompilierbar (mit Licht und Spawnpunkt).	Комнаты со своей высотой и уровнем пола, короткие лестницы у дверей, коридоры с длинными прямыми, плавными поворотами и развилками, тонкие стены – каждая пара комнат соединена не более одного раза, герметично и готово к компиляции (со светом и точкой спавна).
+Abbiegungen	Повороты
+als runde Kurve	плавной дугой
+Ecken der Gänge werden zu Kurven mit runder Außen- und Innenwand, wo Platz ist; sonst bleibt eine gerade Ecke	Углы коридоров становятся дугами с круглой внешней и внутренней стеной, где есть место; иначе остаётся прямой угол
+Zellen	ячейки
+Innenradius der Kurve; 0 = nur die Außenwand rund	Внутренний радиус дуги; 0 = круглая только внешняя стена
+Wände sitzen als dünne Platte am Rand der Zelle, unabhängig von der Zellgröße (höchstens eine halbe Zelle)	Стены – тонкие плиты на краю ячейки, независимо от её размера (не более половины ячейки)
+2D: bei Auswahl andere Ebenen abdunkeln	2D: приглушать другие уровни, когда что-то выделено
+Objekte, die nicht auf derselben Tiefe wie die Auswahl liegen (±10 Einheiten), werden blasser gezeichnet. Oben: gleiche Höhe (Z), Vorne: gleiches X, Seite: gleiches Y.	Объекты не на той же глубине, что выделение (±10 единиц), рисуются бледнее. Сверху: та же высота (Z), Спереди: тот же X, Сбоку: тот же Y.
+Zelle	ячейка
+Mittlere Maustaste (Mausrad gedrückt) + Ziehen umsehen, W A S D fliegen, Q/E runter/hoch, Shift beim Umsehen schneller – änderbar unter Einstellungen → Tastenkürzel	Удерживайте среднюю кнопку (нажмите колесо) + тяните, чтобы осматриваться, W A S D – полёт, Q/E вниз/вверх, Shift при обзоре = быстрее – меняется в Настройки → Горячие клавиши
+Halte in der 3D-Ansicht die mittlere Maustaste (Mausrad drücken) gedrückt und bewege die Maus, um dich umzusehen. Mit W, A, S, D fliegst du dabei herum. Fliege in deinen Raum hinein. (Die Tasten lassen sich unter Einstellungen → Tastenkürzel ändern.)	В 3D-виде удерживайте среднюю кнопку мыши (нажмите колесо) и двигайте мышь, чтобы осматриваться. Клавишами W, A, S, D вы летаете. Залетите в свою комнату. (Клавиши меняются в Настройки → Горячие клавиши.)
+3D-Kamera: Bewegen und Umsehen	3D-камера: перемещение и обзор
+Mittlere Maustaste (Mausrad drücken)	Средняя кнопка мыши (нажатие колеса)
+Rechte Maustaste	Правая кнопка мыши
+Kamera-Steuerung zurücksetzen	Сбросить управление камерой
+Ohne gedrückte Umsehen-Taste bewegen die Tasten die Kamera nur ohne Umschalt/Alt – Shift+Buchstabe wählt dann das Werkzeug (z. B. Shift+A = Textur). Beim Umsehen gehören alle Tasten der Kamera.	Без удерживаемой кнопки обзора клавиши двигают камеру только без Shift/Alt – Shift+буква тогда выбирает инструмент (например, Shift+A = текстура). Во время обзора все клавиши принадлежат камере.
+Umsehen	Обзор
+Empfindlichkeit	Чувствительность
+Maus-Y umkehren	Инвертировать ось Y мыши
+Schneller fliegen	Быстрее лететь
+Umschalt	Shift
+Alt	Alt
+Vorwärts	Вперёд
+Rückwärts	Назад
+Links	Влево
+Rechts	Вправо
+Hoch	Вверх
+Hoch (2. Taste)	Вверх (2-я клавиша)
+Runter	Вниз
+Keine Taste	Нет клавиши
+Flächen-Einstellungen ausblenden	Скрыть настройки грани
+Flächen-Einstellungen anzeigen	Показать настройки грани
+Fläche gewählt	грань выделена
+Flächen gewählt	граней выделено
+{} Materialien · Klick: auswählen und auf gewählte Flächen anwenden	Материалов: {} · щелчок: выделить и применить к выделенным граням
+Skalierung, Verschiebung, Drehung, Ausrichten, Lightmap …	Масштаб, сдвиг, поворот, выравнивание, лайтмап…
+Zur Maus drehen (mit Vorschau)	Повернуть к мыши (с предпросмотром)
+Erst etwas auswählen, dann Strg+R	Сначала что-нибудь выделите, затем Ctrl+R
+Drehen: Maus bewegen (15°-Schritte, Shift = frei) · Linksklick übernehmen · Rechtsklick oder Esc bricht ab	Поворот: двигайте мышь (шаг 15°, Shift = свободно) · левый щелчок применяет · правый щелчок или Esc отменяет
+Modell-Browser öffnen – Modell wählen und „Übernehmen“ setzt es hier ein	Открыть браузер моделей – выберите модель, и «Применить» вставит её сюда
+Drehen: Linksklick übernimmt · Rechtsklick/Esc bricht ab · Shift = frei	Поворот: левый щелчок применяет · правый щелчок/Esc отменяет · Shift = свободно
+Drehen abgebrochen	Поворот отменён
+Farbe wählen	Выбрать цвет
+Helligkeit (4. Wert)	Яркость (4-е значение)
+Farbe · Helligkeit	Цвет · яркость
+Umgebung: Farbe · Helligkeit	Окружение: цвет · яркость
+fehlt	отсутствует
+vor {} s	{} с назад
+Austausch: {} · out.txt (Server): {} · alive.txt (Client): {}	Обмен: {} · out.txt (сервер): {} · alive.txt (клиент): {}
+Fehlen beide Dateien, obwohl die Map läuft: In der GMod-Konsole „amboss_live_status“ eingeben. Ist dort ein anderer Ordner zu sehen, ist in Amboss ein anderer Spielordner eingetragen als der, aus dem GMod startet.	Если оба файла отсутствуют, хотя карта запущена: введите «amboss_live_status» в консоли GMod. Если там другая папка, в Amboss задана иная папка игры, чем та, из которой запускается GMod.
+Ziel: ausgewählte Entities	Цель: выделенные энтити
+Alle Klassen anzeigen (Suche, Favoriten, Gruppen)	Показать все классы (поиск, избранное, группы)
+Fehlende Standardwerte ergänzt: {}	Дополнены отсутствующие значения по умолчанию: {}
+© 2026 Deadshot · Open Source unter MIT oder Apache-2.0	© 2026 Deadshot · открытый код под MIT или Apache-2.0
+Über das Internet ohne Portfreigabe	Через интернет без проброса портов
+1. Schick diesen Einladungscode an deinen Gast:	1. Отправьте этот код приглашения гостю:
+2. Antwortcode des Gasts hier einfügen:	2. Вставьте сюда ответный код гостя:
+Verbinde… (bis 40 Sekunden). Für weitere Gäste einen neuen Code erstellen.	Подключение… (до 40 секунд). Для каждого следующего гостя создайте новый код.
+Jeder Gast bekommt einen eigenen Code. Beide Seiten müssen den Code des anderen innerhalb weniger Minuten eingeben.	Каждый гость получает свой код. Обе стороны должны ввести код другой в течение нескольких минут.
+Internet-Adresse nicht ermittelbar – dieser Code klappt nur im selben Netz.	Не удалось определить ваш интернет-адрес – этот код работает только в той же сети.
+Einladungscode erstellen	Создать код приглашения
+Ermittle deine Internet-Adresse…	Определение вашего интернет-адреса…
+2. Schick diesen Antwortcode an den Gastgeber:	2. Отправьте этот ответный код хосту:
+Warte auf den Gastgeber (bis 3 Minuten)…	Ожидание хоста (до 3 минут)…
+1. Einladungscode des Gastgebers einfügen:	1. Вставьте код приглашения хоста:
+Antwortcode erzeugen und verbinden	Создать ответный код и подключиться
+Klappt mit den meisten Heim-Routern, ohne Portfreigabe. Nicht in manchen Mobilfunk- und Firmennetzen – dann IPv6, Portweiterleitung oder ein VPN nutzen.	Работает с большинством домашних роутеров, без проброса портов. Не работает в некоторых мобильных и корпоративных сетях – там используйте IPv6, проброс портов или VPN.
+Deine Internet-Adresse ließ sich nicht ermitteln (UDP ins Internet gesperrt?). Über das Internet geht es so nicht.	Не удалось определить ваш интернет-адрес (UDP в интернет заблокирован?). Через интернет так не получится.
+Mit Adresse	По адресу
+Mit Code (ohne Portfreigabe)	По коду (без проброса портов)
+Das ist kein Amboss-Verbindungscode (beginnt mit „AMB1-“)	Это не код подключения Amboss (он начинается с «AMB1-»)
+Code ist beschädigt (unerlaubte Zeichen)	Код повреждён (недопустимые символы)
+Code ist unvollständig – bitte komplett kopieren	Код неполный – скопируйте его целиком
+Der Code der Gegenseite enthält keine Adresse	В коде другой стороны нет адреса
+Keine Verbindung zustande gekommen. Beide Codes richtig ausgetauscht und beide gleichzeitig am Verbinden? Manche Netze (Mobilfunk, Firmen) lassen das nicht zu – dann IPv6, Portweiterleitung oder ein VPN wie Tailscale nutzen.	Соединение не удалось. Обе стороны правильно обменялись кодами и подключаются одновременно? Некоторые сети (мобильные, корпоративные) этого не позволяют – там используйте IPv6, проброс портов или VPN, например Tailscale.
+Eigene Internet-Adresse nicht ermittelbar ({}) – UDP ins Internet gesperrt?	Не удалось определить ваш интернет-адрес ({}) – UDP в интернет заблокирован?
+Nur der Gastgeber kann Gäste annehmen	Принимать гостей может только хост
+Anmeldung von {} abgelehnt (falsches Passwort)	Вход с {} отклонён (неверный пароль)
+nicht gesetzt	не задано
+gefunden	найдено
+nicht gefunden	не найдено
+Größe der Oberfläche	Размер интерфейса
+Zusätzlich zur Windows-Skalierung. Auch mit Strg+Plus / Strg+Minus, Strg+0 setzt zurück.	В дополнение к масштабированию Windows. Также Ctrl+Плюс / Ctrl+Минус, Ctrl+0 сбрасывает.
+Kachelgröße	Размер плиток
+Mitte der Auswahl	Центр выделения
+Drehen und Skalieren um den gewählten Drehpunkt	Поворот и масштаб вокруг выбранной опорной точки
+Suchen: Name, Klasse oder Output	Поиск: имя, класс или выход
+Noch keine Logik in dieser Map	В этой карте пока нет логики
+Hier erscheinen Entities mit Namen (targetname) oder Outputs – z. B. ein Knopf, der eine Tür öffnet.	Здесь появляются энтити с именем (targetname) или выходами – например, кнопка, открывающая дверь.
+Kein Knoten passt zur Suche	Ни один узел не подходит под поиск
+– keine –	– нет –
+{} mit Namen „{}“	{} с именем «{}»
+Klick wählt · Doppelklick zentriert · Auge = ausblenden · Schloss = sperren	Щелчок выделяет · двойной щелчок центрирует · глаз = скрыть · замок = заблокировать
+Strg+Klick wählt die ganze Gruppe	Ctrl+щелчок выделяет всю группу
+Texturen einklappen (Trennlinie ziehen ändert die Höhe)	Свернуть текстуры (перетаскивание разделителя меняет высоту)
+Ergebnis in die Zwischenablage	Скопировать результат в буфер обмена
+Form: {} (oben in der Leiste wählen)	Форма: {} (выбирается на панели сверху)
+Klick wählt alle Objekte dieser Visgroup	Щелчок выделяет все объекты этой visgroup
+Noch keine Visgroups – Objekte auswählen, Namen eingeben, „Aus Auswahl“.	Visgroup пока нет – выделите объекты, введите имя, «Из выделения».
+Breite × Tiefe × Höhe der Auswahl – ändern skaliert sie (Ecke unten links bleibt)	Ширина × глубина × высота выделения – изменение масштабирует его (левый нижний угол остаётся)
+Ecke unten links der Auswahl – ändern verschiebt sie	Левый нижний угол выделения – изменение сдвигает его
+Alle Flächen der Auswahl mit {} auf die aktuelle Textur ({}) setzen	Задать всем граням выделения с {} текущую текстуру ({})
+… und {} weitere	… и ещё {}
+Um die Hochachse	Вокруг вертикальной оси
+Schlüssel und Werte so zeigen, wie sie in der VMF stehen (ohne Anzeigenamen und Auswahllisten)	Показывать ключи и значения как в VMF (без отображаемых имён и списков выбора)
+HDR-Licht übernimmt Farbe und Helligkeit des normalen Lichts (Wert „-1 -1 -1 1“)	HDR-свет берёт цвет и яркость обычного света (значение «-1 -1 -1 1»)
+Im Einfach-Modus stehen hier nur die wichtigen Schlüssel	В простом режиме здесь только важные ключи
+Einrichtungs-Assistent öffnen	Открыть мастер настройки
+Amboss {} ist aktuell.	Amboss {} – последняя версия.
+Amboss {} ist verfügbar	Доступен Amboss {}
+Du hast {}.	У вас {}.
+Was ist neu?	Что нового?
+Neuerungen ausblenden	Скрыть новое
+Lade und installiere…	Загрузка и установка…
+Installiert – aktiv nach dem Neustart.	Установлено – заработает после перезапуска.
+Jetzt neu starten	Перезапустить сейчас
+Später	Позже
+Jetzt aktualisieren	Обновить сейчас
+Release-Seite	Страница выпуска
+Diese Version überspringen	Пропустить эту версию
+Updates abschalten: Einstellungen → Oberfläche.	Отключить обновления: Настройки → Интерфейс.
+Updates	Обновления
+Beim Start nach neuen Versionen suchen (GitHub)	Проверять новые версии при запуске (GitHub)
+Jetzt suchen	Проверить сейчас
+Es wird nur die öffentliche Versionsliste abgerufen; Amboss sendet dabei keine Daten über dich oder deine Maps.	Загружается только публичный список версий; Amboss не отправляет никаких данных о вас или ваших картах.
+Nach Updates suchen	Проверить обновления
+Suche nach Updates…	Проверка обновлений…
+Update-Suche fehlgeschlagen: {}	Не удалось проверить обновления: {}
+Keine Verbindung zu GitHub	Нет соединения с GitHub
+Antwort von GitHub nicht lesbar	Не удалось прочитать ответ GitHub
+Kein Schreibrecht im Programmordner ({}). Bitte das Paket von der Release-Seite laden und entpacken.	Нет прав на запись в папку программы ({}). Скачайте пакет со страницы выпуска и распакуйте его.
+Programmdatei lässt sich nicht ersetzen ({})	Не удаётся заменить файл программы ({})
+Für dieses System gibt es kein Paket – bitte die Release-Seite öffnen	Для этой системы нет пакета – откройте страницу выпуска
+Heruntergeladene Datei ist zu klein – Update abgebrochen	Скачанный файл слишком мал – обновление отменено
+{} nicht im Paket gefunden	{} не найден в пакете
+Kein gültiges ZIP	Недопустимый ZIP
+ZIP beschädigt	ZIP повреждён
+ZIP unvollständig	ZIP неполный
+Maps (VMF, BSP)	Карты (VMF, BSP)
+Browser	Браузеры
+Navmesh	Navmesh
+Map	Карта
+Drehpunkt	Опорная точка
+Ursprung 0 0 0	Начало 0 0 0
+Eigener Punkt	Своя точка
+Arbeitspunkt	Рабочая точка
+Suchbegriff eingeben	Введите строку поиска
+Treffer: {} auf {}	Совпадения: {} на {}
+Auto	Авто
+Seite	Грань
+Brush-ID	ID браша
+Seiten-ID	ID грани
+Entity-ID	ID энтити
+Entity-Name (targetname, * als Platzhalter)	Имя энтити (targetname, * как подстановочный знак)
+z. B. tuer_1	например, door_1
+Bedeutung	Значение
+Brush {}	Браш {}
+Seite {} von Brush {}	Грань {} браша {}
+Gruppen ({})	Группы ({})
+Gruppe #{} ({})	Группа № {} ({})
+Texturen aufklappen	Развернуть текстуры
+Ergebnis	Результат
+Diese Kamera benutzen	Использовать эту камеру
+Ein-/Ausblenden	Показать/скрыть
+Materialien ({})	Материалы ({})
+ersetzen	заменить
+Am Raster	К сетке
+Spiegeln X	Отразить X
+Spiegeln Y	Отразить Y
+Pitch (neigen)	Pitch (наклон)
+Yaw (drehen)	Yaw (поворот)
+Roll (rollen)	Roll (крен)
+Rohwerte	Сырые значения
+wie Brightness	как Brightness
+Alle Eigenschaften ({})	Все свойства ({})
+Nur wichtige Eigenschaften	Только важные свойства
+Einrichten…	Настроить…
+Nach dem Start erscheinen hier deine Adressen und ein Einladungscode für Gäste ohne Portfreigabe.	После запуска здесь появятся ваши адреса и код приглашения для гостей без проброса портов.

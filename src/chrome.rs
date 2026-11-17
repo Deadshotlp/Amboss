@@ -492,6 +492,12 @@ impl App {
                     }
                 }
                 vsep(ui);
+                // nur, was für das Werkzeug zählt: Lupe/Kamera/Textur brauchen weder Raster noch Einrasten
+                let tool = self.ed.tool;
+                let grid_rel = !matches!(tool, Tool::Magnify | Tool::Camera | Tool::Face);
+                let vsnap_rel = matches!(tool, Tool::Select | Tool::Block | Tool::Vertex | Tool::Clip | Tool::Entity | Tool::Measure | Tool::Cordon);
+                let tlock_rel = matches!(tool, Tool::Select | Tool::Vertex);
+                if grid_rel {
                 // Raster
                 if level == 0 {
                     ui.label(RichText::new(crate::i18n::tr("Raster")).color(th.text3));
@@ -515,6 +521,7 @@ impl App {
                 if tip(pr, crate::i18n::tr("Raster vergrößern"), "]").clicked() {
                     self.ed.grid_up();
                 }
+                }
                 let chip = |ui: &mut egui::Ui, on: bool, icon: &str, label: &str, tip: &str| -> bool {
                     if level == 0 {
                         theme::toggle_chip(ui, on, Some(icon), label, tip)
@@ -522,14 +529,14 @@ impl App {
                         theme::toggle_chip(ui, on, Some(icon), "", &format!("{label} – {tip}"))
                     }
                 };
-                if chip(ui, self.ed.snap, "magnet", crate::i18n::tr("Einrasten"), crate::i18n::tr("Am Raster einrasten (Alt+G)")) {
+                if grid_rel && chip(ui, self.ed.snap, "magnet", crate::i18n::tr("Einrasten"), crate::i18n::tr("Am Raster einrasten (Alt+G)")) {
                     self.ed.snap = !self.ed.snap;
                 }
                 if !self.settings.simple_ui {
-                    if chip(ui, self.ed.vertex_snap, "target", crate::i18n::tr("An Eckpunkten"), crate::i18n::tr("An Eckpunkten anderer Objekte einrasten (Alt+V)")) {
+                    if vsnap_rel && chip(ui, self.ed.vertex_snap, "target", crate::i18n::tr("An Eckpunkten"), crate::i18n::tr("An Eckpunkten anderer Objekte einrasten (Alt+V)")) {
                         self.ed.vertex_snap = !self.ed.vertex_snap;
                     }
-                    if chip(ui, self.ed.tex_lock, "lock", crate::i18n::tr("Texturen fixieren"), crate::i18n::tr("Textur-Lock: Texturen beim Verschieben/Drehen mitbewegen")) {
+                    if tlock_rel && chip(ui, self.ed.tex_lock, "lock", crate::i18n::tr("Texturen fixieren"), crate::i18n::tr("Textur-Lock: Texturen beim Verschieben/Drehen mitbewegen")) {
                         self.ed.tex_lock = !self.ed.tex_lock;
                     }
                 }

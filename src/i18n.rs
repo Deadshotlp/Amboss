@@ -11,15 +11,23 @@ use std::sync::OnceLock;
 pub enum Lang {
     De,
     En,
+    Fr,
+    Es,
+    Pl,
+    Ru,
 }
 
 impl Lang {
-    pub const ALL: [Lang; 2] = [Lang::De, Lang::En];
+    pub const ALL: [Lang; 6] = [Lang::De, Lang::En, Lang::Fr, Lang::Es, Lang::Pl, Lang::Ru];
 
     pub fn code(self) -> &'static str {
         match self {
             Lang::De => "de",
             Lang::En => "en",
+            Lang::Fr => "fr",
+            Lang::Es => "es",
+            Lang::Pl => "pl",
+            Lang::Ru => "ru",
         }
     }
 
@@ -28,15 +36,47 @@ impl Lang {
         match self {
             Lang::De => "Deutsch",
             Lang::En => "English",
+            Lang::Fr => "Français",
+            Lang::Es => "Español",
+            Lang::Pl => "Polski",
+            Lang::Ru => "Русский",
         }
     }
 
     pub fn from_code(c: &str) -> Lang {
-        match c {
-            "en" => Lang::En,
-            _ => Lang::De,
-        }
+        Lang::ALL.into_iter().find(|l| l.code() == c).unwrap_or(Lang::De)
     }
+
+    /// Sprache des Betriebssystems (für den ersten Start), sonst Englisch bzw. Deutsch
+    pub fn from_system() -> Lang {
+        let mut tags: Vec<String> = ["LC_ALL", "LC_MESSAGES", "LANG", "LANGUAGE"].iter().filter_map(|v| std::env::var(v).ok()).collect();
+        #[cfg(windows)]
+        tags.push(windows_ui_language());
+        let tags: Vec<String> = tags.into_iter().filter(|t| t.len() >= 2 && t != "C" && !t.starts_with("C.") && t != "POSIX").collect();
+        for t in &tags {
+            let code: String = t.chars().take(2).collect::<String>().to_ascii_lowercase();
+            if let Some(l) = Lang::ALL.into_iter().find(|l| l.code() == code) {
+                return l;
+            }
+        }
+        // andere Sprache: Englisch ist für die meisten verständlicher als Deutsch
+        if tags.is_empty() { Lang::De } else { Lang::En }
+    }
+}
+
+/// Windows: Sprache der Oberfläche (z. B. "fr-FR")
+#[cfg(windows)]
+fn windows_ui_language() -> String {
+    #[link(name = "kernel32")]
+    extern "system" {
+        fn GetUserDefaultLocaleName(buf: *mut u16, len: i32) -> i32;
+    }
+    let mut buf = [0u16; 85];
+    let n = unsafe { GetUserDefaultLocaleName(buf.as_mut_ptr(), buf.len() as i32) };
+    if n <= 1 {
+        return String::new();
+    }
+    String::from_utf16_lossy(&buf[..(n - 1) as usize])
 }
 
 static LANG: AtomicU8 = AtomicU8::new(0);
@@ -46,10 +86,12 @@ pub fn set_lang(l: Lang) {
 }
 
 pub fn lang() -> Lang {
-    match LANG.load(Ordering::Relaxed) {
-        1 => Lang::En,
-        _ => Lang::De,
-    }
+    Lang::ALL.get(LANG.load(Ordering::Relaxed) as usize).copied().unwrap_or(Lang::De)
+}
+
+/// Komma als Dezimaltrennzeichen?
+fn decimal_comma() -> bool {
+    lang() != Lang::En
 }
 
 struct Table {
@@ -80,19 +122,42 @@ fn load(src: &'static str) -> Table {
             // längste Muster zuerst prüfen (spezifischer)
             patterns.push((parts, en));
         } else {
-            exact.insert(de, en);
+            // erster Eintrag gewinnt: die eigene Sprache steht vor der englischen Rückfall-Tabelle
+            exact.entry(de).or_insert(en);
         }
     }
+    // stabil sortieren: bei gleichen Mustern bleibt die eigene Sprache vorn
     patterns.sort_by_key(|(p, _)| std::cmp::Reverse(p.iter().map(|s| s.len()).sum::<usize>()));
     Table { exact, patterns }
 }
 
+const EN_ALL: &str = concat!(include_str!("../assets/lang/en.tsv"), "\n", include_str!("../assets/lang/en_fgd.tsv"));
+
+/// Tabelle der Sprache; was dort fehlt, kommt aus der englischen (dann bleibt Deutsch)
 fn table() -> Option<&'static Table> {
-    static EN: OnceLock<Table> = OnceLock::new();
-    match lang() {
-        Lang::De => None,
-        Lang::En => Some(EN.get_or_init(|| load(concat!(include_str!("../assets/lang/en_fgd.tsv"), "\n", include_str!("../assets/lang/en.tsv"))))),
+    static TABLES: [OnceLock<Table>; 5] = [OnceLock::new(), OnceLock::new(), OnceLock::new(), OnceLock::new(), OnceLock::new()];
+    let (i, own): (usize, &'static str) = match lang() {
+        Lang::De => return None,
+        Lang::En => (0, ""),
+        Lang::Fr => (1, include_str!("../assets/lang/fr.tsv")),
+        Lang::Es => (2, include_str!("../assets/lang/es.tsv")),
+        Lang::Pl => (3, include_str!("../assets/lang/pl.tsv")),
+        Lang::Ru => (4, include_str!("../assets/lang/ru.tsv")),
+    };
+    Some(TABLES[i].get_or_init(|| load_layers(&[own, EN_ALL])))
+}
+
+fn load_layers(srcs: &[&'static str]) -> Table {
+    let mut t = Table { exact: HashMap::new(), patterns: Vec::new() };
+    for src in srcs {
+        let l = load(src);
+        for (k, v) in l.exact {
+            t.exact.entry(k).or_insert(v);
+        }
+        t.patterns.extend(l.patterns);
     }
+    t.patterns.sort_by_key(|(p, _)| std::cmp::Reverse(p.iter().map(|s| s.len()).sum::<usize>()));
+    t
 }
 
 /// Fester Text (Literal) in der aktuellen Sprache
@@ -157,6 +222,30 @@ mod tests {
     use super::*;
 
     #[test]
+    fn languages() {
+        for l in Lang::ALL {
+            assert_eq!(Lang::from_code(l.code()), l);
+        }
+        // Rückfall: fehlt eine Zeile in der eigenen Sprache, gilt die englische
+        let t = load_layers(&["Speichern\tEnregistrer\n{} Objekt(e) gelöscht\t{} objet(s) supprimé(s)", EN_ALL]);
+        assert_eq!(tr_with(&t, "Speichern"), "Enregistrer");
+        assert_eq!(tr_with(&t, "Öffnen…"), "Open…");
+        assert_eq!(tr_with(&t, "3 Objekt(e) gelöscht"), "3 objet(s) supprimé(s)");
+        // jede Sprachdatei: gleiche Platzhalter, kein Schlüssel doppelt, nur bekannte Schlüssel
+        let en = load_layers(&[EN_ALL]);
+        for (code, src) in [("fr", include_str!("../assets/lang/fr.tsv")), ("es", include_str!("../assets/lang/es.tsv")), ("pl", include_str!("../assets/lang/pl.tsv")), ("ru", include_str!("../assets/lang/ru.tsv"))] {
+            let mut seen = std::collections::HashSet::new();
+            for line in src.lines().filter(|l| !l.starts_with('#') && !l.is_empty()) {
+                let (de, tx) = line.split_once('\t').unwrap_or_else(|| panic!("{code}: kein Tab: {line}"));
+                assert!(!tx.trim().is_empty(), "{code}: leer: {line}");
+                assert_eq!(de.matches("{}").count(), tx.matches("{}").count(), "{code}: Platzhalter: {line}");
+                assert!(seen.insert(de), "{code}: doppelt: {de}");
+                assert!(en.exact.contains_key(unescape(de)) || en.patterns.iter().any(|(p, _)| p.join("{}") == unescape(de)), "{code}: unbekannter Schlüssel: {de}");
+            }
+        }
+    }
+
+    #[test]
     fn translate() {
         // ohne die globale Sprache umzustellen (Tests laufen parallel)
         let t = load(include_str!("../assets/lang/en.tsv"));
@@ -174,7 +263,7 @@ mod tests {
         }
         assert_eq!(tr("Speichern"), "Speichern");
         // Entity-Texte (FGD) – die Oberflächen-Tabelle hat bei gleichen Schlüsseln Vorrang
-        let all = load(concat!(include_str!("../assets/lang/en_fgd.tsv"), "\n", include_str!("../assets/lang/en.tsv")));
+        let all = load_layers(&[EN_ALL]);
         assert_eq!(tr_with(&all, "Schiebetür (bewegt sich in eine Richtung)."), "Sliding door (moves in one direction).");
         assert_eq!(tr_with(&all, "Beim Öffnen blockiert"), "Blocked opening");
         assert_eq!(tr_with(&all, "Abstand"), "Spacing");
@@ -199,7 +288,7 @@ pub fn count_de(n: usize, one: &str, many: &str) -> String {
 /// Dezimalzahl als Text mit dem Trennzeichen der Sprache (DE: Komma, EN: Punkt)
 pub fn dec(s: impl std::fmt::Display) -> String {
     let s = s.to_string();
-    if lang() == Lang::De { s.replace('.', ",") } else { s }
+    if decimal_comma() { s.replace('.', ",") } else { s }
 }
 
 /// Dateigröße: unter 1 MB in KB, sonst MB mit einer Nachkommastelle
@@ -213,7 +302,7 @@ pub fn size(bytes: u64) -> String {
 
 /// Tastenkürzel-Text in der eingestellten Sprache ("Strg+Umschalt+C" → "Ctrl+Shift+C")
 pub fn keys(s: &str) -> String {
-    if lang() != Lang::En {
+    if lang() == Lang::De {
         return s.to_string();
     }
     s.replace("Strg", "Ctrl").replace("Umschalt", "Shift").replace("Entf", "Del").replace("Einfg", "Ins").replace("Pos1", "Home").replace("Bild↑", "PgUp").replace("Bild↓", "PgDn").replace("Rücktaste", "Backspace").replace("Leertaste", "Space")

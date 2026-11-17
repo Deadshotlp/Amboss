@@ -9,6 +9,9 @@ mod bsppack;
 mod collab;
 mod collab_ui;
 mod class_picker;
+mod p2p;
+mod update;
+mod update_ui;
 mod palette;
 mod particle_browser;
 mod particle_editor;
@@ -178,10 +181,21 @@ fn main() -> eframe::Result<()> {
             .with_inner_size([1600.0, 950.0])
             .with_min_inner_size([900.0, 600.0])
             .with_title(concat!("Amboss ", env!("CARGO_PKG_VERSION")))
-            .with_drag_and_drop(true),
+            .with_drag_and_drop(true)
+            .with_icon(app_icon()),
         depth_buffer: 24,
         renderer: eframe::Renderer::Glow,
         ..Default::default()
     };
     eframe::run_native("Amboss", options, Box::new(|cc| Ok(Box::new(app::App::new(cc)))))
+}
+
+/// Programm-Icon (Amboss auf orangem Grund) für Fenster und Taskleiste
+fn app_icon() -> eframe::egui::IconData {
+    let dec = png::Decoder::new(std::io::Cursor::new(&include_bytes!("../assets/icon/amboss.png")[..]));
+    let mut r = dec.read_info().expect("Icon");
+    let mut buf = vec![0; r.output_buffer_size().unwrap_or(256 * 256 * 4)];
+    let info = r.next_frame(&mut buf).expect("Icon");
+    buf.truncate(info.buffer_size());
+    eframe::egui::IconData { rgba: buf, width: info.width, height: info.height }
 }

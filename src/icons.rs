@@ -50,6 +50,7 @@ fn icon(name: &str) -> &'static [El] {
         "lock" => &[Rect(5.0, 11.0, 14.0, 10.0, 2.0), Path("M8 11V7a4 4 0 0 1 8 0v4")],
         "layers" => &[Path("M12 3l9 5-9 5-9-5z"), Path("M3 13l9 5 9-5")],
         "tool" => &[Path("M14 7l3-3 3 3-3 3M14 7L4 17v3h3L17 10")],
+        "download" => &[Path("M12 4v11M7 10l5 5 5-5"), Path("M5 19h14")],
         _ => &[Path("M5 5h14v14H5z")],
     }
 }
@@ -299,3 +300,33 @@ mod tests {
         assert_eq!(s[2].0[1], (6.3, 6.3));
     }
 }
+
+/// Symbol für eine Entity-Klasse nach ihrer Art (Licht, Spieler/NPC, Trigger, Logik …)
+pub fn entity_icon(class: &str) -> &'static str {
+    let c = class.to_ascii_lowercase();
+    let p = |x: &str| c.starts_with(x);
+    if p("light") || c == "env_sun" || p("point_spotlight") || p("env_projectedtexture") {
+        "sun"
+    } else if p("info_player") || p("npc_") || p("monster_") || p("player") {
+        "people"
+    } else if p("trigger_") || p("func_areaportal") || p("func_clip") {
+        "cordon"
+    } else if p("logic_") || p("math_") || p("point_template") || p("game_") || p("filter_") || p("env_global") || p("point_servercommand") || p("point_clientcommand") {
+        "settings"
+    } else if p("ambient_") || p("env_sound") || p("env_soundscape") || p("sound") {
+        "play"
+    } else if p("prop_") || p("func_") || p("item_") || p("weapon_") {
+        "block"
+    } else if p("path_") || p("info_node") || p("info_hint") || p("ai_") || p("keyframe_") || p("move_rope") {
+        "measure"
+    } else if p("env_") || p("info_particle") || p("sky_camera") || p("shadow_control") || p("water_lod") {
+        "eye"
+    } else if p("infodecal") || p("info_overlay") {
+        "decal"
+    } else if p("point_camera") || p("info_camera") {
+        "camera"
+    } else {
+        "entity"
+    }
+}
+

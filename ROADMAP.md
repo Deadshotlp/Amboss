@@ -9,7 +9,7 @@ Aufwand: **S** = Stunden · **M** = Tage · **L** = Wochen. Erledigtes wird mit 
 - [x] **Live-Zusammenarbeit** (zwei oder mehr Personen gleichzeitig): Gastgeber/Gast mit Passwort, Abgleich pro Objekt, eigene ID-Bereiche, ausgewählte Objekte für andere gesperrt, Kameras und Auswahl der anderen sichtbar, Rückgängig pro Person – L
 
 - [x] Live-Sitzung über das Internet ohne Server: IPv6 direkt, Verschlüsselung – S–M
-- [ ] Live-Sitzung: Verbindungsaufbau ohne Portfreigabe (Hole-Punching) – braucht einen kleinen Vermittler, M
+- [x] Live-Sitzung: Verbindungsaufbau ohne Portfreigabe (Hole-Punching) – ohne eigenen Vermittler: Verbindungscodes zum Austauschen + öffentliche STUN-Server, zuverlässiger Datenstrom über UDP; nicht bei symmetrischem NAT – M
 
 ## B. Rest aus Liste 1 (Hammer)
 
@@ -86,7 +86,8 @@ Oberfläche
 - [x] Panel-Layout speichern: Ansichten-Teilung ziehbar, rechtes Panel in der Breite ziehbar, Achsen und 3D-Optionen bleiben erhalten; Ansicht → „Layout zurücksetzen“ – S
 - [x] Startbildschirm und Vorlagen für neue Maps – S
 - [x] **Sprache des Editors wählbar** (Einstellungen → Grafik → Sprache / Language): Deutsch und Englisch, Umschalten ohne Neustart; Texte in `assets/lang/en.tsv` – M
-- [ ] Weitere Sprachen (neue Tabelle `assets/lang/<code>.tsv` + Eintrag in der Auswahl) – S je Sprache
+- [x] Weitere Sprachen: Französisch, Spanisch, Polnisch, Russisch (Oberfläche; Entity-Beschreibungen fallen auf Englisch zurück), beim ersten Start Systemsprache – S je Sprache
+- [ ] Entity-Beschreibungen (`en_fgd.tsv`) in FR/ES/PL/RU; Übersetzungen von Muttersprachlern prüfen lassen
 - [x] Englische Beschreibungen für die eingebaute Entity-Liste: 456 Klassen, Schlüssel, Auswahlwerte, Flags, Ein-/Ausgänge (`assets/lang/en_fgd.tsv`, ~1000 Texte) – S
 
 Inhalte
@@ -94,8 +95,9 @@ Inhalte
 - [x] Beim Kompilieren Liste der benötigten Workshop-Addons erstellen (`<map>_addons.txt`) – S–M
 
 Plattform
-- [ ] Installer, Updates, macOS-Build – M
-- [ ] Hohe DPI-Skalierung prüfen – S
+- [x] Installer (NSIS, ohne Adminrechte), Updates (GitHub-Releases beim Start, abschaltbar, Austausch der exe), macOS-/Linux-Build per GitHub Actions – M
+- [ ] macOS-Build auf echtem Mac prüfen; Signatur/Notarisierung
+- [x] Hohe DPI-Skalierung geprüft (150 %/200 %), Oberflächengröße einstellbar, Dialoge passen sich der Fenstergröße an – S
 
 ## F. Prüfung (wichtigste offene Aufgabe)
 
@@ -112,7 +114,7 @@ Plattform
 - [x] Konfliktauswahl „Meins / Andere“ bei Live-Zusammenarbeit – S–M
 - [x] Vorschau im Dialog „Inhalte einfügen“ – S
 - [x] Befehlspalette (Strg+K) im neuen Stil (Befehle, Entities, Texturen) – S
-- [ ] Innenleben der übrigen Dialoge ans neue Muster anpassen – S–M
+- [x] Innenleben der übrigen Dialoge ans neue Muster anpassen – S–M
 
 ## H. Bedienung für Einsteiger (neu)
 
@@ -140,14 +142,14 @@ Erledigt:
 - [x] Assistent: Auswahlkarten, feste Größe, „Fast fertig – n Punkte fehlen“, Überspringen links
 - [x] Hilfe-Dialog mit Suche und fester Tastenspalte; Einstellungen mit linker Navigation; Displacement-Panel neu; Lua-Dialog breiter, englische Beispiele; Entity-Report mit Spaltenköpfen; Über Amboss; Statusmeldung verschwindet nach 8 s
 
-Offen (mittel/niedrig):
-- [ ] Startbildschirm: Status-Punkte klickbar („Einrichten…“), Mini-Draufsicht in „Zuletzt geöffnet“
-- [ ] Kontextleiste: feste Reihenfolge beim Wegfallen von Beschriftungen; je Werkzeug nur relevante Elemente (Lupe/Kamera ohne Textur/Raster)
-- [ ] Panel: Schalter „Rohwerte“, Texturbereich einklappbar/höhenverstellbar, im Einfach-Modus nur wichtige Schlüssel + „Alle Eigenschaften (n)“
-- [ ] Brush-Panel mit Größe, Materialien und Schnellknöpfen; BrightnessHDR −1 als „wie Brightness“; P/Y/R als Zahlenfelder mit farbigem Präfix
-- [ ] Objekte: Auge/Schloss je Zeile, Gruppen als Knoten; Visgroups als senkrechte Liste mit Farbe und Anzahl
-- [ ] Kamera löschen/umbenennen, Block-Form nur in der Kontextleiste, Messergebnis im Panel mit Kopieren
-- [ ] Textur-Browser Kachelgröße, Texturen ersetzen mit Vorschau und Trefferzahl, Transformieren mit Drehpunktwahl, Gehe zu mit Brush/Seite/Entity
-- [ ] Modell-Browser echte Kachelvorschau; logische Ansicht mit Leerzustand und Suche; Live-Sitzung als Segment Gastgeber/Beitreten; Entity-Hilfe als Tabelle
-- [ ] Icons je Entity-Kategorie; Pfadfelder in den Einstellungen mit Status-Punkt
+Ebenfalls erledigt (0.10.0):
+- [x] Startbildschirm: Status-Punkte klickbar („Einrichten…“), Mini-Draufsicht in „Zuletzt geöffnet“
+- [x] Kontextleiste: feste Reihenfolge beim Wegfallen von Beschriftungen; je Werkzeug nur relevante Elemente (Lupe/Kamera ohne Textur/Raster)
+- [x] Panel: Schalter „Rohwerte“, Texturbereich einklappbar/höhenverstellbar, im Einfach-Modus nur wichtige Schlüssel + „Alle Eigenschaften (n)“
+- [x] Brush-Panel mit Größe, Materialien und Schnellknöpfen; BrightnessHDR −1 als „wie Brightness“; P/Y/R als Zahlenfelder mit farbigem Präfix
+- [x] Objekte: Auge/Schloss je Zeile, Gruppen als Knoten; Visgroups als senkrechte Liste mit Farbe und Anzahl
+- [x] Kamera löschen/umbenennen, Block-Form nur in der Kontextleiste, Messergebnis im Panel mit Kopieren
+- [x] Textur-Browser Kachelgröße, Texturen ersetzen mit Vorschau und Trefferzahl, Transformieren mit Drehpunktwahl, Gehe zu mit Brush/Seite/Entity
+- [x] Modell-Browser echte Kachelvorschau; logische Ansicht mit Leerzustand und Suche; Live-Sitzung als Segment Gastgeber/Beitreten; Entity-Hilfe als Tabelle
+- [x] Icons je Entity-Kategorie; Pfadfelder in den Einstellungen mit Status-Punkt
 

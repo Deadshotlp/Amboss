@@ -58,6 +58,9 @@ pub struct Layout {
     pub fog: bool,
     /// 2D: bei Auswahl andere Ebenen abdunkeln
     pub dim_levels: bool,
+    /// Höhe des Texturbereichs unten im rechten Panel, eingeklappt
+    pub tex_h: f32,
+    pub tex_collapsed: bool,
     pub sky_preview: bool,
     pub helpers: bool,
     /// Reiter im rechten Panel
@@ -67,7 +70,7 @@ pub struct Layout {
 impl Default for Layout {
     fn default() -> Self {
         use crate::geometry::Axis2D;
-        Layout { split: [0.5, 0.5], right_width: 360.0, maximized: None, axes: [Axis2D::Top, Axis2D::Front, Axis2D::Side], render_mode: 0, textured: true, models: true, collision: false, shadows: true, gi: false, particles: true, fog: true, dim_levels: true, sky_preview: true, helpers: true, panel_tab: 0 }
+        Layout { split: [0.5, 0.5], right_width: 360.0, maximized: None, axes: [Axis2D::Top, Axis2D::Front, Axis2D::Side], render_mode: 0, textured: true, models: true, collision: false, shadows: true, gi: false, particles: true, fog: true, dim_levels: true, tex_h: 250.0, tex_collapsed: false, sky_preview: true, helpers: true, panel_tab: 0 }
     }
 }
 
@@ -215,8 +218,14 @@ pub struct Settings {
     /// Favorisierte und zuletzt benutzte Entity-Klassen (Klassen-Auswahl)
     pub fav_classes: Vec<String>,
     pub recent_classes: Vec<String>,
-    /// Sprache der Oberfläche ("de", "en")
+    /// Sprache der Oberfläche ("de", "en", "fr", "es", "pl", "ru")
     pub language: String,
+    /// beim Start auf GitHub nach neuen Versionen suchen
+    pub check_updates: bool,
+    /// diese Version nicht mehr anbieten
+    pub skip_version: String,
+    /// Größe der Oberfläche (1.0 = Systemvorgabe)
+    pub ui_scale: f32,
 }
 
 impl Default for Settings {
@@ -267,8 +276,11 @@ impl Default for Settings {
             load_addons: true,
             fav_classes: Vec::new(),
             recent_classes: Vec::new(),
-            language: "de".into(),
+            language: crate::i18n::Lang::from_system().code().into(),
             theme_dark: true,
+            check_updates: true,
+            skip_version: String::new(),
+            ui_scale: 1.0,
         }
     }
 }
