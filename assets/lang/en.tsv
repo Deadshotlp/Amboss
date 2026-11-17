@@ -1,0 +1,1977 @@
+# Amboss – englische Übersetzung. Format: Deutsch<TAB>Englisch. {} = Platzhalter (gleiche Anzahl und Reihenfolge).
+Datei	File
+Neu aus Vorlage…	New from template…
+Öffnen…	Open…
+Zuletzt geöffnet	Recent files
+(leer)	(empty)
+Live-Sitzung (Zusammenarbeit)…	Live session…
+OBJ in Metern (statt Source-Einheiten)	OBJ in meters (instead of Source units)
+Autosave öffnen…	Open autosave…
+Speichern	Save
+Speichern unter…	Save as…
+Prefabs…	Prefabs…
+Beenden	Quit
+Bearbeiten	Edit
+Rückgängig	Undo
+Wiederholen	Redo
+Kopieren	Copy
+Einfügen	Paste
+Inhalte einfügen…	Paste special…
+Löschen	Delete
+Alles auswählen	Select all
+Auswahl aufheben	Select none
+Texturen ersetzen…	Replace textures…
+Aktuelle Textur anwenden	Apply current texture
+Einstellungen…	Settings…
+Ansicht	View
+Raster verkleinern	Smaller grid
+Raster vergrößern	Larger grid
+3D-Darstellung	3D rendering
+Texturen	Textures
+Modelle anzeigen	Show models
+3D-Skybox-Vorschau	3D skybox preview
+Helfer (Lichtkegel, Verbindungen)	Helpers (light cones, connections)
+Displacement-Alpha anzeigen	Show displacement alpha
+2D auf Auswahl zentrieren	Center 2D on selection
+3D auf Auswahl zentrieren	Center 3D on selection
+Logische Ansicht (Entity-I/O)	Logical view (entity I/O)
+3D-Gizmo (Verschieben/Drehen)	3D gizmo (move/rotate)
+2D: Farben nach Visgroup	2D: colors by visgroup
+4 Ansichten	4 views
+Werkzeuge	Tools
+Gruppieren	Group
+Gruppe auflösen	Ungroup
+In Welt verschieben	Move to world
+Transformieren…	Transform…
+Am Raster ausrichten	Snap to grid
+Horizontal spiegeln	Flip horizontally
+Vertikal spiegeln	Flip vertically
+90° drehen	Rotate 90°
+Objekte ausrichten	Align objects
+Carve	Carve
+Aushöhlen	Hollow
+Instanzen einklappen	Collapse instances
+Auswahl ausblenden	Hide selection
+Unausgewähltes ausblenden	Hide unselected
+Alles einblenden	Unhide all
+Prefab aus Auswahl…	Prefab from selection…
+Modell-Browser…	Model browser…
+Sound-Browser…	Sound browser…
+Partikel-Browser…	Particle browser…
+Map-Eigenschaften (worldspawn)…	Map properties (worldspawn)…
+Auf Probleme prüfen…	Check for problems…
+Entity-Report…	Entity report…
+Gehe zu Brush/Entity-Nummer…	Go to brush/entity number…
+Map-Info…	Map info…
+Kompilieren	Compile
+Kompilieren & Starten	Compile & run
+Kompilieren & starten	Compile & run
+Compile-Fenster	Compile window
+Automatische Optimierungen…	Automatic optimizations…
+Pointfile laden (.lin)…	Load pointfile (.lin)…
+Pointfile entladen	Unload pointfile
+Kamera zum Leck	Camera to leak
+Portalfile laden (.prt)…	Load portal file (.prt)…
+Portalfile entladen	Unload portal file
+Hilfe	Help
+Tastenkürzel & Bedienung	Shortcuts & controls
+Startbildschirm	Start screen
+Darstellung	Appearance
+Modelle	Models
+3D-Skybox	3D skybox
+Helfer	Helpers
+Fehler beim Laden: {}	Error loading: {}
+Autosave: {}	Autosave: {}
+Autosave fehlgeschlagen: {}	Autosave failed: {}
+Cordon-Export fehlgeschlagen: {}	Cordon export failed: {}
+Leck gefunden – roter Pfad zeigt den Weg ins Freie (Kompilieren → Leck-Suche)	Leak found – the red path shows the way out (Map → Pointfile)
+Leck, aber kein Pointfile: {}	Leak, but no pointfile: {}
+Kamera-Lesezeichen {} gespeichert (Strg+{} springt hin)	Camera bookmark {} saved (Ctrl+{} jumps there)
+Kamera-Lesezeichen {}	Camera bookmark {}
+Lesezeichen {} ist leer (Strg+Shift+{} speichert)	Bookmark {} is empty (Ctrl+Shift+{} saves)
+{} Portale geladen	{} portals loaded
+Spielinhalte konnten nicht geladen werden: {}	Game content could not be loaded: {}
+Spielinhalte konnten nicht geladen werden (Lade-Thread beendet)	Game content could not be loaded (loader thread ended)
+Auswahl	Select
+Lupe	Magnify
+Kamera	Camera
+Entity platzieren	Place entity
+Block-Werkzeug	Block tool
+Textur anwenden	Apply texture
+Decal	Decal
+Overlay	Overlay
+Clip	Clip
+Vertex bearbeiten	Edit vertices
+Displacement & Sculpt	Displacement & sculpt
+Cordon	Cordon
+Messen	Measure
+gerade eben	just now
+Befehlspalette (Strg+K / Strg+P)	Command palette (Ctrl+K / Ctrl+P)
+Live-Sitzung	Live session
+Live-Sitzung starten oder beitreten	Start or join a live session
+Kompilier-Profil wählen	Choose compile profile
+F9 – Map speichern, kompilieren und im Spiel starten	F9 – save, compile and run the map in game
+Spielprofil	Game profile
+Kompilieren-Fenster…	Compile window…
+Danach Spiel starten	Run game afterwards
+Neuer Tab (Strg+N)	New tab (Ctrl+N)
+Noch nicht gespeichert	Not saved yet
+Gespeichert	Saved
+Textur	Texture
+Raster	Grid
+Auswahlmodus: was ein Klick auswählt	Selection mode: what a click selects
+Aktionen	Actions
+Griffe:	Handles:
+Strg+H	Ctrl+H
+Negativ = Wände außen	Negative = walls outside
+Form	Shape
+Schneiden	Cut
+Klasse	Class
+Klasse wählen (Suche, Favoriten, alle Entities)	Choose class (search, favorites, all entities)
+Kein Spielordner eingestellt – keine Texturvorschau	No game folder set – no texture preview
+Zuletzt benutzt	Recently used
+Schnellauswahl	Quick pick
+Textur-Browser…	Texture browser…
+Auf Auswahl anwenden	Apply to selection
+Keine Visgroups – im Panel unter „Visgroups“ anlegen	No visgroups – create them in the panel under “Visgroups”
+Visgroups verwalten…	Manage visgroups…
+Auswahl: 1 Objekt	Selection: 1 object
+Klick: Einrasten an/aus (Alt+G)	Click: snapping on/off (Alt+G)
+Cordon aktiv	Cordon active
+Klasse suchen…	Search class…
+In Entity umwandeln	Tie to entity
+Danach Eigenschaften öffnen	Open properties afterwards
+Jeden Brush einzeln umwandeln	Convert each brush separately
+Umwandeln	Convert
+Abbrechen	Cancel
+{} ist eine Brush-Entity: erst Brushes auswählen, dann umwandeln (Strg+T)	{} is a brush entity: select brushes first, then convert (Ctrl+T)
+keine Antwort – Firewall/Router des Gastgebers lässt den Port nicht durch?	no answer – does the host's firewall/router block the port?
+abgelehnt – läuft beim Gastgeber eine Sitzung auf diesem Port?	refused – is a session running on this port at the host?
+IPv6 nicht erreichbar – hast du selbst eine IPv6-Internetverbindung?	IPv6 unreachable – do you have an IPv6 internet connection yourself?
+{} Teilnehmer	{} participants
+Verbindung zum Gastgeber getrennt – die Map bleibt als lokale Kopie offen	Disconnected from host – the map stays open as a local copy
+Verbunden – {} Teilnehmer	Connected – {} participants
+Abgelehnt: {}	Refused: {}
+Version von {} übernommen: {}	Took version of {}: {}
+Später entscheiden (deine Version bleibt vorerst)	Decide later (your version stays for now)
+Meins behalten	Keep mine
+Gäste verbinden sich mit	Guests connect to
+Keine öffentliche IPv6-Adresse gefunden – über das Internet dann nur per Portweiterleitung (IPv4) oder VPN.	No public IPv6 address found – over the internet only via port forwarding (IPv4) or VPN.
+Nachricht…	Message…
+Senden	Send
+Von anderen ausgewählte Objekte sind für dich gesperrt (in ihrer Farbe umrandet). Strg+Z nimmt nur deine eigenen Schritte zurück.	Objects selected by others are locked for you (outlined in their color). Ctrl+Z only undoes your own steps.
+Dein Name	Your name
+Passwort	Password
+Gastgeber sein	Host a session
+Die aktuell offene Map wird geteilt.	The currently open map is shared.
+Port	Port
+Sitzung starten	Start session
+Beitreten	Join
+Adresse	Address
+192.168.0.10 oder [2001:db8::1]:3918	192.168.0.10 or [2001:db8::1]:3918
+Verbinden	Connect
+Die Verbindung ist verschlüsselt; Schlüssel kommen aus dem Passwort – für das Internet ein langes Passwort wählen (mind. 12 Zeichen). Über das Internet geht es direkt per IPv6, wenn beide IPv6 haben und die Router-Firewall des Gastgebers den Port freigibt. Beide brauchen dieselbe Amboss-Version.	The connection is encrypted; keys come from the password – use a long password for the internet (at least 12 characters). Over the internet it works directly via IPv6 if both have IPv6 and the host's router firewall allows the port. Both need the same Amboss version.
+Live-Sitzung beendet (Tab geschlossen)	Live session ended (tab closed)
+Sitzung beigetreten – {}	Joined session – {}
+Beitritt abgelehnt: {}	Join refused: {}
+Sitzung beendet	Session ended
+Sitzung beenden	End session
+Trennen	Disconnect
+Neue Map (neuer Tab)	New map (new tab)
+Map öffnen	Open map
+Speichern unter	Save as
+Neuer Tab	New tab
+Tab schließen	Close tab
+Nächster Tab	Next tab
+Importieren (.map)	Import (.map)
+Map zusammenführen…	Merge map…
+Mit anderem Map-Stand vergleichen…	Compare with another map version…
+3-Wege-Zusammenführen (Basis / andere Version)…	3-way merge (base / other version)…
+Exportieren (.obj)	Export (.obj)
+Rückgängig-Verlauf	Undo history
+Inhalte einfügen	Paste special
+Duplizieren	Duplicate
+Auswahl sperren	Lock selection
+Alles entsperren	Unlock all
+Transformieren	Transform
+90° im Uhrzeigersinn drehen	Rotate 90° clockwise
+90° gegen den Uhrzeigersinn drehen	Rotate 90° counter-clockwise
+Texturen ersetzen	Replace textures
+Verdeckte Flächen auf nodraw setzen	Set hidden faces to nodraw
+Textur-Browser	Texture browser
+Modell-Browser	Model browser
+Sound-Browser	Sound browser
+Partikel-Browser	Particle browser
+Auf Probleme prüfen	Check for problems
+Am Raster einrasten (an/aus)	Snap to grid (on/off)
+Live-Sitzung…	Live session…
+Entity-Eigenschaften kopieren	Copy entity properties
+Entity-Eigenschaften auf Auswahl übertragen	Paste entity properties to selection
+Berührende Objekte zur Auswahl hinzufügen	Add touching objects to selection
+An Eckpunkten einrasten (an/aus)	Snap to vertices (on/off)
+Optimierungen prüfen (KI-Netz, Leck, Vorschläge)	Check optimizations (AI graph, leak, suggestions)
+Entity-Report	Entity report
+Objektliste (Outliner)	Object list (outliner)
+Gehe zu Nummer/Koordinate	Go to number/coordinate
+Map-Info	Map info
+Logische Ansicht	Logical view
+Prefabs	Prefabs
+Einstellungen	Settings
+Befehlspalette	Command palette
+Nächste Kamera	Next camera
+Ansicht maximieren	Maximize view
+3D-Gizmo ein/aus	3D gizmo on/off
+Pointfile laden	Load pointfile
+Messung löschen	Clear measurement
+An Eckpunkten einrasten: {}	Snap to vertices: {}
+3D-Gizmo {}	3D gizmo {}
+Ungespeicherte Änderungen	Unsaved changes
+Änderungen an	Save changes to
+speichern?	?
+Nicht speichern	Don't save
+Map-Eigenschaften (worldspawn)	Map properties (worldspawn)
+Licht · VRAD	Lighting · VRAD
+Automatische Optimierungen	Automatic optimizations
+Läuft auf einer Kopie: KI-Nodes, Leckprüfung, func_detail, nodraw, Cubemaps…	Runs on a copy: AI nodes, leak check, func_detail, nodraw, cubemaps…
+BSP kopieren	Copy BSP
+Cubemaps	Cubemaps
+Spiel starten	Run game
+Zusatzparameter	Extra parameters
+Programme: Pfad oder $vbsp/$vvis/$vrad/$bspzip/$game/$gamewait/$copy · Variablen: $vmf $path $file $gamedir $bspdir	Programs: path or $vbsp/$vvis/$vrad/$bspzip/$game/$gamewait/$copy · Variables: $vmf $path $file $gamedir $bspdir
+nach oben	move up
++ Schritt	+ Step
+Auf Standard zurücksetzen	Reset to default
+Cordon aktiv: nur der Bereich wird kompiliert	Cordon active: only that area is compiled
+Spielordner fehlt (Bearbeiten → Einstellungen)	Game folder missing (Edit → Settings)
+Protokoll	Log
+Noch nicht kompiliert.	Not compiled yet.
+Klicken: zu diesem Objekt springen	Click: jump to this object
+Läuft…	Running…
+Letzter Lauf erfolgreich	Last run succeeded
+Letzter Lauf fehlgeschlagen	Last run failed
+Letzter Lauf abgebrochen	Last run cancelled
+Speichert die Map vor dem Kompilieren	Saves the map before compiling
+Name	Name
+🔍 GMod automatisch finden	🔍 Find GMod automatically
+📁 GarrysMod-Ordner wählen…	📁 Choose GarrysMod folder…
+Startparameter	Launch parameters
+{} wird durch den Map-Namen ersetzt	{} is replaced by the map name
+Wrapper	Wrapper
+Unter Linux/macOS z. B. 'wine' für die Windows-Compiler. Unter Windows leer lassen.	On Linux/macOS e.g. 'wine' for the Windows compilers. Leave empty on Windows.
+Inhalte aus Addons laden (Workshop-.gma und addons-Ordner)	Load content from addons (workshop .gma and addons folder)
+Aus: nur Inhalte aus dem Spielverzeichnis (VPKs, garrysmod-Ordner, eingebundene Spiele). So siehst du, was ohne Addons fehlt – fehlende Texturen erscheinen dann als Ersatzfarbe.	Off: only content from the game folder (VPKs, garrysmod folder, mounted games). This shows what is missing without addons – missing textures appear as a placeholder color.
+Spielinhalte neu laden	Reload game content
+VPKs, Addons und Materiallisten aus dem Spielordner neu einlesen	Re-read VPKs, addons and material lists from the game folder
+FGD-Dateien (Entity-Definitionen)	FGD files (entity definitions)
+Für GMod: GarrysMod/bin/garrysmod.fgd (lädt base.fgd und halflife2.fgd automatisch mit).	For GMod: GarrysMod/bin/garrysmod.fgd (loads base.fgd and halflife2.fgd automatically).
+FGD hinzufügen…	Add FGD…
+Neu laden	Reload
+Spielinhalte	Game content
+Inhalte neu einlesen	Re-read content
+Autosave	Autosave
+(0 = aus), behalte	(0 = off), keep
+Dateien	files
+Grafik	Graphics
+Design	Theme
+Dunkel	Dark
+Hell	Light
+Kantenglättung (MSAA)	Anti-aliasing (MSAA)
+Kantenglättung gilt ab dem nächsten Start. Startet Amboss danach nicht, die Datei grafik.txt im Einstellungsordner löschen.	Anti-aliasing applies from the next start. If Amboss does not start afterwards, delete grafik.txt in the settings folder.
+Bedienung	Controls
+Kein Spielordner gesetzt – unter Extras / Einstellungen „GMod automatisch finden“ wählen.	No game folder set – choose “Find GMod automatically” under Settings.
+Filter:	Filter:
+z. B. concrete, brick, dev/	e.g. concrete, brick, dev/
+Nur in der Map verwendete Materialien	Only materials used in the map
+★ Favoriten	★ Favorites
+Zuletzt	Recent
+Rechtsklick auf eine Textur: Favorit an/aus	Right-click a texture: favorite on/off
+Versatz (Einheiten)	Offset (units)
+Winkel (Grad)	Angle (degrees)
+Faktor	Factor
+Anwenden	Apply
+Kopien	Copies
+Versatz je Kopie	Offset per copy
+Drehung je Kopie (°)	Rotation per copy (°)
+Jede Kopie als eigene Gruppe	Each copy as its own group
+Fügt die Zwischenablage (Strg+C) mehrfach ein	Pastes the clipboard (Ctrl+C) several times
+Zwischenablage ist leer – erst etwas kopieren (Strg+C)	Clipboard is empty – copy something first (Ctrl+C)
+Suchen	Find
+Ersetzen durch	Replace with
+Aktuelles Material einsetzen	Use current material
+Nur in der Auswahl	Only in selection
+Teiltreffer ersetzen (z. B. nur Ordnername)	Replace partial matches (e.g. only folder name)
+Ersetzen	Replace
+Ein Rückgängig-Schritt	One undo step
+Probleme	Problems
+Keine Probleme gefunden.	No problems found.
+Auswählen	Select
+Erneut prüfen	Check again
+Suche:	Search:
+Klasse, Name oder Schlüsselwert	Class, name or key value
+Gehe zu	Go to
+Gehe zu Nummer	Go to number
+Brush-, Seiten- oder Entity-ID	Brush, side or entity ID
+z. B. 2207 aus einer VBSP-Meldung	e.g. 2207 from a VBSP message
+Nur Ziffern erlaubt	Digits only
+Oder Koordinate (x y z)	Or coordinate (x y z)
+Hinspringen	Jump there
+Sounds filtern (z. B. ambient/, door)	Filter sounds (e.g. ambient/, door)
+Abspielen ist in dieser Version nur unter Windows verfügbar.	Playback is only available on Windows in this version.
+Übernehmen	Apply
+Knoten ziehen zum Anordnen · Klick wählt · Mausrad zoomt · Rechte Taste verschiebt	Drag nodes to arrange · click selects · wheel zooms · right button pans
+Diese Klasse ist in keiner geladenen FGD beschrieben.	This class is not described in any loaded FGD.
+Schlüssel	Keys
+Inputs	Inputs
+Outputs	Outputs
+Objekt {} ausgewählt	Object {} selected
+Keine Brush/Seite/Entity mit Nummer {}	No brush/side/entity with number {}
+Garry's Mod gefunden: {}	Garry's Mod found: {}
+Koordinate {}	Coordinate {}
+Ungültige Koordinate	Invalid coordinate
+Sound gewählt: {}	Sound chosen: {}
+Objektliste	Object list
+Filtern (Klasse, Name, Material)	Filter (class, name, material)
+Klick wählt · Doppelklick zentriert · 👁 ausblenden · 🔒 sperren	Click selects · double-click centers · 👁 hide · 🔒 lock
+Ausblenden/Einblenden	Hide/show
+Sperren/Entsperren	Lock/unlock
+Klick springt zu diesem Stand	Click jumps to this state
+Bis vor diese Aktion zurückgehen	Go back to before this action
+▶ Aktueller Stand	▶ Current state
+Wiederholen bis hier	Redo up to here
+Tastenkürzel	Keyboard shortcuts
+Suchen…	Search…
+Alle zurücksetzen	Reset all
+Ändern	Change
+Kein Kürzel	No shortcut
+Standard	Default
+gelöscht	deleted
+geändert	changed
+Anheben	Raise
+Absenken	Lower
+Glätten	Smooth
+Auf Höhe setzen	Set height
+Alpha malen	Paint alpha
+Alpha entfernen	Erase alpha
+Entity	Entity
+Block	Block
+Flächen/Textur	Faces/texture
+Vertex	Vertex
+Terrain	Terrain
+Skalieren	Scale
+Drehen	Rotate
+Scheren	Shear
+Geladen: {} ({} Brushes, {} Entities)	Loaded: {} ({} brushes, {} entities)
+Gespeichert: {}	Saved: {}
+Das angeklickte Objekt hat keinen Namen (targetname)	The clicked object has no name (targetname)
+Gedreht um {}°	Rotated by {}°
+Gespiegelt ({})	Flipped ({})
+Am Raster ausgerichtet	Snapped to grid
+Form konnte nicht erzeugt werden	Shape could not be created
+{} erstellt: {} × {} × {}	{} created: {} × {} × {}
+{} platziert bei {}	{} placed at {}
+Decal {} platziert	Decal {} placed
+Overlay {} platziert	Overlay {} placed
+{} Objekt(e) gelöscht	{} object(s) deleted
+{} Objekt(e) kopiert	{} object(s) copied
+Eingefügt	Pasted
+{} Kopie(n) eingefügt	{} copies pasted
+Keine Brushes ausgewählt	No brushes selected
+In {} umgewandelt	Converted to {}
+In die Welt verschoben	Moved to world
+Keine Brushes zum Aushöhlen ausgewählt	No brushes selected to hollow
+Ausgehöhlt (Wandstärke {})	Hollowed (wall thickness {})
+Carve: {} Brush(es) geschnitten	Carve: {} brush(es) cut
+Zum Schneiden zuerst Brushes auswählen	Select brushes first to cut
+Geschnitten	Cut
+Material {} angewendet	Material {} applied
+{} Fläche(n) ersetzt	{} face(s) replaced
+Zum Gruppieren mindestens zwei Objekte auswählen	Select at least two objects to group
+Gruppe {} erstellt ({} Objekte)	Group {} created ({} objects)
+Gruppe aufgelöst	Group dissolved
+Ausgeblendet (U = alles einblenden)	Hidden (U = unhide all)
+Alles eingeblendet	All shown
+Prefab {} eingefügt	Prefab {} inserted
+Zuerst Flächen im Flächen-Werkzeug auswählen	Select faces with the face tool first
+Keine Displacements ausgewählt	No displacements selected
+{} Displacement(s) entfernt	{} displacement(s) removed
+Rauschen auf {} Displacement(s)	Noise on {} displacement(s)
+{} Displacement(s) auf Power {} umgerechnet	{} displacement(s) converted to power {}
+{} Displacement(s) unterteilt (geglättet)	{} displacement(s) subdivided (smoothed)
+Keine gemeinsamen Kanten gefunden	No shared edges found
+{} Randpunkte vernäht	{} edge points sewn
+Cordon: {} × {} × {}	Cordon: {} × {} × {}
+Keine func_instance ausgewählt	No func_instance selected
+Instanz-Datei {} nicht gefunden	Instance file {} not found
+Instanz(en) eingeklappt	Instance(s) collapsed
+Raster: {}	Grid: {}
+{} Objekt(e) dupliziert	{} object(s) duplicated
+Gesperrt – nicht mehr anklickbar (Shift+L entsperrt alles)	Locked – no longer clickable (Shift+L unlocks all)
+Alles entsperrt	All unlocked
+Keine verdeckten Flächen gefunden	No hidden faces found
+{} verdeckte Fläche(n) auf nodraw gesetzt	{} hidden face(s) set to nodraw
+{} Objekt(e) aus der Zwischenablage eingefügt	{} object(s) pasted from the clipboard
+Prefab eingefügt – {} Name(n) umbenannt	Prefab inserted – {} name(s) renamed
+Prefab eingefügt	Prefab inserted
+Erst eine Entity auswählen	Select an entity first
+{} Eigenschaft(en) von {} kopiert	{} propert(ies) copied from {}
+Nichts kopiert (Eigenschaften kopieren zuerst)	Nothing copied (copy properties first)
+Keine Entities ausgewählt	No entities selected
+Eigenschaften auf {} Entity/Entities übertragen	Properties pasted to {} entit(ies)
+Erst etwas auswählen	Select something first
+{} berührende(s) Objekt(e) hinzugefügt	{} touching object(s) added
+Oben · X/Y	Top · X/Y
+Vorn · Y/Z	Front · Y/Z
+Seite · X/Z	Side · X/Z
+MCP: {} erstellt	MCP: {} created
+MCP: Entity {} geändert	MCP: entity {} changed
+MCP: Output hinzugefügt	MCP: output added
+MCP: Raum erstellt	MCP: room created
+MCP: verschoben	MCP: moved
+MCP: gedreht	MCP: rotated
+3-Wege-Zusammenführen: {}	3-way merge: {}
+Optimierungen übernommen (MCP): {} Änderung(en)	Optimizations applied (MCP): {} change(s)
+Umbenannt	Renamed
+Hinweise	Notes
+Position	Position
+Optionen	Options
+Gruppen und Visgroups der anderen Map übernehmen	Take groups and visgroups of the other map
+Doppelte Entity-Namen werden automatisch umbenannt (name_2), Verweise ziehen mit.	Duplicate entity names are renamed automatically (name_2), references follow.
+Unterschiedliche Map-Eigenschaften · Haken = Wert der anderen Map	Different map properties · checked = value of the other map
+offene Map	open map
+andere Map	other map
+Fertig	Done
+Neue Objekte sind ausgewählt · Strg+Z macht alles rückgängig	New objects are selected · Ctrl+Z undoes everything
+Zusammenführen	Merge
+Konflikte (Klick wählt das Objekt):	Conflicts (click selects the object):
+Strg+Z nimmt das Zusammenführen komplett zurück.	Ctrl+Z undoes the whole merge.
+Markierungen aus	Markers off
+Klick: anwählen und hinzoomen	Click: select and zoom to
+Vergleich mit {}: {}	Comparison with {}: {}
+Filtern, z. B. props_junk crate	Filter, e.g. props_junk crate
+Skin	Skin
+Modell wird geladen…	Loading model…
+Links ein Modell anklicken.	Click a model on the left.
+Ziel: Modell für neue Props	Target: model for new props
+Ansicht zurücksetzen	Reset view
+Modell: {}	Model: {}
+Beim Kompilieren automatisch anwenden	Apply automatically when compiling
+Läuft auf einer Kopie (Ordner amboss_build neben der VMF) vor VBSP. Deine Map bleibt unverändert.	Runs on a copy (amboss_build folder next to the VMF) before VBSP. Your map stays unchanged.
+🔍 Nur prüfen	🔍 Check only
+Läuft auf einer Kopie und zeigt Netz, Markierungen und Bericht – die Map bleibt unverändert	Runs on a copy and shows graph, markers and report – the map stays unchanged
+✔ Auf Map anwenden	✔ Apply to map
+Ergebnis in die Map übernehmen (ein Rückgängig-Schritt)	Apply the result to the map (one undo step)
+Markierungen löschen	Clear markers
+Bericht	Report
+Grün = NPC-Verbindungen, Rot = Probleme, Gelb = Hint-Vorschläge, Blau = dunkle Bereiche. Maus über eine Markierung in 2D zeigt den Text.	Green = NPC connections, red = problems, yellow = hint suggestions, blue = dark areas. Hovering a marker in 2D shows its text.
+Abstand	Spacing
+Sichtbarkeit (VVIS)	Visibility (VVIS)
+Licht	Lighting
+Geometrie	Geometry
+Props und Entities	Props and entities
+Optimierungen übernommen: {} Änderung(en) – Strg+Z macht sie rückgängig	Optimizations applied: {} change(s) – Ctrl+Z undoes them
+Optimierung: nichts zu ändern	Optimization: nothing to change
+Prüfung: {} mögliche Änderung(en), Map unverändert	Check: {} possible change(s), map unchanged
+{} Siehe Karte -> Automatische Optimierungen.	{} See Map -> Automatic optimizations.
+Werkzeug	Tool
+Suchen…   @ Entities · # Texturen · > Befehle	Search…   @ entities · # textures · > commands
+Aktuelle Textur: {} (Shift+T wendet sie auf die Auswahl an)	Current texture: {} (Shift+T applies it to the selection)
+Browser…	Browser…
+Klick auf eine Auswahl wechselt die Griffe:	Clicking a selection switches the handles:
+Drehen rastet in 15°-Schritten ein (Shift = frei).	Rotation snaps in 15° steps (Shift = free).
+Linksklick vergrößert, Rechtsklick verkleinert (2D).	Left click zooms in, right click zooms out (2D).
+Material oben wählen (z. B. decals/…), dann in 3D auf eine Fläche klicken.	Choose a material above (e.g. decals/…), then click a face in 3D.
+Material oben wählen, dann in 3D auf eine Brush-Fläche klicken.\nGröße/Ausrichtung danach in den Eigenschaften (uv0–uv3, Start/End U/V).	Choose a material above, then click a brush face in 3D.\nSize/alignment afterwards in the properties (uv0–uv3, start/end U/V).
+In einer 2D-Ansicht eine Schnittlinie ziehen. Endpunkte lassen sich verschieben.	Drag a cut line in a 2D view. End points can be moved.
+Beide	Both
+Vorne	Front
+Hinten	Back
+Schneiden (Enter)	Cut (Enter)
+Linie löschen	Clear line
+Brush auswählen, dann Eckpunkte (Quadrate) oder Kanten (Kreise) in 2D ziehen.\nStrg = mehrere, Rahmen ziehen = mehrere, Pfeiltasten = verschieben.	Select a brush, then drag vertices (squares) or edges (circles) in 2D.\nCtrl = several, drag a box = several, arrow keys = move.
+2D: Linie ziehen · 3D: zwei Punkte auf Flächen anklicken. Esc löscht.	2D: drag a line · 3D: click two points on faces. Esc clears.
+In 2D ziehen: neue Kamera (Start = Position, Ende = Blickziel). Punkte lassen sich verschieben. Bild↑/↓ wechselt.	Drag in 2D: new camera (start = position, end = look target). Points can be moved. PgUp/PgDn switches.
+Neue Kamera an aktueller Position	New camera at current position
+Bogen (°)	Arc (°)
+Startwinkel (°)	Start angle (°)
+Höhe pro Segment	Height per segment
+Querschnitt-Seiten	Cross-section sides
+In einer 2D-Ansicht ein Rechteck ziehen. Die Höhe wird vom letzten Block übernommen.	Drag a rectangle in a 2D view. The height is taken from the last block.
+Klick in 2D/3D platziert:	Click in 2D/3D places:
+Modell:	Model:
+Klick in 3D wählt Flächen (Strg = mehrere).\nRechtsklick: Material anwenden · Alt+Rechtsklick: nahtlos ausrichten.	Click in 3D selects faces (Ctrl = several).\nRight click: apply material · Alt+right click: wrap seamlessly.
+Skalierung	Scale
+Verschiebung	Shift
+Rotation	Rotation
+Lightmap	Lightmap
+Smoothing	Smoothing
+Ausrichten	Justify
+Als Einheit	As a unit
+An Welt	To world
+An Fläche	To face
+Material übernehmen	Pick material
+Material dieser Fläche als aktuelles setzen	Use this face's material as current
+Displacement	Displacement
+Power	Power
+Erstellen	Create
+Entfernen	Remove
+In 3D mit gedrückter linker Maustaste malen. Strg kehrt Anheben/Absenken um.	Paint in 3D holding the left mouse button. Ctrl inverts raise/lower.
+Radius	Radius
+Stärke	Strength
+Richtung	Direction
+Z-Achse	Z axis
+Flächennormale	Face normal
+Alpha (Überblendung) anzeigen	Show alpha (blend)
+Auf ausgewählte Displacements anwenden	Apply to selected displacements
+Rauschen	Noise
+Nähen (Sew)	Sew
+Gemeinsame Kanten benachbarter Displacements angleichen	Match shared edges of neighboring displacements
+Alpha invertieren	Invert alpha
+Unterteilen	Subdivide
+Glättet alle ausgewählten Displacements gemeinsam (Catmull-Clark) – z. B. wird ein Würfel aus 6 Displacements rund	Smooths all selected displacements together (Catmull-Clark) – e.g. a cube of 6 displacements becomes round
+Feinheit:	Resolution:
+Auflösung ändern, Form und Alpha bleiben erhalten	Change resolution, shape and alpha are kept
+Flag auf Auswahl setzen (Shift+Klick: entfernen)	Set flag on selection (Shift+click: remove)
+Erstellen: im Flächen-Werkzeug Flächen wählen → „Displacement erstellen“.	Create: select faces with the face tool → “Create displacement”.
+In einer 2D-Ansicht einen Bereich ziehen. Beim Kompilieren wird nur dieser Teil gebaut (abgedichtet).	Drag an area in a 2D view. Only this part is built when compiling (sealed).
+Cordon entfernen	Remove cordon
+Noch kein Cordon gesetzt.	No cordon set yet.
+Visgroups	Visgroups
+Wählen	Select
+Auswahl hinzufügen	Add selection
+Auswahl entfernen	Remove selection
+Visgroup löschen	Delete visgroup
+Ebene sperren (nicht anklickbar)	Lock layer (not clickable)
+Aus Auswahl	From selection
+Automatische Filter	Automatic filters
+Welt	World
+Trigger	Triggers
+Tool-Texturen	Tool textures
+Brush-Entities	Brush entities
+Punkt-Entities	Point entities
+Lichter	Lights
+Props	Props
+Displacements	Displacements
+Brushes	Brushes
+Yaw (Blickrichtung) – klicken/ziehen	Yaw (facing) – click/drag
+Allgemein	General
+Hilfe zu dieser Klasse	Help for this class
+Eigenschaften kopieren (Strg+Alt+C)	Copy properties (Ctrl+Alt+C)
+Übertragen	Paste
+Kopierte Eigenschaften auf alle ausgewählten Entities übertragen (Strg+Alt+V)	Paste copied properties to all selected entities (Ctrl+Alt+V)
+Unbekannte Klasse (nicht in der FGD)	Unknown class (not in the FGD)
+Winkel	Angles
+Drehen:	Rotate:
+Schlüsselwerte	Key values
+Pipette: Ziel in einer Ansicht anklicken	Eyedropper: click the target in a view
+Schlüssel entfernen	Remove key
+Wert	Value
+Flags	Flags
+Ausgänge	Outputs
+Output	Output
+(eigener Name)	(own name)
+Pipette: Ziel-Entity in einer Ansicht anklicken	Eyedropper: click the target entity in a view
+Systeme filtern…	Filter systems…
+Keine .pcf-Dateien im Spielordner gefunden (particles/).	No .pcf files found in the game folder (particles/).
+Links ein Partikelsystem wählen.	Choose a particle system on the left.
+Partikelsystem	Particle system
+Wird als effect_name in info_particle_system eingetragen.	Is entered as effect_name in info_particle_system.
+Partikelsystem {} in die Zwischenablage kopiert	Particle system {} copied to the clipboard
+Partikelsystem: {}	Particle system: {}
+Prefab-Bibliothek	Prefab library
+Neu einlesen	Rescan
+Speichern als	Save as
+(Hauptordner)	(main folder)
+neue Kategorie	new category
+Auswahl speichern	Save selection
+Hammer-Bibliothek (.ol/.rmf) importieren…	Import Hammer library (.ol/.rmf)…
+Wandelt alle Prefabs in VMF-Dateien in einem eigenen Unterordner um	Converts all prefabs to VMF files in their own subfolder
+Mitgelieferte als VMF kopieren	Copy built-in ones as VMF
+Zum Anpassen in den Prefab-Ordner schreiben	Write to the prefab folder for editing
+Suchen:	Search:
+Ziehen in eine Ansicht oder anklicken und dann in eine Ansicht klicken (Shift = mehrfach)	Drag into a view, or click and then click in a view (Shift = several)
+Datei löschen	Delete file
+Als Map öffnen	Open as map
+Prefab „{}“ eingefügt{}	Prefab “{}” inserted{}
+Prefab „{}“: {}	Prefab “{}”: {}
+Prefab gespeichert ({} Objekte): {}	Prefab saved ({} objects): {}
+{} Prefab(s) aus {} importiert	{} prefab(s) imported from {}
+{} Prefabs nach {} kopiert	{} prefabs copied to {}
+Prefab „{}“: in eine Ansicht klicken	Prefab “{}”: click in a view
+Keil	Wedge
+Zylinder	Cylinder
+Spitze	Spike
+Kugel	Sphere
+Bogen	Arch
+Torus	Torus
+Treppe	Stairs
+Wendeltreppe	Spiral stairs
+Rampe	Ramp
+Rohr	Pipe
+Kuppel	Dome
+Zaun/Geländer	Fence/railing
+Outputs entfernen	Remove outputs
+Material ersetzen	Replace material
+Leere Seiten entfernen	Remove empty sides
+Displacement entfernen	Remove displacement
+Brushes in Welt verschieben	Move brushes to world
+info_player_start erstellen	Create info_player_start
+info_player_start bei {} erstellt	info_player_start created at {}
+MCP-Server (KI-Fernsteuerung)	MCP server (AI remote control)
+Ohne offenes Fenster: amboss --mcp-stdio --map pfad.vmf [--game-dir…/garrysmod]	Without an open window: amboss --mcp-stdio --map path.vmf [--game-dir…/garrysmod]
+{} importiert: {} Brushes, {} Entities – bitte als VMF speichern	{} imported: {} brushes, {} entities – please save as VMF
+läuft auf http://127.0.0.1:{}/mcp	running on http://127.0.0.1:{}/mcp
+Map-Editor für Source	Map editor for Source
+Zum Editor	To editor
+Startseite schließen	Close start page
+Maps und Vorlagen suchen	Search maps and templates
+Nicht gespeicherte Änderungen gefunden	Unsaved changes found
+Verwerfen	Discard
+Wiederherstellen	Restore
+Neu aus Vorlage	New from template
+Noch keine Maps geöffnet.	No maps opened yet.
+Neue Map aus Vorlage „{}“	New map from template “{}”
+Schließen (Esc)	Close (Esc)
+Beide behalten	Keep both
+Vorderseite behalten	Keep front
+Rückseite behalten	Keep back
+Ungültige Form – Eckpunkt hier nicht möglich	Invalid shape – vertex not possible here
+Eckpunkte verschoben um {} {} {}	Vertices moved by {} {} {}
+Abstand: {} Einheiten	Distance: {} units
+Griffe: {}	Handles: {}
+Texturiert	Textured
+Einfarbig	Flat
+Drahtgitter	Wireframe
+Lightmap-Raster	Lightmap grid
+Smoothing-Gruppen	Smoothing groups
+Lichtvorschau (ohne Schatten)	Light preview (no shadows)
+Fläche lässt sich nicht so weit verschieben	Face cannot be moved that far
+{} Objekt(e) im Rahmen ausgewählt	{} object(s) selected in the box
+Material übernommen: {}	Material picked: {}
+Overlay: auf eine Brush-Fläche klicken	Overlay: click a brush face
+Zuerst eine Quell-Fläche auswählen	Select a source face first
+Neue Map	New map
+Map öffnen…	Open map…
+Live-Sitzung beitreten	Join live session
+Bedienung & Hilfe	Controls & help
+Neu	New
+Eigenschaften	Properties
+Objekte	Objects
+Nichts ausgewählt	Nothing selected
+Objekt in einer Ansicht anklicken	Click an object in a view
+Einrasten	Snap
+An Eckpunkten	To vertices
+Texturen fixieren	Lock textures
+Gruppen	Groups
+Spielinhalte laden…	Loading game content…
+Keine Spielinhalte	No game content
+MCP verbunden	MCP connected
+Materialien	materials
+Sprache	Language
+Spielordner	Game folder
+alle	every
+aus	off
+Bereit	Ready
+Befehle, Entities, Texturen suchen…	Search commands, entities, textures…
+nicht gespeichert	not saved
+Kein Profil	No profile
+Eine Ansicht (Shift+Z)	One view (Shift+Z)
+Vier Ansichten	Four views
+An Eckpunkten anderer Objekte einrasten (Alt+V)	Snap to vertices of other objects (Alt+V)
+Textur-Lock: Texturen beim Verschieben/Drehen mitbewegen	Texture lock: move textures with objects when moving/rotating
+Gruppe lösen	Ungroup
+Zurück in Welt	Back to world
+Ausblenden	Hide
+Sperren	Lock
+Berührende hinzufügen	Add touching
+{} Eckpunkt(e) gewählt	{} vertex/vertices selected
+ · Blend-Material (Alpha malen mischt die 2. Textur)	 · blend material (painting alpha mixes in the 2nd texture)
+ungültig	invalid
+nicht eingestellt	not set
+MCP aus	MCP off
+Leere Map	Empty map
+Nichts außer den Map-Eigenschaften.	Nothing but the map properties.
+Raum mit Licht und Spawn	Room with light and spawn
+Abgedichteter Raum 512 × 512 × 256 mit Spawn, Licht und Cubemap – sofort kompilierbar.	Sealed room 512 × 512 × 256 with spawn, light and cubemap – ready to compile.
+Außenbereich	Outdoor area
+Himmel, Sonne (light_environment) und Boden 2048 × 2048.	Sky, sun (light_environment) and ground 2048 × 2048.
+Große Bauwiese	Big build meadow
+Sehr großer flacher Außenbereich (8192 × 8192) zum Bauen im Sandbox-Modus, mit Sonne und Spawnpunkten.	Very large flat outdoor area (8192 × 8192) for building in sandbox mode, with sun and spawn points.
+Arena (Deathmatch)	Arena (deathmatch)
+Halle 2048 × 2048 × 512 mit Säulen, vier Spawnpunkten, Lichtern und Cubemap.	Hall 2048 × 2048 × 512 with pillars, four spawn points, lights and cubemap.
+Zwei Räume mit Tür (NPC-Test)	Two rooms with door (NPC test)
+Zwei Räume, verbunden durch eine Schiebetür mit Knöpfen – gut zum Testen von KI-Nodes und Areaportals.	Two rooms connected by a sliding door with buttons – good for testing AI nodes and areaportals.
+Kein Spielordner – Einstellungen	No game folder – settings
+Keine Spielinhalte – Spielordner prüfen	No game content – check game folder
+Compiler nicht gefunden	Compilers not found
+VBSP · VVIS · VRAD gefunden	VBSP · VVIS · VRAD found
+Willkommen	Welcome
+Willkommen zurück	Welcome back
+{} Materialien geladen	{} materials loaded
+Spielinhalte werden geladen…	Loading game content…
+FGD geladen – {} Entity-Klassen	FGD loaded – {} entity classes
+Eingebaute Entity-Liste ({} Klassen)	Built-in entity list ({} classes)
+· automatisch gesichert vor {}	· autosaved {} ago
+vor {} Std.	{} h ago
+vor {} Min.	{} min ago
+vor {} Tagen	{} days ago
+gestern	yesterday
+Brush-Entity · {} Flächen	Brush entity · {} faces
+Welt · {} Flächen	World · {} faces
+{}\nKlick: auswählen · Doppelklick: auf Auswahl anwenden	{}\nClick: select · double-click: apply to selection
+{} Eckpunkt(e) ausgewählt	{} vertex/vertices selected
+Seiten	Sides
+Wandstärke	Wall thickness
+{} Fläche(n) ausgewählt	{} face(s) selected
+Einpassen	Fit
+Keine Physik	No physics
+Kein Hull	No hull
+Kein Ray	No ray
+{} Entities ausgewählt – Änderungen gelten für alle	{} entities selected – changes apply to all
+Verzög.	Delay
++ Output hinzufügen	+ Add output
+{} Schritt(e) im Verlauf. Ohne Speichern gehen die Änderungen verloren.	{} step(s) in history. Without saving the changes are lost.
+Einstellen…	Configure…
+{} mögliche Probleme	{} possible problems
+Anzeigen	Show
+GarrysMod-Hauptordner (enthält 'garrysmod' und 'bin')	GarrysMod main folder (contains 'garrysmod' and 'bin')
+Ordner für gespeicherte Prefabs	Folder for saved prefabs
+lädt…	loading…
+Konnte Grafik-Einstellung nicht speichern: {}	Could not save graphics setting: {}
+1. Block (Shift+B), in Top ein Rechteck ziehen. 2. Strg+H höhlt zum Raum aus. 3. Entity (Shift+E): info_player_start und light setzen. 4. F9.	1. Block (Shift+B), drag a rectangle in Top. 2. Ctrl+H hollows it into a room. 3. Entity (Shift+E): place info_player_start and light. 4. F9.
+Shift+S Auswahl · G Lupe · C Kamera · E Entity · B Block · A Flächen · D Decal · O Overlay · X Clip · V Vertex · P Terrain · K Cordon	Shift+S select · G magnify · C camera · E entity · B block · A faces · D decal · O overlay · X clip · V vertex · P terrain · K cordon
+Klick wählt, Strg = hinzufügen, Rahmen ziehen. Klick auf Auswahl: Skalieren → Drehen → Scheren	Click selects, Ctrl = add, drag a box. Click on the selection: scale → rotate → shear
+Linie ziehen, Enter schneidet, Shift+X wechselt Vorne/Hinten/Beide	Drag a line, Enter cuts, Shift+X switches front/back/both
+Eckpunkte/Kanten ziehen; ungültige Formen werden abgelehnt	Drag vertices/edges; invalid shapes are rejected
+Fläche (Shift+A) wählen → Displacement erstellen, dann Shift+P und in 3D malen	Select a face (Shift+A) → create displacement, then Shift+P and paint in 3D
+Mausrad zoomen, mittlere Taste/Leertaste verschieben, Pfeiltasten verschieben Auswahl	Mouse wheel zooms, middle button/space pans, arrow keys move the selection
+Flächen	Faces
+Rechtsklick: Material anwenden · Alt+Rechtsklick: Ausrichtung nahtlos übernehmen	Right click: apply material · Alt+right click: continue alignment seamlessly
+Rückgängig / Wiederholen	Undo / redo
+Kopieren / Einfügen / Ausschneiden · Strg+Shift+V Paste Special	Copy / paste / cut · Ctrl+Shift+V paste special
+Gruppieren / Gruppe lösen	Group / ungroup
+Ausblenden / Unausgewähltes ausblenden / Alles einblenden	Hide / hide unselected / unhide all
+In Entity umwandeln / zurück in Welt	Tie to entity / move back to world
+Aushöhlen / Carve	Hollow / carve
+Transformieren-Dialog / Am Raster ausrichten	Transform dialog / snap to grid
+Spiegeln horizontal / vertikal, 90° drehen (Ansicht unter der Maus)	Flip horizontally / vertically, rotate 90° (view under the mouse)
+Auf Probleme prüfen (mit Auto-Fix)	Check for problems (with auto-fix)
+Raster verkleinern / vergrößern	Smaller / larger grid
+Kompilieren und in GMod starten	Compile and run in GMod
+Befehlspalette: jeden Befehl per Suche ausführen	Command palette: run any command by searching
+Shift+Ziehen (2D) / Shift am Gizmo	Shift+drag (2D) / Shift on the gizmo
+Auswahl duplizieren und verschieben · Strg+D dupliziert direkt	Duplicate and move the selection · Ctrl+D duplicates in place
+Pfeile verschieben, Ringe drehen (15°-Raster, Shift frei) · Shift+W schaltet ihn ein/aus	Arrows move, rings rotate (15° steps, Shift free) · Shift+W toggles it
+Flächen-Werkzeug in 3D	Face tool in 3D
+Shift+Ziehen: Fläche verschieben (Brush wächst) · Alt+Ziehen: neuen Brush herausziehen	Shift+drag: move face (brush grows) · Alt+drag: extrude a new brush
+Pipette: Material einer Fläche übernehmen	Eyedropper: pick the material of a face
+Auswahl sperren / alles entsperren	Lock selection / unlock all
+Kamera-Lesezeichen speichern / anspringen	Save / jump to camera bookmarks
+Objektliste / Rückgängig-Verlauf	Object list / undo history
+Nächster Tab / Tab schließen	Next tab / close tab
+Am Raster einrasten an/aus · an Eckpunkten anderer Objekte einrasten an/aus	Snap to grid on/off · snap to vertices of other objects on/off
+3D: Ziehen mit links	3D: drag with left button
+Rahmenauswahl (Strg = hinzufügen, Alt = auch berührte Objekte) · Strg+Alt+A: berührende auswählen	Box selection (Ctrl = add, Alt = also touched objects) · Ctrl+Alt+A: select touching
+Entity-Eigenschaften kopieren / auf alle ausgewählten übertragen	Copy entity properties / paste to all selected
+Datei → Map zusammenführen	File → Merge map
+Andere Map übernehmen: doppelte Namen werden umbenannt, Visgroup „Import“, Warnungen bei Überlappung	Bring in another map: duplicate names are renamed, visgroup “Import”, warnings on overlap
+Unterschiede zu einem anderen Stand farbig anzeigen · Änderungen zweier Personen zusammenführen	Show differences to another version in color · merge changes of two people
+Live-Sitzung: Gastgeber teilt die Map, Gäste treten mit Adresse und Passwort bei · Strg+Z nimmt nur eigene Schritte zurück	Live session: the host shares the map, guests join with address and password · Ctrl+Z only undoes your own steps
+Karte → Automatische Optimierungen	Map → Automatic optimizations
+KI-Nodes, Leckprüfung, func_detail, nodraw, Areaportals, Cubemaps, Lightmaps… · „Nur prüfen“ zeigt das NPC-Netz (grün) und Probleme, „Auf Map anwenden“ übernimmt (Strg+Z), oder beim Kompilieren automatisch auf einer Kopie	AI nodes, leak check, func_detail, nodraw, areaportals, cubemaps, lightmaps… · “Check only” shows the NPC graph (green) and problems, “Apply to map” applies (Ctrl+Z), or automatically on a copy when compiling
+Verschieben	Move
+Drehen und Skalieren um die Mitte der Auswahl	Rotate and scale around the center of the selection
+Zuerst etwas auswählen	Select something first
+{} Kopien einfügen	Paste {} copies
+{} Kopie einfügen	Paste {} copy
+Warnungen	Warnings
+(nicht gespeichert)	(not saved)
+Verschiedene Texturen	Different textures
+Gruppen / Visgroups	Groups / visgroups
+Rückgängig-Speicher	Undo memory
+Verwendete Texturen	Used textures
+Datei fehlt im Spielordner	File missing in game folder
+(ohne Namen)	(unnamed)
+Keine benannten Entities oder Outputs	No named entities or outputs
+Neue Taste für „{}“ drücken… (Esc bricht ab)	Press a new key for “{}”… (Esc cancels)
+Neue Visgroup	New visgroup
+Konnte {} nicht laden:\n{}	Could not load {}:\n{}
+Suche Garry's Mod in den Steam-Bibliotheken…	Searching Garry's Mod in the Steam libraries…
+Vier Ansichten (Shift+Z)	Four views (Shift+Z)
+Ansicht maximieren (Shift+Z)	Maximize view (Shift+Z)
+Kein Spielordner eingestellt – Bearbeiten → Einstellungen → „Automatisch suchen“ (oder…/GarrysMod/garrysmod eintragen)	No game folder set – Edit → Settings → “Find automatically” (or enter…/GarrysMod/garrysmod)
+keine VPK-Dateien und kein materials-Ordner in {}	no VPK files and no materials folder in {}
+Keine Materialien gefunden: {}. Der Spielordner muss…/GarrysMod/garrysmod sein.	No materials found: {}. The game folder must be…/GarrysMod/garrysmod.
+Spielinhalte: {} Materialien aus {} – Addons werden noch eingelesen…	Game content: {} materials from {} – still reading addons…
+Spielinhalte geladen: {} Materialien aus {} – Addons ausgeschaltet (Einstellungen)	Game content loaded: {} materials from {} – addons disabled (settings)
+Spielinhalte geladen: {} Materialien aus {} und {}	Game content loaded: {} materials from {} and {}
+Spielinhalte werden im Hintergrund geladen…	Game content is loading in the background…
+FGD konnte nicht geladen werden: {}	FGD could not be loaded: {}
+Im Namen	In name
+In der Beschreibung	In description
+Favoriten	Favorites
+Keine Klasse gefunden	No class found
+Meintest du {}?	Did you mean {}?
+Punkt-Entity – nicht für Brushes · {}	Point entity – not for brushes · {}
+{} Brush(es) ausgewählt	{} brush(es) selected
+aus {} · {} Brush-Klassen	from {} · {} brush classes
+eingebaute Liste · {} Brush-Klassen	built-in list · {} brush classes
+In {} umwandeln	Convert to {}
+garrysmod.fgd nicht gefunden – eingebaute Liste mit {} Klassen.	garrysmod.fgd not found – built-in list with {} classes.
+Alle	All
+Punkt	Point
+Entities in der Map	Entities in the map
+Befehle	Commands
+{} Flächen	{} faces
+{} · {} Flächen	{} · {} faces
+Alle {} anzeigen	Show all {}
+Nichts gefunden	Nothing found
+wählen	select
+ausführen / auswählen	run / select
+nächste Gruppe	next group
+Keine Modelle gefunden – Spielordner in den Einstellungen prüfen.	No models found – check the game folder in settings.
+Kein Modell passt zum Filter.	No model matches the filter.
+Größe	Size
+Polygone	Polygons
+Kollisionsmodell	Collision model
+vorhanden	present
+keins	none
+Keine Auswahl	No selection
+Ziehen dreht · Rad zoomt	Drag rotates · wheel zooms
+Kollision	Collision
+{} Modelle	{} models
+{} Sounds	{} sounds
+Ziel: Entity {} / {}	Target: entity {} / {}
+{} .pcf-Dateien · {} Systeme	{} .pcf files · {} systems
+{} .pcf-Dateien · {} Systeme · {} Treffer	{} .pcf files · {} systems · {} hits
+{} Kinder	{} children
+Kinder-Systeme	Child systems
+Im Manifest	In manifest
+ja	yes
+nein	no
+Aufbau	Structure
+{} Treffer	{} hits
+ hat dasselbe Objekt geändert	 changed the same object
+{} übernehmen	Take {}'s
+Deins	Yours
+Ohne Wahl bleibt deins · 0:{}	Without a choice yours stays · 0:{}
++{} weitere Konflikte	+{} more conflicts
++{} weitere	+{} more
+Für das Internet muss die Router-Firewall eingehende IPv6-Verbindungen auf TCP-Port {} zu diesem PC erlauben (z. B. FRITZ!Box: Internet → Freigaben → Gerät → IPv6). Die Adresse kann sich täglich ändern.	For the internet, the router firewall must allow incoming IPv6 connections on TCP port {} to this PC (e.g. FRITZ!Box: Internet → Permit Access → device → IPv6). The address may change daily.
+Heimnetz	Home network
+Internet (IPv6)	Internet (IPv6)
+KI (NPCs)	AI (NPCs)
+Bodennodes (info_node) automatisch setzen	Place ground nodes (info_node) automatically
+Raster auf begehbaren Flächen, dichter an Türen und Engstellen; vorhandene Nodes bleiben	Grid on walkable surfaces, denser at doors and chokepoints; existing nodes stay
+Luftnodes (info_node_air) für fliegende NPCs	Air nodes (info_node_air) for flying NPCs
+Gitter alle 256 Einheiten in hohen, freien Räumen	Grid every 256 units in tall open rooms
+Türen: info_node_link_controller	Doors: info_node_link_controller
+NPC-Wege durch Türen nur bei offener Tür (Ausgaben OnOpen/OnClose werden ergänzt)	NPC paths through doors only when open (OnOpen/OnClose outputs are added)
+info_hint für Deckung und Engstellen	info_hint for cover and chokepoints
+Hinweise an halbhohen Deckungen und Durchgängen	Hints at half-height cover and passages
+Navmesh (NextBots) beim Spielstart erzeugen	Generate navmesh (NextBots) when starting the game
+Hängt +sv_cheats 1 +nav_generate an den Spielstart an; die .nav landet in maps/	Appends +sv_cheats 1 +nav_generate to the launch; the .nav ends up in maps/
+Leckprüfung vor VBSP (mit Pfad)	Leak check before VBSP (with path)
+Flutfüllung von allen Punkt-Entities – findet Löcher zur Leere ohne VBSP-Lauf	Flood fill from all point entities – finds holes to the void without running VBSP
+Verdeckte Flächen -> nodraw	Hidden faces -> nodraw
+Flächen, die vollständig an anderen Brushes anliegen	Faces completely covered by other brushes
+Kleine/schräge Brushes -> func_detail	Small/angled brushes -> func_detail
+Brushes ohne Kontakt zur Leere; Trennwände und Türrahmen bleiben Welt	Brushes without contact to the void; partition walls and door frames stay world
+Areaportals in Tür-Öffnungen	Areaportals in door openings
+func_areaportal an func_door* (nur wenn die Öffnung vollständig von Welt eingefasst ist)	func_areaportal at func_door* (only if the opening is fully enclosed by world)
+Hint-Brush-Vorschläge markieren	Mark hint brush suggestions
+Gelbe Markierungen an Durchgängen – wird nicht automatisch gebaut	Yellow markers at passages – not built automatically
+Lightmap-Auflösung automatisch	Automatic lightmap resolution
+Nahe an Lichtern 8, große/entfernte Flächen 32 (nur Flächen mit Standardwert 16)	Near lights 8, large/distant faces 32 (only faces with the default 16)
+env_cubemap automatisch verteilen	Distribute env_cubemap automatically
+In offenen Bereichen ca. alle 768 Einheiten; danach „Cubemaps bauen“	About every 768 units in open areas; then “build cubemaps”
+Lichtprüfung	Light check
+Lichter in Brushes, zu viele schaltbare Lichter, dunkle Bereiche	Lights inside brushes, too many switchable lights, dark areas
+Eckpunkte auf ganze Einheiten runden	Round vertices to whole units
+Verhindert Mini-Lecks und „Invalid solid“	Prevents tiny leaks and “Invalid solid”
+Gleiche Quader zusammenführen	Merge identical boxes
+Nebeneinander liegende, gleich texturierte Quader werden ein Brush	Adjacent boxes with the same textures become one brush
+Splitter und doppelte Brushes entfernen	Remove slivers and duplicate brushes
+Ungültige, hauchdünne (< 1 Einheit) und exakt doppelte Brushes	Invalid, paper-thin (< 1 unit) and exactly duplicated brushes
+Flache Displacements vereinfachen	Simplify flat displacements
+Displacements ohne Höhen/Alpha werden normale Flächen	Displacements without heights/alpha become normal faces
+Ausblend-Distanz für Props	Fade distance for props
+Nach Modellgröße, nur wenn keine gesetzt ist	By model size, only if none is set
+Schatten kleiner Props aus	Disable shadows of small props
+disableshadows bei sehr kleinen Modellen	disableshadows on very small models
+Wirkungslose Logik entfernen	Remove useless logic
+logic_* ohne Ausgaben, leere Brush-Entities, doppelte Cubemaps	logic_* without outputs, empty brush entities, duplicate cubemaps
+Eigene Inhalte in die BSP packen (bspzip)	Pack custom content into the BSP (bspzip)
+Materialien/Modelle, die lose im Spielordner liegen, werden nach VRAD eingepackt	Materials/models that are loose in the game folder are packed after VRAD
+Bei Leck abbrechen (spart den VBSP-Lauf)	Abort on leak (saves the VBSP run)
+Map konnte nicht geladen werden	Map could not be loaded
+Zusammengeführt	Merged
+Map zusammenführen	Merge map
+Koordinaten behalten	Keep coordinates
+Teile liegen an derselben Stelle wie in der anderen Map	Parts stay at the same place as in the other map
+Neben die offene Map setzen	Place next to the open map
+Verschiebt um die Breite der offenen Map (+X)	Moves by the width of the open map (+X)
+Verschieben um	Move by
+Älteren oder anderen Stand der Map wählen	Choose an older or other version of the map
+Vergleich mit {}	Comparison with {}
+1/2: Gemeinsamen Ausgangsstand (Basis) wählen	1/2: Choose the common base version
+2/2: Version der anderen Person wählen	2/2: Choose the other person's version
+Zusammengeführt mit {}	Merged with {}
+Keine Konflikte.	No conflicts.
+Cordon (aus)	Cordon (off)
+Kein OpenGL-Kontext verfügbar	No OpenGL context available
+Fläche verschoben:	Face moved:
+Prefab: auf eine Fläche klicken bzw. loslassen (Esc bricht ab)	Prefab: click or release on a face (Esc cancels)
+3D nicht verfügbar	3D not available
+Pinsel: {} · Radius {} · Stärke {} (Strg = umkehren)	Brush: {} · radius {} · strength {} (Ctrl = invert)
+Schiebetür mit Knöpfen	Sliding door with buttons
+Türen & Fenster	Doors & windows
+Wand mit func_door (fährt nach oben) und je einem Knopf auf beiden Seiten.	Wall with func_door (moves up) and a button on each side.
+Drehtür	Rotating door
+Wand mit func_door_rotating (Scharnier über Origin-Brush), öffnet per Benutzen.	Wall with func_door_rotating (hinge via origin brush), opens on use.
+Fenster mit Glas	Window with glass
+Wand mit Fensteröffnung und zerbrechlicher Glasscheibe (func_breakable).	Wall with window opening and breakable glass pane (func_breakable).
+Bauteile	Building parts
+Leiter	Ladder
+Sprossenleiter (func_detail) mit unsichtbarem Kletter-Brush (toolsinvisibleladder).	Rung ladder (func_detail) with invisible climb brush (toolsinvisibleladder).
+Deckenlampe	Ceiling lamp
+Lampengehäuse mit Licht darunter. Auf eine Decke ziehen.	Lamp housing with light below. Drag onto a ceiling.
+Technik & Logik	Tech & logic
+Lichtschalter	Light switch
+Knopf, der eine benannte Lampe ein- und ausschaltet.	Button that switches a named lamp on and off.
+Teleporter-Paar	Teleporter pair
+trigger_teleport mit Ziel (info_teleport_destination) 256 Einheiten daneben.	trigger_teleport with destination (info_teleport_destination) 256 units next to it.
+Schadenszone	Damage zone
+trigger_hurt, der Spielern pro Sekunde Schaden zufügt.	trigger_hurt that damages players every second.
+Räume	Rooms
+Spawn-Raum	Spawn room
+Abgedichteter Raum (512 × 512 × 256) mit info_player_start, Licht und env_cubemap. Sofort kompilierbar.	Sealed room (512 × 512 × 256) with info_player_start, light and env_cubemap. Ready to compile.
+Außenbereich mit Himmel	Outdoor area with sky
+2048 × 2048 × 1024 große Skybox-Hülle mit Boden, light_environment und Spawn.	2048 × 2048 × 1024 skybox shell with ground, light_environment and spawn.
+Wasserbecken	Water pool
+Offenes Becken mit Wasser-Brush (Wasseroberfläche oben, sonst nodraw).	Open pool with water brush (water surface on top, otherwise nodraw).
+Treppe mit Podest	Stairs with landing
+8 Stufen (16 hoch) auf 128 Einheiten Höhe mit Podest und Geländer.	8 steps (16 high) up to 128 units with landing and railing.
+Säule	Pillar
+Runde Säule mit Sockel und Kapitell (func_detail).	Round pillar with base and capital (func_detail).
+Physik-Kiste	Physics crate
+prop_physics mit Holzkiste.	prop_physics with a wooden crate.
+ohne Namen	unnamed
+Aufräumen: {} Splitter/ungültige und {} doppelte Brushes entfernt	Cleanup: {} slivers/invalid and {} duplicate brushes removed
+Eckpunkte: {} Brush(es) auf ganze Einheiten gerundet (verhindert Mini-Lecks)	Vertices: {} brush(es) rounded to whole units (prevents tiny leaks)
+Displacements: {} flache Displacement(s) in normale Flächen zurückverwandelt	Displacements: {} flat displacement(s) turned back into normal faces
+Brushes zusammengeführt: {} Paar(e) gleicher Quader	Brushes merged: {} pair(s) of identical boxes
+LECK gefunden – ausgehend von {}. Der rote Pfad führt ins Nichts.	LEAK found – starting at {}. The red path leads into the void.
+Leckprüfung: Map ist dicht.	Leak check: map is sealed.
+Leckprüfung: keine Welt-Brushes.	Leak check: no world brushes.
+func_detail: {} Brush(es), die nicht abdichten, umgewandelt (VVIS wird schneller)	func_detail: {} non-sealing brush(es) converted (VVIS gets faster)
+func_detail übersprungen (Map nicht dicht)	func_detail skipped (map not sealed)
+nodraw: {} vollständig verdeckte Fläche(n)	nodraw: {} completely hidden face(s)
+Hint-Vorschläge: {} Durchgang/Durchgänge markiert (gelb)	Hint suggestions: {} passage(s) marked (yellow)
+Türen: {} info_node_link_controller (NPC-Wege nur bei offener Tür)	Doors: {} info_node_link_controller (NPC paths only when open)
+Areaportals: {} an Türen gesetzt{}	Areaportals: {} placed at doors{}
+, {} übersprungen (Öffnung nicht eindeutig)	, {} skipped (opening not clear)
+Cubemaps: {} env_cubemap gesetzt – nach dem Kompilieren „Cubemaps bauen“ ausführen	Cubemaps: {} env_cubemap placed – run “build cubemaps” after compiling
+Lightmaps: {} Fläche(n) gröber (32), {} feiner (8) – weniger Compile-Zeit, schärferes Licht wo nötig	Lightmaps: {} face(s) coarser (32), {} finer (8) – less compile time, sharper light where needed
+Props: {} mit Ausblend-Distanz, {} kleine ohne Schatten	Props: {} with fade distance, {} small ones without shadows
+Inhalte packen: {} eigene Datei(en) werden mit bspzip in die BSP gepackt	Packing content: {} custom file(s) are packed into the BSP with bspzip
+Packliste konnte nicht geschrieben werden: {}	Pack list could not be written: {}
+Ergebnis: {} -> {} Brushes, {} -> {} Entities, {} Änderung(en)	Result: {} -> {} brushes, {} -> {} entities, {} change(s)
+KI-Netz: {} Nodes, {} Verbindungen, {} zusammenhängende Bereiche, {} isolierte Nodes (rot)	AI graph: {} nodes, {} links, {} connected areas, {} isolated nodes (red)
+Dunkel: kein Licht in der Nähe	Dark: no light nearby
+Kompilieren abgebrochen: Die Map hat ein Leck (roter Pfad).	Compile aborted: the map has a leak (red path).
+Optimierte Kopie konnte nicht geschrieben werden: {}	Optimized copy could not be written: {}
+Kopie: {} (Original bleibt unverändert)	Copy: {} (original stays unchanged)
+Am Raster einrasten: aus (1 Einheit)	Snap to grid: off (1 unit)
+Am Raster einrasten: an	Snap to grid: on
+Auswahl: {} Objekte	Selection: {} objects
+{} Brushes · {} Entities	{} brushes · {} entities
+{} Materialien	{} materials
+Sprache / Language	Language / Sprache
+Map-Eigenschaften	Map properties
+Werkzeug · Entity	Tool · entity
+Brushes in Welt	Brushes in world
+Schritt	Step
+Programm	Program
+Parameter	Parameters
+Einfach	Simple
+Experte	Expert
+Normal	Normal
+Schnell	Fast
+Final	Final
+Aus	Off
+Raster {}	Grid {}
+Raster {} (frei)	Grid {} (free)
+filtern	filter
+vor {} Tag(en)	{} day(s) ago
+vor {} Tg.	{} d ago
+Spiel (exe)	Game (exe)
+Prefab-Ordner	Prefab folder
+.../GarrysMod/bin/vrad.exe	.../GarrysMod/bin/vrad.exe
+.../GarrysMod/hl2.exe oder gmod.exe	.../GarrysMod/hl2.exe or gmod.exe
+{} Entity-Klassen geladen	{} entity classes loaded
+{} Materialien · {} Modelle · {} Sounds	{} materials · {} models · {} sounds
+Weich	Soft
+Linear	Linear
+Hart	Hard
+Terrassen	Terraces
+Schärfen	Sharpen
+Abfall	Falloff
+Stufenhöhe	Step height
+Gelände aus Heightmap…	Terrain from heightmap…
+Gelände aus Heightmap	Terrain from heightmap
+Bild wählen… (PNG oder RAW 16 Bit)	Choose image… (PNG or RAW 16-bit)
+{} × {} Pixel	{} × {} pixels
+Kantenlänge	Edge length
+Höhe (Weiß)	Height (white)
+Kacheln pro Seite	Tiles per side
+Ecke links unten	Lower left corner
+{} Kacheln · Auflösung {} × {} Punkte	{} tiles · resolution {} × {} points
+Keine Vorschau	No preview
+Gelände erstellen	Create terrain
+Weiß = hoch, Schwarz = tief · Ein Rückgängig-Schritt	White = high, black = low · one undo step
+Gelände aus Heightmap: {} Kacheln ({} × {} Einheiten, Höhe {})	Terrain from heightmap: {} tiles ({} × {} units, height {})
+Material	Material
+Auswahl als Modell (Prop)…	Selection to model (prop)…
+Auswahl als Modell (Prop)	Selection to model (prop)
+{} Brushes ausgewählt	{} brushes selected
+Ordner unter models/	Folder under models/
+Oberfläche ($surfaceprop)	Surface ($surfaceprop)
+Typ	Type
+Masse	Mass
+Brushes nach dem Kompilieren durch das Prop ersetzen	Replace the brushes with the prop after compiling
+studiomdl: {}	studiomdl: {}
+studiomdl nicht gefunden (wird neben vbsp gesucht) – nur Export möglich	studiomdl not found (searched next to vbsp) – export only
+Werkzeug-Texturen werden nicht ins Modell übernommen, zählen aber zur Kollision.	Tool textures are left out of the model but count for collision.
+Kompiliere…	Compiling…
+Exportieren & kompilieren	Export & compile
+Nur SMD/QC	SMD/QC only
+Schließen	Close
+Brushes durch {} ersetzt	Brushes replaced by {}
+Modell kompiliert: {}	Model compiled: {}
+Modell-Kompilierung fehlgeschlagen (siehe Log)	Model compile failed (see log)
+Kollisionsmodelle der Props	Prop collision models
+Map-Grenze ±	Map bounds ±
+Source/GMod: 16384 – größer nur für Spiele mit erweitertem Limit	Source/GMod: 16384 – larger only for games with an extended limit
+Layout zurücksetzen	Reset layout
+Schatten (Lichtvorschau)	Shadows (light preview)
+Schatten in der Lichtvorschau	Shadows in the light preview
+Lichtvorschau	Light preview
+Inhalte in BSP packen…	Pack content into BSP…
+Inhalte in BSP packen	Pack content into BSP
+{} von {} Dateien ausgewählt · {}	{} of {} files selected · {}
+BSP-Datei	BSP file
+Inhalt anzeigen	Show content
+Neu ermitteln	Rescan
+Datei hinzufügen…	Add file…
+Alle eigenen	All own files
+Addons dazu	Include addons
+Keine eigenen Inhalte gefunden – alles, was die Map benutzt, gehört zum Spiel.	No custom content found – everything the map uses belongs to the game.
+eigene Datei	own file
+Addon: {}	Addon: {}
+hinzugefügt	added
+Schon in der BSP: {} Datei(en)	Already in the BSP: {} file(s)
+In BSP packen	Pack into BSP
+Eigene Dateien sind vorgewählt, Addon-Inhalte besser im Workshop verlinken	Own files are preselected; better link addon content on the Workshop
+Spielinhalte sind noch nicht geladen (Einstellungen → Spielverzeichnis).	Game content is not loaded yet (Settings → game directory).
+Eigene Inhalte in die BSP packen	Pack custom content into the BSP
+Materialien, Modelle, Sounds, Partikel, Soundscapes und Nav-Mesh, die nicht zum Spiel gehören, werden nach VRAD eingepackt (Auswahl: Kompilieren → Inhalte in BSP packen…)	Materials, models, sounds, particles, soundscapes and nav mesh that are not part of the game are packed after VRAD (selection: Compile → Pack content into BSP…)
+{} Datei(en) in {} gepackt	{} file(s) packed into {}
+BSP dekompilieren…	Decompile BSP…
+Map-Decompiler	Map decompiler
+Nicht wiederherstellbar: Visgroups, Gruppen, Instanzen, Areaportal- und Occluder-Brushes, originale IDs. Displacements stehen als dünne Brushes mit Displacement oben in der Welt.	Not recoverable: visgroups, groups, instances, areaportal and occluder brushes, original IDs. Displacements are thin brushes with the displacement on top, in the world.
+BSP-Version {}	BSP version {}
+{} Brushes (davon {} func_detail), {} Brush-Entities	{} brushes ({} of them func_detail), {} brush entities
+{} Entities, {} statische Props, {} Displacements	{} entities, {} static props, {} displacements
+{} Overlays, {} Cubemaps	{} overlays, {} cubemaps
+{} Brushes ließen sich nicht rekonstruieren (ungültige Form)	{} brushes could not be rebuilt (invalid shape)
+Instanz in Tab öffnen	Open instance in tab
+Instanzen neu laden	Reload instances
+{} Instanzen in der Map – bitte eine func_instance auswählen	{} instances in the map – please select one func_instance
+Keine func_instance mit gefundener Datei ausgewählt	No func_instance with an existing file selected
+Instanz-Kreis: {} bindet sich selbst ein – übersprungen	Instance loop: {} includes itself – skipped
+Instanz-Datei {} (in {}) nicht gefunden	Instance file {} (in {}) not found
+In Entity umwandeln ({})	Tie to entity ({})
+Auswahl: 1 Objekt ({})	Selection: 1 object ({})
+Punkt-Entity	Point entity
+Punktlicht.	Point light.
+Spotlicht.	Spotlight.
+Wiederholbarer Trigger.	Repeatable trigger.
+Am Raster einrasten (Alt+G)	Snap to grid (Alt+G)
+Lua-Skripte…	Lua scripts…
+Lua-Skripte	Lua scripts
+ungespeichert	unsaved
+Skripte	Scripts
+Ordner neu einlesen	Rescan folder
+Ausgabe von print() erscheint hier.	Output of print() appears here.
+Alle Werkzeuge für amboss.call:	All tools for amboss.call:
+Ausführen	Run
+dateiname	file name
+Ein Rückgängig-Schritt pro Skript · Zeitlimit 10 s	One undo step per script · 10 s time limit
+Bitte unten einen Dateinamen eingeben	Please enter a file name below
+Eingehende Verbindungen ({})	Incoming connections ({})
+Inputs dieser Klasse ({})	Inputs of this class ({})
+Werkzeug · {}	Tool · {}
+Kamera {}	Camera {}
+Hilfe: {}	Help: {}
+Navmesh erzeugen	Generate navmesh
+Begehbare Bereiche ab den Spawnpunkten berechnen und als maps/<map>.nav speichern (für NextBots)	Compute walkable areas starting at the spawn points and save as maps/<map>.nav (for NextBots)
+Navmesh laden (.nav)…	Load navmesh (.nav)…
+Navmesh anzeigen	Show navmesh
+Navmesh (NextBots) beim Kompilieren erzeugen	Generate navmesh (NextBots) when compiling
+Eingebauter Generator: begehbare Bereiche ab den Spawnpunkten, gespeichert als maps/<map>.nav und mit „Inhalte packen“ in die BSP	Built-in generator: walkable areas from the spawn points, saved as maps/<map>.nav and packed into the BSP with “Pack content”
+Navmesh wird erzeugt…	Generating navmesh…
+Navmesh: {}	Navmesh: {}
+Navmesh: {} Bereiche ({} geduckt) aus {} Rasterpunkten ab {} Spawnpunkt(en) in {} ms → {}	Navmesh: {} areas ({} crouch) from {} grid points from {} spawn point(s) in {} ms → {}
+Navmesh geladen: {} Bereiche ({})	Navmesh loaded: {} areas ({})
+Navmesh konnte nicht gelesen werden: {}	Could not read navmesh: {}
+Kompilierte Map (BSP) – wird dekompiliert	Compiled map (BSP) – will be decompiled
+Öffnen… (VMF oder BSP)	Open… (VMF or BSP)
+Importieren	Import
+Exportieren	Export
+Oberfläche:	Interface:
+Fensteraufteilung	Window layout
+Nur 3D	3D only
+Nur Oben	Top only
+Nur Vorn	Front only
+Nur Seite	Side only
+Kamera-Geschwindigkeit	Camera speed
+Sichtfeld	Field of view
+Ausblenden & Sperren	Hide & lock
+Objekt	Object
+Brush-Operationen	Brush operations
+Instanzen	Instances
+Als Prefab speichern…	Save as prefab…
+Versionen & Zusammenführen	Versions & merging
+Cordon deaktivieren	Disable cordon
+Cordon aktivieren	Enable cordon
+Kompilieren & Exportieren…	Compile & export…
+Sofort kompilieren & starten	Compile & run now
+Leck-Suche	Leak search
+Tutorial: Erste Schritte…	Tutorial: first steps…
+Einrichtungs-Assistent…	Setup assistant…
+Kompilieren & Exportieren	Compile & export
+Eigene Schritte	Custom steps
+Navmesh für NextBots erzeugen	Generate navmesh for NextBots
+BSP in den maps-Ordner des Spiels kopieren	Copy BSP to the game's maps folder
+Materialien, Modelle, Sounds, Partikel, Soundscapes und Nav-Mesh, die nicht zum Spiel gehören, werden nach VRAD eingepackt	Materials, models, sounds, particles, soundscapes and nav mesh that are not part of the game are packed after VRAD
+Die Liste der benötigten Workshop-Addons wird immer als <map>_addons.txt neben die VMF geschrieben.	The list of required Workshop addons is always written as <map>_addons.txt next to the VMF.
+Cubemaps bauen	Build cubemaps
+Zusatzparameter für VBSP/VVIS/VRAD	Extra parameters for VBSP/VVIS/VRAD
+Nur packen	Pack only
+Eigene Inhalte sofort in die zuletzt kompilierte BSP packen, ohne neu zu kompilieren	Pack custom content into the last compiled BSP right away, without recompiling
+Oberfläche	Interface
+Grundwerkzeuge, kurze Menüs – ideal zum Einstieg	Basic tools, short menus – ideal for getting started
+Alle Werkzeuge und Spezialfunktionen	All tools and special functions
+In Map	In map
+Sichtbarkeit · VVIS	Visibility · VVIS
+Vorher	Before
+Danach	After
+Keine kompilierte BSP gefunden – erst kompilieren	No compiled BSP found – compile first
+Die kompilierte Map wird wieder in eine bearbeitbare VMF umgewandelt und danach geöffnet.	The compiled map is turned back into an editable VMF and then opened.
+keine gültige BSP	not a valid BSP
+Brushes mit Materialien und Texturausrichtung · func_detail · Türen, Trigger und andere Brush-Entities · alle Entities · Displacements · statische Props · Overlays · Cubemaps	Brushes with materials and texture alignment · func_detail · doors, triggers and other brush entities · all entities · displacements · static props · overlays · cubemaps
+Dekompilieren & öffnen	Decompile & open
+BSP dekompilieren	Decompile BSP
+Quelle	Source
+Was zurückkommt	What comes back
+Spielordner mit gameinfo.txt	Game folder with gameinfo.txt
+Compiler VBSP / VVIS / VRAD	Compilers VBSP / VVIS / VRAD
+Spiel (zum Testen der Map)	Game (to test the map)
+Entity-Liste: eingebaut (456 Klassen)	Entity list: built-in (456 classes)
+Entity-Liste: garrysmod.fgd gefunden	Entity list: garrysmod.fgd found
+Willkommen bei Amboss	Welcome to Amboss
+Garry's Mod finden	Find Garry's Mod
+Inhalte	Content
+Fertig!	Done!
+Amboss ist ein Map-Editor für Garry's Mod und andere Source-Spiele. In vier kurzen Schritten ist alles bereit.	Amboss is a map editor for Garry's Mod and other Source games. Four short steps and everything is ready.
+Die wichtigsten Werkzeuge und kurze Menüs. Ideal, wenn du neu mit dem Mappen beginnst.	The most important tools and short menus. Ideal if you are new to mapping.
+Alle Werkzeuge: Vertex-Bearbeitung, Displacements, Overlays, Instanzen, Lua, Versionen…	All tools: vertex editing, displacements, overlays, instances, Lua, versions…
+Beides lässt sich jederzeit unter Ansicht → Oberfläche umschalten.	You can switch at any time under View → Interface.
+Amboss braucht den Ordner von Garry's Mod: für Texturen und Modelle, die Compiler (VBSP, VVIS, VRAD) und um die Map zu testen.	Amboss needs the Garry's Mod folder: for textures and models, the compilers (VBSP, VVIS, VRAD) and to test the map.
+Automatisch suchen	Search automatically
+Ordner wählen…	Choose folder…
+(noch nicht gesetzt)	(not set yet)
+Gesucht wird in allen Steam-Bibliotheken. Gewählt werden kann der Ordner „GarrysMod“ oder „GarrysMod/garrysmod“.	All Steam libraries are searched. You can choose the folder “GarrysMod” or “GarrysMod/garrysmod”.
+Welche Texturen und Modelle soll Amboss anbieten?	Which textures and models should Amboss offer?
+Inhalte aus Addons und dem Workshop verwenden	Use content from addons and the Workshop
+Abonnierte Workshop-Addons und Ordner unter garrysmod/addons. Benutzt deine Map solche Inhalte, erstellt Amboss beim Kompilieren eine Liste zum Verlinken im Workshop.	Subscribed Workshop addons and folders under garrysmod/addons. If your map uses such content, Amboss writes a list for linking on the Workshop when compiling.
+Keine. Inhalte von Counter-Strike: Source oder anderen Source-Spielen werden über garrysmod/cfg/mount.cfg eingebunden (in GMod: Hauptmenü → Spiele-Symbol).	None. Content from Counter-Strike: Source or other Source games is mounted via garrysmod/cfg/mount.cfg (in GMod: main menu → games icon).
+Mit „Weiter“ werden die Inhalte eingelesen – das läuft im Hintergrund weiter.	“Next” reads the content – this continues in the background.
+Alles bereit. Wie möchtest du anfangen?	All set. How do you want to start?
+Tutorial starten	Start tutorial
+Schritt für Schritt zur ersten eigenen Map – empfohlen für Einsteiger.	Step by step to your first own map – recommended for beginners.
+Neue Map aus Vorlage	New map from template
+Fertigen Raum mit Licht und Spawnpunkt öffnen und loslegen.	Open a ready room with light and spawn point and get going.
+Zum Startbildschirm	To the start screen
+Vorlagen, zuletzt geöffnete Maps, Map öffnen.	Templates, recently opened maps, open map.
+Weiter	Next
+Zurück	Back
+Überspringen	Skip
+Eingebundene Spiele (mount.cfg)	Mounted games (mount.cfg)
+Das Tutorial führt dich Schritt für Schritt durch deine erste Map. Jeder Schritt prüft selbst, ob er erledigt ist – und mit „Zeig es mir“ macht Amboss ihn vor.	The tutorial walks you through your first map step by step. Each step checks by itself whether it is done – and with “Show me” Amboss does it for you.
+Tutorial beenden	End tutorial
+Erledigt!	Done!
+Zeig es mir	Show me
+Amboss erledigt diesen Schritt für dich	Amboss does this step for you
+Kapitel abschließen	Finish chapter
+1 · Die erste Map	1 · The first map
+Oberfläche kennenlernen, einen Raum bauen, Kamera bewegen, speichern.	Get to know the interface, build a room, move the camera, save.
+Willkommen!	Welcome!
+Links oben siehst du die 3D-Ansicht, daneben und darunter drei 2D-Ansichten von oben, vorn und von der Seite. In 2D baust du genau auf dem Raster, in 3D schaust du dir das Ergebnis an. Links ist die Werkzeugleiste, rechts stehen die Eigenschaften und unten rechts die Texturen.	Top left is the 3D view; next to and below it are three 2D views from the top, front and side. In 2D you build exactly on the grid, in 3D you look at the result. The tool bar is on the left, the properties on the right and the textures at the bottom right.
+Eine neue Map	A new map
+Lege eine leere Map an: Datei → Neu (Strg+N). Sie öffnet sich in einem eigenen Tab.	Create an empty map: File → New (Ctrl+N). It opens in its own tab.
+Das Block-Werkzeug	The block tool
+Mit dem Block-Werkzeug baust du Wände, Böden und alles Feste. Klicke es in der Werkzeugleiste an oder drücke Shift+B.	With the block tool you build walls, floors and everything solid. Click it in the tool bar or press Shift+B.
+Einen großen Block aufziehen	Draw a large block
+Ziehe in der Ansicht „Oben“ mit gedrückter linker Maustaste ein großes Rechteck auf (etwa 512 × 512). In „Vorn“ oder „Seite“ kannst du die Höhe ziehen (etwa 256). Drücke dann Enter.	In the “Top” view, drag a large rectangle with the left mouse button held (about 512 × 512). In “Front” or “Side” you can drag the height (about 256). Then press Enter.
+Aushöhlen – ein Raum entsteht	Hollow – a room appears
+Ein Raum ist ein hohler Block. Wähle den Block mit dem Auswahl-Werkzeug (Shift+S) und wähle Objekt → Brush-Operationen → Aushöhlen (Strg+H). Aus dem Block werden sechs Wände.	A room is a hollow block. Select the block with the select tool (Shift+S) and choose Object → Brush operations → Hollow (Ctrl+H). The block turns into six walls.
+Umsehen in 3D	Look around in 3D
+Speichere die Map: Datei → Speichern (Strg+S). Leg sie am besten in einen eigenen Ordner, z. B. „Dokumente/Maps“.	Save the map: File → Save (Ctrl+S). Best put it in its own folder, e.g. “Documents/Maps”.
+2 · Texturen und Formen	2 · Textures and shapes
+Texturen wählen und auftragen, Kisten bauen, kopieren und mit dem Clip-Werkzeug schneiden.	Pick and apply textures, build crates, copy them and cut them with the clip tool.
+Eine Textur wählen	Pick a texture
+Unten rechts siehst du die Texturen. Klicke eine an, zum Beispiel eine Ziegelwand. Mit „Browser…“ kannst du alle Texturen durchsuchen.	The textures are at the bottom right. Click one, for example a brick wall. “Browser…” lets you search all textures.
+Textur auftragen	Apply a texture
+Wähle eine Wand mit dem Auswahl-Werkzeug und drücke Shift+T (Bearbeiten → Aktuelle Textur anwenden). Für einzelne Flächen gibt es das Textur-Werkzeug (Shift+A): Fläche in 3D anklicken, Textur anklicken.	Select a wall with the select tool and press Shift+T (Edit → Apply current texture). For single faces there is the texture tool (Shift+A): click a face in 3D, then click a texture.
+Eine Kiste bauen	Build a crate
+Nimm wieder das Block-Werkzeug (Shift+B) und ziehe im Raum einen kleinen Block auf, etwa 64 × 64 × 64. Enter bestätigt.	Take the block tool again (Shift+B) and drag a small block inside the room, about 64 × 64 × 64. Enter confirms.
+Wähle die Kiste (Shift+S, dann anklicken) und drücke Strg+D, um sie zu duplizieren. Die Kopie kannst du in 2D an einen anderen Platz ziehen.	Select the crate (Shift+S, then click it) and press Ctrl+D to duplicate it. You can drag the copy to another spot in 2D.
+Schneiden mit dem Clip-Werkzeug	Cutting with the clip tool
+Das Clip-Werkzeug (Shift+X) schneidet Blöcke entlang einer Linie – so entstehen Schrägen und Rampen. Wähle eine Kiste, nimm das Clip-Werkzeug und ziehe in einer 2D-Ansicht schräg über die Kiste. Enter schneidet.	The clip tool (Shift+X) cuts blocks along a line – that's how slopes and ramps are made. Select a crate, take the clip tool and drag diagonally across the crate in a 2D view. Enter cuts.
+Spawnpunkt, Licht und ein Prop setzen und ihre Eigenschaften ändern.	Place a spawn point, a light and a prop and change their properties.
+Was sind Entities?	What are entities?
+Entities sind alles, was nicht einfach feste Geometrie ist: Spawnpunkte, Lichter, Props, Türen, Trigger, Sounds… Gesetzt werden sie mit dem Entity-Werkzeug (Shift+E). Die Klasse wählst du rechts im Panel: ins Feld tippen (mit Vorschlägen) oder über den Pfeil daneben aus der Liste.	Entities are everything that is not plain solid geometry: spawn points, lights, props, doors, triggers, sounds… You place them with the entity tool (Shift+E). Choose the class in the panel on the right: type into the field (with suggestions) or pick it from the list via the arrow next to it.
+Ein Spawnpunkt	A spawn point
+Ohne Spawnpunkt kann man die Map nicht betreten. Nimm das Entity-Werkzeug, wähle die Klasse „info_player_start“ und klicke in 3D auf den Boden des Raums.	Without a spawn point nobody can enter the map. Take the entity tool, choose the class “info_player_start” and click on the floor of the room in 3D.
+Ohne Licht ist die Map im Spiel stockdunkel. Setze ein Entity der Klasse „light“ in die Mitte des Raums, etwas unter die Decke.	Without light the map is pitch black in the game. Place an entity of class “light” in the middle of the room, a little below the ceiling.
+Eigenschaften ändern	Change properties
+Wähle das Licht aus. Rechts im Panel stehen jetzt seine Eigenschaften. Ändere die Helligkeit „Brightness“ – zum Beispiel über das Farbfeld – auf ein warmes Gelb.	Select the light. Its properties are now in the panel on the right. Change “Brightness” – for example via the color field – to a warm yellow.
+Ein Prop	A prop
+Props sind Modelle, zum Beispiel Kisten, Fässer oder Stühle. Setze ein „prop_physics“ und wähle beim Feld „World Model“ über „…“ im Modell-Browser ein Modell aus.	Props are models, for example crates, barrels or chairs. Place a “prop_physics” and pick a model in the model browser via “…” next to “World Model”.
+4 · Tür und Trigger	4 · Door and trigger
+Eine Schiebetür bauen, einen Trigger setzen und beide mit einem Ausgang verknüpfen.	Build a sliding door, place a trigger and link both with an output.
+Eine Tür aus einem Block	A door from a block
+Baue einen schmalen Block als Türblatt (etwa 8 × 64 × 112) und wandle ihn um: Objekt → In Entity umwandeln (Strg+T) und als Klasse „func_door“ wählen.	Build a narrow block as the door leaf (about 8 × 64 × 112) and convert it: Object → Tie to entity (Ctrl+T) and choose the class “func_door”.
+Name und Richtung	Name and direction
+Gib der Tür rechts im Panel den Namen „tuer“. Bei „Move Direction“ legst du fest, wohin sie fährt – zum Beispiel „-90 0 0“ für nach oben. Der gelbe Pfeil zeigt die Bewegung.	In the panel on the right, name the door “door”. “Move Direction” sets where it moves – for example “-90 0 0” for up. The yellow arrow shows the movement.
+Ein Trigger	A trigger
+Ein Trigger ist ein unsichtbarer Bereich, der etwas auslöst. Wähle die Textur „TOOLS/TOOLSTRIGGER“, baue einen Block vor die Tür und wandle ihn mit Strg+T in „trigger_multiple“ um.	A trigger is an invisible area that sets something off. Pick the texture “TOOLS/TOOLSTRIGGER”, build a block in front of the door and convert it with Ctrl+T into “trigger_multiple”.
+Verknüpfen: der Ausgang	Linking: the output
+Wähle den Trigger. Rechts unter „Ausgänge“: „+ Output hinzufügen“ → „OnStartTouch“, als Ziel „tuer“ und als Input „Open“. Jetzt öffnet sich die Tür, sobald jemand den Trigger betritt.	Select the trigger. On the right under “Outputs”: “+ Add output” → “OnStartTouch”, target “door” and input “Open”. Now the door opens as soon as someone enters the trigger.
+5 · Kompilieren und testen	5 · Compile and test
+Map prüfen, kompilieren und in Garry's Mod ausprobieren.	Check the map, compile it and try it in Garry's Mod.
+Bevor du kompilierst: Map → Auf Probleme prüfen (Alt+P). Amboss findet Lecks, fehlende Spawnpunkte, kaputte Brushes und vieles mehr – oft mit „Beheben“-Knopf.	Before you compile: Map → Check for problems (Alt+P). Amboss finds leaks, missing spawn points, broken brushes and much more – often with a “Fix” button.
+Öffne Kompilieren → Kompilieren & Exportieren… Hier stellst du die Qualität ein und kannst eigene Inhalte in die BSP packen und ein Navmesh erzeugen lassen.	Open Compile → Compile & export… Here you set the quality and can pack custom content into the BSP and have a navmesh generated.
+Los!	Go!
+Klicke im Dialog auf „Kompilieren & Exportieren“ (oder drücke F9). Das Protokoll zeigt den Fortschritt. Ist „Spiel starten“ angehakt, startet Garry's Mod danach direkt mit deiner Map.	Click “Compile & export” in the dialog (or press F9). The log shows the progress. If “Start game” is checked, Garry's Mod starts with your map right afterwards.
+Geschafft!	Made it!
+Deine erste Map ist fertig. In Garry's Mod lädst du sie auch über die Konsole: „map <name>“. Weiter geht es mit Displacements für Gelände, Props aus dem Modell-Browser und der Experten-Oberfläche (Ansicht → Oberfläche).	Your first map is done. In Garry's Mod you can also load it via the console: “map <name>”. Next up: displacements for terrain, props from the model browser and the expert interface (View → Interface).
+Tutorial: Erste Schritte	Tutorial: first steps
+Ziel	Target
+Anz.	Count
+Schritt {} von {}	Step {} of {}
+{} von {} Kapiteln erledigt	{} of {} chapters done
+{} Schritte	{} steps
+Ordner gesetzt: {}	Folder set: {}
+Starten	Start
+Dekompiliere… → {}	Decompiling… → {}
+Dekompiliert: {} Brushes, {} Entities → {}	Decompiled: {} brushes, {} entities → {}
+{} Datei(en) in {} gepackt: {} neu, {} ersetzt, {} waren schon drin · {}	{} file(s) packed into {}: {} new, {} replaced, {} already inside · {}
+# --- Laufzeit-Meldungen (UI-Prüfung: alles auch auf Englisch)
+1 Addon	1 addon
+{} Addons	{} addons
+· automatisch gesichert {}	· autosaved {}
+Fehler: {} · Warnungen: {}	Errors: {} · Warnings: {}
+{}\nKlick: Einstellungen	{}\nClick: settings
+{}: an Minimum	{}: at minimum
+{}: an Maximum	{}: at maximum
+Aktuell: {}	Current: {}
+{} {} einfügen	Paste {} {}
+{} Gruppen	{} groups
+In Visgroup „Import: {}“ legen	Put into visgroup “Import: {}”
+Map-Eigenschaft {}: {} -> {}	Map property {}: {} -> {}
+Länge {}\nΔX {}  ΔY {}  ΔZ {}\n≈ {} m	Length {}\nΔX {}  ΔY {}  ΔZ {}\n≈ {} m
+In Entity umwandeln… ({} Brush(es), Strg+T)	Tie to entity… ({} brush(es), Ctrl+T)
+AUFBAU	STRUCTURE
+unbekannter Fehler	unknown error
+Inhalte packen: keine eigenen Dateien gefunden	Pack content: no custom files found
+Inhalte packen: {} Datei(en), {} MB werden nach VRAD in die BSP gepackt (Auswahl: Kompilieren → Inhalte in BSP packen…)	Pack content: {} file(s), {} MB will be packed into the BSP after VRAD (selection: Compile & export → Pack custom content)
+Benötigte Addons für die Map "{}" (erstellt von Amboss)\n	Required addons for the map “{}” (created by Amboss)\n
+Beim Hochladen in den Steam-Workshop unter "Benötigte Objekte" / "Required Items" verlinken,\n	When uploading to the Steam Workshop, link them under “Required Items”,\n
+oder die Inhalte selbst in die BSP packen.\n\n	or pack the content into the BSP yourself.\n\n
+Keine Inhalte aus Addons – die Map braucht nur das Spiel	No content from addons – the map only needs the game
+ und eigene, lose Dateien.\n	 and your own loose files.\n
+   (keine Workshop-ID gefunden – lokale Datei: {})\n	   (no Workshop ID found – local file: {})\n
+   {} Datei(en), z. B.:\n	   {} file(s), e.g.:\n
+     … und {} weitere\n	     … and {} more\n
+Außerdem {} eigene Datei(en), die lose im Spielordner liegen (nicht in einem Addon) – mit "Eigene Inhalte in die BSP packen" einpacken.\n	Also {} custom file(s) lying loose in the game folder (not in an addon) – pack them with “Pack custom content into the BSP”.\n
+Addons: keine benötigt (Liste: {})	Addons: none required (list: {})
+Addons: die Map benutzt Inhalte aus {} Addon(s) – Liste mit Workshop-Links: {}	Addons: the map uses content from {} addon(s) – list with Workshop links: {}
+  • {} ({} Datei(en)){}	  • {} ({} file(s)){}
+Addon-Liste konnte nicht gespeichert werden: {}	Could not save the addon list: {}
+dein Rechner hat keine IPv6-Internetverbindung (prüfen: test-ipv6.com). Ausweg: im Router IPv6 einschalten, über einen Handy-Hotspot verbinden, oder der Gastgeber gibt Port 3918 (TCP) im Router frei und du verbindest dich mit seiner IPv4-Adresse	your computer has no IPv6 internet connection (check: test-ipv6.com). Way out: enable IPv6 in your router, connect via a phone hotspot, or the host forwards port 3918 (TCP) in their router and you connect to their IPv4 address
+{} (geändert)	{} (changed)
+Gastgeber auf Port {} – warte auf Gäste	Hosting on port {} – waiting for guests
+{} ist beigetreten	{} joined
+{} hat die Sitzung verlassen	{} left the session
+Werkzeug: {}	Tool: {}
+Garry's Mod wurde nicht gefunden (auch nicht in weiteren Steam-Bibliotheken). Bitte den Ordner…/GarrysMod/garrysmod manuell eintragen.	Garry's Mod was not found (not in other Steam libraries either). Please enter the folder…/GarrysMod/garrysmod manually.
+** Abgebrochen **	** Cancelled **
+\n===== {} =====	\n===== {} =====
+\n===== Fertig =====	\n===== Done =====
+Übersprungen: {} ({})	Skipped: {} ({})
+{} Datei(en) in {} gepackt ({} neu, {} ersetzt, {} vorhanden), {} MB	{} file(s) packed into {} ({} new, {} replaced, {} already there), {} MB
+Packen fehlgeschlagen: {}	Packing failed: {}
+Kopieren fehlgeschlagen ({} → {}): {}	Copy failed ({} → {}): {}
+Fehler: {} konnte nicht gestartet werden: {}	Error: could not start {}: {}
+{} ist mit Code {} fehlgeschlagen.	{} failed with code {}.
+Die Map hat ein LECK (Loch zur Leere). Das Pointfile wird geladen und zeigt den Weg.	The map has a LEAK (hole to the void). The pointfile is loaded and shows the path.
+*** WARNUNG: Die Map hat ein LECK! ***	*** WARNING: The map has a LEAK! ***
+{}: Brushes nicht rekonstruierbar (z. B. Areaportal/Occluder) – Entity bleibt als Punkt-Entity	{}: brushes cannot be rebuilt (e.g. area portal/occluder) – entity stays a point entity
+Statische Props sind komprimiert (LZMA) – nicht unterstützt	Static props are compressed (LZMA) – not supported
+Unbekanntes Format der statischen Props (Version {})	Unknown static prop format (version {})
+Overlay {} ({}): keine passende Fläche gefunden	Overlay {} ({}): no matching face found
+Aktuelle Textur anwenden / Textur-Browser	Apply current texture / texture browser
+{} neu, {} gelöscht, {} geändert, {} Map-Eigenschaft(en) anders	{} added, {} removed, {} changed, {} map propert(y/ies) different
+{} Änderung(en) der anderen Seite übernommen, {} Konflikt(e), {} Objekt(e) neu nummeriert	{} change(s) taken from the other side, {} conflict(s), {} object(s) renumbered
+{}: bei uns gelöscht, bei der anderen Seite geändert – geänderte Version wiederhergestellt	{}: deleted here, changed on the other side – changed version restored
+{}: bei uns geändert, bei der anderen Seite gelöscht – unsere Version behalten	{}: changed here, deleted on the other side – kept our version
+{}: auf beiden Seiten verschieden geändert – unsere Version behalten, die andere liegt ausgeblendet in „Konflikt: andere Version“	{}: changed differently on both sides – kept our version, the other one is hidden in “Conflict: other version”
+Map-Eigenschaft {}: beide geändert ({} / {}) – unser Wert bleibt	Map property {}: both changed ({} / {}) – our value stays
+Änderung	Change
+{}: ungültige VPK	{}: invalid VPK
+Spielordner nicht gefunden: {}	Game folder not found: {}
+PNG zu groß	PNG too large
+Skript ausgeführt ({} Aufrufe) – Rückgängig nimmt alles auf einmal zurück	Script finished ({} calls) – Undo reverts everything at once
+Skript-Fehler: {}	Script error: {}
+kein Einstellungsordner	no settings folder
+{}: VMT nicht gefunden	{}: VMT not found
+{}: VTF {} nicht gefunden	{}: VTF {} not found
+Datei zu kurz (Offset {})	File too short (offset {})
+Datei zu kurz	File too short
+ungültiger String-Offset	invalid string offset
+{} nicht gefunden	{} not found
+{}.vvd nicht gefunden	{}.vvd not found
+{}.vtx nicht gefunden	{}.vtx not found
+Vertex-Index außerhalb	vertex index out of range
+Zusammengeführt: {} Brushes, {} Entities	Merged: {} brushes, {} entities
+zwei Sonnen – Source benutzt nur eine	two suns – Source only uses one
+zwei 3D-Skybox-Kameras – nur eine ist erlaubt	two 3D skybox cameras – only one is allowed
+mehrere Nebel-Controller – prüfen, welcher aktiv ist	several fog controllers – check which one is active
+Die Bereiche überlappen sich ({} Brushes der offenen Map liegen im Bereich der neuen) – evtl. „Daneben setzen“ wählen	The areas overlap ({} brushes of the open map lie inside the new one) – consider “Place next to it”
+{} Spawnpunkt(e) aus der anderen Map kommen hinzu	{} spawn point(s) from the other map are added
+Teile liegen außerhalb der Map-Grenzen (±{})	Parts lie outside the map bounds (±{})
+Instanz-Datei {} nicht gefunden – Pfad prüfen	Instance file {} not found – check the path
+{}: liegt nicht unter materials/, models/, sound/ … – Pfad im Spiel unklar	{}: not under materials/, models/, sound/ … – in-game path unclear
+Eintrag nicht gefunden	Entry not found
+Prefab-Daten außerhalb der Datei	Prefab data outside the file
+Kein info_player_start vorhanden.	No info_player_start present.
+Keine Lichtquelle – die Map wird nach VRAD komplett dunkel.	No light source – the map will be completely dark after VRAD.
+Ungültiger Brush (ID {}).	Invalid brush (ID {}).
+Brush {} hat Seiten ohne Fläche.	Brush {} has sides without area.
+Displacement auf nicht-viereckiger Fläche (Brush {}).	Displacement on a non-quad face (brush {}).
+Brush {} liegt außerhalb der Map-Grenze (±{}).	Brush {} lies outside the map bounds (±{}).
+Brush {} ist ein Duplikat von {}.	Brush {} is a duplicate of {}.
+Material "{}" wurde in den Spielinhalten nicht gefunden ({} Brush(es)).	Material “{}” was not found in the game content ({} brush(es)).
+Unbekannte Entity-Klasse "{}" (ID {}).	Unknown entity class “{}” (ID {}).
+Brush-Entity {} (ID {}) hat keine Brushes.	Brush entity {} (ID {}) has no brushes.
+Punkt-Entity {} (ID {}) enthält Brushes.	Point entity {} (ID {}) contains brushes.
+Entity {} hat keine Klasse.	Entity {} has no class.
+{} (ID {}): Schlüssel nicht in der FGD: {}	{} (ID {}): keys not in the FGD: {}
+{} (ID {}): {} Output(s) zielen auf nicht existierende Namen.	{} (ID {}): {} output(s) target names that don't exist.
+{} (ID {}) liegt außerhalb der Map-Grenze.	{} (ID {}) lies outside the map bounds.
+Spawnpunkt {} steckt in einem Brush.	Spawn point {} is stuck in a brush.
+{} (ID {}) hat keinen Ursprung.	{} (ID {}) has no origin.
+Cordon aktiv, aber kein Spawnpunkt im Cordon-Bereich.	Cordon active, but no spawn point inside the cordon.
+studiomdl konnte nicht gestartet werden: {}	Could not start studiomdl: {}
+studiomdl ist fehlgeschlagen – Brushes bleiben unverändert.	studiomdl failed – brushes stay unchanged.
+Kein Spielverzeichnis eingestellt (Einstellungen → Spiel).	No game folder set (Settings → Game).
+studiomdl wurde nicht neben vbsp gefunden – QC liegt bereit und kann manuell kompiliert werden.	studiomdl was not found next to vbsp – the QC is ready and can be compiled manually.
+VTF beschädigt	VTF damaged
+VTF-Format {} nicht unterstützt	VTF format {} not supported
+aus 	from 
+ · {} Klassen	 · {} classes
+Bibliothek / {}	Library / {}
+mein_prefab	my_prefab
+mein_prop	my_prop
+(verschieden)	(mixed)
+Zwischenablage leer	Clipboard empty
+Ausdehnung	Extents
+{} gespeicherte Brushes	{} stored brushes
+Welt-Brushes ({})	World brushes ({})
+Nur Brush-Entities	Brush entities only
+Punkt-Entity – nicht für Brushes	Point entity – not for brushes
+1 Hinweis	1 note
+{} Hinweise	{} notes
+1 Warnung	1 warning
+{} Warnungen	{} warnings
+1 Fehler	1 error
+{} Fehler	{} errors
+Aktuell	Current
+1 Kind	1 child
+{} · R {} · S {} · Strg = umkehren	{} · R {} · S {} · Ctrl = invert
+Werkzeuge → Versionen & Zusammenführen → Map zusammenführen	Tools → Versions & merging → Merge map
+Werkzeuge → Versionen & Zusammenführen → Vergleichen / 3-Wege	Tools → Versions & merging → Compare / 3-way
+Werkzeuge → Live-Sitzung	Tools → Live session
+Kompilieren → Automatische Optimierungen	Compile → Automatic optimizations
+Entity-Report / Gehe zu Nummer	Entity report / go to number
+Kamera wechseln	Switch camera
+Messwerkzeug (2D ziehen, 3D zwei Punkte)	Measure tool (drag in 2D, two points in 3D)
+Kopieren / Einfügen / Ausschneiden · Strg+Shift+V Inhalte einfügen	Copy / paste / cut · Ctrl+Shift+V paste special
+3D-Gizmo	3D gizmo
+Alt+Klick (3D)	Alt+click (3D)
+Shift+S Auswahl · G Lupe · C Kamera · E Entity · B Block · A Textur · D Decal · O Overlay · X Clip · V Vertex · P Displacement · K Cordon	Shift+S select · G magnify · C camera · E entity · B block · A texture · D decal · O overlay · X clip · V vertex · P displacement · K cordon
+1. Block (Shift+B), in der Ansicht Oben ein Rechteck ziehen. 2. Strg+H höhlt zum Raum aus. 3. Entity (Shift+E): info_player_start und light setzen. 4. F9.	1. Block (Shift+B), drag a rectangle in the Top view. 2. Ctrl+H hollows it into a room. 3. Entity (Shift+E): place info_player_start and light. 4. F9.
+Erste Schritte	First steps
+1 Objekt	1 object
+{} Objekte	{} objects
+1 Entity	1 entity
+{} Entities	{} entities
+1 Brush	1 brush
+{} Brushes	{} brushes
+1 Aufruf	1 call
+{} Aufrufe	{} calls
+✓ fertig in {} ms, {}	✓ done in {} ms, {}
+tuer	door
+Bedienung & Tastenkürzel	Controls & shortcuts
+Tastenbelegung ändern…	Customize shortcuts…
+Lege zuerst mit dem Cordon-Werkzeug (Shift+K) einen Bereich fest.	Define an area with the Cordon tool (Shift+K) first.
+Einstellungsordner öffnen	Open settings folder
+Ordner mit Einstellungen, Autosaves und grafik.txt	Folder with settings, autosaves and grafik.txt
+Über Amboss…	About Amboss…
+Über Amboss	About Amboss
+Map-Editor für Source 1 und Garry's Mod	Map editor for Source 1 and Garry's Mod
+Verwendete Bibliotheken	Libraries used
+Fehler gefunden? Beschreibe Schritte, Map und Fehlermeldung – die Einstellungen und Autosaves liegen im Einstellungsordner (Hilfe → Einstellungsordner öffnen).	Found a bug? Describe the steps, the map and the error message – settings and autosaves are in the settings folder (Help → Open settings folder).
+Ausschneiden	Cut
+In Entity umwandeln…	Tie to entity…
+Nur aktiv, wenn automatisch angewendet wird	Only when applied automatically
+Um die Hochachse drehen (Yaw)	Rotate around the vertical axis (yaw)
+Input des Ziels	Input of the target
+Parameter (optional)	Parameter (optional)
+Verzögerung in Sekunden	Delay in seconds
+Anzahl Auslösungen (−1 = immer)	Times to fire (−1 = always)
+Kein Objekt mit diesem Namen in der Map	No object with this name in the map
+Das Ziel kennt diesen Input nicht	The target doesn't have this input
+Diese Klasse hat keinen Output mit diesem Namen	This class has no output with this name
+Klick in 2D oder auf eine Fläche in 3D platziert:	Click in 2D or on a face in 3D to place:
+Klasse ändern…	Change class…
+Hilfe zur Klasse	Class help
+Material rechts bei den Texturen wählen (z. B. decals/…), dann in 3D auf eine Fläche klicken.	Pick a material in the textures on the right (e.g. decals/…), then click a face in 3D.
+Material rechts bei den Texturen wählen, dann in 3D auf eine Brush-Fläche klicken.\nGröße und Ausrichtung danach mit den Griffen in der Ansicht oder in den Eigenschaften (uv0–uv3).	Pick a material in the textures on the right, then click a brush face in 3D.\nAdjust size and alignment with the handles in the view or in the properties (uv0–uv3).
+In 2D eine Schnittlinie ziehen. Beide/Vorne/Hinten bestimmt, welche Teile bleiben. Enter schneidet.	Drag a clipping line in 2D. Both/Front/Back sets which parts remain. Enter clips.
+Keine Eckpunkte ausgewählt	No vertices selected
+{} ausgewählt	{} selected
+1 Eckpunkt	1 vertex
+{} Eckpunkte	{} vertices
+{} Brushes in Entity umwandeln…	Tie {} brushes to entity…
+1 Gruppe	1 group
+{} gelöscht	{} deleted
+{} kopiert	{} copied
+Carve: {} geschnitten	Carve: {} cut
+{} ersetzt	{} replaced
+{} dupliziert	{} duplicated
+{} auf nodraw gesetzt	{} set to nodraw
+{} aus der Zwischenablage eingefügt	{} pasted from the clipboard
+{} hinzugefügt	{} added
+{} im Rahmen ausgewählt	{} selected in the box
+1 Fläche	1 face
+1 verdeckte Fläche	1 hidden face
+{} verdeckte Flächen	{} hidden faces
+1 berührendes Objekt	1 touching object
+{} berührende Objekte	{} touching objects
+1 Modell	1 model
+Fast fertig – {} fehlen noch.	Almost done – {} still missing.
+1 Punkt	1 item
+{} Punkte	{} items
+Zu Schritt 2	Back to step 2
+Trotzdem weiter	Continue anyway
+Los geht's	Let's go
+Keine Spiele eingebunden. Inhalte anderer Source-Spiele (z. B. Counter-Strike: Source) bindest du in Garry's Mod ein: Hauptmenü → Spiele-Symbol.	No games mounted. To use content from other Source games (e.g. Counter-Strike: Source), mount them in Garry's Mod: main menu → games icon.
+Entity löschen (Strg+Z macht es rückgängig)	Delete entity (Ctrl+Z undoes it)
+Modus	Mode
+Pinsel	Brush
+Keine Displacements ausgewählt.	No displacements selected.
+Min 	Min 
+Max 	Max 
+Nähen	Sew
+Keine Physik-Kollision	No physics collision
+Keine Hull-Kollision	No hull collision
+Keine Strahl-Kollision	No ray collision
+Neue Displacements: im Textur-Werkzeug Flächen wählen →	New displacements: select faces with the Texture tool →
+Displacement erstellen	Create displacement
+Aus den im Textur-Werkzeug ausgewählten Flächen	From the faces selected with the Texture tool
+neues Skript	new script
+amboss.room(min, max, mat, wand) → ids	amboss.room(min, max, mat, wall) → ids
+amboss.entity(klasse, pos, keys, winkel) → id	amboss.entity(class, pos, keys, angles) → id
+amboss.get(id) → Tabelle	amboss.get(id) → table
+amboss.output(id, out, ziel, input, param, verz.)	amboss.output(id, out, target, input, param, delay)
+amboss.move(ids, versatz)	amboss.move(ids, offset)
+amboss.entities([klasse])	amboss.entities([class])
+Spiel & Pfade	Game & paths
+KI-Steuerung (MCP)	AI control (MCP)
+Intervall (Minuten, 0 = aus)	Interval (minutes, 0 = off)
+Anzahl Sicherungen	Number of backups
+📁 Spielordner wählen…	📁 Choose game folder…
+Eigener Wert	Custom value
+Material-Editor	Material editor
+Material-Editor…	Material editor…
+Eigene Materialien anlegen, Bilder als Textur importieren	Create your own materials, import images as textures
+Keine VMT gefunden – neues Material.	No VMT found – new material.
+Bitte einen Materialnamen eingeben, z. B. amboss/wand_rot	Please enter a material name, e.g. amboss/wall_red
+Kein Spielordner eingestellt (Einstellungen → Spiel & Pfade).	No game folder set (Settings → Game & paths).
+Keine Basistextur	No base texture
+Gekachelt (2 × 2)	Tiled (2 × 2)
+Pfad unter materials/, ohne .vmt	Path below materials/, without .vmt
+Shader	Shader
+Pfad unter materials/	Path below materials/
+Bild…	Image…
+PNG importieren (wird beim Speichern zu VTF)	Import PNG (converted to VTF on save)
+Importiert – wird beim Speichern geschrieben	Imported – written on save
+Basistextur	Base texture
+Farbbild der Oberfläche	Color image of the surface
+Normalmap	Normal map
+Oberflächenrelief für Licht	Surface relief for lighting
+Zweite Textur	Second texture
+Wird über die Alpha-Werte des Displacements eingeblendet	Blended in by the displacement alpha values
+Zweite Normalmap	Second normal map
+Relief der zweiten Textur	Relief of the second texture
+Detailtextur	Detail texture
+Feine Struktur, die über die Basistextur gelegt wird	Fine structure layered over the base texture
+Detail-Skalierung	Detail scale
+Oberflächenart	Surface type
+(keine)	(none)
+$surfaceprop: Schritt-Geräusche, Einschusslöcher, Physik	$surfaceprop: footstep sounds, bullet impacts, physics
+Farbe	Color
+Zurücksetzen	Reset
+Durchscheinend	Translucent
+Alpha-Test	Alpha test
+Beidseitig	Two-sided
+Selbstleuchtend	Self-illuminated
+Additiv	Additive
+Alpha-Kanal als Transparenz (weiche Kanten, sortiert)	Alpha channel as transparency (soft edges, sorted)
+Harte Kanten (Zäune, Blätter) – schneller als durchscheinend	Hard edges (fences, leaves) – faster than translucent
+Auch von hinten sichtbar	Visible from behind too
+Leuchtet unabhängig vom Licht (Maske im Alpha-Kanal)	Glows regardless of lighting (mask in the alpha channel)
+Hellt den Hintergrund auf (Licht, Feuer)	Brightens the background (light, fire)
+Spiegelung	Reflection
+$envmap env_cubemap – spiegelt die nächste env_cubemap	$envmap env_cubemap – reflects the nearest env_cubemap
+Alle Parameter	All parameters
+Parameter entfernen	Remove parameter
++ Parameter	+ Parameter
+{} Unterblöcke (z. B. Proxies) bleiben unverändert erhalten.	{} sub-blocks (e.g. proxies) are kept unchanged.
+Als aktuelles Material	As current material
+Speichern und als aktuelle Textur für neue Brushes setzen	Save and set as the current texture for new brushes
+Wird lose im Spielordner gespeichert und beim Kompilieren mit eingepackt	Saved as loose file in the game folder and packed when compiling
+Bild geladen: {} × {} px	Image loaded: {} × {} px
+Bild konnte nicht geladen werden: {}	Could not load image: {}
+Wände, Böden, alles auf Brushes	Walls, floors, everything on brushes
+Modelle (Props)	Models (props)
+Ohne Licht (Leuchtschilder, Skybox-Teile)	Unlit (signs, skybox parts)
+Überblendung zweier Texturen auf Displacements	Blend of two textures on displacements
+Zwei Texturen ohne Licht	Two textures, unlit
+Glas mit Lichtbrechung	Glass with refraction
+Partikel-Editor	Particle editor
+Partikel-Editor…	Particle editor…
+Partikeleffekte (.pcf) anlegen und bearbeiten, mit Vorschau	Create and edit particle effects (.pcf) with preview
+neue Datei	new file
+Partikelsysteme	Particle systems
++ Neu	+ New
+Rauch	Smoke
+Funken	Sparks
+Feuer	Fire
+Staub	Dust
+System entfernen	Remove system
+Pause	Pause
+Abspielen	Play
+Neu starten	Restart
+{} Partikel · {} s	{} particles · {} s
+Ziehen dreht, Mausrad zoomt · vereinfachte Vorschau	Drag rotates, wheel zooms · simplified preview
+Kein Partikelsystem in der Datei.	No particle system in the file.
+System	System
+Emitter	Emitters
+Initialisierer	Initializers
+Operatoren	Operators
+Renderer	Renderers
+Kräfte	Forces
+Einschränkungen	Constraints
++ Hinzufügen	+ Add
+In Map-Partikelliste eintragen	Add to map particle list
+Schreibt maps/<map>_particles.txt, damit die Map die Datei lädt	Writes maps/<map>_particles.txt so the map loads the file
+({} Einträge)	({} entries)
+Konnte nicht geöffnet werden: {}	Could not open: {}
+Erst speichern	Save first
+Die Datei muss im Spielordner liegen (particles/…)	The file must be inside the game folder (particles/…)
+Eingetragen in {}	Added to {}
+kein DMX	not a DMX file
+kein binäres DMX	not a binary DMX file
+String-Index außerhalb	string index out of range
+DMX-Version {} wird nicht unterstützt	DMX version {} is not supported
+Text ohne Ende	unterminated string
+unbekannter Attributtyp {}	unknown attribute type {}
+Im Partikel-Editor öffnen	Open in particle editor
+Aus den Spielinhalten geladen – bitte unter neuem Namen speichern	Loaded from game content – please save under a new name
+Indirektes Licht in der Lichtvorschau (GI)	Indirect light in the lighting preview (GI)
+Indirektes Licht (GI)	Indirect light (GI)
+Von Wänden zurückgeworfenes Licht, wird im Hintergrund berechnet und laufend verfeinert	Light bounced off walls, computed in the background and refined continuously
+Indirektes Licht: {} %	Indirect light: {} %
+Zuerst Props (Punkt-Entities) auswählen	Select props (point entities) first
+Physik: {} fallen – Esc bricht ab	Physics: {} falling – Esc cancels
+Physik abgebrochen	Physics cancelled
+Physik: {} liegen nach {} s	Physics: {} at rest after {} s
+Vegetation streuen	Scatter vegetation
+Vegetation streuen…	Scatter vegetation…
+Bäume, Büsche, Steine mit einem Pinsel in 3D verteilen	Paint trees, bushes and rocks in 3D with a brush
+Mit Physik fallen lassen	Drop with physics
+Noch keine Modelle – im Modell-Browser eines wählen und hier hinzufügen.	No models yet – pick one in the model browser and add it here.
++ Aktuelles Modell	+ Current model
+Verteilung	Distribution
+Pinselradius	Brush radius
+Dichte	Density
+Objekte je 256 × 256 Einheiten	Objects per 256 × 256 units
+Mindestabstand	Minimum distance
+Größte Neigung	Maximum slope
+Steilere Hänge bleiben frei	Steeper slopes stay empty
+Zufällige Neigung	Random tilt
+Einsinken	Sink
+Wie tief die Modelle in den Boden ragen (Wurzeln, Steine)	How deep the models reach into the ground (roots, rocks)
+Zufällig drehen	Random rotation
+An der Oberfläche ausrichten	Align to surface
+Pinsel aktiv – in 3D malen, Shift radiert	Brush active – paint in 3D, Shift erases
+Auswahl füllen	Fill selection
+Oberseiten der ausgewählten Brushes und Displacements bestreuen	Scatter onto the top faces of the selected brushes and displacements
+Ein Pinselstrich ist ein Rückgängig-Schritt	One brush stroke is one undo step
+{} gestreut	{} scattered
+Labyrinth	Maze
+Stadtblock	City block
+Stadt	City
+Kreis	Ring
+Prozedurale Generatoren	Procedural generators
+Prozedurale Generatoren…	Procedural generators…
+Labyrinth, Räume mit Gängen, Stadtblock, Kreis-Anordnung	Maze, rooms with corridors, city block, ring array
+Zufälliges Labyrinth mit Eingang und Ausgang.	Random maze with entrance and exit.
+Räume mit Gängen, geschlossen und sofort kompilierbar (mit Licht und Spawnpunkt).	Rooms with corridors, sealed and ready to compile (with lights and spawn point).
+Straßenraster mit Häusern zufälliger Höhe.	Street grid with buildings of random height.
+Die Auswahl im Kreis um ihren Mittelpunkt vervielfältigen.	Repeat the selection in a circle around its center.
+Zellen (Breite)	Cells (width)
+Zellen (Tiefe)	Cells (depth)
+Gangbreite	Corridor width
+Raumgröße min. (Zellen)	Room size min. (cells)
+Raumgröße max. (Zellen)	Room size max. (cells)
+Gangbreite (Zellen)	Corridor width (cells)
+Rastergröße (Zellen)	Grid size (cells)
+Zellgröße	Cell size
+Blöcke (Breite)	Blocks (width)
+Blöcke (Tiefe)	Blocks (depth)
+Blockgröße	Block size
+Straßenbreite	Street width
+Haushöhe	Building height
+Anzahl (mit Original)	Count (including original)
+Winkelbereich	Angle range
+Raumhöhe	Room height
+Zufallszahl	Seed
+Würfeln	Randomize
+Licht in jedem Raum, Spawnpunkt im ersten	Light in every room, spawn point in the first
+Wände bekommen die aktuelle Textur, der Boden die zweite des Generators. Eingefügt wird dort, wohin die 3D-Kamera blickt.	Walls get the current texture, the floor the generator's second one. Inserted where the 3D camera is looking.
+Erzeugen	Generate
+Erst Objekte auswählen	Select objects first
+Ein Rückgängig-Schritt; das Ergebnis ist gruppiert	One undo step; the result is grouped
+{} im Kreis angeordnet	{} arranged in a ring
+Tile-Set	Tile set
+Tile-Set…	Tile set…
+Bausteine auf einem Raster setzen: Boden, Wand, Ecke, Tür, Treppe …	Place building blocks on a grid: floor, wall, corner, door, stairs …
+Bausteine · Innenraum	Pieces · interior
+Boden	Floor
+Wand	Wall
+Ecke	Corner
+Sackgasse	Dead end
+Gang	Corridor
+Tür	Door
+Fenster	Window
+Nur Boden (und Decke)	Floor only (and ceiling)
+Boden mit einer Wand	Floor with one wall
+Zwei Wände über Eck	Two walls in a corner
+Drei Wände	Three walls
+Zwei gegenüberliegende Wände	Two opposite walls
+Wand mit Durchgang	Wall with doorway
+Wand mit Fensteröffnung	Wall with window opening
+Boden mit Säule in der Mitte	Floor with a pillar in the middle
+Stufen bis zur nächsten Ebene	Steps up to the next level
+Drehung	Rotation
+(R in der 3D-Ansicht)	(R in the 3D view)
+Feldgröße	Cell size
+Bauebene (Höhe)	Building level (height)
+Eine Etage höher	One floor up
+tiefer	down
+Mit Decke	With ceiling
+Wände: aktuelle Textur	Walls: current texture
+Boden: aktuelle Textur	Floor: current texture
+Setzen aktiv – in 3D klicken oder ziehen, Shift entfernt	Placing active – click or drag in 3D, Shift removes
+Jeder Baustein ist eine Gruppe aus Brushes	Each piece is a group of brushes
+{} gesetzt ({}°)	{} placed ({}°)
+Warnung: {} Polygon-Mesh(es) noch nicht zum Modell kompiliert (Werkzeuge → Polygon-Mesh…): {}	Warning: {} polygon mesh(es) not yet compiled to a model (Tools → Polygon Mesh…): {}
+Freie Netze: aus Brushes erstellen oder OBJ importieren, Punkte und Flächen ziehen, extrudieren	Free-form meshes: create from brushes or import OBJ, drag vertices and faces, extrude
+Eine Displacement-Fläche mit 16 Kontrollpunkten glatt biegen	Bend a displacement surface smoothly with 16 control points
+Erst Brushes auswählen	Select brushes first
+Mesh aus {} Brush(es) erstellt	Mesh created from {} brush(es)
+Erst Flächen auswählen	Select faces first
+Erst eine Fläche oder einen Brush auswählen	Select a face or a brush first
+Die Fläche braucht genau vier Ecken	The face needs exactly four corners
+Bezier-Patch: Kontrollpunkte in der 3D-Ansicht ziehen	Bezier patch: drag the control points in the 3D view
+Bearbeite {}: {} · {} · {} gewählt	Editing {}: {} · {} · {} selected
+Freie Netze mit beliebiger Form. Sie gehören zu einem prop_static und werden beim Kompilieren zum Modell; die Netzdaten liegen neben der VMF in <map>.meshes.json.	Free-form meshes of any shape. Each belongs to a prop_static and is compiled into a model; the mesh data is stored next to the VMF in <map>.meshes.json.
+Einheit der Datei	File units
+Ein Bezier-Patch biegt eine Displacement-Fläche mit 16 Kontrollpunkten glatt – für Bögen, Wellen, Röhrenstücke und Kuppeln. Das Ergebnis ist ein normales Displacement.	A Bezier patch bends a displacement surface smoothly with 16 control points – for arches, waves, pipe sections and domes. The result is a regular displacement.
+{} von 16 Kontrollpunkten gewählt	{} of 16 control points selected
+Modell vorhanden – nach Änderungen neu kompilieren.	Model exists – recompile after changes.
+Noch nicht kompiliert: vor dem Kompilieren der Map nötig.	Not compiled yet: required before compiling the map.
+Kein Mesh gewählt	No mesh selected
+Griffe in der 3D-Ansicht ziehen · Shift fügt hinzu · Esc beendet	Drag handles in the 3D view · Shift adds · Esc finishes
+Bezier-Patch · Punkte ziehen, Shift fügt hinzu, Rahmen wählt mehrere	Bezier patch · drag points, Shift adds, drag a box to select several
+Mesh bearbeiten · Punkte ziehen, Shift fügt hinzu, Rahmen wählt mehrere	Edit mesh · drag points, Shift adds, drag a box to select several
+Gewählte Flächen um den Abstand herausziehen (neue Seitenflächen)	Pull the selected faces out by the distance (new side faces)
+Punkte zum Mittel ihrer Nachbarn ziehen (ohne Auswahl: alle)	Move vertices towards the average of their neighbours (no selection: all)
+Jede Fläche in Vierecke teilen (für feinere Formen)	Split every face into quads (for finer shapes)
+Vorder- und Rückseite der Flächen tauschen	Swap front and back of the faces
+Gewählte Flächen entfernen (Entf)	Remove the selected faces (Del)
+Alle Punkte bzw. Flächen (Strg+A)	All vertices or faces (Ctrl+A)
+Aktuelle Textur zuweisen	Apply current texture
+Auf die gewählten Flächen, ohne Auswahl auf das ganze Mesh	To the selected faces, without a selection to the whole mesh
+Ausgewähltes Mesh bearbeiten	Edit selected mesh
+Aus ausgewählten Brushes erstellen	Create from selected brushes
+Die Brushes werden durch ein Mesh ersetzt (Displacements als Raster)	The brushes are replaced by a mesh (displacements as a grid)
+OBJ-Datei wählen…	Choose OBJ file…
+Wavefront OBJ mit Flächen (v, f, usemtl); eingefügt dort, wohin die 3D-Kamera blickt	Wavefront OBJ with faces (v, f, usemtl); inserted where the 3D camera is looking
+Flach zurücksetzen	Reset to flat
+Alle Punkte auf die Ebene der vier Ecken	All points onto the plane of the four corners
+Patch auf Auswahl beginnen	Start patch on selection
+Gewählte Fläche (Flächen-Werkzeug) oder Oberseite des gewählten Brushes; ohne Displacement wird eines angelegt	Selected face (face tool) or top of the selected brush; a displacement is created if there is none
+SMD/QC schreiben und studiomdl starten (Spielverzeichnis aus den Einstellungen)	Write SMD/QC and run studiomdl (game directory from the settings)
+Extrudieren	Extrude
+Umdrehen	Flip
+Punkte	Vertices
+Modell	Model
+OBJ importieren	Import OBJ
+Source-Einheiten	Source units
+Meter	Meters
+Zentimeter	Centimeters
+Y zeigt nach oben (Blender-Export)	Y points up (Blender export)
+Polygon-Mesh…	Polygon Mesh…
+Bezier-Patch…	Bezier Patch…
+Polygon-Mesh / Bezier-Patch	Polygon Mesh / Bezier Patch
+Polygon-Mesh	Polygon Mesh
+Bezier-Patch	Bezier Patch
+Kompiliert …	Compiling …
+Zum Modell kompilieren	Compile to model
+OBJ importiert: {}	OBJ imported: {}
+info_particle_system zeigt seinen Effekt (bis 3000 Einheiten um die Kamera, vereinfachte Simulation)	info_particle_system plays its effect (up to 3000 units around the camera, simplified simulation)
+Partikel-Effekte abspielen	Play particle effects
+Partikel	Particles
+Live-Abgleich mit dem Spiel…	Live sync with the game…
+Änderungen sofort im laufenden Garry's Mod sehen, ohne neu zu kompilieren	See changes instantly in the running Garry's Mod, without recompiling
+Im Spiel testen ab 3D-Kamera	Test in game from 3D camera
+Begehen (im Editor spielen)	Walk (play in editor)
+Begehen · WASD · Leertaste springt · Strg duckt · Esc beendet	Walking · WASD · Space jumps · Ctrl crouches · Esc exits
+Begehen: WASD laufen, Leertaste springen, Strg ducken, Esc beendet	Walking: WASD to move, Space to jump, Ctrl to crouch, Esc to exit
+Live-Brücke installiert – wirkt nach dem nächsten Start von Garry's Mod	Live bridge installed – takes effect after the next start of Garry's Mod
+Live-Abgleich mit dem Spiel	Live Sync with the Game
+Änderungen erscheinen sofort im laufenden Garry's Mod, ohne neu zu kompilieren: Entities verschieben, Werte ändern, neue Props und Entities, Löschen. Neue oder geänderte Brushes erscheinen als begehbare Vorschau.	Changes appear instantly in the running Garry's Mod without recompiling: moving entities, changing values, new props and entities, deleting. New or changed brushes appear as a walkable preview.
+Brücke nicht installiert	Bridge not installed
+Brücke veraltet – neu installieren	Bridge outdated – reinstall
+Kein Spiel verbunden – Map in Garry's Mod starten (Einzelspieler)	No game connected – start the map in Garry's Mod (single player)
+Das Spiel nutzt noch Brücke {} – Garry's Mod neu starten, damit die neue geladen wird.	The game still uses bridge {} – restart Garry's Mod to load the new one.
+Verbunden: {} · Spieler bei {} {} {}	Connected: {} · player at {} {} {}
+Brücke installieren	Install bridge
+Legt addons/amboss_live an; danach Garry's Mod einmal neu starten.	Creates addons/amboss_live; restart Garry's Mod once afterwards.
+Testen	Testing
+Kompilieren; der Spieler startet dort, wo die 3D-Kamera steht. Läuft das Spiel schon, wird die Map dort neu geladen.	Compiles; the player starts where the 3D camera is. If the game is already running, the map is reloaded there.
+Spieler zur 3D-Kamera	Player to 3D camera
+3D-Kamera zum Spieler	3D camera to player
+Noclip an/aus	Toggle noclip
+3D-Kamera folgt dem Spieler	3D camera follows the player
+Abgleich	Sync
+Änderungen automatisch übertragen	Send changes automatically
+Jetzt übertragen	Send now
+Map neu laden	Reload map
+Lädt die zuletzt kompilierte Map im Spiel neu (live übertragene Änderungen gehen verloren)	Reloads the last compiled map in the game (live changes are lost)
+Spielstand = jetzige Map	Game state = current map
+Wenn die Map im Spiel genau dem jetzigen Stand entspricht (z. B. außerhalb von Amboss kompiliert)	When the map in the game matches the current state exactly (e.g. compiled outside Amboss)
+Noch kein Bezug: beim Verbinden gilt der jetzige Stand als das, was im Spiel geladen ist.	No reference yet: when connecting, the current state is assumed to be what is loaded in the game.
+Übertragen: {} geändert · {} neu · {} entfernt · {} Brush-Vorschau	Sent: {} changed · {} new · {} removed · {} brush preview
+{} gelöschte Brushes	{} deleted brushes
+Braucht Kompilieren: {}	Needs compiling: {}
+Input auslösen	Fire input
+Ziel (targetname)	Target (targetname)
+Input	Input
+Auslösen	Fire
+Letzter Fehler im Spiel: {}	Last error in game: {}
+Nur im Einzelspieler bzw. auf dem eigenen Server	Single player or your own server only
+Verbunden mit {} – Bezug ist der jetzige Stand der Map	Connected to {} – reference is the current state of the map
+Map geladen: {}	Map loaded: {}
+Fehler im Spiel: {}	Error in game: {}
+Bezug gesetzt: jetziger Stand der Map	Reference set: current state of the map
+Installiert: {}	Installed: {}
+Spieler	Player
+Himmel-Vorschau (2D-Himmel und 3D-Skybox)	Sky preview (2D sky and 3D skybox)
+In 2D eine Schnittlinie ziehen oder in 3D drei Punkte auf Flächen anklicken (schräge Schnitte). Beide/Vorne/Hinten bestimmt, welche Teile bleiben. Enter schneidet.	Drag a clipping line in 2D or click three points on surfaces in 3D (angled cuts). Both/Front/Back sets which parts remain. Enter clips.
+Nebel (env_fog_controller)	Fog (env_fog_controller)
+Nebel	Fog
+Himmel	Sky
+Clip: Punkt {} von 3 – auf Flächen klicken	Clip: point {} of 3 – click on surfaces
+Clip-Ebene steht – Enter schneidet, Shift+X wechselt die Seite	Clip plane set – Enter clips, Shift+X switches the side
+Die drei Punkte liegen auf einer Linie – neu setzen	The three points are on one line – set them again
+6 · Gelände mit Displacements	6 · Terrain with displacements
+Eine Fläche in ein Displacement verwandeln, Hügel malen, glätten und zwei Texturen überblenden.	Turn a face into a displacement, paint hills, smooth them and blend two textures.
+Was sind Displacements?	What are displacements?
+Ein Displacement verwandelt eine flache Brush-Fläche in ein feines Raster, dessen Punkte du verschieben kannst – so entstehen Hügel, Täler, Höhlenwände und Wege. Displacements dichten die Map nicht ab: darunter muss immer noch ein Brush oder die Skybox liegen.	A displacement turns a flat brush face into a fine grid whose points you can move – that is how hills, valleys, cave walls and paths are made. Displacements do not seal the map: there must still be a brush or the skybox underneath.
+Eine Bodenplatte	A ground plate
+Baue mit dem Block-Werkzeug (Shift+B) eine große, flache Platte, etwa 1024 × 1024 Einheiten und 16 hoch. Tipp: Die Textur „NATURE/BLENDGRASSGRAVEL001A“ mischt später Gras und Kies.	Use the block tool (Shift+B) to build a large, flat plate, about 1024 × 1024 units and 16 high. Tip: the texture “NATURE/BLENDGRASSGRAVEL001A” later blends grass and gravel.
+Die Oberseite auswählen	Select the top face
+Nimm das Textur-Werkzeug (Shift+A) und klicke in der 3D-Ansicht auf die Oberseite der Platte. Nur ausgewählte Flächen werden zu Displacements.	Take the texture tool (Shift+A) and click the top of the plate in the 3D view. Only selected faces become displacements.
+Rechts im Panel unter „Displacement“: Power 3 lassen und „Erstellen“ klicken. Power bestimmt die Feinheit – 2 ist grob, 4 sehr fein (und teuer).	In the panel on the right under “Displacement”: keep power 3 and click “Create”. Power sets the resolution – 2 is coarse, 4 very fine (and expensive).
+Einen Hügel malen	Paint a hill
+Wähle das Terrain-Werkzeug (Shift+P), Modus „Anheben“. Male mit gedrückter linker Maustaste in der 3D-Ansicht über das Gelände. Radius und Stärke stehen im Panel; Strg kehrt Anheben ↔ Absenken um.	Choose the terrain tool (Shift+P), mode “Raise”. Paint over the terrain in the 3D view with the left mouse button held. Radius and strength are in the panel; Ctrl swaps raise ↔ lower.
+Stelle im Panel den Modus „Glätten“ ein und male über steile Kanten – sie werden weicher. Mit gedrückter Strg-Taste wird geschärft. Weitere Modi: Auf Höhe setzen, Rauschen, Terrassen.	Set the mode “Smooth” in the panel and paint over steep edges – they become softer. Holding Ctrl sharpens. More modes: set height, noise, terraces.
+Texturen überblenden	Blend textures
+Mit einer Blend-Textur (zwei Texturen in einer, z. B. Gras und Kies) malst du im Modus „Alpha malen“ die zweite Textur ins Gelände – etwa einen Weg. „Alpha anzeigen“ im Panel macht die Bemalung blau sichtbar.	With a blend texture (two textures in one, e.g. grass and gravel) you paint the second texture into the terrain in the mode “Paint alpha” – for example a path. “Show alpha” in the panel shows the painting in blue.
+Noch mehr Gelände-Werkzeuge	More terrain tools
+Im Panel findest du außerdem: Rauschen (zufällige Unebenheit), Nähen (Kanten benachbarter Displacements angleichen), Unterteilen (macht z. B. aus einem Würfel eine Kugel) und das Ändern der Power ohne Formverlust. Große Landschaften entstehen schnell mit Map → „Gelände aus Heightmap…“.	The panel also has: noise (random bumps), sew (match the edges of neighbouring displacements), subdivide (turns e.g. a cube into a sphere) and changing the power without losing the shape. Large landscapes are made quickly with Map → “Terrain from heightmap…”.
+7 · Licht, Himmel und Nebel	7 · Light, sky and fog
+Lichtvorschau nutzen, Sonne und Himmel einrichten, indirektes Licht, Nebel und einen Partikel-Effekt.	Use the light preview, set up sun and sky, indirect light, fog and a particle effect.
+Die Lichtvorschau	The light preview
+Klicke oben links in der 3D-Ansicht auf „3D · Texturiert“ und wähle „Lichtvorschau“. Jetzt siehst du die Lichter der Map mit Schatten – ohne zu kompilieren.	Click “3D · Textured” at the top left of the 3D view and choose “Light preview”. Now you see the map's lights with shadows – without compiling.
+Die Sonne: light_environment	The sun: light_environment
+Für Außenbereiche setzt du genau ein „light_environment“ (Entity-Werkzeug, Shift+E). Sein Winkel „Pitch“ bestimmt, wie hoch die Sonne steht; „Ambient“ hellt die Schatten auf.	For outdoor areas you place exactly one “light_environment” (entity tool, Shift+E). Its “Pitch” angle sets how high the sun is; “Ambient” brightens the shadows.
+Der Himmel	The sky
+Öffne die Map-Eigenschaften (nichts auswählen, dann „Map-Eigenschaften“ im Panel) und trage bei „skyname“ einen Himmel ein, z. B. „sky_day01_05“. Flächen mit TOOLS/TOOLSSKYBOX zeigen im Spiel diesen Himmel – mit Ansicht → „Himmel-Vorschau“ auch im Editor.	Open the map properties (select nothing, then “Map properties” in the panel) and enter a sky at “skyname”, e.g. “sky_day01_05”. Faces with TOOLS/TOOLSSKYBOX show this sky in the game – and in the editor with View → “Sky preview”.
+Indirektes Licht	Indirect light
+Licht prallt im Spiel von Wänden ab und färbt die Umgebung. Schalte es in der Lichtvorschau ein: Ansicht → „Indirektes Licht in der Lichtvorschau (GI)“. Die Berechnung läuft im Hintergrund und wird immer feiner.	In the game, light bounces off walls and tints its surroundings. Turn it on in the light preview: View → “Indirect light in the light preview (GI)”. It is computed in the background and keeps getting finer.
+Setze ein „env_fog_controller“, stelle „Fog Enable“ auf Ja und wähle Farbe, Start und Ende. Entfernte Flächen verschwinden im Nebel – das sieht stimmungsvoll aus und spart Leistung.	Place an “env_fog_controller”, set “Fog Enable” to Yes and choose colour, start and end. Distant faces fade into the fog – it looks atmospheric and saves performance.
+Ein Partikel-Effekt	A particle effect
+Setze ein „info_particle_system“ und wähle bei „Particle System Name“ einen Effekt, z. B. „fire_small_01“ (Partikel-Browser über „…“). Der Effekt läuft direkt im 3D-Fenster; „Start Active“ lässt ihn im Spiel von Anfang an laufen.	Place an “info_particle_system” and choose an effect at “Particle System Name”, e.g. “fire_small_01” (particle browser via “…”). The effect plays right in the 3D view; “Start Active” makes it run from the start in the game.
+8 · Feinarbeit: Vertex, Clip, Overlays	8 · Detail work: vertex, clip, overlays
+Eckpunkte verschieben, schräg schneiden mit drei Punkten, Overlays und Decals auftragen.	Move vertices, cut at an angle with three points, apply overlays and decals.
+Das Vertex-Werkzeug	The vertex tool
+Wähle einen Block und drücke Shift+V. An den Ecken erscheinen Griffe: Ziehe einen oberen Eckpunkt in einer 2D-Ansicht zur Seite – so entstehen Schrägen und Dächer. Ungültige Formen (nicht konvex) lehnt Amboss ab.	Select a block and press Shift+V. Handles appear at the corners: drag a top vertex sideways in a 2D view – that makes slopes and roofs. Amboss rejects invalid (non-convex) shapes.
+Schräg schneiden mit drei Punkten	Angled cut with three points
+Wähle einen Block, nimm das Clip-Werkzeug (Shift+X) und klicke in der 3D-Ansicht nacheinander drei Punkte auf seine Flächen. Die Ebene durch die drei Punkte wird als Vorschau gezeigt; Enter schneidet, Shift+X wechselt, welche Seite bleibt.	Select a block, take the clip tool (Shift+X) and click three points on its faces in the 3D view. The plane through the three points is previewed; Enter clips, Shift+X switches which side remains.
+Ein Overlay	An overlay
+Overlays sind Bilder, die auf Flächen liegen – Schilder, Risse, Wegmarkierungen. Wähle rechts bei den Texturen eine Overlay-Textur, nimm das Overlay-Werkzeug (Shift+O) und klicke auf eine Fläche. Mit den runden Griffen änderst du Größe und Drehung.	Overlays are images lying on faces – signs, cracks, road markings. Pick an overlay texture in the textures on the right, take the overlay tool (Shift+O) and click a face. The round handles change size and rotation.
+Ein Decal	A decal
+Decals sind kleine Bilder wie Einschusslöcher oder Flecken. Nimm das Decal-Werkzeug (Shift+D), wähle eine Textur aus „decals/…“ und klicke auf eine Wand. Anders als Overlays haben Decals eine feste Größe.	Decals are small images such as bullet holes or stains. Take the decal tool (Shift+D), pick a texture from “decals/…” and click a wall. Unlike overlays, decals have a fixed size.
+Sauber arbeiten	Working cleanly
+Hilfreich für die Feinarbeit: Alt+V rastet an Eckpunkten anderer Objekte ein, Alt+G schaltet das Raster-Einrasten ab, H blendet die Auswahl aus, und mit Strg+G gruppierst du Teile, die zusammengehören.	Useful for detail work: Alt+V snaps to vertices of other objects, Alt+G turns grid snapping off, H hides the selection, and Ctrl+G groups parts that belong together.
+9 · Schneller bauen und testen	9 · Build faster and test
+Fertige Bauteile aus der Prefab-Bibliothek, Räume per Generator, durch die Map laufen und im Spiel testen.	Ready-made parts from the prefab library, rooms by generator, walking through the map and testing in game.
+Die Prefab-Bibliothek	The prefab library
+Öffne Datei → Prefabs… Hier liegen fertige Bauteile: Türen mit Knöpfen, Leitern, Lampen, Treppen, ganze Räume. Eigene Prefabs speicherst du aus der Auswahl.	Open File → Prefabs… It holds ready-made parts: doors with buttons, ladders, lamps, stairs, whole rooms. You save your own prefabs from the selection.
+Ein Prefab einsetzen	Insert a prefab
+Ziehe eine Kachel in die 3D-Ansicht auf den Boden – das Prefab richtet sich an der Fläche aus. Alternativ: Kachel anklicken, dann in eine Ansicht klicken (Shift = mehrmals).	Drag a tile onto the floor in the 3D view – the prefab aligns to the face. Alternatively: click a tile, then click in a view (Shift = several times).
+Räume per Generator	Rooms by generator
+Werkzeuge → Prozedurale Generatoren… erzeugt Labyrinthe, Räume mit Gängen oder ganze Stadtblöcke – abgedichtet und sofort kompilierbar. Probiere „Räume“ mit „Erzeugen“; ein Rückgängig-Schritt nimmt alles wieder weg.	Tools → Procedural generators… creates mazes, rooms with corridors or whole city blocks – sealed and ready to compile. Try “Rooms” with “Generate”; one undo step removes it all again.
+Durch die Map laufen	Walk through the map
+Drücke F6: Jetzt läufst du mit Spielergröße durch die Map – WASD, Leertaste springt, Strg duckt. So prüfst du schnell, ob Türen breit genug und Stufen nicht zu hoch sind. Esc beendet.	Press F6: now you walk through the map at player size – WASD, Space jumps, Ctrl crouches. A quick way to check that doors are wide enough and steps not too high. Esc exits.
+Im Spiel testen	Test in game
+Shift+F9 kompiliert und startet Garry's Mod so, dass du dort stehst, wo die 3D-Kamera ist. Mit Kompilieren → „Live-Abgleich mit dem Spiel…“ erscheinen Änderungen sogar sofort im laufenden Spiel.	Shift+F9 compiles and starts Garry's Mod with you standing where the 3D camera is. With Compile → “Live sync with the game…” changes even appear instantly in the running game.
+Tutorial	Tutorial
+Tutorial…	Tutorial…
+Kapitel 1–5 führen Schritt für Schritt durch die erste Map, Kapitel 6–9 zeigen weitere Werkzeuge. Jeder Schritt prüft selbst, ob er erledigt ist – und mit „Zeig es mir“ macht Amboss ihn vor.	Chapters 1–5 guide you step by step through your first map, chapters 6–9 show more tools. Each step checks by itself whether it is done – and with “Show me” Amboss demonstrates it.
+Deine erste Map ist fertig. In Garry's Mod lädst du sie auch über die Konsole: „map <name>“. Weiter geht es mit den nächsten Kapiteln: Gelände mit Displacements, Licht und Himmel, Feinarbeit und schneller bauen.	Your first map is done. In Garry's Mod you can also load it from the console: “map <name>”. Continue with the next chapters: terrain with displacements, light and sky, detail work and building faster.
+Map-Editor für Source · Version {}	Map editor for Source · version {}
+Version – Hilfe → Über Amboss	Version – Help → About Amboss
+auslösende Entity	activating entity
+sendende Entity	calling entity
+diese Entity	this entity
+Spieler-Blickziel	player's aim target
+Räume mit eigener Höhe und Bodenstufe, verbunden durch Gänge mit Treppen – geschlossen und sofort kompilierbar (mit Licht und Spawnpunkt).	Rooms with their own height and floor level, connected by corridors with stairs – sealed and ready to compile (with light and spawn point).
+Ganghöhe	Corridor height
+Höhenstufen	Floor levels
+Wie viele Stufen Böden nach oben und unten springen dürfen (0 = alle gleich hoch)	How many steps floors may go up or down (0 = all at the same height)
+Aktuelle Textur übernehmen: {}	Use current texture: {}
+Jeder Raum und jeder Gang wird eine eigene Gruppe – einzeln anklicken, verschieben oder mit Strg+U auflösen. Eingefügt wird dort, wohin die 3D-Kamera blickt.	Every room and every corridor becomes its own group – click, move or ungroup them (Ctrl+U) individually. It is inserted where the 3D camera is looking.
+Eingefügt wird dort, wohin die 3D-Kamera blickt.	It is inserted where the 3D camera is looking.
+Wände	Walls
+Decke	Ceiling
+← aktuelle	← current
+Bild	Image
+Rausch-Generator	Noise generator
+Hügelgröße	Hill size
+Detail-Lagen	Detail layers
+Rauheit	Roughness
+Talboden	Valley floor
+Startwert	Seed
+Bergkämme	Ridges
+Ränder flach	Flat edges
+Als PNG speichern…	Save as PNG…
+16-Bit-Graustufenbild, z. B. zum Weiterbearbeiten	16-bit greyscale image, e.g. for further editing
+Klein = viele kleine Hügel, groß = wenige weite Berge	Small = many small hills, large = few wide mountains
+Alles unterhalb dieser Höhe wird flach – gut für begehbare Täler	Everything below this height becomes flat – good for walkable valleys
+Heightmap gespeichert: {}	Heightmap saved: {}
+Eine Fläche in ein Displacement verwandeln, Hügel malen, Texturen überblenden – und große Landschaften aus einer Heightmap oder per Rausch-Generator.	Turn a face into a displacement, paint hills, blend textures – and large landscapes from a heightmap or with the noise generator.
+Große Landschaften: Heightmap	Large landscapes: heightmap
+Für große Gelände malst du nicht jede Kachel einzeln: Map → „Gelände aus Heightmap…“ macht aus einem Graustufenbild (Weiß = hoch, Schwarz = tief) ein Gelände aus vielen nahtlosen Displacement-Kacheln. Kantenlänge, Höhe, Kacheln und Power stellst du im Dialog ein.	For large terrain you do not paint every tile by hand: Map → “Terrain from heightmap…” turns a greyscale image (white = high, black = low) into terrain made of many seamless displacement tiles. Set edge length, height, tiles and power in the dialog.
+Gelände per Rauschen	Terrain from noise
+Kein Bild zur Hand? Wähle oben im Dialog „Rauschen“: Amboss erzeugt das Höhenbild selbst. Hügelgröße, Rauheit, Talboden, Bergkämme und Terrassen formen die Landschaft, „Würfeln“ liefert eine neue Form. Mit „Gelände erstellen“ landet es in der Map – „Als PNG speichern…“ hebt das Bild für später auf.	No image at hand? Choose “Noise” at the top of the dialog: Amboss creates the height image itself. Hill size, roughness, valley floor, ridges and terraces shape the landscape, “Randomize” gives a new shape. “Create terrain” puts it into the map – “Save as PNG…” keeps the image for later.
+Im Panel findest du außerdem: Rauschen (zufällige Unebenheit), Nähen (Kanten benachbarter Displacements angleichen), Unterteilen (macht z. B. aus einem Würfel eine Kugel) und das Ändern der Power ohne Formverlust.	The panel also has: noise (random bumps), sew (match the edges of neighbouring displacements), subdivide (turns e.g. a cube into a sphere) and changing the power without losing the shape.
+{}: {} in {} Gruppen	{}: {} in {} groups
+Abstand der Räume (Zellen)	Room spacing (cells)
+Windungen	Winding
+0 = möglichst gerade Gänge, 1 = mehr Abbiegungen; zwischen zwei Abbiegungen liegt immer ein längeres gerades Stück	0 = corridors as straight as possible, 1 = more turns; there is always a longer straight section between two turns
+Zusätzliche Verbindungen	Extra connections
+Mehr Verbindungen ergeben Schleifen und Kreuzungen; 0 = jeder Raum genau über einen Weg erreichbar	More connections create loops and crossings; 0 = every room reachable by exactly one route
+Räume mit eigener Höhe und Bodenstufe, kurze Treppen an den Türen, Gänge mit langen Geraden, runden Kurven und Abzweigungen, dünne Wände – jedes Raumpaar höchstens einmal verbunden, geschlossen und sofort kompilierbar (mit Licht und Spawnpunkt).	Rooms with their own height and floor level, short stairs at the doors, corridors with long straights, round curves and junctions, thin walls – each pair of rooms connected at most once, sealed and ready to compile (with light and spawn point).
+Abbiegungen	Turns
+als runde Kurve	as a round curve
+Ecken der Gänge werden zu Kurven mit runder Außen- und Innenwand, wo Platz ist; sonst bleibt eine gerade Ecke	Corridor corners become curves with a round outer and inner wall where there is room; otherwise a square corner remains
+Zellen	cells
+Innenradius der Kurve; 0 = nur die Außenwand rund	Inner radius of the curve; 0 = only the outer wall is round
+Wände sitzen als dünne Platte am Rand der Zelle, unabhängig von der Zellgröße (höchstens eine halbe Zelle)	Walls are thin slabs at the edge of a cell, independent of the cell size (at most half a cell)
+2D: bei Auswahl andere Ebenen abdunkeln	2D: dim other levels when something is selected
+Objekte, die nicht auf derselben Tiefe wie die Auswahl liegen (±10 Einheiten), werden blasser gezeichnet. Oben: gleiche Höhe (Z), Vorne: gleiches X, Seite: gleiches Y.	Objects that are not at the same depth as the selection (±10 units) are drawn fainter. Top: same height (Z), Front: same X, Side: same Y.
+Zelle	cell
+Mittlere Maustaste (Mausrad gedrückt) + Ziehen umsehen, W A S D fliegen, Q/E runter/hoch, Shift beim Umsehen schneller – änderbar unter Einstellungen → Tastenkürzel	Hold the middle mouse button (press the wheel) + drag to look around, W A S D to fly, Q/E down/up, Shift while looking = faster – change under Settings → Shortcuts
+Halte in der 3D-Ansicht die mittlere Maustaste (Mausrad drücken) gedrückt und bewege die Maus, um dich umzusehen. Mit W, A, S, D fliegst du dabei herum. Fliege in deinen Raum hinein. (Die Tasten lassen sich unter Einstellungen → Tastenkürzel ändern.)	In the 3D view, hold the middle mouse button (press the wheel) and move the mouse to look around. Use W, A, S, D to fly around. Fly into your room. (The keys can be changed under Settings → Shortcuts.)
+3D-Kamera: Bewegen und Umsehen	3D camera: moving and looking around
+Mittlere Maustaste (Mausrad drücken)	Middle mouse button (press the wheel)
+Rechte Maustaste	Right mouse button
+Kamera-Steuerung zurücksetzen	Reset camera controls
+Ohne gedrückte Umsehen-Taste bewegen die Tasten die Kamera nur ohne Umschalt/Alt – Shift+Buchstabe wählt dann das Werkzeug (z. B. Shift+A = Textur). Beim Umsehen gehören alle Tasten der Kamera.	Without the look button held, keys move the camera only without Shift/Alt – Shift+letter then selects the tool (e.g. Shift+A = texture). While looking around, all keys belong to the camera.
+Umsehen	Look around
+Empfindlichkeit	Sensitivity
+Maus-Y umkehren	Invert mouse Y
+Schneller fliegen	Fly faster
+Umschalt	Shift
+Alt	Alt
+Vorwärts	Forward
+Rückwärts	Backward
+Links	Left
+Rechts	Right
+Hoch	Up
+Hoch (2. Taste)	Up (2nd key)
+Runter	Down
+Keine Taste	No key
+Flächen-Einstellungen ausblenden	Hide face settings
+Flächen-Einstellungen anzeigen	Show face settings
+Fläche gewählt	face selected
+Flächen gewählt	faces selected
+{} Materialien · Klick: auswählen und auf gewählte Flächen anwenden	{} materials · click: select and apply to the selected faces
+Skalierung, Verschiebung, Drehung, Ausrichten, Lightmap …	Scale, shift, rotation, alignment, lightmap …
+Zur Maus drehen (mit Vorschau)	Rotate towards mouse (with preview)
+Erst etwas auswählen, dann Strg+R	Select something first, then Ctrl+R
+Drehen: Maus bewegen (15°-Schritte, Shift = frei) · Linksklick übernehmen · Rechtsklick oder Esc bricht ab	Rotate: move the mouse (15° steps, Shift = free) · left click applies · right click or Esc cancels
+Modell-Browser öffnen – Modell wählen und „Übernehmen“ setzt es hier ein	Open the model browser – pick a model and “Apply” puts it in here
+Drehen: Linksklick übernimmt · Rechtsklick/Esc bricht ab · Shift = frei	Rotate: left click applies · right click/Esc cancels · Shift = free
+Drehen abgebrochen	Rotation cancelled
+Farbe wählen	Pick colour
+Helligkeit (4. Wert)	Brightness (4th value)
+Farbe · Helligkeit	Colour · brightness
+Umgebung: Farbe · Helligkeit	Ambient: colour · brightness
+fehlt	missing
+vor {} s	{} s ago
+Austausch: {} · out.txt (Server): {} · alive.txt (Client): {}	Exchange: {} · out.txt (server): {} · alive.txt (client): {}
+Fehlen beide Dateien, obwohl die Map läuft: In der GMod-Konsole „amboss_live_status“ eingeben. Ist dort ein anderer Ordner zu sehen, ist in Amboss ein anderer Spielordner eingetragen als der, aus dem GMod startet.	If both files are missing although the map is running: type “amboss_live_status” in the GMod console. If it shows a different folder, Amboss has a different game folder set than the one GMod starts from.
+Ziel: ausgewählte Entities	Target: selected entities
+Alle Klassen anzeigen (Suche, Favoriten, Gruppen)	Show all classes (search, favourites, groups)
+Fehlende Standardwerte ergänzt: {}	Filled in missing default values: {}
+© 2026 Deadshot · Open Source unter MIT oder Apache-2.0	© 2026 Deadshot · open source under MIT or Apache-2.0

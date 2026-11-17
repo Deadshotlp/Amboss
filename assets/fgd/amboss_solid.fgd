@@ -1,0 +1,305 @@
+// ---------------------------------------------------------------- Brush-Entities
+@SolidClass = worldspawn : "Die Welt (Map-Eigenschaften)." [
+	message(string) : "Map Description / Title"
+	skyname(string) : "SkyBox Texture Name" : "sky_day01_01"
+	chaptertitle(string) : "Chapter Title Message"
+	startdark(choices) : "Level Fade In" : 0 = [ 0 : "No" 1 : "Yes" ]
+	gametitle(choices) : "Display Game Title" : 0 = [ 0 : "No" 1 : "Yes" ]
+	newunit(choices) : "New Level Unit" : 0 = [ 0 : "No, keep current" 1 : "Yes, clear previous levels" ]
+	maxoccludeearea(float) : "Max occludee area" : "0"
+	minoccluderarea(float) : "Min occluder area" : "0"
+	maxpropscreenwidth(float) : "Start Fade Pixels" : -1
+	minpropscreenwidth(float) : "End Fade Pixels" : 0
+	detailvbsp(string) : "Detail.vbsp file" : "detail.vbsp"
+	detailmaterial(string) : "Detail material file" : "detail/detailsprites"
+	coldworld(choices) : "World is cold" : 0 = [ 0 : "No" 1 : "Yes" ]
+]
+@SolidClass = func_detail : "Detail-Geometrie (blockiert keine Sichtberechnung, kein Leck-Schutz)." []
+@SolidClass base(Targetname, Parentname, Origin, RenderFields, Global, Shadow, EnableDisable) = func_brush : "Brush mit Optionen (ein-/ausblendbar, Parent, Render-Einstellungen)." [
+	spawnflags(flags) = [ 2 : "Ignore player +USE" : 1 ]
+	Solidity(choices) : "Solidity" : 0 = [ 0 : "Toggle" 1 : "Never Solid" 2 : "Always Solid" ]
+	excludednpc(string) : "NPC class excluded from collisions"
+	invert_exclusion(choices) : "Invert NPC class exclusion" : 0 = [ 0 : "No" 1 : "Yes" ]
+	solidbsp(choices) : "Solid BSP" : 0 = [ 0 : "No" 1 : "Yes" ]
+	vrad_brush_cast_shadows(choices) : "Shadows" : 0 = [ 0 : "No shadows" 1 : "Cast shadows" ]
+	input Toggle(void) : "Umschalten"
+	input SetExcluded(string) : "Ausgeschlossene NPC-Klasse"
+	input SetInvert(integer) : "Ausschluss umkehren"
+]
+@SolidClass base(Targetname, Parentname, Origin, RenderFields, Shadow) = func_illusionary : "Nicht-solider Brush (nur Optik)." []
+@SolidClass base(Targetname, RenderFields, Global, Shadow) = func_wall : "Fester Brush mit Render-Einstellungen (veraltet, besser func_brush)." []
+@SolidClass base(Targetname, Parentname, Origin, RenderFields, Global, Shadow) = func_wall_toggle : "An-/ausschaltbare Wand." [ spawnflags(flags) = [ 1 : "Starts Invisible" : 0 ] input Toggle(void) : "Umschalten" ]
+@SolidClass base(Targetname, Parentname, Origin, RenderFields, Global, Shadow, DamageFilter) = func_breakable : "Zerbrechlicher Brush." [
+	health(integer) : "Strength" : 1
+	material(choices) : "Material Type" : 0 = [ 0 : "Glass" 1 : "Wood" 2 : "Metal" 3 : "Flesh" 4 : "Cinder Block" 5 : "Ceiling Tile" 6 : "Computer" 7 : "Unbreakable Glass" 8 : "Rocks" 10 : "None" ]
+	explosion(choices) : "Gibs Direction" : 0 = [ 0 : "Random" 1 : "Relative to Attack" 2 : "Use Precise Gib Dir" ]
+	gibdir(angle) : "Precise Gib Direction" : "0 0 0"
+	nodamageforces(choices) : "Damaging it Doesn't Push It" : 0 = [ 0 : "No" 1 : "Yes" ]
+	gibmodel(string) : "Gib Model"
+	spawnobject(choices) : "Spawn On Break" : 0 = [ 0 : "Nothing" 1 : "item_battery" 2 : "item_healthkit" 3 : "item_ammo_pistol" 4 : "item_ammo_pistol_large" 5 : "item_ammo_smg1" 6 : "item_ammo_smg1_large" 7 : "item_ammo_ar2" 8 : "item_ammo_ar2_large" 9 : "item_box_buckshot" 10 : "item_flare_round" 11 : "item_box_flare_rounds" 12 : "item_rpg_round" 14 : "item_box_sniper_rounds" 16 : "weapon_stunstick" 18 : "weapon_ar2" 20 : "weapon_rpg" 21 : "weapon_smg1" 24 : "weapon_crossbow" 27 : "weapon_shotgun" 29 : "item_dynamic_resupply" ]
+	ExplodeMagnitude(integer) : "Explode Magnitude" : 0
+	pressuredelay(float) : "Pressure Delay" : 0
+	minhealthdmg(integer) : "Min Damage to Hurt" : 0
+	PerformanceMode(choices) : "Performance Mode" : 0 = [ 0 : "Normal" 1 : "No Gibs" 2 : "Full Gibs on All Platforms" ]
+	spawnflags(flags) = [ 1 : "Only Break on Trigger" : 0 2 : "Break on Touch" : 0 4 : "Break on Pressure" : 0 512 : "Break immediately on Physics" : 0 1024 : "Don't take physics damage" : 0 2048 : "Don't allow bullet penetration" : 0 ]
+	input Break(void) : "Zerbrechen"
+	input SetHealth(integer) : "Stärke setzen"
+	input AddHealth(integer) : "Stärke addieren"
+	input RemoveHealth(integer) : "Stärke abziehen"
+	output OnBreak(void) : "Beim Zerbrechen"
+	output OnHealthChanged(float) : "Stärke geändert"
+]
+@SolidClass base(Targetname, Parentname, Global, Shadow) = func_breakable_surf : "Zerbrechliche Glasscheibe (splittert stückweise). Eine Seite mit Glas-Textur, Rest nodraw." [
+	health(integer) : "Strength" : 5
+	fragility(integer) : "Fragility" : 100
+	surfacetype(choices) : "Surface Type" : 0 = [ 0 : "Glass" 1 : "Tile" ]
+	error(choices) : "Face Error" : 0 = [ 0 : "No Error" 1 : "Multiple Textured Faces" 2 : "Non-Square Face" ]
+	spawnflags(flags) = [ 1 : "Physics damage decals" : 0 2 : "Take damage from held objects" : 0 ]
+	input Shatter(vector) : "Zersplittern"
+	output OnBreak(void) : "Beim Zerbrechen"
+]
+@SolidClass base(Targetname, Parentname, Origin, RenderFields, Global, Shadow, DamageFilter) = func_physbox : "Brush mit Physik (fällt, lässt sich schieben)." [
+	health(integer) : "Strength" : 0
+	material(choices) : "Material Type" : 0 = [ 0 : "Glass" 1 : "Wood" 2 : "Metal" 3 : "Flesh" 4 : "Cinder Block" 5 : "Ceiling Tile" 6 : "Computer" 7 : "Unbreakable Glass" 8 : "Rocks" ]
+	massScale(float) : "Mass Scale" : "0"
+	overridescript(string) : "Override Parameters"
+	damagetoenablemotion(integer) : "Health Level to Override Motion" : 0
+	forcetoenablemotion(float) : "Physics Impact Force to Override Motion" : 0
+	preferredcarryangles(vector) : "Preferred Player-carry Angles" : "0 0 0"
+	notsolid(choices) : "Not solid to world" : 0 = [ 0 : "Solid to World" 1 : "Passes through World" ]
+	spawnflags(flags) = [ 4096 : "Start Asleep" : 0 8192 : "Ignore +USE for Pickup" : 0 16384 : "Debris - Don't collide with the player or other debris" : 0 32768 : "Motion Disabled" : 0 65536 : "Use Preferred Carry Angles" : 0 131072 : "Enable motion on Physcannon grab" : 0 262144 : "Not affected by rotor wash" : 0 524288 : "Only Break on Trigger" : 0 1048576 : "Prevent pickup" : 0 ]
+	input Wake(void) : "Aufwecken"
+	input Sleep(void) : "Schlafen"
+	input EnableMotion(void) : "Bewegung an"
+	input DisableMotion(void) : "Bewegung aus"
+	input Break(void) : "Zerbrechen"
+	output OnDamaged(void) : "Bei Schaden"
+	output OnAwakened(void) : "Aufgewacht"
+	output OnMotionEnabled(void) : "Bewegung freigegeben"
+	output OnPhysGunPickup(void) : "Aufgehoben"
+	output OnPhysGunDrop(void) : "Fallengelassen"
+	output OnPlayerUse(void) : "Benutzt"
+	output OnBreak(void) : "Beim Zerbrechen"
+]
+@SolidClass base(Targetname, Parentname, Origin, RenderFields, Global, Shadow) = func_physbox_multiplayer : "Physik-Brush mit vereinfachter Multiplayer-Physik." [ massScale(float) : "Mass Scale" : "0" health(integer) : "Strength" : 0 ]
+@SolidClass base(Door, Origin) = func_door : "Schiebetür (bewegt sich in eine Richtung)." [ movedir(angle) : "Move Direction (Pitch Yaw Roll)" : "0 0 0" ]
+@SolidClass base(Door, Origin, Angles) = func_door_rotating : "Drehtür (Brush, Origin-Helper = Scharnier)." [
+	distance(integer) : "Distance" : 90
+	solidbsp(choices) : "Solid Type" : 0 = [ 0 : "VPhysics" 1 : "BSP" ]
+	spawnflags(flags) = [ 2 : "Reverse Dir" : 0 16 : "One-way" : 0 64 : "X Axis" : 0 128 : "Y Axis" : 0 65536 : "New func_door +USE rules (NOT for prop_doors!!)" : 0 ]
+]
+@SolidClass base(Targetname, Parentname, Origin, RenderFields) = func_movelinear : "Bewegt sich linear zwischen zwei Positionen (Aufzug, Kolben)." [
+	movedir(angle) : "Move Direction (Pitch Yaw Roll)" : "0 0 0"
+	startposition(float) : "Start Position" : 0
+	speed(integer) : "Speed" : 100
+	movedistance(float) : "Move Distance" : 100
+	blockdamage(float) : "Block Damage" : 0
+	startsound(sound) : "Sound played when the object starts moving."
+	stopsound(sound) : "Sound played when the object stops moving."
+	spawnflags(flags) = [ 8 : "Not Solid" : 0 ]
+	input Open(void) : "Zur Endposition"
+	input Close(void) : "Zur Startposition"
+	input SetPosition(float) : "Position (0–1)"
+	input SetSpeed(float) : "Geschwindigkeit"
+	output OnFullyOpen(void) : "Endposition erreicht"
+	output OnFullyClosed(void) : "Startposition erreicht"
+]
+@SolidClass base(Targetname, Parentname, Origin, Angles, RenderFields, Shadow) = func_rotating : "Dreht sich dauerhaft (Ventilator, Rad). Origin-Helper = Achse." [
+	maxspeed(integer) : "Max Rotation Speed" : 100
+	fanfriction(integer) : "Friction (0 - 100%)" : 20
+	message(sound) : "Rotating sound WAV"
+	volume(integer) : "Volume (10 = loudest)" : 10
+	dmg(integer) : "Blocking Damage" : 0
+	solidbsp(choices) : "Solid Type" : 0 = [ 0 : "VPhysics" 1 : "BSP" ]
+	spawnflags(flags) = [ 1 : "Start ON" : 0 2 : "Reverse Direction" : 0 4 : "X Axis" : 0 8 : "Y Axis" : 0 16 : "Acc/Dcc" : 0 32 : "Fan Pain" : 0 64 : "Not Solid" : 0 128 : "Small Sound Radius" : 0 256 : "Medium Sound Radius" : 0 512 : "Large Sound Radius" : 1 ]
+	input SetSpeed(float) : "Geschwindigkeit (0–1)"
+	input Start(void) : "Starten"
+	input Stop(void) : "Stoppen"
+	input Toggle(void) : "Umschalten"
+	input Reverse(void) : "Richtung umkehren"
+	input StartForward(void) : "Vorwärts"
+	input StartBackward(void) : "Rückwärts"
+]
+@SolidClass base(Targetname, Parentname, Origin, RenderFields, DamageFilter) = func_button : "Knopf (bewegt sich beim Drücken)." [
+	movedir(angle) : "Move Direction (Pitch Yaw Roll)" : "0 0 0"
+	speed(integer) : "Speed" : 5
+	health(integer) : "Health (Obsolete)" : 0
+	lip(integer) : "Lip" : 0
+	master(string) : "Master (Obsolete)"
+	sounds(choices) : "Sounds" : 0 = [ 0 : "None (Silent)" 1 : "Big zap & Warmup" 3 : "Small zap" 9 : "Buzz" 10 : "Buzz Off" 14 : "Lightswitch" 15 : "Small Button" 16 : "Button" 17 : "Large Button" ]
+	wait(integer) : "Delay Before Reset (-1 stay)" : 3
+	locked_sound(choices) : "Locked Sound" : 0 = [ 0 : "None" 2 : "Access Denied" 8 : "Small zap" ]
+	unlocked_sound(choices) : "Unlocked Sound" : 0 = [ 0 : "None" 1 : "Big zap & Warmup" 3 : "Small zap" ]
+	spawnflags(flags) = [ 1 : "Don't move" : 0 32 : "Toggle" : 0 256 : "Touch Activates" : 0 512 : "Damage Activates" : 0 1024 : "Use Activates" : 1 2048 : "Starts locked" : 0 4096 : "Sparks" : 0 ]
+	input Lock(void) : "Sperren"
+	input Unlock(void) : "Entsperren"
+	input Press(void) : "Drücken"
+	input PressIn(void) : "Hineindrücken"
+	input PressOut(void) : "Herauslassen"
+	output OnDamaged(void) : "Bei Schaden"
+	output OnPressed(void) : "Beim Drücken"
+	output OnUseLocked(void) : "Benutzt, während gesperrt"
+	output OnIn(void) : "Ganz drin"
+	output OnOut(void) : "Ganz draußen"
+]
+@SolidClass base(Targetname, Parentname, Origin, Angles, Global) = func_rot_button : "Drehknopf (dreht sich beim Drücken)." [
+	speed(integer) : "Speed" : 50
+	wait(integer) : "Delay Before Reset (-1 stay)" : 3
+	distance(integer) : "Distance" : 90
+	spawnflags(flags) = [ 1 : "Not solid" : 0 2 : "Reverse Dir" : 0 32 : "Toggle" : 0 64 : "X Axis" : 0 128 : "Y Axis" : 0 1024 : "Use Activates" : 1 2048 : "Starts locked" : 0 ]
+	input Lock(void) : "Sperren"
+	input Unlock(void) : "Entsperren"
+	output OnPressed(void) : "Beim Drücken"
+	output OnIn(void) : "Ganz gedreht"
+	output OnOut(void) : "Zurückgedreht"
+]
+@SolidClass base(Targetname, Parentname, Origin, Angles, RenderFields) = momentary_rot_button : "Kurbel / Rad, das man gedrückt halten muss (Wert 0–1)." [
+	speed(integer) : "Speed (deg/sec)" : 50
+	sounds(choices) : "Sounds" : 0 = [ 0 : "None" 1 : "Big zap & Warmup" 3 : "Small zap" ]
+	distance(integer) : "Distance" : 90
+	returnspeed(integer) : "Auto-return speed" : 0
+	startposition(float) : "Start Position" : 0
+	startdirection(choices) : "Start Direction" : "Forward" = [ -1 : "Backward" 1 : "Forward" ]
+	solidbsp(choices) : "Solid BSP" : 0 = [ 0 : "VPhysics" 1 : "BSP" ]
+	spawnflags(flags) = [ 1 : "Not Solid" : 1 32 : "Toggle (Disable Use for this)" : 0 64 : "X Axis" : 0 128 : "Y Axis" : 0 1024 : "Use Activates" : 1 2048 : "Starts locked" : 0 8192 : "Jiggle when used while locked" : 0 ]
+	input Lock(void) : "Sperren"
+	input Unlock(void) : "Entsperren"
+	input SetPosition(string) : "Position"
+	input SetPositionImmediately(string) : "Position sofort"
+	output Position(integer) : "Aktuelle Position"
+	output OnPressed(integer) : "Gedrückt"
+	output OnUnpressed(integer) : "Losgelassen"
+	output OnFullyClosed(void) : "Ganz zu"
+	output OnFullyOpen(void) : "Ganz auf"
+	output OnReachedPosition(void) : "Position erreicht"
+]
+@SolidClass base(Targetname, Parentname, Origin, RenderFields, Global, Shadow) = func_tracktrain : "Zug entlang von path_track (fahrbar oder gesteuert)." [
+	target(target_destination) : "First Stop Target"
+	startspeed(integer) : "Max Speed (units / second)" : 100
+	speed(integer) : "Initial Speed (units / second)" : 0
+	velocitytype(choices) : "Change Velocity" : 0 = [ 0 : "Instantaneously" 1 : "Linear blend" 2 : "Ease in/ease out" ]
+	orientationtype(choices) : "Change angles" : 1 = [ 0 : "Never (fixed orientation)" 1 : "Near path_tracks" 2 : "Linear blend" 3 : "Ease in/ease out" ]
+	wheels(integer) : "Distance Between the Wheels" : 50
+	height(integer) : "Height above track" : 4
+	bank(string) : "Bank Angle on Turns" : "0"
+	dmg(integer) : "Damage on Crush" : 0
+	MoveSound(sound) : "Move Sound"
+	StartSound(sound) : "Start Sound"
+	StopSound(sound) : "Stop Sound"
+	volume(integer) : "Volume (10 = loudest)" : 10
+	spawnflags(flags) = [ 1 : "No Pitch (X-rot)" : 0 2 : "No User Control" : 0 8 : "Passable" : 0 16 : "Fixed Orientation" : 0 128 : "HL1 Train" : 0 256 : "Use max speed for pitch shifting move sound" : 0 512 : "Is unblockable by player" : 0 ]
+	input SetSpeed(float) : "Geschwindigkeit (0–1)"
+	input SetSpeedDir(float) : "Geschwindigkeit mit Richtung"
+	input SetSpeedReal(float) : "Geschwindigkeit in Einheiten"
+	input Stop(void) : "Anhalten"
+	input StartForward(void) : "Vorwärts"
+	input StartBackward(void) : "Rückwärts"
+	input Resume(void) : "Weiterfahren"
+	input Reverse(void) : "Richtung umkehren"
+	input Toggle(void) : "Umschalten"
+	input TeleportToPathTrack(target_destination) : "Zu Pfadpunkt teleportieren"
+	output OnStart(void) : "Fährt los"
+	output OnNext(void) : "Nächster Punkt"
+]
+@SolidClass base(Targetname, Parentname, Origin, RenderFields, Global, Shadow) = func_tanktrain : "Panzerzug (mit Lebenspunkten)." [ target(target_destination) : "First Track Target" startspeed(integer) : "Max Speed (units / second)" : 100 health(integer) : "Health" : 100 output OnDeath(void) : "Zerstört" ]
+@SolidClass base(Targetname, Parentname, Origin, RenderFields, Global, Shadow) = func_train : "Einfacher Zug entlang von path_corner (veraltet)." [ target(target_destination) : "First stop target" speed(integer) : "Speed (units per second)" : 50 noise1(sound) : "Move Sound" noise2(sound) : "Stop Sound" dmg(integer) : "Damage on crush" : 0 spawnflags(flags) = [ 8 : "Not solid" : 0 ] input Toggle(void) : "Umschalten" input Start(void) : "Starten" input Stop(void) : "Stoppen" ]
+@SolidClass base(Targetname, Parentname, RenderFields, Shadow) = func_conveyor : "Förderband (Textur läuft, Objekte werden mitbewegt)." [ movedir(angle) : "Move Direction (Pitch Yaw Roll)" : "0 0 0" speed(string) : "Conveyor Speed" : "100" spawnflags(flags) = [ 1 : "No Push" : 0 2 : "Not Solid" : 0 ] input ToggleDirection(void) : "Richtung umkehren" input SetSpeed(float) : "Geschwindigkeit" ]
+@SolidClass base(Targetname) = func_ladder : "Leiter (Brush mit toolsinvisibleladder)." []
+@SolidClass base(Targetname, Parentname, Origin, RenderFields, Shadow) = func_water_analog : "Bewegliches Wasser (Wasserstand per Eingang)." [ movedir(angle) : "Move Direction (Pitch Yaw Roll)" : "0 0 0" startposition(float) : "Start Position" : 0 speed(integer) : "Speed" : 100 movedistance(float) : "Move Distance" : 100 WaveHeight(string) : "Wave Height" : "3.0" input Open(void) : "Hoch" input Close(void) : "Runter" input SetPosition(float) : "Position (0–1)" output OnFullyOpen(void) : "Ganz oben" output OnFullyClosed(void) : "Ganz unten" ]
+@SolidClass base(Targetname) = func_areaportal : "Areaportal: trennt Sichtbereiche, öffnet/schließt mit einer Tür." [
+	target(target_destination) : "Name of Linked Door"
+	StartOpen(choices) : "Initial State" : 1 = [ 0 : "Closed" 1 : "Open" ]
+	PortalVersion(integer) : "Portal Version" : 1
+	input Open(void) : "Öffnen"
+	input Close(void) : "Schließen"
+	input Toggle(void) : "Umschalten"
+]
+@SolidClass base(Targetname) = func_areaportalwindow : "Areaportal für Fenster: schließt sich ab einer Entfernung." [
+	target(target_destination) : "Rendered Window"
+	FadeStartDist(integer) : "Fade Start Distance" : 128
+	FadeDist(integer) : "Fade End Distance" : 512
+	TranslucencyLimit(string) : "Translucency limit" : "0.2"
+	BackgroundBModel(string) : "Foreground bmodel"
+	PortalVersion(integer) : "Portal Version" : 1
+	input SetFadeStartDistance(integer) : "Startentfernung"
+	input SetFadeEndDistance(integer) : "Endentfernung"
+]
+@SolidClass base(Targetname) = func_occluder : "Verdecker: Props dahinter werden nicht gezeichnet (Brush mit toolsoccluder)." [ StartActive(choices) : "Initial State" : 1 = [ 0 : "Inactive" 1 : "Active" ] input Deactivate(void) : "Aus" input Activate(void) : "An" input Toggle(void) : "Umschalten" ]
+@SolidClass = func_viscluster : "Fasst Sichtbereiche zusammen (schnellere VVIS-Läufe in offenen Gebieten)." []
+@SolidClass base(Targetname, EnableDisable) = func_clip_vphysics : "Blockiert nur Physik-Objekte." [ filtername(filterclass) : "Filter Name" ]
+@SolidClass base(Targetname) = func_vehicleclip : "Blockiert nur Fahrzeuge." []
+@SolidClass base(Targetname, EnableDisable) = func_dustcloud : "Staubwolke in einem Volumen." [ Color(color255) : "Particle Color (R G B)" : "255 255 255" SpawnRate(integer) : "Particle Per Second" : 40 SpeedMax(integer) : "Maximum Particle Speed" : 13 LifetimeMin(integer) : "Minimum Particle Lifetime" : 3 LifetimeMax(integer) : "Maximum Particle Lifetime" : 5 DistMax(integer) : "Maximum Visible Distance" : 1024 Frozen(choices) : "Frozen" : 0 = [ 0 : "No" 1 : "Yes" ] Alpha(integer) : "Alpha" : 30 SizeMin(string) : "Minimum Particle Size" : "100" SizeMax(string) : "Maximum Particle Size" : "200" ]
+@SolidClass base(Targetname, EnableDisable) = func_dustmotes : "Schwebende Staubteilchen in einem Volumen." [ Color(color255) : "Particle Color (R G B)" : "255 255 255" SpawnRate(integer) : "Particle Per Second" : 40 SpeedMax(integer) : "Maximum Particle Speed" : 13 LifetimeMin(integer) : "Minimum Particle Lifetime" : 10 LifetimeMax(integer) : "Maximum Particle Lifetime" : 20 DistMax(integer) : "Maximum Visible Distance" : 1024 Alpha(integer) : "Alpha" : 255 SizeMin(string) : "Minimum Particle Size" : "10" SizeMax(string) : "Maximum Particle Size" : "20" ]
+@SolidClass base(Targetname) = func_smokevolume : "Rauch in einem Volumen." [ Color1(color255) : "Particle Color1 (R G B)" : "255 255 255" Color2(color255) : "Particle Color2 (R G B)" : "255 255 255" material(material) : "Material" : "particle/particle_smokegrenade" ParticleDrawWidth(float) : "Particle Draw Width (units)" : 120 ParticleSpacingDistance(float) : "Particle Spacing Distance (units)" : 80 DensityRampSpeed(float) : "Density ramp speed" : 1 RotationSpeed(float) : "Rotation speed" : 10 MovementSpeed(float) : "Movement speed" : 10 Density(float) : "Density [0..1]" : 1 input SetRotationSpeed(float) : "Drehung" input SetMovementSpeed(float) : "Bewegung" input SetDensity(float) : "Dichte" ]
+@SolidClass base(Targetname) = func_precipitation : "Regen oder Schnee in einem Volumen." [ renderamt(integer) : "Density (0-100%)" : 5 rendercolor(color255) : "Color (R G B)" : "100 100 100" preciptype(choices) : "Precipitation Type" : 0 = [ 0 : "Rain" 1 : "Snow" 2 : "Ash" 3 : "Snowfall" ] ]
+@SolidClass base(Targetname) = func_lod : "Brush, der ab einer Entfernung ausgeblendet wird." [ DisappearDist(integer) : "Disappear Distance" : 2000 Solid(choices) : "Solid" : 0 = [ 0 : "Solid" 1 : "Nonsolid" ] ]
+@SolidClass base(func_brush) = func_monitor : "Bildschirm, der eine point_camera zeigt (Textur dev/dev_monitor)." [ target(target_destination) : "Camera name" input SetCamera(string) : "Kamera wählen" ]
+@SolidClass base(func_brush) = func_reflective_glass : "Spiegelndes Glas (Echtzeit-Spiegelung)." []
+@SolidClass base(Targetname, Parentname, Origin, RenderFields, Global) = func_guntarget : "Bewegliche Zielscheibe entlang von path_corner." [ speed(integer) : "Speed (units per second)" : 100 target(target_destination) : "First stop target" health(integer) : "Damage to Take" : 0 input Start(void) : "Starten" input Stop(void) : "Stoppen" input Toggle(void) : "Umschalten" output OnDeath(void) : "Getroffen" ]
+@SolidClass base(BaseTank) = func_tank : "Geschütz (MG), bedienbar von Spieler oder NPC." [ ammotype(choices) : "Ammo type" : "" = [ "" : "None" "Pistol" : "Pistol" "SMG1" : "SMG1" "AR2" : "AR2" "CombineHeavyCannon" : "Combine Heavy Cannon" ] spawnflags(flags) = [ 8192 : "Ignore range when making viewcone checks" : 0 256 : "Aiming Assistance (Player Only)" : 0 ] ]
+@SolidClass base(BaseTank) = func_tankairboatgun : "Airboat-Kanone." [ airboat_gun_model(target_destination) : "Name of a prop_dynamic which is the airboat gun model" ]
+@SolidClass base(BaseTank) = func_tankapcrocket : "APC-Raketenwerfer." [ rocketspeed(float) : "Projectile speed" : 800 burstcount(integer) : "Burst shot count" : 10 ]
+@SolidClass base(BaseTank) = func_tanklaser : "Laser-Geschütz." [ laserentity(target_destination) : "env_laser Entity" ]
+@SolidClass base(BaseTank) = func_tankmortar : "Mörser." [ iMagnitude(integer) : "Explosion Magnitude" : 100 firedelay(string) : "Shell travel time" : "2" firestartsound(sound) : "Firing start sound" fireendsound(sound) : "Firing end sound" incomingsound(sound) : "Incoming Shell Sound" warningtime(float) : "Incoming warning time" : 1 firevariance(float) : "Fire time variance" : 0 ]
+@SolidClass base(BaseTank) = func_tankphyscannister : "Geschütz, das Physik-Kanister verschießt." [ barrel_volume(target_destination) : "Barrel Volume" ]
+@SolidClass base(BaseTank) = func_tankpulselaser : "Puls-Laser-Geschütz." [ PulseSpeed(float) : "Bolt Speed" : 1000 PulseColor(color255) : "Bolt Color" : "255 0 0" PulseWidth(float) : "Bolt Width" : 20 PulseLife(float) : "Bolt Life" : 2 PulseLength(float) : "Bolt Length" : 150 ]
+@SolidClass base(BaseTank) = func_tankrocket : "Raketen-Geschütz." [ rocketspeed(float) : "Projectile speed" : 800 ]
+@SolidClass base(BaseTank) = func_tank_combine_cannon : "Schwere Combine-Kanone (EP2)." [ ammotype(choices) : "Ammo type" : "" = [ "CombineHeavyCannon" : "Combine Heavy Cannon" ] ]
+@SolidClass base(func_breakable) = func_pushable : "Schiebbarer Brush (veraltet, besser func_physbox)." [ spawnflags(flags) = [ 128 : "Breakable" : 0 ] ]
+@SolidClass base(Targetname, Parentname, Origin, RenderFields, Global) = func_platrot : "Drehende Plattform (veraltet)." [ speed(integer) : "Speed of rotation" : 50 height(integer) : "Travel altitude" : 0 rotation(integer) : "Spin amount" : 0 ]
+@SolidClass base(Targetname) = func_combine_ball_spawner : "Erzeugt Combine-Energiekugeln in einem Volumen (Zitadelle)." [ ballcount(integer) : "Ball count" : 3 minspeed(float) : "Min ball speed" : "300.0" maxspeed(float) : "Max ball speed" : "600.0" ballradius(float) : "Ball radius" : "20.0" balltype(choices) : "Ball Type" : "0" = [ 0 : "Combine Energy Ball 1" 1 : "Combine Energy Ball 2" ] ballrespawntime(float) : "Ball Respawn Time" : "4.0" input Enable(void) : "An" input Disable(void) : "Aus" output OnBallGrabbed(void) : "Kugel gegriffen" output OnBallReinserted(void) : "Kugel zurückgelegt" ]
+@SolidClass base(Targetname) = func_recharge : "Anzug-Ladestation als Brush (HL2:DM)." [ output OnPlayerUse(void) : "Benutzt" ]
+@SolidClass base(Targetname) = func_bomb_target : "Bomben-Zielgebiet (CS:S)." []
+@SolidClass base(Targetname) = func_buyzone : "Kaufzone (CS:S)." [ TeamNum(choices) : "Team Number" : 0 = [ 0 : "All" 2 : "Terrorist" 3 : "Counter-Terrorist" ] ]
+@SolidClass base(Targetname) = func_hostage_rescue : "Geisel-Rettungszone (CS:S)." []
+@SolidClass base(Targetname, Parentname, RenderFields) = env_bubbles : "Luftblasen in einem Volumen." [ density(integer) : "Bubble density" : 2 frequency(integer) : "Bubble frequency" : 2 current(integer) : "Speed of Current" : 0 spawnflags(flags) = [ 1 : "Start Off" : 0 ] input Activate(void) : "An" input Deactivate(void) : "Aus" input Toggle(void) : "Umschalten" ]
+@SolidClass base(Targetname, EnableDisable) = color_correction_volume : "Farbkorrektur innerhalb eines Volumens." [ fadeDuration(float) : "Lookup Fade Duration" : "10.0" maxweight(float) : "Maximum Weight" : "1.0" filename(string) : "Lookup Table Filename" ]
+@SolidClass base(Targetname) = game_zone_player : "Zählt Spieler in einem Bereich." [ input CountPlayersInZone(void) : "Zählen" output OnPlayerInZone(void) : "Spieler drin" output OnPlayerOutZone(void) : "Spieler draußen" output PlayersInCount(integer) : "Anzahl drin" output PlayersOutCount(integer) : "Anzahl draußen" ]
+
+// ---------------------------------------------------------------- Trigger
+@SolidClass base(Trigger) = trigger_multiple : "Wiederholbarer Trigger." [
+	wait(integer) : "Delay Before Reset" : 1
+	input TouchTest(void) : "Prüfen"
+	output OnTrigger(void) : "Beim Auslösen"
+]
+@SolidClass base(Trigger) = trigger_once : "Einmaliger Trigger (entfernt sich danach)." [ output OnTrigger(void) : "Beim Auslösen" ]
+@SolidClass base(Trigger) = trigger_teleport : "Teleporter (Ziel: info_teleport_destination)." [ target(target_destination) : "Remote Destination" landmark(target_destination) : "Local Destination Landmark" ]
+@SolidClass base(Trigger) = trigger_teleport_relative : "Teleportiert um einen festen Versatz." [ teleportoffset(vector) : "Teleport Offset" : "0 0 0" ]
+@SolidClass base(Trigger) = trigger_push : "Schiebt Spieler/Objekte in eine Richtung." [
+	pushdir(angle) : "Push Direction (Pitch Yaw Roll)" : "0 0 0"
+	speed(integer) : "Speed of Push" : 40
+	alternateticksfix(float) : "Scale force for alternate ticks" : 0
+	spawnflags(flags) = [ 128 : "Once Only" : 0 256 : "Affects Ladders (Half-Life 2)" : 0 ]
+	input SetPushSpeed(integer) : "Geschwindigkeit"
+]
+@SolidClass base(Trigger) = trigger_hurt : "Schadenszone." [
+	master(string) : "Master (Obsolete)"
+	damage(integer) : "Damage" : 10
+	damagecap(integer) : "Damage Cap" : 20
+	damagetype(choices) : "Damage Type" : 0 = [ 0 : "GENERIC" 1 : "CRUSH" 2 : "BULLET" 4 : "SLASH" 8 : "BURN" 16 : "FREEZE" 32 : "FALL" 64 : "BLAST" 128 : "CLUB" 256 : "SHOCK" 512 : "SONIC" 1024 : "ENERGYBEAM" 16384 : "DROWN" 32768 : "PARALYSE" 65536 : "NERVEGAS" 131072 : "POISON" 262144 : "RADIATION" 524288 : "DROWNRECOVER" 1048576 : "CHEMICAL" 2097152 : "SLOWBURN" 4194304 : "SLOWFREEZE" ]
+	damagemodel(choices) : "Damage Model" : 0 = [ 0 : "Normal" 1 : "Doubling w/forgiveness" ]
+	nodmgforce(choices) : "Zero Damage Force" : 0 = [ 0 : "No" 1 : "Yes" ]
+	input SetDamage(float) : "Schaden setzen"
+	output OnHurt(void) : "Hat Schaden gemacht"
+	output OnHurtPlayer(void) : "Hat dem Spieler Schaden gemacht"
+]
+@SolidClass base(Trigger) = trigger_look : "Feuert, wenn der Spieler auf ein Ziel schaut." [ target(target_destination) : "Look Target" LookTime(string) : "LookTime" : "0.5" FieldOfView(string) : "FieldOfView" : "0.9" Timeout(float) : "Timeout" : 0 spawnflags(flags) = [ 128 : "Fire Once" : 1 256 : "Use Velocity instead of facing" : 0 ] output OnTrigger(void) : "Hingeschaut" output OnTimeout(void) : "Zeit abgelaufen" ]
+@SolidClass base(Trigger) = trigger_proximity : "Gibt den Abstand zu einem Punkt aus (0–1)." [ measuretarget(target_destination) : "Point to Measure From" radius(string) : "Radius to measure within" : "256" output DistanceRatio(float) : "Abstand (0–1)" ]
+@SolidClass base(Trigger) = trigger_wind : "Wind in einem Bereich." [ Speed(integer) : "Speed" : 200 SpeedNoise(integer) : "Speed Noise (0-100)" : 0 DirectionNoise(integer) : "Direction Noise(0-360)" : 10 HoldTime(integer) : "Hold Time" : 0 HoldNoise(integer) : "Hold Noise" : 0 input SetSpeed(integer) : "Stärke" ]
+@SolidClass base(Trigger) = trigger_gravity : "Ändert die Schwerkraft für Spieler." [ gravity(integer) : "Gravity (0-1)" : 1 ]
+@SolidClass base(Targetname, Origin) = trigger_impact : "Stößt Objekte beim Auslösen weg." [ Magnitude(float) : "Magnitude" : 200 noise(float) : "Noise" : "0.1" viewkick(float) : "Viewkick" : "0.05" input Impact(float) : "Auslösen" input SetMagnitude(float) : "Stärke" output ImpactForce(string) : "Kraft" ]
+@SolidClass base(Trigger) = trigger_playermovement : "Ändert Spielerbewegung (z. B. Auto-Ducken)." [ spawnflags(flags) = [ 16 : "Disable auto-duck" : 1 32 : "Disable jump" : 0 64 : "Auto-walk" : 0 ] ]
+@SolidClass base(Trigger) = trigger_soundscape : "Aktiviert eine env_soundscape_triggerable." [ soundscape(target_source) : "Soundscape" ]
+@SolidClass base(Targetname, Origin) = trigger_changelevel : "Levelwechsel (mit info_landmark)." [ map(string) : "New Map Name" landmark(target_destination) : "Landmark Name" spawnflags(flags) = [ 2 : "Disable Touch" : 0 4 : "To Previous Chapter" : 0 ] input ChangeLevel(void) : "Wechseln" output OnChangeLevel(void) : "Beim Wechsel" ]
+@SolidClass base(Targetname, Origin) = trigger_autosave : "Speichert automatisch beim Betreten." [ master(string) : "Master" NewLevelUnit(choices) : "Force New Level Unit" : 0 = [ 0 : "No" 1 : "Yes" ] DangerousTimer(float) : "Dangerous Timer" : 0 MinimumHitPoints(integer) : "Minumum Hit Points" : 0 ]
+@SolidClass base(Targetname, Origin) = trigger_transition : "Bereich, dessen Inhalt bei Levelwechsel mitgenommen wird." []
+@SolidClass base(Trigger) = trigger_vphysics_motion : "Bewegt Physik-Objekte in einem Bereich (Antigrav, Strömung)." [ SetGravityScale(float) : "Scale gravity of objects in the field." : "1.0" SetAdditionalAirDensity(float) : "Additional air density for drag" : 0 SetVelocityLimit(float) : "Velocity Limit" : "0.0" SetVelocityLimitDelta(float) : "Velocity Limit Force" : "0.0" SetVelocityScale(float) : "Velocity scale/drag" : "1.0" SetAngVelocityLimit(float) : "Angular Velocity Limit" : "0.0" SetAngVelocityScale(float) : "Angular Velocity scale/drag" : "1.0" SetLinearForce(float) : "Linear force" : "0.0" SetLinearForceAngles(angle) : "Direction of linear force" : "0 0 0" ParticleTrailMaterial(string) : "Particle Trail Material" ParticleTrailLifetime(float) : "Particle Trail Lifetime" : 4 ParticleTrailStartSize(float) : "Particle Trail Starting Sprite Size" : 2 ParticleTrailEndSize(float) : "Particle Trail Ending Sprite Size" : 3 input SetGravityScale(float) : "Schwerkraft" input SetLinearForce(float) : "Kraft" ]
+@SolidClass base(Trigger) = trigger_weapon_dissolve : "Lässt Waffen zerfallen (Zitadelle)." [ emittername(target_destination) : "Emitter Name" input StopSound(void) : "Ton aus" output OnDissolveWeapon(void) : "Waffe zerfallen" output OnChargingPhyscannon(void) : "Gravity Gun aufgeladen" ]
+@SolidClass base(Trigger) = trigger_weapon_strip : "Nimmt Waffen weg." [ KillWeapons(choices) : "Kill Weapons" : 0 = [ 0 : "No" 1 : "Yes" ] ]
+@SolidClass base(Trigger) = trigger_waterydeath : "Lässt Blutegel angreifen (tiefes Wasser)." []
+@SolidClass base(Trigger) = trigger_rpgfire : "Feuert, wenn darin eine RPG abgeschossen wird." [ output OnTrigger(void) : "RPG abgefeuert" ]
+@SolidClass base(Trigger) = trigger_serverragdoll : "NPCs, die hier sterben, werden Server-Ragdolls." []
+@SolidClass base(Trigger) = trigger_physics_trap : "Lässt Physik-Objekte zerfallen." [ dissolvetype(choices) : "Dissolve Type" : "Energy" = [ 0 : "Energy" 1 : "Heavy electrical" 2 : "Light electrical" ] ]
+@SolidClass base(Trigger) = trigger_remove : "Entfernt Entities, die hineingeraten." [ output OnRemove(void) : "Entfernt" ]
+@SolidClass base(Trigger) = trigger_togglesave : "Schaltet das Speichern ab, solange der Spieler drin ist." []
+@SolidClass base(Trigger) = trigger_apply_impulse : "Gibt Objekten einen Stoß (EP2)." [ impulse_dir(angle) : "Impulse direction (Pitch Yaw Roll)" : "0 0 0" force(float) : "Impulse Force" : 300 input ApplyImpulse(void) : "Stoß" ]

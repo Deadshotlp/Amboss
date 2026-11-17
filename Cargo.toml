@@ -1,0 +1,32 @@
+[package]
+name = "amboss"
+version = "0.9.10"
+edition = "2021"
+description = "Map-Editor für Source-1 / Garry's Mod (VMF)"
+authors = ["Deadshot"]
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/Deadshotlp/Amboss"
+readme = "README.md"
+
+[dependencies]
+eframe = { version = "0.31", features = ["persistence"] }
+glam = "0.29"
+rfd = "0.15"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+bytemuck = "1"
+getrandom = "0.2"
+png = "0.18"
+mlua = { version = "0.10", features = ["lua54", "vendored", "serialize"] }
+
+[profile.dev]
+opt-level = 1
+
+[profile.dev.package."*"]
+opt-level = 3
+
+[profile.release]
+opt-level = 3
+
+[target.'cfg(windows)'.dependencies]
+rodio = { version = "0.20", default-features = false, features = ["symphonia-wav", "symphonia-mp3", "symphonia-vorbis"] }

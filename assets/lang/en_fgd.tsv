@@ -1,0 +1,984 @@
+# Englische Texte der eingebauten Entity-Liste (FGD): Deutsch TAB Englisch
+Statisches Modell (wird in die Map kompiliert, günstig).	Static model (compiled into the map, cheap).
+Physik-Objekt (fällt, rollt, lässt sich aufheben).	Physics object (falls, rolls, can be picked up).
+Physik-Objekt, auch mit Modellen, die eigentlich nicht als Physik gedacht sind.	Physics object, also with models that are not really meant for physics.
+Physik-Objekt mit vereinfachter Multiplayer-Physik.	Physics object with simplified multiplayer physics.
+Physik-Objekt, das nach dem Zerstören wieder erscheint.	Physics object that respawns after being destroyed.
+Animiertes oder bewegliches Modell (kann Parent haben).	Animated or moving model (can have a parent).
+Wie prop_dynamic, erlaubt auch Physik-Modelle.	Like prop_dynamic, also allows physics models.
+Modell, das an ein Ziel geheftet wird (z. B. Gegenstände an NPCs).	Model that is attached to a target (e.g. items on NPCs).
+Ragdoll (schlaffe Puppe, z. B. Leichen).	Ragdoll (limp puppet, e.g. corpses).
+Drehtür als Modell (mit Klinke, schließt sich automatisch).	Rotating door as a model (with handle, closes automatically).
+Detail-Modell (Client, ohne Kollision; wird kompiliert).	Detail model (client side, no collision; compiled in).
+Fahrbarer Buggy (Jeep).	Drivable buggy (jeep).
+Luftkissenboot.	Airboat.
+Gefangenenkapsel / Sitz (in GMod für Stühle).	Prisoner pod / seat (used for chairs in GMod).
+Jalopy-Auto (EP2).	Jalopy car (EP2).
+Steuerbarer Kran mit Magnet.	Controllable crane with magnet.
+Fahrzeug ohne Fahrer (von NPCs/Skripten gesteuert).	Vehicle without driver (controlled by NPCs/scripts).
+Combine-Panzerwagen (APC).	Combine armored car (APC).
+Thumper: hält Antlions fern.	Thumper: keeps antlions away.
+Combine-Energiekugel.	Combine energy ball.
+Bürger / Rebell / Sanitäter.	Citizen / rebel / medic.
+Combine-Soldat.	Combine soldier.
+Zombie-Oberkörper.	Zombie torso.
+Schneller Zombie.	Fast zombie.
+Schneller Zombie-Oberkörper.	Fast zombie torso.
+Giftzombie (trägt Gift-Headcrabs).	Poison zombie (carries poison headcrabs).
+Schneller Headcrab.	Fast headcrab.
+Gift-Headcrab.	Poison headcrab.
+Gift-Headcrab (anderer Name).	Poison headcrab (other name).
+Antlion-Wächter.	Antlion guard.
+Antlion-Larve (EP2, gibt Leben).	Antlion grub (EP2, gives health).
+Barnacle (hängt an der Decke).	Barnacle (hangs from the ceiling).
+Krähe.	Crow.
+Taube.	Pigeon.
+Möwe.	Seagull.
+Dog (Alyx' Roboter).	Dog (Alyx' robot).
+Vater Grigori.	Father Grigori.
+Fischer (Lost Coast).	Fisherman (Lost Coast).
+Combine-Gunship.	Combine gunship.
+Combine-Hunter-Chopper.	Combine hunter-chopper.
+Combine-Dropship (setzt Soldaten ab).	Combine dropship (drops off soldiers).
+City-Scanner (fliegende Kamera).	City scanner (flying camera).
+Klauen-Scanner (legt Minen).	Claw scanner (places mines).
+Rollmine.	Rollermine.
+Boden-Geschützturm.	Floor turret.
+Decken-Geschützturm.	Ceiling turret.
+Boden-Turm (eingelassen).	Ground turret (embedded).
+Stalker (mit Laser).	Stalker (with laser).
+Scharfschütze (unsichtbar, mit Laser).	Sniper (invisible, with laser).
+Combine-Überwachungskamera.	Combine security camera.
+Ichthyosaurier (Wasser).	Ichthyosaur (water).
+Unsichtbares Ziel für NPCs.	Invisible target for NPCs.
+Unsichtbarer NPC, der Feinde sucht (für Logik).	Invisible NPC that looks for enemies (for logic).
+Möbelstück mit Animation (für Szenen).	Furniture with animation (for scenes).
+Fahrer für prop_vehicle_apc.	Driver for prop_vehicle_apc.
+Fahrer für Fahrzeuge entlang von path_track.	Driver for vehicles along a path_track.
+Fahrer für prop_vehicle_crane.	Driver for prop_vehicle_crane.
+Granate (scharf).	Grenade (live).
+Kugel, die Helikopter meiden.	Sphere that helicopters avoid.
+Box, die Helikopter meiden (Brush-Variante empfohlen).	Box that helicopters avoid (brush variant recommended).
+Zone, in der Helikopter keine Bomben werfen.	Zone where helicopters do not drop bombs.
+Erzeugt NPCs einer Klasse.	Spawns NPCs of one class.
+Erzeugt Kopien eines Vorlage-NPCs (Spawnflag 'Template NPC').	Spawns copies of a template NPC (spawnflag 'Template NPC').
+Erzeugt Antlions (gräbt sie aus dem Boden).	Spawns antlions (digs them out of the ground).
+Einfacher animierter Charakter ohne KI.	Simple animated character without AI.
+Charakter für Szenen (ohne eigenes Verhalten).	Character for scenes (no behavior of its own).
+Modell, das Animationen durchschaltet (Test).	Model that cycles through animations (test).
+Modell, das bei Schaden die Animation wechselt (Test).	Model that changes its animation when damaged (test).
+Legt Beziehungen fest (Hass, Angst, Freundschaft).	Sets relationships (hate, fear, friendship).
+Befiehlt NPCs, über Sammel- und Angriffspunkte vorzurücken.	Orders NPCs to advance via rally and assault points.
+Sammelpunkt vor einem Angriff.	Rally point before an assault.
+Angriffsziel (Kette über 'Next assault point').	Assault point (chain via 'Next assault point').
+NPC führt den Spieler zu einem Ziel.	NPC leads the player to a goal.
+NPC folgt einem Ziel.	NPC follows a target.
+NPCs halten Position und kämpfen aus Deckung.	NPCs hold position and fight from cover.
+Metrocops bewachen einen Punkt und schubsen den Spieler weg.	Metrocops guard a point and push the player away.
+NPCs beschäftigen sich an Hint-Punkten (sitzen, arbeiten …).	NPCs keep busy at hint points (sitting, working …).
+Warteschlange für beschäftigte NPCs.	Queue for busy NPCs.
+NPCs kämpfen aus einer bestimmten Deckungszone.	NPCs fight from a specific cover zone.
+Kampflinie für verbündete/feindliche NPCs.	Battle line for friendly/enemy NPCs.
+Ersetzt gefallene Verbündete (Sanitäter/Soldaten).	Replaces fallen allies (medics/soldiers).
+Ändert das Ziel ('target') eines NPCs.	Changes the target ('target') of an NPC.
+Ändert die Hint-Gruppe von NPCs.	Changes the hint group of NPCs.
+Feuert, wenn ein NPC bestimmte Bedingungen erfüllt.	Fires when an NPC meets certain conditions.
+Geräusch, das nur NPCs hören.	Sound that only NPCs can hear.
+Begrenzt, was NPCs sagen.	Limits what NPCs say.
+Lässt NPCs auf Ereignisse reagieren (Response-Regeln).	Lets NPCs react to events (response rules).
+Bürger kommentieren Spieler-Gesundheit/-Munition.	Citizens comment on player health/ammo.
+Lässt einen NPC eine Animation abspielen.	Makes an NPC play an animation.
+Erteilt einem NPC einen Befehl (zum Ziel gehen, angreifen …).	Gives an NPC an order (go to target, attack …).
+Lässt einen NPC einen Satz sagen.	Makes an NPC say a line.
+Zielpunkt für Skripte (Kamera, Blick).	Target point for scripts (camera, look).
+Intro-Kamera mit Bildmischung (HL2-Anfang).	Intro camera with image blending (HL2 opening).
+Medikit (+25 Leben).	Medkit (+25 health).
+Gesundheitsfläschchen (+10 Leben).	Health vial (+10 health).
+Anzugbatterie (+15 Rüstung).	Suit battery (+15 armor).
+HEV-Anzug.	HEV suit.
+Pistolenmunition.	Pistol ammo.
+Pistolenmunition (groß).	Pistol ammo (large).
+SMG-Munition.	SMG ammo.
+SMG-Munition (groß).	SMG ammo (large).
+SMG-Granate.	SMG grenade.
+AR2-Munition.	AR2 ammo.
+AR2-Munition (groß).	AR2 ammo (large).
+AR2-Energiekugel.	AR2 energy ball.
+.357-Munition.	.357 ammo.
+.357-Munition (groß).	.357 ammo (large).
+Armbrustbolzen.	Crossbow bolts.
+Schrotmunition.	Shotgun ammo.
+RPG-Rakete.	RPG rocket.
+Munitionskiste mit unbegrenzter Munition.	Ammo crate with unlimited ammo.
+Zerbrechliche Kiste mit Inhalt.	Breakable crate with contents.
+Gesundheitsstation an der Wand.	Wall-mounted health charger.
+Anzug-Ladestation an der Wand.	Wall-mounted suit charger.
+Gibt, was der Spieler gerade am meisten braucht.	Gives whatever the player needs most right now.
+Larven-Nugget (EP2, gibt Leben).	Grub nugget (EP2, gives health).
+Brechstange.	Crowbar.
+Schlagstock.	Stunstick.
+Pistole (USP).	Pistol (USP).
+.357-Revolver.	.357 revolver.
+Combine-Impulsgewehr (AR2).	Combine pulse rifle (AR2).
+Schrotflinte.	Shotgun.
+Armbrust.	Crossbow.
+Granate.	Grenade.
+Raketenwerfer.	Rocket launcher.
+Gravity Gun.	Gravity gun.
+Bugbait (Pheropod).	Bugbait (pheropod).
+Alyx' Pistole (nur NPC).	Alyx' pistol (NPC only).
+Grigoris Gewehr (nur NPC).	Grigori's rifle (NPC only).
+GMod: Physgun.	GMod: physgun.
+GMod: Toolgun.	GMod: toolgun.
+GMod: Kamera.	GMod: camera.
+GMod: Medkit-Waffe.	GMod: medkit weapon.
+GMod: Fäuste.	GMod: fists.
+GMod: Flechette-Gewehr.	GMod: flechette gun.
+GMod: führt Lua-Code aus (beim Start oder per Eingang RunCode).	GMod: runs Lua code (at start or via the RunCode input).
+GMod: Spawnpunkt mit Optionen.	GMod: spawn point with options.
+GMod: bearbeitbarer Himmel (Sandbox-Editor).	GMod: editable sky (sandbox editor).
+GMod: bearbeitbare Sonne (Sandbox-Editor).	GMod: editable sun (sandbox editor).
+GMod: bearbeitbarer Nebel (Sandbox-Editor).	GMod: editable fog (sandbox editor).
+3D-Skybox-Kamera (in der kleinen Skybox platzieren).	3D skybox camera (place it in the small skybox).
+Ab welcher Entfernung Wasser einfach dargestellt wird.	Distance from which water is drawn cheaply.
+Farbkorrektur (.raw-Datei) in einem Radius.	Color correction (.raw file) within a radius.
+VGUI-Bildschirm in der Welt.	VGUI screen in the world.
+Diashow in der Welt.	Slideshow in the world.
+Ändert Material-Parameter zur Laufzeit (benötigt MaterialModify-Proxy).	Changes material parameters at runtime (needs MaterialModify proxy).
+Älterer Scheinwerfer mit Strahl (drehbar).	Older spotlight with beam (rotatable).
+Combine-Hüpfmine.	Combine hopper mine.
+Helikopter-Bombe.	Helicopter bomb.
+Schießt Splitter (alte Variante von env_shooter).	Shoots gibs (old variant of env_shooter).
+KI-Steuerung für einen func_tanktrain.	AI control for a func_tanktrain.
+Ziel für tanktrain_ai.	Target for tanktrain_ai.
+Endpunkt einer Leiter (alte Variante).	End point of a ladder (old variant).
+Fischschwarm (nur Optik).	School of fish (visual only).
+Instanz: bindet eine andere VMF ein (wird beim Kompilieren eingefügt).	Instance: includes another VMF (inserted when compiling).
+Parameter-Definition in einer Instanz-VMF.	Parameter definition in an instance VMF.
+Verbindet Ein-/Ausgaben einer Instanz mit der Haupt-Map.	Connects inputs/outputs of an instance with the main map.
+Liste von Entities, die Hammer beim Aktualisieren ignoriert.	List of entities that Hammer ignores when updating.
+Spawnpunkt für Spieler (Einzelspieler / GMod-Sandbox).	Player spawn point (singleplayer / GMod sandbox).
+Deathmatch-Spawnpunkt (HL2:DM, GMod).	Deathmatch spawn point (HL2:DM, GMod).
+Spawnpunkt Team Combine (HL2:DM).	Spawn point team Combine (HL2:DM).
+Spawnpunkt Team Rebellen (HL2:DM).	Spawn point team Rebels (HL2:DM).
+Spawnpunkt Terroristen (CS:S – von GMod erkannt).	Spawn point Terrorists (CS:S – recognized by GMod).
+Spawnpunkt Anti-Terror (CS:S – von GMod erkannt).	Spawn point Counter-Terrorists (CS:S – recognized by GMod).
+Spawnpunkt Achsenmächte (DoD:S – von GMod erkannt).	Spawn point Axis (DoD:S – recognized by GMod).
+Spawnpunkt Alliierte (DoD:S – von GMod erkannt).	Spawn point Allies (DoD:S – recognized by GMod).
+Team-Spawnpunkt (TF2 – von GMod erkannt).	Team spawn point (TF2 – recognized by GMod).
+Ziel-Punkt für andere Entities (Kameras, Laser, Szenen …).	Target point for other entities (cameras, lasers, scenes …).
+Ziel für trigger_teleport und point_teleport.	Destination for trigger_teleport and point_teleport.
+Bezugspunkt für Levelwechsel (gleicher Name in beiden Maps).	Reference point for level changes (same name in both maps).
+Leerer Hilfspunkt, wird beim Kompilieren entfernt (z. B. Spotlight-Ziel).	Empty helper point, removed when compiling (e.g. spotlight target).
+Beleuchtungs-Bezugspunkt für Modelle (lightingorigin).	Lighting reference point for models (lightingorigin).
+Beleuchtungs-Bezugspunkt relativ zu einem anderen Entity.	Lighting reference point relative to another entity.
+Kamerapunkt für die Zwischensequenz nach dem Tod (Multiplayer).	Camera point for the cutscene after death (multiplayer).
+Partikeleffekt aus einer .pcf-Datei.	Particle effect from a .pcf file.
+Decal, das in Blickrichtung auf Flächen projiziert wird.	Decal projected onto surfaces in the facing direction.
+Decal (Aufkleber) auf der nächsten Fläche.	Decal (sticker) on the nearest surface.
+Overlay (Aufkleber über mehrere Flächen).	Overlay (sticker across several surfaces).
+Verknüpft eine point_camera mit einem Entity (Monitore).	Links a point_camera to an entity (monitors).
+Absteigepunkt für eine Leiter.	Dismount point for a ladder.
+Überschreibt den Massenschwerpunkt eines Physik-Objekts.	Overrides the center of mass of a physics object.
+Anker für Seil-/Physik-Verbindungen an einem Objekt.	Anchor for rope/physics constraints on an object.
+Schaltet dynamische Schatten auf bestimmten Flächen ab.	Disables dynamic shadows on certain surfaces.
+Möglicher Spawnpunkt für npc_template_maker.	Possible spawn point for npc_template_maker.
+Zielpunkt für npc_sniper.	Target point for npc_sniper.
+Absturzziel für npc_helicopter.	Crash target for npc_helicopter.
+Absturzziel für npc_combinegunship.	Crash target for npc_combinegunship.
+Lichtquelle für NPCs im Dunkel-Modus (EP1).	Light source for NPCs in dark mode (EP1).
+Löst ein Spielereignis aus.	Triggers a game event.
+Schaltet KI-Node-Verbindungen in einem Radius ab, wenn ein Hindernis darin liegt.	Disables AI node connections within a radius if an obstacle lies in it.
+KI-Bodennode für NPC-Navigation.	AI ground node for NPC navigation.
+KI-Luftnode für fliegende NPCs.	AI air node for flying NPCs.
+Kletter-Node (Antlion/Fast Zombie).	Climb node (antlion/fast zombie).
+Bodennode mit Hinweis (Deckung, Engstelle …).	Ground node with hint (cover, choke point …).
+Luftnode mit Hinweis.	Air node with hint.
+KI-Hinweis ohne Navigationsnode (Deckung, Engstelle …).	AI hint without navigation node (cover, choke point …).
+Einzelne Node-Verbindung, an- und abschaltbar.	Single node connection that can be switched on and off.
+Schaltet Node-Verbindungen in einem Bereich (z. B. an Türen).	Switches node connections in an area (e.g. at doors).
+Punktlicht.	Point light.
+Sonnenlicht und Himmelslicht (für Maps mit Himmel).	Sunlight and skylight (for maps with a sky).
+Spotlicht.	Spotlight.
+Dynamisches Licht (kostet Leistung, wirft keine Schatten).	Dynamic light (costs performance, casts no shadows).
+Sichtbarer Lichtkegel (Volumenstrahl) mit optionalem dynamischem Licht.	Visible light cone (volumetric beam) with optional dynamic light.
+Projizierte Textur mit dynamischem Schatten (Taschenlampen-Effekt).	Projected texture with dynamic shadow (flashlight effect).
+Richtung, Farbe und Länge der dynamischen Schatten (eins pro Map).	Direction, color and length of dynamic shadows (one per map).
+Lichtschein ohne Licht (Heiligenschein-Effekt).	Glow without light (halo effect).
+Leuchtendes Sprite (Lichtschein, Lampen, Effekte).	Glowing sprite (glow, lamps, effects).
+Leuchtendes Sprite (älterer Name von env_sprite).	Glowing sprite (older name of env_sprite).
+Sprite mit fester Ausrichtung (dreht sich nicht zur Kamera).	Sprite with fixed orientation (does not turn to the camera).
+Leuchtspur hinter einem bewegten Entity.	Light trail behind a moving entity.
+Strahl zwischen zwei Punkten (Blitz, Energie).	Beam between two points (lightning, energy).
+Laserstrahl auf ein Ziel.	Laser beam at a target.
+Rauchsäule aus Partikeln.	Smoke column made of particles.
+Rauchspur hinter einem Entity.	Smoke trail behind an entity.
+Dampfstrahl.	Steam jet.
+Feuer, das brennt und Schaden macht.	Fire that burns and does damage.
+Entzündet Objekte in der Nähe.	Ignites objects nearby.
+Feuerspur hinter einem Entity.	Fire trail behind an entity.
+Explosion mit Schaden.	Explosion with damage.
+Physik-Druckwelle (schiebt Objekte weg).	Physics shockwave (pushes objects away).
+Einzelner Physik-Stoß in eine Richtung.	Single physics impulse in one direction.
+Bildschirm wackeln lassen (Erdbeben).	Shakes the screen (earthquake).
+Schießt Modelle oder Splitter (Gibs) heraus.	Shoots out models or debris (gibs).
+Funken.	Sparks.
+Wasserspritzer.	Water splash.
+Bildschirm ein-/ausblenden.	Fades the screen in/out.
+Textnachricht aus titles.txt.	Text message from titles.txt.
+Hinweis am Bildschirm (z. B. Tastenhilfe).	On-screen hint (e.g. key help).
+Steuert die HDR-Helligkeitsanpassung.	Controls HDR brightness adaptation.
+Wind für Bäume, Seile und Partikel.	Wind for trees, ropes and particles.
+Hintergrundgeräusche für einen Bereich (soundscapes_*.txt).	Ambient sounds for an area (soundscapes_*.txt).
+Soundscape, die per trigger_soundscape aktiviert wird.	Soundscape activated by trigger_soundscape.
+Leitet eine andere env_soundscape an diesen Ort weiter.	Relays another env_soundscape to this location.
+Mikrofon: nimmt Geräusche auf und gibt sie an einem Lautsprecher aus.	Microphone: picks up sounds and plays them on a speaker.
+Lautsprecher für zufällige Ansagen (Response-Regeln).	Speaker for random announcements (response rules).
+Zoomt die Spielerkamera.	Zooms the player camera.
+Material als Overlay über den Bildschirm legen.	Lays a material over the screen as an overlay.
+Bildschirmeffekt (Sicht einfrieren, verschwimmen …).	Screen effect (freeze view, blur …).
+Schaltet das Bild einer animierten Textur ($frame) um.	Switches the frame of an animated texture ($frame).
+Erzeugt den Inhalt einer point_template an dieser Stelle.	Spawns the contents of a point_template at this location.
+Zündet ein Entity an.	Sets an entity on fire.
+Lässt Entities wie mit der Combine-Energiekugel zerfallen.	Makes entities dissolve like with the Combine energy ball.
+Blutspritzer.	Blood spray.
+Staubwolke.	Dust cloud.
+Mündungsfeuer-Effekt.	Muzzle flash effect.
+Leuchtfackel.	Flare.
+Unsichtbares Feuern von Schüssen auf ein Ziel (Hintergrund-Gefecht).	Invisible gunfire at a target (background firefight).
+Headcrab-Kapsel, die vom Himmel einschlägt.	Headcrab canister that crashes down from the sky.
+Animiertes Effekt-Modell mit Skript.	Animated effect model with script.
+Partikel-Skript an einem Modell.	Particle script on a model.
+Licht, das nur env_smokestack-Partikel beleuchtet.	Light that only lights env_smokestack particles.
+Sternenfeld-Effekt (Hyperraum).	Starfield effect (hyperspace).
+Sichtbare Sonne am Himmel.	Visible sun in the sky.
+Nebel.	Fog.
+GMod: prozeduraler Himmel (skyname auf 'painted' setzen).	GMod: procedural sky (set skyname to 'painted').
+Cubemap für Reflexionen (nach dem Kompilieren 'buildcubemaps').	Cubemap for reflections (run 'buildcubemaps' after compiling).
+Ausblend-Distanz der Detail-Sprites (Gras).	Fade distance of detail sprites (grass).
+Setzt einen globalen Zustand (über Levelwechsel hinweg).	Sets a global state (persists across level changes).
+Abspann.	End credits.
+Explosion eines AR2-Energiekerns.	Explosion of an AR2 energy core.
+Sporenwolke (Bugbait-Effekt).	Spore cloud (bugbait effect).
+Energiekern der Zitadelle (EP1).	Citadel energy core (EP1).
+Alyx' EMP-Effekt (EP1/EP2).	Alyx' EMP effect (EP1/EP2).
+Trichter-Partikeleffekt (großer Teleport).	Funnel particle effect (large teleport).
+Staub und Wellen unter einem Helikopter-Rotor.	Dust and waves under a helicopter rotor.
+Wie env_shooter, aber durch Rotorwind verweht.	Like env_shooter, but blown away by rotor wash.
+Löst aus, wenn der Spieler auf einem bestimmten Oberflächenmaterial steht.	Triggers when the player stands on a certain surface material.
+Lässt Ragdolls zucken (Elektroschock).	Makes ragdolls twitch (electric shock).
+Sound abspielen (einmalig oder in Schleife).	Plays a sound (once or looping).
+Feuert Ausgänge beim Map-Start.	Fires outputs when the map starts.
+Relais: leitet einen Eingang an mehrere Ausgänge weiter.	Relay: forwards one input to several outputs.
+Timer: feuert regelmäßig oder zufällig.	Timer: fires regularly or randomly.
+Wahr/Falsch-Verzweigung.	True/false branch.
+Prüft mehrere logic_branch gemeinsam.	Checks several logic_branch entities together.
+Fallunterscheidung (bis zu 16 Werte) oder Zufallsauswahl.	Case selection (up to 16 values) or random pick.
+Vergleicht einen Wert mit einem Vergleichswert.	Compares a value with a compare value.
+Prüft, ob mehrere Werte gleich sind.	Checks whether several values are equal.
+Überträgt die Bewegung eines Entities auf ein anderes.	Transfers the movement of one entity to another.
+Schaltet Navigationseigenschaften eines Entities um.	Toggles navigation properties of an entity.
+Stellvertreter für den Spieler (Ausgaben bei Spieler-Ereignissen).	Stand-in for the player (outputs on player events).
+Choreografierte Szene (.vcd) abspielen.	Plays a choreographed scene (.vcd).
+Räumt Szenen auf, wenn eine spätere startet.	Cleans up scenes when a later one starts.
+Gibt den Abstand zwischen zwei Entities als Vektor aus.	Outputs the distance between two entities as a vector.
+Automatisch speichern.	Autosave.
+Speichert automatisch, sobald der Spieler sich erholt hat.	Autosaves as soon as the player has recovered.
+Schaltet die Kollision zwischen zwei Objekten aus/an.	Turns collision between two objects off/on.
+Löst eine Errungenschaft aus.	Awards an achievement.
+Zähler mit Minimum/Maximum.	Counter with minimum/maximum.
+Rechnet einen Wertebereich in einen anderen um.	Maps one value range onto another.
+Mischt zwei Farben nach einem Eingangswert.	Blends two colors based on an input value.
+Vorlage: speichert Entities, die später erneut erzeugt werden können.	Template: stores entities that can be spawned again later.
+Kamera für Monitore (func_monitor) und RT-Texturen.	Camera for monitors (func_monitor) and RT textures.
+Übernimmt die Spielersicht (Kamerafahrt).	Takes over the player's view (camera move).
+Teleportiert ein Entity an diese Stelle.	Teleports an entity to this location.
+Macht Schaden in einem Radius.	Does damage within a radius.
+Schiebt Objekte in einem Radius weg oder zieht sie an.	Pushes objects away within a radius or pulls them in.
+Schwebender Text in der Welt (Debug).	Floating text in the world (debug).
+Führt einen Konsolenbefehl auf dem Server aus.	Runs a console command on the server.
+Führt einen Konsolenbefehl beim Spieler (Aktivator) aus.	Runs a console command on the player (activator).
+Elektrische Entladungen in der Nähe.	Electric discharges nearby.
+Hält den Spieler in einem Radius.	Keeps the player within a radius.
+Meldet den Abstand eines Entities.	Reports the distance of an entity.
+Meldet die Geschwindigkeit eines Entities.	Reports the speed of an entity.
+Meldet die Drehgeschwindigkeit (z. B. für Kurbeln).	Reports the angular speed (e.g. for cranks).
+Meldet, wenn ein Entity in eine Richtung zeigt.	Reports when an entity faces a direction.
+Lockt Antlions an, als wäre hier Bugbait.	Attracts antlions as if bugbait were here.
+Behebt Physik-Objekte, die sich nach dem Laden nicht bewegen.	Fixes physics objects that do not move after loading.
+Schießt Combine-Energiekugeln.	Shoots Combine energy balls.
+Steuert die Raketen eines prop_vehicle_apc.	Controls the rockets of a prop_vehicle_apc.
+Steuert Pose-Parameter eines Modells (Zeiger, Ventile).	Controls pose parameters of a model (gauges, valves).
+Kamera für automatische Screenshots (Entwicklung).	Camera for automatic screenshots (development).
+Kommentar-Knoten (Entwicklerkommentar-Modus).	Commentary node (developer commentary mode).
+Zählt Spielstatistik-Ereignisse.	Counts game statistics events.
+Sucht ein Entity und gibt es als Aktivator weiter.	Finds an entity and passes it on as activator.
+Startet den Kommentar-Modus automatisch.	Starts commentary mode automatically.
+Kombiniert bis zu 5 Filter (UND/ODER).	Combines up to 5 filters (AND/OR).
+Filtert nach dem Namen des Aktivators.	Filters by the activator's name.
+Filtert nach der Klasse des Aktivators (z. B. player, npc_zombie).	Filters by the activator's class (e.g. player, npc_zombie).
+Filtert nach Team.	Filters by team.
+Lässt nur Objekte schwerer als ein Wert durch.	Only lets objects heavier than a value pass.
+Filtert nach Schadensart.	Filters by damage type.
+Filter für NPC-Feinde (Name/Klasse, Reichweite).	Filter for NPC enemies (name/class, range).
+Beendet die Runde/Map (Multiplayer).	Ends the round/map (multiplayer).
+Text am Bildschirm anzeigen.	Shows text on the screen.
+Fängt die Steuerung des Spielers ab (für eigene Steuerungen).	Intercepts the player's controls (for custom controls).
+Begrenzt die Anzahl herumliegender Waffen einer Art.	Limits the number of loose weapons of one type.
+Gibt Spielern Waffen/Gegenstände (Schlüssel = Klasse, Wert = Anzahl).	Gives players weapons/items (key = class, value = count).
+Gibt dem Spieler Punkte.	Gives the player points.
+Begrenzt die Anzahl der Ragdolls.	Limits the number of ragdolls.
+Begrenzt die Anzahl der Splitter (Gibs).	Limits the number of gibs.
+Ändert die Spielergeschwindigkeit.	Changes the player's speed.
+Lädt den letzten Spielstand (nach Ausblenden).	Loads the last save (after fading out).
+Nimmt dem Spieler alle Waffen ab.	Strips the player of all weapons.
+Pfadpunkt für Züge (func_tracktrain) und Helikopter.	Path point for trains (func_tracktrain) and helicopters.
+Wegpunkt für func_train und NPC-Patrouillen.	Waypoint for func_train and NPC patrols.
+Absturzpunkt für Helikopter.	Crash point for helicopters.
+Seil-Zwischenpunkt (mit move_rope verbinden).	Rope intermediate point (connect with move_rope).
+Seil-Anfang. 'Next Key' zeigt auf den nächsten keyframe_rope.	Rope start. 'Next Key' points to the next keyframe_rope.
+Feste Verbindung zwischen zwei Objekten.	Fixed constraint between two objects.
+Scharnier zwischen zwei Objekten.	Hinge between two objects.
+Kugelgelenk zwischen zwei Objekten.	Ball-and-socket joint between two objects.
+Schiene: Objekt gleitet entlang einer Achse.	Slider: object slides along an axis.
+Flaschenzug zwischen zwei Objekten.	Pulley between two objects.
+Hält zwei Objekte auf Abstand (Seil ohne Optik).	Keeps two objects at a distance (rope without visuals).
+Gelenk mit Winkelgrenzen (wie bei Ragdolls).	Joint with angle limits (like ragdolls).
+Hält ein Objekt aufrecht.	Keeps an object upright.
+Feder zwischen zwei Objekten.	Spring between two objects.
+Schubdüse an einem Physik-Objekt.	Thruster on a physics object.
+Drehmoment an einem Physik-Objekt.	Torque on a physics object.
+Motor, der ein Objekt um eine Achse dreht.	Motor that rotates an object around an axis.
+Magnet (wie am Kran).	Magnet (like on the crane).
+Zieht Ragdolls an (z. B. Leichen an eine Wand).	Attracts ragdolls (e.g. corpses to a wall).
+Wandelt ein Entity in ein Physik-Objekt um.	Turns an entity into a physics object.
+Fasst mehrere Verbindungen zu einem stabilen System zusammen.	Combines several constraints into one stable system.
+Die Welt (Map-Eigenschaften).	The world (map properties).
+Detail-Geometrie (blockiert keine Sichtberechnung, kein Leck-Schutz).	Detail geometry (does not block visibility, does not seal leaks).
+Brush mit Optionen (ein-/ausblendbar, Parent, Render-Einstellungen).	Brush with options (can be shown/hidden, parent, render settings).
+Nicht-solider Brush (nur Optik).	Non-solid brush (visual only).
+Fester Brush mit Render-Einstellungen (veraltet, besser func_brush).	Solid brush with render settings (deprecated, use func_brush).
+An-/ausschaltbare Wand.	Wall that can be switched on/off.
+Zerbrechlicher Brush.	Breakable brush.
+Zerbrechliche Glasscheibe (splittert stückweise). Eine Seite mit Glas-Textur, Rest nodraw.	Breakable glass pane (shatters piece by piece). One face with glass texture, the rest nodraw.
+Brush mit Physik (fällt, lässt sich schieben).	Brush with physics (falls, can be pushed).
+Physik-Brush mit vereinfachter Multiplayer-Physik.	Physics brush with simplified multiplayer physics.
+Schiebetür (bewegt sich in eine Richtung).	Sliding door (moves in one direction).
+Drehtür (Brush, Origin-Helper = Scharnier).	Rotating door (brush, origin helper = hinge).
+Bewegt sich linear zwischen zwei Positionen (Aufzug, Kolben).	Moves linearly between two positions (elevator, piston).
+Dreht sich dauerhaft (Ventilator, Rad). Origin-Helper = Achse.	Rotates continuously (fan, wheel). Origin helper = axis.
+Knopf (bewegt sich beim Drücken).	Button (moves when pressed).
+Drehknopf (dreht sich beim Drücken).	Rotating button (turns when pressed).
+Kurbel / Rad, das man gedrückt halten muss (Wert 0–1).	Crank / wheel that must be held (value 0–1).
+Zug entlang von path_track (fahrbar oder gesteuert).	Train along path_track (drivable or controlled).
+Panzerzug (mit Lebenspunkten).	Tank train (with hit points).
+Einfacher Zug entlang von path_corner (veraltet).	Simple train along path_corner (deprecated).
+Förderband (Textur läuft, Objekte werden mitbewegt).	Conveyor belt (texture scrolls, objects are carried along).
+Leiter (Brush mit toolsinvisibleladder).	Ladder (brush with toolsinvisibleladder).
+Bewegliches Wasser (Wasserstand per Eingang).	Movable water (water level via input).
+Areaportal: trennt Sichtbereiche, öffnet/schließt mit einer Tür.	Areaportal: separates visibility areas, opens/closes with a door.
+Areaportal für Fenster: schließt sich ab einer Entfernung.	Areaportal for windows: closes beyond a distance.
+Verdecker: Props dahinter werden nicht gezeichnet (Brush mit toolsoccluder).	Occluder: props behind it are not drawn (brush with toolsoccluder).
+Fasst Sichtbereiche zusammen (schnellere VVIS-Läufe in offenen Gebieten).	Merges visibility areas (faster VVIS runs in open areas).
+Blockiert nur Physik-Objekte.	Blocks physics objects only.
+Blockiert nur Fahrzeuge.	Blocks vehicles only.
+Staubwolke in einem Volumen.	Dust cloud in a volume.
+Schwebende Staubteilchen in einem Volumen.	Floating dust particles in a volume.
+Rauch in einem Volumen.	Smoke in a volume.
+Regen oder Schnee in einem Volumen.	Rain or snow in a volume.
+Brush, der ab einer Entfernung ausgeblendet wird.	Brush that fades out beyond a distance.
+Bildschirm, der eine point_camera zeigt (Textur dev/dev_monitor).	Screen that shows a point_camera (texture dev/dev_monitor).
+Spiegelndes Glas (Echtzeit-Spiegelung).	Reflective glass (real-time reflection).
+Bewegliche Zielscheibe entlang von path_corner.	Moving target along path_corner.
+Geschütz (MG), bedienbar von Spieler oder NPC.	Gun turret (MG), usable by player or NPC.
+Airboat-Kanone.	Airboat gun.
+APC-Raketenwerfer.	APC rocket launcher.
+Laser-Geschütz.	Laser turret.
+Mörser.	Mortar.
+Geschütz, das Physik-Kanister verschießt.	Turret that fires physics canisters.
+Puls-Laser-Geschütz.	Pulse laser turret.
+Raketen-Geschütz.	Rocket turret.
+Schwere Combine-Kanone (EP2).	Heavy Combine cannon (EP2).
+Schiebbarer Brush (veraltet, besser func_physbox).	Pushable brush (deprecated, use func_physbox).
+Drehende Plattform (veraltet).	Rotating platform (deprecated).
+Erzeugt Combine-Energiekugeln in einem Volumen (Zitadelle).	Spawns Combine energy balls in a volume (Citadel).
+Anzug-Ladestation als Brush (HL2:DM).	Suit charger as a brush (HL2:DM).
+Bomben-Zielgebiet (CS:S).	Bomb target area (CS:S).
+Kaufzone (CS:S).	Buy zone (CS:S).
+Geisel-Rettungszone (CS:S).	Hostage rescue zone (CS:S).
+Luftblasen in einem Volumen.	Air bubbles in a volume.
+Farbkorrektur innerhalb eines Volumens.	Color correction inside a volume.
+Zählt Spieler in einem Bereich.	Counts players in an area.
+Wiederholbarer Trigger.	Repeatable trigger.
+Einmaliger Trigger (entfernt sich danach).	One-time trigger (removes itself afterwards).
+Teleporter (Ziel: info_teleport_destination).	Teleporter (destination: info_teleport_destination).
+Teleportiert um einen festen Versatz.	Teleports by a fixed offset.
+Schiebt Spieler/Objekte in eine Richtung.	Pushes players/objects in one direction.
+Schadenszone.	Damage zone.
+Feuert, wenn der Spieler auf ein Ziel schaut.	Fires when the player looks at a target.
+Gibt den Abstand zu einem Punkt aus (0–1).	Outputs the distance to a point (0–1).
+Wind in einem Bereich.	Wind in an area.
+Ändert die Schwerkraft für Spieler.	Changes gravity for players.
+Stößt Objekte beim Auslösen weg.	Pushes objects away when triggered.
+Ändert Spielerbewegung (z. B. Auto-Ducken).	Changes player movement (e.g. auto-duck).
+Aktiviert eine env_soundscape_triggerable.	Activates an env_soundscape_triggerable.
+Levelwechsel (mit info_landmark).	Level change (with info_landmark).
+Speichert automatisch beim Betreten.	Autosaves on entering.
+Bereich, dessen Inhalt bei Levelwechsel mitgenommen wird.	Area whose contents are carried over on a level change.
+Bewegt Physik-Objekte in einem Bereich (Antigrav, Strömung).	Moves physics objects in an area (antigravity, current).
+Lässt Waffen zerfallen (Zitadelle).	Dissolves weapons (Citadel).
+Nimmt Waffen weg.	Takes weapons away.
+Lässt Blutegel angreifen (tiefes Wasser).	Makes leeches attack (deep water).
+Feuert, wenn darin eine RPG abgeschossen wird.	Fires when an RPG is fired inside it.
+NPCs, die hier sterben, werden Server-Ragdolls.	NPCs that die here become server ragdolls.
+Lässt Physik-Objekte zerfallen.	Dissolves physics objects.
+Entfernt Entities, die hineingeraten.	Removes entities that get inside.
+Schaltet das Speichern ab, solange der Spieler drin ist.	Disables saving while the player is inside.
+Gibt Objekten einen Stoß (EP2).	Gives objects a push (EP2).
+Model Scale (nur neuere Compiler)	Model scale (newer compilers only)
+Anheften an	Attach to
+Lösen	Detach
+Bewegung an	Enable motion
+Bewegung aus	Disable motion
+Öffnen	Open
+Vom Entity weg öffnen	Open away from entity
+Schließen	Close
+Drehwinkel setzen	Set rotation
+Geschwindigkeit setzen	Set speed
+Beim Schließen	On close
+Beim Öffnen	On open
+Beim Schließen blockiert	Blocked closing
+Beim Öffnen blockiert	Blocked opening
+Benutzt, während verriegelt	Used while locked
+Motor an	Engine on
+Motor aus	Engine off
+Abschließen	Lock
+Aufschließen	Unlock
+Handbremse an	Handbrake on
+Handbremse aus	Handbrake off
+Spieler einsteigen lassen	Let player enter
+Spieler aussteigen lassen	Let player exit
+Spieler eingestiegen	Player entered
+Spieler ausgestiegen	Player exited
+Angriff gedrückt	Attack pressed
+Zweitangriff gedrückt	Secondary attack pressed
+Kanone an/aus	Toggle gun
+Rakete auf Ziel	Rocket at target
+Zerstören	Destroy
+Bei Zerstörung	On destroyed
+Bei Schaden	On damaged
+Bei Schaden durch Spieler	On damaged by player
+Effect Radius	Effect radius
+An	On
+Aus	Off
+Bei jedem Stampfen	On each thump
+Aus dem Spieler-Squad entfernen	Remove from player squad
+Patrouille starten	Start patrolling
+Sanitäter an	Medic on
+Sanitäter aus	Medic off
+Munitionsversorger an	Ammo resupplier on
+Munitionsversorger aus	Ammo resupplier off
+Tritt dem Spieler-Squad bei	Joins the player squad
+Verlässt den Spieler-Squad	Leaves the player squad
+Folgt einem Befehl	Follows an order
+Bleibt auf Befehl stehen	Stops on command
+Polizei-Ziel setzen	Set police goal
+Schlagstock aktivieren	Activate stunstick
+Hat den Spieler betäubt	Has stunned the player
+Alert Radius	Alert radius
+Zu einer Position kämpfen	Fight to position
+Springen an	Jumping on
+Springen aus	Jumping off
+Rufen an	Calling on
+Rufen aus	Calling off
+Zum Ragdoll werden	Become ragdoll
+Sieht versteckten Spieler	Sees hidden player
+Riecht versteckten Spieler	Smells hidden player
+Beim Tod	On death
+Vom Spieler getötet	Killed by player
+Lässt los	Releases
+Fangspiel starten	Start catch game
+Spieler hebt Objekt auf	Player picks up object
+Hebt auf	Picks up
+Fängt	Catches
+Anzug laden an	Suit charging on
+Anzug laden aus	Suit charging off
+Ziel aufladen	Charge target
+Pfad setzen	Set path
+Allwissend an	Omniscient on
+Allwissend aus	Omniscient off
+Blindfeuer an	Blind fire on
+Blindfeuer aus	Blind fire off
+Selbstzerstörung	Self-destruct
+Abgestürzt	Crashed
+Kanone an	Gun on
+Kanone aus	Gun off
+Bombenteppich aus	Carpet bombing off
+Normal schießen	Shoot normally
+Landen und Kiste abstellen	Land and drop crate
+Landen und Kiste mitnehmen	Land and pick up crate
+Schwarm aus	Swarm off
+Folgeziel löschen	Clear follow target
+Ziel fotografieren	Photograph target
+Spieler fotografiert	Player photographed
+Munition leeren	Empty ammo
+Munition auffüllen	Refill ammo
+Patience Radius	Patience radius
+Ziel abtasten	Scan target
+Ziel schützen	Protect target
+Spieler entdeckt	Player spotted
+Spieler verloren	Player lost
+Sofort losreißen	Break free immediately
+Strahl an	Beam on
+Strahl aus	Beam off
+Autoaim Radius	Autoaim radius
+Wird anvisiert	Is being aimed at
+Nicht mehr anvisiert	No longer aimed at
+Spielerkollision aus	Player collision off
+Spielerkollision an	Player collision on
+Zünder setzen	Set fuse
+Einen NPC erzeugen	Spawn one NPC
+Alle erzeugt	All spawned
+Alle erzeugten tot	All spawned dead
+Alle lebenden tot	All living dead
+Childrens' Name	Children's name
+Childrens' Squad Name	Children's squad name
+Name of Destination Group	Name of destination group
+Im Radius erzeugen	Spawn in radius
+Zielgruppe ändern	Change destination group
+Zum Pool hinzufügen	Add to pool
+Alle Spawnpunkte blockiert	All spawn points blocked
+Zurücksetzen	Reset
+Auf Standard zurücksetzen	Reset to default
+Entity Name	Entity name
+Entity System Input	Entity system input
+Aktivieren	Enable
+Deaktivieren	Disable
+Bei Kontakt freigeben	Release on contact
+Target Entity	Target entity
+Ziel erreicht	Goal reached
+Aggressivität	Aggressiveness
+Unterdrückt Ziel	Suppresses target
+NPC beschäftigen	Make NPC busy
+NPC aufhören lassen	Make NPC stop
+Spieler blockiert	Player blocking
+Spieler blockiert nicht mehr	Player no longer blocking
+Aufrücken	Advance
+Aufgerückt	Advanced
+NPC verlässt Schlange	NPC leaves queue
+Maximale Verbündete	Maximum allies
+Maximale Sanitäter	Maximum medics
+Auffüllen	Replenish
+Sanitäter erzeugen	Spawn medic
+Verbündeten 1 erzeugen	Spawn ally 1
+Verbündeten 2 erzeugen	Spawn ally 2
+Keine Verbündeten mehr	No more allies
+Keine Sanitäter mehr	No more medics
+Search Radius	Search radius
+Bedingungen erfüllt	Conditions met
+Zeit abgelaufen	Time elapsed
+Auslösen	Trigger
+Ereignis auslösen	Trigger event
+Search Radius (0=everywhere)	Search radius (0 = everywhere)
+Starten	Start
+Zur Position gehen	Go to position
+Beim Start	On start
+Am Ende	On end
+Beim Abbruch	On cancel
+Walk to Goal Entity	Walk to goal entity
+Run to Goal Entity	Run to goal entity
+Set enemy to Goal Entity	Set enemy to goal entity
+Set enemy to Goal Entity AND Run to Goal Entity	Set enemy to goal entity AND run to goal entity
+Stoppen	Stop
+Sentence Name	Sentence name
+Sound Radius	Sound radius
+Small Radius	Small radius
+Medium Radius	Medium radius
+Large Radius	Large radius
+Am Ziel	At goal
+Verlässt Ziel	Leaves goal
+Nächstes FOV	Next FOV
+Überblenden	Crossfade
+Beim Zerbrechen	On break
+Beim Aufnehmen	On pickup
+Lua-Code, der beim Start ausgeführt wird (Variablen: ACTIVATOR, CALLER, TRIGGER_PLAYER).	Lua code run at start (variables: ACTIVATOR, CALLER, TRIGGER_PLAYER).
+Code ausführen	Run code
+Übergebenen Code ausführen	Run passed code
+Panel Name	Panel name
+Wert setzen	Set value
+Auf aktuelle Zeit setzen	Set to current time
+Animation starten	Start animation
+Wert überblenden	Blend value
+Entschärfen	Disarm
+Schießen	Shoot
+Train Name	Train name
+Tank AI Entity	Tank AI entity
+Fix Up Name	Fix up name
+Entity Name Fix Up	Entity name fix-up
+Name, mit dem andere Entities dieses ansprechen.	Name other entities use to refer to this one.
+Entfernt das Entity.	Removes the entity.
+Entfernt das Entity mit allen Kindern.	Removes the entity with all its children.
+Fügt eine Ausgabe oder einen Schlüssel hinzu.	Adds an output or a key.
+Löst OnUser1 aus.	Fires OnUser1.
+Löst OnUser2 aus.	Fires OnUser2.
+Löst OnUser3 aus.	Fires OnUser3.
+Löst OnUser4 aus.	Fires OnUser4.
+Bei FireUser1	On FireUser1
+Bei FireUser2	On FireUser2
+Bei FireUser3	On FireUser3
+Bei FireUser4	On FireUser4
+Bewegt sich mit diesem Entity mit.	Moves along with this entity.
+Neues Parent setzen.	Set a new parent.
+An einen Attachment-Punkt des Parents hängen.	Attach to an attachment point of the parent.
+Parent lösen.	Clear parent.
+Global Entity Name	Global entity name
+Durchsichtigkeit setzen (0–255)	Set transparency (0–255)
+Farbe setzen	Set color
+Schatten aus	Shadows off
+Schatten an	Shadows on
+Nur Schaden, den dieser Filter durchlässt, wirkt.	Only damage that passes this filter has an effect.
+Schadensfilter setzen	Set damage filter
+Kontext hinzufügen	Add context
+Alle Kontexte löschen	Clear all contexts
+Wenn das Entity entfernt wird	When the entity is removed
+Body-Gruppe setzen	Set body group
+Beim Entzünden	On ignite
+Explosion Radius	Explosion radius
+Lebenspunkte setzen	Set health
+Wenn sich die Lebenspunkte ändern	When health changes
+Bewegung erlauben	Enable motion
+Bewegung sperren	Disable motion
+Nicht mehr schwimmen	Stop floating
+Anzünden	Ignite
+Wenn Bewegung erlaubt wird	When motion is enabled
+Beim Aufwachen	On awake
+Beim Aufheben mit der Gravity Gun / Physgun	On pickup with the gravity gun / physgun
+Beim Fallenlassen	On drop
+Wenn ein Spieler es benutzt	When a player uses it
+Wenn ein Spieler es aufhebt	When a player picks it up
+Standard-Animation setzen	Set default animation
+Sichtbar machen	Make visible
+Unsichtbar machen	Make invisible
+Kollision an	Collision on
+Kollision aus	Collision off
+Wenn eine Animation beginnt	When an animation starts
+Wenn eine Animation endet	When an animation ends
+Squad Name	Squad name
+Wake Radius	Wake radius
+Beziehung setzen: '<ziel> <D_HT/D_FR/D_LI/D_NU> <priorität>'	Set relationship: '<target> <D_HT/D_FR/D_LI/D_NU> <priority>'
+Squad setzen	Set squad
+Skript-Modus an	Scripted mode on
+Skript-Modus aus	Scripted mode off
+Feindfilter setzen	Set enemy filter
+Sofort zum Ragdoll werden	Become ragdoll immediately
+Hint-Gruppe setzen	Set hint group
+Bei halber Gesundheit	At half health
+Wenn ein Geräusch gehört wird	When a sound is heard
+Wenn der Spieler gehört wird	When the player is heard
+Wenn ein Feind entdeckt wird	When an enemy is spotted
+Wenn der Feind aus der Sicht gerät	When the enemy goes out of sight
+Wenn der Feind verloren wird	When the enemy is lost
+Wenn der Spieler entdeckt wird	When the player is spotted
+Bei Schaden durch den Spieler	On damage by the player
+Beim Einschlafen	On falling asleep
+Sprach-KI aus	Speech AI off
+Sprach-KI an	Speech AI on
+Außerhalb des Übergangs	Outside the transition
+Waffe geben	Give weapon
+Beim Aufheben einer Waffe	On weapon pickup
+Wieder sehen lassen	Allow seeing again
+Granate auf Ziel werfen	Throw grenade at target
+An die Decke hängen	Hang from the ceiling
+Über den Pfad zu einem Punkt fliegen	Fly along the path to a point
+Entferntesten Pfadpunkt wählen	Pick farthest path point
+Nächsten Pfadpunkt wählen	Pick nearest path point
+Wenn ein Spieler es berührt	When a player touches it
+Wenn ein NPC es aufhebt	When an NPC picks it up
+Filter Name	Filter name
+Prüfen, ob etwas darin ist	Test whether something is inside
+Beim Betreten	On enter
+Wenn das erste Objekt eintritt	When the first object enters
+Beim Verlassen	On leave
+Wenn das letzte Objekt austritt	When the last object leaves
+Antwort auf TouchTest: etwas ist drin	Answer to TouchTest: something is inside
+Antwort auf TouchTest: nichts ist drin	Answer to TouchTest: nothing is inside
+Wenn sie zu schließen beginnt	When it starts to close
+Wenn sie zu öffnen beginnt	When it starts to open
+Wenn sie ganz offen ist	When it is fully open
+Wenn sie ganz geschlossen ist	When it is fully closed
+Wenn sie beim Schließen blockiert wird	When it is blocked while closing
+Wenn sie beim Öffnen blockiert wird	When it is blocked while opening
+Wenn die Blockade beim Schließen weg ist	When the blockage while closing is gone
+Wenn die Blockade beim Öffnen weg ist	When the blockage while opening is gone
+Benutzt, während sie verriegelt ist	Used while it is locked
+Ziel setzen	Set target
+Beim Feuern	On fire
+Wenn ein Ziel erfasst wird	When a target is acquired
+Wenn das Ziel verloren wird	When the target is lost
+Aktivator prüfen	Test activator
+Wenn die Prüfung besteht	When the test passes
+Wenn die Prüfung nicht besteht	When the test fails
+Ansagen an	Announcements on
+Ansagen aus	Announcements off
+Kraft anwenden	Apply force
+Seil reißen	Break rope
+Verbindung aktivieren	Enable constraint
+Verbindung deaktivieren	Disable constraint
+Beim Reißen	On break
+Hinweis aktivieren	Enable hint
+Hinweis deaktivieren	Disable hint
+Particle System Name	Particle system name
+Decal setzen	Set decal
+Entity Whose Camera Should Be Linked	Entity whose camera should be linked
+Camera Name	Camera name
+New NPC Name	New NPC name
+Wenn hier ein NPC erscheint	When an NPC appears here
+Group Name	Group name
+Wenn ein Gunship hier abgestürzt ist	When a gunship has crashed here
+Light Radius	Light radius
+Event Name	Event name
+Radius (Use Helper!)	Radius (use helper!)
+Verbindung an	Link on
+Verbindung aus	Link off
+Use Larger Radius (for air links)	Use larger radius (for air links)
+Verbindungen aktivieren	Enable links
+Verbindungen deaktivieren	Disable links
+Muster setzen	Set pattern
+Zu Muster überblenden	Fade to pattern
+Reichweite setzen	Set range
+Helligkeit setzen	Set brightness
+Texture Name	Texture name
+Textur setzen	Set texture
+Schatten an/aus	Toggle shadows
+Öffnungswinkel setzen	Set field of view
+Lichtfarbe setzen	Set light color
+Schattenlänge	Shadow length
+Richtung	Direction
+Farbe	Color
+Sprite Name	Sprite name
+Größe setzen	Set scale
+Start Entity	Start entity
+Ending Entity	Ending entity
+Einmal auslösen	Strike once
+Wenn etwas den Strahl berührt	When something touches the beam
+Löschen (Dauer)	Extinguish (duration)
+Vorübergehend löschen	Extinguish temporarily
+Beim Anzünden	On ignite
+Beim Erlöschen	On extinguish
+Radius Override	Radius override
+Bei der Explosion	On explode
+Clamp Radius (0 = auto)	Clamp radius (0 = auto)
+Limit to Entity	Limit to entity
+Wenn ein Spieler weggeschoben wurde	When a player was pushed away
+Point to Entity	Point to entity
+Wackeln starten	Start shake
+Wackeln stoppen	Stop shake
+Stärke ändern	Change amplitude
+Frequenz ändern	Change frequency
+Funken an	Sparks on
+Funken aus	Sparks off
+Wenn die Blende beginnt	When the fade begins
+Beim Anzeigen	On show
+Überblenden (Ziel Dauer)	Blend (target duration)
+Bloom-Stärke	Bloom scale
+Wenn eine Böe beginnt	When a gust starts
+Wenn eine Böe endet	When a gust ends
+Wenn die Soundscape startet	When the soundscape starts
+Soundscape Entity	Soundscape entity
+Lautstärke (0–1)	Volume (0–1)
+Wenn ein Geräusch weitergeleitet wird	When a sound is relayed
+Zoom zurück	Zoom back
+Overlay Name 1	Overlay name 1
+Nächstes Bild	Next frame
+Bild setzen	Set frame
+AutoSpawn: Wait for entity destruction	AutoSpawn: wait for entity destruction
+Am Ort eines Entities erzeugen	Spawn at an entity's location
+Wenn erzeugt wurde	When spawned
+Wenn das Erzeugen scheitert	When spawning fails
+Zünden	Ignite
+Erlöschen lassen	Extinguish
+Abschießen	Launch
+Launch Position Name	Launch position name
+Beim Einschlag	On impact
+Sequenz setzen	Set sequence
+Particle System Entity	Particle system entity
+Material Name	Material name
+Overlay Material Name	Overlay material name
+Automatic - Find env_sun entity and use that	Automatic - find env_sun entity and use that
+Farbe oben	Top color
+Farbe unten	Bottom color
+Dämmerung	Dusk
+Sterngröße	Star size
+Zähler setzen	Set counter
+Zähler addieren	Add to counter
+Zählerstand	Counter value
+Abspann am Ende	Credits at the end
+Wenn der Abspann fertig ist	When the credits are done
+Wenn der Spieler das Material betritt	When the player steps onto the material
+Wenn der Spieler das Material verlässt	When the player leaves the material
+Sound Name	Sound name
+Source Entity	Source entity
+Tonhöhe (0–255)	Pitch (0–255)
+Lautstärke (0–10)	Volume (0–10)
+Einblenden (Sekunden)	Fade in (seconds)
+Ausblenden (Sekunden)	Fade out (seconds)
+Beim Laden der Map	On map load
+Bei einem neuen Spiel	On a new game
+Beim Laden eines Spielstands	On loading a save
+Nach einem Levelwechsel	After a level change
+Als Hintergrund-Map	As background map
+An/aus umschalten	Toggle on/off
+Beim Auslösen	On trigger
+Beim Erscheinen	On spawn
+Intervall setzen	Set interval
+Zeit addieren	Add time
+Zeit abziehen	Subtract time
+Bei jedem Intervall	On each interval
+Wert setzen und prüfen	Set value and test
+Umschalten und prüfen	Toggle and test
+Prüfen	Test
+Wenn wahr	If true
+Wenn falsch	If false
+Wenn alle wahr	If all true
+Wenn alle falsch	If all false
+Wenn gemischt	If mixed
+Zufälligen Fall wählen	Pick random case
+Zufällig ohne Wiederholung	Random without repetition
+Kein Fall passt	No case matches
+Wert setzen und vergleichen	Set value and compare
+Vergleichswert setzen	Set compare value
+Größer	Greater than
+Alle gleich	All equal
+Nicht alle gleich	Not all equal
+Entity to Measure	Entity to measure
+Entity to Move	Entity to move
+Messziel setzen	Set measure target
+Navigation Entity	Navigation entity
+Waffe senken	Lower weapon
+Physikschaden nicht begrenzen	Do not limit physics damage
+Taschenlampe an	Flashlight on
+Taschenlampe aus	Flashlight off
+Spieler gestorben	Player died
+Squad-Mitglied getötet	Squad member killed
+If an Actor is talking...	If an actor is talking...
+Beim nächsten Unterbrechungspunkt abbrechen	Cancel at next interrupt point
+Alle Szenen beenden	Stop all scenes
+Speichern, wenn sicher	Save when safe
+Trigger Hit Points	Trigger hit points
+Wert setzen ohne Ausgabe	Set value without output
+Maximum setzen	Set maximum
+Minimum setzen	Set minimum
+Antwort auf GetValue	Answer to GetValue
+Vom Minimum weg	Moving away from minimum
+Vom Maximum weg	Moving away from maximum
+Preserve entity names (Don't do name fixup)	Preserve entity names (don't do name fixup)
+FOV ändern	Change FOV
+Diese aktivieren, andere aus	Enable this one, others off
+Entity to Look At	Entity to look at
+Target Attachment Name	Target attachment name
+Kamera an	Camera on
+Kamera aus	Camera off
+Wenn die Kamera endet	When the camera ends
+Entity To Teleport	Entity to teleport
+Einmal Schaden	Damage once
+Inner Radius	Inner radius
+Entity Message	Entity message
+Befehl ausführen	Run command
+Wenn der Spieler den Bereich verlässt	When the player leaves the area
+Target Entity Name	Target entity name
+Abstand	Distance
+Geschwindigkeit	Speed
+Look At Entity	Look at entity
+Zeigt aufs Ziel	Points at target
+Zeigt nicht mehr aufs Ziel	No longer points at target
+Nach dem Abfeuern	After firing
+Prop Name	Prop name
+Pose Parameter Name	Pose parameter name
+Übergangszeit	Transition time
+Beim Ende	On end
+Name setzen	Set name
+Erhöhen	Increment
+Reference Entity	Reference entity
+Neues Spiel im Kommentar-Modus	New game in commentary mode
+Mitten im Spiel aktiviert	Enabled mid-game
+Outer Radius	Outer radius
+Text setzen	Set text
+Steuerung übernehmen	Take control
+Übernommen	Taken over
+Links gedrückt	Left pressed
+Rechts gedrückt	Right pressed
+Vorwärts gedrückt	Forward pressed
+Rückwärts gedrückt	Back pressed
+Vorwärts losgelassen	Forward released
+Rückwärts losgelassen	Back released
+Munitionsfaktor setzen	Set ammo scale
+Ausrüsten	Equip
+Alle Waffen abnehmen	Strip all weapons
+Waffen und Anzug abnehmen	Strip weapons and suit
+Abzweigung an	Branch on
+Abzweigung aus	Branch off
+Punkt an	Point on
+Punkt aus	Point off
+Wenn ein Zug vorbeifährt	When a train passes
+Wenn ein Zug hierher teleportiert	When a train teleports here
+Nächsten Punkt setzen	Set next point
+Beim Erreichen	On reaching
+Drehgeschwindigkeit setzen	Set rotation speed
+Länge	Length
+Kraft skalieren	Scale force
+Beim Anheften	On attach
+Beim Lösen	On detach
+Effective Radius	Effective radius
+Model Swap Entity	Model swap entity
+Nach dem Umwandeln	After converting
+SkyBox Texture Name	Skybox texture name
+Only Break on Trigger	Only break on trigger
+Stärke setzen	Set strength
+Stärke addieren	Add strength
+Stärke abziehen	Subtract strength
+Stärke geändert	Strength changed
+Bewegung freigegeben	Motion enabled
+Zur Endposition	To end position
+Zur Startposition	To start position
+Small Sound Radius	Small sound radius
+Medium Sound Radius	Medium sound radius
+Large Sound Radius	Large sound radius
+Geschwindigkeit (0–1)	Speed (0–1)
+Richtung umkehren	Reverse direction
+Vorwärts	Forward
+Rückwärts	Backward
+Drücken	Press
+Hineindrücken	Press in
+Beim Drücken	On press
+Benutzt, während gesperrt	Used while locked
+Ganz draußen	Fully out
+Zurückgedreht	Turned back
+Gedrückt	Pressed
+Ganz auf	Fully open
+Geschwindigkeit mit Richtung	Speed with direction
+Geschwindigkeit in Einheiten	Speed in units
+Fährt los	Starts moving
+Nächster Punkt	Next point
+Zerstört	Destroyed
+Name of Linked Door	Name of linked door
+Bewegung	Movement
+Kamera wählen	Choose camera
+env_laser Entity	env_laser entity
+Kugel zurückgelegt	Ball returned
+Zählen	Count
+Spieler drin	Player inside
+Spieler draußen	Player outside
+Anzahl draußen	Count outside
+Schaden setzen	Set damage
+Hat Schaden gemacht	Did damage
+Hat dem Spieler Schaden gemacht	Did damage to the player
+Abstand (0–1)	Distance (0–1)
+Stärke	Strength
+Kraft	Force
+New Map Name	New map name
+Landmark Name	Landmark name
+Beim Wechsel	On change
+Emitter Name	Emitter name
+Ton aus	Sound off
+Waffe zerfallen	Weapon dissolved
+Stoß	Push

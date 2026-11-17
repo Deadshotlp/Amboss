@@ -1,0 +1,382 @@
+// Amboss – eingebaute Entity-Liste für Half-Life 2 / Episoden / Garry's Mod.
+// Eigene Beschreibungen. Wird geladen, wenn keine garrysmod.fgd gefunden wird,
+// und ergänzt eine echte FGD um Klassen, die dort fehlen (die echte FGD hat Vorrang).
+
+// ---------------------------------------------------------------- Basisklassen
+@BaseClass = Targetname [
+	targetname(target_source) : "Name" : : "Name, mit dem andere Entities dieses ansprechen."
+	input Kill(void) : "Entfernt das Entity."
+	input KillHierarchy(void) : "Entfernt das Entity mit allen Kindern."
+	input AddOutput(string) : "Fügt eine Ausgabe oder einen Schlüssel hinzu."
+	input FireUser1(void) : "Löst OnUser1 aus."
+	input FireUser2(void) : "Löst OnUser2 aus."
+	input FireUser3(void) : "Löst OnUser3 aus."
+	input FireUser4(void) : "Löst OnUser4 aus."
+	output OnUser1(void) : "Bei FireUser1"
+	output OnUser2(void) : "Bei FireUser2"
+	output OnUser3(void) : "Bei FireUser3"
+	output OnUser4(void) : "Bei FireUser4"
+]
+@BaseClass = Parentname [
+	parentname(target_destination) : "Parent" : : "Bewegt sich mit diesem Entity mit."
+	input SetParent(string) : "Neues Parent setzen."
+	input SetParentAttachment(string) : "An einen Attachment-Punkt des Parents hängen."
+	input ClearParent(void) : "Parent lösen."
+]
+@BaseClass = Angles [ angles(angle) : "Pitch Yaw Roll (Y Z X)" : "0 0 0" ]
+@BaseClass = Origin [ origin(origin) : "Origin (X Y Z)" ]
+@BaseClass = Global [ globalname(string) : "Global Entity Name" ]
+@BaseClass = EnableDisable [
+	StartDisabled(choices) : "Start Disabled" : 0 = [ 0 : "No" 1 : "Yes" ]
+	input Enable(void) : "Aktivieren"
+	input Disable(void) : "Deaktivieren"
+]
+@BaseClass = RenderFxChoices [
+	renderfx(choices) : "Render FX" : 0 = [ 0 : "Normal" 1 : "Slow Pulse" 2 : "Fast Pulse" 3 : "Slow Wide Pulse" 4 : "Fast Wide Pulse" 9 : "Slow Strobe" 10 : "Fast Strobe" 11 : "Faster Strobe" 12 : "Slow Flicker" 13 : "Fast Flicker" 5 : "Slow Fade Away" 6 : "Fast Fade Away" 7 : "Slow Become Solid" 8 : "Fast Become Solid" 14 : "Constant Glow" 15 : "Distort" 16 : "Hologram (Distort + fade)" 23 : "Cull By Distance (TEST)" 24 : "Spotlight FX" 26 : "Fade Near" ]
+]
+@BaseClass base(RenderFxChoices) = RenderFields [
+	rendermode(choices) : "Render Mode" : 0 = [ 0 : "Normal" 1 : "Color" 2 : "Texture" 3 : "Glow" 4 : "Solid" 5 : "Additive" 7 : "Additive Fractional Frame" 9 : "World Space Glow" 10 : "Don't Render" ]
+	renderamt(integer) : "FX Amount (0 - 255)" : 255
+	rendercolor(color255) : "FX Color (R G B)" : "255 255 255"
+	disablereceiveshadows(choices) : "Disable Receiving Shadows" : 0 = [ 0 : "No" 1 : "Yes" ]
+	input Alpha(integer) : "Durchsichtigkeit setzen (0–255)"
+	input Color(color255) : "Farbe setzen"
+]
+@BaseClass = Shadow [
+	disableshadows(choices) : "Disable Shadows" : 0 = [ 0 : "No" 1 : "Yes" ]
+	input DisableShadow(void) : "Schatten aus"
+	input EnableShadow(void) : "Schatten an"
+]
+@BaseClass = DXLevelChoice [
+	mindxlevel(choices) : "Minimum DX Level" : 0 = [ 0 : "default (lowest)" 70 : "dx7" 80 : "dx8" 90 : "dx9" ]
+	maxdxlevel(choices) : "Maximum DX Level" : 0 = [ 0 : "default (highest)" 70 : "dx7" 80 : "dx8" 90 : "dx9" ]
+]
+@BaseClass = SystemLevelChoice [
+	mincpulevel(choices) : "Minimum CPU Level" : 0 = [ 0 : "default (low)" 1 : "low" 2 : "medium" 3 : "high" ]
+	maxcpulevel(choices) : "Maximum CPU Level" : 0 = [ 0 : "default (high)" 1 : "low" 2 : "medium" 3 : "high" ]
+	mingpulevel(choices) : "Minimum GPU Level" : 0 = [ 0 : "default (very low)" 1 : "very low" 2 : "low" 3 : "medium" 4 : "high" ]
+	maxgpulevel(choices) : "Maximum GPU Level" : 0 = [ 0 : "default (high)" 1 : "very low" 2 : "low" 3 : "medium" 4 : "high" ]
+]
+@BaseClass = DamageFilter [
+	damagefilter(filterclass) : "Damage Filter" : : "Nur Schaden, den dieser Filter durchlässt, wirkt."
+	input SetDamageFilter(string) : "Schadensfilter setzen"
+]
+@BaseClass = ResponseContext [
+	ResponseContext(string) : "Response Contexts"
+	input AddContext(string) : "Kontext hinzufügen"
+	input RemoveContext(string) : "Kontext entfernen"
+	input ClearContext(void) : "Alle Kontexte löschen"
+]
+@BaseClass base(Targetname, DamageFilter, ResponseContext) = BaseEntity [
+	output OnKilled(void) : "Wenn das Entity entfernt wird"
+]
+@BaseClass = Studiomodel [
+	model(studio) : "World Model"
+	skin(integer) : "Skin" : 0
+	modelscale(float) : "Model Scale" : "1.0"
+	body(integer) : "Body Group" : 0
+	input Skin(integer) : "Skin wechseln"
+	input SetBodyGroup(integer) : "Body-Gruppe setzen"
+	output OnIgnite(void) : "Beim Entzünden"
+]
+@BaseClass = BreakableProp [
+	ExplodeDamage(float) : "Explosion Damage" : 0
+	ExplodeRadius(float) : "Explosion Radius" : 0
+	PerformanceMode(choices) : "Performance Mode" : 0 = [ 0 : "Normal" 1 : "No Gibs" 2 : "Full Gibs on All Platforms" 3 : "Reduced gibs" ]
+	pressuredelay(float) : "Pressure Delay" : 0
+	minhealthdmg(integer) : "Min Damage to Hurt" : 0
+	physdamagescale(float) : "Physics Impact Damage Scale" : "1.0"
+	input Break(void) : "Zerbrechen"
+	input SetHealth(integer) : "Lebenspunkte setzen"
+	input AddHealth(integer) : "Lebenspunkte addieren"
+	input RemoveHealth(integer) : "Lebenspunkte abziehen"
+	output OnBreak(void) : "Beim Zerbrechen"
+	output OnHealthChanged(float) : "Wenn sich die Lebenspunkte ändern"
+	output OnTakeDamage(void) : "Bei Schaden"
+]
+@BaseClass base(Targetname, Angles, Shadow, RenderFields, DXLevelChoice) = BasePropPhysics [
+	model(studio) : "World Model"
+	skin(integer) : "Skin" : 0
+	modelscale(float) : "Model Scale" : "1.0"
+	minhealthdmg(integer) : "Min Damage to Hurt" : 0
+	shadowcastdist(integer) : "Shadow Cast Distance" : 0
+	physdamagescale(float) : "Physics Impact Damage Scale" : "0.1"
+	Damagetype(choices) : "Impact damage type" : 0 = [ 0 : "Blunt" 1 : "Sharp" ]
+	nodamageforces(choices) : "Damaging it Doesn't Push It" : 0 = [ 0 : "No" 1 : "Yes" ]
+	inertiaScale(float) : "Scale Factor For Inertia" : "1.0"
+	massScale(float) : "Mass Scale" : "0"
+	overridescript(string) : "Override Parameters"
+	damagetoenablemotion(integer) : "Health Level to Override Motion" : 0
+	forcetoenablemotion(float) : "Physics Impact Force to Override Motion" : 0
+	fademindist(float) : "Start Fade Dist" : -1
+	fademaxdist(float) : "End Fade Dist" : 0
+	fadescale(float) : "Fade Scale" : 1
+	spawnflags(flags) = [ 1 : "Start Asleep" : 0 2 : "Don't take physics damage" : 0 4 : "Debris - Don't collide with the player or other debris" : 0 8 : "Motion Disabled" : 0 64 : "Enable motion on Physcannon grab" : 0 128 : "Not affected by rotor wash" : 0 256 : "Generate output on +USE" : 1 512 : "Prevent pickup" : 0 1024 : "Prevent motion enable on player bump" : 0 4096 : "Debris with trigger interaction" : 0 8192 : "Force server-side (Multiplayer only)" : 0 ]
+	input Wake(void) : "Physik aufwecken"
+	input Sleep(void) : "Physik schlafen legen"
+	input EnableMotion(void) : "Bewegung erlauben"
+	input DisableMotion(void) : "Bewegung sperren"
+	input DisableFloating(void) : "Nicht mehr schwimmen"
+	input Ignite(void) : "Anzünden"
+	input Break(void) : "Zerbrechen"
+	output OnMotionEnabled(void) : "Wenn Bewegung erlaubt wird"
+	output OnAwakened(void) : "Beim Aufwachen"
+	output OnPhysGunPickup(void) : "Beim Aufheben mit der Gravity Gun / Physgun"
+	output OnPhysGunDrop(void) : "Beim Fallenlassen"
+	output OnPlayerUse(void) : "Wenn ein Spieler es benutzt"
+	output OnPlayerPickup(void) : "Wenn ein Spieler es aufhebt"
+	output OnBreak(void) : "Beim Zerbrechen"
+	output OnTakeDamage(void) : "Bei Schaden"
+]
+@BaseClass base(Targetname, Parentname, Angles, Studiomodel, Shadow, RenderFields, DXLevelChoice) = BasePropDynamic [
+	solid(choices) : "Collisions" : 6 = [ 0 : "Not Solid" 2 : "Use Bounding Box" 6 : "Use VPhysics" ]
+	DefaultAnim(string) : "Default Animation"
+	RandomAnimation(choices) : "Randomly Animate" : 0 = [ 0 : "No" 1 : "Yes" ]
+	SetBodyGroup(integer) : "Body Group" : 0
+	DisableBoneFollowers(choices) : "Disable Bone Followers" : 0 = [ 0 : "No" 1 : "Yes" ]
+	StartDisabled(choices) : "Start Disabled" : 0 = [ 0 : "No" 1 : "Yes" ]
+	fademindist(float) : "Start Fade Dist" : -1
+	fademaxdist(float) : "End Fade Dist" : 0
+	spawnflags(flags) = [ 64 : "Use Hitboxes for Renderbox" : 0 256 : "Start with collision disabled" : 0 ]
+	input SetAnimation(string) : "Animation abspielen"
+	input SetDefaultAnimation(string) : "Standard-Animation setzen"
+	input SetPlaybackRate(float) : "Abspielgeschwindigkeit"
+	input TurnOn(void) : "Sichtbar machen"
+	input TurnOff(void) : "Unsichtbar machen"
+	input EnableCollision(void) : "Kollision an"
+	input DisableCollision(void) : "Kollision aus"
+	output OnAnimationBegun(void) : "Wenn eine Animation beginnt"
+	output OnAnimationDone(void) : "Wenn eine Animation endet"
+]
+@BaseClass base(Targetname, Parentname, Angles, RenderFields, Shadow, DamageFilter, ResponseContext) = BaseNPC [
+	model(studio) : "World Model"
+	squadname(string) : "Squad Name"
+	hintgroup(string) : "Hint Group"
+	hintlimiting(choices) : "Hint Limit Nav" : 0 = [ 0 : "No" 1 : "Yes" ]
+	sleepstate(choices) : "Sleep State" : 0 = [ 0 : "None" 1 : "Waiting for threat" 2 : "Waiting for PVS" 3 : "Waiting for input" 4 : "Auto PVS" 5 : "Auto PVS after PVS" ]
+	wakeradius(float) : "Wake Radius" : 0
+	wakesquad(choices) : "Wake all of my squad" : 0 = [ 0 : "No" 1 : "Yes" ]
+	enemyfilter(filterclass) : "Enemy Filter"
+	ignoreunseenenemies(choices) : "Ignore unseen enemies" : 0 = [ 0 : "No" 1 : "Yes" ]
+	physdamagescale(float) : "Physics Impact Damage Scale" : "1.0"
+	spawnflags(flags) = [ 1 : "Wait Till Seen" : 0 2 : "Gag (No IDLE sounds until angry)" : 0 4 : "Fall to ground (unchecked means *teleport* to ground)" : 1 8 : "Drop Healthkit" : 0 16 : "Efficient - Don't acquire enemies or avoid obstacles" : 0 128 : "Wait For Script" : 0 256 : "Long Visibility/Shoot" : 0 512 : "Fade Corpse" : 1 1024 : "Think outside PVS" : 0 2048 : "Template NPC (used by npc_maker, will not spawn)" : 0 4096 : "Do Alternate collision for this NPC (player avoidance)" : 0 8192 : "Don't drop weapons" : 0 16384 : "Ignore player push (dont give way to player)" : 0 ]
+	input SetRelationship(string) : "Beziehung setzen: '<ziel> <D_HT/D_FR/D_LI/D_NU> <priorität>'"
+	input SetHealth(integer) : "Lebenspunkte setzen"
+	input SetSquad(string) : "Squad setzen"
+	input Wake(void) : "Aufwecken"
+	input StartScripting(void) : "Skript-Modus an"
+	input StopScripting(void) : "Skript-Modus aus"
+	input SetEnemyFilter(string) : "Feindfilter setzen"
+	input Ignite(void) : "Anzünden"
+	input BecomeRagdoll(void) : "Sofort zum Ragdoll werden"
+	input SetHintGroup(string) : "Hint-Gruppe setzen"
+	output OnDeath(void) : "Beim Tod"
+	output OnHalfHealth(void) : "Bei halber Gesundheit"
+	output OnHearWorld(void) : "Wenn ein Geräusch gehört wird"
+	output OnHearPlayer(void) : "Wenn der Spieler gehört wird"
+	output OnFoundEnemy(void) : "Wenn ein Feind entdeckt wird"
+	output OnLostEnemyLOS(void) : "Wenn der Feind aus der Sicht gerät"
+	output OnLostEnemy(void) : "Wenn der Feind verloren wird"
+	output OnFoundPlayer(void) : "Wenn der Spieler entdeckt wird"
+	output OnDamaged(void) : "Bei Schaden"
+	output OnDamagedByPlayer(void) : "Bei Schaden durch den Spieler"
+	output OnSleep(void) : "Beim Einschlafen"
+	output OnWake(void) : "Beim Aufwachen"
+]
+@BaseClass base(BaseNPC) = TalkNPC [
+	UseSentence(string) : "Use Sentence"
+	UnUseSentence(string) : "Un-Use Sentence"
+	DontUseSpeechSemaphore(choices) : "Don't Use Speech Semaphore" : 0 = [ 0 : "No" 1 : "Yes" ]
+	input SpeakResponseConcept(string) : "Antwort-Konzept sprechen"
+	input DisableSpeechAI(void) : "Sprach-KI aus"
+	input EnableSpeechAI(void) : "Sprach-KI an"
+]
+@BaseClass base(TalkNPC) = PlayerCompanion [
+	additionalequipment(choices) : "Weapons" : "0" = [ "0" : "Nothing" "weapon_pistol" : "Pistol" "weapon_smg1" : "SMG1" "weapon_ar2" : "AR2" "weapon_shotgun" : "Shotgun" "weapon_crowbar" : "Crowbar" "weapon_rpg" : "RPG" "weapon_357" : "357" "weapon_crossbow" : "Crossbow" ]
+	GameEndAlly(choices) : "Is GameEnd Ally?" : 0 = [ 0 : "No" 1 : "Yes" ]
+	input OutsideTransition(void) : "Außerhalb des Übergangs"
+	input EnableAlwaysTransition(void) : "Immer mitwechseln"
+	input SetReadinessLow(void) : "Bereitschaft niedrig"
+	input SetReadinessMedium(void) : "Bereitschaft mittel"
+	input SetReadinessHigh(void) : "Bereitschaft hoch"
+	input GiveWeapon(string) : "Waffe geben"
+	output OnWeaponPickup(void) : "Beim Aufheben einer Waffe"
+]
+@BaseClass base(BaseNPC) = BaseCombine [
+	additionalequipment(choices) : "Weapons" : "weapon_smg1" = [ "weapon_ar2" : "AR2" "weapon_shotgun" : "Shotgun" "weapon_smg1" : "SMG1" "weapon_stunstick" : "Stun Stick" "weapon_pistol" : "Pistol" "0" : "Nothing" ]
+	NumGrenades(choices) : "Number of Grenades" : "5" = [ "0" : "None" "1" : "1" "2" : "2" "3" : "3" "4" : "4" "5" : "5" "999999" : "Unlimited" ]
+	tacticalvariant(choices) : "Tactical Variant" : "0" = [ "0" : "Normal Tactics" "1" : "Pressure the enemy (Keep advancing)" "2" : "Pressure until within 30ft, then normal" ]
+	input LookOff(void) : "Blind machen"
+	input LookOn(void) : "Wieder sehen lassen"
+	input StartPatrolling(void) : "Patrouille starten"
+	input StopPatrolling(void) : "Patrouille beenden"
+	input ThrowGrenadeAtTarget(target_destination) : "Granate auf Ziel werfen"
+]
+@BaseClass base(BaseNPC) = BaseZombie []
+@BaseClass base(BaseNPC) = BaseHeadcrab [
+	startburrowed(choices) : "Start burrowed" : 0 = [ 0 : "No" 1 : "Yes" ]
+	input StartHangingFromCeiling(void) : "An die Decke hängen"
+	input Unburrow(void) : "Ausgraben"
+]
+@BaseClass base(BaseNPC) = BaseHelicopter [
+	InitialSpeed(string) : "Initial Speed" : "0"
+	target(target_destination) : "Target path_track"
+	input Activate(void) : "Aktivieren"
+	input SetTrack(target_destination) : "Pfad setzen"
+	input FlyToSpecificTrackViaPath(target_destination) : "Über den Pfad zu einem Punkt fliegen"
+	input StartPatrol(void) : "Patrouille starten"
+	input StopPatrol(void) : "Patrouille beenden"
+	input ChooseFarthestPathPoint(void) : "Entferntesten Pfadpunkt wählen"
+	input ChooseNearestPathPoint(void) : "Nächsten Pfadpunkt wählen"
+]
+@BaseClass = Item [
+	output OnPlayerTouch(void) : "Wenn ein Spieler es berührt"
+	output OnCacheInteraction(void) : "Beim Aufnehmen"
+	fademindist(float) : "Start Fade Dist" : -1
+	fademaxdist(float) : "End Fade Dist" : 0
+	spawnflags(flags) = [ 1 : "Start Constrained" : 0 2 : "Deny NPC pickup" : 0 4 : "Not puntable by Gravity Gun" : 0 ]
+]
+@BaseClass base(Targetname, Angles) = Weapon [
+	spawnflags(flags) = [ 1 : "Start constrained" : 0 2 : "Deny player pickup (reserve for NPC)" : 0 4 : "Not puntable by Gravity Gun" : 0 ]
+	fademindist(float) : "Start Fade Dist" : -1
+	fademaxdist(float) : "End Fade Dist" : 0
+	output OnPlayerUse(void) : "Wenn ein Spieler es benutzt"
+	output OnPlayerPickup(void) : "Wenn ein Spieler es aufhebt"
+	output OnNPCPickup(void) : "Wenn ein NPC es aufhebt"
+	output OnCacheInteraction(void) : "Beim Aufnehmen"
+]
+@BaseClass base(Targetname, Parentname, Origin, EnableDisable) = Trigger [
+	filtername(filterclass) : "Filter Name"
+	spawnflags(flags) = [ 1 : "Clients" : 1 2 : "NPCs" : 0 4 : "Pushables" : 0 8 : "Physics Objects" : 0 16 : "Only player ally NPCs" : 0 32 : "Only clients in vehicles" : 0 64 : "Everything (not including physics debris)" : 0 512 : "Only clients *not* in vehicles" : 0 1024 : "Physics debris" : 0 2048 : "Only NPCs in vehicles (respects player ally flag)" : 0 4096 : "Disallow Bots" : 0 ]
+	input Toggle(void) : "Umschalten"
+	input TouchTest(void) : "Prüfen, ob etwas darin ist"
+	output OnStartTouch(void) : "Beim Betreten"
+	output OnStartTouchAll(void) : "Wenn das erste Objekt eintritt"
+	output OnEndTouch(void) : "Beim Verlassen"
+	output OnEndTouchAll(void) : "Wenn das letzte Objekt austritt"
+	output OnTouching(void) : "Antwort auf TouchTest: etwas ist drin"
+	output OnNotTouching(void) : "Antwort auf TouchTest: nichts ist drin"
+]
+@BaseClass base(Targetname, Parentname, RenderFields, Global, Shadow) = Door [
+	speed(integer) : "Speed" : 100
+	master(string) : "Master"
+	noise1(sound) : "Start Sound"
+	noise2(sound) : "Stop Sound"
+	startclosesound(sound) : "Start Close Sound"
+	closesound(sound) : "Stop Close Sound"
+	wait(integer) : "Delay Before Reset (-1 stay)" : 4
+	lip(integer) : "Lip" : 0
+	dmg(integer) : "Blocking Damage" : 0
+	forceclosed(choices) : "Force Closed" : 0 = [ 0 : "No" 1 : "Yes" ]
+	ignoredebris(choices) : "Ignore Debris" : 0 = [ 0 : "No" 1 : "Yes" ]
+	health(integer) : "Health (shoot open)" : 0
+	locked_sound(sound) : "Locked Sound"
+	unlocked_sound(sound) : "Unlocked Sound"
+	spawnpos(choices) : "Spawn Position" : 0 = [ 0 : "Closed" 1 : "Open" ]
+	loopmovesound(choices) : "Loop Moving Sound?" : 0 = [ 0 : "No" 1 : "Yes" ]
+	spawnflags(flags) = [ 1 : "Starts Open - OBSOLETE, use 'Spawn Position' key instead" : 0 4 : "Non-solid to Player" : 0 8 : "Passable" : 0 32 : "Toggle" : 0 256 : "Use Opens" : 0 512 : "NPCs Can't" : 0 1024 : "Touch Opens" : 1 2048 : "Starts locked" : 0 4096 : "Door Silent" : 0 ]
+	input Open(void) : "Öffnen"
+	input Close(void) : "Schließen"
+	input Toggle(void) : "Umschalten"
+	input Lock(void) : "Verriegeln"
+	input Unlock(void) : "Entriegeln"
+	input SetSpeed(float) : "Geschwindigkeit setzen"
+	output OnClose(void) : "Wenn sie zu schließen beginnt"
+	output OnOpen(void) : "Wenn sie zu öffnen beginnt"
+	output OnFullyOpen(void) : "Wenn sie ganz offen ist"
+	output OnFullyClosed(void) : "Wenn sie ganz geschlossen ist"
+	output OnBlockedClosing(void) : "Wenn sie beim Schließen blockiert wird"
+	output OnBlockedOpening(void) : "Wenn sie beim Öffnen blockiert wird"
+	output OnUnblockedClosing(void) : "Wenn die Blockade beim Schließen weg ist"
+	output OnUnblockedOpening(void) : "Wenn die Blockade beim Öffnen weg ist"
+	output OnLockedUse(void) : "Benutzt, während sie verriegelt ist"
+]
+@BaseClass base(Targetname, Parentname, RenderFields, Global) = BaseTank [
+	control_volume(target_destination) : "Control Volume"
+	master(string) : "Master"
+	yawrate(string) : "Yaw rate" : "30"
+	yawrange(string) : "Yaw range" : "180"
+	pitchrate(string) : "Pitch rate" : "0"
+	pitchrange(string) : "Pitch range" : "0"
+	barrel(string) : "Barrel Length" : "0"
+	firerate(string) : "Rate of Fire" : "1"
+	bullet_damage(string) : "Damage Per Bullet" : "0"
+	persistence(string) : "Firing persistence" : "1"
+	firespread(choices) : "Bullet accuracy" : 0 = [ 0 : "Perfect Shot" 1 : "Small cone" 2 : "Medium cone" 3 : "Large cone" 4 : "Extra-large cone" ]
+	spawnflags(flags) = [ 1 : "Active" : 0 16 : "Only Direct" : 0 32 : "Controllable" : 0 64 : "Damage Kick" : 0 1024 : "NPC Controllable" : 0 2048 : "NPC Set Controller" : 0 4096 : "Allow friendlies to hit player" : 0 32768 : "Non-solid." : 0 ]
+	input Activate(void) : "Einschalten"
+	input Deactivate(void) : "Ausschalten"
+	input SetTargetEntityName(target_destination) : "Ziel setzen"
+	output OnFire(void) : "Beim Feuern"
+	output OnAquireTarget(void) : "Wenn ein Ziel erfasst wird"
+	output OnLoseTarget(void) : "Wenn das Ziel verloren wird"
+]
+@BaseClass base(Targetname, Parentname, Angles) = BaseFilter [
+	Negated(choices) : "Filter mode" : 0 = [ 0 : "Allow entities that match criteria" 1 : "Disallow entities that match criteria" ]
+	input TestActivator(void) : "Aktivator prüfen"
+	output OnPass(void) : "Wenn die Prüfung besteht"
+	output OnFail(void) : "Wenn die Prüfung nicht besteht"
+]
+@BaseClass base(Targetname, Parentname) = BaseSpeaker [
+	delaymin(string) : "Min Delay Between Announcements" : "15"
+	delaymax(string) : "Max Delay Between Announcements" : "135"
+	spawnflags(flags) = [ 1 : "Start Silent" : 0 2 : "Play Everywhere" : 0 ]
+	rulescript(string) : "Context rule script"
+	concept(string) : "Concept name"
+	input TurnOn(void) : "Ansagen an"
+	input TurnOff(void) : "Ansagen aus"
+]
+@BaseClass base(Targetname) = KeyFrame [
+	NextKey(target_destination) : "Next Key"
+	MoveSpeed(integer) : "Speed (units per second)" : 64
+]
+@BaseClass base(Targetname, Parentname, RenderFields) = RopeKeyFrame [
+	Slack(integer) : "Slack" : 25
+	Type(choices) : "Type" : 0 = [ 0 : "Rope behaves like a rope" 1 : "Rope is a semi-rigid bar" 2 : "Rope moves only when its endpoints move" ]
+	Subdiv(integer) : "Subdivision" : 2
+	Barbed(choices) : "Barbed" : 0 = [ 0 : "No" 1 : "Yes" ]
+	Width(string) : "Width (1-64)" : "2"
+	TextureScale(string) : "Texture Scale" : "1"
+	Collide(choices) : "Collide with world" : 0 = [ 0 : "No" 1 : "Yes" ]
+	Dangling(choices) : "Start Dangling" : 0 = [ 0 : "No" 1 : "Yes" ]
+	Breakable(choices) : "Breakable" : 0 = [ 0 : "No" 1 : "Yes" ]
+	RopeMaterial(material) : "Rope Material" : "cable/cable.vmt"
+	NoWind(choices) : "Disable Wind" : 0 = [ 0 : "No" 1 : "Yes" ]
+	input SetScrollSpeed(float) : "Textur-Laufgeschwindigkeit"
+	input SetForce(vector) : "Kraft anwenden"
+	input Break(void) : "Seil reißen"
+]
+@BaseClass base(Targetname, Parentname, Angles) = BaseConstraint [
+	constraintsystem(target_destination) : "Constraint System Manager"
+	forcelimit(float) : "Force Limit to Break (lbs)" : 0
+	torquelimit(float) : "Torque Limit to Break (lbs * distance)" : 0
+	breaksound(sound) : "Play Sound on Break"
+	teleportfollowdistance(float) : "Follow teleport distance" : 0
+	spawnflags(flags) = [ 1 : "No Collision until break" : 1 4 : "Start inactive" : 0 8 : "Change mass to keep stable attachment to world" : 0 16 : "Do not connect entities until turned on" : 0 ]
+	input Break(void) : "Verbindung trennen"
+	input TurnOn(void) : "Verbindung aktivieren"
+	input TurnOff(void) : "Verbindung deaktivieren"
+	output OnBreak(void) : "Beim Reißen"
+]
+@BaseClass base(BaseConstraint) = TwoObjectPhysics [
+	attach1(target_destination) : "Entity 1"
+	attach2(target_destination) : "Entity 2"
+]
+@BaseClass base(Targetname, Parentname, Origin, RenderFields, Global, Shadow) = BaseBrush []
+@BaseClass base(Targetname, Angles) = Node [
+	nodeid(integer) : "Node ID"
+]
+@BaseClass base(Targetname, Angles) = HintNode [
+	hinttype(choices) : "Hint" : 0 = [ 0 : "None" 2 : "World: Window" 12 : "World: Act Busy Hint" 13 : "World: Visually Interesting" 14 : "World: Visually Interesting (Don't aim at)" 15 : "World: Inhibit Combine Mines within 15 feet" 16 : "World: Visually Interesting (Stealth mode)" 100 : "Crouch Cover Medium" 101 : "Crouch Cover Low" 102 : "Waste Scanner Spawn" 103 : "Entrance / Exit Pinch" 104 : "Guard Point" 105 : "Enemy Disadvantage Point" 106 : "Health Kit" 400 : "Antlion: Burrow Point" 401 : "Antlion: Thumper Flee Point" 450 : "Headcrab: Burrow Point" 451 : "Headcrab: Exit Pod Point" 500 : "Roller: Patrol Point" 501 : "Roller: Cleanup Spot" 700 : "Crow: Fly to point" 701 : "Crow: Perch point" 900 : "Follower: Wait point" 901 : "Override jump permission" 902 : "Player squad transition point" 903 : "NPC exit point" 904 : "Strider node" 950 : "Player Ally: Push away destination" 951 : "Player Ally: Fear withdrawal destination" 1000 : "HL1 World: Machinery" 1100 : "Antlion: Charge spot" ]
+	hintactivity(string) : "Hint Activity"
+	nodeFOV(choices) : "Node FOV" : 180 = [ 45 : "45 Degrees" 90 : "90 Degrees" 180 : "180 Degrees" 360 : "360 Degrees" ]
+	StartHintDisabled(choices) : "Start Hint Disabled" : 0 = [ 0 : "No" 1 : "Yes" ]
+	Group(string) : "Hint Group"
+	TargetNode(node_dest) : "Target node" : -1
+	IgnoreFacing(choices) : "Ignore Facing" : 2 = [ 0 : "No" 1 : "Yes" 2 : "Default" ]
+	MinimumState(choices) : "Minimum State" : 1 = [ 1 : "Idle" 2 : "Alert" 3 : "Combat" ]
+	MaximumState(choices) : "Maximum State" : 3 = [ 1 : "Idle" 2 : "Alert" 3 : "Combat" ]
+	input EnableHint(void) : "Hinweis aktivieren"
+	input DisableHint(void) : "Hinweis deaktivieren"
+]
+@BaseClass base(Targetname) = GameEntity [ spawnflags(flags) = [ 1 : "Remove On fire" : 0 ] ]

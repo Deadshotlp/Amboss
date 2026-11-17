@@ -1,0 +1,13 @@
+# Build
+/target
+/dist
+
+# Kompilier-Ergebnisse und Zwischendateien der Valve-Tools
+*.bsp
+*.prt
+*.lin
+*.log
+*.vmx
+*.nav
+*.packlist.txt
+*.addons.txt
