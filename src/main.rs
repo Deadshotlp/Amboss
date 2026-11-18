@@ -55,6 +55,7 @@ mod live;
 mod live_ui;
 mod walk;
 mod workshop;
+mod whatsnew;
 mod ropes;
 mod merge_ui;
 mod mdl;

@@ -84,6 +84,28 @@ pub fn parse_release(json: &str) -> Option<Release> {
     Some(Release { version: tag.trim_start_matches(['v', 'V']).to_string(), notes, page, asset })
 }
 
+/// Liste der Releases (Version, Text) – die eigene Überschrift „## Amboss x.y.z“ wird entfernt
+pub fn parse_release_list(json: &str) -> Option<Vec<(String, String)>> {
+    let v: serde_json::Value = serde_json::from_str(json).ok()?;
+    Some(
+        v.as_array()?
+            .iter()
+            .filter_map(|r| {
+                let tag = r.get("tag_name")?.as_str()?.trim_start_matches(['v', 'V']).to_string();
+                let body = r.get("body").and_then(|b| b.as_str()).unwrap_or("").replace("\r\n", "\n");
+                let body = body.lines().skip_while(|l| l.trim().is_empty() || (l.starts_with("## ") && l.contains(&tag))).collect::<Vec<_>>().join("\n");
+                Some((tag, body.trim().to_string()))
+            })
+            .collect(),
+    )
+}
+
+/// Release-Texte von GitHub (für „Neu in Amboss“ in anderen Sprachen als Deutsch)
+pub fn release_notes() -> Result<Vec<(String, String)>, String> {
+    let body = get(&format!("https://api.github.com/repos/{REPO}/releases?per_page=50"), 15)?;
+    parse_release_list(&String::from_utf8_lossy(&body)).ok_or_else(|| "Antwort von GitHub nicht lesbar".to_string())
+}
+
 /// Gibt es eine neuere Version? (blockiert einige Sekunden – im Hintergrund aufrufen)
 pub fn check() -> Result<Option<Release>, String> {
     let body = get(&format!("https://api.github.com/repos/{REPO}/releases/latest"), 20)?;

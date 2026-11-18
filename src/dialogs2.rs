@@ -15,6 +15,7 @@ impl App {
         self.import_window(ctx);
         self.workshop_window(ctx);
         self.spline_window(ctx);
+        self.whats_new_window(ctx);
         self.decompile_window(ctx);
         self.scripts_window(ctx);
         self.material_editor_window(ctx);

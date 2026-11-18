@@ -264,6 +264,7 @@ pub struct App {
     pub(crate) sky: crate::sky_ui::SkyUi,
     pub(crate) imp: crate::model_import_ui::ImportUi,
     pub(crate) ws: crate::workshop::WorkshopUi,
+    pub(crate) whatsnew: crate::whatsnew::WhatsNew,
     /// Zeitpunkt des letzten Speicherns
     pub(crate) last_saved: Option<Instant>,
     /// Rechtes Panel: 0 Eigenschaften, 1 Objekte, 2 Visgroups
@@ -376,6 +377,7 @@ impl App {
             sky: Default::default(),
             imp: Default::default(),
             ws: Default::default(),
+            whatsnew: Default::default(),
             last_saved: None,
             panel_tab: 0,
             active_view: Some(1),
@@ -409,6 +411,9 @@ impl App {
         app.maybe_start_setup();
         app.apply_debug_open();
         crate::update::cleanup();
+        if std::env::var_os("AMBOSS_DEBUG_OPEN").is_none() {
+            app.check_whats_new();
+        }
         if app.settings.check_updates && std::env::var_os("AMBOSS_DEBUG_OPEN").is_none() && std::env::var_os("AMBOSS_NO_UPDATE").is_none() {
             app.start_update_check(false);
         }
@@ -1165,6 +1170,7 @@ impl App {
                 "panel_tab" => self.panel_tab = v.parse().unwrap_or(0),
                 "import" => self.open_model_import(std::path::PathBuf::from(v)),
                 "workshop" => self.open_workshop(),
+                "whatsnew" => self.open_whats_new(if v.is_empty() { None } else { Some(v) }),
                 "spline" => {
                     let st = &mut self.ed.spline;
                     st.open = true;
@@ -1901,6 +1907,10 @@ impl App {
                 if let Some(d) = eframe::storage_dir("Amboss") {
                     open_folder(&d);
                 }
+                ui.close_menu();
+            }
+            if ui.button(tr("Neuigkeiten (Patchnotes)…")).on_hover_text(tr("Was in den einzelnen Versionen neu ist")).clicked() {
+                self.open_whats_new(None);
                 ui.close_menu();
             }
             if ui.button(tr("Nach Updates suchen")).clicked() {
