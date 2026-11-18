@@ -1,5 +1,30 @@
 # Änderungen
 
+## 0.12.0
+
+**Modelle importieren (glTF, OBJ)**
+- Datei → Importieren → „Modell importieren (glTF, OBJ)…“ oder die Datei einfach ins Fenster ziehen: `.glb`/`.gltf` (auch mit eingebetteten Daten und Knoten-Transformationen) und `.obj` mit `.mtl` werden zum fertigen prop_static oder prop_physics
+- Einheit (Meter, Zentimeter, Zoll/Source-Einheiten oder frei), Hochachse (Y wie Blender/glTF oder Z) und Drehung einstellbar; der Dialog zeigt Größe in Einheiten, Höhe in Metern, eine Vorschau von vorn und oben und je Material, ob die Textur gefunden wurde
+- Texturen (PNG, JPEG) werden zu VTF, Materialien zu VertexLitGeneric (Transparenz, Alpha-Test, beidseitig, Grundfarbe aus glTF/MTL); Kollision als konvexe Hülle; studiomdl kompiliert im Hintergrund, danach steht das Prop dort, wohin die 3D-Kamera schaut
+- MCP: `import_model`, `get_import_status`. FBX und DAE noch nicht (Hinweis: aus Blender als glTF exportieren)
+
+**Texturen im Material-Editor**
+- „PBR-Set importieren…“: Bilder eines PBR-Materials (Poly Haven, ambientCG …) werden am Dateinamen erkannt – Grundfarbe × AO wird zur Basistextur, die Normalmap wird ins Source-Format (DirectX) gedreht oder aus der Höhe erzeugt, Rauheit und Metall werden zur Glanzmaske (Spiegelung bei Brush-Materialien, Phong bei Modellen)
+- „Nahtlos machen“: Ränder der Basistextur und Normalmap werden überblendet, damit beim Kacheln keine Kanten sichtbar sind
+- „Normalmap aus Basistextur“ mit einstellbarer Stärke
+- Bilder können jetzt auch JPEG sein
+
+**Im Workshop veröffentlichen**
+- Kompilieren → „Im Workshop veröffentlichen…“: legt den Addon-Ordner an (BSP, auf Wunsch Navmesh und Bild fürs Spawnmenü, `addon.json` mit Typ und bis zu zwei Tags), packt ihn mit gmad und lädt ihn mit gmpublish hoch – neu oder als Update mit Änderungsnotiz
+- Vorschaubild mit einem Klick aus der 3D-Ansicht (ohne Beschriftungen, 512 × 512 JPEG) oder aus einer Bilddatei
+- Die Workshop-ID wird aus der Ausgabe übernommen und je Map gemerkt; „Seite öffnen“ führt zur Workshop-Seite
+
+**Spline-Werkzeug**
+- Werkzeuge → „Spline: Straße, Rohr, Zaun, Kabel…“: Punkte per Klick in der 3D-Ansicht (auf die Fläche darunter) oder in 2D setzen, als glatte Kurve oder gerade Strecken, offen oder geschlossen
+- Straße/Weg mit Bordsteinen (die Textur der Fahrbahn läuft entlang der Kurve), Rohr (4–32 Seiten), Zaun/Geländer aus Pfosten und Latten, Modelle im Abstand (ausgerichtet, seitlich versetzt, beidseitig – z. B. Laternen), Kabel als move_rope/keyframe_rope-Kette
+- Vorschau in allen Ansichten, ein Rückgängig-Schritt, Ergebnis als Gruppe und auf Wunsch func_detail; „Neu erzeugen“ ersetzt das zuletzt Erzeugte
+- MCP: `build_spline`
+
 ## 0.11.0
 
 **Ansichtsfilter („Einblenden“)**

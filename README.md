@@ -1,6 +1,6 @@
 # Amboss – Map editor for Source 1 / Garry's Mod
 
-**Version 0.11.0** – shown next to the logo, in the window title and under Help → About Amboss. See `CHANGELOG.md` for what's new (the changelog is in German).
+**Version 0.12.0** – shown next to the logo, in the window title and under Help → About Amboss. See `CHANGELOG.md` for what's new (the changelog is in German).
 
 Amboss is a standalone level editor written in **Rust**, inspired by Hammer/Hammer++.
 It edits **VMF files**, shows the real **textures and models from the GMod/HL2 VPKs** and
@@ -66,7 +66,9 @@ Create (power 2–4), remove, **subdivide** (Catmull-Clark smoothing across seve
 Textured (incl. **blend textures** WorldVertexTransition mixed via displacement alpha, `$basetexturetransform`, **animated textures** and **TextureScroll**) · flat · wireframe · lightmap grid · smoothing groups · **light preview with shadows** (light, light_spot, light_environment; the sun and the four nearest lights cast shadows) · **collision models** of props (.phy) as wireframe · **models (MDL)** with textures and skins · editor sprites · light cone helpers · connection lines (outputs) · **3D skybox preview** (sky_camera) · **2D sky** (`skyname` from worldspawn) · **fog** from `env_fog_controller` · **ropes** (`move_rope`/`keyframe_rope` with slack, also in 2D) · pointfile (leak path) · portal file · **frustum culling** for large maps · **anti-aliasing (MSAA)** under Settings → Graphics
 
 ### Creating content (Tools menu)
-* **Material editor** – create your own materials (VMT), import PNG images as VTF (with mipmaps, normal maps), shader, transparency, reflections, surface property, live preview.
+* **Import models** (File → Import → Import model, or drag the file into the window) – glTF/GLB and OBJ (+MTL) become a ready prop_static/prop_physics: textures to VTF, VertexLitGeneric materials, convex collision, studiomdl in the background; unit, up axis and rotation adjustable, preview and size in units.
+* **Spline tool** – roads with kerbs, pipes, fences, models at intervals (e.g. street lamps) and cables along a curve through clicked points; preview in all views, rebuild replaces the last result.
+* **Material editor** – create your own materials (VMT), import PNG/JPEG images as VTF (with mipmaps, normal maps), shader, transparency, reflections, surface property, live preview; **import PBR sets** (colour, normal, roughness, metallic, AO, height → base texture, Source normal map, gloss mask), **make seamless**, **normal map from base texture**.
 * **Particle editor** – open .pcf files, create systems from templates, edit emitters/initializers/operators/renderers, animated preview, write the particle manifest.
 * **Global illumination** – can be switched on in the light preview: indirect light with colour bleeding, computed in the background.
 * **Drop with physics** (Object menu) – props fall onto the floor, displacements and each other; Esc cancels.
@@ -191,7 +193,7 @@ In *Settings*, set the game folder to `…/Source SDK Base 2013 Multiplayer/hl2`
 Amboss then reads all `*_dir.vpk` files of the game folder and the base folder `hl2`.
 
 ### Content and Workshop
-Settings → loading content from addons can be switched off (game folder only) · compiling creates `<map>_addons.txt` listing all required Workshop addons with links (the list is also at the top of the compile log)
+**Publish to the Workshop** (Compile → Publish to Workshop…): addon folder with BSP, navmesh and spawn menu image, `addon.json` with type and tags, gmad + gmpublish (new or update with change note), preview image straight from the 3D view · Settings → loading content from addons can be switched off (game folder only) · compiling creates `<map>_addons.txt` listing all required Workshop addons with links (the list is also at the top of the compile log)
 
 ### Other
 **Game profiles** (several games/installations) · **autosave** · texture browser (filter, "used in map") · VPK/VTF/VMT/MDL read directly from the game content
@@ -317,6 +319,10 @@ src/
   p2p.rs         Connection without port forwarding: STUN, connection codes, UDP hole punching, reliable stream
   update.rs, update_ui.rs   Update check against GitHub releases, download and swap of the program file
   skybox.rs      3D skybox: find/create the room, scaled copy, checks
+  model_import.rs, model_import_ui.rs   glTF/OBJ import → SMD/QC/VTF, studiomdl, dialog
+  tex_tools.rs   Seamless textures, normal maps from height, PBR conversion
+  workshop.rs    Workshop publishing (gmad, gmpublish, preview image)
+  spline.rs      Spline tool (roads, pipes, fences, models, cables)
   sky_ui.rs      View filters (Show) and 3D skybox mode
   templates.rs   Templates for new maps, start page
   theme.rs       Dark/light colour schemes, fonts, UI building blocks

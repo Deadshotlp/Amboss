@@ -171,7 +171,7 @@ Maps aus anderen Engines
 - [ ] OpenStreetMap-Gebäude und Straßen (zusammen mit dem Heightmap-Import) – M
 
 Modelle
-- [ ] ★ glTF/GLB, OBJ, FBX, DAE per Ziehen in die Map: automatisch SMD/QC + VTF/VMT, studiomdl im Hintergrund, fertiges prop_static/prop_physics – M
+- [x] ★ glTF/GLB und OBJ per Ziehen in die Map (0.12.0; FBX/DAE noch offen): automatisch SMD/QC + VTF/VMT, studiomdl im Hintergrund, fertiges prop_static/prop_physics – M
 - [ ] Kollisionsmodell automatisch (konvexe Hülle / Zerlegung) – M
 - [ ] LODs automatisch erzeugen – M
 - [ ] Skins und Bodygroups im Import-Dialog – S–M
@@ -180,15 +180,15 @@ Modelle
 
 Texturen und Materialien
 - [ ] Textur-Editor mit Ebenen (Pinsel, Füllen, Stempel, Farbe/Helligkeit, Zuschneiden, Kachelvorschau) – L
-- [ ] ★ „Nahtlos machen“ mit einem Klick – S
-- [ ] ★ Normalmap aus Höhen- oder Farbbild – S–M
-- [ ] ★ PBR-Texturen (Roughness/Metallic) in Source-Materialien umwandeln (Phong, Envmap-Maske) – M
+- [x] ★ „Nahtlos machen“ mit einem Klick (0.12.0) – S
+- [x] ★ Normalmap aus Höhen- oder Farbbild (0.12.0) – S–M
+- [x] ★ PBR-Texturen (Roughness/Metallic) in Source-Materialien umwandeln (0.12.0) (Phong, Envmap-Maske) – M
 - [ ] Decal-/Overlay-Generator aus einem Bild – S
 - [ ] Texturen in 3D direkt auf Flächen malen – L
 - [ ] Freie Textur-Bibliotheken (Poly Haven, ambientCG) durchsuchen und als VTF einbinden – M
 
 Bauwerkzeuge
-- [ ] ★ Spline-Werkzeug: Straßen, Schienen, Rohre, Zäune, Kabel entlang einer Kurve – M
+- [x] ★ Spline-Werkzeug (0.12.0): Straßen, Schienen, Rohre, Zäune, Kabel entlang einer Kurve – M
 - [ ] Saubere Boolesche Operationen (Vereinigen, Abziehen ohne Zerstückelung) – M
 - [ ] Array: Duplizieren entlang Linie, Kreis oder Kurve mit Versatz und Drehung – S
 - [ ] Wendeltreppen, Kuppeln, Röhren, Torbögen als eigene Formen – S
@@ -202,8 +202,8 @@ Optimierung und Fehlersuche
 - [ ] Compile-Fehler erklären: Meldungen klickbar, springt zum Brush, mit Lösungsvorschlag – S–M
 
 GMod
-- [ ] ★ Workshop-Upload aus Amboss (gmad + gmpublish) mit Addon-Liste – M
-- [ ] ★ Workshop-Vorschaubild aus der 3D-Kamera rendern – S
+- [x] ★ Workshop-Upload aus Amboss (0.12.0) (gmad + gmpublish) mit Addon-Liste – M
+- [x] ★ Workshop-Vorschaubild aus der 3D-Kamera rendern (0.12.0) – S
 - [ ] Gamemode-Vorlagen mit Checkliste (TTT, Murder, Prop Hunt, DarkRP, Deathrun) – S–M
 - [ ] Lua-Entities aus Addons erkennen (Scripted Entities ohne FGD) – M
 - [ ] Visueller Logik-Editor: Ein-/Ausgänge als Knoten verbinden – M

@@ -243,7 +243,7 @@ Für jede Optimierung: zuerst **„Nur prüfen“**, Markierungen ansehen, dann 
 | O11 | worldspawn `skyname` = `sky_day01_01` (bzw. eigener Himmel), Ansicht → Himmel-Vorschau | Himmel rundum richtig ausgerichtet (Horizont unten, Sonne wie im Spiel) – mit dem Spiel vergleichen |
 | O12 | `env_fog_controller` mit fogenable 1, Farbe, Start/Ende | Entfernte Flächen gehen in die Nebelfarbe über; Ansicht → Nebel schaltet ab |
 | O13 | `move_rope` mit NextKey auf `keyframe_rope`, Slack 50 | Seil hängt durch wie im Spiel, mit Seil-Textur; in 2D als Linie |
-| O14 | Version prüfen | „0.11.0“ neben dem Logo, im Fenstertitel und unter Hilfe → Über Amboss |
+| O14 | Version prüfen | „0.12.0“ neben dem Logo, im Fenstertitel und unter Hilfe → Über Amboss |
 | O15 | Hilfe → Tutorial…, Kapitel 6–9 mit echten Inhalten durchspielen (auch „Zeig es mir“) | Jeder Schritt wird erkannt; Gelände, Himmel, Nebel, Partikel, Overlay, Decal sehen richtig aus |
 | O16 | Trigger mit Output: Ziel-Feld anklicken und einen Buchstaben tippen | Liste passender Namen mit Klasse; Pfeiltasten + Enter oder Klick übernimmt |
 | O17 | Generatoren → Räume mit Höhenstufen 2, eigenen Texturen für Boden/Wände/Decke → Erzeugen → Kompilieren & starten | Kein Leck; Räume unterschiedlich hoch, Treppen in den Gängen begehbar; Texturen wie gewählt |
@@ -297,6 +297,20 @@ Für jede Optimierung: zuerst **„Nur prüfen“**, Markierungen ansehen, dann 
 | Q8 | In der Spielersicht ziehen und das Mausrad drehen | Sicht dreht/bewegt sich; das große 3D-Fenster bleibt unverändert |
 | Q9 | Skybox-Modus → „Prüfen“; dann eine Wand des Raums löschen und erneut prüfen | Zuerst keine Fehler; danach „Skybox-Raum nicht geschlossen“ und der Modus beendet sich |
 | Q10 | Map kompilieren und in GMod laden | Die kopierten Berge sind am Horizont zu sehen, an der Stelle wie in der Spielersicht; keine Lecks durch den Skybox-Raum |
+
+## R. Version 0.12.0: Modell-Import, Texturen, Workshop, Splines
+
+| Nr. | Schritt | Erwartung |
+|---|---|---|
+| R1 | Ein Modell aus Blender als .glb exportieren (mit Textur) und ins Amboss-Fenster ziehen | Dialog „Modell importieren“ mit sinnvoller Größe (Meter, Y oben), Vorschau, Material mit gefundener Textur |
+| R2 | „Importieren und platzieren“ | studiomdl läuft durch, ein prop_static steht dort, wohin die 3D-Kamera schaut, mit Textur im 3D-Fenster und im Spiel; Spieler kollidiert mit der Hülle |
+| R3 | Dasselbe mit einer .obj + .mtl + PNG/JPEG; einmal als prop_physics | Wie R2; prop_physics fällt im Spiel und lässt sich anfassen |
+| R4 | Material-Editor → „PBR-Set importieren…“ mit einem Set von ambientCG oder Poly Haven (Color, NormalGL, Roughness, AO) → Speichern, auf einen Brush legen | Basistextur, Normalmap und Glanz im Spiel richtig (Relief nicht invertiert: Beleuchtung von oben hellt die Oberkanten auf) |
+| R5 | „Nahtlos machen“ bei einer kantigen Textur, „Gekachelt“ ansehen, speichern | Keine sichtbaren Kanten mehr beim Kacheln, auch im Spiel |
+| R6 | Map kompilieren → Kompilieren → „Im Workshop veröffentlichen…“ → „Aus 3D-Ansicht“, Tags wählen → „Nur .gma erstellen“ | `.gma` neben der Map in `amboss_workshop`, enthält maps/<map>.bsp und maps/thumb/<map>.png |
+| R7 | Mit laufendem Steam „Veröffentlichen“ (Testaddon, danach auf der Workshop-Seite versteckt lassen oder löschen) | gmpublish lädt hoch, die Workshop-ID erscheint, „Seite öffnen“ zeigt das Addon mit Vorschaubild; ein zweiter Upload läuft als Update |
+| R8 | Werkzeuge → Spline → in 3D vier Punkte auf den Boden klicken → Straße erzeugen | Fahrbahn mit Bordsteinen folgt der Kurve, Textur läuft entlang, keine Lücken zwischen den Stücken; kompiliert ohne Fehler |
+| R9 | Dieselben Punkte → Rohr, Zaun, Modelle (Laterne, beidseitig, seitlich versetzt), Kabel; jeweils „Neu erzeugen“ | Jeweils sauber erzeugt; „Neu erzeugen“ ersetzt das vorherige Ergebnis; Kabel hängt im Spiel zwischen den Punkten |
 
 ## L. Nach dem Test
 
