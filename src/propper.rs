@@ -287,7 +287,7 @@ pub(crate) fn spawn_studiomdl(exe: PathBuf, game_dir: String, qc: PathBuf, log: 
     done
 }
 
-const SURFACEPROPS: &[&str] = &["default", "concrete", "metal", "metal_box", "metalpanel", "wood", "wood_crate", "wood_box", "plastic", "glass", "brick", "rock", "tile", "cardboard", "paper", "rubber", "dirt", "grass", "flesh", "computer"];
+pub(crate) const SURFACEPROPS: &[&str] = &["default", "concrete", "metal", "metal_box", "metalpanel", "wood", "wood_crate", "wood_box", "plastic", "glass", "brick", "rock", "tile", "cardboard", "paper", "rubber", "dirt", "grass", "flesh", "computer"];
 
 impl crate::app::App {
     /// Nach dem Kompilieren aufräumen (auch wenn der Dialog geschlossen ist)

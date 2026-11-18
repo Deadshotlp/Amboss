@@ -262,6 +262,7 @@ pub struct App {
     pub(crate) collab_form: crate::collab_ui::CollabForm,
     pub(crate) upd: crate::update_ui::UpdateUi,
     pub(crate) sky: crate::sky_ui::SkyUi,
+    pub(crate) imp: crate::model_import_ui::ImportUi,
     /// Zeitpunkt des letzten Speicherns
     pub(crate) last_saved: Option<Instant>,
     /// Rechtes Panel: 0 Eigenschaften, 1 Objekte, 2 Visgroups
@@ -372,6 +373,7 @@ impl App {
             collab_form: Default::default(),
             upd: Default::default(),
             sky: Default::default(),
+            imp: Default::default(),
             last_saved: None,
             panel_tab: 0,
             active_view: Some(1),
@@ -1159,6 +1161,10 @@ impl App {
                 "classpicker" => self.open_class_picker(egui::Rect::from_min_size(egui::pos2(380.0, 88.0), egui::vec2(220.0, 28.0))),
                 "convert" => self.open_convert_dialog(),
                 "panel_tab" => self.panel_tab = v.parse().unwrap_or(0),
+                "import" => self.open_model_import(std::path::PathBuf::from(v)),
+                "import_go" => {
+                    let _ = self.import_run(true);
+                }
                 "template" => {
                     if let Some(t) = crate::templates::TEMPLATES.iter().find(|t| t.id == v) {
                         (t.build)(&mut self.ed);
@@ -1325,6 +1331,7 @@ impl App {
             }
             ui.separator();
             ui.menu_button(tr("Importieren"), |ui| {
+                self.cmd_item(ui, ctx, Cmd::ImportModel);
                 if ui.button(tr("BSP dekompilieren…")).clicked() {
                     ui.close_menu();
                     self.start_decompile();
@@ -2343,7 +2350,9 @@ impl App {
             self.pending = Some(Pending::Quit);
         }
         let dropped: Vec<PathBuf> = ctx.input(|i| i.raw.dropped_files.iter().filter_map(|f| f.path.clone()).collect());
-        if let Some(p) = dropped.into_iter().find(|p| p.extension().is_some_and(|e| e.eq_ignore_ascii_case("vmf") || e.eq_ignore_ascii_case("bsp"))) {
+        if let Some(p) = dropped.iter().find(|p| crate::model_import::is_model_file(p)) {
+            self.open_model_import(p.clone());
+        } else if let Some(p) = dropped.into_iter().find(|p| p.extension().is_some_and(|e| e.eq_ignore_ascii_case("vmf") || e.eq_ignore_ascii_case("bsp"))) {
             self.request(ctx, Pending::Open(Some(p)));
         }
 

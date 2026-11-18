@@ -2190,3 +2190,41 @@ Nebel ist in der Map an, in der Skybox (sky_camera) aus – der Horizont wirkt d
 Nebelfarbe von Map und Skybox unterscheiden sich.	La couleur du brouillard diffère entre la map et la skybox.
 {} Trigger/Clip/Hint-Brushes im Skybox-Raum – dort wirkungslos.	{} brushes trigger/clip/hint dans la pièce skybox – sans effet à cet endroit.
 unbenannt	sans titre
+Andere Datei…	Autre fichier…
+Datei konnte nicht gelesen werden.	Impossible de lire le fichier.
+Fertig: {}	Terminé : {}
+Größe {} × {} × {} Einheiten	Taille {} × {} × {} unités
+Importieren und platzieren	Importer et placer
+Konvexe Hülle (für Spieler und Physik)	Enveloppe convexe (pour les joueurs et la physique)
+Materialien in materials/{}	Matériaux dans materials/{}
+Modell importieren (glTF, OBJ)…	Importer un modèle (glTF, OBJ)…
+Modell importieren	Importer un modèle
+Modell importiert: {}	Modèle importé : {}
+Modell-Import fehlgeschlagen (siehe Log)	Échec de l'import du modèle (voir le journal)
+Nur SMD/QC/Texturen	SMD/QC/textures seulement
+SMD/QC geschrieben: {}	SMD/QC écrits : {}
+Y (Blender, glTF)	Y (Blender, glTF)
+eingebettet ({})	intégrée ({})
+fehlt: {}	manquante : {}
+frei	libre
+nur Farbe	couleur seule
+oben	dessus
+vorn	face
+studiomdl ist fehlgeschlagen.	studiomdl a échoué.
+studiomdl wurde nicht neben vbsp gefunden – die QC liegt bereit.	studiomdl introuvable à côté de vbsp – le QC est prêt.
+≈ {} m hoch (Spieler: 72 Einheiten ≈ 1,83 m)	≈ {} m de haut (joueur : 72 unités ≈ 1,83 m)
+Einheit in der Datei	Unité dans le fichier
+Oben ist	Le haut est
+Texturen höchstens	Textures au maximum
+Zoll / Source-Einheiten	Pouces / unités Source
+Keine Kollision: das Modell ist flach	Pas de collision : le modèle est plat
+{} Dreiecke – studiomdl kann bei sehr großen Modellen abbrechen; besser vereinfachen	{} triangles – studiomdl peut échouer sur de très gros modèles ; mieux vaut simplifier
+Textur nicht geladen ({}) – {} bekommt seine Grundfarbe	Texture non chargée ({}) – {} reçoit sa couleur de base
+FBX und DAE werden noch nicht unterstützt – bitte als glTF (.glb) oder OBJ exportieren (Blender: Datei → Exportieren)	FBX et DAE ne sont pas encore pris en charge – exportez en glTF (.glb) ou OBJ (Blender : Fichier → Exporter)
+Unbekanntes Format: .{}	Format inconnu : .{}
+Das Modell enthält keine Dreiecke	Le modèle ne contient aucun triangle
+Ungültige Fläche: {}	Face invalide : {}
+glTF ohne Szene	glTF sans scène
+Kein Modell geladen	Aucun modèle chargé
+{}: nur PNG und JPEG werden unterstützt	{} : seuls PNG et JPEG sont pris en charge
+Es läuft bereits ein Modell-Import	Un import de modèle est déjà en cours

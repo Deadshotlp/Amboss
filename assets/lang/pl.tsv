@@ -2190,3 +2190,41 @@ Nebel ist in der Map an, in der Skybox (sky_camera) aus – der Horizont wirkt d
 Nebelfarbe von Map und Skybox unterscheiden sich.	Kolor mgły na mapie i w skyboxie się różni.
 {} Trigger/Clip/Hint-Brushes im Skybox-Raum – dort wirkungslos.	{} brushy trigger/clip/hint w pomieszczeniu skyboxa – tam nie działają.
 unbenannt	bez nazwy
+Andere Datei…	Inny plik…
+Datei konnte nicht gelesen werden.	Nie można odczytać pliku.
+Fertig: {}	Gotowe: {}
+Größe {} × {} × {} Einheiten	Rozmiar {} × {} × {} jednostek
+Importieren und platzieren	Importuj i umieść
+Konvexe Hülle (für Spieler und Physik)	Otoczka wypukła (dla graczy i fizyki)
+Materialien in materials/{}	Materiały w materials/{}
+Modell importieren (glTF, OBJ)…	Importuj model (glTF, OBJ)…
+Modell importieren	Importuj model
+Modell importiert: {}	Zaimportowano model: {}
+Modell-Import fehlgeschlagen (siehe Log)	Import modelu nie powiódł się (zobacz log)
+Nur SMD/QC/Texturen	Tylko SMD/QC/tekstury
+SMD/QC geschrieben: {}	Zapisano SMD/QC: {}
+Y (Blender, glTF)	Y (Blender, glTF)
+eingebettet ({})	osadzona ({})
+fehlt: {}	brak: {}
+frei	dowolna
+nur Farbe	tylko kolor
+oben	góra
+vorn	przód
+studiomdl ist fehlgeschlagen.	studiomdl zakończył się błędem.
+studiomdl wurde nicht neben vbsp gefunden – die QC liegt bereit.	Nie znaleziono studiomdl obok vbsp – plik QC jest gotowy.
+≈ {} m hoch (Spieler: 72 Einheiten ≈ 1,83 m)	≈ {} m wysokości (gracz: 72 jednostki ≈ 1,83 m)
+Einheit in der Datei	Jednostka w pliku
+Oben ist	Góra to
+Texturen höchstens	Tekstury najwyżej
+Zoll / Source-Einheiten	Cale / jednostki Source
+Keine Kollision: das Modell ist flach	Brak kolizji: model jest płaski
+{} Dreiecke – studiomdl kann bei sehr großen Modellen abbrechen; besser vereinfachen	{} trójkątów – studiomdl może przerwać przy bardzo dużych modelach; lepiej uprościć
+Textur nicht geladen ({}) – {} bekommt seine Grundfarbe	Nie wczytano tekstury ({}) – {} dostaje kolor bazowy
+FBX und DAE werden noch nicht unterstützt – bitte als glTF (.glb) oder OBJ exportieren (Blender: Datei → Exportieren)	FBX i DAE nie są jeszcze obsługiwane – wyeksportuj jako glTF (.glb) lub OBJ (Blender: Plik → Eksportuj)
+Unbekanntes Format: .{}	Nieznany format: .{}
+Das Modell enthält keine Dreiecke	Model nie zawiera trójkątów
+Ungültige Fläche: {}	Nieprawidłowa ściana: {}
+glTF ohne Szene	glTF bez sceny
+Kein Modell geladen	Nie wczytano modelu
+{}: nur PNG und JPEG werden unterstützt	{}: obsługiwane są tylko PNG i JPEG
+Es läuft bereits ein Modell-Import	Import modelu już trwa

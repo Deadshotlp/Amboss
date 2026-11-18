@@ -70,6 +70,8 @@ mod pointfile;
 mod prefab_ui;
 mod prefabs;
 mod setup;
+mod model_import;
+mod model_import_ui;
 mod skybox;
 mod sky_ui;
 mod primitives;

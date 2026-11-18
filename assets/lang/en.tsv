@@ -2192,3 +2192,41 @@ Nebel ist in der Map an, in der Skybox (sky_camera) aus – der Horizont wirkt d
 Nebelfarbe von Map und Skybox unterscheiden sich.	Fog colour of map and skybox differ.
 {} Trigger/Clip/Hint-Brushes im Skybox-Raum – dort wirkungslos.	{} trigger/clip/hint brushes in the skybox room – they have no effect there.
 unbenannt	untitled
+Andere Datei…	Other file…
+Datei konnte nicht gelesen werden.	The file could not be read.
+Fertig: {}	Done: {}
+Größe {} × {} × {} Einheiten	Size {} × {} × {} units
+Importieren und platzieren	Import and place
+Konvexe Hülle (für Spieler und Physik)	Convex hull (for players and physics)
+Materialien in materials/{}	Materials in materials/{}
+Modell importieren (glTF, OBJ)…	Import model (glTF, OBJ)…
+Modell importieren	Import model
+Modell importiert: {}	Model imported: {}
+Modell-Import fehlgeschlagen (siehe Log)	Model import failed (see log)
+Nur SMD/QC/Texturen	SMD/QC/textures only
+SMD/QC geschrieben: {}	SMD/QC written: {}
+Y (Blender, glTF)	Y (Blender, glTF)
+eingebettet ({})	embedded ({})
+fehlt: {}	missing: {}
+frei	custom
+nur Farbe	colour only
+oben	top
+vorn	front
+studiomdl ist fehlgeschlagen.	studiomdl failed.
+studiomdl wurde nicht neben vbsp gefunden – die QC liegt bereit.	studiomdl was not found next to vbsp – the QC is ready.
+≈ {} m hoch (Spieler: 72 Einheiten ≈ 1,83 m)	≈ {} m high (player: 72 units ≈ 1.83 m)
+Einheit in der Datei	Unit in the file
+Oben ist	Up is
+Texturen höchstens	Textures at most
+Zoll / Source-Einheiten	Inches / Source units
+Keine Kollision: das Modell ist flach	No collision: the model is flat
+{} Dreiecke – studiomdl kann bei sehr großen Modellen abbrechen; besser vereinfachen	{} triangles – studiomdl may fail on very large models; better simplify
+Textur nicht geladen ({}) – {} bekommt seine Grundfarbe	Texture not loaded ({}) – {} gets its base colour
+FBX und DAE werden noch nicht unterstützt – bitte als glTF (.glb) oder OBJ exportieren (Blender: Datei → Exportieren)	FBX and DAE are not supported yet – please export as glTF (.glb) or OBJ (Blender: File → Export)
+Unbekanntes Format: .{}	Unknown format: .{}
+Das Modell enthält keine Dreiecke	The model contains no triangles
+Ungültige Fläche: {}	Invalid face: {}
+glTF ohne Szene	glTF without a scene
+Kein Modell geladen	No model loaded
+{}: nur PNG und JPEG werden unterstützt	{}: only PNG and JPEG are supported
+Es läuft bereits ein Modell-Import	A model import is already running

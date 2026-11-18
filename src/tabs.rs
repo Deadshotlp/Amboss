@@ -295,6 +295,64 @@ impl Host for App {
     fn game_dir(&self) -> String {
         self.settings.game_dir.clone()
     }
+    fn import_model(&mut self, path: Option<std::path::PathBuf>, a: &Value) -> Result<Value, String> {
+        if let Some(p) = path {
+            if self.imp.job.is_some() {
+                return Err("Es läuft bereits ein Modell-Import".into());
+            }
+            self.open_model_import(p);
+            if self.imp.model.is_none() {
+                return Err(self.imp.log.lock().unwrap().join("\n"));
+            }
+            let o = &mut self.imp.opts;
+            let s = |k: &str| a.get(k).and_then(|v| v.as_str());
+            if let Some(n) = s("name") {
+                o.name = n.trim().to_ascii_lowercase().replace([' ', '/', '\\'], "_");
+            }
+            if let Some(f) = s("folder") {
+                o.folder = f.trim_matches('/').to_string();
+            }
+            match s("unit") {
+                Some("m") => o.scale = crate::model_import::METER,
+                Some("cm") => o.scale = crate::model_import::METER / 100.0,
+                Some("in") => o.scale = 1.0,
+                _ => {}
+            }
+            if let Some(x) = a.get("scale").and_then(|v| v.as_f64()) {
+                o.scale = x;
+            }
+            if let Some(u) = s("up") {
+                o.y_up = u.eq_ignore_ascii_case("y");
+            }
+            if let Some(x) = a.get("yaw").and_then(|v| v.as_f64()) {
+                o.yaw = x;
+            }
+            if let Some(x) = a.get("static").and_then(|v| v.as_bool()) {
+                o.is_static = x;
+            }
+            if let Some(x) = a.get("mass").and_then(|v| v.as_f64()) {
+                o.mass = x;
+            }
+            if let Some(x) = s("surfaceprop") {
+                o.surfaceprop = x.to_string();
+            }
+            if let Some(x) = a.get("collision").and_then(|v| v.as_bool()) {
+                o.collision = x;
+            }
+            if let Some(x) = a.get("texture_size").and_then(|v| v.as_u64()) {
+                o.tex_max = (x as u32).clamp(16, 4096);
+            }
+            if let Some(p) = a.get("position").and_then(|v| v.as_array()).filter(|v| v.len() == 3) {
+                self.imp.pos = glam::DVec3::new(p[0].as_f64().unwrap_or(0.0), p[1].as_f64().unwrap_or(0.0), p[2].as_f64().unwrap_or(0.0));
+            }
+            let (tris, size) = self.import_run(a.get("compile").and_then(|v| v.as_bool()).unwrap_or(true))?;
+            let o = &self.imp.opts;
+            return Ok(serde_json::json!({"model": format!("models/{}/{}.mdl", o.folder, o.name), "triangles": tris, "size": [size.x, size.y, size.z], "running": self.imp.job.is_some(), "log": self.imp.log.lock().unwrap().clone()}));
+        }
+        self.poll_import();
+        let log = self.imp.log.lock().unwrap().clone();
+        Ok(serde_json::json!({"running": self.imp.job.is_some(), "log": log}))
+    }
     fn game_fs(&self) -> Option<std::sync::Arc<crate::gamefs::GameFs>> {
         self.mats.fs()
     }

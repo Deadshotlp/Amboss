@@ -44,6 +44,10 @@ pub trait Host {
     fn make_prop(&mut self, _o: crate::propper::PropOpts, _compile: bool) -> Result<Value, String> {
         Err("Nur im laufenden Editor verfügbar".into())
     }
+    /// Modell (glTF/OBJ) importieren: Datei laden, Einstellungen überschreiben, kompilieren und platzieren
+    fn import_model(&mut self, _path: Option<PathBuf>, _args: &Value) -> Result<Value, String> {
+        Err("Nur im laufenden Editor verfügbar".into())
+    }
     /// Ergebnis einer Optimierung anzeigen (Netz, Markierungen, Leck)
     fn show_report(&mut self, r: &crate::optimize::Report) {
         let ed = self.ed();
@@ -253,6 +257,15 @@ pub fn tool_list() -> Vec<Value> {
             schema(json!({"save": {"type": "boolean"}}), &[]),
         ),
         t("get_prop_status", "Log und Status der letzten Modell-Kompilierung (make_prop).", schema(json!({}), &[])),
+        t(
+            "import_model",
+            "Modell-Datei (glTF/GLB oder OBJ mit MTL) als Prop importieren: Texturen werden zu VTF, Materialien zu VertexLitGeneric, Kollision als konvexe Hülle; studiomdl kompiliert im Hintergrund, danach steht ein prop_static/prop_physics an position (Standard: wohin die 3D-Kamera schaut). Status per get_import_status. Ohne Angaben: glTF in Metern Y-oben, OBJ je nach Größe.",
+            schema(
+                json!({"path": {"type": "string"}, "name": {"type": "string"}, "folder": {"type": "string"}, "unit": {"type": "string", "enum": ["m", "cm", "in"], "description": "Einheit in der Datei (in = Source-Einheiten)"}, "scale": {"type": "number", "description": "Einheiten pro Dateieinheit (statt unit)"}, "up": {"type": "string", "enum": ["y", "z"]}, "yaw": {"type": "number"}, "static": {"type": "boolean"}, "mass": {"type": "number"}, "surfaceprop": {"type": "string"}, "collision": {"type": "boolean"}, "texture_size": {"type": "integer"}, "position": vec3_schema("Ziel"), "compile": {"type": "boolean", "description": "false = nur SMD/QC/Texturen schreiben"}}),
+                &["path"],
+            ),
+        ),
+        t("get_import_status", "Log und Status des letzten Modell-Imports (import_model).", schema(json!({}), &[])),
         t("new_map", "Neue leere Map.", schema(json!({}), &[])),
         t("compile", "Map speichern, kompilieren (VBSP/VVIS/VRAD) und laut Einstellungen starten.", schema(json!({}), &[])),
         t("get_compile_status", "Status und letzte Log-Zeilen des Kompilierens.", schema(json!({"lines": {"type": "integer"}}), &[])),
@@ -756,6 +769,8 @@ Ausgabe:
             ed.touch();
             Ok(json!({"areas": n, "crouch_areas": crouch, "grid_points": r.nodes, "ms": r.millis as u64, "file": if saved { path.display().to_string() } else { String::new() }}))
         }
+        "import_model" => host.import_model(Some(PathBuf::from(arg_str(a, "path")?)), a),
+        "get_import_status" => host.import_model(None, a),
         "get_prop_status" => host.make_prop(crate::propper::PropOpts { name: String::new(), ..Default::default() }, false),
         "new_map" => {
             host.ed().new_map();
