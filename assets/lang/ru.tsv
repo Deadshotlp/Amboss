@@ -2373,3 +2373,5 @@ Vorlage	Шаблон
 Auswahl als Vorlage	Выделение как шаблон
 Die gerade ausgewählten Objekte werden entlang der Kurve kopiert; Bezugspunkt ist ihre Mitte unten	Выделенные объекты копируются вдоль кривой; опорная точка – их нижний центр
 Erst eine Vorlage übernehmen: Objekte auswählen und „Auswahl als Vorlage“ klicken	Сначала задайте шаблон: выделите объекты и нажмите «Выделение как шаблон»
+Lightmap-Dichte	Плотность лайтмапы
+rot 4 · grün 16 · blau 64 · ≈ {} Mio. Luxel, {} MB	красный 4 · зелёный 16 · синий 64 · ≈ {} млн люкселей, {} МБ

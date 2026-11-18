@@ -2373,3 +2373,5 @@ Vorlage	Szablon
 Auswahl als Vorlage	Zaznaczenie jako szablon
 Die gerade ausgewählten Objekte werden entlang der Kurve kopiert; Bezugspunkt ist ihre Mitte unten	Zaznaczone obiekty są kopiowane wzdłuż krzywej; punktem odniesienia jest ich środek u dołu
 Erst eine Vorlage übernehmen: Objekte auswählen und „Auswahl als Vorlage“ klicken	Najpierw weź szablon: zaznacz obiekty i kliknij „Zaznaczenie jako szablon”
+Lightmap-Dichte	Gęstość lightmapy
+rot 4 · grün 16 · blau 64 · ≈ {} Mio. Luxel, {} MB	czerwony 4 · zielony 16 · niebieski 64 · ≈ {} mln lukseli, {} MB

@@ -163,7 +163,7 @@ Ansicht und Übersicht
 - [x] ★ **Eigener Bereich für die 3D-Skybox** (0.11.0; Bearbeiten im Raum mit Umrechnung über Kopieren, Raster und Weltkoordinaten in der Statuszeile) (Ansicht → „3D-Skybox bearbeiten“): Skybox-Raum isoliert anzeigen und im Weltmaßstab bearbeiten (Objekte werden mit `scale` der sky_camera umgerechnet), Vorschau aus Spielersicht mit der Map im Vordergrund nebeneinander, Assistent legt Skybox-Raum + sky_camera an, Teile der Map verkleinert in die Skybox kopieren, Prüfung (sky_camera fehlt/doppelt, Nebel der sky_camera, skyname passt, Raum dicht). Die skalierte Darstellung im 3D-Fenster gibt es schon – M
 
 Maps aus anderen Engines
-- [ ] Ganze Maps aus Hammer 3.x / J.A.C.K. (`.rmf`, `.jmf`) öffnen (`.rmf`-Leser gibt es für Prefabs schon) – S–M
+- [x] Ganze Maps aus Hammer 3.x (`.rmf`) und `.map` öffnen (0.13.0; `.jmf` über Speichern als `.rmf` in J.A.C.K.) (`.rmf`-Leser gibt es für Prefabs schon) – S–M
 - [ ] GoldSrc-BSP (Half-Life 1) dekompilieren, WAD-Texturen → VTF – M
 - [ ] Quake-3-Maps inkl. gebogener Flächen (→ Bezier-Patches) – M
 - [ ] Source-2-Maps (`.vmap`) – nur eingeschränkt: Meshes → Props, konvexe Teile → Brushes – L
@@ -190,16 +190,16 @@ Texturen und Materialien
 Bauwerkzeuge
 - [x] ★ Spline-Werkzeug (0.12.0): Straßen, Schienen, Rohre, Zäune, Kabel entlang einer Kurve – M
 - [ ] Saubere Boolesche Operationen (Vereinigen, Abziehen ohne Zerstückelung) – M
-- [ ] Array: Duplizieren entlang Linie, Kreis oder Kurve mit Versatz und Drehung – S
+- [x] Array: entlang Linie (Inhalte einfügen), Kreis (Generatoren) und Kurve (Spline → „Auswahl entlang“, 0.13.0) – S
 - [ ] Wendeltreppen, Kuppeln, Röhren, Torbögen als eigene Formen – S
 - [ ] Gameplay-Maße einblenden (Sprunghöhe, Ducken, Türbreite, Sichtlinien) – S
 - [ ] Weitere Generatoren: Höhlen, Innenausbau (Möbel streuen) – M
 
 Optimierung und Fehlersuche
-- [ ] Lightmap-Dichte als Farbkarte mit geschätzter Dateigröße – S
+- [x] Lightmap-Dichte als Farbkarte mit geschätzter Dateigröße (0.13.0) – S
 - [ ] Sichtbarkeit ohne Kompilieren simulieren („Was sieht das Spiel von hier?“) – M–L
 - [ ] Performance-Ampel (Draw-Calls, Props, Entities pro Bereich) – M
-- [ ] Compile-Fehler erklären: Meldungen klickbar, springt zum Brush, mit Lösungsvorschlag – S–M
+- [x] Compile-Fehler erklären: Meldungen klickbar, springt zum Brush, mit Lösungsvorschlag (0.13.0) – S–M
 
 GMod
 - [x] ★ Workshop-Upload aus Amboss (0.12.0) (gmad + gmpublish) mit Addon-Liste – M
@@ -209,8 +209,9 @@ GMod
 - [ ] Visueller Logik-Editor: Ein-/Ausgänge als Knoten verbinden – M
 
 Zusammenarbeit und Arbeitsablauf
+- [x] Patchnotes nach einem Update einmal anzeigen, Hilfe → Neuigkeiten (0.13.0)
 - [ ] Notizen/Kommentare an Stellen in der Map anheften (auch in der Live-Sitzung) – S
-- [ ] Textchat in der Live-Sitzung – S
+- [x] Textchat in der Live-Sitzung (gab es schon) – S
 - [ ] Zeitleiste der Speicherstände mit Vorschau und Vergleich – S–M
 - [ ] Plugin-Verwaltung für Lua-Skripte – M
 

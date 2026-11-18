@@ -2375,3 +2375,5 @@ Vorlage	Template
 Auswahl als Vorlage	Use selection as template
 Die gerade ausgewählten Objekte werden entlang der Kurve kopiert; Bezugspunkt ist ihre Mitte unten	The currently selected objects are copied along the curve; the reference point is their bottom centre
 Erst eine Vorlage übernehmen: Objekte auswählen und „Auswahl als Vorlage“ klicken	Take a template first: select objects and click "Use selection as template"
+Lightmap-Dichte	Lightmap density
+rot 4 · grün 16 · blau 64 · ≈ {} Mio. Luxel, {} MB	red 4 · green 16 · blue 64 · ≈ {} M luxels, {} MB

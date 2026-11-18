@@ -2373,3 +2373,5 @@ Vorlage	Plantilla
 Auswahl als Vorlage	Usar selección como plantilla
 Die gerade ausgewählten Objekte werden entlang der Kurve kopiert; Bezugspunkt ist ihre Mitte unten	Los objetos seleccionados se copian a lo largo de la curva; el punto de referencia es su centro inferior
 Erst eine Vorlage übernehmen: Objekte auswählen und „Auswahl als Vorlage“ klicken	Primero toma una plantilla: selecciona objetos y pulsa «Usar selección como plantilla»
+Lightmap-Dichte	Densidad de lightmap
+rot 4 · grün 16 · blau 64 · ≈ {} Mio. Luxel, {} MB	rojo 4 · verde 16 · azul 64 · ≈ {} M luxels, {} MB

@@ -1,5 +1,25 @@
 # Änderungen
 
+## 0.13.0
+
+**Neu in Amboss nach einem Update**
+- Beim ersten Start nach einem Update zeigt Amboss einmal die Patchnotes aller Versionen seit der zuletzt benutzten – zum Durchlesen der neuen Funktionen. Jederzeit wieder über Hilfe → „Neuigkeiten (Patchnotes)…“
+- Auf Deutsch aus dem eingebauten Changelog, in den anderen Sprachen die englischen Release-Texte von GitHub (ohne Internet die deutschen)
+
+**Kompilieren: Fehlermeldungen verstehen**
+- Der Dialog „Kompilieren & Exportieren“ erkennt bekannte Meldungen von VBSP, VVIS und VRAD und erklärt sie unter „Was bedeutet das?“ in einfachen Worten mit Lösung: Leck, überschrittene Engine-Grenzen, Objekte außerhalb der Map, fehlende Texturen und Modelle, Modelle, die nicht als prop_static gehen, gemischte Brush-Inhalte, kaputte Brushes, Areaportals, Overlays, fehlende Compile-Programme, Speichermangel
+- Dazu passende Knöpfe: Leck-Pfad laden, zum Objekt springen, Problemprüfung, Texturen ersetzen, Einstellungen
+
+**Maps aus anderen Editoren**
+- Ganze Maps aus Hammer 3.x / Worldcraft (`.rmf`) und Quake/Valve-`.map` lassen sich direkt öffnen (Datei → Öffnen, Drag & Drop, Datei → Importieren); `skyname` und andere Map-Eigenschaften werden übernommen. Texturen aus GoldSrc-WADs gibt es in Source nicht – die Statuszeile weist darauf hin, „Texturen ersetzen“ tauscht sie aus
+- J.A.C.K.-Maps (`.jmf`): in J.A.C.K. als `.rmf` oder `.map` speichern, dann öffnen (Amboss sagt das beim Öffnen einer `.jmf`)
+
+**Spline-Werkzeug: Auswahl entlang der Kurve**
+- Neue Art „Auswahl entlang“: beliebige Objekte (Brushes, Entities, Prefabs) als Vorlage übernehmen und im Abstand entlang der Kurve kopieren, an der Kurve ausgerichtet, seitlich versetzt oder beidseitig
+
+**Lightmap-Dichte**
+- Die 3D-Ansicht „Lightmap-Raster“ heißt jetzt „Lightmap-Dichte“ und färbt die Flächen nach ihrer Lightmap-Auflösung (rot = fein 4, grün = Standard 16, blau = grob 64); unten rechts steht die geschätzte Größe der Lichtdaten (Luxel und MB, mit HDR)
+
 ## 0.12.1
 
 - **Texturen nahtlos angleichen**: Mehrere Brushes, die zusammen eine Fläche bilden (z. B. ein Boden aus verschieden großen Platten), zeigen beim Texturieren keine Kanten mehr. Alle gleich ausgerichteten Flächen der Auswahl (z. B. alle Oberseiten) bekommen Achsen, Verschiebung, Skalierung und Drehung der größten von ihnen; weil Source die Textur über die Weltkoordinaten legt, läuft sie dann durch. Im Brush-Panel („Texturen nahtlos“), im Textur-Werkzeug („Nahtlos angleichen“, nur ausgewählte Flächen), unter Objekt → Brush-Operationen und mit **Strg+Shift+A**; ein Rückgängig-Schritt. Werkzeug-Texturen bleiben unverändert

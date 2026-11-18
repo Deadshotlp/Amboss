@@ -1,6 +1,6 @@
 # Amboss – Map editor for Source 1 / Garry's Mod
 
-**Version 0.12.1** – shown next to the logo, in the window title and under Help → About Amboss. See `CHANGELOG.md` for what's new (the changelog is in German).
+**Version 0.13.0** – shown next to the logo, in the window title and under Help → About Amboss. See `CHANGELOG.md` for what's new (the changelog is in German).
 
 Amboss is a standalone level editor written in **Rust**, inspired by Hammer/Hammer++.
 It edits **VMF files**, shows the real **textures and models from the GMod/HL2 VPKs** and
@@ -67,7 +67,7 @@ Textured (incl. **blend textures** WorldVertexTransition mixed via displacement 
 
 ### Creating content (Tools menu)
 * **Import models** (File → Import → Import model, or drag the file into the window) – glTF/GLB and OBJ (+MTL) become a ready prop_static/prop_physics: textures to VTF, VertexLitGeneric materials, convex collision, studiomdl in the background; unit, up axis and rotation adjustable, preview and size in units.
-* **Spline tool** – roads with kerbs, pipes, fences, models at intervals (e.g. street lamps) and cables along a curve through clicked points; preview in all views, rebuild replaces the last result.
+* **Spline tool** – roads with kerbs, pipes, fences, models at intervals (e.g. street lamps), any selection (brushes, entities, prefabs) and cables along a curve through clicked points; preview in all views, rebuild replaces the last result.
 * **Material editor** – create your own materials (VMT), import PNG/JPEG images as VTF (with mipmaps, normal maps), shader, transparency, reflections, surface property, live preview; **import PBR sets** (colour, normal, roughness, metallic, AO, height → base texture, Source normal map, gloss mask), **make seamless**, **normal map from base texture**.
 * **Particle editor** – open .pcf files, create systems from templates, edit emitters/initializers/operators/renderers, animated preview, write the particle manifest.
 * **Global illumination** – can be switched on in the light preview: indirect light with colour bleeding, computed in the background.
@@ -90,6 +90,7 @@ Textured (incl. **blend textures** WorldVertexTransition mixed via displacement 
 Before compiling, missing keys are filled in with their FGD defaults (as Hammer does when creating an entity) – e.g. a `light` without `_light` would otherwise be black.
 
 ### Map
+**What's new** after an update (once, patch notes of all skipped versions; Help → What's new) · **compile errors explained** ("What does this mean?" in the compile dialog: leak, engine limits, missing textures/models, broken brushes … with fix and buttons) · **open Hammer 3.x/Worldcraft `.rmf` and Quake/Valve `.map`** directly · **lightmap density** view (colours by lightmap scale, estimated lighting data size) ·
 **3D skybox editing** (View → Edit 3D skybox, Map → 3D skybox): all views show only the room around the sky_camera, with a **player view** (picture in picture) of the whole map and the enlarged skybox behind it; the map's footprint is outlined in 2D and the status bar shows world coordinates. An assistant creates room and sky_camera if there is none; selected brushes can be **copied in scaled down** (textures scaled along); **check** for open rooms, missing sky_camera, fog mismatches, overlaps and more ·
 **Check for problems** with auto-fix (Alt+P) · **entity report** · **go to number** (e.g. from VBSP errors) · map info · map properties
 
@@ -322,7 +323,9 @@ src/
   model_import.rs, model_import_ui.rs   glTF/OBJ import → SMD/QC/VTF, studiomdl, dialog
   tex_tools.rs   Seamless textures, normal maps from height, PBR conversion
   workshop.rs    Workshop publishing (gmad, gmpublish, preview image)
-  spline.rs      Spline tool (roads, pipes, fences, models, cables)
+  spline.rs      Spline tool (roads, pipes, fences, models, selection, cables)
+  compile_help.rs  Explanations for known compile messages
+  whatsnew.rs    "What's new" dialog after updates (built-in changelog / GitHub release notes)
   sky_ui.rs      View filters (Show) and 3D skybox mode
   templates.rs   Templates for new maps, start page
   theme.rs       Dark/light colour schemes, fonts, UI building blocks

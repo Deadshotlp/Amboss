@@ -265,6 +265,8 @@ pub struct App {
     pub(crate) imp: crate::model_import_ui::ImportUi,
     pub(crate) ws: crate::workshop::WorkshopUi,
     pub(crate) whatsnew: crate::whatsnew::WhatsNew,
+    /// Schätzung der Lichtdaten (Map-Stand, Text) für die Lightmap-Ansicht
+    pub(crate) lm_estimate: (u64, String),
     /// Zeitpunkt des letzten Speicherns
     pub(crate) last_saved: Option<Instant>,
     /// Rechtes Panel: 0 Eigenschaften, 1 Objekte, 2 Visgroups
@@ -378,6 +380,7 @@ impl App {
             imp: Default::default(),
             ws: Default::default(),
             whatsnew: Default::default(),
+            lm_estimate: (0, String::new()),
             last_saved: None,
             panel_tab: 0,
             active_view: Some(1),
@@ -2160,9 +2163,19 @@ impl App {
         // Zoom bzw. FPS
         let info = if i == 0 {
             let dt = ui.input(|inp| inp.stable_dt).max(1e-3);
-            match self.view3d.gi_status() {
+            let fps = match self.view3d.gi_status() {
                 Some(g) => format!("{g} · {:.0} FPS", (1.0 / dt).min(999.0)),
                 None => format!("{:.0} FPS", (1.0 / dt).min(999.0)),
+            };
+            if self.view3d.mode == RenderMode::LightmapGrid {
+                if self.lm_estimate.0 != self.ed.rev || self.lm_estimate.1.is_empty() {
+                    let (lux, bytes) = self.ed.lightmap_estimate(self.settings.hdr);
+                    let mb = bytes as f64 / (1024.0 * 1024.0);
+                    self.lm_estimate = (self.ed.rev, crate::i18n::tr_dyn(&format!("rot 4 · grün 16 · blau 64 · ≈ {} Mio. Luxel, {} MB", crate::i18n::dec(format!("{:.1}", lux as f64 / 1e6)), crate::i18n::dec(format!("{mb:.1}")))));
+                }
+                format!("{} · {fps}", self.lm_estimate.1)
+            } else {
+                fps
             }
         } else {
             let z = self.views2d[i - 1].zoom;

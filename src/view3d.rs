@@ -73,7 +73,7 @@ impl RenderMode {
             RenderMode::Textured => crate::i18n::tr("Texturiert"),
             RenderMode::Flat => crate::i18n::tr("Einfarbig"),
             RenderMode::Wireframe => crate::i18n::tr("Drahtgitter"),
-            RenderMode::LightmapGrid => crate::i18n::tr("Lightmap-Raster"),
+            RenderMode::LightmapGrid => crate::i18n::tr("Lightmap-Dichte"),
             RenderMode::Smoothing => crate::i18n::tr("Smoothing-Gruppen"),
             RenderMode::Lighting => crate::i18n::tr("Lichtvorschau"),
         }
@@ -1179,6 +1179,13 @@ void main() {
         base = sg < 0.5 ? vec3(0.55) : 0.5 + 0.5 * cos(6.2831 * (vec3(0.0, 0.33, 0.67) + fract(sg * 0.618)));
     }
     if (u_view == 2) {
+        // Lightmap-Dichte: Weltgröße eines Luxels aus den Ableitungen (rot = fein 4, grün = 16, blau = grob 64)
+        vec2 dl = vec2(length(dFdx(v_lm)), length(dFdy(v_lm)));
+        vec2 dp = vec2(length(dFdx(v_pos)), length(dFdy(v_pos)));
+        float lms = max(dp.x, dp.y) / max(max(dl.x, dl.y), 1e-6);
+        float t = clamp((log2(max(lms, 0.01)) - 2.0) / 4.0, 0.0, 1.0);
+        vec3 heat = t < 0.5 ? mix(vec3(1.0, 0.25, 0.15), vec3(0.25, 0.85, 0.3), t * 2.0) : mix(vec3(0.25, 0.85, 0.3), vec3(0.25, 0.5, 1.0), (t - 0.5) * 2.0);
+        base = mix(base, heat, 0.5);
         base = mix(base, vec3(0.0), 0.6 * gridline(v_lm));
     }
     if (u_show_alpha == 1) {

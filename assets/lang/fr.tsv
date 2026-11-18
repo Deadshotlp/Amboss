@@ -2373,3 +2373,5 @@ Vorlage	Modèle
 Auswahl als Vorlage	Sélection comme modèle
 Die gerade ausgewählten Objekte werden entlang der Kurve kopiert; Bezugspunkt ist ihre Mitte unten	Les objets sélectionnés sont copiés le long de la courbe ; le point de référence est leur centre bas
 Erst eine Vorlage übernehmen: Objekte auswählen und „Auswahl als Vorlage“ klicken	Prenez d'abord un modèle : sélectionnez des objets et cliquez sur « Sélection comme modèle »
+Lightmap-Dichte	Densité de lightmap
+rot 4 · grün 16 · blau 64 · ≈ {} Mio. Luxel, {} MB	rouge 4 · vert 16 · bleu 64 · ≈ {} M luxels, {} Mo

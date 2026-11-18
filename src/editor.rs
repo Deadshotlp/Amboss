@@ -958,6 +958,31 @@ impl Editor {
         }
     }
 
+    /// Geschätzte Lichtdaten der Map: (Luxel, Bytes). Je Fläche (ohne Werkzeug-Texturen) Ausdehnung
+    /// entlang der Texturachsen / Lightmap-Skalierung, 4 Byte je Luxel, normale Flächen ×1, mit HDR ×2
+    pub fn lightmap_estimate(&self, hdr: bool) -> (u64, u64) {
+        let mut lux = 0u64;
+        for (_, s) in self.map.all_solids() {
+            for (i, poly) in s.polys.iter().enumerate() {
+                let Some(side) = s.sides.get(i) else { continue };
+                if poly.len() < 3 || tool_kind(&side.material).is_some() || (s.has_disp() && side.disp.is_none()) {
+                    continue;
+                }
+                let lms = side.lightmapscale.max(1) as f64;
+                let (ua, va) = (side.uaxis.axis.normalize_or_zero(), side.vaxis.axis.normalize_or_zero());
+                let (mut u0, mut u1, mut v0, mut v1) = (f64::MAX, f64::MIN, f64::MAX, f64::MIN);
+                for p in poly {
+                    u0 = u0.min(p.dot(ua));
+                    u1 = u1.max(p.dot(ua));
+                    v0 = v0.min(p.dot(va));
+                    v1 = v1.max(p.dot(va));
+                }
+                lux += (((u1 - u0) / lms).ceil() as u64 + 1) * (((v1 - v0) / lms).ceil() as u64 + 1);
+            }
+        }
+        (lux, lux * 4 * if hdr { 2 } else { 1 })
+    }
+
     /// Gibt es das Objekt (noch)?
     pub fn obj_exists(&self, o: Obj) -> bool {
         match o {
@@ -3125,6 +3150,25 @@ pub fn merge_instance(target: &mut Map, inst: &Map, e: &Entity, tex_lock: bool) 
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn lightmap_estimate_scales() {
+        let mut ed = Editor::new(crate::fgd::Fgd::builtin());
+        let mut b = ed.map.make_box(Aabb::new(DVec3::ZERO, DVec3::new(256.0, 256.0, 16.0)), "DEV/GRAYGRID", 0.25);
+        for s in &mut b.sides {
+            s.lightmapscale = 16;
+        }
+        ed.map.world.solids.push(b.into());
+        let (l16, bytes) = ed.lightmap_estimate(true);
+        // oben/unten je 17×17, vier Seiten je 17×2
+        assert_eq!(l16, 2 * 17 * 17 + 4 * 17 * 2);
+        assert_eq!(bytes, l16 * 8);
+        let s = ed.map.world.solids[0].id;
+        for side in &mut ed.map.solid_mut(s).unwrap().sides {
+            side.lightmapscale = 8;
+        }
+        assert!(ed.lightmap_estimate(false).0 > l16 * 3);
+    }
 
     #[test]
     fn unify_textures_across_brushes() {

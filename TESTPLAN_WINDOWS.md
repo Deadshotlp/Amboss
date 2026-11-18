@@ -243,7 +243,7 @@ Für jede Optimierung: zuerst **„Nur prüfen“**, Markierungen ansehen, dann 
 | O11 | worldspawn `skyname` = `sky_day01_01` (bzw. eigener Himmel), Ansicht → Himmel-Vorschau | Himmel rundum richtig ausgerichtet (Horizont unten, Sonne wie im Spiel) – mit dem Spiel vergleichen |
 | O12 | `env_fog_controller` mit fogenable 1, Farbe, Start/Ende | Entfernte Flächen gehen in die Nebelfarbe über; Ansicht → Nebel schaltet ab |
 | O13 | `move_rope` mit NextKey auf `keyframe_rope`, Slack 50 | Seil hängt durch wie im Spiel, mit Seil-Textur; in 2D als Linie |
-| O14 | Version prüfen | „0.12.1“ neben dem Logo, im Fenstertitel und unter Hilfe → Über Amboss |
+| O14 | Version prüfen | „0.13.0“ neben dem Logo, im Fenstertitel und unter Hilfe → Über Amboss |
 | O15 | Hilfe → Tutorial…, Kapitel 6–9 mit echten Inhalten durchspielen (auch „Zeig es mir“) | Jeder Schritt wird erkannt; Gelände, Himmel, Nebel, Partikel, Overlay, Decal sehen richtig aus |
 | O16 | Trigger mit Output: Ziel-Feld anklicken und einen Buchstaben tippen | Liste passender Namen mit Klasse; Pfeiltasten + Enter oder Klick übernimmt |
 | O17 | Generatoren → Räume mit Höhenstufen 2, eigenen Texturen für Boden/Wände/Decke → Erzeugen → Kompilieren & starten | Kein Leck; Räume unterschiedlich hoch, Treppen in den Gängen begehbar; Texturen wie gewählt |
@@ -312,6 +312,18 @@ Für jede Optimierung: zuerst **„Nur prüfen“**, Markierungen ansehen, dann 
 | R8 | Werkzeuge → Spline → in 3D vier Punkte auf den Boden klicken → Straße erzeugen | Fahrbahn mit Bordsteinen folgt der Kurve, Textur läuft entlang, keine Lücken zwischen den Stücken; kompiliert ohne Fehler |
 | R10 | Boden aus mehreren verschieden großen Brushes bauen (einige mit „Texturen fixieren“ verschieben), Textur auflegen → alle auswählen → Strg+Shift+A | Keine Kanten mehr zwischen den Platten, in 3D und im Spiel; Strg+Z stellt den alten Zustand her |
 | R9 | Dieselben Punkte → Rohr, Zaun, Modelle (Laterne, beidseitig, seitlich versetzt), Kabel; jeweils „Neu erzeugen“ | Jeweils sauber erzeugt; „Neu erzeugen“ ersetzt das vorherige Ergebnis; Kabel hängt im Spiel zwischen den Punkten |
+
+## S. Version 0.13.0
+
+| Nr. | Schritt | Erwartung |
+|---|---|---|
+| S1 | 0.12.1 starten, über den Update-Hinweis auf 0.13.0 aktualisieren und neu starten | Fenster „Neu in Amboss 0.13.0“ mit den Neuerungen von 0.13.0; beim nächsten Start nicht mehr; Hilfe → „Neuigkeiten (Patchnotes)…“ zeigt alle Versionen |
+| S2 | Sprache Englisch, dann Hilfe → „What's new (patch notes)…“ | Nach kurzem Laden die englischen Release-Texte von GitHub |
+| S3 | Eine Map mit absichtlichem Loch kompilieren | Unter „Was bedeutet das?“ steht „Die Map ist nicht dicht (Leck)“ mit „Leck-Pfad laden“; der Knopf zeigt die rote Linie |
+| S4 | Map mit fehlender Textur und einem prop_static mit Physik-Modell kompilieren | Erklärungen „Textur fehlt“ und „Dieses Modell geht nicht als prop_static“ |
+| S5 | Eine alte Half-Life-`.rmf` (Hammer 3.x) per Datei → Öffnen laden | Brushes und Entities da, Statuszeile nennt die GoldSrc-Texturen; nach „Texturen ersetzen“ kompilierbar |
+| S6 | Spline → „Auswahl entlang“: einen kleinen Zaunabschnitt (Brushes) als Vorlage übernehmen, Kurve klicken, erzeugen | Kopien folgen der Kurve, ausgerichtet; „Neu erzeugen“ ersetzt sie |
+| S7 | 3D-Darstellung „Lightmap-Dichte“, einer Fläche Lightmap-Skalierung 4 geben | Fläche wird rot, die geschätzte MB-Zahl unten rechts steigt |
 
 ## L. Nach dem Test
 
