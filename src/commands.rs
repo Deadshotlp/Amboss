@@ -17,6 +17,7 @@ pub enum Cmd {
     ImportModel,
     Workshop,
     Spline,
+    UnifyTextures,
     MergeMap,
     CompareMap,
     Merge3,
@@ -97,7 +98,7 @@ impl Cmd {
     pub fn all() -> Vec<Cmd> {
         use Cmd::*;
         let mut v = vec![
-            New, Open, Save, SaveAs, NewTab, CloseTab, NextTab, MergeMap, CompareMap, Merge3, ImportMap, ImportModel, Workshop, Spline, ExportObj, Undo, Redo, History, PasteSpecial, Delete, SelectAll, Duplicate, Carve, Hollow, TieToEntity, MoveToWorld, Group, Ungroup, Hide,
+            New, Open, Save, SaveAs, NewTab, CloseTab, NextTab, MergeMap, CompareMap, Merge3, ImportMap, ImportModel, Workshop, Spline, UnifyTextures, ExportObj, Undo, Redo, History, PasteSpecial, Delete, SelectAll, Duplicate, Carve, Hollow, TieToEntity, MoveToWorld, Group, Ungroup, Hide,
             HideUnselected, UnhideAll, Lock, UnlockAll, Transform, SnapToGrid, FlipH, FlipV, RotateMouse, RotateCw, RotateCcw, ApplyTexture, ReplaceTextures, NodrawHidden, TextureBrowser, ModelBrowser, SoundBrowser, ParticleBrowser, Collab, ToggleSnap, ToggleVertexSnap, SelectTouching, CopyProps, PasteProps, CheckProblems, Optimize, OptimizeCheck, EntityReport,
             Outliner, GotoNumber, MapInfo, LogicalView, Prefabs, Compile, CompileWindow, TestFromCamera, Walk, Settings, Help, Palette, GridDown, GridUp, CenterSel2D, CenterSel3D, NextCamera, Maximize, ToggleGizmo, LoadPointfile, ClearMeasure,
             ToggleNodraw, ToggleTriggers, ToggleToolBrushes, SkyboxMode, SkyboxCopy, SkyboxCheck,
@@ -142,6 +143,7 @@ impl Cmd {
             ImportModel => crate::i18n::tr("Modell importieren (glTF, OBJ)…"),
             Workshop => crate::i18n::tr("Im Workshop veröffentlichen…"),
             Spline => crate::i18n::tr("Spline: Straße, Rohr, Zaun, Kabel…"),
+            UnifyTextures => crate::i18n::tr("Texturen nahtlos angleichen"),
             MergeMap => crate::i18n::tr("Map zusammenführen…"),
             CompareMap => crate::i18n::tr("Mit anderem Map-Stand vergleichen…"),
             Merge3 => crate::i18n::tr("3-Wege-Zusammenführen (Basis / andere Version)…"),
@@ -279,6 +281,7 @@ impl Cmd {
             CompileWindow => "Ctrl+F9",
             TestFromCamera => "Shift+F9",
             Walk => "F6",
+            UnifyTextures => "Ctrl+Shift+A",
             ToggleNodraw => "Alt+N",
             ToggleTriggers => "Alt+T",
             _ => "",
@@ -443,6 +446,9 @@ impl App {
             Outliner => self.win.outliner = !self.win.outliner,
             ImportModel => self.pick_model_file(),
             Workshop => self.open_workshop(),
+            UnifyTextures => {
+                self.ed.unify_textures();
+            }
             Spline => {
                 self.ed.spline.open = true;
                 self.ed.spline.placing = true;

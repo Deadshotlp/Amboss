@@ -541,6 +541,9 @@ impl App {
             if ui.button(crate::i18n::tr("An Fläche")).clicked() {
                 self.ed.align_faces(false);
             }
+            if ui.button(crate::i18n::tr("Nahtlos angleichen")).on_hover_text(crate::i18n::tr("Alle ausgewählten Flächen mit gleicher Richtung bekommen Achsen, Verschiebung und Skalierung der größten von ihnen – die Textur läuft über die Brush-Grenzen durch")).clicked() {
+                self.ed.unify_textures();
+            }
             if ui.button(crate::i18n::tr("Material übernehmen")).on_hover_text(crate::i18n::tr("Material dieser Fläche als aktuelles setzen")).clicked() {
                 self.ed.material = side.material.clone();
             }
@@ -930,6 +933,9 @@ impl App {
             }
             if ui.small_button(crate::i18n::tr("Carve")).on_hover_text(crate::i18n::keys("Strg+Shift+C")).clicked() {
                 self.ed.carve();
+            }
+            if ui.small_button(crate::i18n::tr("Texturen nahtlos")).on_hover_text(crate::i18n::tr("Texturen der ausgewählten Brushes angleichen: gleich ausgerichtete Flächen (z. B. alle Oberseiten) bekommen die Ausrichtung der größten – keine Kanten mehr zwischen den Brushes")).clicked() {
+                self.ed.unify_textures();
             }
             if ui.small_button(crate::i18n::tr("Am Raster")).on_hover_text(crate::i18n::keys("Strg+B")).clicked() {
                 self.ed.snap_selection_to_grid();

@@ -2309,3 +2309,10 @@ Durchhang (Slack)	Zwis (slack)
 Mindestens zwei Punkte setzen	Postaw co najmniej dwa punkty
 Nichts zu erzeugen – Punkte liegen zu dicht	Nic do utworzenia – punkty są zbyt blisko
 Spline: {} Objekte erzeugt ({} Einheiten lang)	Spline: utworzono {} obiektów (długość {} jednostek)
+Nahtlos angleichen	Wyrównaj bezszwowo
+Alle ausgewählten Flächen mit gleicher Richtung bekommen Achsen, Verschiebung und Skalierung der größten von ihnen – die Textur läuft über die Brush-Grenzen durch	Wszystkie zaznaczone ściany o tym samym kierunku dostają osie, przesunięcie i skalę największej z nich – tekstura przechodzi przez granice brushy
+Texturen nahtlos	Tekstury bez szwów
+Texturen der ausgewählten Brushes angleichen: gleich ausgerichtete Flächen (z. B. alle Oberseiten) bekommen die Ausrichtung der größten – keine Kanten mehr zwischen den Brushes	Wyrównaj tekstury zaznaczonych brushy: ściany o tym samym kierunku (np. wszystkie górne) dostają wyrównanie największej – koniec ze szwami między brushami
+Texturen nahtlos angleichen	Wyrównaj tekstury bezszwowo
+Texturen nahtlos angeglichen ({} Flächen)	Tekstury wyrównane bezszwowo ({} ścian)
+Texturen sind bereits angeglichen	Tekstury są już wyrównane

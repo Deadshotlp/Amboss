@@ -2309,3 +2309,10 @@ Durchhang (Slack)	Провисание (slack)
 Mindestens zwei Punkte setzen	Поставьте хотя бы две точки
 Nichts zu erzeugen – Punkte liegen zu dicht	Нечего создавать – точки слишком близко
 Spline: {} Objekte erzeugt ({} Einheiten lang)	Сплайн: создано объектов {} (длина {} ед.)
+Nahtlos angleichen	Выровнять без швов
+Alle ausgewählten Flächen mit gleicher Richtung bekommen Achsen, Verschiebung und Skalierung der größten von ihnen – die Textur läuft über die Brush-Grenzen durch	Все выделенные грани с одинаковым направлением получают оси, сдвиг и масштаб самой большой из них – текстура продолжается через границы брашей
+Texturen nahtlos	Текстуры без швов
+Texturen der ausgewählten Brushes angleichen: gleich ausgerichtete Flächen (z. B. alle Oberseiten) bekommen die Ausrichtung der größten – keine Kanten mehr zwischen den Brushes	Выровнять текстуры выделенных брашей: грани с одинаковым направлением (например, все верхние) получают выравнивание самой большой – без швов между брашами
+Texturen nahtlos angleichen	Выровнять текстуры без швов
+Texturen nahtlos angeglichen ({} Flächen)	Текстуры выровнены без швов (граней: {})
+Texturen sind bereits angeglichen	Текстуры уже выровнены

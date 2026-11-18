@@ -1,5 +1,9 @@
 # Änderungen
 
+## 0.12.1
+
+- **Texturen nahtlos angleichen**: Mehrere Brushes, die zusammen eine Fläche bilden (z. B. ein Boden aus verschieden großen Platten), zeigen beim Texturieren keine Kanten mehr. Alle gleich ausgerichteten Flächen der Auswahl (z. B. alle Oberseiten) bekommen Achsen, Verschiebung, Skalierung und Drehung der größten von ihnen; weil Source die Textur über die Weltkoordinaten legt, läuft sie dann durch. Im Brush-Panel („Texturen nahtlos“), im Textur-Werkzeug („Nahtlos angleichen“, nur ausgewählte Flächen), unter Objekt → Brush-Operationen und mit **Strg+Shift+A**; ein Rückgängig-Schritt. Werkzeug-Texturen bleiben unverändert
+
 ## 0.12.0
 
 **Modelle importieren (glTF, OBJ)**

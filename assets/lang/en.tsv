@@ -2311,3 +2311,10 @@ Durchhang (Slack)	Sag (slack)
 Mindestens zwei Punkte setzen	Place at least two points
 Nichts zu erzeugen – Punkte liegen zu dicht	Nothing to create – points are too close
 Spline: {} Objekte erzeugt ({} Einheiten lang)	Spline: {} objects created ({} units long)
+Nahtlos angleichen	Align seamlessly
+Alle ausgewählten Flächen mit gleicher Richtung bekommen Achsen, Verschiebung und Skalierung der größten von ihnen – die Textur läuft über die Brush-Grenzen durch	All selected faces facing the same way get the axes, shift and scale of the largest of them – the texture runs across brush borders
+Texturen nahtlos	Seamless textures
+Texturen der ausgewählten Brushes angleichen: gleich ausgerichtete Flächen (z. B. alle Oberseiten) bekommen die Ausrichtung der größten – keine Kanten mehr zwischen den Brushes	Align the textures of the selected brushes: faces facing the same way (e.g. all tops) get the alignment of the largest – no more seams between brushes
+Texturen nahtlos angleichen	Align textures seamlessly
+Texturen nahtlos angeglichen ({} Flächen)	Textures aligned seamlessly ({} faces)
+Texturen sind bereits angeglichen	Textures are already aligned

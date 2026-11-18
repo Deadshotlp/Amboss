@@ -2309,3 +2309,10 @@ Durchhang (Slack)	Affaissement (slack)
 Mindestens zwei Punkte setzen	Placez au moins deux points
 Nichts zu erzeugen – Punkte liegen zu dicht	Rien à créer – les points sont trop proches
 Spline: {} Objekte erzeugt ({} Einheiten lang)	Spline : {} objets créés ({} unités de long)
+Nahtlos angleichen	Aligner sans raccord
+Alle ausgewählten Flächen mit gleicher Richtung bekommen Achsen, Verschiebung und Skalierung der größten von ihnen – die Textur läuft über die Brush-Grenzen durch	Toutes les faces sélectionnées de même orientation reçoivent les axes, le décalage et l'échelle de la plus grande – la texture continue d'une brush à l'autre
+Texturen nahtlos	Textures sans raccord
+Texturen der ausgewählten Brushes angleichen: gleich ausgerichtete Flächen (z. B. alle Oberseiten) bekommen die Ausrichtung der größten – keine Kanten mehr zwischen den Brushes	Aligner les textures des brushes sélectionnées : les faces de même orientation (p. ex. tous les dessus) reçoivent l'alignement de la plus grande – plus de raccords entre les brushes
+Texturen nahtlos angleichen	Aligner les textures sans raccord
+Texturen nahtlos angeglichen ({} Flächen)	Textures alignées sans raccord ({} faces)
+Texturen sind bereits angeglichen	Les textures sont déjà alignées

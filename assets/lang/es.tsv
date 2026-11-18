@@ -2309,3 +2309,10 @@ Durchhang (Slack)	Holgura (slack)
 Mindestens zwei Punkte setzen	Coloca al menos dos puntos
 Nichts zu erzeugen – Punkte liegen zu dicht	Nada que crear: los puntos están demasiado juntos
 Spline: {} Objekte erzeugt ({} Einheiten lang)	Spline: {} objetos creados ({} unidades de largo)
+Nahtlos angleichen	Alinear sin juntas
+Alle ausgewählten Flächen mit gleicher Richtung bekommen Achsen, Verschiebung und Skalierung der größten von ihnen – die Textur läuft über die Brush-Grenzen durch	Todas las caras seleccionadas con la misma orientación reciben los ejes, el desplazamiento y la escala de la mayor: la textura continúa entre brushes
+Texturen nahtlos	Texturas sin juntas
+Texturen der ausgewählten Brushes angleichen: gleich ausgerichtete Flächen (z. B. alle Oberseiten) bekommen die Ausrichtung der größten – keine Kanten mehr zwischen den Brushes	Alinear las texturas de los brushes seleccionados: las caras con la misma orientación (p. ej. todas las superiores) reciben la alineación de la mayor; sin juntas entre brushes
+Texturen nahtlos angleichen	Alinear texturas sin juntas
+Texturen nahtlos angeglichen ({} Flächen)	Texturas alineadas sin juntas ({} caras)
+Texturen sind bereits angeglichen	Las texturas ya están alineadas

@@ -1639,6 +1639,7 @@ impl App {
                         self.ed.carve();
                         ui.close_menu();
                     }
+                    self.cmd_item(ui, ctx, Cmd::UnifyTextures);
                     if ex {
                         self.cmd_item(ui, ctx, Cmd::NodrawHidden);
                     }

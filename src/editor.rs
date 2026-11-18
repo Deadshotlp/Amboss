@@ -2256,6 +2256,67 @@ pub fn mesh_file(vmf: &std::path::Path) -> std::path::PathBuf {
         self.touch();
     }
 
+    /// Texturen nahtlos angleichen: Flächen mit gleicher Richtung bekommen Achsen, Verschiebung, Skalierung
+    /// und Drehung der größten Fläche dieser Richtung. Weil Source die Textur über die Weltkoordinaten
+    /// projiziert, läuft sie dann über Brush-Grenzen hinweg durch. Gilt für die ausgewählten Flächen,
+    /// sonst für alle Flächen der ausgewählten Brushes. Liefert die Zahl geänderter Flächen.
+    pub fn unify_textures(&mut self) -> usize {
+        let faces: Vec<(u32, usize)> = if !self.faces.is_empty() {
+            self.faces.iter().copied().collect()
+        } else {
+            self.selected_solid_ids().into_iter().filter_map(|id| self.map.solid(id).map(|s| (id, s.sides.len()))).flat_map(|(id, n)| (0..n).map(move |i| (id, i))).collect()
+        };
+        // (Normale, Fläche) je Fläche; Werkzeug-Texturen bleiben, wie sie sind
+        let mut info: Vec<((u32, usize), DVec3, f64)> = Vec::new();
+        for (sid, i) in faces {
+            let Some(s) = self.map.solid(sid) else { continue };
+            let (Some(Some(p)), Some(poly), Some(side)) = (s.planes.get(i), s.polys.get(i), s.sides.get(i)) else { continue };
+            if poly.len() < 3 || tool_kind(&side.material).is_some() {
+                continue;
+            }
+            let area = (1..poly.len() - 1).map(|k| (poly[k] - poly[0]).cross(poly[k + 1] - poly[0]).length() / 2.0).sum::<f64>();
+            info.push(((sid, i), p.normal, area));
+        }
+        // Richtungen sammeln: Vorbild = größte Fläche
+        let mut refs: Vec<(DVec3, (u32, usize), f64)> = Vec::new();
+        for (f, n, a) in &info {
+            match refs.iter_mut().find(|r| r.0.dot(*n) > 0.999) {
+                Some(r) if *a > r.2 => *r = (r.0, *f, *a),
+                Some(_) => {}
+                None => refs.push((*n, *f, *a)),
+            }
+        }
+        let mut changes: Vec<((u32, usize), crate::map::Side)> = Vec::new();
+        for (f, n, _) in &info {
+            let Some(r) = refs.iter().find(|r| r.0.dot(*n) > 0.999) else { continue };
+            if r.1 == *f {
+                continue;
+            }
+            let Some(src) = self.map.solid(r.1 .0).and_then(|s| s.sides.get(r.1 .1)).cloned() else { continue };
+            let Some(cur) = self.map.solid(f.0).and_then(|s| s.sides.get(f.1)) else { continue };
+            if cur.uaxis.axis == src.uaxis.axis && cur.vaxis.axis == src.vaxis.axis && cur.uaxis.shift == src.uaxis.shift && cur.vaxis.shift == src.vaxis.shift && cur.uaxis.scale == src.uaxis.scale && cur.vaxis.scale == src.vaxis.scale {
+                continue;
+            }
+            changes.push((*f, src));
+        }
+        if changes.is_empty() {
+            self.status = "Texturen sind bereits angeglichen".into();
+            return 0;
+        }
+        self.checkpoint();
+        let n = changes.len();
+        for ((sid, i), src) in changes {
+            if let Some(side) = self.map.solid_mut(sid).and_then(|s| s.sides.get_mut(i)) {
+                side.uaxis = src.uaxis.clone();
+                side.vaxis = src.vaxis.clone();
+                side.rotation = src.rotation;
+            }
+        }
+        self.status = format!("Texturen nahtlos angeglichen ({n} Flächen)");
+        self.touch();
+        n
+    }
+
     /// Alt+Rechtsklick: Material und Ausrichtung der ersten ausgewählten Fläche nahtlos auf eine Nachbarfläche übertragen
     pub fn wrap_texture(&mut self, target: (u32, usize)) -> bool {
         let Some(&src) = self.faces.iter().next() else { return false };
@@ -3056,6 +3117,40 @@ pub fn merge_instance(target: &mut Map, inst: &Map, e: &Entity, tex_lock: bool) 
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn unify_textures_across_brushes() {
+        let mut ed = Editor::new(crate::fgd::Fgd::builtin());
+        ed.material = "DEV/GRAYGRID".into();
+        let a = ed.map.make_box(Aabb::new(DVec3::new(0.0, 0.0, 0.0), DVec3::new(256.0, 256.0, 16.0)), "DEV/GRAYGRID", 0.25);
+        let mut b = ed.map.make_box(Aabb::new(DVec3::new(256.0, 0.0, 0.0), DVec3::new(320.0, 128.0, 16.0)), "DEV/GRAYGRID", 0.25);
+        // zweite Platte mit verschobener Textur (wie nach Verschieben mit Texture Lock)
+        for side in &mut b.sides {
+            side.uaxis.shift += 37.0;
+            side.vaxis.shift -= 11.0;
+        }
+        let (ia, ib) = (a.id, b.id);
+        ed.map.world.solids.push(a.into());
+        ed.map.world.solids.push(b.into());
+        let top = |ed: &Editor, id: u32| {
+            let s = ed.map.solid(id).unwrap();
+            let k = s.planes.iter().position(|p| p.is_some_and(|p| p.normal.z > 0.9)).unwrap();
+            s.sides[k].clone()
+        };
+        // gemeinsame Kante bei x = 256: Texturkoordinate u muss auf beiden Seiten gleich sein
+        let u_at = |side: &crate::map::Side, p: DVec3| p.dot(side.uaxis.axis) / side.uaxis.scale + side.uaxis.shift;
+        let edge = DVec3::new(256.0, 64.0, 16.0);
+        assert!((u_at(&top(&ed, ia), edge) - u_at(&top(&ed, ib), edge)).abs() > 1.0);
+        ed.sel = [Obj::Solid(ia), Obj::Solid(ib)].into_iter().collect();
+        let n = ed.unify_textures();
+        assert!(n >= 1);
+        assert!((u_at(&top(&ed, ia), edge) - u_at(&top(&ed, ib), edge)).abs() < 1e-9);
+        // Vorbild ist die größte Fläche: die große Platte bleibt unverändert
+        assert_eq!(top(&ed, ia).uaxis.shift, 0.0);
+        assert_eq!(ed.unify_textures(), 0, "schon angeglichen");
+        ed.undo();
+        assert!((top(&ed, ib).uaxis.shift - 37.0).abs() < 1e-9);
+    }
 
     fn ed() -> Editor {
         Editor::new(Fgd::builtin())
