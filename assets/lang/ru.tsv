@@ -2368,3 +2368,8 @@ Einstellungen → Spiel & Pfade prüfen; der Einrichtungs-Assistent findet Garry
 Nicht genug Speicher	Недостаточно памяти
 Ein Compile-Programm ist am Speicher gescheitert – meist bei sehr großen Maps oder sehr feinen Lightmaps.	Программе компиляции не хватило памяти – обычно на очень больших картах или очень мелких лайтмапах.
 Andere Programme schließen, Lightmap-Skalierung großer Flächen erhöhen, Details zu func_detail machen.	Закройте другие программы, увеличьте масштаб лайтмапы больших граней, сделайте детали func_detail.
+Auswahl entlang	Выделение вдоль
+Vorlage	Шаблон
+Auswahl als Vorlage	Выделение как шаблон
+Die gerade ausgewählten Objekte werden entlang der Kurve kopiert; Bezugspunkt ist ihre Mitte unten	Выделенные объекты копируются вдоль кривой; опорная точка – их нижний центр
+Erst eine Vorlage übernehmen: Objekte auswählen und „Auswahl als Vorlage“ klicken	Сначала задайте шаблон: выделите объекты и нажмите «Выделение как шаблон»

@@ -2368,3 +2368,8 @@ Einstellungen → Spiel & Pfade prüfen; der Einrichtungs-Assistent findet Garry
 Nicht genug Speicher	Memoria insuficiente
 Ein Compile-Programm ist am Speicher gescheitert – meist bei sehr großen Maps oder sehr feinen Lightmaps.	Una herramienta de compilación se quedó sin memoria; suele pasar con mapas muy grandes o lightmaps muy finos.
 Andere Programme schließen, Lightmap-Skalierung großer Flächen erhöhen, Details zu func_detail machen.	Cierra otros programas, sube la escala de lightmap de las caras grandes y convierte los detalles en func_detail.
+Auswahl entlang	Selección a lo largo
+Vorlage	Plantilla
+Auswahl als Vorlage	Usar selección como plantilla
+Die gerade ausgewählten Objekte werden entlang der Kurve kopiert; Bezugspunkt ist ihre Mitte unten	Los objetos seleccionados se copian a lo largo de la curva; el punto de referencia es su centro inferior
+Erst eine Vorlage übernehmen: Objekte auswählen und „Auswahl als Vorlage“ klicken	Primero toma una plantilla: selecciona objetos y pulsa «Usar selección como plantilla»

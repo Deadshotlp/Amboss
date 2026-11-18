@@ -2370,3 +2370,8 @@ Einstellungen → Spiel & Pfade prüfen; der Einrichtungs-Assistent findet Garry
 Nicht genug Speicher	Not enough memory
 Ein Compile-Programm ist am Speicher gescheitert – meist bei sehr großen Maps oder sehr feinen Lightmaps.	A compile tool ran out of memory – usually with very large maps or very fine lightmaps.
 Andere Programme schließen, Lightmap-Skalierung großer Flächen erhöhen, Details zu func_detail machen.	Close other programs, raise the lightmap scale of large faces, turn details into func_detail.
+Auswahl entlang	Selection along
+Vorlage	Template
+Auswahl als Vorlage	Use selection as template
+Die gerade ausgewählten Objekte werden entlang der Kurve kopiert; Bezugspunkt ist ihre Mitte unten	The currently selected objects are copied along the curve; the reference point is their bottom centre
+Erst eine Vorlage übernehmen: Objekte auswählen und „Auswahl als Vorlage“ klicken	Take a template first: select objects and click "Use selection as template"

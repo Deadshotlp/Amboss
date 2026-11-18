@@ -13,10 +13,12 @@ pub enum Kind {
     Fence,
     Models,
     Cable,
+    /// Kopien der gemerkten Auswahl entlang der Kurve
+    Selection,
 }
 
 impl Kind {
-    pub const ALL: [Kind; 5] = [Kind::Road, Kind::Pipe, Kind::Fence, Kind::Models, Kind::Cable];
+    pub const ALL: [Kind; 6] = [Kind::Road, Kind::Pipe, Kind::Fence, Kind::Models, Kind::Selection, Kind::Cable];
     pub fn label(self) -> &'static str {
         match self {
             Kind::Road => crate::i18n::tr("Straße / Weg"),
@@ -24,6 +26,7 @@ impl Kind {
             Kind::Fence => crate::i18n::tr("Zaun / Geländer"),
             Kind::Models => crate::i18n::tr("Modelle entlang"),
             Kind::Cable => crate::i18n::tr("Kabel / Seil"),
+            Kind::Selection => crate::i18n::tr("Auswahl entlang"),
         }
     }
 }
@@ -101,6 +104,9 @@ pub struct SplineState {
     pub last: Vec<Obj>,
     /// Höhe über der angeklickten Fläche
     pub lift: f64,
+    /// Vorlage für „Auswahl entlang“: Objekte und ihr Bezugspunkt (Mitte unten)
+    pub source: Vec<Obj>,
+    pub source_pivot: DVec3,
 }
 
 // ------------------------------------------------------------------ Kurve
@@ -278,7 +284,7 @@ pub fn plan(points: &[DVec3], o: &SplineOpts) -> Plan {
                 }
             }
         }
-        Kind::Models => {
+        Kind::Models | Kind::Selection => {
             let n = ((total / o.spacing.max(8.0)).floor() as usize).max(1);
             let sides: &[f64] = if o.both_sides { &[1.0, -1.0] } else { &[1.0] };
             for k in 0..=n {
@@ -293,7 +299,8 @@ pub fn plan(points: &[DVec3], o: &SplineOpts) -> Plan {
                     if *sgn < 0.0 && o.align {
                         yaw += 180.0;
                     }
-                    p.ents.push(("prop_static".into(), pos, yaw, vec![("model".into(), o.model.clone())]));
+                    let class = if o.kind == Kind::Selection { String::new() } else { "prop_static".into() };
+                    p.ents.push((class, pos, yaw, vec![("model".into(), o.model.clone())]));
                 }
             }
         }
@@ -361,6 +368,9 @@ pub fn build(ed: &mut Editor, replace: bool) -> Result<usize, String> {
     if pl.hulls.is_empty() && pl.ents.is_empty() {
         return Err("Nichts zu erzeugen – Punkte liegen zu dicht".into());
     }
+    if o.kind == Kind::Selection && st.source.iter().all(|x| !ed.obj_exists(*x)) {
+        return Err("Erst eine Vorlage übernehmen: Objekte auswählen und „Auswahl als Vorlage“ klicken".into());
+    }
     ed.checkpoint();
     if replace {
         for obj in &st.last {
@@ -409,10 +419,47 @@ pub fn build(ed: &mut Editor, replace: bool) -> Result<usize, String> {
         ed.map.entities.push(e.into());
         made.push(Obj::Entity(id));
     }
+    // Auswahl entlang: Kopien der Vorlage, um ihre Mitte unten gedreht
+    if o.kind == Kind::Selection {
+        let mut items = Vec::new();
+        for obj in &st.source {
+            match obj {
+                Obj::Solid(id) => {
+                    if let Some(s) = ed.map.solid(*id) {
+                        items.push(crate::editor::ClipItem::Solid(s.clone()));
+                    }
+                }
+                Obj::Entity(id) => {
+                    if let Some(e) = ed.map.entity(*id) {
+                        items.push(crate::editor::ClipItem::Entity(e.clone()));
+                    }
+                }
+            }
+        }
+        let c = st.source_pivot;
+        for (_, pos, yaw, _) in &pl.ents {
+            let x = crate::transform::Xform::about(c, crate::transform::Xform::rotation(2, *yaw)).then(&crate::transform::Xform::translate(*pos - c));
+            for obj in ed.insert_clip_items(items.clone(), &x) {
+                match obj {
+                    Obj::Solid(id) => {
+                        if let Some(s) = ed.map.solid_mut(id) {
+                            s.editor.groupid = Some(gid);
+                        }
+                    }
+                    Obj::Entity(id) => {
+                        if let Some(e) = ed.map.entity_mut(id) {
+                            e.editor.groupid = Some(gid);
+                        }
+                    }
+                }
+                made.push(obj);
+            }
+        }
+    }
     // Punkt-Entities; Kabel als Kette über NextKey
     let base = format!("spline{gid}");
     let n = pl.ents.len();
-    for (k, (class, pos, yaw, keys)) in pl.ents.iter().enumerate() {
+    for (k, (class, pos, yaw, keys)) in pl.ents.iter().enumerate().filter(|(_, e)| !e.0.is_empty()) {
         let id = ed.map.alloc_id();
         let mut e = Entity::new(id, class);
         e.set("origin", fmt_vec(*pos));
@@ -472,7 +519,7 @@ impl crate::app::App {
         }
         let th = theme::t();
         let mut open = true;
-        let (mut build_now, mut rebuild, mut from_sel) = (false, false, false);
+        let (mut build_now, mut rebuild, mut from_sel, mut take_source) = (false, false, false, false);
         let st = &mut self.ed.spline;
         let pl = plan(&st.points, &st.opts);
         let cur_mat = self.ed.material.clone();
@@ -559,10 +606,21 @@ impl crate::app::App {
                             num(ui, "Höhe", &mut o.height, 8.0..=1024.0);
                             num(ui, "Pfostendicke", &mut o.post, 1.0..=128.0);
                         }
-                        Kind::Models => {
-                            ui.label(tr("Modell"));
-                            ui.add(egui::TextEdit::singleline(&mut o.model).font(theme::mono(11.5)).desired_width(300.0));
-                            ui.end_row();
+                        Kind::Models | Kind::Selection => {
+                            if o.kind == Kind::Models {
+                                ui.label(tr("Modell"));
+                                ui.add(egui::TextEdit::singleline(&mut o.model).font(theme::mono(11.5)).desired_width(300.0));
+                                ui.end_row();
+                            } else {
+                                ui.label(tr("Vorlage"));
+                                ui.horizontal(|ui| {
+                                    ui.label(RichText::new(crate::i18n::tr_dyn(&format!("{} Objekte", st.source.len()))).color(th.text2));
+                                    if ui.button(tr("Auswahl als Vorlage")).on_hover_text(tr("Die gerade ausgewählten Objekte werden entlang der Kurve kopiert; Bezugspunkt ist ihre Mitte unten")).clicked() {
+                                        take_source = true;
+                                    }
+                                });
+                                ui.end_row();
+                            }
                             num(ui, "Abstand", &mut o.spacing, 8.0..=8192.0);
                             num(ui, "Seitlich versetzt", &mut o.offset, -4096.0..=4096.0);
                             ui.label("");
@@ -601,6 +659,16 @@ impl crate::app::App {
         });
         if before != (st.points.clone(), st.opts.kind, st.opts.closed, st.opts.smooth) {
             self.ed.touch();
+        }
+        if take_source {
+            let sel: Vec<Obj> = self.ed.sel.iter().copied().collect();
+            if sel.is_empty() {
+                self.ed.status = tr("Erst Objekte auswählen").into();
+            } else {
+                let b = self.ed.selection_bounds();
+                self.ed.spline.source = sel;
+                self.ed.spline.source_pivot = DVec3::new(b.center().x, b.center().y, b.min.z);
+            }
         }
         if from_sel {
             let pts: Vec<DVec3> = self.ed.sel.iter().map(|o| self.ed.obj_bounds(*o).center()).collect();
@@ -713,5 +781,20 @@ mod tests {
         let p = plan(&ed.spline.points, &ed.spline.opts);
         assert_eq!(p.hulls.len(), 3 + 2 * 2);
         assert!(build(&mut ed_with(vec![DVec3::ZERO], Kind::Road), false).is_err());
+        // Auswahl entlang: Vorlage (ein Pfosten) wird kopiert und an der Kurve ausgerichtet
+        let mut ed = ed_with(vec![DVec3::ZERO, DVec3::new(0.0, 512.0, 0.0)], Kind::Selection);
+        assert!(build(&mut ed, false).is_err(), "ohne Vorlage");
+        let post = ed.map.make_box(Aabb::new(DVec3::new(-8.0, -2.0, 0.0), DVec3::new(8.0, 2.0, 64.0)), "DEV/GRAYGRID", 0.25);
+        let pid = post.id;
+        ed.map.world.solids.push(post.into());
+        ed.spline.source = vec![Obj::Solid(pid)];
+        ed.spline.source_pivot = DVec3::ZERO;
+        ed.spline.opts.spacing = 256.0;
+        let n = build(&mut ed, false).unwrap();
+        assert_eq!(n, 3);
+        // entlang +Y gedreht: die lange Seite (16) liegt jetzt in Y-Richtung
+        let copy = ed.spline.last.iter().find_map(|o| if let Obj::Solid(id) = o { ed.map.solid(*id) } else { None }).unwrap();
+        assert!((copy.bounds.size().y - 16.0).abs() < 1e-6 && (copy.bounds.size().x - 4.0).abs() < 1e-6, "{:?}", copy.bounds.size());
+        assert!(ed.map.solid(pid).is_some(), "Vorlage bleibt")
     }
 }

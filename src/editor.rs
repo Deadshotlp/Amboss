@@ -958,6 +958,14 @@ impl Editor {
         }
     }
 
+    /// Gibt es das Objekt (noch)?
+    pub fn obj_exists(&self, o: Obj) -> bool {
+        match o {
+            Obj::Solid(id) => self.map.solid(id).is_some(),
+            Obj::Entity(id) => self.map.entity(id).is_some(),
+        }
+    }
+
     pub fn selection_bounds(&self) -> Aabb {
         self.sel.iter().fold(Aabb::EMPTY, |b, o| b.union(&self.obj_bounds(*o)))
     }

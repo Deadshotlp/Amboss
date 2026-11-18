@@ -2368,3 +2368,8 @@ Einstellungen → Spiel & Pfade prüfen; der Einrichtungs-Assistent findet Garry
 Nicht genug Speicher	Mémoire insuffisante
 Ein Compile-Programm ist am Speicher gescheitert – meist bei sehr großen Maps oder sehr feinen Lightmaps.	Un outil de compilation a manqué de mémoire – généralement avec de très grandes maps ou des lightmaps très fines.
 Andere Programme schließen, Lightmap-Skalierung großer Flächen erhöhen, Details zu func_detail machen.	Fermez les autres programmes, augmentez l'échelle de lightmap des grandes faces, passez les détails en func_detail.
+Auswahl entlang	Sélection le long
+Vorlage	Modèle
+Auswahl als Vorlage	Sélection comme modèle
+Die gerade ausgewählten Objekte werden entlang der Kurve kopiert; Bezugspunkt ist ihre Mitte unten	Les objets sélectionnés sont copiés le long de la courbe ; le point de référence est leur centre bas
+Erst eine Vorlage übernehmen: Objekte auswählen und „Auswahl als Vorlage“ klicken	Prenez d'abord un modèle : sélectionnez des objets et cliquez sur « Sélection comme modèle »

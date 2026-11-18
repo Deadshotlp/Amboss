@@ -2368,3 +2368,8 @@ Einstellungen → Spiel & Pfade prüfen; der Einrichtungs-Assistent findet Garry
 Nicht genug Speicher	Za mało pamięci
 Ein Compile-Programm ist am Speicher gescheitert – meist bei sehr großen Maps oder sehr feinen Lightmaps.	Programowi kompilującemu zabrakło pamięci – zwykle przy bardzo dużych mapach lub bardzo drobnych lightmapach.
 Andere Programme schließen, Lightmap-Skalierung großer Flächen erhöhen, Details zu func_detail machen.	Zamknij inne programy, zwiększ skalę lightmapy dużych ścian, zamień detale na func_detail.
+Auswahl entlang	Zaznaczenie wzdłuż
+Vorlage	Szablon
+Auswahl als Vorlage	Zaznaczenie jako szablon
+Die gerade ausgewählten Objekte werden entlang der Kurve kopiert; Bezugspunkt ist ihre Mitte unten	Zaznaczone obiekty są kopiowane wzdłuż krzywej; punktem odniesienia jest ich środek u dołu
+Erst eine Vorlage übernehmen: Objekte auswählen und „Auswahl als Vorlage“ klicken	Najpierw weź szablon: zaznacz obiekty i kliknij „Zaznaczenie jako szablon”
