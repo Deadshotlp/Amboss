@@ -2329,3 +2329,44 @@ Maps (VMF, BSP, RMF, MAP)	Maps (VMF, BSP, RMF, MAP)
 Import fehlgeschlagen	Import failed
 JMF (J.A.C.K.) wird nicht direkt gelesen – bitte in J.A.C.K. als .rmf oder .map speichern (Datei → Speichern unter) und diese Datei öffnen	JMF (J.A.C.K.) is not read directly – please save as .rmf or .map in J.A.C.K. (File → Save as) and open that file
 {} importiert: {} Brushes, {} Entities, {} Texturen ohne Ordner (GoldSrc?) – mit „Texturen ersetzen“ austauschen, dann als VMF speichern	{} imported: {} brushes, {} entities, {} textures without folder (GoldSrc?) – swap them with "Replace textures", then save as VMF
+Erste passende Zeile im Protokoll	First matching line in the log
+Leck-Pfad laden	Load leak path
+Problemprüfung	Problem check
+Was bedeutet das? ({})	What does this mean? ({})
+Zu Objekt {}	Go to object {}
+Die Map ist nicht dicht (Leck)	The map is not sealed (leak)
+Irgendwo führt ein Weg von einer Entity ins Leere außerhalb der Map. Dann kann VBSP innen und außen nicht trennen – VVIS bricht ab und VRAD beleuchtet alles hell.	Somewhere a path leads from an entity into the void outside the map. VBSP then cannot separate inside from outside – VVIS stops and VRAD lights everything fullbright.
+Leck-Pfad laden: die rote Linie führt zum Loch. Dort eine Lücke mit einem Brush schließen. Außenwände dürfen kein func_detail und keine Entity sein; Entities müssen innen liegen.	Load the leak path: the red line leads to the hole. Close the gap there with a brush. Outer walls must not be func_detail or an entity; entities must be inside.
+Eine Grenze der Engine ist überschritten	An engine limit was exceeded
+Die Map hat zu viele Brushes, Flächen, Ebenen, Entities, Overlays oder Lichtdaten für das BSP-Format.	The map has too many brushes, faces, planes, entities, overlays or lighting data for the BSP format.
+Kleine Details zu func_detail machen oder als Modell (Auswahl als Modell), verdeckte Flächen auf nodraw setzen, gleiche Brushes zusammenfassen, bei Lichtdaten die Lightmap-Skalierung großer Flächen erhöhen.	Turn small details into func_detail or a model (Selection to model), set hidden faces to nodraw, merge identical brushes; for lighting data, raise the lightmap scale of large faces.
+Etwas liegt außerhalb der Map-Grenze oder ist zu groß	Something is outside the map limit or too large
+Ein Brush oder eine Entity liegt außerhalb von ±16384 Einheiten, oder eine Fläche ist für ihre Lightmap zu groß (Bad surface extents).	A brush or entity is outside ±16384 units, or a face is too large for its lightmap (bad surface extents).
+Objekt in die Map schieben. Bei „Bad surface extents“ die Lightmap-Skalierung der Fläche erhöhen (z. B. 32) oder die Fläche teilen.	Move the object into the map. For "bad surface extents", raise the face's lightmap scale (e.g. 32) or split the face.
+Textur fehlt	Texture missing
+Ein Material aus der Map gibt es im Spiel nicht. Im Spiel erscheint dann das lila-schwarze Schachbrett.	A material used in the map doesn't exist in the game. The purple-black checkerboard appears in game.
+Schreibweise prüfen, fehlende Texturen ersetzen oder die eigenen Dateien ins Spiel kopieren und beim Kompilieren in die BSP packen lassen.	Check the spelling, replace missing textures, or copy your own files into the game and let them be packed into the BSP when compiling.
+Modell fehlt	Model missing
+Ein Prop verweist auf ein Modell, das im Spiel nicht gefunden wurde.	A prop refers to a model that was not found in the game.
+Modellpfad prüfen (Modell-Browser) oder das Modell bzw. das Addon, aus dem es stammt, installieren und mitpacken.	Check the model path (model browser) or install the model or the addon it comes from and pack it along.
+Dieses Modell geht nicht als prop_static	This model can't be a prop_static
+Das Modell ist für bewegliche oder animierte Props gemacht (z. B. mit Physik oder Animation).	The model is made for moving or animated props (e.g. with physics or animation).
+Die Entity auf prop_dynamic oder prop_physics umstellen.	Change the entity to prop_dynamic or prop_physics.
+Brush mit gemischten Inhalten	Brush with mixed contents
+Ein Brush hat Flächen mit verschiedenen Inhaltsarten (z. B. Wasser und fester Stein, oder clip und normale Textur).	A brush has faces with different content types (e.g. water and solid stone, or clip and a normal texture).
+Alle Flächen des Brushes auf dieselbe Art bringen – z. B. Wasser nur oben, sonst nodraw; oder den Brush teilen.	Give all faces of the brush the same type – e.g. water only on top, nodraw elsewhere; or split the brush.
+Kaputter Brush	Broken brush
+Ein Brush ist nicht konvex, zu dünn oder hat doppelte Ebenen – oft nach freiem Vertex-Bearbeiten.	A brush is not convex, too thin or has duplicate planes – often after free vertex editing.
+Brush auswählen, löschen und neu bauen, oder mit „Am Raster ausrichten“ (Strg+B) begradigen. Die Problemprüfung findet ihn.	Select the brush, delete and rebuild it, or straighten it with "Snap to grid" (Ctrl+B). The problem check finds it.
+Areaportal trennt keine zwei Bereiche	Areaportal doesn't separate two areas
+Ein func_areaportal muss eine Öffnung genau verschließen, sodass auf beiden Seiten ein eigener, dichter Bereich liegt.	A func_areaportal must close an opening exactly so that each side is its own sealed area.
+Areaportal so anpassen, dass es die Tür- bzw. Fensteröffnung vollständig ausfüllt und die Bereiche dahinter dicht sind; sonst entfernen.	Adjust the areaportal so it completely fills the door or window opening and the areas behind are sealed; otherwise remove it.
+Overlay liegt auf zu vielen Flächen	Overlay covers too many faces
+Ein Overlay darf nur eine begrenzte Zahl von Flächen berühren.	An overlay may only touch a limited number of faces.
+Overlay verkleinern oder die Liste der Flächen (sides) kürzen.	Make the overlay smaller or shorten its list of faces (sides).
+Ein Compile-Programm wurde nicht gefunden	A compile tool was not found
+VBSP, VVIS, VRAD oder das Spiel liegen nicht dort, wo die Einstellungen sie suchen.	VBSP, VVIS, VRAD or the game are not where the settings look for them.
+Einstellungen → Spiel & Pfade prüfen; der Einrichtungs-Assistent findet Garry's Mod meist automatisch.	Check Settings → Game & paths; the setup assistant usually finds Garry's Mod automatically.
+Nicht genug Speicher	Not enough memory
+Ein Compile-Programm ist am Speicher gescheitert – meist bei sehr großen Maps oder sehr feinen Lightmaps.	A compile tool ran out of memory – usually with very large maps or very fine lightmaps.
+Andere Programme schließen, Lightmap-Skalierung großer Flächen erhöhen, Details zu func_detail machen.	Close other programs, raise the lightmap scale of large faces, turn details into func_detail.

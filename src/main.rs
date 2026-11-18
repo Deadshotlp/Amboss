@@ -23,6 +23,7 @@ mod place_ui;
 mod chrome;
 mod commands;
 mod compile;
+mod compile_help;
 mod csg;
 mod decompile;
 mod dialogs;

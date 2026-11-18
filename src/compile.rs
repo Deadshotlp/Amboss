@@ -566,6 +566,18 @@ pub struct CompileJob {
 }
 
 impl CompileJob {
+    /// Fertiger Lauf mit vorgegebenem Protokoll (Vorschau/Debug)
+    pub fn finished(log: Vec<String>, ok: bool) -> CompileJob {
+        CompileJob {
+            log: Arc::new(Mutex::new(log)),
+            state: Arc::new(Mutex::new(if ok { JobState::Done } else { JobState::Failed })),
+            leaked: Arc::new(AtomicBool::new(false)),
+            vmf_base: PathBuf::new(),
+            cancel: Arc::new(AtomicBool::new(false)),
+            child: Arc::new(Mutex::new(None)),
+        }
+    }
+
     pub fn cancel(&self) {
         self.cancel.store(true, Ordering::SeqCst);
         if let Some(c) = self.child.lock().unwrap().as_mut() {

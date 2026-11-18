@@ -2327,3 +2327,44 @@ Maps (VMF, BSP, RMF, MAP)	Mapy (VMF, BSP, RMF, MAP)
 Import fehlgeschlagen	Import nie powiódł się
 JMF (J.A.C.K.) wird nicht direkt gelesen – bitte in J.A.C.K. als .rmf oder .map speichern (Datei → Speichern unter) und diese Datei öffnen	JMF (J.A.C.K.) nie jest wczytywany bezpośrednio – zapisz w J.A.C.K. jako .rmf lub .map (Plik → Zapisz jako) i otwórz ten plik
 {} importiert: {} Brushes, {} Entities, {} Texturen ohne Ordner (GoldSrc?) – mit „Texturen ersetzen“ austauschen, dann als VMF speichern	Zaimportowano {}: {} brushy, {} encji, {} tekstur bez folderu (GoldSrc?) – zamień je przez „Zamień tekstury”, potem zapisz jako VMF
+Erste passende Zeile im Protokoll	Pierwsza pasująca linia w logu
+Leck-Pfad laden	Wczytaj ścieżkę wycieku
+Problemprüfung	Sprawdzanie problemów
+Was bedeutet das? ({})	Co to znaczy? ({})
+Zu Objekt {}	Przejdź do obiektu {}
+Die Map ist nicht dicht (Leck)	Mapa nie jest szczelna (wyciek)
+Irgendwo führt ein Weg von einer Entity ins Leere außerhalb der Map. Dann kann VBSP innen und außen nicht trennen – VVIS bricht ab und VRAD beleuchtet alles hell.	Gdzieś prowadzi droga od encji w pustkę poza mapą. VBSP nie potrafi wtedy oddzielić wnętrza od zewnątrz – VVIS przerywa, a VRAD oświetla wszystko jasno.
+Leck-Pfad laden: die rote Linie führt zum Loch. Dort eine Lücke mit einem Brush schließen. Außenwände dürfen kein func_detail und keine Entity sein; Entities müssen innen liegen.	Wczytaj ścieżkę wycieku: czerwona linia prowadzi do dziury. Zamknij ją brushem. Ściany zewnętrzne nie mogą być func_detail ani encją; encje muszą być w środku.
+Eine Grenze der Engine ist überschritten	Przekroczono limit silnika
+Die Map hat zu viele Brushes, Flächen, Ebenen, Entities, Overlays oder Lichtdaten für das BSP-Format.	Mapa ma za dużo brushy, ścian, płaszczyzn, encji, overlayów lub danych oświetlenia jak na format BSP.
+Kleine Details zu func_detail machen oder als Modell (Auswahl als Modell), verdeckte Flächen auf nodraw setzen, gleiche Brushes zusammenfassen, bei Lichtdaten die Lightmap-Skalierung großer Flächen erhöhen.	Zamień małe detale na func_detail lub model (Zaznaczenie jako model), ustaw niewidoczne ściany na nodraw, połącz takie same brushe; przy danych oświetlenia zwiększ skalę lightmapy dużych ścian.
+Etwas liegt außerhalb der Map-Grenze oder ist zu groß	Coś leży poza granicą mapy lub jest za duże
+Ein Brush oder eine Entity liegt außerhalb von ±16384 Einheiten, oder eine Fläche ist für ihre Lightmap zu groß (Bad surface extents).	Brush lub encja leży poza ±16384 jednostkami albo ściana jest za duża dla swojej lightmapy (Bad surface extents).
+Objekt in die Map schieben. Bei „Bad surface extents“ die Lightmap-Skalierung der Fläche erhöhen (z. B. 32) oder die Fläche teilen.	Przesuń obiekt do mapy. Przy „Bad surface extents” zwiększ skalę lightmapy ściany (np. 32) lub podziel ścianę.
+Textur fehlt	Brak tekstury
+Ein Material aus der Map gibt es im Spiel nicht. Im Spiel erscheint dann das lila-schwarze Schachbrett.	Materiału z mapy nie ma w grze. W grze pojawia się wtedy fioletowo-czarna szachownica.
+Schreibweise prüfen, fehlende Texturen ersetzen oder die eigenen Dateien ins Spiel kopieren und beim Kompilieren in die BSP packen lassen.	Sprawdź pisownię, zamień brakujące tekstury albo skopiuj własne pliki do gry i pozwól spakować je do BSP przy kompilacji.
+Modell fehlt	Brak modelu
+Ein Prop verweist auf ein Modell, das im Spiel nicht gefunden wurde.	Prop odwołuje się do modelu, którego nie znaleziono w grze.
+Modellpfad prüfen (Modell-Browser) oder das Modell bzw. das Addon, aus dem es stammt, installieren und mitpacken.	Sprawdź ścieżkę modelu (przeglądarka modeli) albo zainstaluj model lub addon, z którego pochodzi, i spakuj go.
+Dieses Modell geht nicht als prop_static	Ten model nie może być prop_static
+Das Modell ist für bewegliche oder animierte Props gemacht (z. B. mit Physik oder Animation).	Model jest przeznaczony dla ruchomych lub animowanych propów (np. z fizyką lub animacją).
+Die Entity auf prop_dynamic oder prop_physics umstellen.	Zmień encję na prop_dynamic lub prop_physics.
+Brush mit gemischten Inhalten	Brush z mieszaną zawartością
+Ein Brush hat Flächen mit verschiedenen Inhaltsarten (z. B. Wasser und fester Stein, oder clip und normale Textur).	Brush ma ściany o różnych rodzajach zawartości (np. woda i lity kamień albo clip i zwykła tekstura).
+Alle Flächen des Brushes auf dieselbe Art bringen – z. B. Wasser nur oben, sonst nodraw; oder den Brush teilen.	Nadaj wszystkim ścianom brusha ten sam rodzaj – np. woda tylko na górze, reszta nodraw; albo podziel brush.
+Kaputter Brush	Uszkodzony brush
+Ein Brush ist nicht konvex, zu dünn oder hat doppelte Ebenen – oft nach freiem Vertex-Bearbeiten.	Brush nie jest wypukły, jest za cienki lub ma zdublowane płaszczyzny – często po swobodnej edycji wierzchołków.
+Brush auswählen, löschen und neu bauen, oder mit „Am Raster ausrichten“ (Strg+B) begradigen. Die Problemprüfung findet ihn.	Zaznacz brush, usuń go i zbuduj ponownie albo wyprostuj przez „Wyrównaj do siatki” (Ctrl+B). Sprawdzanie problemów go znajdzie.
+Areaportal trennt keine zwei Bereiche	Areaportal nie rozdziela dwóch obszarów
+Ein func_areaportal muss eine Öffnung genau verschließen, sodass auf beiden Seiten ein eigener, dichter Bereich liegt.	func_areaportal musi dokładnie zamykać otwór, tak aby po obu stronach był osobny, szczelny obszar.
+Areaportal so anpassen, dass es die Tür- bzw. Fensteröffnung vollständig ausfüllt und die Bereiche dahinter dicht sind; sonst entfernen.	Dopasuj areaportal tak, by całkowicie wypełniał otwór drzwi lub okna, a obszary za nim były szczelne; w przeciwnym razie usuń go.
+Overlay liegt auf zu vielen Flächen	Overlay leży na zbyt wielu ścianach
+Ein Overlay darf nur eine begrenzte Zahl von Flächen berühren.	Overlay może dotykać tylko ograniczonej liczby ścian.
+Overlay verkleinern oder die Liste der Flächen (sides) kürzen.	Zmniejsz overlay albo skróć listę ścian (sides).
+Ein Compile-Programm wurde nicht gefunden	Nie znaleziono programu kompilującego
+VBSP, VVIS, VRAD oder das Spiel liegen nicht dort, wo die Einstellungen sie suchen.	VBSP, VVIS, VRAD lub gra nie leżą tam, gdzie szukają ich ustawienia.
+Einstellungen → Spiel & Pfade prüfen; der Einrichtungs-Assistent findet Garry's Mod meist automatisch.	Sprawdź Ustawienia → Gra i ścieżki; kreator konfiguracji zwykle sam znajduje Garry's Mod.
+Nicht genug Speicher	Za mało pamięci
+Ein Compile-Programm ist am Speicher gescheitert – meist bei sehr großen Maps oder sehr feinen Lightmaps.	Programowi kompilującemu zabrakło pamięci – zwykle przy bardzo dużych mapach lub bardzo drobnych lightmapach.
+Andere Programme schließen, Lightmap-Skalierung großer Flächen erhöhen, Details zu func_detail machen.	Zamknij inne programy, zwiększ skalę lightmapy dużych ścian, zamień detale na func_detail.

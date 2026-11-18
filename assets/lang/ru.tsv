@@ -2327,3 +2327,44 @@ Maps (VMF, BSP, RMF, MAP)	Карты (VMF, BSP, RMF, MAP)
 Import fehlgeschlagen	Импорт не удался
 JMF (J.A.C.K.) wird nicht direkt gelesen – bitte in J.A.C.K. als .rmf oder .map speichern (Datei → Speichern unter) und diese Datei öffnen	JMF (J.A.C.K.) не читается напрямую – сохраните в J.A.C.K. как .rmf или .map (Файл → Сохранить как) и откройте этот файл
 {} importiert: {} Brushes, {} Entities, {} Texturen ohne Ordner (GoldSrc?) – mit „Texturen ersetzen“ austauschen, dann als VMF speichern	{} импортирован: брашей {}, сущностей {}, текстур без папки {} (GoldSrc?) – замените их через «Заменить текстуры», затем сохраните как VMF
+Erste passende Zeile im Protokoll	Первая подходящая строка журнала
+Leck-Pfad laden	Загрузить путь утечки
+Problemprüfung	Проверка проблем
+Was bedeutet das? ({})	Что это значит? ({})
+Zu Objekt {}	К объекту {}
+Die Map ist nicht dicht (Leck)	Карта не замкнута (утечка)
+Irgendwo führt ein Weg von einer Entity ins Leere außerhalb der Map. Dann kann VBSP innen und außen nicht trennen – VVIS bricht ab und VRAD beleuchtet alles hell.	Где-то от сущности есть путь в пустоту за пределами карты. Тогда VBSP не может разделить внутреннее и внешнее – VVIS прерывается, а VRAD освещает всё полностью.
+Leck-Pfad laden: die rote Linie führt zum Loch. Dort eine Lücke mit einem Brush schließen. Außenwände dürfen kein func_detail und keine Entity sein; Entities müssen innen liegen.	Загрузите путь утечки: красная линия ведёт к дыре. Закройте её брашем. Внешние стены не должны быть func_detail или сущностью; сущности должны быть внутри.
+Eine Grenze der Engine ist überschritten	Превышен лимит движка
+Die Map hat zu viele Brushes, Flächen, Ebenen, Entities, Overlays oder Lichtdaten für das BSP-Format.	В карте слишком много брашей, граней, плоскостей, сущностей, оверлеев или данных освещения для формата BSP.
+Kleine Details zu func_detail machen oder als Modell (Auswahl als Modell), verdeckte Flächen auf nodraw setzen, gleiche Brushes zusammenfassen, bei Lichtdaten die Lightmap-Skalierung großer Flächen erhöhen.	Сделайте мелкие детали func_detail или моделью («Выделение как модель»), скрытые грани – nodraw, объедините одинаковые браши; для освещения увеличьте масштаб лайтмапы больших граней.
+Etwas liegt außerhalb der Map-Grenze oder ist zu groß	Что-то за границей карты или слишком велико
+Ein Brush oder eine Entity liegt außerhalb von ±16384 Einheiten, oder eine Fläche ist für ihre Lightmap zu groß (Bad surface extents).	Браш или сущность за пределами ±16384 единиц, или грань слишком велика для своей лайтмапы (Bad surface extents).
+Objekt in die Map schieben. Bei „Bad surface extents“ die Lightmap-Skalierung der Fläche erhöhen (z. B. 32) oder die Fläche teilen.	Переместите объект в карту. При «Bad surface extents» увеличьте масштаб лайтмапы грани (например, 32) или разделите её.
+Textur fehlt	Текстура отсутствует
+Ein Material aus der Map gibt es im Spiel nicht. Im Spiel erscheint dann das lila-schwarze Schachbrett.	Материала из карты нет в игре. В игре появится фиолетово-чёрная шахматка.
+Schreibweise prüfen, fehlende Texturen ersetzen oder die eigenen Dateien ins Spiel kopieren und beim Kompilieren in die BSP packen lassen.	Проверьте написание, замените отсутствующие текстуры или скопируйте свои файлы в игру и упакуйте их в BSP при компиляции.
+Modell fehlt	Модель отсутствует
+Ein Prop verweist auf ein Modell, das im Spiel nicht gefunden wurde.	Проп ссылается на модель, которой нет в игре.
+Modellpfad prüfen (Modell-Browser) oder das Modell bzw. das Addon, aus dem es stammt, installieren und mitpacken.	Проверьте путь модели (браузер моделей) или установите модель/аддон, из которого она, и упакуйте её.
+Dieses Modell geht nicht als prop_static	Эту модель нельзя использовать как prop_static
+Das Modell ist für bewegliche oder animierte Props gemacht (z. B. mit Physik oder Animation).	Модель предназначена для подвижных или анимированных пропов (например, с физикой или анимацией).
+Die Entity auf prop_dynamic oder prop_physics umstellen.	Смените сущность на prop_dynamic или prop_physics.
+Brush mit gemischten Inhalten	Браш со смешанным содержимым
+Ein Brush hat Flächen mit verschiedenen Inhaltsarten (z. B. Wasser und fester Stein, oder clip und normale Textur).	У браша грани с разным типом содержимого (например, вода и камень или clip и обычная текстура).
+Alle Flächen des Brushes auf dieselbe Art bringen – z. B. Wasser nur oben, sonst nodraw; oder den Brush teilen.	Сделайте все грани браша одного типа – например, вода только сверху, остальное nodraw; или разделите браш.
+Kaputter Brush	Сломанный браш
+Ein Brush ist nicht konvex, zu dünn oder hat doppelte Ebenen – oft nach freiem Vertex-Bearbeiten.	Браш не выпуклый, слишком тонкий или имеет повторяющиеся плоскости – часто после свободного редактирования вершин.
+Brush auswählen, löschen und neu bauen, oder mit „Am Raster ausrichten“ (Strg+B) begradigen. Die Problemprüfung findet ihn.	Выделите браш, удалите и постройте заново или выровняйте через «Привязать к сетке» (Ctrl+B). Проверка проблем его найдёт.
+Areaportal trennt keine zwei Bereiche	Ареапортал не разделяет две области
+Ein func_areaportal muss eine Öffnung genau verschließen, sodass auf beiden Seiten ein eigener, dichter Bereich liegt.	func_areaportal должен точно закрывать проём, чтобы с каждой стороны была своя замкнутая область.
+Areaportal so anpassen, dass es die Tür- bzw. Fensteröffnung vollständig ausfüllt und die Bereiche dahinter dicht sind; sonst entfernen.	Подгоните ареапортал так, чтобы он полностью заполнял проём двери или окна и области за ним были замкнуты; иначе удалите его.
+Overlay liegt auf zu vielen Flächen	Оверлей лежит на слишком многих гранях
+Ein Overlay darf nur eine begrenzte Zahl von Flächen berühren.	Оверлей может касаться лишь ограниченного числа граней.
+Overlay verkleinern oder die Liste der Flächen (sides) kürzen.	Уменьшите оверлей или сократите список граней (sides).
+Ein Compile-Programm wurde nicht gefunden	Программа компиляции не найдена
+VBSP, VVIS, VRAD oder das Spiel liegen nicht dort, wo die Einstellungen sie suchen.	VBSP, VVIS, VRAD или игра находятся не там, где их ищут настройки.
+Einstellungen → Spiel & Pfade prüfen; der Einrichtungs-Assistent findet Garry's Mod meist automatisch.	Проверьте Настройки → Игра и пути; мастер настройки обычно находит Garry's Mod сам.
+Nicht genug Speicher	Недостаточно памяти
+Ein Compile-Programm ist am Speicher gescheitert – meist bei sehr großen Maps oder sehr feinen Lightmaps.	Программе компиляции не хватило памяти – обычно на очень больших картах или очень мелких лайтмапах.
+Andere Programme schließen, Lightmap-Skalierung großer Flächen erhöhen, Details zu func_detail machen.	Закройте другие программы, увеличьте масштаб лайтмапы больших граней, сделайте детали func_detail.

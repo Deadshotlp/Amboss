@@ -130,6 +130,7 @@ impl App {
         let th = crate::theme::t();
         let mut open = true;
         let mut goto: Option<u32> = None;
+        let mut help_action: Option<crate::compile_help::Action> = None;
         let mut open_opt = false;
         let mut start = false;
         let mut cancel = false;
@@ -267,6 +268,42 @@ impl App {
                     });
                 }
                 ui.add_space(6.0);
+                // Erklärungen zu bekannten Meldungen
+                let hints = self.job.as_ref().map(|j| crate::compile_help::explain(&j.log.lock().unwrap())).unwrap_or_default();
+                if !hints.is_empty() {
+                    egui::CollapsingHeader::new(RichText::new(crate::i18n::tr_dyn(&format!("Was bedeutet das? ({})", hints.len()))).strong()).id_salt("compile_help").default_open(true).show(ui, |ui| {
+                        for h in &hints {
+                            egui::Frame::new().fill(th.raised).corner_radius(8).inner_margin(10).outer_margin(egui::Margin { left: 0, right: 0, top: 0, bottom: 6 }).show(ui, |ui| {
+                                ui.set_width(ui.available_width());
+                                ui.horizontal(|ui| {
+                                    crate::theme::severity_mark(ui, h.level);
+                                    ui.label(RichText::new(crate::i18n::tr(h.title)).strong().color(th.text));
+                                    if h.count > 1 {
+                                        ui.label(RichText::new(format!("×{}", h.count)).color(th.text3));
+                                    }
+                                });
+                                ui.label(RichText::new(crate::i18n::tr(h.text)).size(12.5).color(th.text2));
+                                ui.label(RichText::new(crate::i18n::tr(h.fix)).size(12.5).color(th.accent_text));
+                                ui.horizontal_wrapped(|ui| {
+                                    for a in &h.actions {
+                                        use crate::compile_help::Action as A;
+                                        let label = match a {
+                                            A::Pointfile => crate::i18n::tr("Leck-Pfad laden").to_string(),
+                                            A::Goto(id) => crate::i18n::tr_dyn(&format!("Zu Objekt {id}")),
+                                            A::Problems => crate::i18n::tr("Problemprüfung").to_string(),
+                                            A::Settings => crate::i18n::tr("Einstellungen").to_string(),
+                                            A::Replace => crate::i18n::tr("Texturen ersetzen").to_string(),
+                                        };
+                                        if ui.small_button(label).clicked() {
+                                            help_action = Some(*a);
+                                        }
+                                    }
+                                    ui.label(RichText::new(&h.line).font(crate::theme::mono(10.5)).color(th.text3)).on_hover_text(crate::i18n::tr("Erste passende Zeile im Protokoll"));
+                                });
+                            });
+                        }
+                    });
+                }
                 // Protokoll
                 let (mut nerr, mut nwarn) = (0, 0);
                 if let Some(j) = &self.job {
@@ -367,6 +404,17 @@ impl App {
         }
         if let Some(id) = goto {
             self.goto_id(id);
+        }
+        match help_action {
+            Some(crate::compile_help::Action::Pointfile) => self.load_pointfile(),
+            Some(crate::compile_help::Action::Goto(id)) => self.goto_id(id),
+            Some(crate::compile_help::Action::Problems) => {
+                self.problems = crate::problems::check(&self.ed, self.known_materials().as_ref());
+                self.win.problems = true;
+            }
+            Some(crate::compile_help::Action::Settings) => self.win.settings = true,
+            Some(crate::compile_help::Action::Replace) => self.win.replace = true,
+            None => {}
         }
     }
 

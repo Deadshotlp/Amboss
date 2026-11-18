@@ -2327,3 +2327,44 @@ Maps (VMF, BSP, RMF, MAP)	Maps (VMF, BSP, RMF, MAP)
 Import fehlgeschlagen	Échec de l'import
 JMF (J.A.C.K.) wird nicht direkt gelesen – bitte in J.A.C.K. als .rmf oder .map speichern (Datei → Speichern unter) und diese Datei öffnen	Le JMF (J.A.C.K.) n'est pas lu directement – enregistrez en .rmf ou .map dans J.A.C.K. (Fichier → Enregistrer sous) et ouvrez ce fichier
 {} importiert: {} Brushes, {} Entities, {} Texturen ohne Ordner (GoldSrc?) – mit „Texturen ersetzen“ austauschen, dann als VMF speichern	{} importé : {} brushes, {} entités, {} textures sans dossier (GoldSrc ?) – remplacez-les avec « Remplacer les textures », puis enregistrez en VMF
+Erste passende Zeile im Protokoll	Première ligne correspondante du journal
+Leck-Pfad laden	Charger le chemin de fuite
+Problemprüfung	Vérification des problèmes
+Was bedeutet das? ({})	Qu'est-ce que cela signifie ? ({})
+Zu Objekt {}	Aller à l'objet {}
+Die Map ist nicht dicht (Leck)	La map n'est pas étanche (fuite)
+Irgendwo führt ein Weg von einer Entity ins Leere außerhalb der Map. Dann kann VBSP innen und außen nicht trennen – VVIS bricht ab und VRAD beleuchtet alles hell.	Quelque part, un chemin mène d'une entité vers le vide hors de la map. VBSP ne peut alors pas séparer l'intérieur de l'extérieur – VVIS s'arrête et VRAD éclaire tout uniformément.
+Leck-Pfad laden: die rote Linie führt zum Loch. Dort eine Lücke mit einem Brush schließen. Außenwände dürfen kein func_detail und keine Entity sein; Entities müssen innen liegen.	Chargez le chemin de fuite : la ligne rouge mène au trou. Bouchez-le avec une brush. Les murs extérieurs ne doivent pas être func_detail ni une entité ; les entités doivent être à l'intérieur.
+Eine Grenze der Engine ist überschritten	Une limite du moteur est dépassée
+Die Map hat zu viele Brushes, Flächen, Ebenen, Entities, Overlays oder Lichtdaten für das BSP-Format.	La map contient trop de brushes, faces, plans, entités, overlays ou données d'éclairage pour le format BSP.
+Kleine Details zu func_detail machen oder als Modell (Auswahl als Modell), verdeckte Flächen auf nodraw setzen, gleiche Brushes zusammenfassen, bei Lichtdaten die Lightmap-Skalierung großer Flächen erhöhen.	Transformez les petits détails en func_detail ou en modèle (Sélection en modèle), passez les faces cachées en nodraw, fusionnez les brushes identiques ; pour l'éclairage, augmentez l'échelle de lightmap des grandes faces.
+Etwas liegt außerhalb der Map-Grenze oder ist zu groß	Quelque chose est hors de la limite de la map ou trop grand
+Ein Brush oder eine Entity liegt außerhalb von ±16384 Einheiten, oder eine Fläche ist für ihre Lightmap zu groß (Bad surface extents).	Une brush ou une entité est hors de ±16384 unités, ou une face est trop grande pour sa lightmap (Bad surface extents).
+Objekt in die Map schieben. Bei „Bad surface extents“ die Lightmap-Skalierung der Fläche erhöhen (z. B. 32) oder die Fläche teilen.	Déplacez l'objet dans la map. Pour « Bad surface extents », augmentez l'échelle de lightmap de la face (p. ex. 32) ou divisez-la.
+Textur fehlt	Texture manquante
+Ein Material aus der Map gibt es im Spiel nicht. Im Spiel erscheint dann das lila-schwarze Schachbrett.	Un matériau de la map n'existe pas dans le jeu. Le damier violet et noir apparaît alors en jeu.
+Schreibweise prüfen, fehlende Texturen ersetzen oder die eigenen Dateien ins Spiel kopieren und beim Kompilieren in die BSP packen lassen.	Vérifiez l'orthographe, remplacez les textures manquantes ou copiez vos fichiers dans le jeu et faites-les empaqueter dans le BSP à la compilation.
+Modell fehlt	Modèle manquant
+Ein Prop verweist auf ein Modell, das im Spiel nicht gefunden wurde.	Un prop renvoie à un modèle introuvable dans le jeu.
+Modellpfad prüfen (Modell-Browser) oder das Modell bzw. das Addon, aus dem es stammt, installieren und mitpacken.	Vérifiez le chemin du modèle (navigateur de modèles) ou installez le modèle ou l'addon d'origine et empaquetez-le.
+Dieses Modell geht nicht als prop_static	Ce modèle ne peut pas être un prop_static
+Das Modell ist für bewegliche oder animierte Props gemacht (z. B. mit Physik oder Animation).	Le modèle est conçu pour des props mobiles ou animés (physique ou animation).
+Die Entity auf prop_dynamic oder prop_physics umstellen.	Passez l'entité en prop_dynamic ou prop_physics.
+Brush mit gemischten Inhalten	Brush à contenus mélangés
+Ein Brush hat Flächen mit verschiedenen Inhaltsarten (z. B. Wasser und fester Stein, oder clip und normale Textur).	Une brush a des faces de types de contenu différents (p. ex. eau et pierre solide, ou clip et texture normale).
+Alle Flächen des Brushes auf dieselbe Art bringen – z. B. Wasser nur oben, sonst nodraw; oder den Brush teilen.	Donnez le même type à toutes les faces de la brush – p. ex. eau seulement en haut, nodraw ailleurs ; ou divisez la brush.
+Kaputter Brush	Brush cassée
+Ein Brush ist nicht konvex, zu dünn oder hat doppelte Ebenen – oft nach freiem Vertex-Bearbeiten.	Une brush n'est pas convexe, trop fine ou a des plans en double – souvent après une édition libre des sommets.
+Brush auswählen, löschen und neu bauen, oder mit „Am Raster ausrichten“ (Strg+B) begradigen. Die Problemprüfung findet ihn.	Sélectionnez la brush, supprimez-la et reconstruisez-la, ou redressez-la avec « Aligner sur la grille » (Ctrl+B). La vérification des problèmes la trouve.
+Areaportal trennt keine zwei Bereiche	L'areaportal ne sépare pas deux zones
+Ein func_areaportal muss eine Öffnung genau verschließen, sodass auf beiden Seiten ein eigener, dichter Bereich liegt.	Un func_areaportal doit fermer exactement une ouverture pour qu'il y ait une zone étanche de chaque côté.
+Areaportal so anpassen, dass es die Tür- bzw. Fensteröffnung vollständig ausfüllt und die Bereiche dahinter dicht sind; sonst entfernen.	Ajustez l'areaportal pour qu'il remplisse entièrement l'ouverture de porte ou de fenêtre et que les zones derrière soient étanches ; sinon supprimez-le.
+Overlay liegt auf zu vielen Flächen	L'overlay couvre trop de faces
+Ein Overlay darf nur eine begrenzte Zahl von Flächen berühren.	Un overlay ne peut toucher qu'un nombre limité de faces.
+Overlay verkleinern oder die Liste der Flächen (sides) kürzen.	Réduisez l'overlay ou raccourcissez sa liste de faces (sides).
+Ein Compile-Programm wurde nicht gefunden	Un outil de compilation est introuvable
+VBSP, VVIS, VRAD oder das Spiel liegen nicht dort, wo die Einstellungen sie suchen.	VBSP, VVIS, VRAD ou le jeu ne sont pas là où les paramètres les cherchent.
+Einstellungen → Spiel & Pfade prüfen; der Einrichtungs-Assistent findet Garry's Mod meist automatisch.	Vérifiez Paramètres → Jeu et chemins ; l'assistant de configuration trouve généralement Garry's Mod automatiquement.
+Nicht genug Speicher	Mémoire insuffisante
+Ein Compile-Programm ist am Speicher gescheitert – meist bei sehr großen Maps oder sehr feinen Lightmaps.	Un outil de compilation a manqué de mémoire – généralement avec de très grandes maps ou des lightmaps très fines.
+Andere Programme schließen, Lightmap-Skalierung großer Flächen erhöhen, Details zu func_detail machen.	Fermez les autres programmes, augmentez l'échelle de lightmap des grandes faces, passez les détails en func_detail.

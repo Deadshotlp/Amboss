@@ -1174,6 +1174,12 @@ impl App {
                 "panel_tab" => self.panel_tab = v.parse().unwrap_or(0),
                 "import" => self.open_model_import(std::path::PathBuf::from(v)),
                 "workshop" => self.open_workshop(),
+                "compile_demo" => {
+                    let log = ["Valve Software - vbsp.exe", "Processing areas...done (0)", "Brush 1234: plane with no normal", "Material DEV/WAND_ALT not found!", "Material DEV/WAND_ALT2 not found!", "**** leaked ****", "Entity info_player_start (-48.00 -32.00 -96.00) leaked!", "VBSP fehlgeschlagen"].iter().map(|s| s.to_string()).collect();
+                    self.job = Some(crate::compile::CompileJob::finished(log, false));
+                    self.job_seen = self.job.as_ref().map(|j| j.state());
+                    self.win.compile = true;
+                }
                 "whatsnew" => self.open_whats_new(if v.is_empty() { None } else { Some(v) }),
                 "spline" => {
                     let st = &mut self.ed.spline;
