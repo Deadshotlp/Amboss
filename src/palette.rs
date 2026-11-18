@@ -23,7 +23,7 @@ fn category(c: Cmd) -> &'static str {
         Hide | HideUnselected | UnhideAll | Outliner | LogicalView | GridDown | GridUp | CenterSel2D | CenterSel3D | NextCamera | Maximize | ToggleGizmo | ToggleSnap | ToggleVertexSnap | Palette | ToggleNodraw | ToggleTriggers | ToggleToolBrushes | SkyboxMode => crate::i18n::tr("Ansicht"),
         ApplyTexture | ReplaceTextures | NodrawHidden | TextureBrowser | ModelBrowser | SoundBrowser | ParticleBrowser => crate::i18n::tr("Texturen"),
         CompareMap | Merge3 | CheckProblems | Optimize | OptimizeCheck | EntityReport | GotoNumber | MapInfo | LoadPointfile | ClearMeasure | SkyboxCopy | SkyboxCheck => "Map",
-        Compile | CompileWindow | TestFromCamera | Walk => crate::i18n::tr("Kompilieren"),
+        Compile | CompileWindow | TestFromCamera | Walk | Workshop => crate::i18n::tr("Kompilieren"),
         Collab => crate::i18n::tr("Live-Sitzung"),
         Help => crate::i18n::tr("Hilfe"),
         Tool(_) => crate::i18n::tr("Werkzeug"),

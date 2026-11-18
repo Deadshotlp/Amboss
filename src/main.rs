@@ -54,6 +54,7 @@ mod mesh_ui;
 mod live;
 mod live_ui;
 mod walk;
+mod workshop;
 mod ropes;
 mod merge_ui;
 mod mdl;

@@ -2242,3 +2242,34 @@ Relief aus der Helligkeit der Basistextur berechnen (hell = erhaben)	Calcular el
 Ränder der Basistextur (und Normalmap) überblenden, damit beim Kacheln keine Kanten sichtbar sind – Vorschau mit „Gekachelt“ prüfen	Fundir los bordes de la textura base (y del mapa de normales) para que no se vean juntas al repetir; compruébalo con «En mosaico»
 Stärke des Reliefs	Intensidad del relieve
 Keine Grundfarbe (albedo/basecolor/diffuse) im Set	No hay color base (albedo/basecolor/diffuse) en el conjunto
+.gma erstellt	.gma creado
+Addon-Ordner: {} ({})	Carpeta del addon: {} ({})
+Aus 3D-Ansicht	Desde la vista 3D
+BSP: {}	BSP: {}
+Bild fürs Spawnmenü	Imagen del menú de aparición
+Bild wählen…	Elegir imagen…
+Fehlgeschlagen.	Error.
+Fertig.	Listo.
+Für eine neue Veröffentlichung braucht es ein Vorschaubild	Una nueva publicación necesita una imagen de vista previa
+Im Workshop veröffentlichen	Publicar en Workshop
+Im Workshop veröffentlichen…	Publicar en Workshop…
+Im Workshop veröffentlicht	Publicado en Workshop
+Kein Vorschaubild	Sin imagen de vista previa
+Navmesh (.nav)	Navmesh (.nav)
+Nimmt das Bild der 3D-Ansicht (quadratischer Ausschnitt aus der Mitte)	Toma la imagen de la vista 3D (recorte cuadrado del centro)
+Nur .gma erstellen	Solo crear .gma
+Seite öffnen	Abrir página
+Steam muss laufen und angemeldet sein. Beschreibung und Sichtbarkeit stellst du danach auf der Workshop-Seite ein (neue Addons sind zunächst versteckt). Eigene Inhalte vorher in die BSP packen (Kompilieren & Exportieren).	Steam debe estar abierto y con la sesión iniciada. Después ajusta la descripción y la visibilidad en la página de Workshop (los addons nuevos empiezan ocultos). Empaqueta antes el contenido propio en el BSP (Compilar y exportar).
+Update hochladen	Subir actualización
+Veröffentlichen	Publicar
+Wird als 512 × 512 JPEG hochgeladen	Se sube como JPEG de 512 × 512
+Workshop: fehlgeschlagen (siehe Log)	Workshop: error (ver registro)
+gmad nicht gefunden (…/GarrysMod/bin)	No se encontró gmad (…/GarrysMod/bin)
+gmpublish nicht gefunden (…/GarrysMod/bin)	No se encontró gmpublish (…/GarrysMod/bin)
+kurze Notiz zum Update	nota breve sobre la actualización
+leer = neu anlegen	vacío = crear nuevo
+Tags (höchstens 2)	Etiquetas (máximo 2)
+Titel	Título
+Workshop-ID	ID de Workshop
+Änderungen	Cambios
+Beilegen	Incluir

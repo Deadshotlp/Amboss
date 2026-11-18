@@ -226,6 +226,8 @@ pub struct Settings {
     pub skip_version: String,
     /// Größe der Oberfläche (1.0 = Systemvorgabe)
     pub ui_scale: f32,
+    /// Workshop-Angaben je Map (Name ohne Endung)
+    pub workshop: std::collections::HashMap<String, crate::workshop::WorkshopInfo>,
 }
 
 impl Default for Settings {
@@ -281,6 +283,7 @@ impl Default for Settings {
             check_updates: true,
             skip_version: String::new(),
             ui_scale: 1.0,
+            workshop: Default::default(),
         }
     }
 }

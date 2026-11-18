@@ -13,6 +13,7 @@ impl App {
         self.heightmap_window(ctx);
         self.prop_window(ctx);
         self.import_window(ctx);
+        self.workshop_window(ctx);
         self.decompile_window(ctx);
         self.scripts_window(ctx);
         self.material_editor_window(ctx);

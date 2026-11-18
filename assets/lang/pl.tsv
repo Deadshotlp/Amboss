@@ -2242,3 +2242,34 @@ Relief aus der Helligkeit der Basistextur berechnen (hell = erhaben)	Oblicz reli
 Ränder der Basistextur (und Normalmap) überblenden, damit beim Kacheln keine Kanten sichtbar sind – Vorschau mit „Gekachelt“ prüfen	Wymieszaj krawędzie tekstury bazowej (i normal mapy), aby przy kafelkowaniu nie było widać szwów – sprawdź w podglądzie „Kafelki“
 Stärke des Reliefs	Siła reliefu
 Keine Grundfarbe (albedo/basecolor/diffuse) im Set	Brak koloru bazowego (albedo/basecolor/diffuse) w zestawie
+.gma erstellt	Utworzono .gma
+Addon-Ordner: {} ({})	Folder addonu: {} ({})
+Aus 3D-Ansicht	Z widoku 3D
+BSP: {}	BSP: {}
+Bild fürs Spawnmenü	Obraz w menu spawnu
+Bild wählen…	Wybierz obraz…
+Fehlgeschlagen.	Niepowodzenie.
+Fertig.	Gotowe.
+Für eine neue Veröffentlichung braucht es ein Vorschaubild	Nowa publikacja wymaga obrazu podglądu
+Im Workshop veröffentlichen	Opublikuj w Warsztacie
+Im Workshop veröffentlichen…	Opublikuj w Warsztacie…
+Im Workshop veröffentlicht	Opublikowano w Warsztacie
+Kein Vorschaubild	Brak obrazu podglądu
+Navmesh (.nav)	Navmesh (.nav)
+Nimmt das Bild der 3D-Ansicht (quadratischer Ausschnitt aus der Mitte)	Pobiera obraz z widoku 3D (kwadratowy wycinek ze środka)
+Nur .gma erstellen	Tylko utwórz .gma
+Seite öffnen	Otwórz stronę
+Steam muss laufen und angemeldet sein. Beschreibung und Sichtbarkeit stellst du danach auf der Workshop-Seite ein (neue Addons sind zunächst versteckt). Eigene Inhalte vorher in die BSP packen (Kompilieren & Exportieren).	Steam musi być uruchomiony i zalogowany. Opis i widoczność ustawisz potem na stronie Warsztatu (nowe addony są początkowo ukryte). Własną zawartość najpierw spakuj do BSP (Kompiluj i eksportuj).
+Update hochladen	Wyślij aktualizację
+Veröffentlichen	Opublikuj
+Wird als 512 × 512 JPEG hochgeladen	Wysyłany jako JPEG 512 × 512
+Workshop: fehlgeschlagen (siehe Log)	Warsztat: niepowodzenie (zobacz log)
+gmad nicht gefunden (…/GarrysMod/bin)	Nie znaleziono gmad (…/GarrysMod/bin)
+gmpublish nicht gefunden (…/GarrysMod/bin)	Nie znaleziono gmpublish (…/GarrysMod/bin)
+kurze Notiz zum Update	krótka notatka o aktualizacji
+leer = neu anlegen	puste = utwórz nowy
+Tags (höchstens 2)	Tagi (najwyżej 2)
+Titel	Tytuł
+Workshop-ID	ID w Warsztacie
+Änderungen	Zmiany
+Beilegen	Dołącz

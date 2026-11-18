@@ -263,6 +263,7 @@ pub struct App {
     pub(crate) upd: crate::update_ui::UpdateUi,
     pub(crate) sky: crate::sky_ui::SkyUi,
     pub(crate) imp: crate::model_import_ui::ImportUi,
+    pub(crate) ws: crate::workshop::WorkshopUi,
     /// Zeitpunkt des letzten Speicherns
     pub(crate) last_saved: Option<Instant>,
     /// Rechtes Panel: 0 Eigenschaften, 1 Objekte, 2 Visgroups
@@ -374,6 +375,7 @@ impl App {
             upd: Default::default(),
             sky: Default::default(),
             imp: Default::default(),
+            ws: Default::default(),
             last_saved: None,
             panel_tab: 0,
             active_view: Some(1),
@@ -1162,6 +1164,14 @@ impl App {
                 "convert" => self.open_convert_dialog(),
                 "panel_tab" => self.panel_tab = v.parse().unwrap_or(0),
                 "import" => self.open_model_import(std::path::PathBuf::from(v)),
+                "workshop" => self.open_workshop(),
+                "ws_shot" => self.ws.capture = 1,
+                "ws_img" => self.ws.image = crate::model_import::load_image(&crate::model_import::Image::File(std::path::PathBuf::from(v))).ok(),
+                "ws_go" => {
+                    if let Err(e) = self.workshop_run_pub(v == "gma") {
+                        self.ws.log.lock().unwrap().push(e);
+                    }
+                }
                 "import_go" => {
                     let _ = self.import_run(true);
                 }
@@ -1803,6 +1813,7 @@ impl App {
             }
             self.cmd_item(ui, ctx, crate::commands::Cmd::TestFromCamera);
             self.cmd_item(ui, ctx, crate::commands::Cmd::Walk);
+            self.cmd_item(ui, ctx, crate::commands::Cmd::Workshop);
             if ui.button(tr("Live-Abgleich mit dem Spiel…")).on_hover_text(tr("Änderungen sofort im laufenden Garry's Mod sehen, ohne neu zu kompilieren")).clicked() {
                 self.win.live = true;
                 ui.close_menu();
@@ -1984,7 +1995,9 @@ impl App {
                 if self.active_view == Some(i) && self.maximized.is_none() {
                     painter.rect_stroke(rect.shrink(0.75), 7.0, egui::Stroke::new(1.5f32, th.accent), egui::StrokeKind::Middle);
                 }
-                self.viewport_overlay(ui, i, rect, &mut toggle[i]);
+                if !self.capturing() {
+                    self.viewport_overlay(ui, i, rect, &mut toggle[i]);
+                }
             }
             for (i, t) in toggle.iter().enumerate() {
                 if *t {

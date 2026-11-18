@@ -2242,3 +2242,34 @@ Relief aus der Helligkeit der Basistextur berechnen (hell = erhaben)	Вычис�
 Ränder der Basistextur (und Normalmap) überblenden, damit beim Kacheln keine Kanten sichtbar sind – Vorschau mit „Gekachelt“ prüfen	Смешать края базовой текстуры (и карты нормалей), чтобы при повторении не было швов – проверьте в превью «Плиткой»
 Stärke des Reliefs	Сила рельефа
 Keine Grundfarbe (albedo/basecolor/diffuse) im Set	В наборе нет базового цвета (albedo/basecolor/diffuse)
+.gma erstellt	Файл .gma создан
+Addon-Ordner: {} ({})	Папка аддона: {} ({})
+Aus 3D-Ansicht	Из 3D-вида
+BSP: {}	BSP: {}
+Bild fürs Spawnmenü	Картинка для меню спавна
+Bild wählen…	Выбрать изображение…
+Fehlgeschlagen.	Ошибка.
+Fertig.	Готово.
+Für eine neue Veröffentlichung braucht es ein Vorschaubild	Для новой публикации нужно изображение превью
+Im Workshop veröffentlichen	Опубликовать в Мастерской
+Im Workshop veröffentlichen…	Опубликовать в Мастерской…
+Im Workshop veröffentlicht	Опубликовано в Мастерской
+Kein Vorschaubild	Нет превью
+Navmesh (.nav)	Навмеш (.nav)
+Nimmt das Bild der 3D-Ansicht (quadratischer Ausschnitt aus der Mitte)	Берёт изображение 3D-вида (квадрат из центра)
+Nur .gma erstellen	Только создать .gma
+Seite öffnen	Открыть страницу
+Steam muss laufen und angemeldet sein. Beschreibung und Sichtbarkeit stellst du danach auf der Workshop-Seite ein (neue Addons sind zunächst versteckt). Eigene Inhalte vorher in die BSP packen (Kompilieren & Exportieren).	Steam должен быть запущен и вы должны войти в аккаунт. Описание и видимость настройте затем на странице Мастерской (новые аддоны сначала скрыты). Собственный контент сначала упакуйте в BSP («Компиляция и экспорт»).
+Update hochladen	Загрузить обновление
+Veröffentlichen	Опубликовать
+Wird als 512 × 512 JPEG hochgeladen	Загружается как JPEG 512 × 512
+Workshop: fehlgeschlagen (siehe Log)	Мастерская: ошибка (см. журнал)
+gmad nicht gefunden (…/GarrysMod/bin)	gmad не найден (…/GarrysMod/bin)
+gmpublish nicht gefunden (…/GarrysMod/bin)	gmpublish не найден (…/GarrysMod/bin)
+kurze Notiz zum Update	краткая заметка об обновлении
+leer = neu anlegen	пусто = создать новый
+Tags (höchstens 2)	Теги (не больше 2)
+Titel	Название
+Workshop-ID	ID в Мастерской
+Änderungen	Изменения
+Beilegen	Добавить

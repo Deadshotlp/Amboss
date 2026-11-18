@@ -20,6 +20,7 @@ png = "0.18"
 miniz_oxide = "0.8"
 gltf = { version = "1", default-features = false, features = ["utils", "names"] }
 jpeg-decoder = { version = "0.3", default-features = false }
+jpeg-encoder = "0.6"
 mlua = { version = "0.10", features = ["lua54", "vendored", "serialize"] }
 
 [profile.dev]

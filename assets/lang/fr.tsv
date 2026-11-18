@@ -2242,3 +2242,34 @@ Relief aus der Helligkeit der Basistextur berechnen (hell = erhaben)	Calculer le
 Ränder der Basistextur (und Normalmap) überblenden, damit beim Kacheln keine Kanten sichtbar sind – Vorschau mit „Gekachelt“ prüfen	Fondre les bords de la texture de base (et de la normal map) pour qu'aucun raccord ne se voie en mosaïque – vérifier avec « En mosaïque »
 Stärke des Reliefs	Intensité du relief
 Keine Grundfarbe (albedo/basecolor/diffuse) im Set	Aucune couleur de base (albedo/basecolor/diffuse) dans le jeu
+.gma erstellt	.gma créé
+Addon-Ordner: {} ({})	Dossier de l'addon : {} ({})
+Aus 3D-Ansicht	Depuis la vue 3D
+BSP: {}	BSP : {}
+Bild fürs Spawnmenü	Image du menu d'apparition
+Bild wählen…	Choisir une image…
+Fehlgeschlagen.	Échec.
+Fertig.	Terminé.
+Für eine neue Veröffentlichung braucht es ein Vorschaubild	Une nouvelle publication nécessite une image d'aperçu
+Im Workshop veröffentlichen	Publier sur le Workshop
+Im Workshop veröffentlichen…	Publier sur le Workshop…
+Im Workshop veröffentlicht	Publié sur le Workshop
+Kein Vorschaubild	Pas d'image d'aperçu
+Navmesh (.nav)	Navmesh (.nav)
+Nimmt das Bild der 3D-Ansicht (quadratischer Ausschnitt aus der Mitte)	Prend l'image de la vue 3D (recadrage carré au centre)
+Nur .gma erstellen	Créer seulement le .gma
+Seite öffnen	Ouvrir la page
+Steam muss laufen und angemeldet sein. Beschreibung und Sichtbarkeit stellst du danach auf der Workshop-Seite ein (neue Addons sind zunächst versteckt). Eigene Inhalte vorher in die BSP packen (Kompilieren & Exportieren).	Steam doit être lancé et connecté. Réglez ensuite la description et la visibilité sur la page du Workshop (les nouveaux addons sont d'abord masqués). Empaquetez d'abord le contenu personnalisé dans le BSP (Compiler et exporter).
+Update hochladen	Envoyer la mise à jour
+Veröffentlichen	Publier
+Wird als 512 × 512 JPEG hochgeladen	Envoyée en JPEG 512 × 512
+Workshop: fehlgeschlagen (siehe Log)	Workshop : échec (voir le journal)
+gmad nicht gefunden (…/GarrysMod/bin)	gmad introuvable (…/GarrysMod/bin)
+gmpublish nicht gefunden (…/GarrysMod/bin)	gmpublish introuvable (…/GarrysMod/bin)
+kurze Notiz zum Update	courte note sur la mise à jour
+leer = neu anlegen	vide = créer
+Tags (höchstens 2)	Tags (2 au maximum)
+Titel	Titre
+Workshop-ID	ID Workshop
+Änderungen	Modifications
+Beilegen	Inclure

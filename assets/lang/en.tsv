@@ -2244,3 +2244,34 @@ Relief aus der Helligkeit der Basistextur berechnen (hell = erhaben)	Compute rel
 Ränder der Basistextur (und Normalmap) überblenden, damit beim Kacheln keine Kanten sichtbar sind – Vorschau mit „Gekachelt“ prüfen	Blend the edges of the base texture (and normal map) so no seams show when tiled – check with "Tiled" in the preview
 Stärke des Reliefs	Relief strength
 Keine Grundfarbe (albedo/basecolor/diffuse) im Set	No base colour (albedo/basecolor/diffuse) in the set
+.gma erstellt	.gma created
+Addon-Ordner: {} ({})	Addon folder: {} ({})
+Aus 3D-Ansicht	From 3D view
+BSP: {}	BSP: {}
+Bild fürs Spawnmenü	Spawn menu image
+Bild wählen…	Choose image…
+Fehlgeschlagen.	Failed.
+Fertig.	Done.
+Für eine neue Veröffentlichung braucht es ein Vorschaubild	A new upload needs a preview image
+Im Workshop veröffentlichen	Publish to Workshop
+Im Workshop veröffentlichen…	Publish to Workshop…
+Im Workshop veröffentlicht	Published to Workshop
+Kein Vorschaubild	No preview image
+Navmesh (.nav)	Navmesh (.nav)
+Nimmt das Bild der 3D-Ansicht (quadratischer Ausschnitt aus der Mitte)	Takes the picture of the 3D view (square crop from the centre)
+Nur .gma erstellen	Create .gma only
+Seite öffnen	Open page
+Steam muss laufen und angemeldet sein. Beschreibung und Sichtbarkeit stellst du danach auf der Workshop-Seite ein (neue Addons sind zunächst versteckt). Eigene Inhalte vorher in die BSP packen (Kompilieren & Exportieren).	Steam must be running and logged in. Set description and visibility on the Workshop page afterwards (new addons start hidden). Pack custom content into the BSP first (Compile & export).
+Update hochladen	Upload update
+Veröffentlichen	Publish
+Wird als 512 × 512 JPEG hochgeladen	Uploaded as a 512 × 512 JPEG
+Workshop: fehlgeschlagen (siehe Log)	Workshop: failed (see log)
+gmad nicht gefunden (…/GarrysMod/bin)	gmad not found (…/GarrysMod/bin)
+gmpublish nicht gefunden (…/GarrysMod/bin)	gmpublish not found (…/GarrysMod/bin)
+kurze Notiz zum Update	short note about the update
+leer = neu anlegen	empty = create new
+Tags (höchstens 2)	Tags (at most 2)
+Titel	Title
+Workshop-ID	Workshop ID
+Änderungen	Changes
+Beilegen	Include
