@@ -261,6 +261,7 @@ pub struct App {
     pub(crate) collab: Option<crate::collab::Collab>,
     pub(crate) collab_form: crate::collab_ui::CollabForm,
     pub(crate) upd: crate::update_ui::UpdateUi,
+    pub(crate) sky: crate::sky_ui::SkyUi,
     /// Zeitpunkt des letzten Speicherns
     pub(crate) last_saved: Option<Instant>,
     /// Rechtes Panel: 0 Eigenschaften, 1 Objekte, 2 Visgroups
@@ -370,6 +371,7 @@ impl App {
             collab: None,
             collab_form: Default::default(),
             upd: Default::default(),
+            sky: Default::default(),
             last_saved: None,
             panel_tab: 0,
             active_view: Some(1),
@@ -1157,6 +1159,59 @@ impl App {
                 "classpicker" => self.open_class_picker(egui::Rect::from_min_size(egui::pos2(380.0, 88.0), egui::vec2(220.0, 28.0))),
                 "convert" => self.open_convert_dialog(),
                 "panel_tab" => self.panel_tab = v.parse().unwrap_or(0),
+                "template" => {
+                    if let Some(t) = crate::templates::TEMPLATES.iter().find(|t| t.id == v) {
+                        (t.build)(&mut self.ed);
+                        self.ed.touch();
+                    }
+                }
+                "hide" => {
+                    self.ed.auto_vis = crate::editor::AutoVis::from_hidden_list(&v.replace('+', ","));
+                    self.ed.touch();
+                }
+                "skycreate" => {
+                    self.sky.opts.size = crate::skybox::suggest_size(&self.ed.map, 16.0);
+                    self.sky.create_open = true;
+                }
+                "skycheck" => {
+                    self.sky.issues = crate::skybox::check(&self.ed.map, self.ed.map_limit);
+                    self.sky.check_open = true;
+                }
+                "sky3d" => {
+                    // Beispiel-Skybox: Raum anlegen, ferne Berge und Türme verkleinert hineinkopieren, Modus an
+                    let opts = crate::skybox::CreateOpts { scale: 16.0, size: crate::skybox::suggest_size(&self.ed.map, 16.0), ground: Some("DEV/DEV_MEASUREGENERIC01B".into()), copy_fog: true };
+                    if crate::skybox::create(&mut self.ed, &opts).is_ok() {
+                        let mut ids = Vec::new();
+                        let w = crate::skybox::world_bounds(&self.ed.map, self.ed.sky_room_bounds().as_ref());
+                        let c = w.center();
+                        for (k, (dx, dy, sx, sy, h, mat)) in [(1.6, 0.2, 1500.0, 2200.0, 2400.0, "DEV/GRAYGRID"), (1.4, -1.1, 2600.0, 1400.0, 1700.0, "DEV/GRAYGRID"), (-1.5, 1.2, 1800.0, 1800.0, 3000.0, "DEV/GRAYGRID"), (0.2, 1.7, 500.0, 500.0, 4200.0, "DEV/DEV_MEASUREGENERIC01B"), (0.6, 1.7, 400.0, 400.0, 3200.0, "DEV/DEV_MEASUREGENERIC01B")].into_iter().enumerate() {
+                            let ext = w.size().x.max(w.size().y).max(2048.0);
+                            let o = glam::DVec3::new(c.x + dx * ext, c.y + dy * ext, w.min.z);
+                            let b = crate::geometry::Aabb::new(o - glam::DVec3::new(sx / 2.0, sy / 2.0, 0.0), o + glam::DVec3::new(sx / 2.0, sy / 2.0, h));
+                            let s = self.ed.map.make_box(b, mat, 0.25);
+                            let _ = k;
+                            ids.push(crate::editor::Obj::Solid(s.id));
+                            self.ed.map.world.solids.push(s.into());
+                        }
+                        self.ed.sel = ids.iter().copied().collect();
+                        let _ = crate::skybox::copy_selection_to_sky(&mut self.ed);
+                        // Vorlagen wieder entfernen
+                        for o in ids {
+                            if let crate::editor::Obj::Solid(id) = o {
+                                self.ed.map.world.solids.retain(|s| s.id != id);
+                            }
+                        }
+                        self.ed.sel.clear();
+                        self.ed.touch();
+                        // Spielerkamera: am Rand der Map, Blick über die Map
+                        self.view3d.cam.pos = glam::Vec3::new((w.min.x + 64.0) as f32, (w.min.y + 64.0) as f32, (w.min.z + 180.0) as f32);
+                        self.view3d.cam.yaw = 35.0;
+                        self.view3d.cam.pitch = 4.0;
+                        if v != "nomode" {
+                            self.toggle_sky_mode();
+                        }
+                    }
+                }
                 "fit" => {
                     // alles Ausgewählte in allen Ansichten einpassen
                     let b = self.ed.selection_bounds();
@@ -1459,6 +1514,14 @@ impl App {
                 self.cmd_item(ui, ctx, Cmd::Lock);
                 self.cmd_item(ui, ctx, Cmd::UnlockAll);
             });
+            ui.menu_button(tr("Einblenden (Filter)"), |ui| {
+                ui.set_min_width(260.0);
+                crate::sky_ui::filter_ui(&mut self.ed, ui, 1);
+            });
+            if crate::theme::checkbox(ui, &mut self.sky.active.clone(), tr("3D-Skybox bearbeiten")).on_hover_text(tr("Nur den Raum um die sky_camera zeigen, mit Spielersicht; ohne Skybox startet der Assistent")).clicked() {
+                self.toggle_sky_mode();
+                ui.close_menu();
+            }
             self.cmd_item(ui, ctx, Cmd::Outliner);
             if ex && item(ui, tr("Logische Ansicht (Entity-I/O)"), "") {
                 self.win.logical = true;
@@ -1693,6 +1756,23 @@ impl App {
                 self.win.entity_report = true;
                 ui.close_menu();
             }
+            ui.menu_button(tr("3D-Skybox"), |ui| {
+                let has = !crate::skybox::sky_cameras(&self.ed.map).is_empty();
+                if ui.button(if self.sky.active { tr("Skybox-Modus beenden") } else if has { tr("Bearbeiten") } else { tr("Anlegen…") }).clicked() {
+                    self.toggle_sky_mode();
+                    ui.close_menu();
+                }
+                let has_sel = !self.ed.sel.is_empty();
+                if ui.add_enabled(has && has_sel, egui::Button::new(tr("Auswahl verkleinert hineinkopieren"))).on_hover_text(tr("Brushes der Auswahl im Maßstab der sky_camera an die passende Stelle der Skybox kopieren")).clicked() {
+                    self.sky_copy_selection();
+                    ui.close_menu();
+                }
+                if ui.button(tr("Prüfen…")).clicked() {
+                    self.sky.issues = crate::skybox::check(&self.ed.map, self.ed.map_limit);
+                    self.sky.check_open = true;
+                    ui.close_menu();
+                }
+            });
             if ex {
                 ui.separator();
                 let cordon_active = self.ed.map.cordon.is_some_and(|c| c.active);
@@ -1833,6 +1913,7 @@ impl App {
         let th = crate::theme::t();
         egui::CentralPanel::default().frame(egui::Frame::NONE.fill(th.bg).inner_margin(3)).show(ctx, |ui| {
             let full = ui.max_rect();
+            self.ui_rects.insert("viewports", full);
             let gap = 3.0;
             let [sx, sy] = self.settings.layout.split.map(|v| v.clamp(0.15, 0.85));
             let wl = ((full.width() - gap) * sx).round();
@@ -1984,6 +2065,25 @@ impl App {
                     }
                 }
             }
+        });
+        // Ansichtsfilter (Trichter): hervorgehoben, wenn etwas ausgeblendet ist
+        let fr = egui::Rect::from_min_size(egui::pos2(sr.right() + 6.0, sr.top()), Vec2::splat(26.0));
+        let fresp = ui.interact(fr, ui.id().with(("vpfilter", i)), egui::Sense::click());
+        let filtered = !self.ed.auto_vis.all_visible();
+        let (accent, accent_fg) = (crate::theme::t().accent, crate::theme::t().accent_fg);
+        if filtered || fresp.hovered() || self.hovered_view == Some(i) {
+            ui.painter().rect(fr, 7.0, if filtered { accent } else { glass }, egui::Stroke::new(1.0f32, if filtered { accent } else { line }), egui::StrokeKind::Inside);
+            crate::icons::draw(ui.painter(), fr.shrink(6.0), "filter", if filtered { accent_fg } else { text2 }, 2.0);
+        }
+        let fpop = ui.make_persistent_id(("vpfilterpop", i));
+        if fresp.on_hover_text(if filtered { crate::i18n::tr("Einblenden – es ist etwas ausgeblendet") } else { crate::i18n::tr("Einblenden (Filter)") }).clicked() {
+            ui.memory_mut(|m| m.toggle_popup(fpop));
+        }
+        let fanchor = ui.interact(fr, ui.id().with(("vpfilteranchor", i)), egui::Sense::hover());
+        egui::popup::popup_below_widget(ui, fpop, &fanchor, egui::PopupCloseBehavior::CloseOnClickOutside, |ui| {
+            ui.set_min_width(250.0);
+            crate::theme::section(ui, crate::i18n::tr("Einblenden"));
+            crate::sky_ui::filter_ui(&mut self.ed, ui, 1);
         });
         // Maximieren
         let mr = egui::Rect::from_min_size(egui::pos2(rect.right() - 34.0, rect.top() + 8.0), Vec2::splat(26.0));
@@ -2269,6 +2369,7 @@ impl App {
             self.properties_panel(ctx);
             self.context_bar(ctx);
             self.viewports(ctx);
+            self.sky_frame(ctx);
         }
         self.process_prefab_drop();
         self.windows(ctx);
@@ -2297,7 +2398,7 @@ impl App {
 
         self.settings.tex_lock = self.ed.tex_lock;
         self.settings.grid = self.ed.grid;
-        let title = format!("Amboss {} – {}{}", env!("CARGO_PKG_VERSION"), self.ed.map_name(), if self.ed.dirty { " *" } else { "" });
+        let title = format!("Amboss {} – {}{}", env!("CARGO_PKG_VERSION"), self.ed.display_name(), if self.ed.dirty { " *" } else { "" });
         if title != self.last_title {
             ctx.send_viewport_cmd(egui::ViewportCommand::Title(title.clone()));
             self.last_title = title;

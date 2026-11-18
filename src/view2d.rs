@@ -1028,6 +1028,26 @@ impl View2D {
             painter.circle_filled(b, 2.5, col);
         }
 
+        // Skybox-Modus: Umriss der verkleinerten Map und Spawnpunkte (wo die Map „steht“)
+        if ed.sky_edit.is_some() {
+            if let Some(room) = ed.sky_room() {
+                let w = crate::skybox::world_bounds(&ed.map, Some(&room.bounds));
+                if !w.is_empty() {
+                    let col = theme::alpha(th.accent, 0.8);
+                    let r = self.screen_rect(rect, &Aabb::new(room.to_sky(w.min), room.to_sky(w.max)));
+                    dashed_rect(painter, r, Stroke::new(1.5f32, col));
+                    painter.text(r.left_top() + Vec2::new(3.0, -2.0), Align2::LEFT_BOTTOM, crate::i18n::tr_dyn(&format!("Map (1:{})", crate::map::fmt_num(room.scale))), FontId::proportional(10.5), col);
+                    for e in ed.map.entities.iter().filter(|e| e.classname().to_ascii_lowercase().starts_with("info_player")) {
+                        if let Some(o) = e.origin() {
+                            painter.circle_filled(self.sp(rect, room.to_sky(o)), 2.5, col);
+                        }
+                    }
+                    let cam = self.sp(rect, room.origin);
+                    painter.circle_stroke(cam, 5.0, Stroke::new(1.5f32, col));
+                }
+            }
+        }
+
         // Cordon
         if let Some(c) = &ed.map.cordon {
             let r = self.screen_rect(rect, &c.bounds);

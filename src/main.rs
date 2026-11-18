@@ -70,6 +70,8 @@ mod pointfile;
 mod prefab_ui;
 mod prefabs;
 mod setup;
+mod skybox;
+mod sky_ui;
 mod primitives;
 mod procgen;
 mod procgen_ui;

@@ -1,5 +1,28 @@
 # Änderungen
 
+## 0.11.0
+
+**Ansichtsfilter („Einblenden“)**
+- Objektarten einzeln aus- und einblenden, in 2D und 3D: Welt-Brushes, func_detail, Brush-Entities, **Trigger**, **nodraw-Flächen**, Clips (clip/playerclip/npcclip, func_clip_vphysics), Hint/Skip, Areaportals & Occluder, Skybox-Flächen, sonstige Werkzeug-Brushes, Displacements, Punkt-Entities, Lichter, Props und der 3D-Skybox-Raum
+- nodraw- und Skybox-Flächen verschwinden in 3D **einzeln** – auch auf normalen Brushes; ein Klick geht durch die ausgeblendete Fläche hindurch auf das, was dahinter zu sehen ist. In 2D werden Brushes ausgeblendet, die nur aus nodraw bestehen
+- Erkennung nach Textur (tools/toolstrigger, toolsclip, toolsskip …) und nach Entity-Klasse (trigger_*, func_areaportal, func_occluder …)
+- Erreichbar über den Trichter-Knopf in jeder Ansicht, Ansicht → Einblenden (Filter), den Reiter Visgroups und die Befehlspalette; Tastenkürzel **Alt+N** (nodraw) und **Alt+T** (Trigger), frei belegbar; „Alle Werkzeug-Brushes ein-/ausblenden“ als Befehl
+- Ist etwas ausgeblendet, leuchtet der Trichter, und unten steht „Filter aktiv“ (Klick blendet alles ein). Ausgeblendete Objekte sind nicht anklickbar und werden abgewählt
+- Der Zustand wird pro Map in der VMF gespeichert (`viewsettings`, Schlüssel `amboss_hidden`; Hammer ignoriert ihn)
+
+**3D-Skybox bearbeiten**
+- Ansicht → „3D-Skybox bearbeiten“ bzw. Map → 3D-Skybox: Alle Ansichten zeigen nur noch den Raum um die sky_camera; das 3D-Fenster blickt hinein, der 2D-Himmel ist dahinter zu sehen
+- **Spielersicht** als Bild im Bild unten rechts im 3D-Fenster: die ganze Map aus der vorherigen Kamera mit der vergrößerten 3D-Skybox dahinter – Änderungen im Raum sind sofort zu sehen. Ziehen dreht die Sicht, das Mausrad bewegt sie
+- In 2D zeigt ein gestrichelter Rahmen, wo die Map im Skybox-Maßstab liegt (mit Spawnpunkten); die Statuszeile zeigt zur Mausposition die passende Weltkoordinate; das Raster wird passend zum Maßstab verkleinert
+- **Assistent** „3D-Skybox anlegen“, wenn es noch keine gibt: Maßstab, Raumgröße (Vorschlag: dreifache Breite der verkleinerten Map), Bodenplatte, Nebel aus env_fog_controller übernehmen. Raum (tools/toolsskybox) und sky_camera werden dort angelegt, wo innerhalb der Map-Grenze Platz ist
+- **Verkleinert hineinkopieren**: ausgewählte Brushes (auch Brush-Entities) werden im Maßstab der sky_camera an die passende Stelle der Skybox kopiert, Texturen mitskaliert. Props und andere Punkt-Entities werden übersprungen (Source kann sie nicht verkleinern)
+- **Prüfen**: fehlende oder doppelte sky_camera, kein skyname, ungültiger Maßstab, Raum nicht geschlossen, Wände ohne Skybox-Textur, Spawnpunkte im Raum, Raum überschneidet die Map oder liegt außerhalb der Grenze, verkleinerte Map ragt über den Raum, Nebel nur in Map oder Skybox, Trigger/Clips im Raum
+- In der 3D-Skybox-Vorschau werden Werkzeug-Texturen (nodraw, clip, trigger …) nicht mehr gezeichnet – wie im Spiel; der Skybox-Raum wird jetzt auch dann richtig erkannt, wenn Inhalte vor der sky_camera stehen
+
+**Sonstiges**
+- Neue, noch ungespeicherte Maps heißen in Tab und Fenstertitel in der gewählten Sprache („untitled“ usw.)
+- Build: Zeitlimit und Wiederholungsversuche für apt-get, Zeitlimits je Job
+
 ## 0.10.0
 
 **Live-Sitzung ohne Portfreigabe**

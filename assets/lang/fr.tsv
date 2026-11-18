@@ -2098,3 +2098,95 @@ Alle Eigenschaften ({})	Toutes les propriétés ({})
 Nur wichtige Eigenschaften	Propriétés importantes seulement
 Einrichten…	Configurer…
 Nach dem Start erscheinen hier deine Adressen und ein Einladungscode für Gäste ohne Portfreigabe.	Après le démarrage, vos adresses et un code d'invitation pour les invités sans redirection de port apparaissent ici.
+3D-Skybox anlegen	Créer une skybox 3D
+3D-Skybox bearbeiten	Modifier la skybox 3D
+3D-Skybox prüfen	Vérifier la skybox 3D
+3D-Skybox-Modus beendet: kein geschlossener Raum um die sky_camera	Mode skybox 3D terminé : aucune pièce fermée autour de la sky_camera
+3D-Skybox-Modus	Mode skybox 3D
+3D-Skybox-Modus – Maßstab 1:{}	Mode skybox 3D – échelle 1:{}
+3D-Skybox · 1:{}	Skybox 3D · 1:{}
+3D-Skybox-Raum	Pièce de la skybox 3D
+Alles im Raum um die sky_camera	Tout ce qui se trouve dans la pièce autour de la sky_camera
+Alle Werkzeug-Brushes ein-/ausblenden	Afficher/masquer toutes les brushes outils
+Anlegen und bearbeiten	Créer et modifier
+Anlegen…	Créer…
+Ausgeblendet: {} – Klick: alles einblenden	Masqué : {} – clic : tout afficher
+Auswahl verkleinert hineinkopieren	Copier la sélection réduite à l'intérieur
+Auswahl verkleinert in die 3D-Skybox kopieren	Copier la sélection réduite dans la skybox 3D
+Bodenplatte in Höhe der Map	Dalle de sol à la hauteur de la map
+Brushes der Auswahl im Maßstab der sky_camera an die passende Stelle der Skybox kopieren	Copier les brushes sélectionnées, à l'échelle de la sky_camera, au bon endroit de la skybox
+Der Raum um die sky_camera ist nicht geschlossen – siehe Skybox prüfen	La pièce autour de la sky_camera n'est pas fermée – voir Vérifier la skybox
+Die Map ist in der Skybox {} × {} × {} Einheiten groß.	Dans la skybox, la map mesure {} × {} × {} unités.
+Dreifache Breite der verkleinerten Map	Trois fois la largeur de la map réduite
+Einblenden (Filter)	Afficher (filtres)
+Einblenden – es ist etwas ausgeblendet	Afficher – des éléments sont masqués
+Einblenden	Afficher
+Fehler	Erreur
+Warnung	Avertissement
+Hinweis	Remarque
+Filter aktiv	Filtre actif
+Innenmaß (B × T × H)	Dimensions intérieures (L × P × H)
+Kopiert die Brushes, die vor dem Skybox-Modus in der Map ausgewählt waren, im Maßstab der sky_camera an die passende Stelle	Copie les brushes sélectionnées dans la map avant le mode skybox, à l'échelle de la sky_camera, au bon endroit
+Map (1:{})	Map (1:{})
+Map-Auswahl verkleinert hineinkopieren ({})	Copier la sélection de la map réduite ({})
+Map-Auswahl verkleinert hineinkopieren	Copier la sélection de la map réduite
+Maßstab 1:	Échelle 1:
+Nebel der Map übernehmen (env_fog_controller)	Reprendre le brouillard de la map (env_fog_controller)
+Nur den Raum um die sky_camera zeigen, mit Spielersicht; ohne Skybox startet der Assistent	N'afficher que la pièce autour de la sky_camera, avec la vue joueur ; sans skybox, l'assistant démarre
+Prüfen…	Vérifier…
+Prüfen	Vérifier
+Raum mit tools/toolsskybox und sky_camera	Pièce avec tools/toolsskybox et sky_camera
+Skybox-Modus beenden	Quitter le mode skybox
+Spielersicht (ziehen: umsehen)	Vue joueur (glisser : regarder)
+Spielersicht	Vue joueur
+Trigger ein-/ausblenden	Afficher/masquer les triggers
+Vor dem Skybox-Modus Brushes in der Map auswählen (z. B. Berge, Gebäude), dann hier verkleinert hineinkopieren	Sélectionner des brushes dans la map avant le mode skybox (montagnes, bâtiments…), puis les copier ici en réduction
+Vorschlag	Proposition
+Was im Skybox-Raum steht, zeigt das Spiel vergrößert hinter der Map – Berge, Städte, ferne Gebäude. Der Raum wird automatisch über, unter oder neben die Map gelegt, wo Platz ist.	Le jeu affiche agrandi derrière la map ce qui se trouve dans la pièce skybox – montagnes, villes, bâtiments lointains. La pièce est placée automatiquement au-dessus, en dessous ou à côté de la map, là où il y a de la place.
+Werkzeug-Brushes ausblenden	Masquer les brushes outils
+Werkzeug-Brushes	Brushes outils
+ausgeblendet	masqué
+eingeblendet	affiché
+nodraw, Trigger, Clips, Hint/Skip, Areaportals, Skybox und sonstige	nodraw, triggers, clips, hint/skip, areaportals, skybox et autres
+nodraw-Flächen ein-/ausblenden	Afficher/masquer les faces nodraw
+nodraw-Flächen	Faces nodraw
+{} Objekte verkleinert in die Skybox kopiert	{} objets copiés réduits dans la skybox
+{} Objekte verkleinert in die Skybox kopiert, {} übersprungen (Punkt-Entities oder schon in der Skybox)	{} objets copiés réduits dans la skybox, {} ignorés (entités ponctuelles ou déjà dans la skybox)
+Üblich ist 16: 1 Einheit in der Skybox = 16 Einheiten im Spiel	16 est l'usage : 1 unité dans la skybox = 16 unités en jeu
+≙ Welt {} {} {} {}	≙ monde {} {} {} {}
+Welt-Brushes	Brushes du monde
+Alle Brushes, die zu keinem Entity gehören	Toutes les brushes qui n'appartiennent à aucune entité
+Detail-Brushes	Brushes de détail
+Türen, func_brush, func_wall …	Portes, func_brush, func_wall …
+trigger_* und Brushes mit tools/toolstrigger	trigger_* et brushes avec tools/toolstrigger
+In 3D jede nodraw-Fläche einzeln, in 2D reine nodraw-Brushes	En 3D chaque face nodraw séparément, en 2D les brushes entièrement nodraw
+Clips	Clips
+Hint/Skip	Hint/skip
+hint- und skip-Brushes	brushes hint et skip
+Areaportals & Occluder	Areaportals et occluders
+Skybox-Flächen	Faces skybox
+tools/toolsskybox – in 3D jede Fläche einzeln	tools/toolsskybox – en 3D chaque face séparément
+Sonstige Werkzeug-Brushes	Autres brushes outils
+invisible, blocklight, black, fog …	invisible, blocklight, black, fog …
+Skybox-Raum nicht geschlossen	Pièce skybox non fermée
+3D-Skybox angelegt (Maßstab 1:{})	Skybox 3D créée (échelle 1:{})
+Keine 3D-Skybox (sky_camera mit geschlossenem Raum) gefunden	Aucune skybox 3D (sky_camera dans une pièce fermée) trouvée
+Die Map hat schon eine sky_camera	La map a déjà une sky_camera
+Kein freier Platz innerhalb der Map-Grenze für den Skybox-Raum	Pas d'espace libre dans la limite de la map pour la pièce skybox
+Nichts zum Kopieren ausgewählt (Brushes außerhalb der Skybox)	Rien de sélectionné à copier (brushes hors de la skybox)
+Keine sky_camera – die Map hat keine 3D-Skybox.	Aucune sky_camera – la map n'a pas de skybox 3D.
+{} sky_cameras – Source nutzt pro Bereich nur eine; meist ist das ein Versehen.	{} sky_cameras – Source n'en utilise qu'une par zone ; c'est généralement une erreur.
+Kein 2D-Himmel (skyname in den Map-Eigenschaften) gesetzt.	Aucun ciel 2D défini (skyname dans les propriétés de la map).
+sky_camera ohne gültigen scale – die Engine nimmt 16.	sky_camera sans scale valide – le moteur utilise 16.
+scale der sky_camera muss mindestens 1 sein.	Le scale de la sky_camera doit être au moins 1.
+Maßstab 1:{} – üblich ist 1:16.	Échelle 1:{} – 1:16 est l'usage.
+Skybox-Raum nicht geschlossen: von der sky_camera aus führt mindestens eine Richtung ins Leere.	Pièce skybox non fermée : au moins une direction depuis la sky_camera mène dans le vide.
+Die Wände des Skybox-Raums haben keine tools/toolsskybox-Textur – dort ist kein Himmel zu sehen.	Les murs de la pièce skybox n'ont pas de texture tools/toolsskybox – aucun ciel n'y est visible.
+Spawnpunkte liegen im Skybox-Raum.	Des points d'apparition se trouvent dans la pièce skybox.
+Die verkleinerte Map ragt über den Skybox-Raum hinaus – Inhalte der Skybox stehen dann an falscher Stelle oder fehlen.	La map réduite dépasse de la pièce skybox – le contenu de la skybox sera alors mal placé ou absent.
+Der Skybox-Raum überschneidet die spielbare Map.	La pièce skybox chevauche la map jouable.
+Der Skybox-Raum liegt außerhalb der Map-Grenze.	La pièce skybox est hors de la limite de la map.
+Nebel ist in der Map an, in der Skybox (sky_camera) aus – der Horizont wirkt dann zu klar.	Le brouillard est activé dans la map mais pas dans la skybox (sky_camera) – l'horizon paraît alors trop net.
+Nebelfarbe von Map und Skybox unterscheiden sich.	La couleur du brouillard diffère entre la map et la skybox.
+{} Trigger/Clip/Hint-Brushes im Skybox-Raum – dort wirkungslos.	{} brushes trigger/clip/hint dans la pièce skybox – sans effet à cet endroit.
+unbenannt	sans titre

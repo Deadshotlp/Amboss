@@ -15,6 +15,7 @@ use std::sync::{Arc, Mutex};
 
 // ------------------------------------------------------------------ Kamera
 
+#[derive(Clone, Debug)]
 pub struct Camera {
     pub pos: Vec3,
     pub yaw: f32,
@@ -419,22 +420,13 @@ pub struct BuildOpts {
     pub mode: RenderMode,
     pub sky_preview: bool,
     pub helpers: bool,
+    /// Ansichtsfilter (nodraw- und Skybox-Flächen einzeln auslassen)
+    pub vis: crate::editor::AutoVis,
 }
 
-/// Findet die Skybox-Raumgrenzen um die sky_camera (Strahlen in 6 Richtungen)
+/// Skybox-Raum um die sky_camera: (Position, Maßstab, Grenzen)
 fn sky_room(ed: &Editor) -> Option<(DVec3, f64, Aabb)> {
-    let cam = ed.map.entities.iter().find(|e| e.classname() == "sky_camera")?;
-    let o = cam.origin()?;
-    let scale = cam.get("scale").and_then(|s| s.parse::<f64>().ok()).unwrap_or(16.0).max(1.0);
-    let mut b = Aabb::new(o, o);
-    for d in [DVec3::X, -DVec3::X, DVec3::Y, -DVec3::Y, DVec3::Z, -DVec3::Z] {
-        let t = ed.map.world.solids.iter().filter_map(|s| s.ray_hit(o, d).map(|h| h.0)).fold(f64::MAX, f64::min);
-        if t == f64::MAX {
-            return None;
-        }
-        b.add_point(o + d * (t + 32.0));
-    }
-    Some((o, scale, b))
+    crate::skybox::sky_room(&ed.map).map(|r| (r.origin, r.scale, r.bounds))
 }
 
 pub fn sky_matrix(ed: &Editor) -> Option<Mat4> {
@@ -484,6 +476,9 @@ fn build_solid(s: &Solid, mats: &mut MaterialSystem, opts: &BuildOpts, selected:
             continue;
         }
         let side = &s.sides[i];
+        if opts.vis.hides_face(&side.material) {
+            continue;
+        }
         let face_sel = if i < 64 { face_mask & (1 << i) != 0 } else { faces.contains(&(s.id, i)) };
         let base = material_color(&side.material);
         let is_sky_mat = side.material.to_ascii_lowercase().contains("toolsskybox");
@@ -498,7 +493,8 @@ fn build_solid(s: &Solid, mats: &mut MaterialSystem, opts: &BuildOpts, selected:
         let translucent = c[3] < 0.99 || info.is_some_and(|i| i.translucent);
         let (tw, th) = info.map(|i| (i.width.max(1) as f64, i.height.max(1) as f64)).unwrap_or((512.0, 512.0));
         let smooth = smoothing_value(&side.smoothing_groups);
-        if in_sky && !translucent && !is_sky_mat {
+        // in der Skybox zeigt das Spiel keine Werkzeug-Texturen (nodraw, clip, trigger …)
+        if in_sky && !translucent && !is_sky_mat && crate::editor::tool_kind(&side.material).is_none() {
             let p = part(&mut out, 2, key.clone());
             face_triangles(&mut out.parts[p].2, None, s, i, c, tw, th, smooth);
         }
@@ -550,13 +546,13 @@ pub fn build_mesh(ed: &Editor, mats: &mut MaterialSystem, opts: &BuildOpts, cach
     // Brushes: unveränderte Brushes kommen aus dem Zwischenspeicher (nur geänderte werden neu berechnet)
     let gen = mats.generation;
     let mut seen: std::collections::HashSet<u32> = std::collections::HashSet::with_capacity(cache.solids.len());
-    let mode_key = (opts.textured as u64) | (flat as u64) << 1 | (wireframe as u64) << 2 | (opts.sky_preview as u64) << 3;
+    let mode_key = (opts.textured as u64) | (flat as u64) << 1 | (wireframe as u64) << 2 | (opts.sky_preview as u64) << 3 | opts.vis.face_bits() << 6;
     let world = ed.map.world.solids.iter().map(|s| (None, s));
     let in_ents = ed.map.entities.iter().flat_map(|e| e.solids.iter().map(move |s| (Some(&**e), s)));
     for (e, shared) in world.chain(in_ents) {
         let s: &Solid = shared;
         let owner = e.map(|e| e.id);
-        if !ed.is_visible_solid(e, s) || !ed.in_cordon(&s.bounds) {
+        if !ed.is_visible_solid_all(e, s) || !ed.in_cordon(&s.bounds) {
             continue;
         }
         let selected = ed.is_selected_solid(owner, s.id);
@@ -595,7 +591,7 @@ pub fn build_mesh(ed: &Editor, mats: &mut MaterialSystem, opts: &BuildOpts, cach
     // Flächen-Index nur bauen, wenn es Overlays gibt
     let mut side_idx: Option<std::collections::HashMap<u32, (u32, usize)>> = None;
     for e in &ed.map.entities {
-        if e.is_brush_entity() || !ed.is_visible_entity(e) {
+        if e.is_brush_entity() || !ed.is_visible_entity_all(e) {
             continue;
         }
         let b = ed.entity_bounds(e);
@@ -655,7 +651,7 @@ pub fn build_mesh(ed: &Editor, mats: &mut MaterialSystem, opts: &BuildOpts, cach
     // Polygon-Meshes (Netz direkt aus der Map, auch vor dem Kompilieren zum Modell)
     for mo in &ed.map.meshes {
         let Some(e) = ed.map.entity(mo.ent) else { continue };
-        if !ed.is_visible_entity(e) {
+        if !ed.is_visible_entity_all(e) {
             continue;
         }
         let bounds = ed.entity_bounds(e);
@@ -914,6 +910,7 @@ struct StaticMesh {
     batches: Vec<Batch>,
 }
 
+#[derive(Clone)]
 pub struct StaticDraw {
     pub key: String,
     pub model: Mat4,
@@ -950,6 +947,8 @@ pub struct FrameData {
     pub shadows: bool,
     /// Sondenraster der globalen Beleuchtung (nur Lichtvorschau)
     pub gi: Option<Arc<crate::gi::Grid>>,
+    /// Skybox-Modus: Geometrie nur innerhalb dieser Box
+    pub clip: Option<Aabb>,
 }
 
 struct Uniforms {
@@ -986,6 +985,9 @@ struct Uniforms {
     fog: Option<glow::UniformLocation>,
     fog_range: Option<glow::UniformLocation>,
     unlit: Option<glow::UniformLocation>,
+    clip: Option<glow::UniformLocation>,
+    clip_min: Option<glow::UniformLocation>,
+    clip_max: Option<glow::UniformLocation>,
 }
 
 /// Zusatzdaten einer Textur: Animation, $basetexturetransform, Scrollen
@@ -1079,6 +1081,10 @@ uniform vec4 u_ldir[32];
 uniform vec3 u_ambient;
 uniform vec3 u_sun_dir;
 uniform vec3 u_sun_col;
+// Skybox-Modus: nur innerhalb dieser Box zeichnen
+uniform int u_clip;
+uniform vec3 u_clip_min;
+uniform vec3 u_clip_max;
 uniform int u_shadows;
 uniform mat4 u_sun_vp;
 uniform vec2 u_sun_bias;
@@ -1133,6 +1139,7 @@ float gridline(vec2 uv) {
 }
 
 void main() {
+    if (u_clip == 1 && (any(lessThan(v_pos, u_clip_min)) || any(greaterThan(v_pos, u_clip_max)))) discard;
     if (u_mode == 1) {
         vec4 c = v_color;
         // 2D-Linien tragen die Grenzen ihres Objekts (min in a_normal, max in a_uv/a_lm.x, a_lm.y = 1)
@@ -1295,6 +1302,9 @@ impl Renderer {
                 fog: loc("u_fog"),
                 fog_range: loc("u_fog_range"),
                 unlit: loc("u_unlit"),
+                clip: loc("u_clip"),
+                clip_min: loc("u_clip_min"),
+                clip_max: loc("u_clip_max"),
             };
             // Texture-Einheiten fest vergeben (verschiedene Sampler-Typen dürfen sich keine Einheit teilen)
             gl.use_program(Some(program));
@@ -1675,6 +1685,11 @@ impl Renderer {
 
             gl.uniform_1_i32(u.fog_on.as_ref(), 0);
             gl.uniform_1_i32(u.unlit.as_ref(), 0);
+            gl.uniform_1_i32(u.clip.as_ref(), 0);
+            if let Some(c) = &f.clip {
+                gl.uniform_3_f32(u.clip_min.as_ref(), c.min.x as f32, c.min.y as f32, c.min.z as f32);
+                gl.uniform_3_f32(u.clip_max.as_ref(), c.max.x as f32, c.max.y as f32, c.max.z as f32);
+            }
             // -1. 2D-Himmel: hinter allem, ohne Licht und Tiefe
             if !f.sky2d.is_empty() && !f.wireframe {
                 gl.disable(glow::DEPTH_TEST);
@@ -1685,6 +1700,7 @@ impl Renderer {
                 gl.depth_mask(true);
                 gl.enable(glow::DEPTH_TEST);
             }
+            gl.uniform_1_i32(u.clip.as_ref(), f.clip.is_some() as i32);
             // 0. 3D-Skybox (skaliert), danach Tiefe löschen
             if let Some(sky) = f.sky {
                 gl.uniform_matrix_4_f32_slice(u.model.as_ref(), false, &sky.to_cols_array());
@@ -1729,6 +1745,7 @@ impl Renderer {
             gl.depth_mask(true);
             gl.uniform_1_i32(u.fog_on.as_ref(), 0);
             // 4. Auswahl-Umrisse und Werkzeug-Linien immer sichtbar
+            gl.uniform_1_i32(u.clip.as_ref(), 0);
             gl.uniform_1_i32(u.mode.as_ref(), 1);
             gl.depth_func(glow::ALWAYS);
             for i in [3usize, 6] {
@@ -2059,7 +2076,7 @@ pub fn collect_lights(ed: &Editor) -> (Vec<LightInfo>, Vec3, Vec3, Vec3) {
     let mut sun_dir = Vec3::new(0.0, 0.0, -1.0);
     let mut sun_col = Vec3::ZERO;
     for e in &ed.map.entities {
-        if !ed.is_visible_entity(e) {
+        if !ed.is_visible_entity_all(e) {
             continue;
         }
         let Some(o) = e.origin() else { continue };
@@ -2239,6 +2256,10 @@ pub struct View3D {
     lights: (Vec<LightInfo>, Vec3, Vec3, Vec3),
     sky: Option<Mat4>,
     sky_box: Option<Aabb>,
+    /// Skybox-Modus: nur innerhalb dieser Box zeichnen (die Map liegt außerhalb)
+    pub clip_box: Option<Aabb>,
+    /// Skybox-Modus: Spielersicht als Bild im Bild (Kamera)
+    pub pip: Option<Camera>,
     painting: bool,
     pub error: Option<String>,
     solid_cache: SolidCache,
@@ -2310,6 +2331,8 @@ impl View3D {
             lights: (Vec::new(), Vec3::ZERO, Vec3::Z, Vec3::ZERO),
             sky: None,
             sky_box: None,
+            clip_box: None,
+            pip: None,
             painting: false,
             error,
             solid_cache: SolidCache::default(),
@@ -2349,8 +2372,33 @@ impl View3D {
         crate::map::CameraDef { pos: self.cam.pos.as_dvec3(), look: (self.cam.pos + self.cam.forward() * 128.0).as_dvec3(), name: String::new() }
     }
 
+    /// Bereich der Spielersicht (Bild im Bild) unten rechts
+    pub fn pip_rect(rect: Rect) -> Rect {
+        let w = (rect.width() * 0.38).clamp(200.0, 520.0).min(rect.width() - 20.0);
+        let h = (w * 0.62).min(rect.height() * 0.5);
+        Rect::from_min_size(rect.right_bottom() - Vec2::new(w + 10.0, h + 40.0), Vec2::new(w, h))
+    }
+
     pub fn show(&mut self, ui: &mut Ui, rect: Rect, ed: &mut Editor, mats: &mut MaterialSystem, models: &mut ModelSystem, maximize_toggle: &mut bool) {
         let resp = ui.interact(rect, ui.id().with("view3d"), Sense::click_and_drag());
+        // Spielersicht: liegt über der Ansicht und fängt Maus und Mausrad ab
+        if let Some(pc) = self.pip.as_mut() {
+            let pr = Self::pip_rect(rect);
+            let presp = ui.interact(pr, ui.id().with("view3d_pip"), Sense::click_and_drag());
+            if presp.dragged() {
+                let d = presp.drag_delta();
+                let sens = self.controls.sensitivity.clamp(0.02, 2.0);
+                pc.yaw -= d.x * sens;
+                pc.pitch = (pc.pitch - d.y * sens).clamp(-89.0, 89.0);
+            }
+            if presp.hovered() {
+                let scroll = ui.input(|i| i.raw_scroll_delta.y);
+                if scroll != 0.0 {
+                    let f = pc.forward();
+                    pc.pos += f * scroll * 4.0;
+                }
+            }
+        }
         let typing = ui.ctx().wants_keyboard_input();
         let (ctrl, alt) = ui.input(|i| (i.modifiers.command, i.modifiers.alt));
 
@@ -2817,7 +2865,7 @@ impl View3D {
             }
             if self.built_rev != rev && due {
                 self.last_build = std::time::Instant::now();
-                let opts = BuildOpts { textured: self.textured, mode: self.mode, sky_preview: self.sky_preview, helpers: self.helpers };
+                let opts = BuildOpts { textured: self.textured, mode: self.mode, sky_preview: self.sky_preview, helpers: self.helpers, vis: ed.auto_vis };
                 let mesh = build_mesh(ed, mats, &opts, &mut self.solid_cache);
                 self.lights = collect_lights(ed);
                 self.sky = if self.sky_preview { sky_matrix(ed) } else { None };
@@ -2843,7 +2891,7 @@ impl View3D {
             let mut draws = Vec::new();
             let mut coll_lines: Vec<f32> = Vec::new();
             for e in &ed.map.entities {
-                if e.is_brush_entity() || !ed.is_visible_entity(e) || !ed.in_cordon(&ed.entity_bounds(e)) {
+                if e.is_brush_entity() || !ed.is_visible_entity_all(e) || !ed.in_cordon(&ed.entity_bounds(e)) {
                     continue;
                 }
                 let selected = ed.sel.contains(&Obj::Entity(e.id));
@@ -2917,8 +2965,8 @@ impl View3D {
                 ambient: self.lights.1,
                 sun_dir: self.lights.2,
                 sun_col: self.lights.3,
-                sky: self.sky,
-                draws,
+                sky: if self.clip_box.is_some() { None } else { self.sky },
+                draws: draws.clone(),
                 dyn_lines,
                 dyn_quads,
                 dyn_batches,
@@ -2931,6 +2979,34 @@ impl View3D {
                 clear: if self.sky.is_some() { [0.45, 0.6, 0.78] } else { [0.12, 0.12, 0.14] },
                 shadows: self.shadows,
                 gi: if self.mode == RenderMode::Lighting && self.gi_on { self.gi_grid.clone() } else { None },
+                clip: self.clip_box,
+            });
+            // Spielersicht (Skybox-Modus): ganze Map mit 3D-Skybox aus der gemerkten Kamera
+            let pip_frame = self.pip.as_ref().map(|pc| {
+                let pr = Self::pip_rect(rect);
+                let (sky2d, sky2d_batches) = if self.sky_preview { sky2d_geometry(ed, mats, pc.pos.as_dvec3()) } else { (Vec::new(), Vec::new()) };
+                let mut pl = self.lights.0.clone();
+                pl.sort_by(|a, b| a.pos.distance_squared(pc.pos).partial_cmp(&b.pos.distance_squared(pc.pos)).unwrap());
+                (
+                    pr,
+                    Arc::new(FrameData {
+                        mvp: pc.view_proj(pr.width() / pr.height()),
+                        cam: pc.pos,
+                        view_mode: self.mode.shader_id(),
+                        lights: pl,
+                        ambient: self.lights.1,
+                        sun_dir: self.lights.2,
+                        sun_col: self.lights.3,
+                        sky: self.sky,
+                        draws: draws.clone(),
+                        sky2d,
+                        sky2d_batches,
+                        fog,
+                        wireframe: self.mode == RenderMode::Wireframe,
+                        clear: if self.sky.is_some() { [0.45, 0.6, 0.78] } else { [0.12, 0.12, 0.14] },
+                        ..Default::default()
+                    }),
+                )
             });
             drop(r);
             let rr = renderer.clone();
@@ -2938,6 +3014,20 @@ impl View3D {
                 rr.lock().unwrap().paint(painter.gl(), &frame);
             });
             painter.add(egui::PaintCallback { rect, callback: Arc::new(cb) });
+            if let Some((pr, pf)) = pip_frame {
+                let rr = renderer.clone();
+                let cb = egui_glow::CallbackFn::new(move |_info, painter| {
+                    rr.lock().unwrap().paint(painter.gl(), &pf);
+                });
+                // eigener Zuschnitt: sonst löscht die Spielersicht die ganze 3D-Ansicht
+                painter.with_clip_rect(pr).add(egui::PaintCallback { rect: pr, callback: Arc::new(cb) });
+                painter.rect_stroke(pr, 6.0, egui::Stroke::new(1.5f32, Color32::from_rgb(120, 180, 255)), egui::StrokeKind::Outside);
+                let label = crate::i18n::tr("Spielersicht (ziehen: umsehen)");
+                let g = painter.layout_no_wrap(label.to_string(), FontId::proportional(11.0), Color32::WHITE);
+                let lr = Rect::from_min_size(pr.left_top() + Vec2::new(6.0, 6.0), g.size() + Vec2::new(12.0, 6.0));
+                painter.rect_filled(lr, 5.0, Color32::from_black_alpha(160));
+                painter.galley(lr.min + Vec2::new(6.0, 3.0), g, Color32::WHITE);
+            }
         } else {
             painter.rect_filled(rect, egui::CornerRadius::ZERO, Color32::from_rgb(30, 10, 10));
             painter.text(rect.center(), Align2::CENTER_CENTER, self.error.as_deref().unwrap_or(crate::i18n::tr("3D nicht verfügbar")), FontId::proportional(14.0), Color32::LIGHT_RED);
@@ -3488,7 +3578,7 @@ impl View3D {
         let cam = self.cam.pos.as_dvec3();
         let mut count = 0;
         for e in &ed.map.entities {
-            if count > 600 || e.is_brush_entity() || !ed.is_visible_entity(e) {
+            if count > 600 || e.is_brush_entity() || !ed.is_visible_entity_all(e) {
                 continue;
             }
             let class = e.classname();
@@ -3600,7 +3690,7 @@ mod perf_tests {
         ed.load(std::path::PathBuf::from(&path)).unwrap();
         println!("Laden: {:?} ({} Brushes, {} Entities)", t.elapsed(), ed.map.all_solids().count(), ed.map.entities.len());
         let mut mats = MaterialSystem::new();
-        let opts = BuildOpts { textured: true, mode: RenderMode::Textured, sky_preview: true, helpers: true };
+        let opts = BuildOpts { textured: true, mode: RenderMode::Textured, sky_preview: true, helpers: true, vis: ed.auto_vis };
         let mut cache = SolidCache::default();
         for k in 0..3 {
             if k == 2 {
@@ -3648,7 +3738,7 @@ fn gi_scene(ed: &Editor, mats: &MaterialSystem) -> crate::gi::Scene {
                 continue;
             }
         }
-        if !ed.is_visible_solid(owner, s) {
+        if !ed.is_visible_solid_all(owner, s) {
             continue;
         }
         let has_disp = s.has_disp();
@@ -3686,7 +3776,7 @@ fn gi_scene(ed: &Editor, mats: &MaterialSystem) -> crate::gi::Scene {
     // Polygon-Meshes werfen wie Props Schatten und färben das Licht
     for mo in &ed.map.meshes {
         let Some(e) = ed.map.entity(mo.ent) else { continue };
-        if !ed.is_visible_entity(e) {
+        if !ed.is_visible_entity_all(e) {
             continue;
         }
         let x = Editor::entity_xform(e);

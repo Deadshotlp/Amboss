@@ -164,22 +164,160 @@ pub struct DispBrush {
     pub stroke: u32,
 }
 
-#[derive(Debug, Clone, Copy)]
+/// Ansichtsfilter („Einblenden“): blendet ganze Objektarten in 2D und 3D aus.
+/// Ausgeblendetes ist nicht anklickbar; gespeichert wird der Zustand pro Map (viewsettings).
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct AutoVis {
     pub world: bool,
     pub detail: bool,
     pub triggers: bool,
+    /// übrige Werkzeug-Brushes (invisible, blocklight, black, fog …)
     pub tools: bool,
     pub lights: bool,
     pub point_ents: bool,
     pub brush_ents: bool,
     pub disps: bool,
     pub props: bool,
+    /// nodraw-Flächen (in 3D einzeln) und reine nodraw-Brushes
+    pub nodraw: bool,
+    /// clip, playerclip, npcclip, func_clip_vphysics
+    pub clips: bool,
+    /// hint und skip
+    pub hints: bool,
+    /// Areaportals, Occluder, func_viscluster
+    pub portals: bool,
+    /// Skybox-Flächen (in 3D einzeln) und reine Skybox-Brushes
+    pub skybox: bool,
+    /// alles im 3D-Skybox-Raum (um die sky_camera)
+    pub sky_room: bool,
 }
 
 impl Default for AutoVis {
     fn default() -> Self {
-        AutoVis { world: true, detail: true, triggers: true, tools: true, lights: true, point_ents: true, brush_ents: true, disps: true, props: true }
+        AutoVis {
+            world: true,
+            detail: true,
+            triggers: true,
+            tools: true,
+            lights: true,
+            point_ents: true,
+            brush_ents: true,
+            disps: true,
+            props: true,
+            nodraw: true,
+            clips: true,
+            hints: true,
+            portals: true,
+            skybox: true,
+            sky_room: true,
+        }
+    }
+}
+
+/// Art eines Werkzeug-Materials
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum ToolKind {
+    Nodraw,
+    Trigger,
+    Clip,
+    Hint,
+    Portal,
+    Sky,
+    Other,
+}
+
+pub fn tool_kind(material: &str) -> Option<ToolKind> {
+    if material.len() < 6 || !material.as_bytes()[..6].eq_ignore_ascii_case(b"tools/") {
+        return None;
+    }
+    let m = material.to_ascii_lowercase();
+    let name = m.strip_prefix("tools/")?;
+    Some(match name {
+        "toolsnodraw" => ToolKind::Nodraw,
+        "toolstrigger" => ToolKind::Trigger,
+        "toolsclip" | "toolsplayerclip" | "toolsnpcclip" | "toolsclip_metal" => ToolKind::Clip,
+        "toolshint" | "toolsskip" => ToolKind::Hint,
+        "toolsareaportal" | "toolsoccluder" => ToolKind::Portal,
+        "toolsskybox" | "toolsskybox2d" | "toolsskyfog" => ToolKind::Sky,
+        n if n.starts_with("tools") => ToolKind::Other,
+        _ => return None,
+    })
+}
+
+/// Werkzeug-Art eines ganzen Brushes: alle Seiten Werkzeug-Materialien; nodraw-Seiten zählen
+/// nur, wenn sonst nichts da ist (Skybox mit nodraw-Rückseiten → Sky)
+pub fn solid_tool_kind(s: &Solid) -> Option<ToolKind> {
+    let mut kind: Option<ToolKind> = None;
+    for side in &s.sides {
+        match tool_kind(&side.material)? {
+            ToolKind::Nodraw => {}
+            k => match kind {
+                None => kind = Some(k),
+                Some(old) if old == k => {}
+                Some(_) => kind = Some(ToolKind::Other),
+            },
+        }
+    }
+    Some(kind.unwrap_or(ToolKind::Nodraw))
+}
+
+impl AutoVis {
+    /// (Schlüssel für die VMF, Feld) – Reihenfolge = Anzeige
+    const KEYS: [&'static str; 15] = ["world", "detail", "brush_ents", "triggers", "nodraw", "clips", "hints", "portals", "skybox", "tools", "disps", "point_ents", "lights", "props", "sky_room"];
+
+    fn field(&mut self, key: &str) -> Option<&mut bool> {
+        Some(match key {
+            "world" => &mut self.world,
+            "detail" => &mut self.detail,
+            "brush_ents" => &mut self.brush_ents,
+            "triggers" => &mut self.triggers,
+            "nodraw" => &mut self.nodraw,
+            "clips" => &mut self.clips,
+            "hints" => &mut self.hints,
+            "portals" => &mut self.portals,
+            "skybox" => &mut self.skybox,
+            "tools" => &mut self.tools,
+            "disps" => &mut self.disps,
+            "point_ents" => &mut self.point_ents,
+            "lights" => &mut self.lights,
+            "props" => &mut self.props,
+            "sky_room" => &mut self.sky_room,
+            _ => return None,
+        })
+    }
+
+    /// Ausgeblendete Arten als Liste („nodraw,triggers“), leer = alles sichtbar
+    pub fn hidden_list(&self) -> String {
+        let mut c = *self;
+        Self::KEYS.iter().filter(|k| !*c.field(k).unwrap()).copied().collect::<Vec<_>>().join(",")
+    }
+
+    pub fn from_hidden_list(s: &str) -> AutoVis {
+        let mut v = AutoVis::default();
+        for k in s.split(',') {
+            if let Some(f) = v.field(k.trim()) {
+                *f = false;
+            }
+        }
+        v
+    }
+
+    pub fn all_visible(&self) -> bool {
+        *self == AutoVis::default()
+    }
+
+    /// Wird eine einzelne Fläche mit diesem Material in 3D ausgelassen?
+    pub fn hides_face(&self, material: &str) -> bool {
+        match tool_kind(material) {
+            Some(ToolKind::Nodraw) => !self.nodraw,
+            Some(ToolKind::Sky) => !self.skybox,
+            _ => false,
+        }
+    }
+
+    /// Bitmaske für den 3D-Zwischenspeicher (welche Flächen ausgelassen werden)
+    pub fn face_bits(&self) -> u64 {
+        (!self.nodraw as u64) | (!self.skybox as u64) << 1
     }
 }
 
@@ -374,6 +512,10 @@ pub struct Editor {
     clip_cache: std::cell::RefCell<Option<([u64; 4], ClipMode, u64, Vec<Solid>, Vec<Solid>)>>,
     /// Clip mit drei Punkten (in der 3D-Ansicht gesetzt)
     pub clip3: Vec<DVec3>,
+    /// 3D-Skybox-Modus: nur Objekte in diesem Raum sind sichtbar und wählbar
+    pub sky_edit: Option<Aabb>,
+    /// (Map-Stand, Grenzen des Skybox-Raums, gültig)
+    sky_room_cache: std::cell::RefCell<(u64, Option<crate::skybox::SkyRoom>, bool)>,
 }
 
 const UNDO_LIMIT: usize = 200;
@@ -458,12 +600,16 @@ impl Editor {
             map_limit: 16384.0,
             clip_cache: std::cell::RefCell::new(None),
             clip3: Vec::new(),
+            sky_edit: None,
+            sky_room_cache: std::cell::RefCell::new((0, None, false)),
         }
     }
 
     // ------------------------------------------------------------ Datei
 
     fn reset_state(&mut self) {
+        self.auto_vis = AutoVis::from_hidden_list(&self.map.view_filter);
+        self.sky_edit = None;
         self.sel.clear();
         self.faces.clear();
         self.vsel.clear();
@@ -508,6 +654,7 @@ impl Editor {
 
     pub fn save(&mut self, path: PathBuf) -> Result<(), String> {
         self.map.grid = self.grid;
+        self.map.view_filter = self.auto_vis.hidden_list();
         let text = self.map.to_vmf();
         if path.exists() {
             let _ = std::fs::copy(&path, path.with_extension("vmx"));
@@ -525,6 +672,14 @@ impl Editor {
         self.path = Some(path);
         self.dirty = false;
         Ok(())
+    }
+
+    /// Name für Tabs und Titel (übersetzt, wenn noch nicht gespeichert)
+    pub fn display_name(&self) -> String {
+        match self.path {
+            Some(_) => self.map_name(),
+            None => crate::i18n::tr("unbenannt").to_string(),
+        }
     }
 
     pub fn map_name(&self) -> String {
@@ -811,25 +966,74 @@ impl Editor {
         if s.has_disp() && !av.disps {
             return false;
         }
-        if !av.tools && s.sides.iter().all(|x| is_tool_material(&x.material)) {
+        let tools_all_on = av.nodraw && av.triggers && av.clips && av.hints && av.portals && av.skybox && av.tools;
+        if let Some(k) = if tools_all_on { None } else { solid_tool_kind(s) } {
+            let on = match k {
+                ToolKind::Nodraw => av.nodraw,
+                ToolKind::Trigger => av.triggers,
+                ToolKind::Clip => av.clips,
+                ToolKind::Hint => av.hints,
+                ToolKind::Portal => av.portals,
+                ToolKind::Sky => av.skybox,
+                ToolKind::Other => av.tools,
+            };
+            if !on {
+                return false;
+            }
+        }
+        if !av.sky_room && self.in_sky_room(&s.bounds) {
             return false;
         }
         match owner {
             None => av.world,
             Some(e) => {
                 let c = e.classname();
-                if c == "func_detail" {
+                let starts = |p: &str| c.len() >= p.len() && c.as_bytes()[..p.len()].eq_ignore_ascii_case(p.as_bytes());
+                let detail = c.eq_ignore_ascii_case("func_detail");
+                let own = if detail {
                     av.detail
-                } else if c.starts_with("trigger_") {
-                    av.triggers && av.brush_ents
+                } else if starts("trigger_") {
+                    av.triggers
+                } else if starts("func_areaportal") || c.eq_ignore_ascii_case("func_occluder") || c.eq_ignore_ascii_case("func_viscluster") {
+                    av.portals
+                } else if c.eq_ignore_ascii_case("func_clip_vphysics") {
+                    av.clips
                 } else {
-                    av.brush_ents
-                }
+                    true
+                };
+                own && (detail || av.brush_ents)
             }
         }
     }
 
+    /// Liegt die Box im 3D-Skybox-Raum? (Zwischenspeicher pro Map-Stand)
+    pub fn in_sky_room(&self, b: &Aabb) -> bool {
+        self.sky_room_bounds().is_some_and(|r| r.contains_point(b.center()))
+    }
+
+    /// Grenzen des 3D-Skybox-Raums um die sky_camera (Strahlen bis zur nächsten Wand)
+    pub fn sky_room_bounds(&self) -> Option<Aabb> {
+        self.sky_room().map(|r| r.bounds)
+    }
+
+    /// 3D-Skybox-Raum (zwischengespeichert pro Map-Stand)
+    pub fn sky_room(&self) -> Option<crate::skybox::SkyRoom> {
+        let mut c = self.sky_room_cache.borrow_mut();
+        if c.0 != self.rev || !c.2 {
+            *c = (self.rev, crate::skybox::sky_room(&self.map), true);
+        }
+        c.1
+    }
+
     pub fn is_visible_solid(&self, owner: Option<&Entity>, s: &Solid) -> bool {
+        if self.sky_edit.as_ref().is_some_and(|r| !r.contains_point(s.bounds.center())) {
+            return false;
+        }
+        self.is_visible_solid_all(owner, s)
+    }
+
+    /// Sichtbarkeit ohne die Eingrenzung des Skybox-Modus (für das 3D-Netz: die Spielersicht braucht alles)
+    pub fn is_visible_solid_all(&self, owner: Option<&Entity>, s: &Solid) -> bool {
         if s.editor.hidden || !self.map.visgroups_visible(&s.editor.visgroups) {
             return false;
         }
@@ -842,13 +1046,27 @@ impl Editor {
     }
 
     pub fn is_visible_entity(&self, e: &Entity) -> bool {
+        if let Some(sr) = self.sky_edit.as_ref() {
+            let inside = if e.is_brush_entity() { e.solids.iter().any(|s| sr.contains_point(s.bounds.center())) } else { e.origin().is_some_and(|o| sr.contains_point(o)) };
+            if !inside {
+                return false;
+            }
+        }
+        self.is_visible_entity_all(e)
+    }
+
+    /// Sichtbarkeit ohne die Eingrenzung des Skybox-Modus
+    pub fn is_visible_entity_all(&self, e: &Entity) -> bool {
         if e.editor.hidden || !self.map.visgroups_visible(&e.editor.visgroups) {
             return false;
         }
         if e.is_brush_entity() {
-            return e.solids.iter().any(|s| self.is_visible_solid(Some(e), s));
+            return e.solids.iter().any(|s| self.is_visible_solid_all(Some(e), s));
         }
         let av = &self.auto_vis;
+        if !av.sky_room && e.origin().is_some_and(|o| self.in_sky_room(&Aabb::new(o, o))) {
+            return false;
+        }
         let c = e.classname();
         if c.starts_with("light") {
             return av.lights && av.point_ents;
@@ -864,7 +1082,6 @@ pub fn mesh_file(vmf: &std::path::Path) -> std::path::PathBuf {
     vmf.with_extension("meshes.json")
 }
 
-#[cfg(test)]
     pub fn is_visible(&self, o: Obj) -> bool {
         match o {
             Obj::Solid(id) => match self.map.solid_owner(id) {
@@ -1018,7 +1235,8 @@ pub fn mesh_file(vmf: &std::path::Path) -> std::path::PathBuf {
             if !self.is_visible_solid(e, s) || !self.in_cordon(&s.bounds) || self.is_locked_solid(e, s) {
                 continue;
             }
-            if let Some((t, i)) = s.ray_hit(origin, dir) {
+            let av = self.auto_vis;
+            if let Some((t, i)) = s.ray_hit_visible(origin, dir, |m| av.hides_face(m)) {
                 consider(self.obj_for(owner, s.id), Some((s.id, i)), t);
             }
         }

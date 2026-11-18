@@ -288,8 +288,8 @@ impl App {
                 let bottom = ui.max_rect().bottom();
                 for i in 0..self.tabs.len() {
                     let (name, dirty) = match &self.tabs[i] {
-                        Some(tb) => (tb.ed.map_name(), tb.ed.dirty),
-                        None => (self.ed.map_name(), self.ed.dirty),
+                        Some(tb) => (tb.ed.display_name(), tb.ed.dirty),
+                        None => (self.ed.display_name(), self.ed.dirty),
                     };
                     let active = i == self.active_tab;
                     let g = ui.painter().layout_no_wrap(name.clone(), mono(12.0), if active { th.text } else { th.text3 });
@@ -766,6 +766,9 @@ impl App {
                     job.append(&format!(" {}", crate::map::fmt_num(val.round())), 0.0, egui::TextFormat::simple(mono(11.0), th.text2));
                 }
                 ui.label(job);
+                if let Some(h) = self.sky_cursor_hint(axis, p) {
+                    ui.label(RichText::new(h).font(mono(11.0)).color(th.accent_text));
+                }
             }
             let sel = self.ed.sel.len();
             if sel > 0 {
@@ -783,6 +786,16 @@ impl App {
             }
             if self.ed.map.cordon.is_some_and(|c| c.active) {
                 ui.label(RichText::new(crate::i18n::tr("Cordon aktiv")).size(11.5).color(th.warn));
+            }
+            if !self.ed.auto_vis.all_visible() {
+                let hidden = crate::sky_ui::hidden_labels(&self.ed.auto_vis);
+                if ui.add(egui::Label::new(RichText::new(crate::i18n::tr("Filter aktiv")).size(11.5).color(th.warn)).sense(Sense::click())).on_hover_text(crate::i18n::tr_dyn(&format!("Ausgeblendet: {hidden} – Klick: alles einblenden"))).clicked() {
+                    self.ed.auto_vis = crate::editor::AutoVis::default();
+                    self.ed.touch();
+                }
+            }
+            if self.sky.active {
+                ui.label(RichText::new(crate::i18n::tr("3D-Skybox-Modus")).size(11.5).color(th.accent_text));
             }
             ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
                 ui.spacing_mut().item_spacing.x = 18.0;

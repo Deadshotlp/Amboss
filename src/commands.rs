@@ -81,6 +81,12 @@ pub enum Cmd {
     ToggleGizmo,
     LoadPointfile,
     ClearMeasure,
+    ToggleNodraw,
+    ToggleTriggers,
+    ToggleToolBrushes,
+    SkyboxMode,
+    SkyboxCopy,
+    SkyboxCheck,
     Tool(crate::editor::Tool),
 }
 
@@ -91,6 +97,7 @@ impl Cmd {
             New, Open, Save, SaveAs, NewTab, CloseTab, NextTab, MergeMap, CompareMap, Merge3, ImportMap, ExportObj, Undo, Redo, History, PasteSpecial, Delete, SelectAll, Duplicate, Carve, Hollow, TieToEntity, MoveToWorld, Group, Ungroup, Hide,
             HideUnselected, UnhideAll, Lock, UnlockAll, Transform, SnapToGrid, FlipH, FlipV, RotateMouse, RotateCw, RotateCcw, ApplyTexture, ReplaceTextures, NodrawHidden, TextureBrowser, ModelBrowser, SoundBrowser, ParticleBrowser, Collab, ToggleSnap, ToggleVertexSnap, SelectTouching, CopyProps, PasteProps, CheckProblems, Optimize, OptimizeCheck, EntityReport,
             Outliner, GotoNumber, MapInfo, LogicalView, Prefabs, Compile, CompileWindow, TestFromCamera, Walk, Settings, Help, Palette, GridDown, GridUp, CenterSel2D, CenterSel3D, NextCamera, Maximize, ToggleGizmo, LoadPointfile, ClearMeasure,
+            ToggleNodraw, ToggleTriggers, ToggleToolBrushes, SkyboxMode, SkyboxCopy, SkyboxCheck,
         ];
         v.extend(crate::editor::Tool::ALL.iter().map(|t| Tool(*t)));
         v
@@ -196,6 +203,12 @@ impl Cmd {
             ToggleGizmo => crate::i18n::tr("3D-Gizmo ein/aus"),
             LoadPointfile => crate::i18n::tr("Pointfile laden"),
             ClearMeasure => crate::i18n::tr("Messung löschen"),
+            ToggleNodraw => crate::i18n::tr("nodraw-Flächen ein-/ausblenden"),
+            ToggleTriggers => crate::i18n::tr("Trigger ein-/ausblenden"),
+            ToggleToolBrushes => crate::i18n::tr("Alle Werkzeug-Brushes ein-/ausblenden"),
+            SkyboxMode => crate::i18n::tr("3D-Skybox bearbeiten"),
+            SkyboxCopy => crate::i18n::tr("Auswahl verkleinert in die 3D-Skybox kopieren"),
+            SkyboxCheck => crate::i18n::tr("3D-Skybox prüfen"),
             Tool(t) => return format!("Werkzeug: {}", t.label()),
         }
         .to_string()
@@ -260,6 +273,8 @@ impl Cmd {
             CompileWindow => "Ctrl+F9",
             TestFromCamera => "Shift+F9",
             Walk => "F6",
+            ToggleNodraw => "Alt+N",
+            ToggleTriggers => "Alt+T",
             _ => "",
         }
     }
@@ -420,6 +435,40 @@ impl App {
             }
             EntityReport => self.win.entity_report = true,
             Outliner => self.win.outliner = !self.win.outliner,
+            ToggleNodraw | ToggleTriggers | ToggleToolBrushes => {
+                let av = &mut self.ed.auto_vis;
+                let (on, what) = match cmd {
+                    ToggleNodraw => {
+                        av.nodraw = !av.nodraw;
+                        (av.nodraw, crate::i18n::tr("nodraw-Flächen"))
+                    }
+                    ToggleTriggers => {
+                        av.triggers = !av.triggers;
+                        (av.triggers, crate::i18n::tr("Trigger"))
+                    }
+                    _ => {
+                        let on = !(av.nodraw && av.triggers && av.clips && av.hints && av.portals && av.skybox && av.tools);
+                        av.nodraw = on;
+                        av.triggers = on;
+                        av.clips = on;
+                        av.hints = on;
+                        av.portals = on;
+                        av.skybox = on;
+                        av.tools = on;
+                        (on, crate::i18n::tr("Werkzeug-Brushes"))
+                    }
+                };
+                let sel: Vec<_> = self.ed.sel.iter().copied().filter(|o| self.ed.is_visible(*o)).collect();
+                self.ed.sel = sel.into_iter().collect();
+                self.ed.touch();
+                self.ed.status = crate::i18n::tr_dyn(&format!("{what}: {}", if on { crate::i18n::tr("eingeblendet") } else { crate::i18n::tr("ausgeblendet") }));
+            }
+            SkyboxMode => self.toggle_sky_mode(),
+            SkyboxCopy => self.sky_copy_selection(),
+            SkyboxCheck => {
+                self.sky.issues = crate::skybox::check(&self.ed.map, self.ed.map_limit);
+                self.sky.check_open = true;
+            }
             GotoNumber => self.win.goto = true,
             MapInfo => self.win.map_info = true,
             LogicalView => self.win.logical = true,

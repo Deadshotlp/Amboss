@@ -346,6 +346,20 @@ impl Solid {
         out
     }
 
+    /// Strahltest, bei dem ausgeblendete Seiten durchlässig sind: trifft dann die Rückseite der
+    /// gegenüberliegenden Fläche (so wie sie in 3D zu sehen ist)
+    pub fn ray_hit_visible(&self, origin: DVec3, dir: DVec3, hidden: impl Fn(&str) -> bool) -> Option<(f64, usize)> {
+        if self.has_disp() || !self.sides.iter().any(|s| hidden(&s.material)) {
+            return self.ray_hit(origin, dir);
+        }
+        self.bounds.ray_hit(origin, dir)?;
+        let ((t_in, i_in), (t_out, i_out)) = crate::geometry::ray_convex_through(&self.planes, origin, dir)?;
+        if !hidden(&self.sides[i_in].material) {
+            return Some((t_in, i_in));
+        }
+        (!hidden(&self.sides[i_out].material) && t_out > 0.0).then_some((t_out, i_out))
+    }
+
     pub fn ray_hit(&self, origin: DVec3, dir: DVec3) -> Option<(f64, usize)> {
         self.bounds.ray_hit(origin, dir)?;
         if self.has_disp() {
@@ -583,6 +597,8 @@ pub struct Map {
     pub extra: Vec<KvBlock>,
     pub next_id: u32,
     pub grid: f64,
+    /// ausgeblendete Objektarten der Ansichtsfilter („nodraw,triggers“; viewsettings → amboss_hidden)
+    pub view_filter: String,
     /// Freie Polygon-Meshes (Begleitdatei <map>.meshes.json, nicht in der VMF)
     pub meshes: Vec<Shared<crate::mesh::MeshObj>>,
 }
@@ -612,6 +628,7 @@ impl Map {
             extra: Vec::new(),
             next_id: 2,
             grid: 16.0,
+            view_filter: String::new(),
             meshes: Vec::new(),
         }
     }
@@ -823,6 +840,9 @@ impl Map {
         if let Some(n) = map.extra.iter().find(|b| b.name.eq_ignore_ascii_case("viewsettings")).and_then(|b| b.get("nGridSpacing")).and_then(|v| v.parse().ok()) {
             map.grid = n;
         }
+        if let Some(f) = map.extra.iter().find(|b| b.name.eq_ignore_ascii_case("viewsettings")).and_then(|b| b.get("amboss_hidden")) {
+            map.view_filter = f.to_string();
+        }
         map.next_id = max_id.max(map.visgroups.iter().map(|v| v.id).max().unwrap_or(0)) + 1;
         Ok(map)
     }
@@ -861,6 +881,11 @@ impl Map {
                     *v = fmt_num(self.grid);
                 }
             }
+        }
+        // Ansichtsfilter (Hammer ignoriert unbekannte Schlüssel); leer = Schlüssel entfernen
+        vs.items.retain(|it| !matches!(it, KvItem::Pair(k, _) if k.eq_ignore_ascii_case("amboss_hidden")));
+        if !self.view_filter.is_empty() {
+            vs.push("amboss_hidden", self.view_filter.clone());
         }
         blocks.push(vs);
         let mut world = write_entity(&self.world, "world", self);

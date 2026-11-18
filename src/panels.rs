@@ -800,23 +800,8 @@ impl App {
                 }
             });
             ui.separator();
-            theme::section(ui, crate::i18n::tr("Automatische Filter"));
-            let av = &mut self.ed.auto_vis;
-            let before = *av;
-            ui.horizontal_wrapped(|ui| {
-                crate::theme::checkbox(ui, &mut av.world, crate::i18n::tr("Welt"));
-                crate::theme::checkbox(ui, &mut av.detail, "func_detail");
-                crate::theme::checkbox(ui, &mut av.triggers, crate::i18n::tr("Trigger"));
-                crate::theme::checkbox(ui, &mut av.tools, crate::i18n::tr("Tool-Texturen"));
-                crate::theme::checkbox(ui, &mut av.brush_ents, crate::i18n::tr("Brush-Entities"));
-                crate::theme::checkbox(ui, &mut av.point_ents, crate::i18n::tr("Punkt-Entities"));
-                crate::theme::checkbox(ui, &mut av.lights, crate::i18n::tr("Lichter"));
-                crate::theme::checkbox(ui, &mut av.props, crate::i18n::tr("Props"));
-                crate::theme::checkbox(ui, &mut av.disps, crate::i18n::tr("Displacements"));
-            });
-            if format!("{before:?}") != format!("{:?}", self.ed.auto_vis) {
-                self.ed.touch();
-            }
+            theme::section(ui, crate::i18n::tr("Einblenden (Filter)"));
+            crate::sky_ui::filter_ui(&mut self.ed, ui, 2);
         }
     }
 

@@ -51,6 +51,8 @@ fn icon(name: &str) -> &'static [El] {
         "layers" => &[Path("M12 3l9 5-9 5-9-5z"), Path("M3 13l9 5 9-5")],
         "tool" => &[Path("M14 7l3-3 3 3-3 3M14 7L4 17v3h3L17 10")],
         "download" => &[Path("M12 4v11M7 10l5 5 5-5"), Path("M5 19h14")],
+        "filter" => &[Path("M4 5h16l-6 7v6l-4 2v-8z")],
+        "sky" => &[Path("M7 17h10a4 4 0 0 0-1-7.9A5 5 0 0 0 6.2 10 3.5 3.5 0 0 0 7 17z")],
         _ => &[Path("M5 5h14v14H5z")],
     }
 }

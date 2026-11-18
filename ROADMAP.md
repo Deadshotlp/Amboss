@@ -159,8 +159,8 @@ Ebenfalls erledigt (0.10.0):
 Vorschläge vom 18.11.2026; die Reihenfolge innerhalb eines Abschnitts sagt nichts über die Priorität. ★ = Favoriten.
 
 Ansicht und Übersicht
-- [ ] ★ **Werkzeugflächen einzeln ausblenden** (wie Hammers Auto-Visgroups): eigene Schalter für nodraw, Trigger, Clips (player/npc/clip), Hint/Skip, Areaportals/Occluder, Skybox-Flächen, dazu Brush-Entities nach Klasse, Punkt-Entities, Props, Displacements; wirkt in 2D und 3D, ausgeblendete Objekte sind nicht anklickbar, Zustand bleibt pro Map gespeichert – S
-- [ ] ★ **Eigener Bereich für die 3D-Skybox** (Ansicht → „3D-Skybox bearbeiten“): Skybox-Raum isoliert anzeigen und im Weltmaßstab bearbeiten (Objekte werden mit `scale` der sky_camera umgerechnet), Vorschau aus Spielersicht mit der Map im Vordergrund nebeneinander, Assistent legt Skybox-Raum + sky_camera an, Teile der Map verkleinert in die Skybox kopieren, Prüfung (sky_camera fehlt/doppelt, Nebel der sky_camera, skyname passt, Raum dicht). Die skalierte Darstellung im 3D-Fenster gibt es schon – M
+- [x] ★ **Werkzeugflächen einzeln ausblenden** (0.11.0) (wie Hammers Auto-Visgroups): eigene Schalter für nodraw, Trigger, Clips (player/npc/clip), Hint/Skip, Areaportals/Occluder, Skybox-Flächen, dazu Brush-Entities nach Klasse, Punkt-Entities, Props, Displacements; wirkt in 2D und 3D, ausgeblendete Objekte sind nicht anklickbar, Zustand bleibt pro Map gespeichert – S
+- [x] ★ **Eigener Bereich für die 3D-Skybox** (0.11.0; Bearbeiten im Raum mit Umrechnung über Kopieren, Raster und Weltkoordinaten in der Statuszeile) (Ansicht → „3D-Skybox bearbeiten“): Skybox-Raum isoliert anzeigen und im Weltmaßstab bearbeiten (Objekte werden mit `scale` der sky_camera umgerechnet), Vorschau aus Spielersicht mit der Map im Vordergrund nebeneinander, Assistent legt Skybox-Raum + sky_camera an, Teile der Map verkleinert in die Skybox kopieren, Prüfung (sky_camera fehlt/doppelt, Nebel der sky_camera, skyname passt, Raum dicht). Die skalierte Darstellung im 3D-Fenster gibt es schon – M
 
 Maps aus anderen Engines
 - [ ] Ganze Maps aus Hammer 3.x / J.A.C.K. (`.rmf`, `.jmf`) öffnen (`.rmf`-Leser gibt es für Prefabs schon) – S–M

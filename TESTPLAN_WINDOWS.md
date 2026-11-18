@@ -243,7 +243,7 @@ Für jede Optimierung: zuerst **„Nur prüfen“**, Markierungen ansehen, dann 
 | O11 | worldspawn `skyname` = `sky_day01_01` (bzw. eigener Himmel), Ansicht → Himmel-Vorschau | Himmel rundum richtig ausgerichtet (Horizont unten, Sonne wie im Spiel) – mit dem Spiel vergleichen |
 | O12 | `env_fog_controller` mit fogenable 1, Farbe, Start/Ende | Entfernte Flächen gehen in die Nebelfarbe über; Ansicht → Nebel schaltet ab |
 | O13 | `move_rope` mit NextKey auf `keyframe_rope`, Slack 50 | Seil hängt durch wie im Spiel, mit Seil-Textur; in 2D als Linie |
-| O14 | Version prüfen | „0.10.0“ neben dem Logo, im Fenstertitel und unter Hilfe → Über Amboss |
+| O14 | Version prüfen | „0.11.0“ neben dem Logo, im Fenstertitel und unter Hilfe → Über Amboss |
 | O15 | Hilfe → Tutorial…, Kapitel 6–9 mit echten Inhalten durchspielen (auch „Zeig es mir“) | Jeder Schritt wird erkannt; Gelände, Himmel, Nebel, Partikel, Overlay, Decal sehen richtig aus |
 | O16 | Trigger mit Output: Ziel-Feld anklicken und einen Buchstaben tippen | Liste passender Namen mit Klasse; Pfeiltasten + Enter oder Klick übernimmt |
 | O17 | Generatoren → Räume mit Höhenstufen 2, eigenen Texturen für Boden/Wände/Decke → Erzeugen → Kompilieren & starten | Kein Leck; Räume unterschiedlich hoch, Treppen in den Gängen begehbar; Texturen wie gewählt |
@@ -282,6 +282,21 @@ Für jede Optimierung: zuerst **„Nur prüfen“**, Markierungen ansehen, dann 
 | P8 | `amboss-0.10.0-windows-setup.exe` ausführen (ohne Admin), mit Desktop- und .vmf-Verknüpfung | Amboss im Startmenü, Desktop-Symbol mit Amboss-Icon, Doppelklick auf .vmf öffnet Amboss; Deinstallation über „Apps“ entfernt alles außer eigenen Maps |
 | P9 | Einstellungen → Sprache: Français, Español, Polski, Русский nacheinander; Menüs, Panel, Kompilieren-Dialog, Tutorial ansehen | Texte in der Sprache, keine deutschen Reste (Entity-Beschreibungen auf Englisch sind gewollt), kyrillische Schrift sauber |
 | P10 | Windows-Skalierung 150 % und 200 %; zusätzlich „Größe der Oberfläche“ 125 % | Alles scharf, 3D/2D-Ansichten füllen ihre Fläche, Klicks treffen; große Dialoge passen ins Fenster und scrollen |
+
+## Q. Version 0.11.0: Ansichtsfilter und 3D-Skybox
+
+| Nr. | Schritt | Erwartung |
+|---|---|---|
+| Q1 | Echte Map mit Triggern und nodraw öffnen (z. B. eine dekompilierte GMod-Map). **Alt+N** in einer 2D-Ansicht | nodraw-Flächen verschwinden in 3D, auch einzelne nodraw-Seiten normaler Brushes; reine nodraw-Brushes verschwinden auch in 2D; Trichter-Knopf leuchtet, unten „Filter aktiv“ |
+| Q2 | **Alt+T** | Alle trigger_* und Brushes mit toolstrigger verschwinden in 2D und 3D; ausgewählte Trigger werden abgewählt |
+| Q3 | In 3D auf eine Stelle klicken, an der vorher eine ausgeblendete nodraw-Fläche war | Ausgewählt wird, was dahinter zu sehen ist (Rückseite der gegenüberliegenden Fläche bzw. der Brush dahinter) |
+| Q4 | Trichter-Knopf einer Ansicht → einzelne Häkchen (Clips, Hint/Skip, Areaportals, Skybox-Flächen) | Wirkt sofort in allen Ansichten; Fenster bleibt beim Klicken offen |
+| Q5 | Map speichern, schließen, wieder öffnen; dieselbe VMF in Hammer öffnen | Filter sind wieder so gesetzt; Hammer öffnet die Map ohne Meldung |
+| Q6 | Map ohne 3D-Skybox: Ansicht → 3D-Skybox bearbeiten → Assistent mit Vorschlag → „Anlegen und bearbeiten“ | Raum (Wände mit toolsskybox) und sky_camera entstehen außerhalb der Map; Ansichten zeigen nur den Raum; unten rechts im 3D-Fenster die Spielersicht |
+| Q7 | Vorher in der Map ein paar große Brushes als „Berge“ auswählen, dann Skybox-Modus → „Map-Auswahl verkleinert hineinkopieren“ | Kopien erscheinen 1:16 verkleinert im Raum; in der Spielersicht stehen sie hinter der Map an der richtigen Stelle |
+| Q8 | In der Spielersicht ziehen und das Mausrad drehen | Sicht dreht/bewegt sich; das große 3D-Fenster bleibt unverändert |
+| Q9 | Skybox-Modus → „Prüfen“; dann eine Wand des Raums löschen und erneut prüfen | Zuerst keine Fehler; danach „Skybox-Raum nicht geschlossen“ und der Modus beendet sich |
+| Q10 | Map kompilieren und in GMod laden | Die kopierten Berge sind am Horizont zu sehen, an der Stelle wie in der Spielersicht; keine Lecks durch den Skybox-Raum |
 
 ## L. Nach dem Test
 

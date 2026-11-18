@@ -208,6 +208,38 @@ impl Aabb {
 
 /// Strahl gegen konvexen Körper (Ebenen zeigen nach außen).
 /// Liefert (t, Index der getroffenen Ebene).
+/// Wie `ray_convex`, liefert aber Eintritt und Austritt: ((t, Seite), (t, Seite))
+pub fn ray_convex_through(planes: &[Option<Plane>], origin: DVec3, dir: DVec3) -> Option<((f64, usize), (f64, usize))> {
+    let mut tmin = 0.0f64;
+    let mut tmax = f64::MAX;
+    let (mut pin, mut pout) = (None, None);
+    for (i, p) in planes.iter().enumerate() {
+        let Some(p) = p else { continue };
+        let denom = p.normal.dot(dir);
+        let dist = p.distance(origin);
+        if denom.abs() < 1e-12 {
+            if dist > 0.0 {
+                return None;
+            }
+            continue;
+        }
+        let t = -dist / denom;
+        if denom < 0.0 {
+            if t > tmin {
+                tmin = t;
+                pin = Some(i);
+            }
+        } else if t < tmax {
+            tmax = t;
+            pout = Some(i);
+        }
+        if tmin > tmax {
+            return None;
+        }
+    }
+    Some(((tmin, pin?), (tmax, pout?)))
+}
+
 pub fn ray_convex(planes: &[Option<Plane>], origin: DVec3, dir: DVec3) -> Option<(f64, usize)> {
     let mut tmin = 0.0f64;
     let mut tmax = f64::MAX;

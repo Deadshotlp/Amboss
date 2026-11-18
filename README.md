@@ -1,6 +1,6 @@
 # Amboss – Map editor for Source 1 / Garry's Mod
 
-**Version 0.10.0** – shown next to the logo, in the window title and under Help → About Amboss. See `CHANGELOG.md` for what's new (the changelog is in German).
+**Version 0.11.0** – shown next to the logo, in the window title and under Help → About Amboss. See `CHANGELOG.md` for what's new (the changelog is in German).
 
 Amboss is a standalone level editor written in **Rust**, inspired by Hammer/Hammer++.
 It edits **VMF files**, shows the real **textures and models from the GMod/HL2 VPKs** and
@@ -36,7 +36,7 @@ Ready-to-run builds are on the [Releases page](https://github.com/Deadshotlp/Amb
 top bar with menus, command search (Ctrl+K), live session and "Compile & run" with profile selection · tabs with save state and game profile ·
 slim tool bar with icons · context bar per tool (shape, undo/redo arrows, grid, snap, snap to vertices, texture lock, visgroups, 1/4 views) ·
 viewports with glass labels (switch view/render mode), zoom or FPS, accent-coloured selection with handles, dimensions and label · with a selection, 2D views draw objects on other levels (different depth, ±10 units) fainter · models appear in 2D as their outline instead of a rectangle ·
-right panel with Properties / Objects / Visgroups and a texture grid (resizable) · **splitters between the four views can be dragged** (double-click = centre); layout, axes and 3D options are saved, View → "Reset layout" · **map bounds per game profile** (Settings, default ±16384, marked red in 2D) · start page with templates, crash recovery and recently opened maps.
+right panel with Properties / Objects / Visgroups and a texture grid (resizable) · **view filters** ("Show"): hide world brushes, func_detail, brush entities, triggers, **nodraw faces** (in 3D face by face), clips, hint/skip, areaportals & occluders, skybox faces, other tool brushes, displacements, point entities, lights, props or the 3D skybox room – funnel button in every view, View → Show (filters), Alt+N / Alt+T; saved per map · **splitters between the four views can be dragged** (double-click = centre); layout, axes and 3D options are saved, View → "Reset layout" · **map bounds per game profile** (Settings, default ±16384, marked red in 2D) · start page with templates, crash recovery and recently opened maps.
 Fonts: Inter and JetBrains Mono (SIL Open Font License, in `assets/fonts`). The 3D view stays dark in both themes.
 
 ### Tools (as in Hammer)
@@ -88,6 +88,7 @@ Textured (incl. **blend textures** WorldVertexTransition mixed via displacement 
 Before compiling, missing keys are filled in with their FGD defaults (as Hammer does when creating an entity) – e.g. a `light` without `_light` would otherwise be black.
 
 ### Map
+**3D skybox editing** (View → Edit 3D skybox, Map → 3D skybox): all views show only the room around the sky_camera, with a **player view** (picture in picture) of the whole map and the enlarged skybox behind it; the map's footprint is outlined in 2D and the status bar shows world coordinates. An assistant creates room and sky_camera if there is none; selected brushes can be **copied in scaled down** (textures scaled along); **check** for open rooms, missing sky_camera, fog mismatches, overlaps and more ·
 **Check for problems** with auto-fix (Alt+P) · **entity report** · **go to number** (e.g. from VBSP errors) · map info · map properties
 
 ### Navmesh (Tools → Navmesh)
@@ -315,6 +316,8 @@ src/
   collab_ui.rs   "Live session" window, display of the other participants
   p2p.rs         Connection without port forwarding: STUN, connection codes, UDP hole punching, reliable stream
   update.rs, update_ui.rs   Update check against GitHub releases, download and swap of the program file
+  skybox.rs      3D skybox: find/create the room, scaled copy, checks
+  sky_ui.rs      View filters (Show) and 3D skybox mode
   templates.rs   Templates for new maps, start page
   theme.rs       Dark/light colour schemes, fonts, UI building blocks
   icons.rs       Icons (SVG paths from the UI concept) drawn with egui
