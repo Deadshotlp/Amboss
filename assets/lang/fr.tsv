@@ -2228,3 +2228,17 @@ glTF ohne Szene	glTF sans scène
 Kein Modell geladen	Aucun modèle chargé
 {}: nur PNG und JPEG werden unterstützt	{} : seuls PNG et JPEG sont pris en charge
 Es läuft bereits ein Modell-Import	Un import de modèle est déjà en cours
+nicht erkannt: {}	non reconnu : {}
+Bilder (PNG, JPEG)	Images (PNG, JPEG)
+Keine Basistextur zum Bearbeiten	Aucune texture de base à modifier
+Mehrere Bilder eines PBR-Materials wählen (Color/Albedo, Normal, Roughness, Metallic, AO, Height – z. B. von Poly Haven oder ambientCG). Daraus werden Basistextur, Normalmap und Glanz	Choisir plusieurs images d'un matériau PBR (couleur/albedo, normal, roughness, metallic, AO, height – p. ex. de Poly Haven ou ambientCG). On en tire la texture de base, la normal map et la brillance
+Nahtlos gemacht – wird beim Speichern geschrieben	Rendue raccordable – écrite à l'enregistrement
+Nahtlos machen	Rendre raccordable
+Normalmap aus Basistextur	Normal map depuis la texture de base
+Normalmap erzeugt – wird beim Speichern geschrieben	Normal map créée – écrite à l'enregistrement
+PBR-Set importieren…	Importer un jeu PBR…
+PBR-Set übernommen: {}	Jeu PBR appliqué : {}
+Relief aus der Helligkeit der Basistextur berechnen (hell = erhaben)	Calculer le relief à partir de la luminosité de la texture de base (clair = en relief)
+Ränder der Basistextur (und Normalmap) überblenden, damit beim Kacheln keine Kanten sichtbar sind – Vorschau mit „Gekachelt“ prüfen	Fondre les bords de la texture de base (et de la normal map) pour qu'aucun raccord ne se voie en mosaïque – vérifier avec « En mosaïque »
+Stärke des Reliefs	Intensité du relief
+Keine Grundfarbe (albedo/basecolor/diffuse) im Set	Aucune couleur de base (albedo/basecolor/diffuse) dans le jeu

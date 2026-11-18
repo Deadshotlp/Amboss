@@ -2228,3 +2228,17 @@ glTF ohne Szene	glTF sin escena
 Kein Modell geladen	No hay ningún modelo cargado
 {}: nur PNG und JPEG werden unterstützt	{}: solo se admiten PNG y JPEG
 Es läuft bereits ein Modell-Import	Ya hay una importación de modelo en curso
+nicht erkannt: {}	no reconocido: {}
+Bilder (PNG, JPEG)	Imágenes (PNG, JPEG)
+Keine Basistextur zum Bearbeiten	No hay textura base que editar
+Mehrere Bilder eines PBR-Materials wählen (Color/Albedo, Normal, Roughness, Metallic, AO, Height – z. B. von Poly Haven oder ambientCG). Daraus werden Basistextur, Normalmap und Glanz	Elige varias imágenes de un material PBR (color/albedo, normal, roughness, metallic, AO, height; p. ej. de Poly Haven o ambientCG). Con ellas se crean la textura base, el mapa de normales y el brillo
+Nahtlos gemacht – wird beim Speichern geschrieben	Hecha continua: se escribe al guardar
+Nahtlos machen	Hacer continua
+Normalmap aus Basistextur	Mapa de normales desde la textura base
+Normalmap erzeugt – wird beim Speichern geschrieben	Mapa de normales creado: se escribe al guardar
+PBR-Set importieren…	Importar conjunto PBR…
+PBR-Set übernommen: {}	Conjunto PBR aplicado: {}
+Relief aus der Helligkeit der Basistextur berechnen (hell = erhaben)	Calcular el relieve a partir del brillo de la textura base (claro = elevado)
+Ränder der Basistextur (und Normalmap) überblenden, damit beim Kacheln keine Kanten sichtbar sind – Vorschau mit „Gekachelt“ prüfen	Fundir los bordes de la textura base (y del mapa de normales) para que no se vean juntas al repetir; compruébalo con «En mosaico»
+Stärke des Reliefs	Intensidad del relieve
+Keine Grundfarbe (albedo/basecolor/diffuse) im Set	No hay color base (albedo/basecolor/diffuse) en el conjunto

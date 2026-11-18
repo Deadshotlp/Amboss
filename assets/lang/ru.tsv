@@ -2228,3 +2228,17 @@ glTF ohne Szene	glTF без сцены
 Kein Modell geladen	Модель не загружена
 {}: nur PNG und JPEG werden unterstützt	{}: поддерживаются только PNG и JPEG
 Es läuft bereits ein Modell-Import	Импорт модели уже выполняется
+nicht erkannt: {}	не распознано: {}
+Bilder (PNG, JPEG)	Изображения (PNG, JPEG)
+Keine Basistextur zum Bearbeiten	Нет базовой текстуры для обработки
+Mehrere Bilder eines PBR-Materials wählen (Color/Albedo, Normal, Roughness, Metallic, AO, Height – z. B. von Poly Haven oder ambientCG). Daraus werden Basistextur, Normalmap und Glanz	Выберите несколько изображений PBR-материала (цвет/albedo, normal, roughness, metallic, AO, height – например, с Poly Haven или ambientCG). Из них получатся базовая текстура, карта нормалей и блеск
+Nahtlos gemacht – wird beim Speichern geschrieben	Сделано бесшовным – запишется при сохранении
+Nahtlos machen	Сделать бесшовной
+Normalmap aus Basistextur	Карта нормалей из базовой текстуры
+Normalmap erzeugt – wird beim Speichern geschrieben	Карта нормалей создана – запишется при сохранении
+PBR-Set importieren…	Импорт набора PBR…
+PBR-Set übernommen: {}	Набор PBR применён: {}
+Relief aus der Helligkeit der Basistextur berechnen (hell = erhaben)	Вычислить рельеф по яркости базовой текстуры (светлое = выпуклое)
+Ränder der Basistextur (und Normalmap) überblenden, damit beim Kacheln keine Kanten sichtbar sind – Vorschau mit „Gekachelt“ prüfen	Смешать края базовой текстуры (и карты нормалей), чтобы при повторении не было швов – проверьте в превью «Плиткой»
+Stärke des Reliefs	Сила рельефа
+Keine Grundfarbe (albedo/basecolor/diffuse) im Set	В наборе нет базового цвета (albedo/basecolor/diffuse)

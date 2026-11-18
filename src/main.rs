@@ -81,6 +81,7 @@ mod scatter;
 mod propper;
 mod problems;
 mod tabs;
+mod tex_tools;
 mod templates;
 mod theme;
 mod tiles;

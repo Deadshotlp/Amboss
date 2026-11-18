@@ -2228,3 +2228,17 @@ glTF ohne Szene	glTF bez sceny
 Kein Modell geladen	Nie wczytano modelu
 {}: nur PNG und JPEG werden unterstützt	{}: obsługiwane są tylko PNG i JPEG
 Es läuft bereits ein Modell-Import	Import modelu już trwa
+nicht erkannt: {}	nie rozpoznano: {}
+Bilder (PNG, JPEG)	Obrazy (PNG, JPEG)
+Keine Basistextur zum Bearbeiten	Brak tekstury bazowej do edycji
+Mehrere Bilder eines PBR-Materials wählen (Color/Albedo, Normal, Roughness, Metallic, AO, Height – z. B. von Poly Haven oder ambientCG). Daraus werden Basistextur, Normalmap und Glanz	Wybierz kilka obrazów materiału PBR (kolor/albedo, normal, roughness, metallic, AO, height – np. z Poly Haven lub ambientCG). Powstaną z nich tekstura bazowa, normal mapa i połysk
+Nahtlos gemacht – wird beim Speichern geschrieben	Uczyniono bezszwową – zostanie zapisana przy zapisie
+Nahtlos machen	Uczyń bezszwową
+Normalmap aus Basistextur	Normal mapa z tekstury bazowej
+Normalmap erzeugt – wird beim Speichern geschrieben	Utworzono normal mapę – zostanie zapisana przy zapisie
+PBR-Set importieren…	Importuj zestaw PBR…
+PBR-Set übernommen: {}	Zastosowano zestaw PBR: {}
+Relief aus der Helligkeit der Basistextur berechnen (hell = erhaben)	Oblicz relief z jasności tekstury bazowej (jasne = wypukłe)
+Ränder der Basistextur (und Normalmap) überblenden, damit beim Kacheln keine Kanten sichtbar sind – Vorschau mit „Gekachelt“ prüfen	Wymieszaj krawędzie tekstury bazowej (i normal mapy), aby przy kafelkowaniu nie było widać szwów – sprawdź w podglądzie „Kafelki“
+Stärke des Reliefs	Siła reliefu
+Keine Grundfarbe (albedo/basecolor/diffuse) im Set	Brak koloru bazowego (albedo/basecolor/diffuse) w zestawie

@@ -2230,3 +2230,17 @@ glTF ohne Szene	glTF without a scene
 Kein Modell geladen	No model loaded
 {}: nur PNG und JPEG werden unterstützt	{}: only PNG and JPEG are supported
 Es läuft bereits ein Modell-Import	A model import is already running
+nicht erkannt: {}	not recognised: {}
+Bilder (PNG, JPEG)	Images (PNG, JPEG)
+Keine Basistextur zum Bearbeiten	No base texture to edit
+Mehrere Bilder eines PBR-Materials wählen (Color/Albedo, Normal, Roughness, Metallic, AO, Height – z. B. von Poly Haven oder ambientCG). Daraus werden Basistextur, Normalmap und Glanz	Choose several images of a PBR material (colour/albedo, normal, roughness, metallic, AO, height – e.g. from Poly Haven or ambientCG). They become base texture, normal map and gloss
+Nahtlos gemacht – wird beim Speichern geschrieben	Made seamless – written when saving
+Nahtlos machen	Make seamless
+Normalmap aus Basistextur	Normal map from base texture
+Normalmap erzeugt – wird beim Speichern geschrieben	Normal map created – written when saving
+PBR-Set importieren…	Import PBR set…
+PBR-Set übernommen: {}	PBR set applied: {}
+Relief aus der Helligkeit der Basistextur berechnen (hell = erhaben)	Compute relief from the base texture's brightness (bright = raised)
+Ränder der Basistextur (und Normalmap) überblenden, damit beim Kacheln keine Kanten sichtbar sind – Vorschau mit „Gekachelt“ prüfen	Blend the edges of the base texture (and normal map) so no seams show when tiled – check with "Tiled" in the preview
+Stärke des Reliefs	Relief strength
+Keine Grundfarbe (albedo/basecolor/diffuse) im Set	No base colour (albedo/basecolor/diffuse) in the set

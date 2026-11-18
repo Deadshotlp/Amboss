@@ -96,6 +96,8 @@ pub struct MatEd {
     pub status: String,
     preview: Option<(String, egui::TextureHandle)>,
     pub tile: bool,
+    /// Stärke für „Normalmap erzeugen“
+    pub normal_strength: f32,
 }
 
 impl MatEd {
@@ -223,6 +225,10 @@ impl crate::app::App {
         let mut open = true;
         let preview = self.material_preview(ctx);
         let (mut save, mut import, mut apply) = (false, None::<String>, false);
+        let mut tool = 0u8;
+        if self.mated.normal_strength <= 0.0 {
+            self.mated.normal_strength = 4.0;
+        }
         let d = theme::Dlg::new(crate::i18n::tr("Material-Editor"), 880.0).subtitle(format!("materials/{}.vmt", self.mated.name)).height(640.0).footer();
         let st = &mut self.mated;
         theme::dialog(ctx, &mut open, &d, |ui, part| match part {
@@ -339,6 +345,19 @@ impl crate::app::App {
                                 });
                                 ui.end_row();
                             });
+                            theme::section(ui, crate::i18n::tr("Werkzeuge"));
+                            ui.horizontal_wrapped(|ui| {
+                                if ui.button(crate::i18n::tr("PBR-Set importieren…")).on_hover_text(crate::i18n::tr("Mehrere Bilder eines PBR-Materials wählen (Color/Albedo, Normal, Roughness, Metallic, AO, Height – z. B. von Poly Haven oder ambientCG). Daraus werden Basistextur, Normalmap und Glanz")).clicked() {
+                                    tool = 1;
+                                }
+                                if ui.button(crate::i18n::tr("Nahtlos machen")).on_hover_text(crate::i18n::tr("Ränder der Basistextur (und Normalmap) überblenden, damit beim Kacheln keine Kanten sichtbar sind – Vorschau mit „Gekachelt“ prüfen")).clicked() {
+                                    tool = 2;
+                                }
+                                if ui.button(crate::i18n::tr("Normalmap aus Basistextur")).on_hover_text(crate::i18n::tr("Relief aus der Helligkeit der Basistextur berechnen (hell = erhaben)")).clicked() {
+                                    tool = 3;
+                                }
+                                ui.add(theme::dv(egui::DragValue::new(&mut st.normal_strength).range(0.5..=20.0).speed(0.1))).on_hover_text(crate::i18n::tr("Stärke des Reliefs"));
+                            });
                             theme::section(ui, crate::i18n::tr("Eigenschaften"));
                             egui::Grid::new("mated_flags").num_columns(3).spacing([16.0, 6.0]).show(ui, |ui| {
                                 let mut n = 0;
@@ -407,9 +426,15 @@ impl crate::app::App {
             _ => {}
         });
         self.mated.open = open;
+        match tool {
+            1 => self.mated_pbr_import(),
+            2 => self.mated_seamless(),
+            3 => self.mated_normal_from_base(),
+            _ => {}
+        }
         if let Some(param) = import {
-            if let Some(p) = rfd::FileDialog::new().add_filter("PNG", &["png"]).pick_file() {
-                match std::fs::read(&p).map_err(|e| e.to_string()).and_then(|b| vtf_write::load_png(&b)) {
+            if let Some(p) = rfd::FileDialog::new().add_filter(crate::i18n::tr("Bilder (PNG, JPEG)"), &["png", "jpg", "jpeg"]).pick_file() {
+                match crate::model_import::load_image(&crate::model_import::Image::File(p)) {
                     Ok(img) => {
                         let st = &mut self.mated;
                         if st.doc.get(&param).is_none_or(|v| v.is_empty()) {
@@ -435,6 +460,98 @@ impl crate::app::App {
                 }
                 Err(e) => self.mated.status = e,
             }
+        }
+    }
+}
+
+impl crate::app::App {
+    /// Bild eines Parameters: importiert (noch nicht gespeichert) oder aus dem VTF in voller Größe
+    fn mated_image(&self, param: &str) -> Option<Rgba> {
+        let st = &self.mated;
+        if let Some(i) = st.imports.get(param) {
+            return Some(i.clone());
+        }
+        let key = st.doc.get(param)?.to_ascii_lowercase();
+        if key.is_empty() {
+            return None;
+        }
+        let bytes = self.mats.fs().and_then(|fs| fs.read(&format!("materials/{key}.vtf"))).or_else(|| std::fs::read(std::path::Path::new(&self.settings.game_dir).join(format!("materials/{key}.vtf"))).ok())?;
+        crate::vtf::load(&bytes, 4096).ok().map(|i| Rgba { w: i.pw, h: i.ph, px: i.rgba })
+    }
+
+    fn mated_seamless(&mut self) {
+        let mut n = 0;
+        for param in ["$basetexture", "$bumpmap"] {
+            if let Some(img) = self.mated_image(param) {
+                let st = &mut self.mated;
+                if st.doc.get(param).is_none_or(|v| v.is_empty()) {
+                    let t = tex_name_for(&st.name, param);
+                    st.doc.set(param, &t);
+                }
+                st.imports.insert(param.to_string(), crate::tex_tools::make_seamless(&img, 0.5));
+                n += 1;
+            }
+        }
+        let st = &mut self.mated;
+        st.preview = None;
+        st.tile = true;
+        st.status = if n == 0 { crate::i18n::tr("Keine Basistextur zum Bearbeiten").into() } else { crate::i18n::tr("Nahtlos gemacht – wird beim Speichern geschrieben").into() };
+    }
+
+    fn mated_normal_from_base(&mut self) {
+        let Some(img) = self.mated_image("$basetexture") else {
+            self.mated.status = crate::i18n::tr("Keine Basistextur zum Bearbeiten").into();
+            return;
+        };
+        let st = &mut self.mated;
+        let n = crate::tex_tools::normal_from_height(&img, st.normal_strength);
+        let t = tex_name_for(&st.name, "$bumpmap");
+        st.doc.set("$bumpmap", &t);
+        st.imports.insert("$bumpmap".into(), n);
+        st.status = crate::i18n::tr("Normalmap erzeugt – wird beim Speichern geschrieben").into();
+    }
+
+    fn mated_pbr_import(&mut self) {
+        let Some(files) = rfd::FileDialog::new().add_filter(crate::i18n::tr("Bilder (PNG, JPEG)"), &["png", "jpg", "jpeg"]).pick_files() else { return };
+        let mut maps = Vec::new();
+        let mut used = Vec::new();
+        let mut skipped = Vec::new();
+        for f in files {
+            let name = f.file_name().map(|s| s.to_string_lossy().to_string()).unwrap_or_default();
+            match crate::tex_tools::classify(&name) {
+                Some(k) if !maps.iter().any(|(m, _)| *m == k) => match crate::model_import::load_image(&crate::model_import::Image::File(f)) {
+                    Ok(img) => {
+                        used.push(format!("{name} ({k:?})"));
+                        maps.push((k, img));
+                    }
+                    Err(e) => skipped.push(format!("{name}: {e}")),
+                },
+                _ => skipped.push(name),
+            }
+        }
+        let model = self.mated.doc.shader.eq_ignore_ascii_case("VertexLitGeneric");
+        match crate::tex_tools::convert_pbr(&maps, model) {
+            Ok(r) => {
+                let st = &mut self.mated;
+                let bt = tex_name_for(&st.name, "$basetexture");
+                st.doc.set("$basetexture", &bt);
+                st.imports.insert("$basetexture".into(), r.base);
+                if let Some(n) = r.normal {
+                    let t = tex_name_for(&st.name, "$bumpmap");
+                    st.doc.set("$bumpmap", &t);
+                    st.imports.insert("$bumpmap".into(), n);
+                }
+                for (k, v) in r.params {
+                    st.doc.set(&k, &v);
+                }
+                st.preview = None;
+                st.status = crate::i18n::tr_dyn(&format!("PBR-Set übernommen: {}", used.join(", ")));
+                if !skipped.is_empty() {
+                    st.status.push_str(" – ");
+                    st.status.push_str(&crate::i18n::tr_dyn(&format!("nicht erkannt: {}", skipped.join(", "))));
+                }
+            }
+            Err(e) => self.mated.status = crate::i18n::tr_dyn(&e),
         }
     }
 }
