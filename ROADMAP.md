@@ -153,3 +153,68 @@ Ebenfalls erledigt (0.10.0):
 - [x] Modell-Browser echte Kachelvorschau; logische Ansicht mit Leerzustand und Suche; Live-Sitzung als Segment Gastgeber/Beitreten; Entity-Hilfe als Tabelle
 - [x] Icons je Entity-Kategorie; Pfadfelder in den Einstellungen mit Status-Punkt
 
+
+## J. Ideen für weitere Funktionen (noch nicht eingeplant)
+
+Vorschläge vom 18.11.2026; die Reihenfolge innerhalb eines Abschnitts sagt nichts über die Priorität. ★ = Favoriten.
+
+Ansicht und Übersicht
+- [ ] ★ **Werkzeugflächen einzeln ausblenden** (wie Hammers Auto-Visgroups): eigene Schalter für nodraw, Trigger, Clips (player/npc/clip), Hint/Skip, Areaportals/Occluder, Skybox-Flächen, dazu Brush-Entities nach Klasse, Punkt-Entities, Props, Displacements; wirkt in 2D und 3D, ausgeblendete Objekte sind nicht anklickbar, Zustand bleibt pro Map gespeichert – S
+- [ ] ★ **Eigener Bereich für die 3D-Skybox** (Ansicht → „3D-Skybox bearbeiten“): Skybox-Raum isoliert anzeigen und im Weltmaßstab bearbeiten (Objekte werden mit `scale` der sky_camera umgerechnet), Vorschau aus Spielersicht mit der Map im Vordergrund nebeneinander, Assistent legt Skybox-Raum + sky_camera an, Teile der Map verkleinert in die Skybox kopieren, Prüfung (sky_camera fehlt/doppelt, Nebel der sky_camera, skyname passt, Raum dicht). Die skalierte Darstellung im 3D-Fenster gibt es schon – M
+
+Maps aus anderen Engines
+- [ ] Ganze Maps aus Hammer 3.x / J.A.C.K. (`.rmf`, `.jmf`) öffnen (`.rmf`-Leser gibt es für Prefabs schon) – S–M
+- [ ] GoldSrc-BSP (Half-Life 1) dekompilieren, WAD-Texturen → VTF – M
+- [ ] Quake-3-Maps inkl. gebogener Flächen (→ Bezier-Patches) – M
+- [ ] Source-2-Maps (`.vmap`) – nur eingeschränkt: Meshes → Props, konvexe Teile → Brushes – L
+- [ ] Szenen aus Unreal/Unity/Godot/Blender über glTF/FBX/OBJ (Geometrie → Props, Blockformen → Brushes per konvexer Zerlegung) – M–L
+- [ ] OpenStreetMap-Gebäude und Straßen (zusammen mit dem Heightmap-Import) – M
+
+Modelle
+- [ ] ★ glTF/GLB, OBJ, FBX, DAE per Ziehen in die Map: automatisch SMD/QC + VTF/VMT, studiomdl im Hintergrund, fertiges prop_static/prop_physics – M
+- [ ] Kollisionsmodell automatisch (konvexe Hülle / Zerlegung) – M
+- [ ] LODs automatisch erzeugen – M
+- [ ] Skins und Bodygroups im Import-Dialog – S–M
+- [ ] Animationen im Modell-Browser abspielen – M
+- [ ] MDL dekompilieren und als glTF/OBJ exportieren (wie Crowbar) – M
+
+Texturen und Materialien
+- [ ] Textur-Editor mit Ebenen (Pinsel, Füllen, Stempel, Farbe/Helligkeit, Zuschneiden, Kachelvorschau) – L
+- [ ] ★ „Nahtlos machen“ mit einem Klick – S
+- [ ] ★ Normalmap aus Höhen- oder Farbbild – S–M
+- [ ] ★ PBR-Texturen (Roughness/Metallic) in Source-Materialien umwandeln (Phong, Envmap-Maske) – M
+- [ ] Decal-/Overlay-Generator aus einem Bild – S
+- [ ] Texturen in 3D direkt auf Flächen malen – L
+- [ ] Freie Textur-Bibliotheken (Poly Haven, ambientCG) durchsuchen und als VTF einbinden – M
+
+Bauwerkzeuge
+- [ ] ★ Spline-Werkzeug: Straßen, Schienen, Rohre, Zäune, Kabel entlang einer Kurve – M
+- [ ] Saubere Boolesche Operationen (Vereinigen, Abziehen ohne Zerstückelung) – M
+- [ ] Array: Duplizieren entlang Linie, Kreis oder Kurve mit Versatz und Drehung – S
+- [ ] Wendeltreppen, Kuppeln, Röhren, Torbögen als eigene Formen – S
+- [ ] Gameplay-Maße einblenden (Sprunghöhe, Ducken, Türbreite, Sichtlinien) – S
+- [ ] Weitere Generatoren: Höhlen, Innenausbau (Möbel streuen) – M
+
+Optimierung und Fehlersuche
+- [ ] Lightmap-Dichte als Farbkarte mit geschätzter Dateigröße – S
+- [ ] Sichtbarkeit ohne Kompilieren simulieren („Was sieht das Spiel von hier?“) – M–L
+- [ ] Performance-Ampel (Draw-Calls, Props, Entities pro Bereich) – M
+- [ ] Compile-Fehler erklären: Meldungen klickbar, springt zum Brush, mit Lösungsvorschlag – S–M
+
+GMod
+- [ ] ★ Workshop-Upload aus Amboss (gmad + gmpublish) mit Addon-Liste – M
+- [ ] ★ Workshop-Vorschaubild aus der 3D-Kamera rendern – S
+- [ ] Gamemode-Vorlagen mit Checkliste (TTT, Murder, Prop Hunt, DarkRP, Deathrun) – S–M
+- [ ] Lua-Entities aus Addons erkennen (Scripted Entities ohne FGD) – M
+- [ ] Visueller Logik-Editor: Ein-/Ausgänge als Knoten verbinden – M
+
+Zusammenarbeit und Arbeitsablauf
+- [ ] Notizen/Kommentare an Stellen in der Map anheften (auch in der Live-Sitzung) – S
+- [ ] Textchat in der Live-Sitzung – S
+- [ ] Zeitleiste der Speicherstände mit Vorschau und Vergleich – S–M
+- [ ] Plugin-Verwaltung für Lua-Skripte – M
+
+Export und Präsentation
+- [ ] glTF-Export mit Texturen – S–M
+- [ ] Hochauflösende Screenshots und 360°-Panoramen – S
+- [ ] Kamerafahrt als Video – M
