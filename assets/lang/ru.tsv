@@ -2273,3 +2273,39 @@ Titel	Название
 Workshop-ID	ID в Мастерской
 Änderungen	Изменения
 Beilegen	Добавить
+Alle löschen	Удалить все
+Bordstein	Бордюр
+Geschlossen	Замкнутая
+Glatte Kurve	Плавная кривая
+Höhe über Fläche	Высота над поверхностью
+Kabel / Seil	Кабель / верёвка
+Klick in der 3D-Ansicht setzt einen Punkt auf die Fläche darunter, in 2D in der Höhe des letzten Punkts	Щелчок в 3D-виде ставит точку на поверхность под курсором, в 2D – на высоте последней точки
+Letzten entfernen	Удалить последнюю
+Mindestens zwei Objekte auswählen	Выделите хотя бы два объекта
+Mittelpunkte der ausgewählten Objekte als Punkte übernehmen (nach ID)	Взять центры выделенных объектов как точки (по ID)
+Modelle entlang	Модели вдоль
+Neu erzeugen (ersetzt das Letzte)	Создать заново (заменяет последнее)
+Punkte setzen	Ставить точки
+Punkte setzen: an (Rechtsklick beendet)	Установка точек: вкл. (правый щелчок – конец)
+Spline-Werkzeug	Инструмент сплайна
+Spline: Straße, Rohr, Zaun, Kabel…	Сплайн: дорога, труба, забор, кабель…
+Straße / Weg	Дорога / тропа
+Straßen, Rohre, Zäune, Modelle und Kabel entlang einer Kurve	Дороги, трубы, заборы, модели и кабели вдоль кривой
+Zaun / Geländer	Забор / перила
+als func_detail (schont VVIS)	как func_detail (бережёт VVIS)
+an der Kurve ausrichten	выровнять по кривой
+beidseitig	с обеих сторон
+Segmentlänge	Длина сегмента
+Bordstein-Höhe	Высота бордюра
+Bordstein-Breite	Ширина бордюра
+Höhe	Высота
+Breite	Ширина
+Dicke	Толщина
+Pfostenabstand	Шаг столбов
+Pfostendicke	Толщина столбов
+Seitlich versetzt	Смещение вбок
+Durchhang (Slack)	Провисание (slack)
+{} Punkte · Länge {} Einheiten · {} Brushes, {} Entities	Точек: {} · длина {} ед. · брашей: {}, сущностей: {}
+Mindestens zwei Punkte setzen	Поставьте хотя бы две точки
+Nichts zu erzeugen – Punkte liegen zu dicht	Нечего создавать – точки слишком близко
+Spline: {} Objekte erzeugt ({} Einheiten lang)	Сплайн: создано объектов {} (длина {} ед.)

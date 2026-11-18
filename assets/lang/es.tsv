@@ -2273,3 +2273,39 @@ Titel	Título
 Workshop-ID	ID de Workshop
 Änderungen	Cambios
 Beilegen	Incluir
+Alle löschen	Borrar todo
+Bordstein	Bordillo
+Geschlossen	Cerrada
+Glatte Kurve	Curva suave
+Höhe über Fläche	Altura sobre la superficie
+Kabel / Seil	Cable / cuerda
+Klick in der 3D-Ansicht setzt einen Punkt auf die Fläche darunter, in 2D in der Höhe des letzten Punkts	Un clic en la vista 3D coloca un punto sobre la superficie de debajo; en 2D, a la altura del último punto
+Letzten entfernen	Quitar el último
+Mindestens zwei Objekte auswählen	Selecciona al menos dos objetos
+Mittelpunkte der ausgewählten Objekte als Punkte übernehmen (nach ID)	Usar los centros de los objetos seleccionados como puntos (por ID)
+Modelle entlang	Modelos a lo largo
+Neu erzeugen (ersetzt das Letzte)	Volver a crear (sustituye lo último)
+Punkte setzen	Colocar puntos
+Punkte setzen: an (Rechtsklick beendet)	Colocar puntos: activado (clic derecho termina)
+Spline-Werkzeug	Herramienta spline
+Spline: Straße, Rohr, Zaun, Kabel…	Spline: carretera, tubería, valla, cable…
+Straße / Weg	Carretera / camino
+Straßen, Rohre, Zäune, Modelle und Kabel entlang einer Kurve	Carreteras, tuberías, vallas, modelos y cables a lo largo de una curva
+Zaun / Geländer	Valla / barandilla
+als func_detail (schont VVIS)	como func_detail (alivia VVIS)
+an der Kurve ausrichten	alinear con la curva
+beidseitig	a ambos lados
+Segmentlänge	Longitud de segmento
+Bordstein-Höhe	Altura del bordillo
+Bordstein-Breite	Anchura del bordillo
+Höhe	Altura
+Breite	Anchura
+Dicke	Grosor
+Pfostenabstand	Separación de postes
+Pfostendicke	Grosor de postes
+Seitlich versetzt	Desplazamiento lateral
+Durchhang (Slack)	Holgura (slack)
+{} Punkte · Länge {} Einheiten · {} Brushes, {} Entities	{} puntos · longitud {} unidades · {} brushes, {} entidades
+Mindestens zwei Punkte setzen	Coloca al menos dos puntos
+Nichts zu erzeugen – Punkte liegen zu dicht	Nada que crear: los puntos están demasiado juntos
+Spline: {} Objekte erzeugt ({} Einheiten lang)	Spline: {} objetos creados ({} unidades de largo)

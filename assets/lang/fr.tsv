@@ -2273,3 +2273,39 @@ Titel	Titre
 Workshop-ID	ID Workshop
 Änderungen	Modifications
 Beilegen	Inclure
+Alle löschen	Tout supprimer
+Bordstein	Bordure
+Geschlossen	Fermée
+Glatte Kurve	Courbe lisse
+Höhe über Fläche	Hauteur au-dessus de la surface
+Kabel / Seil	Câble / corde
+Klick in der 3D-Ansicht setzt einen Punkt auf die Fläche darunter, in 2D in der Höhe des letzten Punkts	Un clic dans la vue 3D place un point sur la surface en dessous, en 2D à la hauteur du dernier point
+Letzten entfernen	Retirer le dernier
+Mindestens zwei Objekte auswählen	Sélectionnez au moins deux objets
+Mittelpunkte der ausgewählten Objekte als Punkte übernehmen (nach ID)	Utiliser les centres des objets sélectionnés comme points (par ID)
+Modelle entlang	Modèles le long
+Neu erzeugen (ersetzt das Letzte)	Recréer (remplace le dernier)
+Punkte setzen	Placer des points
+Punkte setzen: an (Rechtsklick beendet)	Placement des points : actif (clic droit pour finir)
+Spline-Werkzeug	Outil spline
+Spline: Straße, Rohr, Zaun, Kabel…	Spline : route, tuyau, clôture, câble…
+Straße / Weg	Route / chemin
+Straßen, Rohre, Zäune, Modelle und Kabel entlang einer Kurve	Routes, tuyaux, clôtures, modèles et câbles le long d'une courbe
+Zaun / Geländer	Clôture / rambarde
+als func_detail (schont VVIS)	en func_detail (ménage VVIS)
+an der Kurve ausrichten	aligner sur la courbe
+beidseitig	des deux côtés
+Segmentlänge	Longueur de segment
+Bordstein-Höhe	Hauteur de bordure
+Bordstein-Breite	Largeur de bordure
+Höhe	Hauteur
+Breite	Largeur
+Dicke	Épaisseur
+Pfostenabstand	Espacement des poteaux
+Pfostendicke	Épaisseur des poteaux
+Seitlich versetzt	Décalage latéral
+Durchhang (Slack)	Affaissement (slack)
+{} Punkte · Länge {} Einheiten · {} Brushes, {} Entities	{} points · longueur {} unités · {} brushes, {} entités
+Mindestens zwei Punkte setzen	Placez au moins deux points
+Nichts zu erzeugen – Punkte liegen zu dicht	Rien à créer – les points sont trop proches
+Spline: {} Objekte erzeugt ({} Einheiten lang)	Spline : {} objets créés ({} unités de long)

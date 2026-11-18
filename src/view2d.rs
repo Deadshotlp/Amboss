@@ -624,8 +624,24 @@ impl View2D {
             }
             ed.prefab_drop = Some((idx, pos, normal));
         }
+        // ---------------------------------------------------- Spline-Punkte
+        let spline_click = ed.spline.placing && ed.spline.open;
+        if spline_click {
+            if resp.clicked_by(PointerButton::Primary) {
+                if let Some(mw) = mouse_world {
+                    let s = snapped(mw);
+                    let mut p = ed.spline.points.last().copied().unwrap_or(ed.work_point);
+                    p[h] = s.x;
+                    p[v] = s.y;
+                    ed.spline.points.push(p);
+                    ed.touch();
+                }
+            } else if resp.clicked_by(PointerButton::Secondary) {
+                ed.spline.placing = false;
+            }
+        }
         // ---------------------------------------------------- Klicks
-        if resp.clicked_by(PointerButton::Primary) && armed_click.is_none() {
+        if !spline_click && resp.clicked_by(PointerButton::Primary) && armed_click.is_none() {
             if let Some(mw) = mouse_world {
                 let s = snapped(mw);
                 ed.work_point[h] = s.x;
@@ -998,6 +1014,12 @@ impl View2D {
                     painter.line_segment([self.sp(rect, a), self.sp(rect, b)], Stroke::new(1.0f32, col));
                 }
             }
+        }
+
+        // Spline-Werkzeug
+        for (a, b, c) in crate::spline::preview_lines(&ed.spline) {
+            let col = Color32::from_rgba_unmultiplied((c[0] * 255.0) as u8, (c[1] * 255.0) as u8, (c[2] * 255.0) as u8, (c[3] * 255.0) as u8);
+            painter.line_segment([self.sp(rect, a), self.sp(rect, b)], Stroke::new(1.5f32, col));
         }
 
         // Türen & Co.: Bewegungs-Vorschau der Auswahl

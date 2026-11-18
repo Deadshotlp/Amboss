@@ -514,6 +514,8 @@ pub struct Editor {
     pub clip3: Vec<DVec3>,
     /// 3D-Skybox-Modus: nur Objekte in diesem Raum sind sichtbar und wählbar
     pub sky_edit: Option<Aabb>,
+    /// Spline-Werkzeug (Punkte, Einstellungen)
+    pub spline: crate::spline::SplineState,
     /// (Map-Stand, Grenzen des Skybox-Raums, gültig)
     sky_room_cache: std::cell::RefCell<(u64, Option<crate::skybox::SkyRoom>, bool)>,
 }
@@ -601,6 +603,7 @@ impl Editor {
             clip_cache: std::cell::RefCell::new(None),
             clip3: Vec::new(),
             sky_edit: None,
+            spline: Default::default(),
             sky_room_cache: std::cell::RefCell::new((0, None, false)),
         }
     }

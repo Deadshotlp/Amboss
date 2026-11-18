@@ -265,6 +265,14 @@ pub fn tool_list() -> Vec<Value> {
                 &["path"],
             ),
         ),
+        t(
+            "build_spline",
+            "Objekte entlang einer Kurve durch die Punkte erzeugen (ein Rückgängig-Schritt, als Gruppe): kind road (Fahrbahn mit Bordstein, Textur läuft mit), pipe (Rohr), fence (Pfosten + Latten), models (Props im Abstand, ausgerichtet), cable (move_rope/keyframe_rope-Kette). replace_last=true ersetzt das zuletzt Erzeugte.",
+            schema(
+                json!({"kind": {"type": "string", "enum": ["road", "pipe", "fence", "models", "cable"]}, "points": {"type": "array", "items": vec3_schema("Punkt")}, "closed": {"type": "boolean"}, "smooth": {"type": "boolean", "description": "Kurve (Standard) oder gerade Strecken"}, "material": {"type": "string"}, "width": {"type": "number"}, "thickness": {"type": "number"}, "curb": {"type": "boolean"}, "radius": {"type": "number"}, "sides": {"type": "integer"}, "spacing": {"type": "number"}, "height": {"type": "number"}, "model": {"type": "string"}, "offset": {"type": "number"}, "both_sides": {"type": "boolean"}, "slack": {"type": "number"}, "step": {"type": "number", "description": "Segmentlänge"}, "detail": {"type": "boolean"}, "replace_last": {"type": "boolean"}}),
+                &["kind", "points"],
+            ),
+        ),
         t("get_import_status", "Log und Status des letzten Modell-Imports (import_model).", schema(json!({}), &[])),
         t("new_map", "Neue leere Map.", schema(json!({}), &[])),
         t("compile", "Map speichern, kompilieren (VBSP/VVIS/VRAD) und laut Einstellungen starten.", schema(json!({}), &[])),
@@ -771,6 +779,47 @@ Ausgabe:
         }
         "import_model" => host.import_model(Some(PathBuf::from(arg_str(a, "path")?)), a),
         "get_import_status" => host.import_model(None, a),
+        "build_spline" => {
+            use crate::spline::Kind;
+            let ed = host.ed();
+            let pts = a.get("points").and_then(|v| v.as_array()).ok_or("'points' fehlt")?;
+            let mut points = Vec::new();
+            for p in pts {
+                let v = p.as_array().filter(|v| v.len() == 3).ok_or("Punkte als [x, y, z]")?;
+                points.push(DVec3::new(v[0].as_f64().unwrap_or(0.0), v[1].as_f64().unwrap_or(0.0), v[2].as_f64().unwrap_or(0.0)));
+            }
+            let mut o = crate::spline::SplineOpts {
+                kind: match arg_str(a, "kind")? {
+                    "road" => Kind::Road,
+                    "pipe" => Kind::Pipe,
+                    "fence" => Kind::Fence,
+                    "models" => Kind::Models,
+                    "cable" => Kind::Cable,
+                    k => return Err(format!("Unbekannte Art: {k}")),
+                },
+                ..Default::default()
+            };
+            let f = |k: &str| a.get(k).and_then(|v| v.as_f64());
+            let b = |k: &str| a.get(k).and_then(|v| v.as_bool());
+            if let Some(v) = b("closed") { o.closed = v; }
+            if let Some(v) = b("smooth") { o.smooth = v; }
+            if let Some(v) = b("curb") { o.curb = v; }
+            if let Some(v) = b("both_sides") { o.both_sides = v; }
+            if let Some(v) = b("detail") { o.detail = v; }
+            if let Some(v) = a.get("material").and_then(|v| v.as_str()) { o.material = v.to_string(); }
+            if let Some(v) = a.get("model").and_then(|v| v.as_str()) { o.model = v.to_string(); }
+            if let Some(v) = a.get("sides").and_then(|v| v.as_u64()) { o.sides = v as usize; }
+            for (k, slot) in [("width", &mut o.width), ("thickness", &mut o.thickness), ("radius", &mut o.radius), ("spacing", &mut o.spacing), ("height", &mut o.height), ("offset", &mut o.offset), ("slack", &mut o.slack), ("step", &mut o.step)] {
+                if let Some(v) = f(k) {
+                    *slot = v;
+                }
+            }
+            ed.spline.points = points;
+            ed.spline.opts = o;
+            let n = crate::spline::build(ed, b("replace_last").unwrap_or(false))?;
+            let ids: Vec<u32> = ed.spline.last.iter().map(|o| match o { Obj::Solid(id) | Obj::Entity(id) => *id }).collect();
+            Ok(json!({"created": n, "ids": ids, "status": ed.status}))
+        }
         "get_prop_status" => host.make_prop(crate::propper::PropOpts { name: String::new(), ..Default::default() }, false),
         "new_map" => {
             host.ed().new_map();

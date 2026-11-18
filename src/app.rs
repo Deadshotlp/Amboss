@@ -1165,6 +1165,26 @@ impl App {
                 "panel_tab" => self.panel_tab = v.parse().unwrap_or(0),
                 "import" => self.open_model_import(std::path::PathBuf::from(v)),
                 "workshop" => self.open_workshop(),
+                "spline" => {
+                    let st = &mut self.ed.spline;
+                    st.open = true;
+                    st.points = vec![glam::DVec3::new(-900.0, -700.0, 1.0), glam::DVec3::new(-200.0, -500.0, 1.0), glam::DVec3::new(200.0, 100.0, 1.0), glam::DVec3::new(900.0, 400.0, 1.0)];
+                    st.opts.kind = match v {
+                        "pipe" => crate::spline::Kind::Pipe,
+                        "fence" => crate::spline::Kind::Fence,
+                        "models" => crate::spline::Kind::Models,
+                        "cable" => crate::spline::Kind::Cable,
+                        _ => crate::spline::Kind::Road,
+                    };
+                    if v == "pipe" || v == "cable" {
+                        for p in &mut st.points {
+                            p.z += 160.0;
+                        }
+                    }
+                }
+                "spline_go" => {
+                    let _ = crate::spline::build(&mut self.ed, false);
+                }
                 "ws_shot" => self.ws.capture = 1,
                 "ws_img" => self.ws.image = crate::model_import::load_image(&crate::model_import::Image::File(std::path::PathBuf::from(v))).ok(),
                 "ws_go" => {
@@ -1707,6 +1727,7 @@ impl App {
                 self.win.tiles = true;
                 ui.close_menu();
             }
+            self.cmd_item(ui, ctx, Cmd::Spline);
             if ui.button(tr("Polygon-Mesh…")).on_hover_text(tr("Freie Netze: aus Brushes erstellen oder OBJ importieren, Punkte und Flächen ziehen, extrudieren")).clicked() {
                 self.win.mesh = true;
                 self.mesh_page = 0;

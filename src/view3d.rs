@@ -2748,8 +2748,23 @@ impl View3D {
             ui.painter_at(rect).text(rect.center_top() + Vec2::new(0.0, 22.0), Align2::CENTER_TOP, crate::i18n::tr("Prefab: auf eine Fläche klicken bzw. loslassen (Esc bricht ab)"), FontId::proportional(13.0), Color32::LIGHT_GREEN);
         }
 
+        // ---- Spline: Klick setzt einen Punkt, Rechtsklick beendet
+        if ed.spline.placing && ed.spline.open {
+            if resp.clicked_by(PointerButton::Primary) {
+                if let Some(p) = resp.interact_pointer_pos() {
+                    let (o, d) = self.cam.ray(rect, p);
+                    if let Some(q) = crate::spline::point_from_ray(ed, o, d) {
+                        ed.spline.points.push(q);
+                        ed.touch();
+                    }
+                }
+            } else if resp.clicked_by(PointerButton::Secondary) {
+                ed.spline.placing = false;
+            }
+        }
+        let spline_click = ed.spline.placing && ed.spline.open;
         // ---- Klicks
-        if !rotating && resp.clicked_by(PointerButton::Primary) && ed.tool != Tool::Disp && armed_click.is_none() && !ed.scatter.active && !ed.tiles.active && !ed.grip_mode() {
+        if !rotating && !spline_click && resp.clicked_by(PointerButton::Primary) && ed.tool != Tool::Disp && armed_click.is_none() && !ed.scatter.active && !ed.tiles.active && !ed.grip_mode() {
             if let Some(p) = resp.interact_pointer_pos() {
                 let (o, d) = self.cam.ray(rect, p);
                 let hit = ed.pick_3d(o, d);
@@ -3488,6 +3503,9 @@ impl View3D {
         }
         // Türen & Co.: wohin bewegen sie sich?
         for (a, b, c) in crate::door_preview::selected(ed) {
+            line(&mut lines, a, b, c);
+        }
+        for (a, b, c) in crate::spline::preview_lines(&ed.spline) {
             line(&mut lines, a, b, c);
         }
         if let Some((a, b)) = ed.measure {

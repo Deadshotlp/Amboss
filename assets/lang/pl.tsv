@@ -2273,3 +2273,39 @@ Titel	Tytuł
 Workshop-ID	ID w Warsztacie
 Änderungen	Zmiany
 Beilegen	Dołącz
+Alle löschen	Usuń wszystkie
+Bordstein	Krawężnik
+Geschlossen	Zamknięta
+Glatte Kurve	Gładka krzywa
+Höhe über Fläche	Wysokość nad powierzchnią
+Kabel / Seil	Kabel / lina
+Klick in der 3D-Ansicht setzt einen Punkt auf die Fläche darunter, in 2D in der Höhe des letzten Punkts	Kliknięcie w widoku 3D stawia punkt na powierzchni pod kursorem, w 2D na wysokości ostatniego punktu
+Letzten entfernen	Usuń ostatni
+Mindestens zwei Objekte auswählen	Zaznacz co najmniej dwa obiekty
+Mittelpunkte der ausgewählten Objekte als Punkte übernehmen (nach ID)	Użyj środków zaznaczonych obiektów jako punktów (wg ID)
+Modelle entlang	Modele wzdłuż
+Neu erzeugen (ersetzt das Letzte)	Utwórz ponownie (zastępuje ostatnie)
+Punkte setzen	Stawiaj punkty
+Punkte setzen: an (Rechtsklick beendet)	Stawianie punktów: wł. (prawy przycisk kończy)
+Spline-Werkzeug	Narzędzie spline
+Spline: Straße, Rohr, Zaun, Kabel…	Spline: droga, rura, płot, kabel…
+Straße / Weg	Droga / ścieżka
+Straßen, Rohre, Zäune, Modelle und Kabel entlang einer Kurve	Drogi, rury, płoty, modele i kable wzdłuż krzywej
+Zaun / Geländer	Płot / barierka
+als func_detail (schont VVIS)	jako func_detail (oszczędza VVIS)
+an der Kurve ausrichten	wyrównaj do krzywej
+beidseitig	po obu stronach
+Segmentlänge	Długość segmentu
+Bordstein-Höhe	Wysokość krawężnika
+Bordstein-Breite	Szerokość krawężnika
+Höhe	Wysokość
+Breite	Szerokość
+Dicke	Grubość
+Pfostenabstand	Odstęp słupków
+Pfostendicke	Grubość słupków
+Seitlich versetzt	Przesunięcie w bok
+Durchhang (Slack)	Zwis (slack)
+{} Punkte · Länge {} Einheiten · {} Brushes, {} Entities	{} punktów · długość {} jednostek · {} brushy, {} encji
+Mindestens zwei Punkte setzen	Postaw co najmniej dwa punkty
+Nichts zu erzeugen – Punkte liegen zu dicht	Nic do utworzenia – punkty są zbyt blisko
+Spline: {} Objekte erzeugt ({} Einheiten lang)	Spline: utworzono {} obiektów (długość {} jednostek)

@@ -2275,3 +2275,39 @@ Titel	Title
 Workshop-ID	Workshop ID
 Änderungen	Changes
 Beilegen	Include
+Alle löschen	Delete all
+Bordstein	Kerb
+Geschlossen	Closed
+Glatte Kurve	Smooth curve
+Höhe über Fläche	Height above surface
+Kabel / Seil	Cable / rope
+Klick in der 3D-Ansicht setzt einen Punkt auf die Fläche darunter, in 2D in der Höhe des letzten Punkts	A click in the 3D view places a point on the surface below, in 2D at the height of the last point
+Letzten entfernen	Remove last
+Mindestens zwei Objekte auswählen	Select at least two objects
+Mittelpunkte der ausgewählten Objekte als Punkte übernehmen (nach ID)	Use the centres of the selected objects as points (by ID)
+Modelle entlang	Models along
+Neu erzeugen (ersetzt das Letzte)	Rebuild (replaces the last)
+Punkte setzen	Place points
+Punkte setzen: an (Rechtsklick beendet)	Placing points: on (right-click ends)
+Spline-Werkzeug	Spline tool
+Spline: Straße, Rohr, Zaun, Kabel…	Spline: road, pipe, fence, cable…
+Straße / Weg	Road / path
+Straßen, Rohre, Zäune, Modelle und Kabel entlang einer Kurve	Roads, pipes, fences, models and cables along a curve
+Zaun / Geländer	Fence / railing
+als func_detail (schont VVIS)	as func_detail (spares VVIS)
+an der Kurve ausrichten	align to the curve
+beidseitig	both sides
+Segmentlänge	Segment length
+Bordstein-Höhe	Kerb height
+Bordstein-Breite	Kerb width
+Höhe	Height
+Breite	Width
+Dicke	Thickness
+Pfostenabstand	Post spacing
+Pfostendicke	Post size
+Seitlich versetzt	Side offset
+Durchhang (Slack)	Sag (slack)
+{} Punkte · Länge {} Einheiten · {} Brushes, {} Entities	{} points · length {} units · {} brushes, {} entities
+Mindestens zwei Punkte setzen	Place at least two points
+Nichts zu erzeugen – Punkte liegen zu dicht	Nothing to create – points are too close
+Spline: {} Objekte erzeugt ({} Einheiten lang)	Spline: {} objects created ({} units long)

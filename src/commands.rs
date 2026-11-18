@@ -16,6 +16,7 @@ pub enum Cmd {
     ImportMap,
     ImportModel,
     Workshop,
+    Spline,
     MergeMap,
     CompareMap,
     Merge3,
@@ -96,7 +97,7 @@ impl Cmd {
     pub fn all() -> Vec<Cmd> {
         use Cmd::*;
         let mut v = vec![
-            New, Open, Save, SaveAs, NewTab, CloseTab, NextTab, MergeMap, CompareMap, Merge3, ImportMap, ImportModel, Workshop, ExportObj, Undo, Redo, History, PasteSpecial, Delete, SelectAll, Duplicate, Carve, Hollow, TieToEntity, MoveToWorld, Group, Ungroup, Hide,
+            New, Open, Save, SaveAs, NewTab, CloseTab, NextTab, MergeMap, CompareMap, Merge3, ImportMap, ImportModel, Workshop, Spline, ExportObj, Undo, Redo, History, PasteSpecial, Delete, SelectAll, Duplicate, Carve, Hollow, TieToEntity, MoveToWorld, Group, Ungroup, Hide,
             HideUnselected, UnhideAll, Lock, UnlockAll, Transform, SnapToGrid, FlipH, FlipV, RotateMouse, RotateCw, RotateCcw, ApplyTexture, ReplaceTextures, NodrawHidden, TextureBrowser, ModelBrowser, SoundBrowser, ParticleBrowser, Collab, ToggleSnap, ToggleVertexSnap, SelectTouching, CopyProps, PasteProps, CheckProblems, Optimize, OptimizeCheck, EntityReport,
             Outliner, GotoNumber, MapInfo, LogicalView, Prefabs, Compile, CompileWindow, TestFromCamera, Walk, Settings, Help, Palette, GridDown, GridUp, CenterSel2D, CenterSel3D, NextCamera, Maximize, ToggleGizmo, LoadPointfile, ClearMeasure,
             ToggleNodraw, ToggleTriggers, ToggleToolBrushes, SkyboxMode, SkyboxCopy, SkyboxCheck,
@@ -140,6 +141,7 @@ impl Cmd {
             ImportMap => crate::i18n::tr("Importieren (.map)"),
             ImportModel => crate::i18n::tr("Modell importieren (glTF, OBJ)…"),
             Workshop => crate::i18n::tr("Im Workshop veröffentlichen…"),
+            Spline => crate::i18n::tr("Spline: Straße, Rohr, Zaun, Kabel…"),
             MergeMap => crate::i18n::tr("Map zusammenführen…"),
             CompareMap => crate::i18n::tr("Mit anderem Map-Stand vergleichen…"),
             Merge3 => crate::i18n::tr("3-Wege-Zusammenführen (Basis / andere Version)…"),
@@ -441,6 +443,10 @@ impl App {
             Outliner => self.win.outliner = !self.win.outliner,
             ImportModel => self.pick_model_file(),
             Workshop => self.open_workshop(),
+            Spline => {
+                self.ed.spline.open = true;
+                self.ed.spline.placing = true;
+            }
             ToggleNodraw | ToggleTriggers | ToggleToolBrushes => {
                 let av = &mut self.ed.auto_vis;
                 let (on, what) = match cmd {

@@ -74,6 +74,7 @@ mod setup;
 mod model_import;
 mod model_import_ui;
 mod skybox;
+mod spline;
 mod sky_ui;
 mod primitives;
 mod procgen;
