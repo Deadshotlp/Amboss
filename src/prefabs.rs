@@ -515,7 +515,38 @@ pub fn parse_rmf(b: &[u8]) -> Result<Map, String> {
     for _ in 0..n {
         read_object(&mut r, &mut map, None, tex_len, version)?;
     }
+    // ganze Maps: danach folgen die Schlüssel von worldspawn (Prefabs enden oft vorher)
+    if let Ok((_, keys)) = read_keys(&mut r) {
+        for (k, v) in keys {
+            if !k.eq_ignore_ascii_case("classname") && !k.eq_ignore_ascii_case("wad") && !v.is_empty() {
+                map.world.set(&k, v);
+            }
+        }
+    }
     Ok(map)
+}
+
+/// Ganze Map aus Hammer 3.x / Worldcraft (.rmf) bzw. Quake/Valve-.map laden.
+/// GoldSrc-Texturen (aus WAD-Dateien) gibt es in Source nicht – die Namen bleiben zum Ersetzen erhalten.
+pub fn load_foreign_map(path: &Path, tex_scale: f64) -> Result<Map, String> {
+    let ext = path.extension().map(|e| e.to_string_lossy().to_ascii_lowercase()).unwrap_or_default();
+    let mut m = match ext.as_str() {
+        "rmf" => parse_rmf(&std::fs::read(path).map_err(|e| format!("{}: {e}", path.display()))?)?,
+        "map" => crate::importexport::import_map(&std::fs::read_to_string(path).map_err(|e| format!("{}: {e}", path.display()))?, tex_scale)?,
+        "jmf" => return Err("JMF (J.A.C.K.) wird nicht direkt gelesen – bitte in J.A.C.K. als .rmf oder .map speichern (Datei → Speichern unter) und diese Datei öffnen".into()),
+        _ => return Err(format!("Unbekanntes Format: .{ext}")),
+    };
+    // GoldSrc-Spawnpunkte heißen in Source-Spielen meist gleich; info_player_deathmatch kennt GMod
+    m.world.props.retain(|(k, _)| !k.eq_ignore_ascii_case("wad"));
+    Ok(m)
+}
+
+/// Texturen einer importierten Map, die es im Spiel nicht gibt (Namen ohne Ordner wie aus GoldSrc-WADs)
+pub fn foreign_textures(m: &Map) -> Vec<String> {
+    let mut v: Vec<String> = m.all_solids().flat_map(|(_, s)| s.sides.iter().map(|x| x.material.clone())).filter(|t| !t.contains('/')).collect();
+    v.sort_by_key(|t| t.to_ascii_lowercase());
+    v.dedup_by_key(|t| t.to_ascii_lowercase());
+    v
 }
 
 fn read_keys(r: &mut Rd) -> Result<(String, Vec<(String, String)>), String> {
@@ -868,6 +899,29 @@ pub mod tests {
     fn rmf_and_ol() {
         let m = parse_rmf(&make_rmf()).unwrap();
         assert_eq!(m.world.solids.len(), 1);
+        // ganze Map: worldspawn-Schlüssel nach den Objekten
+        let mut full = make_rmf();
+        let nstr = |b: &mut Vec<u8>, s: &str| {
+            b.push(s.len() as u8 + 1);
+            b.extend_from_slice(s.as_bytes());
+            b.push(0);
+        };
+        nstr(&mut full, "worldspawn");
+        full.extend_from_slice(&[0u8; 4]);
+        full.extend_from_slice(&0i32.to_le_bytes());
+        full.extend_from_slice(&2i32.to_le_bytes());
+        for (k, v) in [("skyname", "desert"), ("wad", "\\half-life\\valve\\halflife.wad")] {
+            nstr(&mut full, k);
+            nstr(&mut full, v);
+        }
+        let d = std::env::temp_dir().join(format!("amboss_rmf_{}.rmf", std::process::id()));
+        std::fs::write(&d, &full).unwrap();
+        let fm = load_foreign_map(&d, 0.25).unwrap();
+        assert_eq!(fm.world.get("skyname"), Some("desert"));
+        assert!(fm.world.get("wad").is_none());
+        assert_eq!(foreign_textures(&fm), vec!["CRATE01".to_string()]);
+        assert!(load_foreign_map(&d.with_extension("jmf"), 0.25).unwrap_err().contains("J.A.C.K."));
+        let _ = std::fs::remove_file(&d);
         let s = &m.world.solids[0];
         assert_eq!(s.bounds, Aabb::new(DVec3::ZERO, DVec3::splat(64.0)));
         assert_eq!(s.sides.len(), 6);

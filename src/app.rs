@@ -423,6 +423,10 @@ impl App {
     // -------------------------------------------------------------- Datei
 
     pub(crate) fn open_path(&mut self, path: PathBuf) {
+        if path.extension().is_some_and(|e| ["rmf", "map", "jmf"].iter().any(|x| e.eq_ignore_ascii_case(x))) {
+            self.import_foreign(path);
+            return;
+        }
         if path.extension().is_some_and(|e| e.eq_ignore_ascii_case("bsp")) {
             self.win.start = false;
             self.ask_decompile(path);
@@ -519,7 +523,7 @@ impl App {
             Pending::Open(path) => {
                 let path = path.or_else(|| {
                     rfd::FileDialog::new()
-                        .add_filter(crate::i18n::tr("Maps (VMF, BSP)"), &["vmf", "vmx", "bsp"])
+                        .add_filter(crate::i18n::tr("Maps (VMF, BSP, RMF, MAP)"), &["vmf", "vmx", "bsp", "rmf", "map", "jmf"])
                         .add_filter("Valve Map File (VMF)", &["vmf", "vmx"])
                         .add_filter(crate::i18n::tr("Kompilierte Map (BSP) – wird dekompiliert"), &["bsp"])
                         .pick_file()
@@ -2397,7 +2401,7 @@ impl App {
         let dropped: Vec<PathBuf> = ctx.input(|i| i.raw.dropped_files.iter().filter_map(|f| f.path.clone()).collect());
         if let Some(p) = dropped.iter().find(|p| crate::model_import::is_model_file(p)) {
             self.open_model_import(p.clone());
-        } else if let Some(p) = dropped.into_iter().find(|p| p.extension().is_some_and(|e| e.eq_ignore_ascii_case("vmf") || e.eq_ignore_ascii_case("bsp"))) {
+        } else if let Some(p) = dropped.into_iter().find(|p| p.extension().is_some_and(|e| ["vmf", "bsp", "rmf", "map", "jmf"].iter().any(|x| e.eq_ignore_ascii_case(x)))) {
             self.request(ctx, Pending::Open(Some(p)));
         }
 

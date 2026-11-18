@@ -139,7 +139,7 @@ impl Cmd {
             NewTab => crate::i18n::tr("Neuer Tab"),
             CloseTab => crate::i18n::tr("Tab schließen"),
             NextTab => crate::i18n::tr("Nächster Tab"),
-            ImportMap => crate::i18n::tr("Importieren (.map)"),
+            ImportMap => crate::i18n::tr("Map anderer Editoren (.map, .rmf)…"),
             ImportModel => crate::i18n::tr("Modell importieren (glTF, OBJ)…"),
             Workshop => crate::i18n::tr("Im Workshop veröffentlichen…"),
             Spline => crate::i18n::tr("Spline: Straße, Rohr, Zaun, Kabel…"),

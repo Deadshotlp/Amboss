@@ -111,16 +111,26 @@ impl App {
     }
 
     pub(crate) fn import_map(&mut self) {
-        let Some(p) = rfd::FileDialog::new().add_filter("Quake/Valve .map", &["map"]).pick_file() else { return };
-        match std::fs::read_to_string(&p).map_err(|e| e.to_string()).and_then(|s| crate::importexport::import_map(&s, self.ed.tex_scale)) {
+        let Some(p) = rfd::FileDialog::new().add_filter(crate::i18n::tr("Maps anderer Editoren (.map, .rmf)"), &["map", "rmf", "jmf"]).pick_file() else { return };
+        self.import_foreign(p);
+    }
+
+    /// .map / .rmf als neue (ungespeicherte) Map übernehmen
+    pub(crate) fn import_foreign(&mut self, p: std::path::PathBuf) {
+        match crate::prefabs::load_foreign_map(&p, self.ed.tex_scale) {
             Ok(m) => {
                 if !self.is_pristine() {
                     self.new_tab();
                 }
+                self.win.start = false;
                 let n = (m.world.solids.len(), m.entities.len());
+                let foreign = crate::prefabs::foreign_textures(&m);
                 self.ed.map = m;
                 self.ed.dirty = true;
                 self.ed.status = format!("{} importiert: {} Brushes, {} Entities – bitte als VMF speichern", p.display(), n.0, n.1);
+                if !foreign.is_empty() {
+                    self.ed.status = format!("{} importiert: {} Brushes, {} Entities, {} Texturen ohne Ordner (GoldSrc?) – mit „Texturen ersetzen“ austauschen, dann als VMF speichern", p.display(), n.0, n.1, foreign.len());
+                }
                 let b = self.ed.map_bounds();
                 for v in &mut self.views2d {
                     v.focus(&b, egui::Vec2::new(700.0, 450.0));
@@ -129,7 +139,7 @@ impl App {
                 self.ed.touch();
             }
             Err(e) => {
-                rfd::MessageDialog::new().set_title("Import fehlgeschlagen").set_description(e).show();
+                rfd::MessageDialog::new().set_title(crate::i18n::tr("Import fehlgeschlagen")).set_description(crate::i18n::tr_dyn(&e)).show();
             }
         }
     }

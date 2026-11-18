@@ -2321,3 +2321,9 @@ Neuigkeiten aller Versionen	Novedades de todas las versiones
 Alle Releases auf GitHub	Todas las versiones en GitHub
 Neuigkeiten (Patchnotes)…	Novedades (notas de versión)…
 Was in den einzelnen Versionen neu ist	Qué hay de nuevo en cada versión
+Maps anderer Editoren (.map, .rmf)	Mapas de otros editores (.map, .rmf)
+Map anderer Editoren (.map, .rmf)…	Mapa de otro editor (.map, .rmf)…
+Maps (VMF, BSP, RMF, MAP)	Mapas (VMF, BSP, RMF, MAP)
+Import fehlgeschlagen	Error al importar
+JMF (J.A.C.K.) wird nicht direkt gelesen – bitte in J.A.C.K. als .rmf oder .map speichern (Datei → Speichern unter) und diese Datei öffnen	JMF (J.A.C.K.) no se lee directamente: guarda como .rmf o .map en J.A.C.K. (Archivo → Guardar como) y abre ese archivo
+{} importiert: {} Brushes, {} Entities, {} Texturen ohne Ordner (GoldSrc?) – mit „Texturen ersetzen“ austauschen, dann als VMF speichern	{} importado: {} brushes, {} entidades, {} texturas sin carpeta (¿GoldSrc?): cámbialas con «Reemplazar texturas» y guarda como VMF
