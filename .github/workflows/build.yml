@@ -20,23 +20,49 @@ env:
 jobs:
   test:
     runs-on: ubuntu-latest
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
       - uses: Swatinem/rust-cache@v2
-      - run: sudo apt-get update && sudo apt-get install -y libxkbcommon-dev libgl1-mesa-dev
+      - name: Pakete installieren (apt-get)
+        timeout-minutes: 20
+        run: |
+          # GitHubs Paketspiegel hängen gelegentlich – jeder Versuch hat ein
+          # Zeitlimit, bis zu drei Versuche
+          APT="-o Acquire::Retries=3 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30"
+          for i in 1 2 3; do
+            sudo timeout 300 apt-get $APT update && sudo timeout 600 apt-get $APT install -y libxkbcommon-dev libgl1-mesa-dev && exit 0
+            echo "::warning::apt-get Versuch $i fehlgeschlagen oder Zeitlimit erreicht"
+            sudo dpkg --configure -a || true
+            sleep 15
+          done
+          exit 1
       - run: cargo test --release
       - run: python3 tools/i18n_check.py
 
   windows:
     runs-on: ubuntu-latest
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
         with:
           targets: x86_64-pc-windows-gnu
       - uses: Swatinem/rust-cache@v2
-      - run: sudo apt-get update && sudo apt-get install -y mingw-w64 nsis zip
+      - name: Pakete installieren (apt-get)
+        timeout-minutes: 20
+        run: |
+          # GitHubs Paketspiegel hängen gelegentlich – jeder Versuch hat ein
+          # Zeitlimit, bis zu drei Versuche
+          APT="-o Acquire::Retries=3 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30"
+          for i in 1 2 3; do
+            sudo timeout 300 apt-get $APT update && sudo timeout 600 apt-get $APT install -y mingw-w64 nsis zip && exit 0
+            echo "::warning::apt-get Versuch $i fehlgeschlagen oder Zeitlimit erreicht"
+            sudo dpkg --configure -a || true
+            sleep 15
+          done
+          exit 1
       - run: cargo build --release --target x86_64-pc-windows-gnu
       - name: Pakete
         run: |
@@ -55,6 +81,7 @@ jobs:
 
   macos:
     runs-on: macos-latest
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
@@ -86,11 +113,24 @@ jobs:
 
   linux:
     runs-on: ubuntu-22.04
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
       - uses: Swatinem/rust-cache@v2
-      - run: sudo apt-get update && sudo apt-get install -y libxkbcommon-dev libgl1-mesa-dev zip
+      - name: Pakete installieren (apt-get)
+        timeout-minutes: 20
+        run: |
+          # GitHubs Paketspiegel hängen gelegentlich – jeder Versuch hat ein
+          # Zeitlimit, bis zu drei Versuche
+          APT="-o Acquire::Retries=3 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30"
+          for i in 1 2 3; do
+            sudo timeout 300 apt-get $APT update && sudo timeout 600 apt-get $APT install -y libxkbcommon-dev libgl1-mesa-dev zip && exit 0
+            echo "::warning::apt-get Versuch $i fehlgeschlagen oder Zeitlimit erreicht"
+            sudo dpkg --configure -a || true
+            sleep 15
+          done
+          exit 1
       - run: cargo build --release
       - name: Paket
         run: |
@@ -108,6 +148,7 @@ jobs:
     if: github.event_name == 'release'
     needs: [test, windows, macos, linux]
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/download-artifact@v4
         with:
