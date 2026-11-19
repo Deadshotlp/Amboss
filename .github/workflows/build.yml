@@ -20,22 +20,26 @@ env:
 jobs:
   test:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 50
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
       - uses: Swatinem/rust-cache@v2
       - name: Pakete installieren (apt-get)
-        timeout-minutes: 20
+        timeout-minutes: 30
         run: |
-          # GitHubs Paketspiegel hängen gelegentlich – jeder Versuch hat ein
-          # Zeitlimit, bis zu drei Versuche
-          APT="-o Acquire::Retries=3 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30"
-          for i in 1 2 3; do
-            sudo timeout 300 apt-get $APT update && sudo timeout 600 apt-get $APT install -y libxkbcommon-dev libgl1-mesa-dev && exit 0
+          # GitHubs Paketspiegel (azure.archive.ubuntu.com) hängen gelegentlich – jeder Versuch hat
+          # ein kurzes Zeitlimit; ab dem zweiten Versuch der Hauptspiegel von Ubuntu
+          APT="-o Acquire::Retries=3 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20"
+          for i in 1 2 3 4; do
+            if [ "$i" -ge 2 ]; then
+              sudo sed -i 's|http://azure.archive.ubuntu.com|http://archive.ubuntu.com|g' /etc/apt/sources.list.d/*.sources /etc/apt/sources.list 2>/dev/null || true
+              [ -f /etc/apt/apt-mirrors.txt ] && sudo sed -i '/azure/d' /etc/apt/apt-mirrors.txt || true
+            fi
+            sudo timeout 150 apt-get $APT update && sudo timeout 300 apt-get $APT install -y libxkbcommon-dev libgl1-mesa-dev && exit 0
             echo "::warning::apt-get Versuch $i fehlgeschlagen oder Zeitlimit erreicht"
             sudo dpkg --configure -a || true
-            sleep 15
+            sleep 10
           done
           exit 1
       - run: cargo test --release
@@ -43,7 +47,7 @@ jobs:
 
   windows:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 50
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
@@ -51,16 +55,20 @@ jobs:
           targets: x86_64-pc-windows-gnu
       - uses: Swatinem/rust-cache@v2
       - name: Pakete installieren (apt-get)
-        timeout-minutes: 20
+        timeout-minutes: 30
         run: |
-          # GitHubs Paketspiegel hängen gelegentlich – jeder Versuch hat ein
-          # Zeitlimit, bis zu drei Versuche
-          APT="-o Acquire::Retries=3 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30"
-          for i in 1 2 3; do
-            sudo timeout 300 apt-get $APT update && sudo timeout 600 apt-get $APT install -y mingw-w64 nsis zip && exit 0
+          # GitHubs Paketspiegel (azure.archive.ubuntu.com) hängen gelegentlich – jeder Versuch hat
+          # ein kurzes Zeitlimit; ab dem zweiten Versuch der Hauptspiegel von Ubuntu
+          APT="-o Acquire::Retries=3 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20"
+          for i in 1 2 3 4; do
+            if [ "$i" -ge 2 ]; then
+              sudo sed -i 's|http://azure.archive.ubuntu.com|http://archive.ubuntu.com|g' /etc/apt/sources.list.d/*.sources /etc/apt/sources.list 2>/dev/null || true
+              [ -f /etc/apt/apt-mirrors.txt ] && sudo sed -i '/azure/d' /etc/apt/apt-mirrors.txt || true
+            fi
+            sudo timeout 150 apt-get $APT update && sudo timeout 300 apt-get $APT install -y mingw-w64 nsis zip && exit 0
             echo "::warning::apt-get Versuch $i fehlgeschlagen oder Zeitlimit erreicht"
             sudo dpkg --configure -a || true
-            sleep 15
+            sleep 10
           done
           exit 1
       - run: cargo build --release --target x86_64-pc-windows-gnu
@@ -113,22 +121,26 @@ jobs:
 
   linux:
     runs-on: ubuntu-22.04
-    timeout-minutes: 40
+    timeout-minutes: 50
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
       - uses: Swatinem/rust-cache@v2
       - name: Pakete installieren (apt-get)
-        timeout-minutes: 20
+        timeout-minutes: 30
         run: |
-          # GitHubs Paketspiegel hängen gelegentlich – jeder Versuch hat ein
-          # Zeitlimit, bis zu drei Versuche
-          APT="-o Acquire::Retries=3 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30"
-          for i in 1 2 3; do
-            sudo timeout 300 apt-get $APT update && sudo timeout 600 apt-get $APT install -y libxkbcommon-dev libgl1-mesa-dev zip && exit 0
+          # GitHubs Paketspiegel (azure.archive.ubuntu.com) hängen gelegentlich – jeder Versuch hat
+          # ein kurzes Zeitlimit; ab dem zweiten Versuch der Hauptspiegel von Ubuntu
+          APT="-o Acquire::Retries=3 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20"
+          for i in 1 2 3 4; do
+            if [ "$i" -ge 2 ]; then
+              sudo sed -i 's|http://azure.archive.ubuntu.com|http://archive.ubuntu.com|g' /etc/apt/sources.list.d/*.sources /etc/apt/sources.list 2>/dev/null || true
+              [ -f /etc/apt/apt-mirrors.txt ] && sudo sed -i '/azure/d' /etc/apt/apt-mirrors.txt || true
+            fi
+            sudo timeout 150 apt-get $APT update && sudo timeout 300 apt-get $APT install -y libxkbcommon-dev libgl1-mesa-dev zip && exit 0
             echo "::warning::apt-get Versuch $i fehlgeschlagen oder Zeitlimit erreicht"
             sudo dpkg --configure -a || true
-            sleep 15
+            sleep 10
           done
           exit 1
       - run: cargo build --release
