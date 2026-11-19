@@ -94,9 +94,10 @@ impl App {
             match rx.try_recv() {
                 Ok(Ok(list)) => {
                     self.whatsnew.rx = None;
-                    // nur ersetzen, wenn es für alle gezeigten Versionen einen Text gibt
+                    // ersetzen, wenn es für die neueste gezeigte Version einen Text gibt; Versionen ohne eigenes
+                    // Release (übersprungen, Text steht dann im nächsten) entfallen
                     let mapped: Vec<(String, String)> = self.whatsnew.notes.iter().filter_map(|(v, _)| list.iter().find(|(x, _)| x == v).cloned()).collect();
-                    if mapped.len() == self.whatsnew.notes.len() {
+                    if mapped.first().map(|m| &m.0) == self.whatsnew.notes.first().map(|n| &n.0) {
                         self.whatsnew.notes = mapped;
                         self.whatsnew.german = false;
                     }
