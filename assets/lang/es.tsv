@@ -498,7 +498,7 @@ Querschnitt-Seiten	Lados de la sección
 In einer 2D-Ansicht ein Rechteck ziehen. Die Höhe wird vom letzten Block übernommen.	Traza un rectángulo en una vista 2D. La altura se toma del último bloque.
 Klick in 2D/3D platziert:	Un clic en 2D/3D coloca:
 Modell:	Modelo:
-Klick in 3D wählt Flächen (Strg = mehrere).\nRechtsklick: Material anwenden · Alt+Rechtsklick: nahtlos ausrichten.	Un clic en 3D selecciona caras (Ctrl = varias).\nClic derecho: aplicar material · Alt+clic derecho: envolver sin costuras.
+Klick in 3D nimmt die Textur einer Fläche auf · Strg+Klick wählt Flächen (mehrere).\nRechtsklick: Material anwenden · Alt+Rechtsklick: nahtlos ausrichten.	Un clic en 3D toma la textura de una cara · Ctrl+clic selecciona caras (varias).\nClic derecho: aplicar material · Alt+clic derecho: envolver sin costuras.
 Skalierung	Escala
 Verschiebung	Desplazamiento
 Rotation	Rotación
@@ -742,10 +742,10 @@ Shift+S Auswahl · G Lupe · C Kamera · E Entity · B Block · A Flächen · D 
 Klick wählt, Strg = hinzufügen, Rahmen ziehen. Klick auf Auswahl: Skalieren → Drehen → Scheren	Clic selecciona, Ctrl = añadir, traza un recuadro. Clic en la selección: escalar → rotar → inclinar
 Linie ziehen, Enter schneidet, Shift+X wechselt Vorne/Hinten/Beide	Traza una línea, Intro corta, Mayús+X alterna delante/detrás/ambos
 Eckpunkte/Kanten ziehen; ungültige Formen werden abgelehnt	Arrastra vértices/aristas; las formas no válidas se rechazan
-Fläche (Shift+A) wählen → Displacement erstellen, dann Shift+P und in 3D malen	Selecciona una cara (Mayús+A) → crear displacement, luego Mayús+P y pinta en 3D
+Fläche wählen (Shift+A, Strg+Klick) → Displacement erstellen, dann Shift+P und in 3D malen	Selecciona una cara (Mayús+A, Ctrl+clic) → crear displacement, luego Mayús+P y pinta en 3D
 Mausrad zoomen, mittlere Taste/Leertaste verschieben, Pfeiltasten verschieben Auswahl	La rueda hace zoom, botón central/espacio desplaza, las flechas mueven la selección
 Flächen	Caras
-Rechtsklick: Material anwenden · Alt+Rechtsklick: Ausrichtung nahtlos übernehmen	Clic derecho: aplicar material · Alt+clic derecho: continuar la alineación sin costuras
+Klick: Textur aufnehmen · Strg+Klick: Fläche wählen · Rechtsklick: Material anwenden · Alt+Rechtsklick: Ausrichtung nahtlos übernehmen	Clic: tomar textura · Ctrl+clic: seleccionar cara · Clic derecho: aplicar material · Alt+clic derecho: continuar la alineación sin costuras
 Rückgängig / Wiederholen	Deshacer / rehacer
 Kopieren / Einfügen / Ausschneiden · Strg+Shift+V Paste Special	Copiar / pegar / cortar · Ctrl+Mayús+V pegado especial
 Gruppieren / Gruppe lösen	Agrupar / desagrupar
@@ -1233,7 +1233,7 @@ Texturen wählen und auftragen, Kisten bauen, kopieren und mit dem Clip-Werkzeug
 Eine Textur wählen	Elige una textura
 Unten rechts siehst du die Texturen. Klicke eine an, zum Beispiel eine Ziegelwand. Mit „Browser…“ kannst du alle Texturen durchsuchen.	Las texturas están abajo a la derecha. Haz clic en una, por ejemplo una pared de ladrillo. «Explorador…» permite buscar todas las texturas.
 Textur auftragen	Aplica una textura
-Wähle eine Wand mit dem Auswahl-Werkzeug und drücke Shift+T (Bearbeiten → Aktuelle Textur anwenden). Für einzelne Flächen gibt es das Textur-Werkzeug (Shift+A): Fläche in 3D anklicken, Textur anklicken.	Selecciona una pared con la herramienta de selección y pulsa Mayús+T (Editar → Aplicar textura actual). Para caras sueltas está la herramienta de texturas (Mayús+A): haz clic en una cara en 3D y luego en una textura.
+Wähle eine Wand mit dem Auswahl-Werkzeug und drücke Shift+T (Bearbeiten → Aktuelle Textur anwenden). Für einzelne Flächen gibt es das Textur-Werkzeug (Shift+A): Textur wählen und Flächen in 3D mit Rechtsklick bemalen; ein Linksklick nimmt die Textur einer Fläche auf.	Selecciona una pared con la herramienta de selección y pulsa Mayús+T (Editar → Aplicar textura actual). Para caras sueltas está la herramienta de texturas (Mayús+A): elige una textura y pinta caras en 3D con clic derecho; un clic izquierdo toma la textura de una cara.
 Eine Kiste bauen	Construye una caja
 Nimm wieder das Block-Werkzeug (Shift+B) und ziehe im Raum einen kleinen Block auf, etwa 64 × 64 × 64. Enter bestätigt.	Toma otra vez la herramienta de bloque (Mayús+B) y traza un bloque pequeño dentro de la sala, unos 64 × 64 × 64. Intro confirma.
 Wähle die Kiste (Shift+S, dann anklicken) und drücke Strg+D, um sie zu duplizieren. Die Kopie kannst du in 2D an einen anderen Platz ziehen.	Selecciona la caja (Mayús+S y luego clic en ella) y pulsa Ctrl+D para duplicarla. Puedes arrastrar la copia a otro sitio en 2D.
@@ -1498,7 +1498,7 @@ Nähen	Coser
 Keine Physik-Kollision	Sin colisión física
 Keine Hull-Kollision	Sin colisión de envolvente
 Keine Strahl-Kollision	Sin colisión de rayo
-Neue Displacements: im Textur-Werkzeug Flächen wählen →	Displacements nuevos: selecciona caras con la herramienta de texturas →
+Neue Displacements: im Textur-Werkzeug Flächen mit Strg+Klick wählen →	Displacements nuevos: Ctrl+clic en caras con la herramienta de texturas →
 Displacement erstellen	Crear displacement
 Aus den im Textur-Werkzeug ausgewählten Flächen	A partir de las caras seleccionadas con la herramienta de texturas
 neues Skript	script nuevo
@@ -1827,7 +1827,7 @@ Ein Displacement verwandelt eine flache Brush-Fläche in ein feines Raster, dess
 Eine Bodenplatte	Una placa de suelo
 Baue mit dem Block-Werkzeug (Shift+B) eine große, flache Platte, etwa 1024 × 1024 Einheiten und 16 hoch. Tipp: Die Textur „NATURE/BLENDGRASSGRAVEL001A“ mischt später Gras und Kies.	Con la herramienta de bloque (Mayús+B) construye una placa grande y plana, de unas 1024 × 1024 unidades y 16 de alto. Consejo: la textura «NATURE/BLENDGRASSGRAVEL001A» mezclará después hierba y grava.
 Die Oberseite auswählen	Selecciona la cara superior
-Nimm das Textur-Werkzeug (Shift+A) und klicke in der 3D-Ansicht auf die Oberseite der Platte. Nur ausgewählte Flächen werden zu Displacements.	Toma la herramienta de texturas (Mayús+A) y haz clic en la parte superior de la placa en la vista 3D. Solo las caras seleccionadas se convierten en displacements.
+Nimm das Textur-Werkzeug (Shift+A) und klicke mit gedrückter Strg-Taste in der 3D-Ansicht auf die Oberseite der Platte – Strg+Klick wählt Flächen aus. Nur ausgewählte Flächen werden zu Displacements.	Toma la herramienta de texturas (Mayús+A) y haz Ctrl+clic en la parte superior de la placa en la vista 3D – Ctrl+clic selecciona caras. Solo las caras seleccionadas se convierten en displacements.
 Rechts im Panel unter „Displacement“: Power 3 lassen und „Erstellen“ klicken. Power bestimmt die Feinheit – 2 ist grob, 4 sehr fein (und teuer).	En el panel derecho, en «Displacement»: deja la potencia en 3 y haz clic en «Crear». La potencia define la resolución – 2 es tosco, 4 muy fino (y costoso).
 Einen Hügel malen	Pinta una colina
 Wähle das Terrain-Werkzeug (Shift+P), Modus „Anheben“. Male mit gedrückter linker Maustaste in der 3D-Ansicht über das Gelände. Radius und Stärke stehen im Panel; Strg kehrt Anheben ↔ Absenken um.	Elige la herramienta de terreno (Mayús+P), modo «Elevar». Pinta sobre el terreno en la vista 3D con el botón izquierdo pulsado. Radio e intensidad están en el panel; Ctrl alterna elevar ↔ bajar.
@@ -2376,3 +2376,4 @@ Erst eine Vorlage übernehmen: Objekte auswählen und „Auswahl als Vorlage“ 
 Lightmap-Dichte	Densidad de lightmap
 rot 4 · grün 16 · blau 64 · ≈ {} Mio. Luxel, {} MB	rojo 4 · verde 16 · azul 64 · ≈ {} M luxels, {} MB
 Modell-Browser öffnen – „Übernehmen“ setzt das Modell bei allen ausgewählten Props	Abrir el explorador de modelos – «Aplicar» asigna el modelo a todos los props seleccionados
+Textur aufgenommen: {}	Textura tomada: {}

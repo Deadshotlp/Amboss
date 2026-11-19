@@ -498,7 +498,7 @@ Querschnitt-Seiten	Cross-section sides
 In einer 2D-Ansicht ein Rechteck ziehen. Die Höhe wird vom letzten Block übernommen.	Drag a rectangle in a 2D view. The height is taken from the last block.
 Klick in 2D/3D platziert:	Click in 2D/3D places:
 Modell:	Model:
-Klick in 3D wählt Flächen (Strg = mehrere).\nRechtsklick: Material anwenden · Alt+Rechtsklick: nahtlos ausrichten.	Click in 3D selects faces (Ctrl = several).\nRight click: apply material · Alt+right click: wrap seamlessly.
+Klick in 3D nimmt die Textur einer Fläche auf · Strg+Klick wählt Flächen (mehrere).\nRechtsklick: Material anwenden · Alt+Rechtsklick: nahtlos ausrichten.	Click in 3D picks up a face's texture · Ctrl+click selects faces (several).\nRight click: apply material · Alt+right click: wrap seamlessly.
 Skalierung	Scale
 Verschiebung	Shift
 Rotation	Rotation
@@ -742,10 +742,10 @@ Shift+S Auswahl · G Lupe · C Kamera · E Entity · B Block · A Flächen · D 
 Klick wählt, Strg = hinzufügen, Rahmen ziehen. Klick auf Auswahl: Skalieren → Drehen → Scheren	Click selects, Ctrl = add, drag a box. Click on the selection: scale → rotate → shear
 Linie ziehen, Enter schneidet, Shift+X wechselt Vorne/Hinten/Beide	Drag a line, Enter cuts, Shift+X switches front/back/both
 Eckpunkte/Kanten ziehen; ungültige Formen werden abgelehnt	Drag vertices/edges; invalid shapes are rejected
-Fläche (Shift+A) wählen → Displacement erstellen, dann Shift+P und in 3D malen	Select a face (Shift+A) → create displacement, then Shift+P and paint in 3D
+Fläche wählen (Shift+A, Strg+Klick) → Displacement erstellen, dann Shift+P und in 3D malen	Select a face (Shift+A, Ctrl+click) → create displacement, then Shift+P and paint in 3D
 Mausrad zoomen, mittlere Taste/Leertaste verschieben, Pfeiltasten verschieben Auswahl	Mouse wheel zooms, middle button/space pans, arrow keys move the selection
 Flächen	Faces
-Rechtsklick: Material anwenden · Alt+Rechtsklick: Ausrichtung nahtlos übernehmen	Right click: apply material · Alt+right click: continue alignment seamlessly
+Klick: Textur aufnehmen · Strg+Klick: Fläche wählen · Rechtsklick: Material anwenden · Alt+Rechtsklick: Ausrichtung nahtlos übernehmen	Click: pick up texture · Ctrl+click: select face · Right click: apply material · Alt+right click: continue alignment seamlessly
 Rückgängig / Wiederholen	Undo / redo
 Kopieren / Einfügen / Ausschneiden · Strg+Shift+V Paste Special	Copy / paste / cut · Ctrl+Shift+V paste special
 Gruppieren / Gruppe lösen	Group / ungroup
@@ -1233,7 +1233,7 @@ Texturen wählen und auftragen, Kisten bauen, kopieren und mit dem Clip-Werkzeug
 Eine Textur wählen	Pick a texture
 Unten rechts siehst du die Texturen. Klicke eine an, zum Beispiel eine Ziegelwand. Mit „Browser…“ kannst du alle Texturen durchsuchen.	The textures are at the bottom right. Click one, for example a brick wall. “Browser…” lets you search all textures.
 Textur auftragen	Apply a texture
-Wähle eine Wand mit dem Auswahl-Werkzeug und drücke Shift+T (Bearbeiten → Aktuelle Textur anwenden). Für einzelne Flächen gibt es das Textur-Werkzeug (Shift+A): Fläche in 3D anklicken, Textur anklicken.	Select a wall with the select tool and press Shift+T (Edit → Apply current texture). For single faces there is the texture tool (Shift+A): click a face in 3D, then click a texture.
+Wähle eine Wand mit dem Auswahl-Werkzeug und drücke Shift+T (Bearbeiten → Aktuelle Textur anwenden). Für einzelne Flächen gibt es das Textur-Werkzeug (Shift+A): Textur wählen und Flächen in 3D mit Rechtsklick bemalen; ein Linksklick nimmt die Textur einer Fläche auf.	Select a wall with the select tool and press Shift+T (Edit → Apply current texture). For single faces there is the texture tool (Shift+A): pick a texture and paint faces in 3D with a right click; a left click picks up a face's texture.
 Eine Kiste bauen	Build a crate
 Nimm wieder das Block-Werkzeug (Shift+B) und ziehe im Raum einen kleinen Block auf, etwa 64 × 64 × 64. Enter bestätigt.	Take the block tool again (Shift+B) and drag a small block inside the room, about 64 × 64 × 64. Enter confirms.
 Wähle die Kiste (Shift+S, dann anklicken) und drücke Strg+D, um sie zu duplizieren. Die Kopie kannst du in 2D an einen anderen Platz ziehen.	Select the crate (Shift+S, then click it) and press Ctrl+D to duplicate it. You can drag the copy to another spot in 2D.
@@ -1499,7 +1499,7 @@ Nähen	Sew
 Keine Physik-Kollision	No physics collision
 Keine Hull-Kollision	No hull collision
 Keine Strahl-Kollision	No ray collision
-Neue Displacements: im Textur-Werkzeug Flächen wählen →	New displacements: select faces with the Texture tool →
+Neue Displacements: im Textur-Werkzeug Flächen mit Strg+Klick wählen →	New displacements: Ctrl+click faces with the Texture tool →
 Displacement erstellen	Create displacement
 Aus den im Textur-Werkzeug ausgewählten Flächen	From the faces selected with the Texture tool
 neues Skript	new script
@@ -1828,7 +1828,7 @@ Ein Displacement verwandelt eine flache Brush-Fläche in ein feines Raster, dess
 Eine Bodenplatte	A ground plate
 Baue mit dem Block-Werkzeug (Shift+B) eine große, flache Platte, etwa 1024 × 1024 Einheiten und 16 hoch. Tipp: Die Textur „NATURE/BLENDGRASSGRAVEL001A“ mischt später Gras und Kies.	Use the block tool (Shift+B) to build a large, flat plate, about 1024 × 1024 units and 16 high. Tip: the texture “NATURE/BLENDGRASSGRAVEL001A” later blends grass and gravel.
 Die Oberseite auswählen	Select the top face
-Nimm das Textur-Werkzeug (Shift+A) und klicke in der 3D-Ansicht auf die Oberseite der Platte. Nur ausgewählte Flächen werden zu Displacements.	Take the texture tool (Shift+A) and click the top of the plate in the 3D view. Only selected faces become displacements.
+Nimm das Textur-Werkzeug (Shift+A) und klicke mit gedrückter Strg-Taste in der 3D-Ansicht auf die Oberseite der Platte – Strg+Klick wählt Flächen aus. Nur ausgewählte Flächen werden zu Displacements.	Take the texture tool (Shift+A) and Ctrl+click the top of the plate in the 3D view – Ctrl+click selects faces. Only selected faces become displacements.
 Rechts im Panel unter „Displacement“: Power 3 lassen und „Erstellen“ klicken. Power bestimmt die Feinheit – 2 ist grob, 4 sehr fein (und teuer).	In the panel on the right under “Displacement”: keep power 3 and click “Create”. Power sets the resolution – 2 is coarse, 4 very fine (and expensive).
 Einen Hügel malen	Paint a hill
 Wähle das Terrain-Werkzeug (Shift+P), Modus „Anheben“. Male mit gedrückter linker Maustaste in der 3D-Ansicht über das Gelände. Radius und Stärke stehen im Panel; Strg kehrt Anheben ↔ Absenken um.	Choose the terrain tool (Shift+P), mode “Raise”. Paint over the terrain in the 3D view with the left mouse button held. Radius and strength are in the panel; Ctrl swaps raise ↔ lower.
@@ -2378,3 +2378,4 @@ Erst eine Vorlage übernehmen: Objekte auswählen und „Auswahl als Vorlage“ 
 Lightmap-Dichte	Lightmap density
 rot 4 · grün 16 · blau 64 · ≈ {} Mio. Luxel, {} MB	red 4 · green 16 · blue 64 · ≈ {} M luxels, {} MB
 Modell-Browser öffnen – „Übernehmen“ setzt das Modell bei allen ausgewählten Props	Open the model browser – “Apply” sets the model on all selected props
+Textur aufgenommen: {}	Texture picked up: {}

@@ -475,7 +475,7 @@ impl App {
 
     fn face_section(&mut self, ui: &mut egui::Ui) {
         if self.ed.faces.is_empty() {
-            ui.label(crate::i18n::tr("Klick in 3D wählt Flächen (Strg = mehrere).\nRechtsklick: Material anwenden · Alt+Rechtsklick: nahtlos ausrichten."));
+            ui.label(crate::i18n::tr("Klick in 3D nimmt die Textur einer Fläche auf · Strg+Klick wählt Flächen (mehrere).\nRechtsklick: Material anwenden · Alt+Rechtsklick: nahtlos ausrichten."));
             return;
         }
         ui.label(crate::i18n::tr_dyn(&format!("{} ausgewählt", crate::i18n::count_de(self.ed.faces.len(), "Fläche", "Flächen"))));
@@ -685,7 +685,7 @@ impl App {
             }
         });
         ui.horizontal_wrapped(|ui| {
-            ui.label(RichText::new(crate::i18n::tr("Neue Displacements: im Textur-Werkzeug Flächen wählen →")).small().color(th.text3));
+            ui.label(RichText::new(crate::i18n::tr("Neue Displacements: im Textur-Werkzeug Flächen mit Strg+Klick wählen →")).small().color(th.text3));
             if ui.small_button(crate::i18n::tr("Displacement erstellen")).on_hover_text(crate::i18n::tr("Aus den im Textur-Werkzeug ausgewählten Flächen")).clicked() {
                 self.ed.create_disp(3);
             }

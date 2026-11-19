@@ -2,6 +2,7 @@
 
 ## 0.13.1
 
+- **Textur-Werkzeug: Linksklick nimmt die Textur auf**: Ein Linksklick auf eine Fläche übernimmt jetzt nur ihre Textur als aktuelle Textur (Pipette) und wählt nichts aus – damit lässt sich sofort per Rechtsklick weitermalen. Flächen auswählen (zum Ausrichten, Skalieren, für Displacements) geht mit **Strg+Klick**, auch mehrere; ein Klick ins Leere hebt die Flächenauswahl auf
 - **Kompilieren & Exportieren**: Die Leisten „Sichtbarkeit · VVIS“ und „Licht · VRAD“ liegen jetzt auf einer Höhe (die HDR-Checkbox neben „Licht“ hatte die rechte Leiste nach unten geschoben)
 - **Mehrere Entities bearbeiten**: Beim Feld „World Model“ (und anderen Modellfeldern) gibt es jetzt auch bei Mehrfachauswahl den Knopf für den Modell-Browser – „Übernehmen“ setzt das Modell bei allen ausgewählten Props
 - Auswahllisten bei Mehrfachauswahl zeigen den Standardwert statt eines leeren Felds, wenn der Schlüssel bei allen nicht gesetzt ist

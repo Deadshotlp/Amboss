@@ -498,7 +498,7 @@ Querschnitt-Seiten	Boki przekroju
 In einer 2D-Ansicht ein Rechteck ziehen. Die Höhe wird vom letzten Block übernommen.	Przeciągnij prostokąt w widoku 2D. Wysokość jest brana z ostatniego bloku.
 Klick in 2D/3D platziert:	Kliknięcie w 2D/3D umieszcza:
 Modell:	Model:
-Klick in 3D wählt Flächen (Strg = mehrere).\nRechtsklick: Material anwenden · Alt+Rechtsklick: nahtlos ausrichten.	Kliknięcie w 3D zaznacza ściany (Ctrl = kilka).\nPrawy klik: nałóż materiał · Alt+prawy klik: owiń bez szwów.
+Klick in 3D nimmt die Textur einer Fläche auf · Strg+Klick wählt Flächen (mehrere).\nRechtsklick: Material anwenden · Alt+Rechtsklick: nahtlos ausrichten.	Kliknięcie w 3D pobiera teksturę ściany · Ctrl+klik zaznacza ściany (kilka).\nPrawy klik: nałóż materiał · Alt+prawy klik: owiń bez szwów.
 Skalierung	Skala
 Verschiebung	Przesunięcie
 Rotation	Obrót
@@ -742,10 +742,10 @@ Shift+S Auswahl · G Lupe · C Kamera · E Entity · B Block · A Flächen · D 
 Klick wählt, Strg = hinzufügen, Rahmen ziehen. Klick auf Auswahl: Skalieren → Drehen → Scheren	Kliknięcie zaznacza, Ctrl = dodaj, przeciągnij ramkę. Kliknięcie zaznaczenia: skala → obrót → pochylenie
 Linie ziehen, Enter schneidet, Shift+X wechselt Vorne/Hinten/Beide	Przeciągnij linię, Enter tnie, Shift+X przełącza przód/tył/obie
 Eckpunkte/Kanten ziehen; ungültige Formen werden abgelehnt	Przeciągaj wierzchołki/krawędzie; nieprawidłowe kształty są odrzucane
-Fläche (Shift+A) wählen → Displacement erstellen, dann Shift+P und in 3D malen	Zaznacz ścianę (Shift+A) → utwórz displacement, potem Shift+P i maluj w 3D
+Fläche wählen (Shift+A, Strg+Klick) → Displacement erstellen, dann Shift+P und in 3D malen	Zaznacz ścianę (Shift+A, Ctrl+klik) → utwórz displacement, potem Shift+P i maluj w 3D
 Mausrad zoomen, mittlere Taste/Leertaste verschieben, Pfeiltasten verschieben Auswahl	Kółko myszy przybliża, środkowy przycisk/spacja przesuwa, strzałki przesuwają zaznaczenie
 Flächen	Ściany
-Rechtsklick: Material anwenden · Alt+Rechtsklick: Ausrichtung nahtlos übernehmen	Prawy klik: nałóż materiał · Alt+prawy klik: kontynuuj wyrównanie bez szwów
+Klick: Textur aufnehmen · Strg+Klick: Fläche wählen · Rechtsklick: Material anwenden · Alt+Rechtsklick: Ausrichtung nahtlos übernehmen	Klik: pobierz teksturę · Ctrl+klik: zaznacz ścianę · Prawy klik: nałóż materiał · Alt+prawy klik: kontynuuj wyrównanie bez szwów
 Rückgängig / Wiederholen	Cofnij / ponów
 Kopieren / Einfügen / Ausschneiden · Strg+Shift+V Paste Special	Kopiuj / wklej / wytnij · Ctrl+Shift+V wklej specjalnie
 Gruppieren / Gruppe lösen	Grupuj / rozgrupuj
@@ -1233,7 +1233,7 @@ Texturen wählen und auftragen, Kisten bauen, kopieren und mit dem Clip-Werkzeug
 Eine Textur wählen	Wybierz teksturę
 Unten rechts siehst du die Texturen. Klicke eine an, zum Beispiel eine Ziegelwand. Mit „Browser…“ kannst du alle Texturen durchsuchen.	Tekstury są w prawym dolnym rogu. Kliknij jedną, na przykład ścianę z cegły. „Przeglądarka…” pozwala przeszukać wszystkie tekstury.
 Textur auftragen	Nałóż teksturę
-Wähle eine Wand mit dem Auswahl-Werkzeug und drücke Shift+T (Bearbeiten → Aktuelle Textur anwenden). Für einzelne Flächen gibt es das Textur-Werkzeug (Shift+A): Fläche in 3D anklicken, Textur anklicken.	Zaznacz ścianę narzędziem zaznaczania i naciśnij Shift+T (Edycja → Nałóż bieżącą teksturę). Dla pojedynczych ścian jest narzędzie tekstur (Shift+A): kliknij ścianę w 3D, potem teksturę.
+Wähle eine Wand mit dem Auswahl-Werkzeug und drücke Shift+T (Bearbeiten → Aktuelle Textur anwenden). Für einzelne Flächen gibt es das Textur-Werkzeug (Shift+A): Textur wählen und Flächen in 3D mit Rechtsklick bemalen; ein Linksklick nimmt die Textur einer Fläche auf.	Zaznacz ścianę narzędziem zaznaczania i naciśnij Shift+T (Edycja → Nałóż bieżącą teksturę). Dla pojedynczych ścian jest narzędzie tekstur (Shift+A): wybierz teksturę i maluj ściany w 3D prawym klikiem; lewy klik pobiera teksturę ściany.
 Eine Kiste bauen	Zbuduj skrzynię
 Nimm wieder das Block-Werkzeug (Shift+B) und ziehe im Raum einen kleinen Block auf, etwa 64 × 64 × 64. Enter bestätigt.	Weź ponownie narzędzie bloku (Shift+B) i przeciągnij mały blok w pomieszczeniu, ok. 64 × 64 × 64. Enter zatwierdza.
 Wähle die Kiste (Shift+S, dann anklicken) und drücke Strg+D, um sie zu duplizieren. Die Kopie kannst du in 2D an einen anderen Platz ziehen.	Zaznacz skrzynię (Shift+S, potem ją kliknij) i naciśnij Ctrl+D, by ją zduplikować. Kopię możesz przeciągnąć w inne miejsce w 2D.
@@ -1498,7 +1498,7 @@ Nähen	Zszyj
 Keine Physik-Kollision	Bez kolizji fizycznej
 Keine Hull-Kollision	Bez kolizji otoczki
 Keine Strahl-Kollision	Bez kolizji promienia
-Neue Displacements: im Textur-Werkzeug Flächen wählen →	Nowe displacementy: zaznacz ściany narzędziem tekstur →
+Neue Displacements: im Textur-Werkzeug Flächen mit Strg+Klick wählen →	Nowe displacementy: Ctrl+klik na ściany narzędziem tekstur →
 Displacement erstellen	Utwórz displacement
 Aus den im Textur-Werkzeug ausgewählten Flächen	Ze ścian zaznaczonych narzędziem tekstur
 neues Skript	nowy skrypt
@@ -1827,7 +1827,7 @@ Ein Displacement verwandelt eine flache Brush-Fläche in ein feines Raster, dess
 Eine Bodenplatte	Płyta podłoża
 Baue mit dem Block-Werkzeug (Shift+B) eine große, flache Platte, etwa 1024 × 1024 Einheiten und 16 hoch. Tipp: Die Textur „NATURE/BLENDGRASSGRAVEL001A“ mischt später Gras und Kies.	Narzędziem bloku (Shift+B) zbuduj dużą, płaską płytę, ok. 1024 × 1024 jednostek i 16 wysokości. Wskazówka: tekstura „NATURE/BLENDGRASSGRAVEL001A” później zmiesza trawę i żwir.
 Die Oberseite auswählen	Zaznacz górną ścianę
-Nimm das Textur-Werkzeug (Shift+A) und klicke in der 3D-Ansicht auf die Oberseite der Platte. Nur ausgewählte Flächen werden zu Displacements.	Weź narzędzie tekstur (Shift+A) i kliknij górę płyty w widoku 3D. Tylko zaznaczone ściany stają się displacementami.
+Nimm das Textur-Werkzeug (Shift+A) und klicke mit gedrückter Strg-Taste in der 3D-Ansicht auf die Oberseite der Platte – Strg+Klick wählt Flächen aus. Nur ausgewählte Flächen werden zu Displacements.	Weź narzędzie tekstur (Shift+A) i kliknij z Ctrl górę płyty w widoku 3D – Ctrl+klik zaznacza ściany. Tylko zaznaczone ściany stają się displacementami.
 Rechts im Panel unter „Displacement“: Power 3 lassen und „Erstellen“ klicken. Power bestimmt die Feinheit – 2 ist grob, 4 sehr fein (und teuer).	W panelu po prawej w „Displacement”: zostaw potęgę 3 i kliknij „Utwórz”. Potęga określa rozdzielczość – 2 jest zgrubna, 4 bardzo drobna (i kosztowna).
 Einen Hügel malen	Namaluj wzgórze
 Wähle das Terrain-Werkzeug (Shift+P), Modus „Anheben“. Male mit gedrückter linker Maustaste in der 3D-Ansicht über das Gelände. Radius und Stärke stehen im Panel; Strg kehrt Anheben ↔ Absenken um.	Wybierz narzędzie terenu (Shift+P), tryb „Podnieś”. Maluj po terenie w widoku 3D z wciśniętym lewym przyciskiem. Promień i siła są w panelu; Ctrl zamienia podnoszenie ↔ obniżanie.
@@ -2376,3 +2376,4 @@ Erst eine Vorlage übernehmen: Objekte auswählen und „Auswahl als Vorlage“ 
 Lightmap-Dichte	Gęstość lightmapy
 rot 4 · grün 16 · blau 64 · ≈ {} Mio. Luxel, {} MB	czerwony 4 · zielony 16 · niebieski 64 · ≈ {} mln lukseli, {} MB
 Modell-Browser öffnen – „Übernehmen“ setzt das Modell bei allen ausgewählten Props	Otwórz przeglądarkę modeli – „Zastosuj” ustawia model we wszystkich zaznaczonych propach
+Textur aufgenommen: {}	Pobrano teksturę: {}

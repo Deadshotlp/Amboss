@@ -2808,7 +2808,22 @@ impl View3D {
                     ed.select(hit.map(|h| h.0), false);
                 } else {
                     match ed.tool {
-                        Tool::Face => ed.select_face(hit.and_then(|h| h.1), ctrl),
+                        Tool::Face => {
+                            // Linksklick nimmt die Textur der Fläche auf (Pipette), Strg+Klick wählt Flächen aus;
+                            // Klick ins Leere hebt die Flächenauswahl auf
+                            let face = hit.and_then(|h| h.1);
+                            if ctrl {
+                                ed.select_face(face, true);
+                            } else if let Some((sid, i)) = face {
+                                if let Some(side) = ed.map.solid(sid).and_then(|s| s.sides.get(i)) {
+                                    ed.material = side.material.clone();
+                                    ed.status = crate::i18n::tr_dyn(&format!("Textur aufgenommen: {}", ed.material));
+                                    ed.touch();
+                                }
+                            } else {
+                                ed.select_face(None, false);
+                            }
+                        }
                         Tool::Entity => {
                             if let Some((_, face, t)) = hit {
                                 let mut pos = o + d * t;

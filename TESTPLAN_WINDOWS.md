@@ -332,6 +332,8 @@ Für jede Optimierung: zuerst **„Nur prüfen“**, Markierungen ansehen, dann 
 | T1 | Kompilieren & Exportieren öffnen | Die Leisten unter „Sichtbarkeit · VVIS“ und „Licht · VRAD“ beginnen auf derselben Höhe |
 | T2 | Zwei Entities auswählen, beide über die Klasse zu prop_static machen | Beim Feld „World Model“ steht der Ordner-Knopf; Modell im Browser wählen, „Übernehmen“ setzt es bei beiden |
 | T3 | Ein einzelnes Entity per Klassenfeld zu prop_static machen | Beim Feld „World Model“ steht der Ordner-Knopf, er öffnet den Modell-Browser |
+| T4 | Textur-Werkzeug (Shift+A), Linksklick auf eine Fläche | Statuszeile „Textur aufgenommen: …“, die Textur ist rechts ausgewählt, keine Fläche wird gewählt; Rechtsklick auf andere Flächen trägt sie auf |
+| T5 | Im Textur-Werkzeug Strg+Klick auf zwei Flächen, dann Klick ins Leere | Beide Flächen gelb gewählt („2 Flächen gewählt“), Ausrichten/Skalieren wirkt auf sie; Klick ins Leere hebt die Auswahl auf |
 
 ## L. Nach dem Test
 

@@ -498,7 +498,7 @@ Querschnitt-Seiten	Côtés de la section
 In einer 2D-Ansicht ein Rechteck ziehen. Die Höhe wird vom letzten Block übernommen.	Tracez un rectangle dans une vue 2D. La hauteur reprend celle du dernier bloc.
 Klick in 2D/3D platziert:	Un clic en 2D/3D place :
 Modell:	Modèle :
-Klick in 3D wählt Flächen (Strg = mehrere).\nRechtsklick: Material anwenden · Alt+Rechtsklick: nahtlos ausrichten.	Un clic en 3D sélectionne des faces (Ctrl = plusieurs).\nClic droit : appliquer le matériau · Alt+clic droit : envelopper sans raccord.
+Klick in 3D nimmt die Textur einer Fläche auf · Strg+Klick wählt Flächen (mehrere).\nRechtsklick: Material anwenden · Alt+Rechtsklick: nahtlos ausrichten.	Un clic en 3D prélève la texture d'une face · Ctrl+clic sélectionne des faces (plusieurs).\nClic droit : appliquer le matériau · Alt+clic droit : envelopper sans raccord.
 Skalierung	Échelle
 Verschiebung	Décalage
 Rotation	Rotation
@@ -742,10 +742,10 @@ Shift+S Auswahl · G Lupe · C Kamera · E Entity · B Block · A Flächen · D 
 Klick wählt, Strg = hinzufügen, Rahmen ziehen. Klick auf Auswahl: Skalieren → Drehen → Scheren	Clic sélectionne, Ctrl = ajouter, tracer un cadre. Clic sur la sélection : échelle → rotation → cisaillement
 Linie ziehen, Enter schneidet, Shift+X wechselt Vorne/Hinten/Beide	Tracez une ligne, Entrée coupe, Maj+X alterne avant/arrière/les deux
 Eckpunkte/Kanten ziehen; ungültige Formen werden abgelehnt	Glissez sommets/arêtes ; les formes invalides sont refusées
-Fläche (Shift+A) wählen → Displacement erstellen, dann Shift+P und in 3D malen	Sélectionnez une face (Maj+A) → créer un displacement, puis Maj+P et peignez en 3D
+Fläche wählen (Shift+A, Strg+Klick) → Displacement erstellen, dann Shift+P und in 3D malen	Sélectionnez une face (Maj+A, Ctrl+clic) → créer un displacement, puis Maj+P et peignez en 3D
 Mausrad zoomen, mittlere Taste/Leertaste verschieben, Pfeiltasten verschieben Auswahl	La molette zoome, bouton du milieu/espace déplace, les flèches bougent la sélection
 Flächen	Faces
-Rechtsklick: Material anwenden · Alt+Rechtsklick: Ausrichtung nahtlos übernehmen	Clic droit : appliquer le matériau · Alt+clic droit : continuer l'alignement sans raccord
+Klick: Textur aufnehmen · Strg+Klick: Fläche wählen · Rechtsklick: Material anwenden · Alt+Rechtsklick: Ausrichtung nahtlos übernehmen	Clic : prélever la texture · Ctrl+clic : sélectionner la face · Clic droit : appliquer le matériau · Alt+clic droit : continuer l'alignement sans raccord
 Rückgängig / Wiederholen	Annuler / rétablir
 Kopieren / Einfügen / Ausschneiden · Strg+Shift+V Paste Special	Copier / coller / couper · Ctrl+Maj+V collage spécial
 Gruppieren / Gruppe lösen	Grouper / dégrouper
@@ -1233,7 +1233,7 @@ Texturen wählen und auftragen, Kisten bauen, kopieren und mit dem Clip-Werkzeug
 Eine Textur wählen	Choisir une texture
 Unten rechts siehst du die Texturen. Klicke eine an, zum Beispiel eine Ziegelwand. Mit „Browser…“ kannst du alle Texturen durchsuchen.	Les textures sont en bas à droite. Cliquez-en une, par exemple un mur de briques. « Navigateur… » permet de rechercher toutes les textures.
 Textur auftragen	Appliquer une texture
-Wähle eine Wand mit dem Auswahl-Werkzeug und drücke Shift+T (Bearbeiten → Aktuelle Textur anwenden). Für einzelne Flächen gibt es das Textur-Werkzeug (Shift+A): Fläche in 3D anklicken, Textur anklicken.	Sélectionnez un mur avec l'outil de sélection et appuyez sur Maj+T (Édition → Appliquer la texture actuelle). Pour des faces isolées, il y a l'outil texture (Maj+A) : cliquez une face en 3D, puis une texture.
+Wähle eine Wand mit dem Auswahl-Werkzeug und drücke Shift+T (Bearbeiten → Aktuelle Textur anwenden). Für einzelne Flächen gibt es das Textur-Werkzeug (Shift+A): Textur wählen und Flächen in 3D mit Rechtsklick bemalen; ein Linksklick nimmt die Textur einer Fläche auf.	Sélectionnez un mur avec l'outil de sélection et appuyez sur Maj+T (Édition → Appliquer la texture actuelle). Pour des faces isolées, il y a l'outil texture (Maj+A) : choisissez une texture et peignez les faces en 3D par clic droit ; un clic gauche prélève la texture d'une face.
 Eine Kiste bauen	Construire une caisse
 Nimm wieder das Block-Werkzeug (Shift+B) und ziehe im Raum einen kleinen Block auf, etwa 64 × 64 × 64. Enter bestätigt.	Reprenez l'outil bloc (Maj+B) et tracez un petit bloc dans la pièce, environ 64 × 64 × 64. Entrée confirme.
 Wähle die Kiste (Shift+S, dann anklicken) und drücke Strg+D, um sie zu duplizieren. Die Kopie kannst du in 2D an einen anderen Platz ziehen.	Sélectionnez la caisse (Maj+S, puis cliquez dessus) et appuyez sur Ctrl+D pour la dupliquer. Vous pouvez faire glisser la copie ailleurs en 2D.
@@ -1498,7 +1498,7 @@ Nähen	Coudre
 Keine Physik-Kollision	Pas de collision physique
 Keine Hull-Kollision	Pas de collision d'enveloppe
 Keine Strahl-Kollision	Pas de collision de rayon
-Neue Displacements: im Textur-Werkzeug Flächen wählen →	Nouveaux displacements : sélectionnez des faces avec l'outil texture →
+Neue Displacements: im Textur-Werkzeug Flächen mit Strg+Klick wählen →	Nouveaux displacements : Ctrl+clic sur des faces avec l'outil texture →
 Displacement erstellen	Créer un displacement
 Aus den im Textur-Werkzeug ausgewählten Flächen	À partir des faces sélectionnées avec l'outil texture
 neues Skript	nouveau script
@@ -1827,7 +1827,7 @@ Ein Displacement verwandelt eine flache Brush-Fläche in ein feines Raster, dess
 Eine Bodenplatte	Une plaque de sol
 Baue mit dem Block-Werkzeug (Shift+B) eine große, flache Platte, etwa 1024 × 1024 Einheiten und 16 hoch. Tipp: Die Textur „NATURE/BLENDGRASSGRAVEL001A“ mischt später Gras und Kies.	Avec l'outil bloc (Maj+B), construisez une grande plaque plate, environ 1024 × 1024 unités et 16 de haut. Astuce : la texture « NATURE/BLENDGRASSGRAVEL001A » mélangera plus tard herbe et gravier.
 Die Oberseite auswählen	Sélectionner la face du dessus
-Nimm das Textur-Werkzeug (Shift+A) und klicke in der 3D-Ansicht auf die Oberseite der Platte. Nur ausgewählte Flächen werden zu Displacements.	Prenez l'outil texture (Maj+A) et cliquez sur le dessus de la plaque dans la vue 3D. Seules les faces sélectionnées deviennent des displacements.
+Nimm das Textur-Werkzeug (Shift+A) und klicke mit gedrückter Strg-Taste in der 3D-Ansicht auf die Oberseite der Platte – Strg+Klick wählt Flächen aus. Nur ausgewählte Flächen werden zu Displacements.	Prenez l'outil texture (Maj+A) et faites Ctrl+clic sur le dessus de la plaque dans la vue 3D – Ctrl+clic sélectionne des faces. Seules les faces sélectionnées deviennent des displacements.
 Rechts im Panel unter „Displacement“: Power 3 lassen und „Erstellen“ klicken. Power bestimmt die Feinheit – 2 ist grob, 4 sehr fein (und teuer).	Dans le panneau de droite sous « Displacement » : gardez la puissance 3 et cliquez sur « Créer ». La puissance définit la résolution – 2 est grossier, 4 très fin (et coûteux).
 Einen Hügel malen	Peindre une colline
 Wähle das Terrain-Werkzeug (Shift+P), Modus „Anheben“. Male mit gedrückter linker Maustaste in der 3D-Ansicht über das Gelände. Radius und Stärke stehen im Panel; Strg kehrt Anheben ↔ Absenken um.	Choisissez l'outil terrain (Maj+P), mode « Élever ». Peignez sur le terrain dans la vue 3D en maintenant le bouton gauche. Rayon et force sont dans le panneau ; Ctrl inverse élever ↔ abaisser.
@@ -2376,3 +2376,4 @@ Erst eine Vorlage übernehmen: Objekte auswählen und „Auswahl als Vorlage“ 
 Lightmap-Dichte	Densité de lightmap
 rot 4 · grün 16 · blau 64 · ≈ {} Mio. Luxel, {} MB	rouge 4 · vert 16 · bleu 64 · ≈ {} M luxels, {} Mo
 Modell-Browser öffnen – „Übernehmen“ setzt das Modell bei allen ausgewählten Props	Ouvrir le navigateur de modèles – « Appliquer » définit le modèle sur tous les props sélectionnés
+Textur aufgenommen: {}	Texture prélevée : {}

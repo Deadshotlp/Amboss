@@ -498,7 +498,7 @@ Querschnitt-Seiten	Стороны сечения
 In einer 2D-Ansicht ein Rechteck ziehen. Die Höhe wird vom letzten Block übernommen.	Нарисуйте прямоугольник в 2D-виде. Высота берётся от последнего блока.
 Klick in 2D/3D platziert:	Щелчок в 2D/3D размещает:
 Modell:	Модель:
-Klick in 3D wählt Flächen (Strg = mehrere).\nRechtsklick: Material anwenden · Alt+Rechtsklick: nahtlos ausrichten.	Щелчок в 3D выделяет грани (Ctrl = несколько).\nПравый щелчок: применить материал · Alt+правый щелчок: обернуть без швов.
+Klick in 3D nimmt die Textur einer Fläche auf · Strg+Klick wählt Flächen (mehrere).\nRechtsklick: Material anwenden · Alt+Rechtsklick: nahtlos ausrichten.	Щелчок в 3D берёт текстуру грани · Ctrl+щелчок выделяет грани (несколько).\nПравый щелчок: применить материал · Alt+правый щелчок: обернуть без швов.
 Skalierung	Масштаб
 Verschiebung	Сдвиг
 Rotation	Поворот
@@ -742,10 +742,10 @@ Shift+S Auswahl · G Lupe · C Kamera · E Entity · B Block · A Flächen · D 
 Klick wählt, Strg = hinzufügen, Rahmen ziehen. Klick auf Auswahl: Skalieren → Drehen → Scheren	Щелчок выделяет, Ctrl = добавить, рамка мышью. Щелчок по выделению: масштаб → поворот → сдвиг
 Linie ziehen, Enter schneidet, Shift+X wechselt Vorne/Hinten/Beide	Проведите линию, Enter режет, Shift+X переключает перед/зад/обе
 Eckpunkte/Kanten ziehen; ungültige Formen werden abgelehnt	Перетаскивайте вершины/рёбра; недопустимые формы отклоняются
-Fläche (Shift+A) wählen → Displacement erstellen, dann Shift+P und in 3D malen	Выделите грань (Shift+A) → создать дисплейсмент, затем Shift+P и рисуйте в 3D
+Fläche wählen (Shift+A, Strg+Klick) → Displacement erstellen, dann Shift+P und in 3D malen	Выделите грань (Shift+A, Ctrl+щелчок) → создать дисплейсмент, затем Shift+P и рисуйте в 3D
 Mausrad zoomen, mittlere Taste/Leertaste verschieben, Pfeiltasten verschieben Auswahl	Колесо масштабирует, средняя кнопка/пробел сдвигает, стрелки перемещают выделение
 Flächen	Грани
-Rechtsklick: Material anwenden · Alt+Rechtsklick: Ausrichtung nahtlos übernehmen	Правый щелчок: применить материал · Alt+правый щелчок: продолжить выравнивание без швов
+Klick: Textur aufnehmen · Strg+Klick: Fläche wählen · Rechtsklick: Material anwenden · Alt+Rechtsklick: Ausrichtung nahtlos übernehmen	Щелчок: взять текстуру · Ctrl+щелчок: выделить грань · Правый щелчок: применить материал · Alt+правый щелчок: продолжить выравнивание без швов
 Rückgängig / Wiederholen	Отменить / повторить
 Kopieren / Einfügen / Ausschneiden · Strg+Shift+V Paste Special	Копировать / вставить / вырезать · Ctrl+Shift+V специальная вставка
 Gruppieren / Gruppe lösen	Сгруппировать / разгруппировать
@@ -1233,7 +1233,7 @@ Texturen wählen und auftragen, Kisten bauen, kopieren und mit dem Clip-Werkzeug
 Eine Textur wählen	Выберите текстуру
 Unten rechts siehst du die Texturen. Klicke eine an, zum Beispiel eine Ziegelwand. Mit „Browser…“ kannst du alle Texturen durchsuchen.	Текстуры находятся справа внизу. Щёлкните одну, например кирпичную стену. Через «Браузер…» можно искать среди всех текстур.
 Textur auftragen	Наложите текстуру
-Wähle eine Wand mit dem Auswahl-Werkzeug und drücke Shift+T (Bearbeiten → Aktuelle Textur anwenden). Für einzelne Flächen gibt es das Textur-Werkzeug (Shift+A): Fläche in 3D anklicken, Textur anklicken.	Выделите стену инструментом выделения и нажмите Shift+T (Правка → Применить текущую текстуру). Для отдельных граней есть инструмент текстур (Shift+A): щёлкните грань в 3D, затем текстуру.
+Wähle eine Wand mit dem Auswahl-Werkzeug und drücke Shift+T (Bearbeiten → Aktuelle Textur anwenden). Für einzelne Flächen gibt es das Textur-Werkzeug (Shift+A): Textur wählen und Flächen in 3D mit Rechtsklick bemalen; ein Linksklick nimmt die Textur einer Fläche auf.	Выделите стену инструментом выделения и нажмите Shift+T (Правка → Применить текущую текстуру). Для отдельных граней есть инструмент текстур (Shift+A): выберите текстуру и красьте грани в 3D правым щелчком; левый щелчок берёт текстуру грани.
 Eine Kiste bauen	Постройте ящик
 Nimm wieder das Block-Werkzeug (Shift+B) und ziehe im Raum einen kleinen Block auf, etwa 64 × 64 × 64. Enter bestätigt.	Снова возьмите инструмент «Блок» (Shift+B) и нарисуйте небольшой блок внутри комнаты, примерно 64 × 64 × 64. Enter подтверждает.
 Wähle die Kiste (Shift+S, dann anklicken) und drücke Strg+D, um sie zu duplizieren. Die Kopie kannst du in 2D an einen anderen Platz ziehen.	Выделите ящик (Shift+S, затем щелчок по нему) и нажмите Ctrl+D, чтобы его продублировать. Копию можно перетащить в другое место в 2D.
@@ -1498,7 +1498,7 @@ Nähen	Сшить
 Keine Physik-Kollision	Без физических столкновений
 Keine Hull-Kollision	Без столкновений оболочки
 Keine Strahl-Kollision	Без столкновений с лучами
-Neue Displacements: im Textur-Werkzeug Flächen wählen →	Новые дисплейсменты: выделите грани инструментом текстур →
+Neue Displacements: im Textur-Werkzeug Flächen mit Strg+Klick wählen →	Новые дисплейсменты: Ctrl+щелчок по граням инструментом текстур →
 Displacement erstellen	Создать дисплейсмент
 Aus den im Textur-Werkzeug ausgewählten Flächen	Из граней, выделенных инструментом текстур
 neues Skript	новый скрипт
@@ -1827,7 +1827,7 @@ Ein Displacement verwandelt eine flache Brush-Fläche in ein feines Raster, dess
 Eine Bodenplatte	Плита основания
 Baue mit dem Block-Werkzeug (Shift+B) eine große, flache Platte, etwa 1024 × 1024 Einheiten und 16 hoch. Tipp: Die Textur „NATURE/BLENDGRASSGRAVEL001A“ mischt später Gras und Kies.	Инструментом «Блок» (Shift+B) постройте большую плоскую плиту, примерно 1024 × 1024 единиц и высотой 16. Совет: текстура «NATURE/BLENDGRASSGRAVEL001A» потом смешает траву и гравий.
 Die Oberseite auswählen	Выделите верхнюю грань
-Nimm das Textur-Werkzeug (Shift+A) und klicke in der 3D-Ansicht auf die Oberseite der Platte. Nur ausgewählte Flächen werden zu Displacements.	Возьмите инструмент текстур (Shift+A) и щёлкните по верху плиты в 3D-виде. Дисплейсментами становятся только выделенные грани.
+Nimm das Textur-Werkzeug (Shift+A) und klicke mit gedrückter Strg-Taste in der 3D-Ansicht auf die Oberseite der Platte – Strg+Klick wählt Flächen aus. Nur ausgewählte Flächen werden zu Displacements.	Возьмите инструмент текстур (Shift+A) и щёлкните с Ctrl по верху плиты в 3D-виде – Ctrl+щелчок выделяет грани. Дисплейсментами становятся только выделенные грани.
 Rechts im Panel unter „Displacement“: Power 3 lassen und „Erstellen“ klicken. Power bestimmt die Feinheit – 2 ist grob, 4 sehr fein (und teuer).	На панели справа в разделе «Дисплейсмент»: оставьте степень 3 и нажмите «Создать». Степень задаёт разрешение – 2 грубо, 4 очень мелко (и затратно).
 Einen Hügel malen	Нарисуйте холм
 Wähle das Terrain-Werkzeug (Shift+P), Modus „Anheben“. Male mit gedrückter linker Maustaste in der 3D-Ansicht über das Gelände. Radius und Stärke stehen im Panel; Strg kehrt Anheben ↔ Absenken um.	Выберите инструмент рельефа (Shift+P), режим «Поднять». Рисуйте по рельефу в 3D-виде, удерживая левую кнопку. Радиус и сила – на панели; Ctrl меняет поднять ↔ опустить.
@@ -2376,3 +2376,4 @@ Erst eine Vorlage übernehmen: Objekte auswählen und „Auswahl als Vorlage“ 
 Lightmap-Dichte	Плотность лайтмапы
 rot 4 · grün 16 · blau 64 · ≈ {} Mio. Luxel, {} MB	красный 4 · зелёный 16 · синий 64 · ≈ {} млн люкселей, {} МБ
 Modell-Browser öffnen – „Übernehmen“ setzt das Modell bei allen ausgewählten Props	Открыть браузер моделей – «Применить» задаёт модель всем выбранным пропам
+Textur aufgenommen: {}	Текстура взята: {}

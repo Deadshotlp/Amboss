@@ -201,7 +201,7 @@ pub fn chapters() -> Vec<Chapter> {
                 },
                 Step {
                     title: "Textur auftragen",
-                    text: "Wähle eine Wand mit dem Auswahl-Werkzeug und drücke Shift+T (Bearbeiten → Aktuelle Textur anwenden). Für einzelne Flächen gibt es das Textur-Werkzeug (Shift+A): Fläche in 3D anklicken, Textur anklicken.",
+                    text: "Wähle eine Wand mit dem Auswahl-Werkzeug und drücke Shift+T (Bearbeiten → Aktuelle Textur anwenden). Für einzelne Flächen gibt es das Textur-Werkzeug (Shift+A): Textur wählen und Flächen in 3D mit Rechtsklick bemalen; ein Linksklick nimmt die Textur einer Fläche auf.",
                     focus: Some("tool:face"),
                     check: Some(|a, b| textured(a) > b.textured_faces),
                     auto: Some(|a| {
@@ -425,7 +425,7 @@ pub fn chapters() -> Vec<Chapter> {
                 },
                 Step {
                     title: "Die Oberseite auswählen",
-                    text: "Nimm das Textur-Werkzeug (Shift+A) und klicke in der 3D-Ansicht auf die Oberseite der Platte. Nur ausgewählte Flächen werden zu Displacements.",
+                    text: "Nimm das Textur-Werkzeug (Shift+A) und klicke mit gedrückter Strg-Taste in der 3D-Ansicht auf die Oberseite der Platte – Strg+Klick wählt Flächen aus. Nur ausgewählte Flächen werden zu Displacements.",
                     focus: Some("tool:face"),
                     check: Some(|a, _| a.ed.faces.iter().any(|(sid, i)| a.ed.map.solid(*sid).and_then(|s| s.planes.get(*i).copied().flatten()).is_some_and(|p| p.normal.z > 0.9))),
                     auto: Some(|a| {
