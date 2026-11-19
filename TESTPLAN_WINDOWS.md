@@ -243,7 +243,7 @@ Für jede Optimierung: zuerst **„Nur prüfen“**, Markierungen ansehen, dann 
 | O11 | worldspawn `skyname` = `sky_day01_01` (bzw. eigener Himmel), Ansicht → Himmel-Vorschau | Himmel rundum richtig ausgerichtet (Horizont unten, Sonne wie im Spiel) – mit dem Spiel vergleichen |
 | O12 | `env_fog_controller` mit fogenable 1, Farbe, Start/Ende | Entfernte Flächen gehen in die Nebelfarbe über; Ansicht → Nebel schaltet ab |
 | O13 | `move_rope` mit NextKey auf `keyframe_rope`, Slack 50 | Seil hängt durch wie im Spiel, mit Seil-Textur; in 2D als Linie |
-| O14 | Version prüfen | „0.13.1“ neben dem Logo, im Fenstertitel und unter Hilfe → Über Amboss |
+| O14 | Version prüfen | „0.14.0“ neben dem Logo, im Fenstertitel und unter Hilfe → Über Amboss |
 | O15 | Hilfe → Tutorial…, Kapitel 6–9 mit echten Inhalten durchspielen (auch „Zeig es mir“) | Jeder Schritt wird erkannt; Gelände, Himmel, Nebel, Partikel, Overlay, Decal sehen richtig aus |
 | O16 | Trigger mit Output: Ziel-Feld anklicken und einen Buchstaben tippen | Liste passender Namen mit Klasse; Pfeiltasten + Enter oder Klick übernimmt |
 | O17 | Generatoren → Räume mit Höhenstufen 2, eigenen Texturen für Boden/Wände/Decke → Erzeugen → Kompilieren & starten | Kein Leck; Räume unterschiedlich hoch, Treppen in den Gängen begehbar; Texturen wie gewählt |
@@ -334,6 +334,24 @@ Für jede Optimierung: zuerst **„Nur prüfen“**, Markierungen ansehen, dann 
 | T3 | Ein einzelnes Entity per Klassenfeld zu prop_static machen | Beim Feld „World Model“ steht der Ordner-Knopf, er öffnet den Modell-Browser |
 | T4 | Textur-Werkzeug (Shift+A), Linksklick auf eine Fläche | Statuszeile „Textur aufgenommen: …“, die Textur ist rechts ausgewählt, keine Fläche wird gewählt; Rechtsklick auf andere Flächen trägt sie auf |
 | T5 | Im Textur-Werkzeug Strg+Klick auf zwei Flächen, dann Klick ins Leere | Beide Flächen gelb gewählt („2 Flächen gewählt“), Ausrichten/Skalieren wirkt auf sie; Klick ins Leere hebt die Auswahl auf |
+
+## U. Version 0.14.0
+
+| Nr. | Schritt | Erwartung |
+|---|---|---|
+| U1 | Ansicht → „Gameplay-Maße“ (Alt+M), Maus in 3D über einen Boden bewegen | Grüne Spielerfigur 32 × 72 mit Marken (Stufe, Sprung, geduckt, Augen, Ducksprung), „Spieler passt hierhin“ |
+| U2 | Unter eine Decke in 50 Einheiten Höhe zeigen, dann in einen 20 hohen Spalt | Gelb „Nur geduckt“ (Figur 36 hoch), dann rot „Spieler passt nicht“ |
+| U3 | Im Spiel prüfen: Unter der gelben Stelle geduckt durchgehen, auf eine 33 hohe Kiste springen, eine 18er-Stufe hochlaufen | Stimmt mit den Marken überein (wichtig: Sprung- und Ducksprunghöhe in GMod) |
+| U4 | Map → „Notiz anheften“ (Strg+Shift+N), Text mit zwei Zeilen eingeben, speichern, neu öffnen | Gelbe Nadel mit erster Zeile in 2D/3D, ausgewählt der ganze Text; nach dem Laden noch da; Map → „Notizen…“ springt hin |
+| U5 | Map mit Notiz kompilieren und im Spiel `ent_find info_null` | Keine info_null-Entities im Spiel (VBSP hat sie entfernt) |
+| U6 | Map mit Notiz in Hammer öffnen | Map lädt, Notiz erscheint als info_null mit Schlüssel amboss_note |
+| U7 | Live-Sitzung mit zwei Rechnern, auf einem eine Notiz anheften | Notiz erscheint beim anderen |
+| U8 | Werkzeuge → „Decal/Overlay aus Bild…“, ein PNG-Logo mit Transparenz, Breite 64, Decal | Material unter materials/amboss/decals/, Decal-Werkzeug aktiv; Klick auf eine Wand zeigt das Logo 64 Einheiten breit |
+| U9 | Dasselbe Bild als Overlay | Overlay 64 breit, mit den Griffen anpassbar |
+| U10 | Map mit Decal und Overlay kompilieren (mit „Eigene Inhalte packen“), im Spiel ansehen | Logo sichtbar, durchsichtige Teile durchsichtig, Größe wie im Editor |
+| U11 | Datei → „Screenshot in hoher Auflösung…“, 3840 × 2160 mit Kantenglättung | PNG 3840 × 2160 wie die 3D-Ansicht, ohne Raster und Auswahlrahmen |
+| U12 | Dasselbe als 360°-Panorama 4096 × 2048, in einem Panorama-Betrachter öffnen | Rundumsicht ohne sichtbare Nähte; Bildmitte = Blickrichtung der Kamera |
+| U13 | Screenshot 7680 × 4320 auf einer schwächeren Grafikkarte | Entweder ein Bild oder die Meldung „Zu groß für diese Grafikkarte …“, kein Absturz |
 
 ## L. Nach dem Test
 

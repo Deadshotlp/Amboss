@@ -2377,3 +2377,59 @@ Lightmap-Dichte	Плотность лайтмапы
 rot 4 · grün 16 · blau 64 · ≈ {} Mio. Luxel, {} MB	красный 4 · зелёный 16 · синий 64 · ≈ {} млн люкселей, {} МБ
 Modell-Browser öffnen – „Übernehmen“ setzt das Modell bei allen ausgewählten Props	Открыть браузер моделей – «Применить» задаёт модель всем выбранным пропам
 Textur aufgenommen: {}	Текстура взята: {}
+ Einheiten	 ед.
+(leere Notiz)	(пустая заметка)
+, mit Transparenz	, с прозрачностью
+360°-Panorama	Панорама 360°
+Art	Тип
+Augen {}	Глаза {}
+Ausschnitt und Blickwinkel wie in der 3D-Ansicht; das Seitenverhältnis kommt aus der gewählten Größe.	Кадр и угол обзора как в 3D-виде; соотношение сторон задаётся выбранным размером.
+Bild wird gespeichert…	Сохранение изображения…
+Decal / Overlay aus Bild	Декаль / оверлей из изображения
+Decal/Overlay aus Bild…	Декаль/оверлей из изображения…
+Ducksprung ca. {}	Прыжок с приседом ок. {}
+Durchsichtige Ränder abschneiden	Обрезать прозрачные края
+Eigenes Decal aus Bild…	Своя декаль из изображения…
+Eigenes Overlay aus Bild…	Свой оверлей из изображения…
+Erstellen und platzieren	Создать и разместить
+Gameplay-Maße an: Spielerfigur folgt der Maus (grün = passt, gelb = nur geduckt, rot = zu eng)	Игровые размеры включены: фигура игрока следует за мышью (зелёный = проходит, жёлтый = только пригнувшись, красный = слишком тесно)
+Gameplay-Maße aus	Игровые размеры выключены
+Gameplay-Maße ein-/ausblenden	Показать/скрыть игровые размеры
+Gameplay-Maße	Игровые размеры
+Höhe {} · {} m	Высота {} · {} м
+Kantenglättung (doppelt so groß rendern, dann verkleinern)	Сглаживание (рендер в двойном размере, затем уменьшение)
+Material {} gespeichert ({} × {} Einheiten, Textur {} × {}, $decalscale {}) – jetzt in 3D auf eine Fläche klicken	Материал {} сохранён ({} × {} ед., текстура {} × {}, $decalscale {}) – теперь щёлкните грань в 3D
+Noch keine Notizen in dieser Map.	На этой карте пока нет заметок.
+Notiz angeheftet – Text rechts im Panel eingeben	Заметка прикреплена – введите текст в панели справа
+Notiz anheften	Прикрепить заметку
+Notiz	Заметка
+Notizen werden beim Kompilieren entfernt (info_null) und in der Live-Sitzung mit allen geteilt.	Заметки удаляются при компиляции (info_null) и видны всем в совместной сессии.
+Notizen	Заметки
+Notizen…	Заметки…
+Nur geduckt	Только пригнувшись
+Ohne Hilfslinien und Auswahlrahmen; Darstellungsart (texturiert, Lichtvorschau …) wie in der 3D-Ansicht.	Без вспомогательных линий и рамок выделения; режим отображения (текстуры, предпросмотр света …) как в 3D-виде.
+Rundumsicht vom Standort der 3D-Kamera (equirektangulär) – für Panorama-Betrachter, VR oder als Vorschau im Workshop.	Круговой обзор с позиции 3D-камеры (равнопромежуточная проекция) – для просмотрщиков панорам, VR или превью в Workshop.
+Screenshot in hoher Auflösung	Скриншот в высоком разрешении
+Screenshot in hoher Auflösung…	Скриншот в высоком разрешении…
+Spieler 32 × 32 · Durchgang ab 33 breit, Türen meist 48–64	Игрок 32 × 32 · проход от 33 в ширину, двери обычно 48–64
+Spieler passt hierhin	Игрок здесь помещается
+Spieler passt nicht	Игрок не помещается
+Spielerfigur in Originalgröße an der Maus: Stufe, Sprung, Ducken, Augenhöhe; zeigt in 3D, ob der Spieler dort stehen kann (Alt+M)	Фигура игрока в натуральную величину у курсора: ступенька, прыжок, присед, высота глаз; в 3D видно, может ли игрок там стоять (Alt+M)
+Sprung ca. {}	Прыжок ок. {}
+Stufe {}	Ступенька {}
+Texturgröße	Размер текстуры
+Was ist hier zu tun? (wird beim Kompilieren entfernt)	Что здесь нужно сделать? (удаляется при компиляции)
+Wird gerendert… (die 3D-Ansicht muss sichtbar sein)	Рендеринг… (3D-вид должен быть виден)
+Wird unter materials/ im Spielordner gespeichert; „Eigene Inhalte in die BSP packen“ nimmt es beim Kompilieren mit.	Сохраняется в materials/ в папке игры; «Упаковать свои файлы в BSP» включит его при компиляции.
+Zu groß für diese Grafikkarte (höchstens {} Pixel pro Seite)	Слишком большое для этой видеокарты (не более {} пикселей на сторону)
+Zuerst ein Bild wählen	Сначала выберите изображение
+bis {} px	до {} пикс.
+geduckt {}	пригнувшись {}
+info_null · wird beim Kompilieren entfernt	info_null · удаляется при компиляции
+infodecal: einfach, feste Größe, wird auf die Fläche gedruckt	infodecal: просто, фиксированный размер, печатается на грань
+kein Bild	нет изображения
+{} × {} Pixel{}	{} × {} пикс.{}
+Über der Auswahl oder dort, wohin die 3D-Kamera schaut (Strg+Shift+N)	Над выделением или туда, куда смотрит 3D-камера (Ctrl+Shift+N)
+Segmente	Сегменты
+Rohrdicke	Толщина трубы
+info_overlay: frei skalier- und drehbar, auch über mehrere Flächen	info_overlay: свободно масштабируется и поворачивается, в том числе на нескольких гранях

@@ -172,7 +172,7 @@ Maps aus anderen Engines
 
 Modelle
 - [x] ★ glTF/GLB und OBJ per Ziehen in die Map (0.12.0; FBX/DAE noch offen): automatisch SMD/QC + VTF/VMT, studiomdl im Hintergrund, fertiges prop_static/prop_physics – M
-- [ ] Kollisionsmodell automatisch (konvexe Hülle / Zerlegung) – M
+- [ ] Kollisionsmodell automatisch (konvexe Hülle gibt es beim Modell-Import seit 0.12.0; Zerlegung in mehrere konvexe Teile noch offen) – M
 - [ ] LODs automatisch erzeugen – M
 - [ ] Skins und Bodygroups im Import-Dialog – S–M
 - [ ] Animationen im Modell-Browser abspielen – M
@@ -183,7 +183,7 @@ Texturen und Materialien
 - [x] ★ „Nahtlos machen“ mit einem Klick (0.12.0) – S
 - [x] ★ Normalmap aus Höhen- oder Farbbild (0.12.0) – S–M
 - [x] ★ PBR-Texturen (Roughness/Metallic) in Source-Materialien umwandeln (0.12.0) (Phong, Envmap-Maske) – M
-- [ ] Decal-/Overlay-Generator aus einem Bild – S
+- [x] Decal-/Overlay-Generator aus einem Bild (0.14.0; Werkzeuge → „Decal/Overlay aus Bild…“, Größe in Einheiten über `$decalscale`) – S
 - [ ] Texturen in 3D direkt auf Flächen malen – L
 - [ ] Freie Textur-Bibliotheken (Poly Haven, ambientCG) durchsuchen und als VTF einbinden – M
 
@@ -191,8 +191,8 @@ Bauwerkzeuge
 - [x] ★ Spline-Werkzeug (0.12.0): Straßen, Schienen, Rohre, Zäune, Kabel entlang einer Kurve – M
 - [ ] Saubere Boolesche Operationen (Vereinigen, Abziehen ohne Zerstückelung) – M
 - [x] Array: entlang Linie (Inhalte einfügen), Kreis (Generatoren) und Kurve (Spline → „Auswahl entlang“, 0.13.0) – S
-- [ ] Wendeltreppen, Kuppeln, Röhren, Torbögen als eigene Formen – S
-- [ ] Gameplay-Maße einblenden (Sprunghöhe, Ducken, Türbreite, Sichtlinien) – S
+- [x] Wendeltreppen, Kuppeln, Röhren, Torbögen als eigene Formen (gibt es im Block-Werkzeug: Wendeltreppe, Kuppel, Torus/Rohr, Bogen) – S
+- [x] Gameplay-Maße einblenden (0.14.0; Spielerfigur mit Stufe, Sprung, Ducken, Augenhöhe, Ducksprung; in 3D grün/gelb/rot, ob der Spieler passt; Durchgangs- und Türbreiten; Sichtlinien noch offen) – S
 - [ ] Weitere Generatoren: Höhlen, Innenausbau (Möbel streuen) – M
 
 Optimierung und Fehlersuche
@@ -210,12 +210,12 @@ GMod
 
 Zusammenarbeit und Arbeitsablauf
 - [x] Patchnotes nach einem Update einmal anzeigen, Hilfe → Neuigkeiten (0.13.0)
-- [ ] Notizen/Kommentare an Stellen in der Map anheften (auch in der Live-Sitzung) – S
+- [x] Notizen/Kommentare an Stellen in der Map anheften (0.14.0; als info_null, beim Kompilieren entfernt, in der Live-Sitzung geteilt) – S
 - [x] Textchat in der Live-Sitzung (gab es schon) – S
 - [ ] Zeitleiste der Speicherstände mit Vorschau und Vergleich – S–M
 - [ ] Plugin-Verwaltung für Lua-Skripte – M
 
 Export und Präsentation
 - [ ] glTF-Export mit Texturen – S–M
-- [ ] Hochauflösende Screenshots und 360°-Panoramen – S
+- [x] Hochauflösende Screenshots und 360°-Panoramen (0.14.0; bis 7680 × 4320 mit Kantenglättung, Panorama bis 8192 × 4096) – S
 - [ ] Kamerafahrt als Video – M

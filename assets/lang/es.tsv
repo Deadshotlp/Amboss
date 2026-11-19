@@ -2377,3 +2377,59 @@ Lightmap-Dichte	Densidad de lightmap
 rot 4 · grün 16 · blau 64 · ≈ {} Mio. Luxel, {} MB	rojo 4 · verde 16 · azul 64 · ≈ {} M luxels, {} MB
 Modell-Browser öffnen – „Übernehmen“ setzt das Modell bei allen ausgewählten Props	Abrir el explorador de modelos – «Aplicar» asigna el modelo a todos los props seleccionados
 Textur aufgenommen: {}	Textura tomada: {}
+ Einheiten	 unidades
+(leere Notiz)	(nota vacía)
+, mit Transparenz	, con transparencia
+360°-Panorama	Panorama 360°
+Art	Tipo
+Augen {}	Ojos {}
+Ausschnitt und Blickwinkel wie in der 3D-Ansicht; das Seitenverhältnis kommt aus der gewählten Größe.	Encuadre y campo de visión como en la vista 3D; la relación de aspecto viene del tamaño elegido.
+Bild wird gespeichert…	Guardando imagen…
+Decal / Overlay aus Bild	Decal / overlay desde imagen
+Decal/Overlay aus Bild…	Decal/overlay desde imagen…
+Ducksprung ca. {}	Salto agachado aprox. {}
+Durchsichtige Ränder abschneiden	Recortar bordes transparentes
+Eigenes Decal aus Bild…	Decal propio desde imagen…
+Eigenes Overlay aus Bild…	Overlay propio desde imagen…
+Erstellen und platzieren	Crear y colocar
+Gameplay-Maße an: Spielerfigur folgt der Maus (grün = passt, gelb = nur geduckt, rot = zu eng)	Medidas de jugabilidad activadas: la figura del jugador sigue al ratón (verde = cabe, amarillo = solo agachado, rojo = demasiado estrecho)
+Gameplay-Maße aus	Medidas de jugabilidad desactivadas
+Gameplay-Maße ein-/ausblenden	Mostrar/ocultar medidas de jugabilidad
+Gameplay-Maße	Medidas de jugabilidad
+Höhe {} · {} m	Altura {} · {} m
+Kantenglättung (doppelt so groß rendern, dann verkleinern)	Suavizado (renderizar al doble y reducir)
+Material {} gespeichert ({} × {} Einheiten, Textur {} × {}, $decalscale {}) – jetzt in 3D auf eine Fläche klicken	Material {} guardado ({} × {} unidades, textura {} × {}, $decalscale {}) – ahora haz clic en una cara en 3D
+Noch keine Notizen in dieser Map.	Aún no hay notas en este mapa.
+Notiz angeheftet – Text rechts im Panel eingeben	Nota fijada – escribe el texto en el panel de la derecha
+Notiz anheften	Fijar nota
+Notiz	Nota
+Notizen werden beim Kompilieren entfernt (info_null) und in der Live-Sitzung mit allen geteilt.	Las notas se eliminan al compilar (info_null) y se comparten con todos en la sesión en vivo.
+Notizen	Notas
+Notizen…	Notas…
+Nur geduckt	Solo agachado
+Ohne Hilfslinien und Auswahlrahmen; Darstellungsart (texturiert, Lichtvorschau …) wie in der 3D-Ansicht.	Sin líneas de ayuda ni marcos de selección; modo de vista (texturizado, vista previa de luz …) como en la vista 3D.
+Rundumsicht vom Standort der 3D-Kamera (equirektangulär) – für Panorama-Betrachter, VR oder als Vorschau im Workshop.	Vista completa desde la posición de la cámara 3D (equirrectangular): para visores de panoramas, VR o como vista previa en el Workshop.
+Screenshot in hoher Auflösung	Captura en alta resolución
+Screenshot in hoher Auflösung…	Captura en alta resolución…
+Spieler 32 × 32 · Durchgang ab 33 breit, Türen meist 48–64	Jugador 32 × 32 · pasos desde 33 de ancho, puertas normalmente 48–64
+Spieler passt hierhin	El jugador cabe aquí
+Spieler passt nicht	El jugador no cabe
+Spielerfigur in Originalgröße an der Maus: Stufe, Sprung, Ducken, Augenhöhe; zeigt in 3D, ob der Spieler dort stehen kann (Alt+M)	Figura del jugador a tamaño real en el ratón: escalón, salto, agacharse, altura de ojos; muestra en 3D si el jugador puede estar ahí (Alt+M)
+Sprung ca. {}	Salto aprox. {}
+Stufe {}	Escalón {}
+Texturgröße	Tamaño de textura
+Was ist hier zu tun? (wird beim Kompilieren entfernt)	¿Qué hay que hacer aquí? (se elimina al compilar)
+Wird gerendert… (die 3D-Ansicht muss sichtbar sein)	Renderizando… (la vista 3D debe estar visible)
+Wird unter materials/ im Spielordner gespeichert; „Eigene Inhalte in die BSP packen“ nimmt es beim Kompilieren mit.	Se guarda en materials/ de la carpeta del juego; «Empaquetar contenido propio en el BSP» lo incluye al compilar.
+Zu groß für diese Grafikkarte (höchstens {} Pixel pro Seite)	Demasiado grande para esta tarjeta gráfica (como máximo {} píxeles por lado)
+Zuerst ein Bild wählen	Elige primero una imagen
+bis {} px	hasta {} px
+geduckt {}	agachado {}
+info_null · wird beim Kompilieren entfernt	info_null · se elimina al compilar
+infodecal: einfach, feste Größe, wird auf die Fläche gedruckt	infodecal: sencillo, tamaño fijo, se imprime sobre la cara
+kein Bild	sin imagen
+{} × {} Pixel{}	{} × {} píxeles{}
+Über der Auswahl oder dort, wohin die 3D-Kamera schaut (Strg+Shift+N)	Sobre la selección o donde mira la cámara 3D (Ctrl+Mayús+N)
+Segmente	Segmentos
+Rohrdicke	Grosor del tubo
+info_overlay: frei skalier- und drehbar, auch über mehrere Flächen	info_overlay: escalable y girable libremente, también sobre varias caras

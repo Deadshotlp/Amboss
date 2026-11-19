@@ -1,6 +1,6 @@
 # Amboss – Map editor for Source 1 / Garry's Mod
 
-**Version 0.13.1** – shown next to the logo, in the window title and under Help → About Amboss. See `CHANGELOG.md` for what's new (the changelog is in German).
+**Version 0.14.0** – shown next to the logo, in the window title and under Help → About Amboss. See `CHANGELOG.md` for what's new (the changelog is in German).
 
 Amboss is a standalone level editor written in **Rust**, inspired by Hammer/Hammer++.
 It edits **VMF files**, shows the real **textures and models from the GMod/HL2 VPKs** and
@@ -63,6 +63,8 @@ Undo/redo arrows in the top bar · copy/paste · **Paste special** (copies with 
 Create (power 2–4), remove, **subdivide** (Catmull-Clark smoothing across several displacements – a cube becomes a sphere), **change power without losing the shape**, noise, sew, invert alpha, **terrain from heightmap** (PNG 8/16 bit or RAW 16 bit → seamless tiles, Map → "Terrain from heightmap…") with a built-in **noise generator** (hill size, detail octaves, roughness, valley floor, terraces, ridges, flat borders, seed; preview, export as 16-bit PNG), collision flags (no phys/hull/ray), brush with radius/strength/direction, alpha display
 
 ### Rendering (3D)
+**Gameplay measurements** (View → Gameplay measurements, Alt+M) – a life-size player figure follows the mouse: step height 18, jump ≈ 33, crouch 36, eyes 64, crouch jump ≈ 69 (GMod defaults: jump power 200, gravity 600). In 3D it stands on the floor under the mouse and turns green (player fits), yellow (crouched only) or red (too tight); in the side views it shows the heights, from the top 32 × 32. **High-resolution screenshots** (File → High-resolution screenshot…, Ctrl+F12) – the 3D view as PNG up to 7680 × 4320 with optional anti-aliasing, or a **360° panorama** (equirectangular, up to 8192 × 4096) from the camera position; without grid, helper lines and selection outlines.
+
 Textured (incl. **blend textures** WorldVertexTransition mixed via displacement alpha, `$basetexturetransform`, **animated textures** and **TextureScroll**) · flat · wireframe · lightmap grid · smoothing groups · **light preview with shadows** (light, light_spot, light_environment; the sun and the four nearest lights cast shadows) · **collision models** of props (.phy) as wireframe · **models (MDL)** with textures and skins · editor sprites · light cone helpers · connection lines (outputs) · **3D skybox preview** (sky_camera) · **2D sky** (`skyname` from worldspawn) · **fog** from `env_fog_controller` · **ropes** (`move_rope`/`keyframe_rope` with slack, also in 2D) · pointfile (leak path) · portal file · **frustum culling** for large maps · **anti-aliasing (MSAA)** under Settings → Graphics
 
 ### Creating content (Tools menu)
@@ -79,6 +81,7 @@ Textured (incl. **blend textures** WorldVertexTransition mixed via displacement 
 * **Bezier patch** – bend a displacement smoothly with 16 control points.
 * Overlays on displacements follow the surface in the 3D view, as in game.
 * **Particle preview** – `info_particle_system` plays its effect in the 3D view (View → "Play particle effects").
+* **Decal/overlay from an image** (Tools menu, File → Import, or the button in the Decal/Overlay tool) – PNG with transparency or JPEG becomes a ready decal material (VTF + VMT with `$decal` and `$decalscale`) in the size you choose in units; transparent borders can be trimmed. The decal or overlay tool is then active with the new material.
 
 ### Testing and live sync
 * **Walk mode** (F6) – walk through the map with player size, gravity and collision: WASD, Space jumps, Ctrl crouches, Shift runs, Esc ends.
@@ -90,6 +93,8 @@ Textured (incl. **blend textures** WorldVertexTransition mixed via displacement 
 Before compiling, missing keys are filled in with their FGD defaults (as Hammer does when creating an entity) – e.g. a `light` without `_light` would otherwise be black.
 
 ### Map
+**Notes** (Map → Pin note, Ctrl+Shift+N; Map → Notes… lists them) – pin text to a spot in the map: a yellow pin with the first line in 2D and 3D, the full text when selected, editable in the panel. Stored as `info_null` with the key `amboss_note` – VBSP removes it when compiling, Hammer still opens the map, and in a live session everyone sees the notes.
+
 **What's new** after an update (once, patch notes of all skipped versions; Help → What's new) · **compile errors explained** ("What does this mean?" in the compile dialog: leak, engine limits, missing textures/models, broken brushes … with fix and buttons) · **open Hammer 3.x/Worldcraft `.rmf` and Quake/Valve `.map`** directly · **lightmap density** view (colours by lightmap scale, estimated lighting data size) ·
 **3D skybox editing** (View → Edit 3D skybox, Map → 3D skybox): all views show only the room around the sky_camera, with a **player view** (picture in picture) of the whole map and the enlarged skybox behind it; the map's footprint is outlined in 2D and the status bar shows world coordinates. An assistant creates room and sky_camera if there is none; selected brushes can be **copied in scaled down** (textures scaled along); **check** for open rooms, missing sky_camera, fog mismatches, overlaps and more ·
 **Check for problems** with auto-fix (Alt+P) · **entity report** · **go to number** (e.g. from VBSP errors) · map info · map properties
@@ -270,6 +275,9 @@ Windows builds can be cross-compiled from Linux with `cargo build --release --ta
 | `Ctrl+Shift+O` / `Ctrl+Shift+H` | Object list / undo history |
 | `Ctrl+Tab` / `Ctrl+F4` | Next tab / close tab |
 | `Alt+G` / `Alt+V` | Grid snapping on/off / snap to vertices on/off |
+| `Alt+M` | Gameplay measurements (player figure at the mouse) |
+| `Ctrl+Shift+N` | Pin a note |
+| `Ctrl+F12` | High-resolution screenshot / 360° panorama |
 | `Ctrl+Alt+A` | Add touching objects to the selection |
 | `Ctrl+Alt+C` / `Ctrl+Alt+V` | Copy entity properties / paste onto the selection |
 | 3D: drag with left mouse button (select tool) | Box selection (`Ctrl` = add, `Alt` = also touching) |
@@ -326,6 +334,10 @@ src/
   spline.rs      Spline tool (roads, pipes, fences, models, selection, cables)
   compile_help.rs  Explanations for known compile messages
   whatsnew.rs    "What's new" dialog after updates (built-in changelog / GitHub release notes)
+  gameplay.rs    Gameplay measurements: player figure, jump/crouch heights, does the player fit here?
+  notes.rs       Notes pinned in the map (info_null with amboss_note), notes list
+  decal_gen.rs   Decal/overlay material from an image (trim, VTF, VMT with $decalscale)
+  screenshot.rs  High-resolution screenshots and 360° panoramas (offscreen rendering, cube → equirectangular)
   sky_ui.rs      View filters (Show) and 3D skybox mode
   templates.rs   Templates for new maps, start page
   theme.rs       Dark/light colour schemes, fonts, UI building blocks

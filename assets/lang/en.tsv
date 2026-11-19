@@ -2379,3 +2379,59 @@ Lightmap-Dichte	Lightmap density
 rot 4 · grün 16 · blau 64 · ≈ {} Mio. Luxel, {} MB	red 4 · green 16 · blue 64 · ≈ {} M luxels, {} MB
 Modell-Browser öffnen – „Übernehmen“ setzt das Modell bei allen ausgewählten Props	Open the model browser – “Apply” sets the model on all selected props
 Textur aufgenommen: {}	Texture picked up: {}
+ Einheiten	 units
+(leere Notiz)	(empty note)
+, mit Transparenz	, with transparency
+360°-Panorama	360° panorama
+Art	Type
+Augen {}	Eyes {}
+Ausschnitt und Blickwinkel wie in der 3D-Ansicht; das Seitenverhältnis kommt aus der gewählten Größe.	Framing and field of view as in the 3D view; the aspect ratio comes from the chosen size.
+Bild wird gespeichert…	Saving image…
+Decal / Overlay aus Bild	Decal / overlay from image
+Decal/Overlay aus Bild…	Decal/overlay from image…
+Ducksprung ca. {}	Crouch jump approx. {}
+Durchsichtige Ränder abschneiden	Trim transparent borders
+Eigenes Decal aus Bild…	Own decal from image…
+Eigenes Overlay aus Bild…	Own overlay from image…
+Erstellen und platzieren	Create and place
+Gameplay-Maße an: Spielerfigur folgt der Maus (grün = passt, gelb = nur geduckt, rot = zu eng)	Gameplay measurements on: player figure follows the mouse (green = fits, yellow = crouched only, red = too tight)
+Gameplay-Maße aus	Gameplay measurements off
+Gameplay-Maße ein-/ausblenden	Show/hide gameplay measurements
+Gameplay-Maße	Gameplay measurements
+Höhe {} · {} m	Height {} · {} m
+Kantenglättung (doppelt so groß rendern, dann verkleinern)	Anti-aliasing (render at twice the size, then scale down)
+Material {} gespeichert ({} × {} Einheiten, Textur {} × {}, $decalscale {}) – jetzt in 3D auf eine Fläche klicken	Material {} saved ({} × {} units, texture {} × {}, $decalscale {}) – now click a face in 3D
+Noch keine Notizen in dieser Map.	No notes in this map yet.
+Notiz angeheftet – Text rechts im Panel eingeben	Note pinned – type the text in the panel on the right
+Notiz anheften	Pin note
+Notiz	Note
+Notizen werden beim Kompilieren entfernt (info_null) und in der Live-Sitzung mit allen geteilt.	Notes are removed when compiling (info_null) and shared with everyone in a live session.
+Notizen	Notes
+Notizen…	Notes…
+Nur geduckt	Crouched only
+Ohne Hilfslinien und Auswahlrahmen; Darstellungsart (texturiert, Lichtvorschau …) wie in der 3D-Ansicht.	Without helper lines and selection outlines; render mode (textured, lighting preview …) as in the 3D view.
+Rundumsicht vom Standort der 3D-Kamera (equirektangulär) – für Panorama-Betrachter, VR oder als Vorschau im Workshop.	All-round view from the 3D camera's position (equirectangular) – for panorama viewers, VR or as a Workshop preview.
+Screenshot in hoher Auflösung	High-resolution screenshot
+Screenshot in hoher Auflösung…	High-resolution screenshot…
+Spieler 32 × 32 · Durchgang ab 33 breit, Türen meist 48–64	Player 32 × 32 · passages from 33 wide, doors usually 48–64
+Spieler passt hierhin	Player fits here
+Spieler passt nicht	Player does not fit
+Spielerfigur in Originalgröße an der Maus: Stufe, Sprung, Ducken, Augenhöhe; zeigt in 3D, ob der Spieler dort stehen kann (Alt+M)	Life-size player figure at the mouse: step, jump, crouch, eye height; shows in 3D whether the player can stand there (Alt+M)
+Sprung ca. {}	Jump approx. {}
+Stufe {}	Step {}
+Texturgröße	Texture size
+Was ist hier zu tun? (wird beim Kompilieren entfernt)	What needs doing here? (removed when compiling)
+Wird gerendert… (die 3D-Ansicht muss sichtbar sein)	Rendering… (the 3D view must be visible)
+Wird unter materials/ im Spielordner gespeichert; „Eigene Inhalte in die BSP packen“ nimmt es beim Kompilieren mit.	Saved under materials/ in the game folder; "Pack custom content into the BSP" includes it when compiling.
+Zu groß für diese Grafikkarte (höchstens {} Pixel pro Seite)	Too large for this graphics card (at most {} pixels per side)
+Zuerst ein Bild wählen	Choose an image first
+bis {} px	up to {} px
+geduckt {}	crouched {}
+info_null · wird beim Kompilieren entfernt	info_null · removed when compiling
+infodecal: einfach, feste Größe, wird auf die Fläche gedruckt	infodecal: simple, fixed size, printed onto the face
+kein Bild	no image
+{} × {} Pixel{}	{} × {} pixels{}
+Über der Auswahl oder dort, wohin die 3D-Kamera schaut (Strg+Shift+N)	Above the selection or where the 3D camera is looking (Ctrl+Shift+N)
+Segmente	Segments
+Rohrdicke	Tube thickness
+info_overlay: frei skalier- und drehbar, auch über mehrere Flächen	info_overlay: freely scalable and rotatable, also across several faces

@@ -1,5 +1,30 @@
 # Änderungen
 
+## 0.14.0
+
+**Gameplay-Maße**
+- Ansicht → „Gameplay-Maße“ (Alt+M): Eine Spielerfigur in Originalgröße folgt der Maus – mit Stufenhöhe 18, Sprung ca. 33, geduckt 36, Augenhöhe 64 und Ducksprung ca. 69 (Werte wie in Garry's Mod: Sprungkraft 200, Schwerkraft 600)
+- In 3D steht die Figur auf dem Boden unter der Maus (an Wänden davor) und zeigt farbig, ob der Spieler dort hinpasst: grün = stehend, gelb = nur geduckt, rot = zu eng. Trigger, Hint/Skip und andere durchlässige Brushes zählen nicht
+- In den Seitenansichten die Höhenmarken mit Beschriftung, von oben 32 × 32 mit Hinweis auf Durchgangs- und Türbreiten
+
+**Notizen in der Map**
+- Map → „Notiz anheften“ (Strg+Shift+N): eine Notiz über der Auswahl oder dort, wohin die 3D-Kamera schaut; Text rechts im Panel. In 2D und 3D eine gelbe Nadel mit der ersten Zeile, ausgewählt der ganze Text
+- Map → „Notizen…“ listet alle Notizen; ein Klick springt hin
+- Gespeichert als `info_null` mit dem Schlüssel `amboss_note`: VBSP entfernt sie beim Kompilieren, Hammer öffnet die Map weiterhin, und in der Live-Sitzung sehen alle die Notizen
+
+**Decal/Overlay aus einem Bild**
+- Werkzeuge → „Decal/Overlay aus Bild…“ (auch unter Datei → Importieren und als Knopf im Decal- und Overlay-Werkzeug): PNG mit Transparenz oder JPEG wird zum fertigen Decal-Material (VTF + VMT mit `$decal`, `$decalscale` und bei Bedarf `$translucent`) unter `materials/amboss/decals/`
+- Größe in Einheiten einstellbar (Höhe folgt dem Seitenverhältnis), durchsichtige Ränder werden auf Wunsch abgeschnitten, Texturgröße bis 2048
+- Danach ist das Decal- bzw. Overlay-Werkzeug mit dem neuen Material aktiv; Decals und neue Overlays haben in 3D die Größe aus `$decalscale`
+
+**Screenshots in hoher Auflösung und 360°-Panoramen**
+- Datei → „Screenshot in hoher Auflösung…“ (Strg+F12): die 3D-Ansicht als PNG bis 7680 × 4320, auf Wunsch doppelt gerendert und verkleinert (glatte Kanten)
+- 360°-Panorama vom Standort der Kamera (equirektangulär, bis 8192 × 4096) – für Panorama-Betrachter, VR oder als Workshop-Vorschau
+- Ohne Raster, Hilfslinien und Auswahlrahmen; Darstellungsart wie in der 3D-Ansicht
+
+**Kleinigkeiten**
+- Die Beschriftungen „Segmente“ und „Rohrdicke“ im Formen-Panel sind jetzt übersetzt
+
 ## 0.13.1
 
 - **Textur-Werkzeug: Linksklick nimmt die Textur auf**: Ein Linksklick auf eine Fläche übernimmt jetzt nur ihre Textur als aktuelle Textur (Pipette) und wählt nichts aus – damit lässt sich sofort per Rechtsklick weitermalen. Flächen auswählen (zum Ausrichten, Skalieren, für Displacements) geht mit **Strg+Klick**, auch mehrere; ein Klick ins Leere hebt die Flächenauswahl auf

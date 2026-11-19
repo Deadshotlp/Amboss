@@ -28,6 +28,7 @@ pub struct TexData {
     /// Zweite Textur von Blend-Materialien (WorldVertexTransition): (Breite, Höhe, RGBA)
     pub rgba2: Option<(u32, u32, Vec<u8>)>,
     pub thumb: (u32, u32, Vec<u8>),
+    pub decal_scale: f32,
     pub for_gl: bool,
 }
 
@@ -44,6 +45,8 @@ pub struct MatInfo {
     #[allow(dead_code)]
     pub blend: bool,
     pub in_gl: bool,
+    /// `$decalscale` aus der VMT (1 = Texturgröße in Einheiten)
+    pub decal_scale: f32,
     /// Durchschnittsfarbe der Textur (sRGB) – Oberflächenfarbe für die globale Beleuchtung
     pub avg: [u8; 3],
 }
@@ -155,11 +158,13 @@ pub struct VmtInfo {
     pub anim_fps: Option<f32>,
     /// TextureScroll-Proxy: (Rate, Winkel in Grad)
     pub scroll: Option<(f32, f32)>,
+    /// `$decalscale` (Weltgröße eines Decals/Overlays = Texturgröße × Faktor)
+    pub decal_scale: f32,
 }
 
 impl VmtInfo {
     fn empty() -> Self {
-        Self { basetexture: None, basetexture2: None, translucent: false, alpha: 1.0, additive: false, tint: None, xform: None, anim_fps: None, scroll: None }
+        Self { basetexture: None, basetexture2: None, translucent: false, alpha: 1.0, additive: false, tint: None, xform: None, anim_fps: None, scroll: None, decal_scale: 1.0 }
     }
 }
 
@@ -201,6 +206,9 @@ fn apply_vmt_flags(b: &crate::keyvalues::KvBlock, v: &mut VmtInfo) {
                 v.scroll = Some((kv_num(p, "texturescrollrate").unwrap_or(0.0), kv_num(p, "texturescrollangle").unwrap_or(0.0)));
             }
         }
+    }
+    if let Some(d) = kv_num(b, "$decalscale").filter(|d| *d > 0.0) {
+        v.decal_scale = d;
     }
     if let Some(a) = kv_num(b, "$alpha") {
         if a < 0.999 {
@@ -336,6 +344,7 @@ fn load_texture(fs: &GameFs, name: &str, for_gl: bool) -> Result<TexData, String
             scroll: None,
             rgba2: None,
             thumb: (4, 4, px),
+            decal_scale: vmt.decal_scale,
             for_gl,
         });
     }
@@ -371,6 +380,7 @@ fn load_texture(fs: &GameFs, name: &str, for_gl: bool) -> Result<TexData, String
         scroll: vmt.scroll,
         rgba2,
         thumb,
+        decal_scale: vmt.decal_scale,
         for_gl,
     })
 }
@@ -617,7 +627,7 @@ impl MaterialSystem {
                     let handle = ctx.load_texture(format!("mat:{}", t.name), img, egui::TextureOptions::LINEAR);
                     self.thumbs.insert(t.name.clone(), handle);
                     let in_gl = want_gl && t.for_gl;
-                    self.states.insert(t.name.clone(), State::Ready(MatInfo { width: t.width, height: t.height, translucent: t.translucent, alpha: t.alpha, additive: t.additive, blend: t.rgba2.is_some(), in_gl, avg: avg_color(&t.thumb.2) }));
+                    self.states.insert(t.name.clone(), State::Ready(MatInfo { width: t.width, height: t.height, translucent: t.translucent, alpha: t.alpha, additive: t.additive, blend: t.rgba2.is_some(), in_gl, avg: avg_color(&t.thumb.2), decal_scale: t.decal_scale }));
                     if in_gl {
                         self.uploads.push(t);
                     } else if want_gl {

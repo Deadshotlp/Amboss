@@ -1028,6 +1028,47 @@ impl View2D {
             painter.line_segment([self.sp(rect, a), self.sp(rect, b)], Stroke::new(1.5f32, col));
         }
 
+        // Notizen
+        for e in ed.map.entities.iter().filter(|e| crate::notes::is_note(e)) {
+            if let Some(o) = e.origin().filter(|_| ed.is_visible(Obj::Entity(e.id))) {
+                let s = self.sp(rect, o);
+                if rect.contains(s) {
+                    crate::notes::draw(&painter, s, e, ed.sel.contains(&Obj::Entity(e.id)));
+                }
+            }
+        }
+
+        // Gameplay-Maße: Spielerfigur an der Maus (Seitenansichten mit Höhenmarken, von oben 32 × 32)
+        if ed.gameplay {
+            if let Some(hp) = painter.ctx().pointer_hover_pos().filter(|p| rect.contains(*p)) {
+                let w = self.to_world(rect, hp);
+                let (h, v, _) = self.axis.axes();
+                let g = ed.snap_grid();
+                let mut foot = DVec3::ZERO;
+                foot[h] = w.x;
+                foot[v] = if v == 2 { crate::geometry::snap(w.y, g) } else { w.y };
+                let half = crate::gameplay::WIDTH / 2.0;
+                let col = Color32::from_rgb(120, 220, 255);
+                if v == 2 {
+                    let r = self.screen_rect(rect, &crate::geometry::Aabb::new(foot - DVec3::splat(half).with_z(0.0), foot + DVec3::new(half, half, crate::gameplay::STAND)));
+                    painter.rect_stroke(r, CornerRadius::same(2), Stroke::new(1.5f32, col), StrokeKind::Inside);
+                    let pts: Vec<(Pos2, String, [u8; 3])> = crate::gameplay::marks().into_iter().map(|(z, l, c)| (egui::pos2(r.right() + 6.0, self.sp(rect, foot + DVec3::Z * z).y), l, c)).collect();
+                    for (p, y, label, c) in crate::gameplay::spread_labels(pts, 12.0) {
+                        let c = Color32::from_rgb(c[0], c[1], c[2]);
+                        painter.line_segment([egui::pos2(r.left() - 6.0, p.y), p], Stroke::new(1.0f32, c));
+                        if (y - p.y).abs() > 1.0 {
+                            painter.line_segment([p, egui::pos2(p.x + 4.0, y)], Stroke::new(1.0f32, c));
+                        }
+                        painter.text(egui::pos2(p.x + 6.0, y), Align2::LEFT_CENTER, label, FontId::proportional(10.5), c);
+                    }
+                } else {
+                    let r = self.screen_rect(rect, &crate::geometry::Aabb::new(foot - DVec3::splat(half), foot + DVec3::splat(half)));
+                    painter.rect_stroke(r, CornerRadius::same(2), Stroke::new(1.5f32, col), StrokeKind::Inside);
+                    painter.text(r.right_top() + Vec2::new(4.0, 0.0), Align2::LEFT_TOP, crate::i18n::tr("Spieler 32 × 32 · Durchgang ab 33 breit, Türen meist 48–64"), FontId::proportional(10.5), col);
+                }
+            }
+        }
+
         // Messlinie
         if let Some((a, b)) = ed.measure {
             let (pa, pb) = (self.sp(rect, a), self.sp(rect, b));

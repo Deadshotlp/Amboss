@@ -35,7 +35,7 @@ pub fn load_png(bytes: &[u8]) -> Result<Rgba, String> {
 }
 
 /// Nächste Zweierpotenz (Source verlangt Texturgrößen 2ⁿ), höchstens `max`
-fn pow2(v: u32, max: u32) -> u32 {
+pub fn pow2(v: u32, max: u32) -> u32 {
     let mut p = 1;
     while p < v && p < max {
         p *= 2;

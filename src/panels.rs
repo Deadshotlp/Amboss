@@ -163,7 +163,11 @@ impl App {
             let e = self.ed.map.entity(ents[0]).unwrap();
             let faces: usize = e.solids.iter().map(|s| s.sides.len()).sum();
             let kind = if e.is_brush_entity() { crate::i18n::tr_dyn(&format!("Brush-Entity · {faces} Flächen")) } else { crate::i18n::tr("Punkt-Entity").to_string() };
-            (crate::icons::entity_icon(e.classname()), e.targetname().unwrap_or(e.classname()).to_string(), format!("{} · {kind}", e.classname()))
+            if crate::notes::is_note(e) {
+                ("layers", crate::i18n::tr("Notiz").to_string(), crate::i18n::tr("info_null · wird beim Kompilieren entfernt").to_string())
+            } else {
+                (crate::icons::entity_icon(e.classname()), e.targetname().unwrap_or(e.classname()).to_string(), format!("{} · {kind}", e.classname()))
+            }
         } else if ents.is_empty() {
             let faces: usize = solids.iter().filter_map(|id| self.ed.map.solid(*id)).map(|s| s.sides.len()).sum();
             ("block", if solids.len() == 1 { format!("Brush {}", solids[0]) } else { crate::i18n::count(solids.len(), "Brush", "Brushes") }, crate::i18n::tr_dyn(&format!("Welt · {faces} Flächen")))
@@ -316,9 +320,17 @@ impl App {
             Tool::Face => self.face_section(ui),
             Tool::Decal => {
                 ui.label(crate::i18n::tr("Material rechts bei den Texturen wählen (z. B. decals/…), dann in 3D auf eine Fläche klicken."));
+                if ui.button(crate::i18n::tr("Eigenes Decal aus Bild…")).clicked() {
+                    self.dgen.kind = crate::decal_gen::Kind::Decal;
+                    self.open_decal_gen();
+                }
             }
             Tool::Overlay => {
                 ui.label(crate::i18n::tr("Material rechts bei den Texturen wählen, dann in 3D auf eine Brush-Fläche klicken.\nGröße und Ausrichtung danach mit den Griffen in der Ansicht oder in den Eigenschaften (uv0–uv3)."));
+                if ui.button(crate::i18n::tr("Eigenes Overlay aus Bild…")).clicked() {
+                    self.dgen.kind = crate::decal_gen::Kind::Overlay;
+                    self.open_decal_gen();
+                }
             }
             Tool::Clip => {
                 ui.label(crate::i18n::tr("In 2D eine Schnittlinie ziehen oder in 3D drei Punkte auf Flächen anklicken (schräge Schnitte). Beide/Vorne/Hinten bestimmt, welche Teile bleiben. Enter schneidet."));
@@ -407,12 +419,12 @@ impl App {
         ui.label(RichText::new(crate::i18n::tr_dyn(&format!("Form: {} (oben in der Leiste wählen)", p.shape.label()))).color(theme::t().text2));
         egui::Grid::new("shapeparams").num_columns(2).show(ui, |ui| {
             if matches!(p.shape, Shape::Cylinder | Shape::Spike | Shape::Sphere | Shape::Arch | Shape::Torus) {
-                ui.label(if matches!(p.shape, Shape::Arch | Shape::Torus) { "Segmente" } else { crate::i18n::tr("Seiten") });
+                ui.label(if matches!(p.shape, Shape::Arch | Shape::Torus) { crate::i18n::tr("Segmente") } else { crate::i18n::tr("Seiten") });
                 ui.add(crate::theme::dv(egui::DragValue::new(&mut p.sides)).range(3..=64));
                 ui.end_row();
             }
             if matches!(p.shape, Shape::Arch | Shape::Torus) {
-                ui.label(if p.shape == Shape::Arch { crate::i18n::tr("Wandstärke") } else { "Rohrdicke" });
+                ui.label(if p.shape == Shape::Arch { crate::i18n::tr("Wandstärke") } else { crate::i18n::tr("Rohrdicke") });
                 ui.add(crate::theme::dv(egui::DragValue::new(&mut p.wall)).range(1.0..=1024.0));
                 ui.end_row();
                 ui.label(crate::i18n::tr("Bogen (°)"));
@@ -1229,6 +1241,22 @@ pub(crate) fn entity_editor(ui: &mut egui::Ui, fgd: &Fgd, map: &Map, e: &mut Ent
         });
     }
 
+    // Notiz (info_null mit amboss_note): großes Textfeld statt der Schlüsselwerte
+    if crate::notes::is_note(e) {
+        theme::section(ui, crate::i18n::tr("Notiz"));
+        let mut t = crate::notes::text(e);
+        let focus_id = egui::Id::new("amboss_focus_note");
+        let r = ui.add(egui::TextEdit::multiline(&mut t).desired_rows(6).desired_width(f32::INFINITY).hint_text(crate::theme::hint(crate::i18n::tr("Was ist hier zu tun? (wird beim Kompilieren entfernt)"))));
+        if ui.data_mut(|d| d.remove_temp::<bool>(focus_id)).unwrap_or(false) {
+            r.request_focus();
+        }
+        begin |= r.gained_focus();
+        if r.changed() {
+            e.set(crate::notes::KEY, crate::notes::encode(&t));
+            changed = true;
+        }
+        ui.add_space(6.0);
+    }
     let props = fgd.all_props(&class);
     // Schalter „Rohwerte“ (Schlüssel/Wert wie in der Datei) und im Einfach-Modus nur wichtige Schlüssel
     let raw_id = egui::Id::new("amboss_raw_kv");
@@ -1379,7 +1407,7 @@ pub(crate) fn entity_editor(ui: &mut egui::Ui, fgd: &Fgd, map: &Map, e: &mut Ent
         let mut remove = None;
         for (i, (k, v)) in e.props.iter_mut().enumerate() {
             let lk = k.to_ascii_lowercase();
-            if lk == "classname" || lk == "spawnflags" || (lk == "angles" && !is_world) || known.contains(&lk) {
+            if lk == "classname" || lk == "spawnflags" || (lk == "angles" && !is_world) || known.contains(&lk) || (lk == crate::notes::KEY && !raw) {
                 continue;
             }
             ui.horizontal(|ui| {

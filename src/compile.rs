@@ -228,6 +228,8 @@ pub struct Settings {
     pub ui_scale: f32,
     /// zuletzt gestartete Version (für „Neu in Amboss“ nach einem Update)
     pub last_version: String,
+    /// Gameplay-Maße eingeblendet
+    pub gameplay: bool,
     /// Workshop-Angaben je Map (Name ohne Endung)
     pub workshop: std::collections::HashMap<String, crate::workshop::WorkshopInfo>,
 }
@@ -287,6 +289,7 @@ impl Default for Settings {
             ui_scale: 1.0,
             workshop: Default::default(),
             last_version: String::new(),
+            gameplay: false,
         }
     }
 }

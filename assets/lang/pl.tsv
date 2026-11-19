@@ -2377,3 +2377,59 @@ Lightmap-Dichte	Gęstość lightmapy
 rot 4 · grün 16 · blau 64 · ≈ {} Mio. Luxel, {} MB	czerwony 4 · zielony 16 · niebieski 64 · ≈ {} mln lukseli, {} MB
 Modell-Browser öffnen – „Übernehmen“ setzt das Modell bei allen ausgewählten Props	Otwórz przeglądarkę modeli – „Zastosuj” ustawia model we wszystkich zaznaczonych propach
 Textur aufgenommen: {}	Pobrano teksturę: {}
+ Einheiten	 jednostek
+(leere Notiz)	(pusta notatka)
+, mit Transparenz	, z przezroczystością
+360°-Panorama	Panorama 360°
+Art	Rodzaj
+Augen {}	Oczy {}
+Ausschnitt und Blickwinkel wie in der 3D-Ansicht; das Seitenverhältnis kommt aus der gewählten Größe.	Kadr i pole widzenia jak w widoku 3D; proporcje wynikają z wybranego rozmiaru.
+Bild wird gespeichert…	Zapisywanie obrazu…
+Decal / Overlay aus Bild	Decal / overlay z obrazu
+Decal/Overlay aus Bild…	Decal/overlay z obrazu…
+Ducksprung ca. {}	Skok z kucnięciem ok. {}
+Durchsichtige Ränder abschneiden	Przytnij przezroczyste krawędzie
+Eigenes Decal aus Bild…	Własny decal z obrazu…
+Eigenes Overlay aus Bild…	Własny overlay z obrazu…
+Erstellen und platzieren	Utwórz i umieść
+Gameplay-Maße an: Spielerfigur folgt der Maus (grün = passt, gelb = nur geduckt, rot = zu eng)	Wymiary rozgrywki włączone: sylwetka gracza podąża za myszą (zielony = mieści się, żółty = tylko w kucki, czerwony = za ciasno)
+Gameplay-Maße aus	Wymiary rozgrywki wyłączone
+Gameplay-Maße ein-/ausblenden	Pokaż/ukryj wymiary rozgrywki
+Gameplay-Maße	Wymiary rozgrywki
+Höhe {} · {} m	Wysokość {} · {} m
+Kantenglättung (doppelt so groß rendern, dann verkleinern)	Wygładzanie (renderuj w podwójnym rozmiarze, potem zmniejsz)
+Material {} gespeichert ({} × {} Einheiten, Textur {} × {}, $decalscale {}) – jetzt in 3D auf eine Fläche klicken	Materiał {} zapisany ({} × {} jednostek, tekstura {} × {}, $decalscale {}) – teraz kliknij ścianę w 3D
+Noch keine Notizen in dieser Map.	Na tej mapie nie ma jeszcze notatek.
+Notiz angeheftet – Text rechts im Panel eingeben	Notatka przypięta – wpisz tekst w panelu po prawej
+Notiz anheften	Przypnij notatkę
+Notiz	Notatka
+Notizen werden beim Kompilieren entfernt (info_null) und in der Live-Sitzung mit allen geteilt.	Notatki są usuwane podczas kompilacji (info_null) i udostępniane wszystkim w sesji na żywo.
+Notizen	Notatki
+Notizen…	Notatki…
+Nur geduckt	Tylko w kucki
+Ohne Hilfslinien und Auswahlrahmen; Darstellungsart (texturiert, Lichtvorschau …) wie in der 3D-Ansicht.	Bez linii pomocniczych i ramek zaznaczenia; tryb wyświetlania (teksturowany, podgląd oświetlenia …) jak w widoku 3D.
+Rundumsicht vom Standort der 3D-Kamera (equirektangulär) – für Panorama-Betrachter, VR oder als Vorschau im Workshop.	Widok dookólny z pozycji kamery 3D (równoprostokątny) – do przeglądarek panoram, VR lub jako podgląd w Workshop.
+Screenshot in hoher Auflösung	Zrzut ekranu w wysokiej rozdzielczości
+Screenshot in hoher Auflösung…	Zrzut ekranu w wysokiej rozdzielczości…
+Spieler 32 × 32 · Durchgang ab 33 breit, Türen meist 48–64	Gracz 32 × 32 · przejście od 33 szerokości, drzwi zwykle 48–64
+Spieler passt hierhin	Gracz się tu mieści
+Spieler passt nicht	Gracz się nie mieści
+Spielerfigur in Originalgröße an der Maus: Stufe, Sprung, Ducken, Augenhöhe; zeigt in 3D, ob der Spieler dort stehen kann (Alt+M)	Sylwetka gracza w naturalnej wielkości przy myszy: stopień, skok, kucanie, wysokość oczu; pokazuje w 3D, czy gracz może tam stać (Alt+M)
+Sprung ca. {}	Skok ok. {}
+Stufe {}	Stopień {}
+Texturgröße	Rozmiar tekstury
+Was ist hier zu tun? (wird beim Kompilieren entfernt)	Co trzeba tu zrobić? (usuwane podczas kompilacji)
+Wird gerendert… (die 3D-Ansicht muss sichtbar sein)	Renderowanie… (widok 3D musi być widoczny)
+Wird unter materials/ im Spielordner gespeichert; „Eigene Inhalte in die BSP packen“ nimmt es beim Kompilieren mit.	Zapisywane w materials/ w folderze gry; „Spakuj własne treści do BSP” dołącza je przy kompilacji.
+Zu groß für diese Grafikkarte (höchstens {} Pixel pro Seite)	Za duże dla tej karty graficznej (maks. {} pikseli na bok)
+Zuerst ein Bild wählen	Najpierw wybierz obraz
+bis {} px	do {} px
+geduckt {}	w kucki {}
+info_null · wird beim Kompilieren entfernt	info_null · usuwane podczas kompilacji
+infodecal: einfach, feste Größe, wird auf die Fläche gedruckt	infodecal: prosty, stały rozmiar, nadrukowany na ścianę
+kein Bild	brak obrazu
+{} × {} Pixel{}	{} × {} pikseli{}
+Über der Auswahl oder dort, wohin die 3D-Kamera schaut (Strg+Shift+N)	Nad zaznaczeniem lub tam, gdzie patrzy kamera 3D (Ctrl+Shift+N)
+Segmente	Segmenty
+Rohrdicke	Grubość rury
+info_overlay: frei skalier- und drehbar, auch über mehrere Flächen	info_overlay: dowolnie skalowalny i obracalny, także na kilku ścianach

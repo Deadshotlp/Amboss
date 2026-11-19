@@ -174,6 +174,15 @@ pub(crate) fn line_b(buf: &mut Vec<f32>, a: DVec3, b: DVec3, c: [f32; 4], bb: &c
     }
 }
 
+/// Text mit dunklem Schatten (lesbar auf hellen und dunklen Flächen)
+fn shadow_text(painter: &egui::Painter, pos: egui::Pos2, align: Align2, text: &str, size: f32, col: Color32) {
+    let shadow = Color32::from_black_alpha(200);
+    for d in [Vec2::new(1.0, 1.0), Vec2::new(-1.0, 1.0), Vec2::new(1.0, -1.0), Vec2::new(-1.0, -1.0)] {
+        painter.text(pos + d, align, text, FontId::proportional(size), shadow);
+    }
+    painter.text(pos, align, text, FontId::proportional(size), col);
+}
+
 pub(crate) fn line(buf: &mut Vec<f32>, a: DVec3, b: DVec3, c: [f32; 4]) {
     push(buf, V { p: f3(a), c, ..Default::default() });
     push(buf, V { p: f3(b), c, ..Default::default() });
@@ -813,7 +822,8 @@ fn decal_quad(ed: &Editor, mats: &mut MaterialSystem, trans: &mut Bucketed, o: D
     }
     let Some((_, p, n)) = best else { return };
     let info = mats.request_gl(tex);
-    let (w, h) = info.map(|i| (i.width as f64, i.height as f64)).unwrap_or((64.0, 64.0));
+    // Weltgröße wie im Spiel: Texturgröße × $decalscale
+    let (w, h) = info.map(|i| (i.width as f64 * i.decal_scale as f64, i.height as f64 * i.decal_scale as f64)).unwrap_or((64.0, 64.0));
     let (u, v) = plane_basis(n);
     let c = p + n * 0.6;
     let corners = [c - u * w / 2.0 - v * h / 2.0, c - u * w / 2.0 + v * h / 2.0, c + u * w / 2.0 + v * h / 2.0, c + u * w / 2.0 - v * h / 2.0];
@@ -918,7 +928,7 @@ pub struct StaticDraw {
     pub sky: bool,
 }
 
-#[derive(Default)]
+#[derive(Default, Clone)]
 pub struct FrameData {
     pub mvp: Mat4,
     pub cam: Vec3,
@@ -949,6 +959,8 @@ pub struct FrameData {
     pub gi: Option<Arc<crate::gi::Grid>>,
     /// Skybox-Modus: Geometrie nur innerhalb dieser Box
     pub clip: Option<Aabb>,
+    /// Screenshot: ohne Editor-Linien (Raster, Entity-Boxen, Auswahl)
+    pub clean: bool,
 }
 
 struct Uniforms {
@@ -1583,6 +1595,67 @@ impl Renderer {
         gl.bind_texture(glow::TEXTURE_2D, None);
     }
 
+    /// Größte Kantenlänge für Bilder außerhalb des Bildschirms
+    pub fn max_offscreen(&self, gl: &glow::Context) -> i32 {
+        unsafe {
+            // MAX_VIEWPORT_DIMS liefert zwei Werte
+            let mut vp = [0i32; 2];
+            gl.get_parameter_i32_slice(glow::MAX_VIEWPORT_DIMS, &mut vp);
+            gl.get_parameter_i32(glow::MAX_RENDERBUFFER_SIZE).min(vp[0].min(vp[1])).max(1024)
+        }
+    }
+
+    /// Bild außerhalb des Bildschirms rendern (Screenshots); RGBA, oberste Zeile zuerst
+    pub fn paint_offscreen(&mut self, gl: &glow::Context, f: &FrameData, w: i32, h: i32) -> Result<Vec<u8>, String> {
+        unsafe {
+            let mut vp_old = [0i32; 4];
+            gl.get_parameter_i32_slice(glow::VIEWPORT, &mut vp_old);
+            let fb_old = gl.get_parameter_framebuffer(glow::FRAMEBUFFER_BINDING);
+            let scissor = gl.is_enabled(glow::SCISSOR_TEST);
+            let fbo = gl.create_framebuffer()?;
+            let color = gl.create_renderbuffer()?;
+            gl.bind_renderbuffer(glow::RENDERBUFFER, Some(color));
+            gl.renderbuffer_storage(glow::RENDERBUFFER, glow::RGBA8, w, h);
+            let depth = gl.create_renderbuffer()?;
+            gl.bind_renderbuffer(glow::RENDERBUFFER, Some(depth));
+            gl.renderbuffer_storage(glow::RENDERBUFFER, glow::DEPTH_COMPONENT24, w, h);
+            gl.bind_renderbuffer(glow::RENDERBUFFER, None);
+            gl.bind_framebuffer(glow::FRAMEBUFFER, Some(fbo));
+            gl.framebuffer_renderbuffer(glow::FRAMEBUFFER, glow::COLOR_ATTACHMENT0, glow::RENDERBUFFER, Some(color));
+            gl.framebuffer_renderbuffer(glow::FRAMEBUFFER, glow::DEPTH_ATTACHMENT, glow::RENDERBUFFER, Some(depth));
+            let ok = gl.check_framebuffer_status(glow::FRAMEBUFFER) == glow::FRAMEBUFFER_COMPLETE;
+            let mut px = vec![0u8; (w as usize) * (h as usize) * 4];
+            if ok {
+                gl.disable(glow::SCISSOR_TEST);
+                gl.viewport(0, 0, w, h);
+                self.paint(gl, f);
+                gl.pixel_store_i32(glow::PACK_ALIGNMENT, 1);
+                gl.read_pixels(0, 0, w, h, glow::RGBA, glow::UNSIGNED_BYTE, glow::PixelPackData::Slice(Some(&mut px)));
+            }
+            gl.bind_framebuffer(glow::FRAMEBUFFER, fb_old);
+            gl.delete_framebuffer(fbo);
+            gl.delete_renderbuffer(color);
+            gl.delete_renderbuffer(depth);
+            gl.viewport(vp_old[0], vp_old[1], vp_old[2], vp_old[3]);
+            if scissor {
+                gl.enable(glow::SCISSOR_TEST);
+            }
+            if !ok {
+                return Err(format!("Framebuffer {w} × {h} nicht möglich"));
+            }
+            // OpenGL liefert die unterste Zeile zuerst; deckend machen
+            let row = w as usize * 4;
+            let mut out = vec![0u8; px.len()];
+            for y in 0..h as usize {
+                out[y * row..(y + 1) * row].copy_from_slice(&px[(h as usize - 1 - y) * row..(h as usize - y) * row]);
+            }
+            for a in out.iter_mut().skip(3).step_by(4) {
+                *a = 255;
+            }
+            Ok(out)
+        }
+    }
+
     pub fn paint(&mut self, gl: &glow::Context, f: &FrameData) {
         unsafe {
             self.upload(gl);
@@ -1734,7 +1807,7 @@ impl Renderer {
             gl.blend_func(glow::SRC_ALPHA, glow::ONE_MINUS_SRC_ALPHA);
             gl.uniform_1_i32(u.mode.as_ref(), 1);
             for i in [2usize, 4] {
-                if i == 4 && !f.wireframe {
+                if i == 4 && !f.wireframe || i == 2 && f.clean {
                     continue;
                 }
                 gl.bind_vertex_array(Some(self.bufs[i].vao));
@@ -1756,6 +1829,9 @@ impl Renderer {
             gl.uniform_1_i32(u.mode.as_ref(), 1);
             gl.depth_func(glow::ALWAYS);
             for i in [3usize, 6] {
+                if f.clean {
+                    continue;
+                }
                 gl.bind_vertex_array(Some(self.bufs[i].vao));
                 gl.draw_arrays(glow::LINES, 0, self.bufs[i].count);
             }
@@ -2237,6 +2313,11 @@ pub struct View3D {
     overlay_drag: Option<OverlayDrag>,
     face_drag: Option<FaceDrag>,
     measure_start: Option<DVec3>,
+    /// Gameplay-Maße: Fußpunkt der Spielerfigur unter der Maus und ob sie dort passt
+    gp_foot: Option<(DVec3, crate::gameplay::Fit)>,
+    /// Screenshot-Auftrag für das nächste Bild und Ergebnis aus dem Renderer
+    pub shot: Option<crate::screenshot::ShotReq>,
+    pub shot_out: Arc<std::sync::Mutex<Option<crate::screenshot::ShotRaw>>>,
     /// Rahmenauswahl: Startpunkt auf dem Bildschirm
     box_sel: Option<egui::Pos2>,
     pub cam: Camera,
@@ -2307,6 +2388,9 @@ impl View3D {
             overlay_drag: None,
             face_drag: None,
             measure_start: None,
+            gp_foot: None,
+            shot: None,
+            shot_out: Arc::new(std::sync::Mutex::new(None)),
             box_sel: None,
             cam,
             speed: 700.0,
@@ -2486,6 +2570,26 @@ impl View3D {
         // ---- Terrain-Pinsel
         let hover_ray = resp.hover_pos().map(|p| self.cam.ray(rect, p));
         let mut brush_cursor: Option<DVec3> = None;
+        // Gameplay-Maße: Spielerfigur auf dem Boden unter der Maus (an Wänden davor auf den Boden gestellt)
+        self.gp_foot = None;
+        if ed.gameplay {
+            if let Some((o, d)) = hover_ray {
+                if let Some((_, face, t)) = ed.pick_3d(o, d) {
+                    let hit = o + d * t;
+                    let n = face.and_then(|(sid, i)| ed.map.solid(sid).and_then(|s| s.planes.get(i).copied().flatten())).map(|p| p.normal).unwrap_or(DVec3::Z);
+                    let foot = if n.z > 0.7 {
+                        Some(hit)
+                    } else if n.z > -0.7 {
+                        let side = DVec3::new(n.x, n.y, 0.0).normalize_or_zero() * (crate::gameplay::WIDTH / 2.0 + 1.0);
+                        let p = hit + side + DVec3::Z * 1.0;
+                        ed.pick_3d(p, -DVec3::Z).map(|(_, _, t2)| p - DVec3::Z * t2)
+                    } else {
+                        None
+                    };
+                    self.gp_foot = foot.map(|f| (f, crate::gameplay::fit(ed, f)));
+                }
+            }
+        }
         if ed.tool == Tool::Disp {
             let pressed = ui.input(|i| i.pointer.primary_down());
             let mode = ed.dbrush.mode;
@@ -2854,7 +2958,9 @@ impl View3D {
                             if let Some((_, Some((sid, i)), t)) = hit {
                                 let n = face_normal(ed, Some((sid, i))).unwrap_or(DVec3::Z);
                                 let side_id = ed.map.solid(sid).map(|s| s.sides[i].id).unwrap_or(0);
-                                let (w, h) = mats.info(&ed.material).map(|i| (i.width as f64 * 0.25, i.height as f64 * 0.25)).unwrap_or((128.0, 128.0));
+                                // ohne $decalscale ein Viertel der Texturgröße (wie bisher), sonst die Weltgröße aus der VMT
+                                let k = |i: &crate::materials::MatInfo| if (i.decal_scale - 1.0).abs() > 1e-3 { i.decal_scale as f64 } else { 0.25 };
+                                let (w, h) = mats.info(&ed.material).map(|i| (i.width as f64 * k(&i), i.height as f64 * k(&i))).unwrap_or((128.0, 128.0));
                                 ed.create_overlay(o + d * t, n, side_id, DVec2::new(w / 2.0, h / 2.0));
                             } else {
                                 ed.status = crate::i18n::tr("Overlay: auf eine Brush-Fläche klicken").into();
@@ -3017,6 +3123,7 @@ impl View3D {
                 shadows: self.shadows,
                 gi: if self.mode == RenderMode::Lighting && self.gi_on { self.gi_grid.clone() } else { None },
                 clip: self.clip_box,
+                clean: false,
             });
             // Spielersicht (Skybox-Modus): ganze Map mit 3D-Skybox aus der gemerkten Kamera
             let pip_frame = self.pip.as_ref().map(|pc| {
@@ -3046,6 +3153,43 @@ impl View3D {
                 )
             });
             drop(r);
+            // Screenshot: außerhalb des Bildschirms rendern, ohne Hilfslinien
+            // Der Auftrag bleibt stehen, bis das Ergebnis abgeholt ist (egui kann ein gezeichnetes Bild verwerfen);
+            // der Renderer arbeitet ihn nur einmal ab
+            if let Some(req) = self.shot.clone() {
+                use crate::screenshot::{render_size, ShotKind, ShotRaw};
+                let (rw, rh, _) = render_size(req.kind);
+                let mvps = match req.kind {
+                    ShotKind::Image { .. } => vec![self.cam.view_proj(rw as f32 / rh as f32)],
+                    ShotKind::Panorama { .. } => crate::screenshot::cube_mvps(self.cam.pos),
+                };
+                let mut base = (*frame).clone();
+                base.dyn_lines.clear();
+                base.clean = true;
+                let (out, rr, cam, yaw) = (self.shot_out.clone(), renderer.clone(), self.cam.pos, self.cam.yaw);
+                let cb = egui_glow::CallbackFn::new(move |_info, painter| {
+                    if out.lock().unwrap().as_ref().is_some_and(|o| o.req.id == req.id) {
+                        return;
+                    }
+                    let mut r = rr.lock().unwrap();
+                    let gl = painter.gl();
+                    let max = r.max_offscreen(gl) as u32;
+                    let images = if rw > max || rh > max {
+                        Err(crate::i18n::tr_dyn(&format!("Zu groß für diese Grafikkarte (höchstens {max} Pixel pro Seite)")))
+                    } else {
+                        mvps.iter()
+                            .map(|m| {
+                                let mut f = base.clone();
+                                f.mvp = *m;
+                                r.paint_offscreen(gl, &f, rw as i32, rh as i32)
+                            })
+                            .collect::<Result<Vec<_>, _>>()
+                    };
+                    *out.lock().unwrap() = Some(ShotRaw { req: req.clone(), images, mvps: mvps.clone(), cam, yaw });
+                });
+                painter.add(egui::PaintCallback { rect, callback: Arc::new(cb) });
+                ui.ctx().request_repaint();
+            }
             let rr = renderer.clone();
             let cb = egui_glow::CallbackFn::new(move |_info, painter| {
                 rr.lock().unwrap().paint(painter.gl(), &frame);
@@ -3109,6 +3253,42 @@ impl View3D {
             if let Some(m) = self.project(rect, (a + b) * 0.5) {
                 let d = b - a;
                 painter.text(m, Align2::CENTER_BOTTOM, crate::i18n::tr_dyn(&format!("{:.1}  (Δ {:.0} {:.0} {:.0})", d.length(), d.x, d.y, d.z)), FontId::monospace(12.0), Color32::from_rgb(80, 255, 255));
+            }
+        }
+        if let Some((foot, fit)) = self.gp_foot {
+            // Beschriftung rechts neben der Figur; Zustand über dem Kopf
+            let side = self.cam.right().as_dvec3() * (crate::gameplay::WIDTH / 2.0 + 2.0);
+            let top = if fit == crate::gameplay::Fit::Duck { crate::gameplay::DUCK } else { crate::gameplay::STAND };
+            // Höhenmarken nur, wenn die Figur groß genug zu sehen ist; Beschriftungen überlappen nicht
+            let tall = match (self.project(rect, foot), self.project(rect, foot + DVec3::Z * crate::gameplay::STAND)) {
+                (Some(a), Some(b)) => (a.y - b.y).abs() > 90.0,
+                _ => false,
+            };
+            if tall {
+                let pts: Vec<(egui::Pos2, String, [u8; 3])> = crate::gameplay::marks().into_iter().filter(|m| m.0 <= top + 0.1).filter_map(|(z, l, c)| self.project(rect, foot + side + DVec3::Z * z).map(|p| (p, l, c))).collect();
+                for (p, y, l, c) in crate::gameplay::spread_labels(pts, 12.0) {
+                    let col = Color32::from_rgb(c[0], c[1], c[2]);
+                    if (y - p.y).abs() > 1.0 {
+                        painter.line_segment([p, egui::pos2(p.x + 4.0, y)], egui::Stroke::new(1.0f32, col));
+                    }
+                    shadow_text(&painter, egui::pos2(p.x + 6.0, y), Align2::LEFT_CENTER, &l, 11.0, col);
+                }
+            }
+            let c = crate::gameplay::fit_color(fit);
+            if let Some(s) = self.project(rect, foot + DVec3::Z * (top + 6.0)) {
+                shadow_text(&painter, s, Align2::CENTER_BOTTOM, crate::gameplay::fit_label(fit), 12.0, Color32::from_rgb(c[0], c[1], c[2]));
+            }
+        }
+        // Notizen (info_null mit Text): bis 4000 Einheiten Entfernung
+        for e in ed.map.entities.iter().filter(|e| crate::notes::is_note(e)) {
+            let Some(o) = e.origin() else { continue };
+            if !ed.is_visible(Obj::Entity(e.id)) || o.distance(self.cam.pos.as_dvec3()) > 4000.0 {
+                continue;
+            }
+            if let Some(s) = self.project(rect, o) {
+                if rect.contains(s) {
+                    crate::notes::draw(&painter, s, e, ed.sel.contains(&Obj::Entity(e.id)));
+                }
             }
         }
         let hover = ui.input(|i| i.pointer.hover_pos()).filter(|p| rect.contains(*p));
@@ -3529,6 +3709,11 @@ impl View3D {
         }
         for (a, b, c) in crate::spline::preview_lines(&ed.spline) {
             line(&mut lines, a, b, c);
+        }
+        if let Some((foot, fit)) = self.gp_foot {
+            for (a, b, c) in crate::gameplay::figure_lines(foot, fit) {
+                line(&mut lines, a, b, c);
+            }
         }
         if let Some((a, b)) = ed.measure {
             line(&mut lines, a, b, [0.2, 1.0, 1.0, 1.0]);

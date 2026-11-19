@@ -69,6 +69,8 @@ pub(crate) struct Windows {
     pub logical: bool,
     pub entity_help: Option<String>,
     pub outliner: bool,
+    /// Liste der Notizen
+    pub notes: bool,
     pub history: bool,
     pub palette: bool,
     pub optimize: bool,
@@ -108,6 +110,8 @@ pub(crate) struct DialogState {
     pub sound_filter: String,
     /// Browser-Ziel: (Entity-ID, Schlüssel); None = Standard für neue Props
     pub browse_target: Option<(u32, String)>,
+    /// Notiz-Textfeld im Panel beim nächsten Zeichnen fokussieren
+    pub focus_note: bool,
     pub sound_active: usize,
     pub sound_durations: std::collections::HashMap<String, Option<f32>>,
     pub sound_missing: std::collections::HashSet<String>,
@@ -160,6 +164,7 @@ impl Default for DialogState {
             goto_text: String::new(),
             sound_filter: String::new(),
             browse_target: None,
+            focus_note: false,
             sound_active: 0,
             sound_durations: Default::default(),
             sound_missing: Default::default(),
@@ -265,6 +270,8 @@ pub struct App {
     pub(crate) imp: crate::model_import_ui::ImportUi,
     pub(crate) ws: crate::workshop::WorkshopUi,
     pub(crate) whatsnew: crate::whatsnew::WhatsNew,
+    pub(crate) dgen: crate::decal_gen::DecalGen,
+    pub(crate) shot: crate::screenshot::ShotUi,
     /// Schätzung der Lichtdaten (Map-Stand, Text) für die Lightmap-Ansicht
     pub(crate) lm_estimate: (u64, String),
     /// Zeitpunkt des letzten Speicherns
@@ -380,6 +387,8 @@ impl App {
             imp: Default::default(),
             ws: Default::default(),
             whatsnew: Default::default(),
+            dgen: Default::default(),
+            shot: Default::default(),
             lm_estimate: (0, String::new()),
             last_saved: None,
             panel_tab: 0,
@@ -946,6 +955,26 @@ impl App {
             let (k, v) = item.split_once(':').unwrap_or((item, ""));
             match k {
                 "simple" => self.settings.simple_ui = true,
+                "gameplay" => self.settings.gameplay = true,
+                "notes" => self.win.notes = true,
+                "shotdlg" => self.shot.open = true,
+                "gamedir" => self.settings.game_dir = v.to_string(),
+                "shot" | "pano" => {
+                    // shot:<datei.png> bzw. pano:<datei.png> (kleine Größe für Tests)
+                    self.shot.pano = k == "pano";
+                    self.shot.size = 0;
+                    self.shot.ss = true;
+                    self.shot.face = 0;
+                    self.request_shot(std::path::PathBuf::from(v));
+                }
+                "decalgen" => {
+                    self.dgen.open = true;
+                    self.decal_load(std::path::PathBuf::from(v));
+                }
+                "decalgo" => match self.decal_create_dbg() {
+                    Ok(m) => self.ed.status = m,
+                    Err(e) => eprintln!("decalgo: {e}"),
+                },
                 "expert" => self.settings.simple_ui = false,
                 "nostart" => self.win.start = false,
                 "nosetup" => self.win.setup = false,
@@ -1381,6 +1410,7 @@ impl App {
             ui.separator();
             ui.menu_button(tr("Importieren"), |ui| {
                 self.cmd_item(ui, ctx, Cmd::ImportModel);
+                self.cmd_item(ui, ctx, Cmd::DecalFromImage);
                 if ui.button(tr("BSP dekompilieren…")).clicked() {
                     ui.close_menu();
                     self.start_decompile();
@@ -1395,6 +1425,7 @@ impl App {
                     crate::theme::checkbox(ui, &mut self.settings.obj_meters, tr("OBJ in Metern (statt Source-Einheiten)"));
                 });
             }
+            self.cmd_item(ui, ctx, Cmd::Screenshot);
             ui.separator();
             self.cmd_item(ui, ctx, Cmd::NewTab);
             self.cmd_item(ui, ctx, Cmd::CloseTab);
@@ -1578,6 +1609,10 @@ impl App {
                 self.toggle_sky_mode();
                 ui.close_menu();
             }
+            if crate::theme::checkbox(ui, &mut self.settings.gameplay.clone(), tr("Gameplay-Maße")).on_hover_text(tr("Spielerfigur in Originalgröße an der Maus: Stufe, Sprung, Ducken, Augenhöhe; zeigt in 3D, ob der Spieler dort stehen kann (Alt+M)")).clicked() {
+                self.run_cmd(ctx, Cmd::ToggleGameplay);
+                ui.close_menu();
+            }
             self.cmd_item(ui, ctx, Cmd::Outliner);
             if ex && item(ui, tr("Logische Ansicht (Entity-I/O)"), "") {
                 self.win.logical = true;
@@ -1748,6 +1783,7 @@ impl App {
                 ui.close_menu();
             }
             self.cmd_item(ui, ctx, Cmd::Spline);
+            self.cmd_item(ui, ctx, Cmd::DecalFromImage);
             if ui.button(tr("Polygon-Mesh…")).on_hover_text(tr("Freie Netze: aus Brushes erstellen oder OBJ importieren, Punkte und Flächen ziehen, extrudieren")).clicked() {
                 self.win.mesh = true;
                 self.mesh_page = 0;
@@ -1814,6 +1850,9 @@ impl App {
                 self.win.entity_report = true;
                 ui.close_menu();
             }
+            ui.separator();
+            self.cmd_item(ui, ctx, Cmd::AddNote);
+            self.cmd_item(ui, ctx, Cmd::Notes);
             ui.menu_button(tr("3D-Skybox"), |ui| {
                 let has = !crate::skybox::sky_cameras(&self.ed.map).is_empty();
                 if ui.button(if self.sky.active { tr("Skybox-Modus beenden") } else if has { tr("Bearbeiten") } else { tr("Anlegen…") }).clicked() {
@@ -2345,6 +2384,7 @@ impl eframe::App for App {
             }
         }
         self.ed.map_limit = self.settings.limit();
+        self.ed.gameplay = self.settings.gameplay;
         self.update_inner(ctx);
         // Sprach-Prüfung: AMBOSS_I18N_AUDIT=<datei> schreibt jeden gezeichneten Text (einmalig) in die Datei
         if let Some(out) = std::env::var_os("AMBOSS_I18N_AUDIT") {
@@ -2412,6 +2452,9 @@ impl App {
     }
 
     fn update_inner(&mut self, ctx: &egui::Context) {
+        if std::mem::take(&mut self.dlg.focus_note) {
+            ctx.data_mut(|d| d.insert_temp(egui::Id::new("amboss_focus_note"), true));
+        }
         self.physics_tick(ctx);
         if ctx.input(|i| i.viewport().close_requested()) && (self.ed.dirty || self.tabs.iter().flatten().any(|t| t.ed.dirty)) && !self.allow_close {
             ctx.send_viewport_cmd(egui::ViewportCommand::CancelClose);

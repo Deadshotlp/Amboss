@@ -509,6 +509,8 @@ pub struct Editor {
     pub nav_show: bool,
     /// Map-Grenze (±Einheiten), je Spielprofil – Garry's Mod/Source: 16384
     pub map_limit: f64,
+    /// Gameplay-Maße (Spielerfigur, Sprung-/Duckhöhe) in den Ansichten einblenden
+    pub gameplay: bool,
     clip_cache: std::cell::RefCell<Option<([u64; 4], ClipMode, u64, Vec<Solid>, Vec<Solid>)>>,
     /// Clip mit drei Punkten (in der 3D-Ansicht gesetzt)
     pub clip3: Vec<DVec3>,
@@ -600,6 +602,7 @@ impl Editor {
             nav_preview: None,
             nav_show: true,
             map_limit: 16384.0,
+            gameplay: false,
             clip_cache: std::cell::RefCell::new(None),
             clip3: Vec::new(),
             sky_edit: None,

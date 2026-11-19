@@ -31,6 +31,9 @@ impl App {
         self.tutorial_window(ctx);
         self.class_picker_popover(ctx);
         self.outliner_window(ctx);
+        self.notes_window(ctx);
+        self.decal_gen_window(ctx);
+        self.shot_window(ctx);
         self.history_window(ctx);
         self.merge_window(ctx);
         self.versions_window(ctx);

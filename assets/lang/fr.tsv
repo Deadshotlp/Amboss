@@ -2377,3 +2377,59 @@ Lightmap-Dichte	Densité de lightmap
 rot 4 · grün 16 · blau 64 · ≈ {} Mio. Luxel, {} MB	rouge 4 · vert 16 · bleu 64 · ≈ {} M luxels, {} Mo
 Modell-Browser öffnen – „Übernehmen“ setzt das Modell bei allen ausgewählten Props	Ouvrir le navigateur de modèles – « Appliquer » définit le modèle sur tous les props sélectionnés
 Textur aufgenommen: {}	Texture prélevée : {}
+ Einheiten	 unités
+(leere Notiz)	(note vide)
+, mit Transparenz	, avec transparence
+360°-Panorama	Panorama 360°
+Art	Type
+Augen {}	Yeux {}
+Ausschnitt und Blickwinkel wie in der 3D-Ansicht; das Seitenverhältnis kommt aus der gewählten Größe.	Cadrage et champ de vision comme dans la vue 3D ; le format vient de la taille choisie.
+Bild wird gespeichert…	Enregistrement de l'image…
+Decal / Overlay aus Bild	Décalque / overlay depuis une image
+Decal/Overlay aus Bild…	Décalque/overlay depuis une image…
+Ducksprung ca. {}	Saut accroupi env. {}
+Durchsichtige Ränder abschneiden	Rogner les bords transparents
+Eigenes Decal aus Bild…	Décalque perso depuis une image…
+Eigenes Overlay aus Bild…	Overlay perso depuis une image…
+Erstellen und platzieren	Créer et placer
+Gameplay-Maße an: Spielerfigur folgt der Maus (grün = passt, gelb = nur geduckt, rot = zu eng)	Mesures de gameplay activées : la silhouette du joueur suit la souris (vert = passe, jaune = accroupi seulement, rouge = trop étroit)
+Gameplay-Maße aus	Mesures de gameplay désactivées
+Gameplay-Maße ein-/ausblenden	Afficher/masquer les mesures de gameplay
+Gameplay-Maße	Mesures de gameplay
+Höhe {} · {} m	Hauteur {} · {} m
+Kantenglättung (doppelt so groß rendern, dann verkleinern)	Anticrénelage (rendu au double puis réduction)
+Material {} gespeichert ({} × {} Einheiten, Textur {} × {}, $decalscale {}) – jetzt in 3D auf eine Fläche klicken	Matériau {} enregistré ({} × {} unités, texture {} × {}, $decalscale {}) – cliquez maintenant sur une face en 3D
+Noch keine Notizen in dieser Map.	Aucune note dans cette carte pour l'instant.
+Notiz angeheftet – Text rechts im Panel eingeben	Note épinglée – saisissez le texte dans le panneau de droite
+Notiz anheften	Épingler une note
+Notiz	Note
+Notizen werden beim Kompilieren entfernt (info_null) und in der Live-Sitzung mit allen geteilt.	Les notes sont retirées à la compilation (info_null) et partagées avec tous en session live.
+Notizen	Notes
+Notizen…	Notes…
+Nur geduckt	Accroupi seulement
+Ohne Hilfslinien und Auswahlrahmen; Darstellungsart (texturiert, Lichtvorschau …) wie in der 3D-Ansicht.	Sans lignes d'aide ni cadres de sélection ; mode d'affichage (texturé, aperçu de l'éclairage …) comme dans la vue 3D.
+Rundumsicht vom Standort der 3D-Kamera (equirektangulär) – für Panorama-Betrachter, VR oder als Vorschau im Workshop.	Vue panoramique depuis la position de la caméra 3D (équirectangulaire) – pour visionneuses panoramiques, VR ou aperçu Workshop.
+Screenshot in hoher Auflösung	Capture haute résolution
+Screenshot in hoher Auflösung…	Capture haute résolution…
+Spieler 32 × 32 · Durchgang ab 33 breit, Türen meist 48–64	Joueur 32 × 32 · passage dès 33 de large, portes en général 48–64
+Spieler passt hierhin	Le joueur passe ici
+Spieler passt nicht	Le joueur ne passe pas
+Spielerfigur in Originalgröße an der Maus: Stufe, Sprung, Ducken, Augenhöhe; zeigt in 3D, ob der Spieler dort stehen kann (Alt+M)	Silhouette du joueur grandeur nature sous la souris : marche, saut, accroupi, hauteur des yeux ; montre en 3D si le joueur peut s'y tenir (Alt+M)
+Sprung ca. {}	Saut env. {}
+Stufe {}	Marche {}
+Texturgröße	Taille de texture
+Was ist hier zu tun? (wird beim Kompilieren entfernt)	Que faut-il faire ici ? (retiré à la compilation)
+Wird gerendert… (die 3D-Ansicht muss sichtbar sein)	Rendu en cours… (la vue 3D doit être visible)
+Wird unter materials/ im Spielordner gespeichert; „Eigene Inhalte in die BSP packen“ nimmt es beim Kompilieren mit.	Enregistré sous materials/ dans le dossier du jeu ; « Empaqueter le contenu perso dans le BSP » l'inclut à la compilation.
+Zu groß für diese Grafikkarte (höchstens {} Pixel pro Seite)	Trop grand pour cette carte graphique ({} pixels par côté au maximum)
+Zuerst ein Bild wählen	Choisissez d'abord une image
+bis {} px	jusqu'à {} px
+geduckt {}	accroupi {}
+info_null · wird beim Kompilieren entfernt	info_null · retiré à la compilation
+infodecal: einfach, feste Größe, wird auf die Fläche gedruckt	infodecal : simple, taille fixe, imprimé sur la face
+kein Bild	aucune image
+{} × {} Pixel{}	{} × {} pixels{}
+Über der Auswahl oder dort, wohin die 3D-Kamera schaut (Strg+Shift+N)	Au-dessus de la sélection ou là où regarde la caméra 3D (Ctrl+Maj+N)
+Segmente	Segments
+Rohrdicke	Épaisseur du tube
+info_overlay: frei skalier- und drehbar, auch über mehrere Flächen	info_overlay : librement redimensionnable et orientable, aussi sur plusieurs faces

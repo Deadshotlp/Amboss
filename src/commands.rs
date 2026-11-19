@@ -91,6 +91,11 @@ pub enum Cmd {
     SkyboxMode,
     SkyboxCopy,
     SkyboxCheck,
+    ToggleGameplay,
+    AddNote,
+    Notes,
+    DecalFromImage,
+    Screenshot,
     Tool(crate::editor::Tool),
 }
 
@@ -101,7 +106,7 @@ impl Cmd {
             New, Open, Save, SaveAs, NewTab, CloseTab, NextTab, MergeMap, CompareMap, Merge3, ImportMap, ImportModel, Workshop, Spline, UnifyTextures, ExportObj, Undo, Redo, History, PasteSpecial, Delete, SelectAll, Duplicate, Carve, Hollow, TieToEntity, MoveToWorld, Group, Ungroup, Hide,
             HideUnselected, UnhideAll, Lock, UnlockAll, Transform, SnapToGrid, FlipH, FlipV, RotateMouse, RotateCw, RotateCcw, ApplyTexture, ReplaceTextures, NodrawHidden, TextureBrowser, ModelBrowser, SoundBrowser, ParticleBrowser, Collab, ToggleSnap, ToggleVertexSnap, SelectTouching, CopyProps, PasteProps, CheckProblems, Optimize, OptimizeCheck, EntityReport,
             Outliner, GotoNumber, MapInfo, LogicalView, Prefabs, Compile, CompileWindow, TestFromCamera, Walk, Settings, Help, Palette, GridDown, GridUp, CenterSel2D, CenterSel3D, NextCamera, Maximize, ToggleGizmo, LoadPointfile, ClearMeasure,
-            ToggleNodraw, ToggleTriggers, ToggleToolBrushes, SkyboxMode, SkyboxCopy, SkyboxCheck,
+            ToggleNodraw, ToggleTriggers, ToggleToolBrushes, SkyboxMode, SkyboxCopy, SkyboxCheck, ToggleGameplay, AddNote, Notes, DecalFromImage, Screenshot,
         ];
         v.extend(crate::editor::Tool::ALL.iter().map(|t| Tool(*t)));
         v
@@ -212,6 +217,11 @@ impl Cmd {
             LoadPointfile => crate::i18n::tr("Pointfile laden"),
             ClearMeasure => crate::i18n::tr("Messung löschen"),
             ToggleNodraw => crate::i18n::tr("nodraw-Flächen ein-/ausblenden"),
+            ToggleGameplay => crate::i18n::tr("Gameplay-Maße ein-/ausblenden"),
+            AddNote => crate::i18n::tr("Notiz anheften"),
+            Notes => crate::i18n::tr("Notizen…"),
+            DecalFromImage => crate::i18n::tr("Decal/Overlay aus Bild…"),
+            Screenshot => crate::i18n::tr("Screenshot in hoher Auflösung…"),
             ToggleTriggers => crate::i18n::tr("Trigger ein-/ausblenden"),
             ToggleToolBrushes => crate::i18n::tr("Alle Werkzeug-Brushes ein-/ausblenden"),
             SkyboxMode => crate::i18n::tr("3D-Skybox bearbeiten"),
@@ -283,6 +293,9 @@ impl Cmd {
             Walk => "F6",
             UnifyTextures => "Ctrl+Shift+A",
             ToggleNodraw => "Alt+N",
+            ToggleGameplay => "Alt+M",
+            Screenshot => "Ctrl+F12",
+            AddNote => "Ctrl+Shift+N",
             ToggleTriggers => "Alt+T",
             _ => "",
         }
@@ -517,6 +530,15 @@ impl App {
                 if let Some(v) = self.hovered_view {
                     self.maximized = if self.maximized.is_some() { None } else { Some(v) };
                 }
+            }
+            AddNote => self.add_note(),
+            Notes => self.win.notes = !self.win.notes,
+            DecalFromImage => self.open_decal_gen(),
+            Screenshot => self.shot.open = true,
+            ToggleGameplay => {
+                self.settings.gameplay = !self.settings.gameplay;
+                self.ed.gameplay = self.settings.gameplay;
+                self.ed.status = if self.settings.gameplay { crate::i18n::tr("Gameplay-Maße an: Spielerfigur folgt der Maus (grün = passt, gelb = nur geduckt, rot = zu eng)") } else { crate::i18n::tr("Gameplay-Maße aus") }.into();
             }
             ToggleGizmo => {
                 self.view3d.gizmo = !self.view3d.gizmo;
