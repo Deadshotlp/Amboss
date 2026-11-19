@@ -19,7 +19,7 @@ env:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 50
     steps:
       - uses: actions/checkout@v4
@@ -28,14 +28,10 @@ jobs:
       - name: Pakete installieren (apt-get)
         timeout-minutes: 30
         run: |
-          # GitHubs Paketspiegel (azure.archive.ubuntu.com) hängen gelegentlich – jeder Versuch hat
-          # ein kurzes Zeitlimit; ab dem zweiten Versuch der Hauptspiegel von Ubuntu
+          # Paketspiegel hängen gelegentlich – jeder Versuch hat ein kurzes Zeitlimit, bis zu vier Versuche.
+          # Feste Ubuntu-Version statt ubuntu-latest: auf 26.04 fehlten Pakete auf GitHubs Spiegel
           APT="-o Acquire::Retries=3 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20"
           for i in 1 2 3 4; do
-            if [ "$i" -ge 2 ]; then
-              sudo sed -i 's|http://azure.archive.ubuntu.com|http://archive.ubuntu.com|g' /etc/apt/sources.list.d/*.sources /etc/apt/sources.list 2>/dev/null || true
-              [ -f /etc/apt/apt-mirrors.txt ] && sudo sed -i '/azure/d' /etc/apt/apt-mirrors.txt || true
-            fi
             sudo timeout 150 apt-get $APT update && sudo timeout 300 apt-get $APT install -y libxkbcommon-dev libgl1-mesa-dev && exit 0
             echo "::warning::apt-get Versuch $i fehlgeschlagen oder Zeitlimit erreicht"
             sudo dpkg --configure -a || true
@@ -46,7 +42,7 @@ jobs:
       - run: python3 tools/i18n_check.py
 
   windows:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 50
     steps:
       - uses: actions/checkout@v4
@@ -57,15 +53,11 @@ jobs:
       - name: Pakete installieren (apt-get)
         timeout-minutes: 30
         run: |
-          # GitHubs Paketspiegel (azure.archive.ubuntu.com) hängen gelegentlich – jeder Versuch hat
-          # ein kurzes Zeitlimit; ab dem zweiten Versuch der Hauptspiegel von Ubuntu
+          # Paketspiegel hängen gelegentlich – jeder Versuch hat ein kurzes Zeitlimit, bis zu vier Versuche.
+          # Feste Ubuntu-Version statt ubuntu-latest: auf 26.04 fehlten Pakete auf GitHubs Spiegel
           APT="-o Acquire::Retries=3 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20"
           for i in 1 2 3 4; do
-            if [ "$i" -ge 2 ]; then
-              sudo sed -i 's|http://azure.archive.ubuntu.com|http://archive.ubuntu.com|g' /etc/apt/sources.list.d/*.sources /etc/apt/sources.list 2>/dev/null || true
-              [ -f /etc/apt/apt-mirrors.txt ] && sudo sed -i '/azure/d' /etc/apt/apt-mirrors.txt || true
-            fi
-            sudo timeout 150 apt-get $APT update && sudo timeout 300 apt-get $APT install -y mingw-w64 nsis zip && exit 0
+            sudo timeout 150 apt-get $APT update && sudo timeout 300 apt-get $APT install -y gcc-mingw-w64-x86-64 g++-mingw-w64-x86-64 nsis zip && exit 0
             echo "::warning::apt-get Versuch $i fehlgeschlagen oder Zeitlimit erreicht"
             sudo dpkg --configure -a || true
             sleep 10
@@ -129,14 +121,10 @@ jobs:
       - name: Pakete installieren (apt-get)
         timeout-minutes: 30
         run: |
-          # GitHubs Paketspiegel (azure.archive.ubuntu.com) hängen gelegentlich – jeder Versuch hat
-          # ein kurzes Zeitlimit; ab dem zweiten Versuch der Hauptspiegel von Ubuntu
+          # Paketspiegel hängen gelegentlich – jeder Versuch hat ein kurzes Zeitlimit, bis zu vier Versuche.
+          # Feste Ubuntu-Version statt ubuntu-latest: auf 26.04 fehlten Pakete auf GitHubs Spiegel
           APT="-o Acquire::Retries=3 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20"
           for i in 1 2 3 4; do
-            if [ "$i" -ge 2 ]; then
-              sudo sed -i 's|http://azure.archive.ubuntu.com|http://archive.ubuntu.com|g' /etc/apt/sources.list.d/*.sources /etc/apt/sources.list 2>/dev/null || true
-              [ -f /etc/apt/apt-mirrors.txt ] && sudo sed -i '/azure/d' /etc/apt/apt-mirrors.txt || true
-            fi
             sudo timeout 150 apt-get $APT update && sudo timeout 300 apt-get $APT install -y libxkbcommon-dev libgl1-mesa-dev zip && exit 0
             echo "::warning::apt-get Versuch $i fehlgeschlagen oder Zeitlimit erreicht"
             sudo dpkg --configure -a || true
@@ -159,7 +147,7 @@ jobs:
   release:
     if: github.event_name == 'release'
     needs: [test, windows, macos, linux]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
       - uses: actions/download-artifact@v4
