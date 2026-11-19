@@ -1,5 +1,11 @@
 # Änderungen
 
+## 0.13.1
+
+- **Kompilieren & Exportieren**: Die Leisten „Sichtbarkeit · VVIS“ und „Licht · VRAD“ liegen jetzt auf einer Höhe (die HDR-Checkbox neben „Licht“ hatte die rechte Leiste nach unten geschoben)
+- **Mehrere Entities bearbeiten**: Beim Feld „World Model“ (und anderen Modellfeldern) gibt es jetzt auch bei Mehrfachauswahl den Knopf für den Modell-Browser – „Übernehmen“ setzt das Modell bei allen ausgewählten Props
+- Auswahllisten bei Mehrfachauswahl zeigen den Standardwert statt eines leeren Felds, wenn der Schlüssel bei allen nicht gesetzt ist
+
 ## 0.13.0
 
 **Neu in Amboss nach einem Update**

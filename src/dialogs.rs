@@ -152,12 +152,18 @@ impl App {
                     if !self.settings.expert || self.settings.simple_ui {
                         {
                             let s = &mut self.settings;
+                            // beide Überschriften gleich hoch (rechts sitzt die HDR-Checkbox daneben), damit die Leisten auf einer Höhe liegen
+                            let head_h = 28.0;
                             ui.columns(2, |c| {
-                                crate::theme::section(&mut c[0], "Sichtbarkeit · VVIS");
+                                c[0].allocate_ui_with_layout(egui::vec2(c[0].available_width(), head_h), egui::Layout::left_to_right(egui::Align::Center), |ui| {
+                                    ui.set_min_height(head_h);
+                                    crate::theme::section(ui, "Sichtbarkeit · VVIS");
+                                });
                                 let i = match s.vis { VisMode::Normal => 0, VisMode::Fast => 1, VisMode::Off => 2 };
                                 let n = crate::theme::segmented(&mut c[0], i, &[crate::i18n::tr("Normal"), crate::i18n::tr("Schnell"), crate::i18n::tr("Aus")], true);
                                 s.vis = [VisMode::Normal, VisMode::Fast, VisMode::Off][n];
-                                c[1].horizontal(|ui| {
+                                c[1].allocate_ui_with_layout(egui::vec2(c[1].available_width(), head_h), egui::Layout::left_to_right(egui::Align::Center), |ui| {
+                                    ui.set_min_height(head_h);
                                     crate::theme::section(ui, crate::i18n::tr("Licht · VRAD"));
                                     ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
                                         crate::theme::checkbox(ui, &mut s.hdr, crate::i18n::tr("HDR"));

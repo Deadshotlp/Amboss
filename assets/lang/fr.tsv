@@ -2375,3 +2375,4 @@ Die gerade ausgewählten Objekte werden entlang der Kurve kopiert; Bezugspunkt i
 Erst eine Vorlage übernehmen: Objekte auswählen und „Auswahl als Vorlage“ klicken	Prenez d'abord un modèle : sélectionnez des objets et cliquez sur « Sélection comme modèle »
 Lightmap-Dichte	Densité de lightmap
 rot 4 · grün 16 · blau 64 · ≈ {} Mio. Luxel, {} MB	rouge 4 · vert 16 · bleu 64 · ≈ {} M luxels, {} Mo
+Modell-Browser öffnen – „Übernehmen“ setzt das Modell bei allen ausgewählten Props	Ouvrir le navigateur de modèles – « Appliquer » définit le modèle sur tous les props sélectionnés

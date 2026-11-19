@@ -243,7 +243,7 @@ Für jede Optimierung: zuerst **„Nur prüfen“**, Markierungen ansehen, dann 
 | O11 | worldspawn `skyname` = `sky_day01_01` (bzw. eigener Himmel), Ansicht → Himmel-Vorschau | Himmel rundum richtig ausgerichtet (Horizont unten, Sonne wie im Spiel) – mit dem Spiel vergleichen |
 | O12 | `env_fog_controller` mit fogenable 1, Farbe, Start/Ende | Entfernte Flächen gehen in die Nebelfarbe über; Ansicht → Nebel schaltet ab |
 | O13 | `move_rope` mit NextKey auf `keyframe_rope`, Slack 50 | Seil hängt durch wie im Spiel, mit Seil-Textur; in 2D als Linie |
-| O14 | Version prüfen | „0.13.0“ neben dem Logo, im Fenstertitel und unter Hilfe → Über Amboss |
+| O14 | Version prüfen | „0.13.1“ neben dem Logo, im Fenstertitel und unter Hilfe → Über Amboss |
 | O15 | Hilfe → Tutorial…, Kapitel 6–9 mit echten Inhalten durchspielen (auch „Zeig es mir“) | Jeder Schritt wird erkannt; Gelände, Himmel, Nebel, Partikel, Overlay, Decal sehen richtig aus |
 | O16 | Trigger mit Output: Ziel-Feld anklicken und einen Buchstaben tippen | Liste passender Namen mit Klasse; Pfeiltasten + Enter oder Klick übernimmt |
 | O17 | Generatoren → Räume mit Höhenstufen 2, eigenen Texturen für Boden/Wände/Decke → Erzeugen → Kompilieren & starten | Kein Leck; Räume unterschiedlich hoch, Treppen in den Gängen begehbar; Texturen wie gewählt |
@@ -324,6 +324,14 @@ Für jede Optimierung: zuerst **„Nur prüfen“**, Markierungen ansehen, dann 
 | S5 | Eine alte Half-Life-`.rmf` (Hammer 3.x) per Datei → Öffnen laden | Brushes und Entities da, Statuszeile nennt die GoldSrc-Texturen; nach „Texturen ersetzen“ kompilierbar |
 | S6 | Spline → „Auswahl entlang“: einen kleinen Zaunabschnitt (Brushes) als Vorlage übernehmen, Kurve klicken, erzeugen | Kopien folgen der Kurve, ausgerichtet; „Neu erzeugen“ ersetzt sie |
 | S7 | 3D-Darstellung „Lightmap-Dichte“, einer Fläche Lightmap-Skalierung 4 geben | Fläche wird rot, die geschätzte MB-Zahl unten rechts steigt |
+
+## T. Version 0.13.1
+
+| Nr. | Schritt | Erwartung |
+|---|---|---|
+| T1 | Kompilieren & Exportieren öffnen | Die Leisten unter „Sichtbarkeit · VVIS“ und „Licht · VRAD“ beginnen auf derselben Höhe |
+| T2 | Zwei Entities auswählen, beide über die Klasse zu prop_static machen | Beim Feld „World Model“ steht der Ordner-Knopf; Modell im Browser wählen, „Übernehmen“ setzt es bei beiden |
+| T3 | Ein einzelnes Entity per Klassenfeld zu prop_static machen | Beim Feld „World Model“ steht der Ordner-Knopf, er öffnet den Modell-Browser |
 
 ## L. Nach dem Test
 

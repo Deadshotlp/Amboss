@@ -1,6 +1,6 @@
 [package]
 name = "amboss"
-version = "0.13.0"
+version = "0.13.1"
 edition = "2021"
 description = "Map-Editor für Source-1 / Garry's Mod (VMF)"
 authors = ["Deadshot"]

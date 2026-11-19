@@ -1,6 +1,6 @@
 # Amboss – Map editor for Source 1 / Garry's Mod
 
-**Version 0.13.0** – shown next to the logo, in the window title and under Help → About Amboss. See `CHANGELOG.md` for what's new (the changelog is in German).
+**Version 0.13.1** – shown next to the logo, in the window title and under Help → About Amboss. See `CHANGELOG.md` for what's new (the changelog is in German).
 
 Amboss is a standalone level editor written in **Rust**, inspired by Hammer/Hammer++.
 It edits **VMF files**, shows the real **textures and models from the GMod/HL2 VPKs** and

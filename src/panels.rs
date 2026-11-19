@@ -1014,6 +1014,7 @@ impl App {
         }
         let mut set: Option<(String, String)> = None;
         let mut begin = false;
+        let mut browse_model: Option<String> = None;
         let lw = set_label_w(ui);
         let multi_w = (ui.available_width() - lw - ui.spacing().item_spacing.x * 2.0 - 16.0).max(80.0);
         let mixed = crate::i18n::tr("(verschieden)");
@@ -1031,6 +1032,8 @@ impl App {
                 }
                 let cur = if same { vals[0].unwrap_or("").to_string() } else { String::new() };
                 if let Some(p) = def.filter(|p| !p.choices.is_empty()) {
+                    // nicht gesetzt = FGD-Standard (wie bei der Einzelauswahl)
+                    let cur = if same && cur.is_empty() { p.default.clone() } else { cur };
                     let shown = if same { p.choices.iter().find(|c| c.value == cur).map(|c| crate::i18n::tr_dyn(&c.name)).unwrap_or_else(|| cur.clone()) } else { mixed.to_string() };
                     egui::ComboBox::from_id_salt(("multi_choice", k)).selected_text(shown).width(multi_w).show_ui(ui, |ui| {
                         for c in &p.choices {
@@ -1041,12 +1044,20 @@ impl App {
                         }
                     });
                 } else {
-                    let mut v = cur;
-                    let r = ui.add(egui::TextEdit::singleline(&mut v).hint_text(crate::theme::hint(if same { "" } else { mixed })).desired_width(multi_w));
-                    begin |= r.gained_focus();
-                    if r.changed() {
-                        set = Some((k.clone(), v));
-                    }
+                    // Modell-Feld: Knopf für den Modell-Browser („Übernehmen“ setzt das Modell bei allen ausgewählten Props)
+                    let is_model = def.map_or(k.eq_ignore_ascii_case("model"), |p| p.kind == "studio" || p.kind == "studioprop" || (p.name.eq_ignore_ascii_case("model") && p.kind == "string"));
+                    let w = if is_model { (multi_w - BROWSE_W - ui.spacing().item_spacing.x - 6.0).max(50.0) } else { multi_w };
+                    ui.horizontal(|ui| {
+                        let mut v = cur.clone();
+                        let r = ui.add(egui::TextEdit::singleline(&mut v).hint_text(crate::theme::hint(if same { "" } else { mixed })).desired_width(w));
+                        begin |= r.gained_focus();
+                        if r.changed() {
+                            set = Some((k.clone(), v));
+                        }
+                        if is_model && browse_button(ui, crate::i18n::tr("Modell-Browser öffnen – „Übernehmen“ setzt das Modell bei allen ausgewählten Props")).clicked() {
+                            browse_model = Some(cur.clone());
+                        }
+                    });
                 }
                 ui.end_row();
             }
@@ -1056,6 +1067,14 @@ impl App {
         }
         if let Some((k, v)) = set {
             self.ed.set_key_selected(&k, &v);
+        }
+        if let Some(m) = browse_model {
+            // gemeinsames Modell im Browser vorwählen; ohne Ziel wirkt „Übernehmen“ auf alle ausgewählten Props
+            if !m.is_empty() {
+                self.mb.selected = Some(m.replace('\\', "/").to_ascii_lowercase());
+            }
+            self.dlg.browse_target = None;
+            self.win.models = true;
         }
     }
 }
