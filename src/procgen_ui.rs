@@ -28,15 +28,19 @@ impl crate::app::App {
         let d = theme::Dlg::new(crate::i18n::tr("Prozedurale Generatoren"), 520.0).footer();
         let page = &mut self.gen_page;
         let o = &mut self.gen;
+        let cave = &mut self.cave;
+        let furn = &mut self.furn;
         theme::dialog(ctx, &mut open, &d, |ui, part| match part {
             theme::Part::Body => {
-                *page = theme::segmented(ui, *page, &[crate::i18n::tr("Labyrinth"), crate::i18n::tr("Räume"), crate::i18n::tr("Stadt"), crate::i18n::tr("Kreis")], true);
+                *page = theme::segmented(ui, *page, &[crate::i18n::tr("Labyrinth"), crate::i18n::tr("Räume"), crate::i18n::tr("Stadt"), crate::i18n::tr("Kreis"), crate::i18n::tr("Höhle"), crate::i18n::tr("Innenausbau")], true);
                 ui.add_space(8.0);
                 let intro = match *page {
                     0 => crate::i18n::tr("Zufälliges Labyrinth mit Eingang und Ausgang."),
                     1 => crate::i18n::tr("Räume mit eigener Höhe und Bodenstufe, kurze Treppen an den Türen, Gänge mit langen Geraden, runden Kurven und Abzweigungen, dünne Wände – jedes Raumpaar höchstens einmal verbunden, geschlossen und sofort kompilierbar (mit Licht und Spawnpunkt)."),
                     2 => crate::i18n::tr("Straßenraster mit Häusern zufälliger Höhe."),
-                    _ => crate::i18n::tr("Die Auswahl im Kreis um ihren Mittelpunkt vervielfältigen."),
+                    3 => crate::i18n::tr("Die Auswahl im Kreis um ihren Mittelpunkt vervielfältigen."),
+                    4 => crate::i18n::tr("Natürliche Höhle aus einem Zellautomaten: Felswände, unebener Boden und unebene Decke als Displacements, Licht und Spawnpunkt – abgedichtet und sofort kompilierbar."),
+                    _ => crate::i18n::tr("Möbel in den ausgewählten Raum streuen: Schränke und Regale an die Wände, Tische mit Stühlen in die Mitte, Lampen in die Ecken – ohne Überschneidungen mit Wänden und untereinander."),
                 };
                 ui.label(RichText::new(intro).color(th.text2));
                 ui.add_space(4.0);
@@ -114,10 +118,66 @@ impl crate::app::App {
                             });
                             ui.end_row();
                         }
-                        _ => {
+                        3 => {
                             int(ui, "Anzahl (mit Original)", &mut o.ring_count, 2..=64);
                             ui.label(crate::i18n::tr("Winkelbereich"));
                             ui.add(theme::dv(egui::DragValue::new(&mut o.ring_angle).range(1.0..=360.0).speed(1.0).suffix("°")));
+                            ui.end_row();
+                        }
+                        4 => {
+                            int(ui, "Zellen (Breite)", &mut cave.w, 8..=160);
+                            int(ui, "Zellen (Tiefe)", &mut cave.h, 8..=160);
+                            ui.label(crate::i18n::tr("Zellgröße"));
+                            ui.add(theme::dv(egui::DragValue::new(&mut cave.cell).range(32.0..=256.0).speed(4.0).suffix(" u")));
+                            ui.end_row();
+                            ui.label(crate::i18n::tr("Felsanteil"));
+                            ui.add(egui::Slider::new(&mut cave.fill, 0.35..=0.55).show_value(false)).on_hover_text(crate::i18n::tr("Mehr Fels = engere Gänge, weniger = große Hallen"));
+                            ui.end_row();
+                            ui.label(crate::i18n::tr("Höhe"));
+                            ui.add(theme::dv(egui::DragValue::new(&mut cave.height).range(96.0..=1024.0).speed(8.0).suffix(" u")));
+                            ui.end_row();
+                            ui.label(crate::i18n::tr("Unebenheit"));
+                            ui.add(theme::dv(egui::DragValue::new(&mut cave.bumps).range(0.0..=96.0).speed(2.0).suffix(" u"))).on_hover_text(crate::i18n::tr("Wie stark Boden und Decke wellig sind (Displacements)"));
+                            ui.end_row();
+                            ui.label(crate::i18n::tr("Fels"));
+                            ui.horizontal(|ui| {
+                                ui.add(egui::TextEdit::singleline(&mut cave.wall_material).font(theme::mono(11.5)).desired_width(200.0));
+                                if ui.small_button(crate::i18n::tr("← aktuelle")).clicked() {
+                                    cave.wall_material = cur_mat.clone();
+                                }
+                            });
+                            ui.end_row();
+                            ui.label(crate::i18n::tr("Boden"));
+                            ui.horizontal(|ui| {
+                                ui.add(egui::TextEdit::singleline(&mut cave.floor_material).font(theme::mono(11.5)).desired_width(200.0));
+                                if ui.small_button(crate::i18n::tr("← aktuelle")).clicked() {
+                                    cave.floor_material = cur_mat.clone();
+                                }
+                            });
+                            ui.end_row();
+                            ui.label(crate::i18n::tr("Zufallszahl"));
+                            ui.horizontal(|ui| {
+                                ui.add(theme::dv(egui::DragValue::new(&mut cave.seed)));
+                                if ui.small_button(crate::i18n::tr("Würfeln")).clicked() {
+                                    cave.seed = cave.seed.wrapping_mul(6364136223846793005).wrapping_add(1442695040888963407) >> 16;
+                                }
+                            });
+                            ui.end_row();
+                        }
+                        _ => {
+                            ui.label(crate::i18n::tr("Stil"));
+                            furn.0 = theme::segmented(ui, furn.0, &[crate::i18n::tr("Wohnung"), crate::i18n::tr("Büro"), crate::i18n::tr("Lager")], false);
+                            ui.end_row();
+                            ui.label(crate::i18n::tr("Dichte"));
+                            ui.add(egui::Slider::new(&mut furn.1, 0.1..=1.0).show_value(false));
+                            ui.end_row();
+                            ui.label(crate::i18n::tr("Zufallszahl"));
+                            ui.horizontal(|ui| {
+                                ui.add(theme::dv(egui::DragValue::new(&mut furn.2)));
+                                if ui.small_button(crate::i18n::tr("Würfeln")).clicked() {
+                                    furn.2 = furn.2.wrapping_mul(6364136223846793005).wrapping_add(1442695040888963407) >> 16;
+                                }
+                            });
                             ui.end_row();
                         }
                     }
@@ -145,6 +205,13 @@ impl crate::app::App {
                 });
                 if *page == 1 {
                     theme::checkbox(ui, &mut o.lights, crate::i18n::tr("Licht in jedem Raum, Spawnpunkt im ersten"));
+                }
+                if *page == 4 {
+                    theme::checkbox(ui, &mut cave.lights, crate::i18n::tr("Lichter verteilen"));
+                    ui.label(RichText::new(crate::i18n::tr("Eingefügt wird dort, wohin die 3D-Kamera blickt. Displacements dichten nicht ab – die Höhle bekommt deshalb nodraw-Platten unter dem Boden und über der Decke.")).size(12.0).color(th.text3));
+                }
+                if *page == 5 {
+                    ui.label(RichText::new(crate::i18n::tr("Zuerst den Raum auswählen (z. B. die ausgehöhlten Brushes eines Zimmers). Die Möbel sind prop_static mit HL2-Modellen; fehlen Spielinhalte, werden die Modelle trotzdem gesetzt.")).size(12.0).color(th.text3));
                 }
                 if *page < 3 {
                     theme::section(ui, crate::i18n::tr("Texturen"));
@@ -175,7 +242,7 @@ impl crate::app::App {
                 }
             }
             theme::Part::Footer => {
-                let ok = *page < 3 || has_sel;
+                let ok = *page < 3 || *page == 4 || has_sel;
                 if ui.add_enabled(ok, egui::Button::new(RichText::new(crate::i18n::tr("Erzeugen")).color(th.accent_fg)).fill(th.accent).corner_radius(8).min_size(Vec2::new(0.0, 34.0))).on_disabled_hover_text(crate::i18n::tr("Erst Objekte auswählen")).clicked() {
                     run = true;
                 }
@@ -197,9 +264,25 @@ impl crate::app::App {
                 2 => {
                     crate::procgen::city(&mut self.ed, &g, origin);
                 }
-                _ => {
+                3 => {
                     let pivot = self.ed.selection_bounds().center();
                     crate::procgen::ring(&mut self.ed, &g, DVec3::new(pivot.x, pivot.y, pivot.z));
+                }
+                4 => {
+                    let c = self.cave.clone();
+                    // Ursprung: Höhlenmitte dort, wohin die Kamera blickt
+                    let size = DVec3::new(c.w as f64 * c.cell, c.h as f64 * c.cell, 0.0);
+                    crate::procgen2::cave(&mut self.ed, &c, origin - size / 2.0);
+                }
+                _ => {
+                    let area = self.ed.selection_bounds();
+                    let known: std::collections::HashSet<String> = self.models.list.iter().map(|m| m.to_ascii_lowercase()).collect();
+                    let bounds = self.ed.model_bounds.clone();
+                    let (style, dens, seed) = self.furn;
+                    let n = crate::procgen2::furnish(&mut self.ed, area, style, dens, seed, &|m: &str| known.is_empty() || known.contains(m), &|m: &str| bounds.get(m).copied());
+                    if n == 0 {
+                        self.ed.status = crate::i18n::tr("Kein Platz für Möbel gefunden – einen geschlossenen Raum mit Boden auswählen").into();
+                    }
                 }
             }
         }

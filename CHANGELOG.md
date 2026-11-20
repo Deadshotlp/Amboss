@@ -1,5 +1,21 @@
 # Änderungen
 
+## 0.16.0
+
+**Modell-Import: Bodygroups und Skins**
+- Im Import-Dialog unter „Teile und Bodygroups“: Teile des Modells (Objekte/Gruppen einer OBJ-Datei, Knoten eines glTF) lassen sich zu Bodygroups zusammenfassen – jedes Teil wird eine wählbare Variante, auf Wunsch auch „nichts“; alle anderen Teile bilden den festen Körper
+- Unter „Skins“: weitere Skins tauschen die Bilder einzelner Materialien; Amboss schreibt dafür eigene VTF/VMT und `$texturegroup` in die QC (in GMod über den Entity-Schlüssel `skin`, Bodygroups über `body` bzw. SetBodygroup)
+- Behoben: Bei langem Inhalt verschwanden die Knöpfe unten im Import-Dialog
+
+**Zeitleiste der Speicherstände**
+- Jedes Speichern legt zusätzlich eine Kopie mit Zeitstempel unter `autosave/verlauf/<map>/` ab (Anzahl unter Einstellungen → Autosave, Standard 30)
+- Datei → „Zeitleiste der Speicherstände…“: Verlauf, Autosaves und die gespeicherte Datei auf einer Zeitleiste; je Stand eine Draufsicht, in der markiert ist, was seitdem neu (grün), gelöscht (rot) oder geändert (gelb) ist
+- „Unterschiede in der Map zeigen“, „In neuem Tab öffnen“ und „Wiederherstellen“ (Strg+Z nimmt es zurück)
+
+**Generatoren: Höhle und Innenausbau**
+- Werkzeuge → Prozedurale Generatoren → „Höhle“: natürliche Höhle aus einem Zellautomaten – Felswände, unebener Boden und unebene Decke als Displacements (nahtlos über die Kacheln), Lichter, Spawnpunkt und Cubemap; abgedichtet mit nodraw-Platten, weil Displacements nicht abdichten
+- „Innenausbau“: Möbel in den ausgewählten Raum streuen – Stil Wohnung, Büro oder Lager; Schränke und Regale mit dem Rücken an die Wand, Tische mit Stühlen in die Mitte (im Büro Schreibtisch mit Stuhl und Bildschirm), Lampen und Fässer in die Ecken; keine Überschneidungen mit Wänden oder untereinander, Platz zum Laufen bleibt frei; mit Spielinhalten werden nur vorhandene Modelle und ihre echte Größe benutzt
+
 ## 0.15.0
 
 **Gamemode-Vorlagen und -Checkliste**

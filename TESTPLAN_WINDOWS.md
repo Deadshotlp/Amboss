@@ -243,7 +243,7 @@ Für jede Optimierung: zuerst **„Nur prüfen“**, Markierungen ansehen, dann 
 | O11 | worldspawn `skyname` = `sky_day01_01` (bzw. eigener Himmel), Ansicht → Himmel-Vorschau | Himmel rundum richtig ausgerichtet (Horizont unten, Sonne wie im Spiel) – mit dem Spiel vergleichen |
 | O12 | `env_fog_controller` mit fogenable 1, Farbe, Start/Ende | Entfernte Flächen gehen in die Nebelfarbe über; Ansicht → Nebel schaltet ab |
 | O13 | `move_rope` mit NextKey auf `keyframe_rope`, Slack 50 | Seil hängt durch wie im Spiel, mit Seil-Textur; in 2D als Linie |
-| O14 | Version prüfen | „0.15.0“ neben dem Logo, im Fenstertitel und unter Hilfe → Über Amboss |
+| O14 | Version prüfen | „0.16.0“ neben dem Logo, im Fenstertitel und unter Hilfe → Über Amboss |
 | O15 | Hilfe → Tutorial…, Kapitel 6–9 mit echten Inhalten durchspielen (auch „Zeig es mir“) | Jeder Schritt wird erkannt; Gelände, Himmel, Nebel, Partikel, Overlay, Decal sehen richtig aus |
 | O16 | Trigger mit Output: Ziel-Feld anklicken und einen Buchstaben tippen | Liste passender Namen mit Klasse; Pfeiltasten + Enter oder Klick übernimmt |
 | O17 | Generatoren → Räume mit Höhenstufen 2, eigenen Texturen für Boden/Wände/Decke → Erzeugen → Kompilieren & starten | Kein Leck; Räume unterschiedlich hoch, Treppen in den Gängen begehbar; Texturen wie gewählt |
@@ -376,6 +376,18 @@ Für jede Optimierung: zuerst **„Nur prüfen“**, Markierungen ansehen, dann 
 | W7 | Einstellungen → „Lua-Entities … erkennen“ aus | Die Lua-Klassen verschwinden aus der Liste |
 | W8 | Datei → Exportieren → .glb, in Blender (Datei → Importieren → glTF) öffnen | Map richtig herum (Z oben in Blender), Maßstab in Metern, Texturen sichtbar, keine nodraw-Flächen |
 | W9 | Nur einen Teil auswählen und als .glb exportieren | Nur die Auswahl in der Datei |
+
+## X. Version 0.16.0
+
+| Nr. | Schritt | Erwartung |
+|---|---|---|
+| X1 | In Blender eine Figur mit zwei Hut-Varianten als getrennte Objekte als OBJ oder glTF exportieren, in Amboss importieren, beide Hüte in eine Bodygroup „hut“ mit „nichts“ | Kompiliert; in GMod lässt sich die Bodygroup (Kontextmenü → Bodygroups oder Schlüssel body) auf Hut 1, Hut 2 und keinen Hut stellen |
+| X2 | Beim selben Import „+ Skin“, für ein Material ein anderes Bild wählen | Im Spiel/Modell-Browser schaltet der Schlüssel skin 1 auf das andere Bild |
+| X3 | Map dreimal mit Änderungen speichern, Datei → „Zeitleiste der Speicherstände…“ | Drei blaue Punkte plus Datei; älterer Stand zeigt die seitdem neuen Objekte grün |
+| X4 | Einen alten Stand „Wiederherstellen“, dann Strg+Z | Map springt auf den alten Stand und mit Strg+Z zurück |
+| X5 | „In neuem Tab öffnen“, dort speichern | Fragt nach einem Dateinamen (überschreibt nicht die Verlaufsdatei) |
+| X6 | Generatoren → „Höhle“ mit Standardwerten, kompilieren, im Spiel herumlaufen | Kein Leck; Boden und Decke uneben, man kann laufen (nicht an Kanten hängen bleiben), Licht vorhanden; Texturen NATURE/ROCKWALL021A und DIRTFLOOR006A vorhanden (sonst bitte melden) |
+| X7 | Raum mit Hohl-Brush (512 × 384) auswählen, „Innenausbau“ Wohnung, Büro, Lager | Möbel stehen auf dem Boden, Rücken an der Wand, nichts steckt in Wänden oder ineinander; in GMod alle Modelle vorhanden |
 
 ## L. Nach dem Test
 

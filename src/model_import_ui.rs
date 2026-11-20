@@ -144,7 +144,7 @@ impl App {
         let log: Vec<String> = self.imp.log.lock().unwrap().clone();
         let file = self.imp.path.as_ref().and_then(|p| p.file_name()).map(|s| s.to_string_lossy().to_string()).unwrap_or_default();
         let model = self.imp.model.clone();
-        let d = theme::Dlg::new(tr("Modell importieren"), 720.0).subtitle(file).footer();
+        let d = theme::Dlg::new(tr("Modell importieren"), 720.0).subtitle(file).footer().height(780.0);
         let imp = &mut self.imp;
         theme::dialog(ctx, &mut open, &d, |ui, part| match part {
             theme::Part::Body => {
@@ -236,6 +236,8 @@ impl App {
                         });
                     });
                     ui.add_space(6.0);
+                    parts_and_skins(ui, m, o, &th);
+                    ui.add_space(6.0);
                     let info = match &studiomdl {
                         Some(p) => crate::i18n::tr_dyn(&format!("studiomdl: {}", p.display())),
                         None => tr("studiomdl nicht gefunden (wird neben vbsp gesucht) – nur Export möglich").to_string(),
@@ -309,4 +311,107 @@ fn preview(ui: &mut egui::Ui, tris: &[([model_import::Vert; 3], usize)], b: crat
         }
         p.text(r.left_top() - Vec2::new(4.0, 6.0), egui::Align2::LEFT_TOP, if k == 0 { tr("vorn") } else { tr("oben") }, egui::FontId::proportional(10.0), th.text3);
     }
+}
+
+/// Bereiche „Teile und Bodygroups“ und „Skins“ des Import-Dialogs
+fn parts_and_skins(ui: &mut egui::Ui, m: &model_import::Model, o: &mut model_import::ImportOpts, th: &crate::theme::Theme) {
+    let counts = m.part_counts();
+    egui::CollapsingHeader::new(tr("Teile und Bodygroups")).default_open(m.parts.len() > 1).show(ui, |ui| {
+        if m.parts.len() <= 1 {
+            ui.label(RichText::new(tr("Das Modell hat nur ein Teil. Teile entstehen aus Objekten/Gruppen einer OBJ-Datei (o/g) bzw. aus den Knoten eines glTF.")).size(11.5).color(th.text3));
+            return;
+        }
+        ui.label(RichText::new(tr("Teile in einer Bodygroup sind wählbare Varianten (Entity-Schlüssel body bzw. SetBodygroup in Lua); alle anderen bilden den festen Körper.")).size(11.5).color(th.text3));
+        egui::Grid::new("imp_parts").num_columns(3).spacing([12.0, 4.0]).show(ui, |ui| {
+            for (pi, name) in m.parts.iter().enumerate() {
+                ui.label(RichText::new(name).font(crate::theme::mono(11.5)).color(th.text));
+                ui.label(RichText::new(crate::i18n::tr_dyn(&format!("{} Dreiecke", counts.get(pi).copied().unwrap_or(0)))).size(11.5).color(th.text3));
+                let cur = o.bodygroups.iter().position(|g| g.parts.contains(&pi));
+                let shown = match cur {
+                    Some(g) => o.bodygroups[g].name.clone(),
+                    None => tr("fester Körper").to_string(),
+                };
+                let mut pick: Option<Option<usize>> = None;
+                egui::ComboBox::from_id_salt(("imp_part", pi)).selected_text(shown).width(170.0).show_ui(ui, |ui| {
+                    if ui.selectable_label(cur.is_none(), tr("fester Körper")).clicked() {
+                        pick = Some(None);
+                    }
+                    for (gi, g) in o.bodygroups.iter().enumerate() {
+                        if ui.selectable_label(cur == Some(gi), &g.name).clicked() {
+                            pick = Some(Some(gi));
+                        }
+                    }
+                });
+                if let Some(target) = pick {
+                    for g in &mut o.bodygroups {
+                        g.parts.retain(|p| *p != pi);
+                    }
+                    if let Some(gi) = target {
+                        o.bodygroups[gi].parts.push(pi);
+                    }
+                }
+                ui.end_row();
+            }
+        });
+        ui.add_space(4.0);
+        let mut remove = None;
+        for (gi, g) in o.bodygroups.iter_mut().enumerate() {
+            ui.horizontal(|ui| {
+                ui.label(tr("Bodygroup"));
+                ui.add(egui::TextEdit::singleline(&mut g.name).desired_width(140.0));
+                crate::theme::checkbox(ui, &mut g.blank, tr("auch „nichts“ wählbar"));
+                ui.label(RichText::new(crate::i18n::tr_dyn(&format!("{} Varianten", g.parts.len() + usize::from(g.blank)))).size(11.5).color(th.text3));
+                if ui.small_button("✖").on_hover_text(tr("Bodygroup entfernen")).clicked() {
+                    remove = Some(gi);
+                }
+            });
+        }
+        if let Some(gi) = remove {
+            o.bodygroups.remove(gi);
+        }
+        if ui.button(tr("+ Bodygroup")).clicked() {
+            o.bodygroups.push(model_import::Bodygroup { name: format!("{}{}", tr("gruppe"), o.bodygroups.len() + 1), parts: Vec::new(), blank: false });
+        }
+    });
+    egui::CollapsingHeader::new(tr("Skins")).default_open(!o.skins.is_empty()).show(ui, |ui| {
+        ui.label(RichText::new(tr("Skin 0 ist das Original. Jeder weitere Skin tauscht die Bilder einzelner Materialien (Entity-Schlüssel skin).")).size(11.5).color(th.text3));
+        let n = m.materials.len();
+        let mut remove = None;
+        for (k, sk) in o.skins.iter_mut().enumerate() {
+            sk.resize(n, None);
+            ui.horizontal(|ui| {
+                ui.label(RichText::new(crate::i18n::tr_dyn(&format!("Skin {}", k + 1))).strong().color(th.text));
+                if ui.small_button("✖").on_hover_text(tr("Skin entfernen")).clicked() {
+                    remove = Some(k);
+                }
+            });
+            egui::Grid::new(("imp_skin", k)).num_columns(2).spacing([12.0, 2.0]).show(ui, |ui| {
+                for (i, mat) in m.materials.iter().enumerate() {
+                    ui.label(RichText::new(&mat.name).size(11.5).color(th.text2));
+                    ui.horizontal(|ui| {
+                        let label = match &sk[i] {
+                            Some(p) => p.file_name().map(|f| f.to_string_lossy().to_string()).unwrap_or_default(),
+                            None => tr("wie Skin 0").to_string(),
+                        };
+                        if ui.button(label).on_hover_text(tr("Bild für diesen Skin wählen (PNG, JPEG)")).clicked() {
+                            if let Some(f) = rfd::FileDialog::new().add_filter(tr("Bilder (PNG, JPEG)"), &["png", "jpg", "jpeg"]).pick_file() {
+                                sk[i] = Some(f);
+                            }
+                        }
+                        if sk[i].is_some() && ui.small_button("↺").on_hover_text(tr("wie Skin 0")).clicked() {
+                            sk[i] = None;
+                        }
+                    });
+                    ui.end_row();
+                }
+            });
+            ui.add_space(4.0);
+        }
+        if let Some(k) = remove {
+            o.skins.remove(k);
+        }
+        if ui.button(tr("+ Skin")).clicked() {
+            o.skins.push(vec![None; n]);
+        }
+    });
 }

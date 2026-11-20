@@ -186,6 +186,8 @@ pub struct Settings {
     pub layout: Layout,
     pub autosave_minutes: u32,
     pub autosave_keep: u32,
+    /// Speicherstände im Verlauf (Zeitleiste), 0 = aus
+    pub history_keep: u32,
     pub prefab_dir: String,
     pub tex_lock: bool,
     pub grid: f64,
@@ -264,6 +266,7 @@ impl Default for Settings {
             active_profile: 0,
             autosave_minutes: 5,
             autosave_keep: 5,
+            history_keep: 30,
             prefab_dir: String::new(),
             tex_lock: true,
             grid: 16.0,

@@ -2505,3 +2505,52 @@ Halle mit 12 verteilten Spawnpunkten.	Salle avec 12 points d'apparition réparti
 Halle mit Spawnpunkten für Jäger und Props und 25 Physik-Props zum Verwandeln.	Salle avec points d'apparition chasseurs et props et 25 props physiques.
 Halle mit 16 Spawnpunkten und zehn kleinen Häusern mit Türen.	Salle avec 16 points d'apparition et dix petites maisons avec portes.
 Halle mit Läufer- und Tod-Spawns, einer Grube mit trigger_hurt und drei Fallen-Knöpfen.	Salle avec apparitions coureurs et Mort, une fosse avec trigger_hurt et trois boutons de pièges.
++ Bodygroup	+ Bodygroup
++ Skin	+ Skin
+Bild für diesen Skin wählen (PNG, JPEG)	Choisir l'image de ce skin (PNG, JPEG)
+Bodygroup entfernen	Supprimer le bodygroup
+Bodygroup	Bodygroup
+Büro	Bureau
+Das Modell hat nur ein Teil. Teile entstehen aus Objekten/Gruppen einer OBJ-Datei (o/g) bzw. aus den Knoten eines glTF.	Le modèle n'a qu'une seule partie. Les parties viennent des objets/groupes d'un OBJ (o/g) ou des nœuds d'un glTF.
+Datei (zuletzt gespeichert)	Fichier (dernier enregistrement)
+Diesen Stand in die offene Map laden (Strg+Z nimmt es zurück)	Charger cette version dans la carte ouverte (Ctrl+Z l'annule)
+Eingefügt wird dort, wohin die 3D-Kamera blickt. Displacements dichten nicht ab – die Höhle bekommt deshalb nodraw-Platten unter dem Boden und über der Decke.	Inséré là où regarde la caméra 3D. Les displacements n'étanchéifient pas – la grotte reçoit donc des dalles nodraw sous le sol et au-dessus du plafond.
+Fels	Roche
+Felsanteil	Part de roche
+Gleich wie jetzt	Identique à maintenant
+Grau: Stand damals · Grün: seitdem neu · Rot: seitdem gelöscht · Gelb: seitdem geändert	Gris : cette version · Vert : nouveau depuis · Rouge : supprimé depuis · Jaune : modifié depuis
+Höhle	Grotte
+In neuem Tab öffnen	Ouvrir dans un nouvel onglet
+Innenausbau	Aménagement
+Jedes Speichern legt eine Kopie unter autosave/verlauf ab – zu sehen in Datei → Zeitleiste der Speicherstände	Chaque enregistrement dépose une copie dans autosave/verlauf – visible dans Fichier → Chronologie des sauvegardes
+Kein Platz für Möbel gefunden – einen geschlossenen Raum mit Boden auswählen	Aucune place pour des meubles – sélectionnez une pièce fermée avec un sol
+Lager	Entrepôt
+Lichter verteilen	Répartir des lumières
+Mehr Fels = engere Gänge, weniger = große Hallen	Plus de roche = passages étroits, moins = grandes salles
+Möbel in den ausgewählten Raum streuen: Schränke und Regale an die Wände, Tische mit Stühlen in die Mitte, Lampen in die Ecken – ohne Überschneidungen mit Wänden und untereinander.	Répartir des meubles dans la pièce sélectionnée : armoires et étagères contre les murs, tables et chaises au centre, lampes dans les coins – sans chevauchement avec les murs ni entre eux.
+Natürliche Höhle aus einem Zellautomaten: Felswände, unebener Boden und unebene Decke als Displacements, Licht und Spawnpunkt – abgedichtet und sofort kompilierbar.	Grotte naturelle issue d'un automate cellulaire : parois rocheuses, sol et plafond irréguliers en displacements, lumière et point d'apparition – étanche et prête à compiler.
+Noch keine Speicherstände. Beim Speichern legt Amboss jedes Mal eine Kopie im Verlauf ab; dazu kommen die Autosaves.	Aucune sauvegarde pour l'instant. À chaque enregistrement, Amboss dépose une copie dans l'historique ; les sauvegardes auto s'y ajoutent.
+Seitdem: {} neu, {} gelöscht, {} geändert	Depuis : {} nouveaux, {} supprimés, {} modifiés
+Skin 0 ist das Original. Jeder weitere Skin tauscht die Bilder einzelner Materialien (Entity-Schlüssel skin).	Le skin 0 est l'original. Chaque skin supplémentaire remplace les images de certains matériaux (clé d'entité skin).
+Skin entfernen	Supprimer le skin
+Skin {}	Skin {}
+Skins	Skins
+Speicherstände im Verlauf (0 = aus)	Sauvegardes dans l'historique (0 = désactivé)
+Stand {} wiederhergestellt – Strg+Z nimmt es zurück	Version {} restaurée – Ctrl+Z l'annule
+Stil	Style
+Teile in einer Bodygroup sind wählbare Varianten (Entity-Schlüssel body bzw. SetBodygroup in Lua); alle anderen bilden den festen Körper.	Les parties d'un bodygroup sont des variantes au choix (clé d'entité body ou SetBodygroup en Lua) ; les autres forment le corps fixe.
+Teile und Bodygroups	Parties et bodygroups
+Unebenheit	Irrégularité
+Unterschiede in der Map zeigen	Montrer les différences dans la carte
+Wie stark Boden und Decke wellig sind (Displacements)	Ondulation du sol et du plafond (displacements)
+Wohnung	Appartement
+Zeitleiste der Speicherstände	Chronologie des sauvegardes
+Zeitleiste der Speicherstände…	Chronologie des sauvegardes…
+Zuerst den Raum auswählen (z. B. die ausgehöhlten Brushes eines Zimmers). Die Möbel sind prop_static mit HL2-Modellen; fehlen Spielinhalte, werden die Modelle trotzdem gesetzt.	Sélectionnez d'abord la pièce (p. ex. les brushes évidés d'une salle). Les meubles sont des prop_static avec des modèles HL2 ; sans contenu du jeu, les modèles sont placés quand même.
+auch „nichts“ wählbar	« rien » aussi possible
+fester Körper	corps fixe
+gruppe	groupe
+wie Skin 0	comme le skin 0
+{} Dreiecke	{} triangles
+{} Varianten	{} variantes
+Vergleich mit dem Stand {}	Comparaison avec la version {}

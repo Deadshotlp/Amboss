@@ -55,6 +55,38 @@ pub struct Model {
     pub materials: Vec<Material>,
     /// Datei ist sicher Y-oben in Metern (glTF)
     pub gltf: bool,
+    /// Teile (OBJ-Objekte/-Gruppen, glTF-Knoten) – für Bodygroups
+    pub parts: Vec<String>,
+    /// Teil je Dreieck (gleiche Länge wie `tris`; leer = alles Teil 0)
+    pub tri_part: Vec<usize>,
+}
+
+impl Model {
+    /// Index eines Teils (neu anlegen, wenn unbekannt)
+    fn part_index(&mut self, name: &str) -> usize {
+        match self.parts.iter().position(|p| p == name) {
+            Some(i) => i,
+            None => {
+                self.parts.push(name.to_string());
+                self.parts.len() - 1
+            }
+        }
+    }
+
+    pub fn part_of(&self, tri: usize) -> usize {
+        self.tri_part.get(tri).copied().unwrap_or(0)
+    }
+
+    /// Dreiecke je Teil
+    pub fn part_counts(&self) -> Vec<usize> {
+        let mut c = vec![0; self.parts.len().max(1)];
+        for i in 0..self.tris.len() {
+            if let Some(x) = c.get_mut(self.part_of(i)) {
+                *x += 1;
+            }
+        }
+        c
+    }
 }
 
 // ------------------------------------------------------------------ Laden
@@ -85,6 +117,7 @@ fn parse_obj(src: &str, dir: &Path) -> Result<Model, String> {
     let (mut v, mut vt, mut vn): (Vec<DVec3>, Vec<DVec2>, Vec<DVec3>) = (Vec::new(), Vec::new(), Vec::new());
     let mut mats: Vec<Material> = Vec::new();
     let mut cur: Option<usize> = None;
+    let mut cur_part: Option<usize> = None;
     let num = |s: Option<&str>| s.and_then(|x| x.parse::<f64>().ok()).unwrap_or(0.0);
     let mut used: Vec<Material> = Vec::new();
     let mat_index = |name: &str, used: &mut Vec<Material>, defs: &[Material]| -> usize {
@@ -111,6 +144,12 @@ fn parse_obj(src: &str, dir: &Path) -> Result<Model, String> {
                 let name = line["usemtl".len()..].trim();
                 cur = Some(mat_index(name, &mut used, &mats));
             }
+            Some("o") | Some("g") => {
+                let name = line[1..].trim();
+                if !name.is_empty() {
+                    cur_part = Some(m.part_index(name));
+                }
+            }
             Some("f") => {
                 let idx = |s: &str, len: usize| -> Option<usize> {
                     let i: i64 = s.parse().ok()?;
@@ -133,8 +172,17 @@ fn parse_obj(src: &str, dir: &Path) -> Result<Model, String> {
                         i
                     }
                 };
+                let part = match cur_part {
+                    Some(p) => p,
+                    None => {
+                        let p = m.part_index("model");
+                        cur_part = Some(p);
+                        p
+                    }
+                };
                 for k in 1..poly.len().saturating_sub(1) {
                     m.tris.push(([poly[0], poly[k], poly[k + 1]], mi));
+                    m.tri_part.push(part);
                 }
             }
             _ => {}
@@ -305,6 +353,7 @@ fn parse_gltf(bytes: &[u8], dir: &Path) -> Result<Model, String> {
             stack.push((c, world));
         }
         let Some(mesh) = node.mesh() else { continue };
+        let part = m.part_index(&node.name().or(mesh.name()).map(str::to_string).unwrap_or_else(|| format!("teil{}", node.index())));
         let nmat = DMat3::from_mat4(world).inverse().transpose();
         let flip = DMat3::from_mat4(world).determinant() < 0.0;
         for prim in mesh.primitives() {
@@ -329,6 +378,7 @@ fn parse_gltf(bytes: &[u8], dir: &Path) -> Result<Model, String> {
             for t in tri_idx {
                 let (Some(a), Some(b), Some(c)) = (vert(t[0]), vert(t[1]), vert(t[2])) else { continue };
                 m.tris.push((if flip { [a, c, b] } else { [a, b, c] }, mi));
+                m.tri_part.push(part);
             }
         }
     }
@@ -354,11 +404,24 @@ pub struct ImportOpts {
     /// größte Texturkante
     pub tex_max: u32,
     pub collision: bool,
+    /// Bodygroups: Teile darin sind wählbar, alle anderen bilden den festen Körper
+    pub bodygroups: Vec<Bodygroup>,
+    /// weitere Skins (Skin 0 ist das Original): je Material ein anderes Bild oder `None` = wie Skin 0
+    pub skins: Vec<Vec<Option<PathBuf>>>,
+}
+
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct Bodygroup {
+    pub name: String,
+    /// Teile, je eines eine Variante (in dieser Reihenfolge)
+    pub parts: Vec<usize>,
+    /// zusätzliche Variante „nichts“
+    pub blank: bool,
 }
 
 impl Default for ImportOpts {
     fn default() -> Self {
-        ImportOpts { name: "modell".into(), folder: "amboss".into(), scale: 39.37, y_up: true, yaw: 0.0, is_static: true, mass: 50.0, surfaceprop: "default".into(), tex_max: 1024, collision: true }
+        ImportOpts { name: "modell".into(), folder: "amboss".into(), scale: 39.37, y_up: true, yaw: 0.0, is_static: true, mass: 50.0, surfaceprop: "default".into(), tex_max: 1024, collision: true, bodygroups: Vec::new(), skins: Vec::new() }
     }
 }
 
@@ -540,7 +603,37 @@ pub fn export(m: &Model, o: &ImportOpts, dir: &Path, game_dir: Option<&Path>) ->
     let mut notes = Vec::new();
     std::fs::create_dir_all(dir).map_err(|e| format!("{}: {e}", dir.display()))?;
     let w = |name: String, text: String| std::fs::write(dir.join(&name), text).map_err(|e| format!("{name}: {e}"));
-    w(format!("{}_ref.smd", o.name), crate::propper::smd(&smd_tris(&tris, &names)))?;
+    // Teile in Bodygroups gehören nicht zum festen Körper
+    let in_group = |part: usize| o.bodygroups.iter().any(|g| g.parts.contains(&part));
+    let pick = |f: &dyn Fn(usize) -> bool| -> Vec<([Vert; 3], usize)> { tris.iter().enumerate().filter(|(i, _)| f(m.part_of(*i))).map(|(_, t)| *t).collect() };
+    let main = pick(&|p| !in_group(p));
+    let mut smds: Vec<String> = Vec::new();
+    if !main.is_empty() {
+        w(format!("{}_ref.smd", o.name), crate::propper::smd(&smd_tris(&main, &names)))?;
+        smds.push(format!("{}_ref.smd", o.name));
+    }
+    // je Bodygroup und Variante eine eigene SMD
+    let mut groups: Vec<(String, Vec<String>, bool)> = Vec::new();
+    for (gi, g) in o.bodygroups.iter().enumerate() {
+        let mut files = Vec::new();
+        for (k, part) in g.parts.iter().enumerate() {
+            let part_tris = pick(&|p| p == *part);
+            if part_tris.is_empty() {
+                continue;
+            }
+            let f = format!("{}_bg{gi}_{k}.smd", o.name);
+            w(f.clone(), crate::propper::smd(&smd_tris(&part_tris, &names)))?;
+            smds.push(f.clone());
+            files.push(f);
+        }
+        if !files.is_empty() || g.blank {
+            let gname: String = g.name.chars().map(|c| if c.is_ascii_alphanumeric() || c == '_' { c } else { '_' }).collect();
+            groups.push((if gname.is_empty() { format!("gruppe{gi}") } else { gname }, files, g.blank));
+        }
+    }
+    if smds.is_empty() {
+        return Err("Keine Dreiecke für das Modell (alle Teile leer?)".into());
+    }
     let phys = if o.collision { hull_smd(&tris) } else { None };
     if o.collision && phys.is_none() {
         notes.push("Keine Kollision: das Modell ist flach".to_string());
@@ -550,13 +643,41 @@ pub fn export(m: &Model, o: &ImportOpts, dir: &Path, game_dir: Option<&Path>) ->
     }
     let mut q = String::new();
     let _ = writeln!(q, "$modelname \"{}/{}.mdl\"", o.folder, o.name);
-    let _ = writeln!(q, "$body \"body\" \"{}_ref.smd\"", o.name);
+    if !main.is_empty() {
+        let _ = writeln!(q, "$body \"body\" \"{}_ref.smd\"", o.name);
+    }
+    for (gname, files, blank) in &groups {
+        let _ = writeln!(q, "$bodygroup \"{gname}\"\n{{");
+        for f in files {
+            let _ = writeln!(q, "\tstudio \"{f}\"");
+        }
+        if *blank {
+            let _ = writeln!(q, "\tblank");
+        }
+        let _ = writeln!(q, "}}");
+    }
     let _ = writeln!(q, "$cdmaterials \"{}/\"", mat_dir(o));
     if o.is_static {
         let _ = writeln!(q, "$staticprop");
     }
     let _ = writeln!(q, "$surfaceprop \"{}\"", o.surfaceprop);
-    let _ = writeln!(q, "$sequence \"idle\" \"{}_ref.smd\" fps 30", o.name);
+    // Skins: je Skin die Materialnamen in derselben Reihenfolge
+    let mut used = vec![false; m.materials.len()];
+    for (_, mi) in &tris {
+        used[*mi] = true;
+    }
+    let skins: Vec<&Vec<Option<PathBuf>>> = o.skins.iter().filter(|sk| sk.iter().enumerate().any(|(i, x)| x.is_some() && used.get(i).copied().unwrap_or(false))).collect();
+    if !skins.is_empty() {
+        let used_idx: Vec<usize> = (0..m.materials.len()).filter(|i| used[*i]).collect();
+        let _ = writeln!(q, "$texturegroup \"skinfamilies\"\n{{");
+        let row = |f: &dyn Fn(usize) -> String| used_idx.iter().map(|i| format!("\"{}\"", f(*i))).collect::<Vec<_>>().join(" ");
+        let _ = writeln!(q, "\t{{ {} }}", row(&|i| names[i].clone()));
+        for (k, sk) in skins.iter().enumerate() {
+            let _ = writeln!(q, "\t{{ {} }}", row(&|i| if sk.get(i).is_some_and(|x| x.is_some()) { format!("{}_skin{}", names[i], k + 1) } else { names[i].clone() }));
+        }
+        let _ = writeln!(q, "}}");
+    }
+    let _ = writeln!(q, "$sequence \"idle\" \"{}\" fps 30", smds[0]);
     if phys.is_some() {
         let _ = writeln!(q, "$collisionmodel \"{}_phys.smd\" {{\n\t$mass {}\n}}", o.name, if o.is_static { 1.0 } else { o.mass });
     }
@@ -569,10 +690,6 @@ pub fn export(m: &Model, o: &ImportOpts, dir: &Path, game_dir: Option<&Path>) ->
     if let Some(gd) = game_dir {
         let md = gd.join("materials").join(mat_dir(o));
         std::fs::create_dir_all(&md).map_err(|e| format!("{}: {e}", md.display()))?;
-        let mut used = vec![false; m.materials.len()];
-        for (_, mi) in &tris {
-            used[*mi] = true;
-        }
         for (i, mat) in m.materials.iter().enumerate().filter(|(i, _)| used[*i]) {
             let img = match &mat.image {
                 Some(im) => match load_image(im) {
@@ -604,7 +721,21 @@ pub fn export(m: &Model, o: &ImportOpts, dir: &Path, game_dir: Option<&Path>) ->
                 vmt.push_str("\t\"$nocull\" \"1\"\n");
             }
             vmt.push_str("\t\"$model\" \"1\"\n}\n");
-            std::fs::write(md.join(format!("{}.vmt", names[i])), vmt).map_err(|e| format!("VMT: {e}"))?;
+            std::fs::write(md.join(format!("{}.vmt", names[i])), &vmt).map_err(|e| format!("VMT: {e}"))?;
+            // weitere Skins: gleiche Einstellungen, anderes Bild
+            for (k, sk) in skins.iter().enumerate() {
+                let Some(Some(path)) = sk.get(i) else { continue };
+                let alt = format!("{}_skin{}", names[i], k + 1);
+                match load_image(&Image::File(path.clone())) {
+                    Ok(img) => {
+                        let vtf = crate::vtf_write::encode(&img, crate::vtf_write::VtfOpts { max_size: o.tex_max, ..Default::default() });
+                        std::fs::write(md.join(format!("{alt}.vtf")), vtf).map_err(|e| format!("VTF: {e}"))?;
+                    }
+                    Err(e) => notes.push(format!("Skin {}: Bild für {} nicht geladen ({e})", k + 1, mat.name)),
+                }
+                let v2 = vmt.replace(&format!("{}/{}\"", mat_dir(o), names[i]), &format!("{}/{alt}\"", mat_dir(o)));
+                std::fs::write(md.join(format!("{alt}.vmt")), v2).map_err(|e| format!("VMT: {e}"))?;
+            }
         }
     }
     Ok(Export { dir: dir.to_path_buf(), qc, tris: tris.len(), size: b.size(), notes })
@@ -659,6 +790,46 @@ mod tests {
         assert!(md.join("holz.vtf").is_file() && md.join("glas.vtf").is_file());
         let glas = std::fs::read_to_string(md.join("glas.vmt")).unwrap();
         assert!(glas.contains("$translucent") && glas.contains("models/amboss/kiste/glas"), "{glas}");
+        let _ = std::fs::remove_dir_all(&d);
+    }
+
+    #[test]
+    fn bodygroups_and_skins() {
+        let d = tmp("bg");
+        let mut png = Vec::new();
+        {
+            let mut e = png::Encoder::new(&mut png, 1, 1);
+            e.set_color(png::ColorType::Rgb);
+            e.set_depth(png::BitDepth::Eight);
+            e.write_header().unwrap().write_image_data(&[0, 0, 255]).unwrap();
+        }
+        std::fs::write(d.join("blau.png"), &png).unwrap();
+        // Körper (Quader-Fläche), zwei Helme als eigene Objekte
+        let obj = "v 0 0 0\nv 1 0 0\nv 1 1 0\nv 0 1 0\nv 0 0 1\nv 1 0 1\nv 1 1 1\n\
+o koerper\nusemtl stoff\nf 1 2 3 4\n\
+o helm_a\nusemtl metall\nf 5 6 7\n\
+o helm_b\nusemtl metall\nf 5 7 6\n";
+        std::fs::write(d.join("figur.obj"), obj).unwrap();
+        let m = load(&d.join("figur.obj")).unwrap();
+        assert_eq!(m.parts, vec!["koerper", "helm_a", "helm_b"]);
+        assert_eq!(m.part_counts(), vec![2, 1, 1]);
+        let mut o = ImportOpts { name: "figur".into(), ..Default::default() };
+        o.bodygroups.push(Bodygroup { name: "Helm".into(), parts: vec![1, 2], blank: true });
+        // Skin 1: „metall“ (Material 1) bekommt ein blaues Bild, „stoff“ bleibt
+        o.skins.push(vec![None, Some(d.join("blau.png"))]);
+        let game = d.join("garrysmod");
+        let ex = export(&m, &o, &d.join("src"), Some(&game)).unwrap();
+        let q = std::fs::read_to_string(&ex.qc).unwrap();
+        assert!(q.contains("$body \"body\" \"figur_ref.smd\""), "{q}");
+        assert!(q.contains("$bodygroup \"Helm\"\n{\n\tstudio \"figur_bg0_0.smd\"\n\tstudio \"figur_bg0_1.smd\"\n\tblank\n}"), "{q}");
+        assert!(q.contains("$texturegroup \"skinfamilies\"\n{\n\t{ \"stoff\" \"metall\" }\n\t{ \"stoff\" \"metall_skin1\" }\n}"), "{q}");
+        let body = std::fs::read_to_string(d.join("src/figur_ref.smd")).unwrap();
+        assert!(body.contains("stoff") && !body.contains("metall"), "Helme nicht im festen Körper");
+        assert!(d.join("src/figur_bg0_1.smd").is_file());
+        let md = game.join("materials/models/amboss/figur");
+        assert!(md.join("metall_skin1.vtf").is_file());
+        let v = std::fs::read_to_string(md.join("metall_skin1.vmt")).unwrap();
+        assert!(v.contains("models/amboss/figur/metall_skin1\""), "{v}");
         let _ = std::fs::remove_dir_all(&d);
     }
 

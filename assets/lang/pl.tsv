@@ -2505,3 +2505,52 @@ Halle mit 12 verteilten Spawnpunkten.	Hala z 12 rozrzuconymi punktami odrodzenia
 Halle mit Spawnpunkten für Jäger und Props und 25 Physik-Props zum Verwandeln.	Hala z punktami odrodzenia łowców i propów oraz 25 propami fizycznymi.
 Halle mit 16 Spawnpunkten und zehn kleinen Häusern mit Türen.	Hala z 16 punktami odrodzenia i dziesięcioma domkami z drzwiami.
 Halle mit Läufer- und Tod-Spawns, einer Grube mit trigger_hurt und drei Fallen-Knöpfen.	Hala z punktami biegaczy i Śmierci, dołem z trigger_hurt i trzema przyciskami pułapek.
++ Bodygroup	+ Bodygroup
++ Skin	+ Skin
+Bild für diesen Skin wählen (PNG, JPEG)	Wybierz obraz dla tego skina (PNG, JPEG)
+Bodygroup entfernen	Usuń bodygroup
+Bodygroup	Bodygroup
+Büro	Biuro
+Das Modell hat nur ein Teil. Teile entstehen aus Objekten/Gruppen einer OBJ-Datei (o/g) bzw. aus den Knoten eines glTF.	Model ma tylko jedną część. Części powstają z obiektów/grup pliku OBJ (o/g) lub z węzłów glTF.
+Datei (zuletzt gespeichert)	Plik (ostatni zapis)
+Diesen Stand in die offene Map laden (Strg+Z nimmt es zurück)	Wczytaj ten stan do otwartej mapy (Ctrl+Z cofa)
+Eingefügt wird dort, wohin die 3D-Kamera blickt. Displacements dichten nicht ab – die Höhle bekommt deshalb nodraw-Platten unter dem Boden und über der Decke.	Wstawiane tam, gdzie patrzy kamera 3D. Displacementy nie uszczelniają – dlatego jaskinia dostaje płyty nodraw pod podłogą i nad sufitem.
+Fels	Skała
+Felsanteil	Udział skały
+Gleich wie jetzt	Tak samo jak teraz
+Grau: Stand damals · Grün: seitdem neu · Rot: seitdem gelöscht · Gelb: seitdem geändert	Szary: tamten stan · Zielony: nowe od tego czasu · Czerwony: usunięte · Żółty: zmienione
+Höhle	Jaskinia
+In neuem Tab öffnen	Otwórz w nowej karcie
+Innenausbau	Wyposażenie
+Jedes Speichern legt eine Kopie unter autosave/verlauf ab – zu sehen in Datei → Zeitleiste der Speicherstände	Każdy zapis odkłada kopię w autosave/verlauf – widoczne w Plik → Oś czasu zapisów
+Kein Platz für Möbel gefunden – einen geschlossenen Raum mit Boden auswählen	Nie znaleziono miejsca na meble – zaznacz zamknięte pomieszczenie z podłogą
+Lager	Magazyn
+Lichter verteilen	Rozmieść światła
+Mehr Fels = engere Gänge, weniger = große Hallen	Więcej skały = węższe przejścia, mniej = duże sale
+Möbel in den ausgewählten Raum streuen: Schränke und Regale an die Wände, Tische mit Stühlen in die Mitte, Lampen in die Ecken – ohne Überschneidungen mit Wänden und untereinander.	Rozmieść meble w zaznaczonym pomieszczeniu: szafy i regały przy ścianach, stoły z krzesłami na środku, lampy w rogach – bez nachodzenia na ściany i na siebie.
+Natürliche Höhle aus einem Zellautomaten: Felswände, unebener Boden und unebene Decke als Displacements, Licht und Spawnpunkt – abgedichtet und sofort kompilierbar.	Naturalna jaskinia z automatu komórkowego: skalne ściany, nierówna podłoga i sufit jako displacementy, światło i punkt odrodzenia – szczelna i gotowa do kompilacji.
+Noch keine Speicherstände. Beim Speichern legt Amboss jedes Mal eine Kopie im Verlauf ab; dazu kommen die Autosaves.	Brak zapisanych stanów. Przy każdym zapisie Amboss odkłada kopię w historii; dochodzą też autozapisy.
+Seitdem: {} neu, {} gelöscht, {} geändert	Od tego czasu: {} nowe, {} usunięte, {} zmienione
+Skin 0 ist das Original. Jeder weitere Skin tauscht die Bilder einzelner Materialien (Entity-Schlüssel skin).	Skin 0 to oryginał. Każdy kolejny skin podmienia obrazy wybranych materiałów (klucz encji skin).
+Skin entfernen	Usuń skin
+Skin {}	Skin {}
+Skins	Skiny
+Speicherstände im Verlauf (0 = aus)	Stany w historii (0 = wył.)
+Stand {} wiederhergestellt – Strg+Z nimmt es zurück	Przywrócono stan {} – Ctrl+Z cofa
+Stil	Styl
+Teile in einer Bodygroup sind wählbare Varianten (Entity-Schlüssel body bzw. SetBodygroup in Lua); alle anderen bilden den festen Körper.	Części w bodygroup to wybieralne warianty (klucz encji body lub SetBodygroup w Lua); pozostałe tworzą stały korpus.
+Teile und Bodygroups	Części i bodygroupy
+Unebenheit	Nierówność
+Unterschiede in der Map zeigen	Pokaż różnice na mapie
+Wie stark Boden und Decke wellig sind (Displacements)	Jak bardzo falista jest podłoga i sufit (displacementy)
+Wohnung	Mieszkanie
+Zeitleiste der Speicherstände	Oś czasu zapisów
+Zeitleiste der Speicherstände…	Oś czasu zapisów…
+Zuerst den Raum auswählen (z. B. die ausgehöhlten Brushes eines Zimmers). Die Möbel sind prop_static mit HL2-Modellen; fehlen Spielinhalte, werden die Modelle trotzdem gesetzt.	Najpierw zaznacz pomieszczenie (np. wydrążone brushe pokoju). Meble to prop_static z modelami HL2; bez zawartości gry modele i tak zostaną wstawione.
+auch „nichts“ wählbar	też „nic” do wyboru
+fester Körper	stały korpus
+gruppe	grupa
+wie Skin 0	jak skin 0
+{} Dreiecke	{} trójkątów
+{} Varianten	{} wariantów
+Vergleich mit dem Stand {}	Porównanie ze stanem {}

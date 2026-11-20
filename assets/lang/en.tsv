@@ -2507,3 +2507,52 @@ Halle mit 12 verteilten Spawnpunkten.	Hall with 12 spread-out spawn points.
 Halle mit Spawnpunkten für Jäger und Props und 25 Physik-Props zum Verwandeln.	Hall with spawn points for hunters and props and 25 physics props to turn into.
 Halle mit 16 Spawnpunkten und zehn kleinen Häusern mit Türen.	Hall with 16 spawn points and ten small houses with doors.
 Halle mit Läufer- und Tod-Spawns, einer Grube mit trigger_hurt und drei Fallen-Knöpfen.	Hall with runner and Death spawns, a pit with trigger_hurt and three trap buttons.
++ Bodygroup	+ Bodygroup
++ Skin	+ Skin
+Bild für diesen Skin wählen (PNG, JPEG)	Choose the image for this skin (PNG, JPEG)
+Bodygroup entfernen	Remove bodygroup
+Bodygroup	Bodygroup
+Büro	Office
+Das Modell hat nur ein Teil. Teile entstehen aus Objekten/Gruppen einer OBJ-Datei (o/g) bzw. aus den Knoten eines glTF.	The model has only one part. Parts come from the objects/groups of an OBJ file (o/g) or from the nodes of a glTF.
+Datei (zuletzt gespeichert)	File (last saved)
+Diesen Stand in die offene Map laden (Strg+Z nimmt es zurück)	Load this version into the open map (Ctrl+Z undoes it)
+Eingefügt wird dort, wohin die 3D-Kamera blickt. Displacements dichten nicht ab – die Höhle bekommt deshalb nodraw-Platten unter dem Boden und über der Decke.	Inserted where the 3D camera is looking. Displacements don't seal – so the cave gets nodraw slabs below the floor and above the ceiling.
+Fels	Rock
+Felsanteil	Rock share
+Gleich wie jetzt	Same as now
+Grau: Stand damals · Grün: seitdem neu · Rot: seitdem gelöscht · Gelb: seitdem geändert	Grey: that version · Green: new since · Red: deleted since · Yellow: changed since
+Höhle	Cave
+In neuem Tab öffnen	Open in new tab
+Innenausbau	Interior
+Jedes Speichern legt eine Kopie unter autosave/verlauf ab – zu sehen in Datei → Zeitleiste der Speicherstände	Every save stores a copy under autosave/verlauf – shown in File → Save timeline
+Kein Platz für Möbel gefunden – einen geschlossenen Raum mit Boden auswählen	No room for furniture found – select a closed room with a floor
+Lager	Storage
+Lichter verteilen	Place lights
+Mehr Fels = engere Gänge, weniger = große Hallen	More rock = narrower passages, less = large halls
+Möbel in den ausgewählten Raum streuen: Schränke und Regale an die Wände, Tische mit Stühlen in die Mitte, Lampen in die Ecken – ohne Überschneidungen mit Wänden und untereinander.	Scatter furniture in the selected room: cupboards and shelves against the walls, tables with chairs in the middle, lamps in the corners – without overlapping walls or each other.
+Natürliche Höhle aus einem Zellautomaten: Felswände, unebener Boden und unebene Decke als Displacements, Licht und Spawnpunkt – abgedichtet und sofort kompilierbar.	Natural cave from a cellular automaton: rock walls, uneven floor and ceiling as displacements, lights and a spawn point – sealed and ready to compile.
+Noch keine Speicherstände. Beim Speichern legt Amboss jedes Mal eine Kopie im Verlauf ab; dazu kommen die Autosaves.	No saved versions yet. Every time you save, Amboss stores a copy in the history; autosaves are added too.
+Seitdem: {} neu, {} gelöscht, {} geändert	Since then: {} new, {} deleted, {} changed
+Skin 0 ist das Original. Jeder weitere Skin tauscht die Bilder einzelner Materialien (Entity-Schlüssel skin).	Skin 0 is the original. Each further skin swaps the images of individual materials (entity key skin).
+Skin entfernen	Remove skin
+Skin {}	Skin {}
+Skins	Skins
+Speicherstände im Verlauf (0 = aus)	Saved versions in history (0 = off)
+Stand {} wiederhergestellt – Strg+Z nimmt es zurück	Version {} restored – Ctrl+Z undoes it
+Stil	Style
+Teile in einer Bodygroup sind wählbare Varianten (Entity-Schlüssel body bzw. SetBodygroup in Lua); alle anderen bilden den festen Körper.	Parts in a bodygroup are selectable variants (entity key body or SetBodygroup in Lua); all others form the fixed body.
+Teile und Bodygroups	Parts and bodygroups
+Unebenheit	Unevenness
+Unterschiede in der Map zeigen	Show differences in the map
+Wie stark Boden und Decke wellig sind (Displacements)	How wavy the floor and ceiling are (displacements)
+Wohnung	Flat
+Zeitleiste der Speicherstände	Save timeline
+Zeitleiste der Speicherstände…	Save timeline…
+Zuerst den Raum auswählen (z. B. die ausgehöhlten Brushes eines Zimmers). Die Möbel sind prop_static mit HL2-Modellen; fehlen Spielinhalte, werden die Modelle trotzdem gesetzt.	Select the room first (e.g. the hollowed brushes of a room). The furniture is prop_static with HL2 models; without game content the models are set anyway.
+auch „nichts“ wählbar	“nothing” selectable too
+fester Körper	fixed body
+gruppe	group
+wie Skin 0	as skin 0
+{} Dreiecke	{} triangles
+{} Varianten	{} variants
+Vergleich mit dem Stand {}	Comparison with the version {}

@@ -174,7 +174,7 @@ Modelle
 - [x] ★ glTF/GLB und OBJ per Ziehen in die Map (0.12.0; FBX/DAE noch offen): automatisch SMD/QC + VTF/VMT, studiomdl im Hintergrund, fertiges prop_static/prop_physics – M
 - [ ] Kollisionsmodell automatisch (konvexe Hülle gibt es beim Modell-Import seit 0.12.0; Zerlegung in mehrere konvexe Teile noch offen) – M
 - [ ] LODs automatisch erzeugen – M
-- [ ] Skins und Bodygroups im Import-Dialog – S–M
+- [x] Skins und Bodygroups im Import-Dialog (0.16.0) – S–M
 - [ ] Animationen im Modell-Browser abspielen – M
 - [ ] MDL dekompilieren und als glTF/OBJ exportieren (wie Crowbar) – M
 
@@ -193,7 +193,7 @@ Bauwerkzeuge
 - [x] Array: entlang Linie (Inhalte einfügen), Kreis (Generatoren) und Kurve (Spline → „Auswahl entlang“, 0.13.0) – S
 - [x] Wendeltreppen, Kuppeln, Röhren, Torbögen als eigene Formen (gibt es im Block-Werkzeug: Wendeltreppe, Kuppel, Torus/Rohr, Bogen) – S
 - [x] Gameplay-Maße einblenden (0.14.0; Spielerfigur mit Stufe, Sprung, Ducken, Augenhöhe, Ducksprung; in 3D grün/gelb/rot, ob der Spieler passt; Durchgangs- und Türbreiten; Sichtlinien noch offen) – S
-- [ ] Weitere Generatoren: Höhlen, Innenausbau (Möbel streuen) – M
+- [x] Weitere Generatoren: Höhlen, Innenausbau (Möbel streuen) (0.16.0) – M
 
 Optimierung und Fehlersuche
 - [x] Lightmap-Dichte als Farbkarte mit geschätzter Dateigröße (0.13.0) – S
@@ -212,7 +212,7 @@ Zusammenarbeit und Arbeitsablauf
 - [x] Patchnotes nach einem Update einmal anzeigen, Hilfe → Neuigkeiten (0.13.0)
 - [x] Notizen/Kommentare an Stellen in der Map anheften (0.14.0; als info_null, beim Kompilieren entfernt, in der Live-Sitzung geteilt) – S
 - [x] Textchat in der Live-Sitzung (gab es schon) – S
-- [ ] Zeitleiste der Speicherstände mit Vorschau und Vergleich – S–M
+- [x] Zeitleiste der Speicherstände mit Vorschau und Vergleich (0.16.0) – S–M
 - [ ] Plugin-Verwaltung für Lua-Skripte – M
 
 Export und Präsentation

@@ -1,6 +1,6 @@
 # Amboss – Map editor for Source 1 / Garry's Mod
 
-**Version 0.15.0** – shown next to the logo, in the window title and under Help → About Amboss. See `CHANGELOG.md` for what's new (the changelog is in German).
+**Version 0.16.0** – shown next to the logo, in the window title and under Help → About Amboss. See `CHANGELOG.md` for what's new (the changelog is in German).
 
 Amboss is a standalone level editor written in **Rust**, inspired by Hammer/Hammer++.
 It edits **VMF files**, shows the real **textures and models from the GMod/HL2 VPKs** and
@@ -68,14 +68,14 @@ Create (power 2–4), remove, **subdivide** (Catmull-Clark smoothing across seve
 Textured (incl. **blend textures** WorldVertexTransition mixed via displacement alpha, `$basetexturetransform`, **animated textures** and **TextureScroll**) · flat · wireframe · lightmap grid · smoothing groups · **light preview with shadows** (light, light_spot, light_environment; the sun and the four nearest lights cast shadows) · **collision models** of props (.phy) as wireframe · **models (MDL)** with textures and skins · editor sprites · light cone helpers · connection lines (outputs) · **3D skybox preview** (sky_camera) · **2D sky** (`skyname` from worldspawn) · **fog** from `env_fog_controller` · **ropes** (`move_rope`/`keyframe_rope` with slack, also in 2D) · pointfile (leak path) · portal file · **frustum culling** for large maps · **anti-aliasing (MSAA)** under Settings → Graphics
 
 ### Creating content (Tools menu)
-* **Import models** (File → Import → Import model, or drag the file into the window) – glTF/GLB and OBJ (+MTL) become a ready prop_static/prop_physics: textures to VTF, VertexLitGeneric materials, convex collision, studiomdl in the background; unit, up axis and rotation adjustable, preview and size in units.
+* **Import models** (File → Import → Import model, or drag the file into the window) – glTF/GLB and OBJ (+MTL) become a ready prop_static/prop_physics: textures to VTF, VertexLitGeneric materials, convex collision, studiomdl in the background; unit, up axis and rotation adjustable, preview and size in units. **Bodygroups**: parts (OBJ objects/groups, glTF nodes) can be turned into selectable variants, optionally with "nothing"; **skins**: further skins swap the images of individual materials (`$bodygroup`, `$texturegroup` in the QC).
 * **Spline tool** – roads with kerbs, pipes, fences, models at intervals (e.g. street lamps), any selection (brushes, entities, prefabs) and cables along a curve through clicked points; preview in all views, rebuild replaces the last result.
 * **Material editor** – create your own materials (VMT), import PNG/JPEG images as VTF (with mipmaps, normal maps), shader, transparency, reflections, surface property, live preview; **import PBR sets** (colour, normal, roughness, metallic, AO, height → base texture, Source normal map, gloss mask), **make seamless**, **normal map from base texture**.
 * **Particle editor** – open .pcf files, create systems from templates, edit emitters/initializers/operators/renderers, animated preview, write the particle manifest.
 * **Global illumination** – can be switched on in the light preview: indirect light with colour bleeding, computed in the background.
 * **Drop with physics** (Object menu) – props fall onto the floor, displacements and each other; Esc cancels.
 * **Scatter vegetation** – 3D brush for trees, bushes, rocks (density, spacing, random size/rotation/tilt, Shift erases) or fill a selection.
-* **Procedural generators** – maze, rooms with corridors, city block, circular array. Rooms in 3D: own height per room, a corridor network with long straights, round curves (adjustable radius), junctions and loops (each pair of rooms connected at most once), thin walls, short stairs at the room doors (16 units per step), sliders for spacing, winding and extra connections, separate textures for floor, walls and ceiling; every room and corridor is its own group and can be edited separately.
+* **Procedural generators** – maze, rooms with corridors, city block, circular array. Rooms in 3D: own height per room, a corridor network with long straights, round curves (adjustable radius), junctions and loops (each pair of rooms connected at most once), thin walls, short stairs at the room doors (16 units per step), sliders for spacing, winding and extra connections, separate textures for floor, walls and ceiling; every room and corridor is its own group and can be edited separately. **Cave**: a natural cave from a cellular automaton – rock walls, uneven floor and ceiling as displacements, lights and spawn, sealed with nodraw slabs. **Interior**: scatter furniture into the selected room (flat, office or storage style) – cupboards and shelves against the walls, tables with chairs in the middle, lamps in the corners, without overlapping walls or each other.
 * **Tile set** – place floor, wall, corner, door, window, column, stairs … on a grid; R rotates, Shift removes.
 * **Polygon mesh** – free-form meshes from brushes or OBJ: drag points and faces in 3D, extrude, smooth, subdivide; becomes a model via studiomdl as a prop_static (mesh data is stored in `<map>.meshes.json` next to the VMF – copy it along!).
 * **Bezier patch** – bend a displacement smoothly with 16 control points.
@@ -129,6 +129,7 @@ Via MCP: `optimize_map` (check or apply, options per run) and `optimize_settings
 ### Merging, comparing, working together (Tools → Versions & merging)
 * **Merge map** (File → Merge map…): take over another VMF/.map – keep coordinates, place next to it or move it; duplicate entity names are renamed (references follow), everything goes into a visgroup "Import: …", differing map properties (sky, detail material …) can be chosen individually, warnings for overlaps, two suns, two skybox cameras.
 * **Compare with another map version**: new (green), deleted (red) and changed (yellow) objects highlighted in all views, clickable list.
+* **Save timeline** (File → Save timeline…): every save also keeps a time-stamped copy (`autosave/verlauf/`, number adjustable); together with the autosaves they appear on a timeline with a top view that marks what has changed since, "Show differences in the map", open in a new tab or restore (Ctrl+Z undoes it).
 * **3-way merge**: open map + common base version + another person's version. Changes from both sides are combined; real conflicts keep your version, the other one is hidden in the visgroup "Conflict: other version".
 * **As a Git merge driver** (two people editing the same VMF in Git):
 
@@ -344,6 +345,8 @@ src/
   gamemode.rs    Gamemode checklist and templates (TTT, Murder, Prop Hunt, DarkRP, Deathrun)
   lua_ents.rs    Lua entities/weapons from addons and gamemodes → entity list
   gltf_export.rs glTF (.glb) export with embedded textures
+  timeline.rs    Save timeline: history copies, list, top view with differences, restore
+  procgen2.rs    Cave generator (cellular automaton, displacements) and furniture scatter
   sky_ui.rs      View filters (Show) and 3D skybox mode
   templates.rs   Templates for new maps, start page
   theme.rs       Dark/light colour schemes, fonts, UI building blocks

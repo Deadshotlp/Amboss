@@ -52,7 +52,7 @@ pub enum Fit {
 }
 
 /// Blockiert dieser Brush den Spieler? Trigger, Hint/Skip, Portale und ähnliche Werkzeugflächen nicht.
-fn blocks(owner: Option<&Entity>, s: &Solid) -> bool {
+pub(crate) fn blocks(owner: Option<&Entity>, s: &Solid) -> bool {
     if let Some(e) = owner {
         let c = e.classname().to_ascii_lowercase();
         if c.starts_with("trigger_") || matches!(c.as_str(), "func_illusionary" | "func_areaportal" | "func_areaportalwindow" | "func_occluder" | "func_viewportal" | "func_dustmotes" | "func_dustcloud" | "func_smokevolume" | "func_precipitation" | "func_buyzone" | "func_bomb_target" | "func_hostage_rescue" | "func_ladder" | "func_lod" | "func_clip_vphysics") {
@@ -71,7 +71,7 @@ fn blocks(owner: Option<&Entity>, s: &Solid) -> bool {
 }
 
 /// Schneidet die Box [min, max] den konvexen Brush? (Trennachsen: Ebenen des Brushes und Achsen der Box)
-fn box_hits_solid(min: DVec3, max: DVec3, s: &Solid) -> bool {
+pub(crate) fn box_hits_solid(min: DVec3, max: DVec3, s: &Solid) -> bool {
     if s.bounds.max.cmplt(min).any() || s.bounds.min.cmpgt(max).any() {
         return false;
     }

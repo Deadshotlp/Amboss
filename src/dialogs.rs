@@ -688,6 +688,9 @@ impl App {
                     ui.label(crate::i18n::tr("Anzahl Sicherungen"));
                     ui.add(crate::theme::dv(egui::DragValue::new(&mut self.settings.autosave_keep)).range(1..=50));
                     ui.end_row();
+                    ui.label(crate::i18n::tr("Speicherstände im Verlauf (0 = aus)")).on_hover_text(crate::i18n::tr("Jedes Speichern legt eine Kopie unter autosave/verlauf ab – zu sehen in Datei → Zeitleiste der Speicherstände"));
+                    ui.add(crate::theme::dv(egui::DragValue::new(&mut self.settings.history_keep)).range(0..=500));
+                    ui.end_row();
                 });
               }
               if page == 0 {

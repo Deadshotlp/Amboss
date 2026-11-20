@@ -249,6 +249,9 @@ pub struct App {
     pub(crate) phys: Option<crate::physics::Sim>,
     pub(crate) gen: crate::procgen::GenOpts,
     pub(crate) gen_page: usize,
+    pub(crate) cave: crate::procgen2::CaveOpts,
+    /// Innenausbau: (Stil, Dichte, Zufallszahl)
+    pub(crate) furn: (usize, f64, u64),
     pub(crate) mesh_ui: crate::mesh_ui::MeshUi,
     pub(crate) live: crate::live::Live,
     /// Nach dem Kompilieren die Map im laufenden Spiel neu laden
@@ -275,6 +278,7 @@ pub struct App {
     pub(crate) whatsnew: crate::whatsnew::WhatsNew,
     pub(crate) dgen: crate::decal_gen::DecalGen,
     pub(crate) shot: crate::screenshot::ShotUi,
+    pub(crate) timeline: crate::timeline::TimelineUi,
     /// Schätzung der Lichtdaten (Map-Stand, Text) für die Lightmap-Ansicht
     pub(crate) lm_estimate: (u64, String),
     /// Zeitpunkt des letzten Speicherns
@@ -375,6 +379,8 @@ impl App {
             phys: None,
             gen: Default::default(),
             gen_page: 0,
+            cave: Default::default(),
+            furn: (0, 0.6, 1),
             mesh_ui: Default::default(),
             live: Default::default(),
             live_reload: None,
@@ -397,6 +403,7 @@ impl App {
             whatsnew: Default::default(),
             dgen: Default::default(),
             shot: Default::default(),
+            timeline: Default::default(),
             lm_estimate: (0, String::new()),
             last_saved: None,
             panel_tab: 0,
@@ -513,6 +520,7 @@ impl App {
             Ok(()) => {
                 self.add_recent(&path);
                 self.last_saved = Some(Instant::now());
+                self.record_history(&path);
                 // Die gespeicherte Datei könnte eine Instanz sein: andere offene Maps aktualisieren
                 for t in self.tabs.iter_mut().flatten() {
                     t.ed.reload_instances();
@@ -985,6 +993,7 @@ impl App {
                 "simple" => self.settings.simple_ui = true,
                 "gameplay" => self.settings.gameplay = true,
                 "notes" => self.win.notes = true,
+                "timeline" => self.open_timeline(),
                 "gamemode" => {
                     self.win.gamemode = true;
                     if !v.is_empty() {
@@ -1118,6 +1127,17 @@ impl App {
                         "1" => {
                             crate::procgen::dungeon(&mut self.ed, &g, glam::DVec3::ZERO);
                         }
+                        "4" => {
+                            let c = self.cave.clone();
+                            crate::procgen2::cave(&mut self.ed, &c, glam::DVec3::ZERO);
+                        }
+                        "5" => {
+                            // Raum bauen und einrichten
+                            self.ed.create_block(crate::geometry::Aabb::new(glam::DVec3::new(-256.0, -192.0, -16.0), glam::DVec3::new(256.0, 192.0, 144.0)));
+                            self.ed.hollow(16.0);
+                            let area = self.ed.selection_bounds();
+                            crate::procgen2::furnish(&mut self.ed, area, self.furn.0, 0.8, 3, &|_| true, &|_| None);
+                        }
                         _ => {
                             crate::procgen::city(&mut self.ed, &g, glam::DVec3::ZERO);
                         }
@@ -1242,6 +1262,14 @@ impl App {
                 "convert" => self.open_convert_dialog(),
                 "panel_tab" => self.panel_tab = v.parse().unwrap_or(0),
                 "import" => self.open_model_import(std::path::PathBuf::from(v)),
+                "import_bg" => {
+                    // Testansicht: erste zwei Teile nach dem ersten in eine Bodygroup, ein Skin
+                    if self.imp.model.as_ref().is_some_and(|m| m.parts.len() > 2) {
+                        self.imp.opts.bodygroups.push(crate::model_import::Bodygroup { name: "helm".into(), parts: vec![1, 2], blank: true });
+                        let n = self.imp.model.as_ref().map(|m| m.materials.len()).unwrap_or(0);
+                        self.imp.opts.skins.push(vec![None; n]);
+                    }
+                }
                 "workshop" => self.open_workshop(),
                 "compile_demo" => {
                     let log = ["Valve Software - vbsp.exe", "Processing areas...done (0)", "Brush 1234: plane with no normal", "Material DEV/WAND_ALT not found!", "Material DEV/WAND_ALT2 not found!", "**** leaked ****", "Entity info_player_start (-48.00 -32.00 -96.00) leaked!", "VBSP fehlgeschlagen"].iter().map(|s| s.to_string()).collect();
@@ -1464,6 +1492,7 @@ impl App {
                 });
             }
             self.cmd_item(ui, ctx, Cmd::Screenshot);
+            self.cmd_item(ui, ctx, Cmd::Timeline);
             ui.separator();
             self.cmd_item(ui, ctx, Cmd::NewTab);
             self.cmd_item(ui, ctx, Cmd::CloseTab);

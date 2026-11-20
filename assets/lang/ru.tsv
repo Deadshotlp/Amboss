@@ -2505,3 +2505,52 @@ Halle mit 12 verteilten Spawnpunkten.	Зал с 12 разбросанными т
 Halle mit Spawnpunkten für Jäger und Props und 25 Physik-Props zum Verwandeln.	Зал с точками появления охотников и пропов и 25 физическими пропами.
 Halle mit 16 Spawnpunkten und zehn kleinen Häusern mit Türen.	Зал с 16 точками появления и десятью домиками с дверями.
 Halle mit Läufer- und Tod-Spawns, einer Grube mit trigger_hurt und drei Fallen-Knöpfen.	Зал с точками бегунов и Смерти, ямой с trigger_hurt и тремя кнопками ловушек.
++ Bodygroup	+ Бодигруппа
++ Skin	+ Скин
+Bild für diesen Skin wählen (PNG, JPEG)	Выбрать изображение для этого скина (PNG, JPEG)
+Bodygroup entfernen	Удалить бодигруппу
+Bodygroup	Бодигруппа
+Büro	Офис
+Das Modell hat nur ein Teil. Teile entstehen aus Objekten/Gruppen einer OBJ-Datei (o/g) bzw. aus den Knoten eines glTF.	У модели только одна часть. Части берутся из объектов/групп OBJ (o/g) или из узлов glTF.
+Datei (zuletzt gespeichert)	Файл (последнее сохранение)
+Diesen Stand in die offene Map laden (Strg+Z nimmt es zurück)	Загрузить эту версию в открытую карту (Ctrl+Z отменяет)
+Eingefügt wird dort, wohin die 3D-Kamera blickt. Displacements dichten nicht ab – die Höhle bekommt deshalb nodraw-Platten unter dem Boden und über der Decke.	Вставляется туда, куда смотрит 3D-камера. Дисплейсменты не герметизируют – поэтому под полом и над потолком пещеры кладутся плиты nodraw.
+Fels	Скала
+Felsanteil	Доля скалы
+Gleich wie jetzt	Как сейчас
+Grau: Stand damals · Grün: seitdem neu · Rot: seitdem gelöscht · Gelb: seitdem geändert	Серый: та версия · Зелёный: добавлено с тех пор · Красный: удалено · Жёлтый: изменено
+Höhle	Пещера
+In neuem Tab öffnen	Открыть в новой вкладке
+Innenausbau	Интерьер
+Jedes Speichern legt eine Kopie unter autosave/verlauf ab – zu sehen in Datei → Zeitleiste der Speicherstände	Каждое сохранение кладёт копию в autosave/verlauf – видно в Файл → Хронология сохранений
+Kein Platz für Möbel gefunden – einen geschlossenen Raum mit Boden auswählen	Нет места для мебели – выберите закрытую комнату с полом
+Lager	Склад
+Lichter verteilen	Расставить свет
+Mehr Fels = engere Gänge, weniger = große Hallen	Больше скалы = узкие проходы, меньше = большие залы
+Möbel in den ausgewählten Raum streuen: Schränke und Regale an die Wände, Tische mit Stühlen in die Mitte, Lampen in die Ecken – ohne Überschneidungen mit Wänden und untereinander.	Расставить мебель в выбранной комнате: шкафы и полки у стен, столы со стульями в центре, лампы по углам – без пересечений со стенами и друг с другом.
+Natürliche Höhle aus einem Zellautomaten: Felswände, unebener Boden und unebene Decke als Displacements, Licht und Spawnpunkt – abgedichtet und sofort kompilierbar.	Естественная пещера из клеточного автомата: скальные стены, неровные пол и потолок из дисплейсментов, свет и точка появления – герметична и готова к компиляции.
+Noch keine Speicherstände. Beim Speichern legt Amboss jedes Mal eine Kopie im Verlauf ab; dazu kommen die Autosaves.	Сохранённых версий пока нет. При каждом сохранении Amboss кладёт копию в историю; туда же попадают автосохранения.
+Seitdem: {} neu, {} gelöscht, {} geändert	С тех пор: {} новых, {} удалено, {} изменено
+Skin 0 ist das Original. Jeder weitere Skin tauscht die Bilder einzelner Materialien (Entity-Schlüssel skin).	Скин 0 – оригинал. Каждый следующий скин заменяет изображения отдельных материалов (ключ сущности skin).
+Skin entfernen	Удалить скин
+Skin {}	Скин {}
+Skins	Скины
+Speicherstände im Verlauf (0 = aus)	Версий в истории (0 = выкл.)
+Stand {} wiederhergestellt – Strg+Z nimmt es zurück	Версия {} восстановлена – Ctrl+Z отменяет
+Stil	Стиль
+Teile in einer Bodygroup sind wählbare Varianten (Entity-Schlüssel body bzw. SetBodygroup in Lua); alle anderen bilden den festen Körper.	Части в бодигруппе – выбираемые варианты (ключ сущности body или SetBodygroup в Lua); остальные образуют неизменное тело.
+Teile und Bodygroups	Части и бодигруппы
+Unebenheit	Неровность
+Unterschiede in der Map zeigen	Показать различия на карте
+Wie stark Boden und Decke wellig sind (Displacements)	Насколько волнистые пол и потолок (дисплейсменты)
+Wohnung	Квартира
+Zeitleiste der Speicherstände	Хронология сохранений
+Zeitleiste der Speicherstände…	Хронология сохранений…
+Zuerst den Raum auswählen (z. B. die ausgehöhlten Brushes eines Zimmers). Die Möbel sind prop_static mit HL2-Modellen; fehlen Spielinhalte, werden die Modelle trotzdem gesetzt.	Сначала выберите комнату (например, выдолбленные брашы помещения). Мебель – prop_static с моделями HL2; без ресурсов игры модели всё равно ставятся.
+auch „nichts“ wählbar	можно выбрать и «ничего»
+fester Körper	неизменное тело
+gruppe	группа
+wie Skin 0	как скин 0
+{} Dreiecke	{} треугольников
+{} Varianten	вариантов: {}
+Vergleich mit dem Stand {}	Сравнение с версией {}

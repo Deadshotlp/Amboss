@@ -2505,3 +2505,52 @@ Halle mit 12 verteilten Spawnpunkten.	Sala con 12 puntos de aparición repartido
 Halle mit Spawnpunkten für Jäger und Props und 25 Physik-Props zum Verwandeln.	Sala con puntos de aparición para cazadores y props y 25 props físicos.
 Halle mit 16 Spawnpunkten und zehn kleinen Häusern mit Türen.	Sala con 16 puntos de aparición y diez casitas con puertas.
 Halle mit Läufer- und Tod-Spawns, einer Grube mit trigger_hurt und drei Fallen-Knöpfen.	Sala con apariciones de corredores y Muerte, un foso con trigger_hurt y tres botones de trampas.
++ Bodygroup	+ Bodygroup
++ Skin	+ Skin
+Bild für diesen Skin wählen (PNG, JPEG)	Elegir la imagen de este skin (PNG, JPEG)
+Bodygroup entfernen	Quitar bodygroup
+Bodygroup	Bodygroup
+Büro	Oficina
+Das Modell hat nur ein Teil. Teile entstehen aus Objekten/Gruppen einer OBJ-Datei (o/g) bzw. aus den Knoten eines glTF.	El modelo tiene una sola parte. Las partes salen de los objetos/grupos de un OBJ (o/g) o de los nodos de un glTF.
+Datei (zuletzt gespeichert)	Archivo (último guardado)
+Diesen Stand in die offene Map laden (Strg+Z nimmt es zurück)	Cargar esta versión en el mapa abierto (Ctrl+Z la deshace)
+Eingefügt wird dort, wohin die 3D-Kamera blickt. Displacements dichten nicht ab – die Höhle bekommt deshalb nodraw-Platten unter dem Boden und über der Decke.	Se inserta donde mira la cámara 3D. Los displacements no sellan, así que la cueva recibe losas nodraw bajo el suelo y sobre el techo.
+Fels	Roca
+Felsanteil	Proporción de roca
+Gleich wie jetzt	Igual que ahora
+Grau: Stand damals · Grün: seitdem neu · Rot: seitdem gelöscht · Gelb: seitdem geändert	Gris: esa versión · Verde: nuevo desde entonces · Rojo: borrado desde entonces · Amarillo: cambiado desde entonces
+Höhle	Cueva
+In neuem Tab öffnen	Abrir en una pestaña nueva
+Innenausbau	Interiorismo
+Jedes Speichern legt eine Kopie unter autosave/verlauf ab – zu sehen in Datei → Zeitleiste der Speicherstände	Cada guardado deja una copia en autosave/verlauf; se ve en Archivo → Línea de tiempo de guardados
+Kein Platz für Möbel gefunden – einen geschlossenen Raum mit Boden auswählen	No hay sitio para muebles: selecciona una habitación cerrada con suelo
+Lager	Almacén
+Lichter verteilen	Repartir luces
+Mehr Fels = engere Gänge, weniger = große Hallen	Más roca = pasillos estrechos, menos = grandes salas
+Möbel in den ausgewählten Raum streuen: Schränke und Regale an die Wände, Tische mit Stühlen in die Mitte, Lampen in die Ecken – ohne Überschneidungen mit Wänden und untereinander.	Repartir muebles en la habitación seleccionada: armarios y estanterías contra las paredes, mesas con sillas en el centro, lámparas en las esquinas, sin solaparse con paredes ni entre sí.
+Natürliche Höhle aus einem Zellautomaten: Felswände, unebener Boden und unebene Decke als Displacements, Licht und Spawnpunkt – abgedichtet und sofort kompilierbar.	Cueva natural de un autómata celular: paredes de roca, suelo y techo irregulares como displacements, luz y punto de aparición; sellada y lista para compilar.
+Noch keine Speicherstände. Beim Speichern legt Amboss jedes Mal eine Kopie im Verlauf ab; dazu kommen die Autosaves.	Aún no hay versiones. Cada vez que guardas, Amboss deja una copia en el historial; también se añaden los autoguardados.
+Seitdem: {} neu, {} gelöscht, {} geändert	Desde entonces: {} nuevos, {} borrados, {} cambiados
+Skin 0 ist das Original. Jeder weitere Skin tauscht die Bilder einzelner Materialien (Entity-Schlüssel skin).	El skin 0 es el original. Cada skin adicional cambia las imágenes de materiales concretos (clave de entidad skin).
+Skin entfernen	Quitar skin
+Skin {}	Skin {}
+Skins	Skins
+Speicherstände im Verlauf (0 = aus)	Versiones en el historial (0 = desactivado)
+Stand {} wiederhergestellt – Strg+Z nimmt es zurück	Versión {} restaurada: Ctrl+Z la deshace
+Stil	Estilo
+Teile in einer Bodygroup sind wählbare Varianten (Entity-Schlüssel body bzw. SetBodygroup in Lua); alle anderen bilden den festen Körper.	Las partes de un bodygroup son variantes elegibles (clave de entidad body o SetBodygroup en Lua); el resto forma el cuerpo fijo.
+Teile und Bodygroups	Partes y bodygroups
+Unebenheit	Irregularidad
+Unterschiede in der Map zeigen	Mostrar diferencias en el mapa
+Wie stark Boden und Decke wellig sind (Displacements)	Cuán ondulados son el suelo y el techo (displacements)
+Wohnung	Vivienda
+Zeitleiste der Speicherstände	Línea de tiempo de guardados
+Zeitleiste der Speicherstände…	Línea de tiempo de guardados…
+Zuerst den Raum auswählen (z. B. die ausgehöhlten Brushes eines Zimmers). Die Möbel sind prop_static mit HL2-Modellen; fehlen Spielinhalte, werden die Modelle trotzdem gesetzt.	Selecciona primero la habitación (p. ej. los brushes vaciados de una sala). Los muebles son prop_static con modelos de HL2; sin contenido del juego se colocan igualmente.
+auch „nichts“ wählbar	también se puede elegir «nada»
+fester Körper	cuerpo fijo
+gruppe	grupo
+wie Skin 0	como el skin 0
+{} Dreiecke	{} triángulos
+{} Varianten	{} variantes
+Vergleich mit dem Stand {}	Comparación con la versión {}
