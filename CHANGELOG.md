@@ -1,5 +1,13 @@
 # Änderungen
 
+## 0.14.1
+
+**Schneller bei großen Auswahlen**
+- Viele ausgewählte Objekte bremsen nicht mehr: Mit 1600 ausgewählten Brushes brauchte ein Bild in der Testmessung 142 ms (unter 10 FPS), jetzt etwa 28 ms. Die Rechenzeit von Amboss selbst sank von 18 auf 3 ms pro Bild
+- Die 2D-Ansichten zeichnen große Auswahlen jetzt über die Grafikkarte statt jede Kante einzeln; beim Verschieben wird nur noch versetzt, nicht neu aufgebaut
+- Auswahlgrenzen, Zählen, Verschieben, Drehen und Skalieren gehen bei großen Auswahlen in einem Durchgang über die Map statt jedes Objekt einzeln zu suchen; reines Verschieben rechnet die Brush-Geometrie nicht mehr neu
+- Behoben: Das Ändern eines Brushes in einer Brush-Entity (und „Texturen ersetzen“ sowie das Vereinfachen flacher Displacements) hat alle übrigen Entities unnötig kopiert und als geändert markiert – mehr Speicher für Rückgängig und mehr Daten in der Live-Sitzung
+
 ## 0.14.0
 
 **Gameplay-Maße**

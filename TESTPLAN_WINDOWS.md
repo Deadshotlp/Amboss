@@ -243,7 +243,7 @@ Für jede Optimierung: zuerst **„Nur prüfen“**, Markierungen ansehen, dann 
 | O11 | worldspawn `skyname` = `sky_day01_01` (bzw. eigener Himmel), Ansicht → Himmel-Vorschau | Himmel rundum richtig ausgerichtet (Horizont unten, Sonne wie im Spiel) – mit dem Spiel vergleichen |
 | O12 | `env_fog_controller` mit fogenable 1, Farbe, Start/Ende | Entfernte Flächen gehen in die Nebelfarbe über; Ansicht → Nebel schaltet ab |
 | O13 | `move_rope` mit NextKey auf `keyframe_rope`, Slack 50 | Seil hängt durch wie im Spiel, mit Seil-Textur; in 2D als Linie |
-| O14 | Version prüfen | „0.14.0“ neben dem Logo, im Fenstertitel und unter Hilfe → Über Amboss |
+| O14 | Version prüfen | „0.14.1“ neben dem Logo, im Fenstertitel und unter Hilfe → Über Amboss |
 | O15 | Hilfe → Tutorial…, Kapitel 6–9 mit echten Inhalten durchspielen (auch „Zeig es mir“) | Jeder Schritt wird erkannt; Gelände, Himmel, Nebel, Partikel, Overlay, Decal sehen richtig aus |
 | O16 | Trigger mit Output: Ziel-Feld anklicken und einen Buchstaben tippen | Liste passender Namen mit Klasse; Pfeiltasten + Enter oder Klick übernimmt |
 | O17 | Generatoren → Räume mit Höhenstufen 2, eigenen Texturen für Boden/Wände/Decke → Erzeugen → Kompilieren & starten | Kein Leck; Räume unterschiedlich hoch, Treppen in den Gängen begehbar; Texturen wie gewählt |
@@ -352,6 +352,16 @@ Für jede Optimierung: zuerst **„Nur prüfen“**, Markierungen ansehen, dann 
 | U11 | Datei → „Screenshot in hoher Auflösung…“, 3840 × 2160 mit Kantenglättung | PNG 3840 × 2160 wie die 3D-Ansicht, ohne Raster und Auswahlrahmen |
 | U12 | Dasselbe als 360°-Panorama 4096 × 2048, in einem Panorama-Betrachter öffnen | Rundumsicht ohne sichtbare Nähte; Bildmitte = Blickrichtung der Kamera |
 | U13 | Screenshot 7680 × 4320 auf einer schwächeren Grafikkarte | Entweder ein Bild oder die Meldung „Zu groß für diese Grafikkarte …“, kein Absturz |
+
+## V. Version 0.14.1
+
+| Nr. | Schritt | Erwartung |
+|---|---|---|
+| V1 | Große Map öffnen (mehrere tausend Brushes), Strg+A, FPS-Anzeige in 3D beobachten | Bleibt deutlich über 20 FPS (vorher unter 20) |
+| V2 | Die ganze Auswahl in 2D ziehen, mit den Pfeiltasten verschieben, dann Strg+Z | Flüssig; Umrisse folgen der Maus ohne Versatz; Rückgängig stellt alles zurück |
+| V3 | Große Auswahl drehen (Strg+R / Transformieren) und skalieren | Funktioniert wie vorher, ohne lange Hänger |
+| V4 | Wenige Objekte auswählen (unter 48 Brushes) | Auswahl sieht aus wie bisher (geglättete Linien) |
+| V5 | Live-Sitzung: einen Brush in einem func_detail verschieben | Beim anderen ändert sich nur dieses Objekt (keine Verzögerung durch übertragene Kopien der ganzen Map) |
 
 ## L. Nach dem Test
 

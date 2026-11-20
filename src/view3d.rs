@@ -1029,6 +1029,11 @@ pub struct Renderer {
     /// 2D-Linien (alle nicht ausgewählten Brushes/Props in Weltkoordinaten), für alle drei 2D-Ansichten
     lines2d: Option<GpuBuffer>,
     pending_lines2d: Option<Vec<f32>>,
+    /// Kanten der ausgewählten Brushes (große Auswahl, statt einzelner Formen je Kante)
+    sel_lines2d: Option<GpuBuffer>,
+    pending_sel_lines2d: Option<Vec<f32>>,
+    /// Versatz der Auswahl-Linien (Auswahl wird verschoben, Puffer noch nicht neu gebaut)
+    pub sel_lines_offset: Vec3,
     /// zählt hoch, wenn sich Geometrie ändert (Schattenkarten neu)
     mesh_gen: u64,
     shadow: Option<Shadows>,
@@ -1357,6 +1362,9 @@ impl Renderer {
                 animated: std::cell::Cell::new(false),
                 lines2d: None,
                 pending_lines2d: None,
+                sel_lines2d: None,
+                pending_sel_lines2d: None,
+                sel_lines_offset: Vec3::ZERO,
                 mesh_gen: 0,
                 shadow: None,
                 gi_tex: None,
@@ -1392,8 +1400,14 @@ impl Renderer {
         self.pending_lines2d = Some(data);
     }
 
+    /// Neue Auswahl-Linien für die 2D-Ansichten
+    pub fn set_sel_lines2d(&mut self, data: Vec<f32>) {
+        self.pending_sel_lines2d = Some(data);
+    }
+
     /// 2D-Linien mit einer Orthografie-Matrix zeichnen (Aufruf aus dem Zeichen-Callback einer 2D-Ansicht)
-    pub fn paint_lines2d(&mut self, gl: &glow::Context, mvp: Mat4, dim: Option<(usize, f64, f64)>) {
+    /// `sel_px`: Auswahl-Linien mitzeichnen, zwei Pixel breit (Größe eines Pixels in Clip-Koordinaten)
+    pub fn paint_lines2d(&mut self, gl: &glow::Context, mvp: Mat4, dim: Option<(usize, f64, f64)>, sel_px: Option<(f32, f32)>) {
         unsafe {
             if let Some(data) = self.pending_lines2d.take() {
                 if self.lines2d.is_none() {
@@ -1403,8 +1417,17 @@ impl Renderer {
                     Self::fill(gl, b, &data);
                 }
             }
-            let Some(b) = &self.lines2d else { return };
-            if b.count == 0 {
+            if let Some(data) = self.pending_sel_lines2d.take() {
+                if self.sel_lines2d.is_none() {
+                    self.sel_lines2d = Self::make_buffer(gl).ok();
+                }
+                if let Some(b) = self.sel_lines2d.as_mut() {
+                    Self::fill(gl, b, &data);
+                }
+            }
+            let empty = self.lines2d.as_ref().is_none_or(|b| b.count == 0);
+            let sel = sel_px.and_then(|px| self.sel_lines2d.as_ref().filter(|b| b.count > 0).map(|b| (b.vao, b.count, px)));
+            if empty && sel.is_none() {
                 return;
             }
             gl.disable(glow::DEPTH_TEST);
@@ -1419,10 +1442,22 @@ impl Renderer {
                 Some((ax, lo, hi)) => gl.uniform_4_f32(self.u.dim.as_ref(), ax as f32, lo as f32, hi as f32, DIM_ALPHA),
                 None => gl.uniform_4_f32(self.u.dim.as_ref(), 0.0, 0.0, 0.0, 0.0),
             }
-            gl.bind_vertex_array(Some(b.vao));
-            gl.draw_arrays(glow::LINES, 0, b.count);
-            gl.bind_vertex_array(None);
+            if let Some(b) = self.lines2d.as_ref().filter(|b| b.count > 0) {
+                gl.bind_vertex_array(Some(b.vao));
+                gl.draw_arrays(glow::LINES, 0, b.count);
+            }
             gl.uniform_4_f32(self.u.dim.as_ref(), 0.0, 0.0, 0.0, 0.0);
+            // Auswahl obenauf, zweimal (diagonal um ein Pixel versetzt) für 2 Pixel breite Linien –
+            // GL-Linien sind nur 1 Pixel breit
+            if let Some((vao, count, (px, py))) = sel {
+                gl.bind_vertex_array(Some(vao));
+                for off in [Vec3::ZERO, Vec3::new(px, py, 0.0)] {
+                    let m = Mat4::from_translation(off) * mvp * Mat4::from_translation(self.sel_lines_offset);
+                    gl.uniform_matrix_4_f32_slice(self.u.mvp.as_ref(), false, &m.to_cols_array());
+                    gl.draw_arrays(glow::LINES, 0, count);
+                }
+            }
+            gl.bind_vertex_array(None);
             gl.use_program(None);
         }
     }

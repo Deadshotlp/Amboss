@@ -231,13 +231,16 @@ pub fn apply(ed: &mut Editor, fix: &Fix) {
             }
         }
         Fix::ReplaceMaterial(from, to) => {
-            for s in ed.map.world.solids.iter_mut().chain(ed.map.entities.iter_mut().flat_map(|e| e.solids.iter_mut())) {
-                for side in &mut s.sides {
-                    if side.material.eq_ignore_ascii_case(from) {
-                        side.material = to.clone();
+            ed.map.solids_mut_where(
+                |s| s.sides.iter().any(|sd| sd.material.eq_ignore_ascii_case(from)),
+                |s| {
+                    for side in &mut s.sides {
+                        if side.material.eq_ignore_ascii_case(from) {
+                            side.material = to.clone();
+                        }
                     }
-                }
-            }
+                },
+            );
         }
         Fix::CleanupSolid(id) => {
             if let Some(s) = ed.map.solid_mut(*id) {

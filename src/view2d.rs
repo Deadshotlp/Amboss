@@ -60,6 +60,51 @@ fn rgba(c: Color32) -> [f32; 4] {
     [r as f32 / 255.0, g as f32 / 255.0, b as f32 / 255.0, a as f32 / 255.0]
 }
 
+/// Ab so vielen ausgewählten Brushes zeichnet die Grafikkarte die Auswahl (statt einzelner Formen je Kante)
+pub const SEL_GL_MIN: usize = 48;
+
+/// Kanten der ausgewählten, sichtbaren Brushes in der Auswahlfarbe (jede Kante einmal)
+pub fn build_sel_lines(ed: &Editor) -> Vec<f32> {
+    let mut out = Vec::new();
+    let c = rgba(theme::t().accent);
+    let mut seen: std::collections::HashSet<([i64; 3], [i64; 3])> = std::collections::HashSet::new();
+    let key = |p: DVec3| [(p.x * 8.0).round() as i64, (p.y * 8.0).round() as i64, (p.z * 8.0).round() as i64];
+    for (owner, s) in ed.map.solids_owned() {
+        if !ed.is_selected_solid(owner.map(|e| e.id), s.id) || !ed.is_visible_solid(owner, s) {
+            continue;
+        }
+        if s.has_disp() {
+            for g in s.disps.iter().flatten() {
+                let r = g.res;
+                for i in 0..r {
+                    for j in 0..r {
+                        let k = i * r + j;
+                        if j + 1 < r {
+                            crate::view3d::line_b(&mut out, g.pos[k], g.pos[k + 1], c, &s.bounds);
+                        }
+                        if i + 1 < r {
+                            crate::view3d::line_b(&mut out, g.pos[k], g.pos[k + r], c, &s.bounds);
+                        }
+                    }
+                }
+            }
+            continue;
+        }
+        // gemeinsame Kanten zweier Flächen nur einmal (beim Verschieben wird der Puffer nur versetzt, nicht neu gebaut)
+        seen.clear();
+        for poly in &s.polys {
+            for i in 0..poly.len() {
+                let (a, b) = (poly[i], poly[(i + 1) % poly.len()]);
+                let (ka, kb) = (key(a), key(b));
+                if seen.insert(if ka < kb { (ka, kb) } else { (kb, ka) }) {
+                    crate::view3d::line_b(&mut out, a, b, c, &s.bounds);
+                }
+            }
+        }
+    }
+    out
+}
+
 /// Linienpuffer für alle 2D-Ansichten: Kanten aller sichtbaren, nicht ausgewählten Brushes
 /// (jede Kante einmal) und Modell-Boxen nicht ausgewählter Props, in Weltkoordinaten.
 pub fn build_lines(ed: &Editor) -> Vec<f32> {
@@ -818,6 +863,8 @@ impl View2D {
         self.draw_grid(painter, rect, ed.grid, ed.map_limit);
         let (h, v, depth) = self.axis.axes();
         let use_gl = self.gl.is_some();
+        // große Auswahl: Kanten kommen aus dem Auswahl-Puffer der Grafikkarte
+        let gl_sel = use_gl && ed.sel_solid_count() >= SEL_GL_MIN;
         // Auswahl vorhanden: alles, was nicht auf ihrer Tiefe liegt (±10), blasser zeichnen
         let dim = (ed.dim_levels && !ed.sel.is_empty())
             .then(|| ed.selection_bounds())
@@ -835,8 +882,9 @@ impl View2D {
             m[3][1] = -(self.center.y as f32) * sy;
             m[3][3] = 1.0;
             let mvp = glam::Mat4::from_cols_array_2d(&m);
+            let sel_px = gl_sel.then(|| (2.0 / rect.width(), 2.0 / rect.height()));
             let cb = eframe::egui_glow::CallbackFn::new(move |_info, p| {
-                r.lock().unwrap().paint_lines2d(p.gl(), mvp, dim);
+                r.lock().unwrap().paint_lines2d(p.gl(), mvp, dim, sel_px);
             });
             painter.add(egui::PaintCallback { rect, callback: std::sync::Arc::new(cb) });
         }
@@ -852,7 +900,7 @@ impl View2D {
 
         for (owner, s) in ed.map.all_solids() {
             let selected = ed.is_selected_solid(owner, s.id);
-            if use_gl && !selected {
+            if use_gl && (!selected || gl_sel) {
                 continue; // kommt aus dem Grafikkarten-Puffer
             }
             let e = owner.and_then(|id| ed.map.entity(id));

@@ -544,22 +544,20 @@ pub fn run(ed: &mut Editor, o: &OptSettings, fs: Option<&GameFs>, _packlist: Opt
     }
     if o.simplify_disps {
         let mut n = 0;
-        for s in ed.map.world.solids.iter_mut().chain(ed.map.entities.iter_mut().flat_map(|e| e.solids.iter_mut())) {
-            let mut changed = false;
-            for side in &mut s.sides {
-                if let Some(d) = &side.disp {
-                    let flat = d.distances.iter().all(|x| x.abs() < 0.01) && d.offsets.iter().all(|x| x.length() < 0.01) && d.elevation.abs() < 0.01 && d.alphas.iter().all(|a| *a < 0.5);
-                    if flat {
+        let flat = |d: &crate::disp::Disp| d.distances.iter().all(|x| x.abs() < 0.01) && d.offsets.iter().all(|x| x.length() < 0.01) && d.elevation.abs() < 0.01 && d.alphas.iter().all(|a| *a < 0.5);
+        // nur betroffene Brushes ändern (andere bleiben mit dem Rückgängig-Stand geteilt)
+        ed.map.solids_mut_where(
+            |s| s.sides.iter().any(|sd| sd.disp.as_ref().is_some_and(flat)),
+            |s| {
+                for side in &mut s.sides {
+                    if side.disp.as_ref().is_some_and(flat) {
                         side.disp = None;
-                        changed = true;
                         n += 1;
                     }
                 }
-            }
-            if changed {
                 s.update_geometry();
-            }
-        }
+            },
+        );
         if n > 0 {
             r.say(format!("Displacements: {n} flache Displacement(s) in normale Flächen zurückverwandelt"));
             r.changes += n;

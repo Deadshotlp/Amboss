@@ -169,7 +169,7 @@ impl App {
                 (crate::icons::entity_icon(e.classname()), e.targetname().unwrap_or(e.classname()).to_string(), format!("{} · {kind}", e.classname()))
             }
         } else if ents.is_empty() {
-            let faces: usize = solids.iter().filter_map(|id| self.ed.map.solid(*id)).map(|s| s.sides.len()).sum();
+            let faces: usize = self.ed.selected_solids().iter().map(|s| s.sides.len()).sum();
             ("block", if solids.len() == 1 { format!("Brush {}", solids[0]) } else { crate::i18n::count(solids.len(), "Brush", "Brushes") }, crate::i18n::tr_dyn(&format!("Welt · {faces} Flächen")))
         } else {
             ("layers", crate::i18n::count(self.ed.sel.len(), "Objekt", "Objekte"), format!("{}, {}", crate::i18n::count(ents.len(), "Entity", "Entities"), crate::i18n::count(solids.len(), "Brush", "Brushes")))
@@ -887,13 +887,11 @@ impl App {
         }
         // Materialien der ausgewählten Brushes
         let mut mats: Vec<(String, usize)> = Vec::new();
-        for id in self.ed.selected_solid_ids() {
-            if let Some(s) = self.ed.map.solid(id) {
-                for side in &s.sides {
-                    match mats.iter_mut().find(|m| m.0.eq_ignore_ascii_case(&side.material)) {
-                        Some(m) => m.1 += 1,
-                        None => mats.push((side.material.clone(), 1)),
-                    }
+        for s in self.ed.selected_solids() {
+            for side in &s.sides {
+                match mats.iter_mut().find(|m| m.0.eq_ignore_ascii_case(&side.material)) {
+                    Some(m) => m.1 += 1,
+                    None => mats.push((side.material.clone(), 1)),
                 }
             }
         }

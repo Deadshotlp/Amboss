@@ -295,6 +295,10 @@ pub struct App {
     pub(crate) content_status: String,
     model_req_rev: (u64, usize),
     lines_key: (u64, bool, bool, u64),
+    sel_lines_key: (u64, bool),
+    /// Stand beim letzten Aufbau der Auswahl-Linien: (rev, Anzahl Verschiebungen, Summe)
+    sel_lines_base: (u64, u64, DVec3),
+    sel_lines_tab: usize,
     lines_built: Instant,
 }
 
@@ -403,6 +407,9 @@ impl App {
             content_status: String::new(),
             model_req_rev: (u64::MAX, 0),
             lines_key: (u64::MAX, false, false, 0),
+            sel_lines_key: (u64::MAX, false),
+            sel_lines_base: (u64::MAX, 0, DVec3::ZERO),
+            sel_lines_tab: usize::MAX,
             lines_built: Instant::now(),
         };
         app.apply_layout();
@@ -2328,6 +2335,34 @@ impl App {
                 self.models.get(&p);
             }
         }
+        // Auswahl-Linien (große Auswahl) sofort bei jeder Änderung, damit Verschieben flüssig aussieht
+        if self.view3d.renderer.is_some() {
+            let key = (self.ed.rev, crate::theme::t().dark);
+            // nur verschoben seit dem letzten Aufbau (jede Änderung zählt rev um eins hoch)? Dann den Puffer versetzen
+            let (rev0, cnt0, sum0) = self.sel_lines_base;
+            let only_moved = key.1 == self.sel_lines_key.1 && self.sel_lines_tab == self.active_tab && self.ed.rev.wrapping_sub(rev0) == self.ed.xlate_count.wrapping_sub(cnt0) && self.ed.rev != rev0;
+            if key != self.sel_lines_key && only_moved {
+                let off = (self.ed.xlate_sum - sum0).as_vec3();
+                if let Some(r) = &self.view3d.renderer {
+                    r.lock().unwrap().sel_lines_offset = off;
+                }
+                self.sel_lines_key = key;
+            } else if key != self.sel_lines_key {
+                let t0 = Instant::now();
+                let data = if self.ed.sel_solid_count() >= crate::view2d::SEL_GL_MIN { crate::view2d::build_sel_lines(&self.ed) } else { Vec::new() };
+                if std::env::var_os("AMBOSS_PROFILE").is_some() {
+                    eprintln!("sel_lines_ms {:.1}", t0.elapsed().as_secs_f64() * 1000.0);
+                }
+                if let Some(r) = &self.view3d.renderer {
+                    let mut r = r.lock().unwrap();
+                    r.set_sel_lines2d(data);
+                    r.sel_lines_offset = glam::Vec3::ZERO;
+                }
+                self.sel_lines_key = key;
+                self.sel_lines_base = (self.ed.rev, self.ed.xlate_count, self.ed.xlate_sum);
+                self.sel_lines_tab = self.active_tab;
+            }
+        }
         // 2D-Linienpuffer (Grafikkarte) bei Änderungen neu bauen; während des Ziehens gedrosselt
         if self.view3d.renderer.is_some() {
             let key = (self.ed.rev, crate::theme::t().dark, self.ed.vis_colors, self.models.generation);
@@ -2336,7 +2371,11 @@ impl App {
                 let content_only = key.0 == self.lines_key.0 && key.1 == self.lines_key.1 && key.2 == self.lines_key.2;
                 let wait = if content_only { 0.5 } else if dragging { 0.25 } else { 0.0 };
                 if self.lines_built.elapsed().as_secs_f32() >= wait {
+                    let t0 = Instant::now();
                     let data = crate::view2d::build_lines(&self.ed);
+                    if std::env::var_os("AMBOSS_PROFILE").is_some() {
+                        eprintln!("lines_ms {:.1}", t0.elapsed().as_secs_f64() * 1000.0);
+                    }
                     if let Some(r) = &self.view3d.renderer {
                         r.lock().unwrap().set_lines2d(data);
                     }
@@ -2482,20 +2521,35 @@ impl App {
         if self.win.start {
             self.start_page(ctx);
         } else {
+            let prof = std::env::var_os("AMBOSS_PROFILE").is_some();
+            let mut t = Instant::now();
+            let mut lap = |name: &str| {
+                if prof {
+                    eprintln!("{name}_ms {:.1}", t.elapsed().as_secs_f64() * 1000.0);
+                    t = Instant::now();
+                }
+            };
             self.top_bar(ctx);
             self.tab_strip(ctx);
             self.status_line(ctx);
+            lap("bars");
             self.tool_rail(ctx);
             self.properties_panel(ctx);
+            lap("panel");
             self.context_bar(ctx);
             self.viewports(ctx);
             self.sky_frame(ctx);
+            lap("viewports");
         }
+        let t2 = Instant::now();
         self.process_prefab_drop();
         self.windows(ctx);
         self.poll_job();
         self.live_tick(ctx);
         self.autosave();
+        if std::env::var_os("AMBOSS_PROFILE").is_some() {
+            eprintln!("rest_ms {:.1}", t2.elapsed().as_secs_f64() * 1000.0);
+        }
         self.ed.finish_label();
         if self.ed.material != self.last_material {
             self.last_material = self.ed.material.clone();

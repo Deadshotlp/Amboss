@@ -226,6 +226,9 @@ pub enum ToolKind {
     Other,
 }
 
+/// Bis zu so vielen ausgewählten Objekten wird per ID nachgeschlagen, darüber in einem Durchgang über die Map
+const SMALL_SEL: usize = 32;
+
 pub fn tool_kind(material: &str) -> Option<ToolKind> {
     if material.len() < 6 || !material.as_bytes()[..6].eq_ignore_ascii_case(b"tools/") {
         return None;
@@ -447,6 +450,9 @@ pub struct Editor {
     pub dirty: bool,
     /// Wird bei jeder Änderung (Map oder Auswahl) erhöht → 3D-Neuaufbau
     pub rev: u64,
+    /// Verschieben der Auswahl: Anzahl und Summe (für die 2D-Auswahl-Linien: verschieben statt neu bauen)
+    pub xlate_count: u64,
+    pub xlate_sum: DVec3,
     /// Arbeitspunkt: wird durch Klicks in den 2D-Ansichten gesetzt
     pub work_point: DVec3,
     /// Maße des zuletzt erstellten Blocks (Tiefe für neue Blöcke)
@@ -564,6 +570,8 @@ impl Editor {
             game_dir: String::new(),
             dirty: false,
             rev: 1,
+            xlate_count: 0,
+            xlate_sum: DVec3::ZERO,
             work_point: DVec3::ZERO,
             last_box: Aabb::new(DVec3::new(-64.0, -64.0, 0.0), DVec3::new(64.0, 64.0, 128.0)),
             status: "Bereit".into(),
@@ -995,7 +1003,40 @@ impl Editor {
     }
 
     pub fn selection_bounds(&self) -> Aabb {
-        self.sel.iter().fold(Aabb::EMPTY, |b, o| b.union(&self.obj_bounds(*o)))
+        // kleine Auswahl: direkt nachschlagen; große: ein Durchgang über die Map
+        // (das Nachschlagen per ID durchsucht die Map jedes Mal – bei tausend Objekten quadratisch)
+        if self.sel.len() <= SMALL_SEL {
+            return self.sel.iter().fold(Aabb::EMPTY, |b, o| b.union(&self.obj_bounds(*o)));
+        }
+        let mut b = Aabb::EMPTY;
+        for s in &self.map.world.solids {
+            if self.sel.contains(&Obj::Solid(s.id)) {
+                b = b.union(&s.bounds);
+            }
+        }
+        for e in &self.map.entities {
+            if self.sel.contains(&Obj::Entity(e.id)) {
+                b = b.union(&self.entity_bounds(e));
+            } else {
+                for s in &e.solids {
+                    if self.sel.contains(&Obj::Solid(s.id)) {
+                        b = b.union(&s.bounds);
+                    }
+                }
+            }
+        }
+        b
+    }
+
+    /// Anzahl der ausgewählten Brushes (auch die ausgewählter Brush-Entities), ohne Liste
+    pub fn sel_solid_count(&self) -> usize {
+        if self.sel.len() <= SMALL_SEL {
+            return self.sel.iter().map(|o| match o {
+                Obj::Solid(_) => 1,
+                Obj::Entity(id) => self.map.entity(*id).map(|e| e.solids.len()).unwrap_or(0),
+            }).sum();
+        }
+        self.map.solids_owned().filter(|(e, s)| self.is_selected_solid(e.map(|e| e.id), s.id)).count()
     }
 
     // ------------------------------------------------------------ Sichtbarkeit
@@ -1379,7 +1420,19 @@ pub fn mesh_file(vmf: &std::path::Path) -> std::path::PathBuf {
     }
 
     /// Alle ausgewählten Solid-IDs (inkl. Brushes ausgewählter Entities)
+    /// Die ausgewählten Brushes selbst (große Auswahl in einem Durchgang über die Map)
+    pub fn selected_solids(&self) -> Vec<&Solid> {
+        if self.sel.len() > SMALL_SEL {
+            return self.map.solids_owned().filter(|(e, s)| self.is_selected_solid(e.map(|e| e.id), s.id)).map(|(_, s)| s).collect();
+        }
+        self.selected_solid_ids().into_iter().filter_map(|id| self.map.solid(id)).collect()
+    }
+
     pub fn selected_solid_ids(&self) -> Vec<u32> {
+        if self.sel.len() > SMALL_SEL {
+            // ein Durchgang über die Map statt Nachschlagen je Entity
+            return self.map.solids_owned().filter(|(e, s)| self.is_selected_solid(e.map(|e| e.id), s.id)).map(|(_, s)| s.id).collect();
+        }
         let mut out = Vec::new();
         for o in &self.sel {
             match o {
@@ -1400,8 +1453,55 @@ pub fn mesh_file(vmf: &std::path::Path) -> std::path::PathBuf {
 
     // ------------------------------------------------------------ Transformieren
 
+    /// Alle ausgewählten Brushes und Entities ändern. Große Auswahl: ein Durchgang über die Map statt
+    /// Suche je Objekt (bei tausend Objekten sonst quadratisch, z. B. bei jedem Mausschritt beim Verschieben)
+    fn each_selected_mut(&mut self, mut fs: impl FnMut(&mut Solid), mut fe: impl FnMut(&mut Entity)) {
+        let sel = std::mem::take(&mut self.sel);
+        if sel.len() <= SMALL_SEL {
+            for o in &sel {
+                match o {
+                    Obj::Solid(id) => {
+                        if let Some(s) = self.map.solid_mut(*id) {
+                            fs(s);
+                        }
+                    }
+                    Obj::Entity(id) => {
+                        if let Some(e) = self.map.entity_mut(*id) {
+                            fe(e);
+                        }
+                    }
+                }
+            }
+        } else {
+            for s in self.map.world.solids.iter_mut() {
+                if sel.contains(&Obj::Solid(s.id)) {
+                    fs(&mut *s);
+                }
+            }
+            for e in self.map.entities.iter_mut() {
+                if sel.contains(&Obj::Entity(e.id)) {
+                    fe(&mut *e);
+                } else if e.solids.iter().any(|s| sel.contains(&Obj::Solid(s.id))) {
+                    for s in (&mut **e).solids.iter_mut() {
+                        if sel.contains(&Obj::Solid(s.id)) {
+                            fs(&mut *s);
+                        }
+                    }
+                }
+            }
+        }
+        self.sel = sel;
+    }
+
     pub fn translate_selection(&mut self, d: DVec3) {
         let tex_lock = self.tex_lock;
+        self.xlate_count += 1;
+        self.xlate_sum += d;
+        if self.sel.len() > SMALL_SEL {
+            self.each_selected_mut(|s| s.translate(d, tex_lock), |e| e.translate(d, tex_lock));
+            self.touch();
+            return;
+        }
         for o in self.sel.clone() {
             match o {
                 Obj::Solid(id) => {
@@ -1424,6 +1524,11 @@ pub fn mesh_file(vmf: &std::path::Path) -> std::path::PathBuf {
             return;
         }
         let (tl, sl) = (self.tex_lock, !scale_op || self.scale_lock);
+        if self.sel.len() > SMALL_SEL {
+            self.each_selected_mut(|s| s.transform(x, tl, sl), |e| e.transform(x, tl, sl));
+            self.touch();
+            return;
+        }
         for o in self.sel.clone() {
             match o {
                 Obj::Solid(id) => {

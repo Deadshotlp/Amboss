@@ -393,6 +393,18 @@ impl Solid {
                 disp.translate(d);
             }
         }
+        // ohne Displacements: Ebenen, Polygone und Grenzen einfach mitverschieben – das Schneiden der
+        // Ebenen neu zu rechnen kostet bei tausend verschobenen Brushes pro Mausschritt spürbar Zeit
+        if self.disps.iter().all(|g| g.is_none()) && !self.has_disp() && self.planes.len() == self.sides.len() && self.polys.len() == self.sides.len() && !self.bounds.is_empty() {
+            for pl in self.planes.iter_mut().flatten() {
+                pl.dist += pl.normal.dot(d);
+            }
+            for p in self.polys.iter_mut().flatten() {
+                *p += d;
+            }
+            self.bounds = Aabb::new(self.bounds.min + d, self.bounds.max + d);
+            return;
+        }
         self.update_geometry();
     }
 
@@ -665,7 +677,33 @@ impl Map {
         if let Some(i) = self.world.solids.iter().position(|s| s.id == id) {
             return Some(&mut *self.world.solids[i]);
         }
-        self.entities.iter_mut().flat_map(|e| e.solids.iter_mut()).find(|s| s.id == id).map(|s| &mut **s)
+        // erst lesend suchen: veränderlicher Zugriff kopiert eine geteilte Entity (Rückgängig/Abgleich)
+        let ei = self.entities.iter().position(|e| e.solids.iter().any(|s| s.id == id))?;
+        let e = &mut *self.entities[ei];
+        e.solids.iter_mut().find(|s| s.id == id).map(|s| &mut **s)
+    }
+
+    /// Alle Brushes ändern, auf die `pred` zutrifft. Nur diese (und ihre Entities) werden kopiert –
+    /// alles andere bleibt mit dem Rückgängig-Stand geteilt. Liefert die Anzahl.
+    pub fn solids_mut_where(&mut self, pred: impl Fn(&Solid) -> bool, mut f: impl FnMut(&mut Solid)) -> usize {
+        let mut n = 0;
+        for s in self.world.solids.iter_mut() {
+            if pred(s) {
+                f(&mut *s);
+                n += 1;
+            }
+        }
+        for e in self.entities.iter_mut() {
+            if e.solids.iter().any(|s| pred(s)) {
+                for s in (&mut **e).solids.iter_mut() {
+                    if pred(s) {
+                        f(&mut *s);
+                        n += 1;
+                    }
+                }
+            }
+        }
+        n
     }
 
     pub fn solid(&self, id: u32) -> Option<&Solid> {
@@ -1215,6 +1253,36 @@ impl Map {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn fast_translate_matches_full_rebuild() {
+        let mut map = Map::new();
+        // schräger Brush (Keil), damit nicht nur achsparallele Ebenen vorkommen
+        let pts = [DVec3::new(0.0, 0.0, 0.0), DVec3::new(128.0, 0.0, 0.0), DVec3::new(0.0, 96.0, 0.0), DVec3::new(128.0, 96.0, 0.0), DVec3::new(0.0, 0.0, 64.0), DVec3::new(0.0, 96.0, 64.0)];
+        let mut a = map.solid_from_points(&pts, "DEV/DEV_MEASUREGENERIC01B", 0.25).unwrap();
+        let mut b = a.clone();
+        let d = DVec3::new(37.5, -12.0, 8.25);
+        a.translate(d, true);
+        for sd in &mut b.sides {
+            for p in &mut sd.plane_pts {
+                *p += d;
+            }
+            sd.uaxis.shift -= d.dot(sd.uaxis.axis) / sd.uaxis.scale;
+            sd.vaxis.shift -= d.dot(sd.vaxis.axis) / sd.vaxis.scale;
+        }
+        b.update_geometry();
+        assert!((a.bounds.min - b.bounds.min).length() < 1e-6 && (a.bounds.max - b.bounds.max).length() < 1e-6);
+        for (pa, pb) in a.planes.iter().zip(&b.planes) {
+            let (pa, pb) = (pa.unwrap(), pb.unwrap());
+            assert!((pa.normal - pb.normal).length() < 1e-9 && (pa.dist - pb.dist).abs() < 1e-6);
+        }
+        for (qa, qb) in a.polys.iter().zip(&b.polys) {
+            assert_eq!(qa.len(), qb.len());
+            for (x, y) in qa.iter().zip(qb) {
+                assert!((*x - *y).length() < 1e-6, "{x} {y}");
+            }
+        }
+    }
 
     #[test]
     fn box_roundtrip() {
