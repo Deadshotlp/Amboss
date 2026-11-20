@@ -520,6 +520,7 @@ pub const BUILTIN_FGD: &[&str] = &[
     include_str!("../assets/fgd/amboss_point.fgd"),
     include_str!("../assets/fgd/amboss_actors.fgd"),
     include_str!("../assets/fgd/amboss_solid.fgd"),
+    include_str!("../assets/fgd/amboss_gamemodes.fgd"),
 ];
 
 #[cfg(test)]

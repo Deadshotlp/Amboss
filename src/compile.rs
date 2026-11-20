@@ -215,6 +215,8 @@ pub struct Settings {
     pub theme_dark: bool,
     /// Workshop-/Addon-Inhalte (.gma, addons/<name>) als Inhaltsquelle verwenden
     pub load_addons: bool,
+    /// Lua-Entities aus Addons und Gamemodes in die Entity-Liste aufnehmen
+    pub lua_entities: bool,
     /// Favorisierte und zuletzt benutzte Entity-Klassen (Klassen-Auswahl)
     pub fav_classes: Vec<String>,
     pub recent_classes: Vec<String>,
@@ -280,6 +282,7 @@ impl Default for Settings {
             setup_done: false,
             tutorial_done: Vec::new(),
             load_addons: true,
+            lua_entities: true,
             fav_classes: Vec::new(),
             recent_classes: Vec::new(),
             language: crate::i18n::Lang::from_system().code().into(),

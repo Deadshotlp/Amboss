@@ -1177,7 +1177,7 @@ Was zurückkommt	Что восстанавливается
 Spielordner mit gameinfo.txt	Папка игры с gameinfo.txt
 Compiler VBSP / VVIS / VRAD	Компиляторы VBSP / VVIS / VRAD
 Spiel (zum Testen der Map)	Игра (для проверки карты)
-Entity-Liste: eingebaut (456 Klassen)	Список энтити: встроенный (456 классов)
+Entity-Liste: eingebaut (476 Klassen)	Список энтити: встроенный (476 классов)
 Entity-Liste: garrysmod.fgd gefunden	Список энтити: найден garrysmod.fgd
 Willkommen bei Amboss	Добро пожаловать в Amboss
 Garry's Mod finden	Найти Garry's Mod
@@ -2433,3 +2433,75 @@ kein Bild	нет изображения
 Segmente	Сегменты
 Rohrdicke	Толщина трубы
 info_overlay: frei skalier- und drehbar, auch über mehrere Flächen	info_overlay: свободно масштабируется и поворачивается, в том числе на нескольких гранях
+(keiner)	(нет)
+Beim Speichern: Name mit {} beginnen	При сохранении: начинайте имя с {}
+Export fehlgeschlagen: {}	Ошибка экспорта: {}
+Exportieren (.glb, glTF mit Texturen)	Экспорт (.glb, glTF с текстурами)
+Exportiert: {} ({} Dreiecke, {} Materialien, Meter, Y nach oben)	Экспортировано: {} ({} треуг., {} материалов, метры, Y вверх)
+Gamemode wählen: die Liste zeigt, welche Entities die Map dafür braucht. Fertige Vorlagen gibt es unter Datei → Neu aus Vorlage.	Выберите режим игры: список показывает, какие сущности нужны карте. Готовые шаблоны — в Файл → Новая из шаблона.
+Gamemode	Режим игры
+Gamemode-Checkliste	Чек-лист режима игры
+Gamemode-Checkliste…	Чек-лист режима игры…
+Hinzufügen	Добавить
+Lua-Entities aus Addons und Gamemodes erkennen	Распознавать Lua-сущности из аддонов и режимов
+Lua-Entity	Lua-сущность
+Lua-Waffe	Lua-оружие
+Map-Name sollte mit {} beginnen	Имя карты должно начинаться с {}
+Ohne FGD erkannt; Schlüssel aus dem Lua-Code.	Распознано без FGD; ключи из Lua-кода.
+Scripted Entities und Waffen ohne FGD (lua/entities, lua/weapons, gamemodes/*/entities) erscheinen in der Entity-Liste – mit Name, Kategorie, Modell und den Schlüsseln aus dem Lua-Code. Eine echte FGD hat Vorrang.	Скриптовые сущности и оружие без FGD (lua/entities, lua/weapons, gamemodes/*/entities) появляются в списке – с именем, категорией, моделью и ключами из Lua-кода. Настоящий FGD имеет приоритет.
+Tipps	Советы
+aus {}	из {}
+empfohlen	рекомендуется
+{} Lua-Entities aus Addons und Gamemodes erkannt (Entity-Liste)	Распознано Lua-сущностей из аддонов и режимов: {} (список сущностей)
+{} × {} dort, wohin die 3D-Kamera schaut	{} × {} туда, куда смотрит 3D-камера
+{} × {} hinzugefügt – verteilen und ausrichten	Добавлено {} × {} – расставьте и разверните
+✔ Map-Name passt zum Gamemode	✔ Имя карты подходит режиму
+Unschuldige gegen versteckte Verräter. Braucht viele Spawnpunkte und verteilte Waffen.	Невиновные против скрытых предателей. Нужно много точек появления и разбросанное оружие.
+Ein Mörder, ein Zuschauer mit Waffe, alle anderen sammeln Beweise. Kleine, verwinkelte Maps.	Один убийца, один свидетель с оружием, остальные собирают улики. Маленькие запутанные карты.
+Props verstecken sich als Gegenstände, Jäger suchen sie. Braucht viele bewegliche Props.	Пропы прячутся под предметы, охотники ищут их. Нужно много подвижных пропов.
+Rollenspiel in einer Stadt: Häuser mit Türen zum Kaufen, viel Platz.	Ролевая игра в городе: дома с дверями для покупки, много места.
+Läufer rennen durch einen Fallen-Parcours, der Tod löst die Fallen mit Knöpfen aus.	Бегуны проходят полосу ловушек, Смерть включает их кнопками.
+Spawnpunkte	Точки появления
+Waffen	Оружие
+Munition	Патроны
+Map-Einstellungen	Настройки карты
+Verräter-Fallen	Ловушки предателей
+Spawnpunkte Jäger	Точки появления охотников
+Spawnpunkte Props	Точки появления пропов
+Physik-Props	Физические пропы
+Türen	Двери
+Spawnpunkte Läufer	Точки появления бегунов
+Spawnpunkte Tod	Точки появления Смерти
+Fallen-Knöpfe	Кнопки ловушек
+Schadens-Bereiche	Зоны урона
+Mindestens so viele wie Spieler auf dem Server; TTT nimmt alle Spawn-Arten.	Не меньше, чем игроков на сервере; TTT использует все виды точек.
+ttt_random_weapon oder feste TTT-Waffen, über die Map verteilt.	ttt_random_weapon или фиксированное оружие TTT по всей карте.
+ttt_random_ammo oder feste Munition neben den Waffen.	ttt_random_ammo или фиксированные патроны рядом с оружием.
+ttt_map_settings: Brechstange an Türen und Knöpfen, Spielermodell.	ttt_map_settings: монтировка для дверей и кнопок, модель игрока.
+ttt_traitor_button: nur Verräter sehen und benutzen ihn (z. B. für Fallen).	ttt_traitor_button: видят и используют только предатели (например, для ловушек).
+Verteilt, damit niemand neben dem Mörder startet.	Разбросаны, чтобы никто не появлялся рядом с убийцей.
+Jäger starten üblicherweise an info_player_counterterrorist.	Охотники обычно появляются на info_player_counterterrorist.
+Props starten üblicherweise an info_player_terrorist.	Пропы обычно появляются на info_player_terrorist.
+Viele verschiedene Gegenstände (Fässer, Kisten, Stühle …) zum Verwandeln.	Много разных предметов (бочки, ящики, стулья …) для превращения.
+Genug für volle Server; Spawns für einzelne Berufe legt man später auf dem Server fest.	Достаточно для полных серверов; точки для отдельных профессий задаются потом на сервере.
+Türen lassen sich in DarkRP kaufen und abschließen – Häuser, Läden, Wohnungen.	В DarkRP двери можно купить и запереть – дома, магазины, квартиры.
+Läufer starten üblicherweise an info_player_counterterrorist.	Бегуны обычно появляются на info_player_counterterrorist.
+Der Tod startet üblicherweise an info_player_terrorist.	Смерть обычно появляется на info_player_terrorist.
+func_button für den Tod, verbunden mit den Fallen.	func_button для Смерти, связанные с ловушками.
+trigger_hurt in Gruben und Fallen.	trigger_hurt в ямах и ловушках.
+Den Map-Namen mit ttt_ beginnen, sonst taucht sie in der Map-Auswahl vieler Server nicht auf.	Начинайте имя с ttt_, иначе карта не появится в голосовании многих серверов.
+Mehrere Wege und Verstecke; Lüftungsschächte und Fallen machen Verräter-Runden spannend.	Несколько путей и укрытий; вентиляция и ловушки делают раунды предателей интересными.
+Beute-Plätze (Loot) gehören nicht in die Map – sie werden im Spiel festgelegt und auf dem Server gespeichert.	Места добычи не входят в карту – их задают в игре и хранят на сервере.
+Dunkle Ecken, Türen und mehrere Wege; offene Flächen sind für den Mörder schwer.	Тёмные углы, двери и несколько путей; открытые места трудны для убийцы.
+Den Map-Namen mit ph_ beginnen.	Начинайте имя карты с ph_.
+Props in passenden Größen mischen; zu große Props verraten sich.	Смешивайте пропы подходящих размеров; слишком большие выдают себя.
+Den Map-Namen mit rp_ beginnen.	Начинайте имя карты с rp_.
+Gefängnis, Polizeiwache und Spawn-Bereich vorsehen; Positionen dafür werden im Spiel gesetzt.	Предусмотрите тюрьму, полицию и зону появления; их позиции задаются в игре.
+Den Map-Namen mit deathrun_ beginnen.	Начинайте имя карты с deathrun_.
+Am Ende ein Bereich, in dem die Läufer gegen den Tod kämpfen können.	В конце – зона, где бегуны могут сразиться со Смертью.
+TTT (Trouble in Terrorist Town)	TTT (Trouble in Terrorist Town)
+Halle mit 16 Spawnpunkten, zufälligen Waffen und Munition, Map-Einstellungen und einem Verräter-Knopf; Checkliste unter Map → Gamemode-Checkliste.	Зал с 16 точками появления, случайным оружием и патронами, настройками карты и кнопкой предателя; чек-лист: Карта → Чек-лист режима игры.
+Halle mit 12 verteilten Spawnpunkten.	Зал с 12 разбросанными точками появления.
+Halle mit Spawnpunkten für Jäger und Props und 25 Physik-Props zum Verwandeln.	Зал с точками появления охотников и пропов и 25 физическими пропами.
+Halle mit 16 Spawnpunkten und zehn kleinen Häusern mit Türen.	Зал с 16 точками появления и десятью домиками с дверями.
+Halle mit Läufer- und Tod-Spawns, einer Grube mit trigger_hurt und drei Fallen-Knöpfen.	Зал с точками бегунов и Смерти, ямой с trigger_hurt и тремя кнопками ловушек.

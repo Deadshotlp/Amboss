@@ -204,8 +204,8 @@ Optimierung und Fehlersuche
 GMod
 - [x] ★ Workshop-Upload aus Amboss (0.12.0) (gmad + gmpublish) mit Addon-Liste – M
 - [x] ★ Workshop-Vorschaubild aus der 3D-Kamera rendern (0.12.0) – S
-- [ ] Gamemode-Vorlagen mit Checkliste (TTT, Murder, Prop Hunt, DarkRP, Deathrun) – S–M
-- [ ] Lua-Entities aus Addons erkennen (Scripted Entities ohne FGD) – M
+- [x] Gamemode-Vorlagen mit Checkliste (TTT, Murder, Prop Hunt, DarkRP, Deathrun) (0.15.0; Map → Gamemode-Checkliste, Vorlagen unter Neu aus Vorlage) – S–M
+- [x] Lua-Entities aus Addons erkennen (Scripted Entities ohne FGD) (0.15.0; lua/entities, lua/weapons, gamemodes/*/entities, auch in .gma) – M
 - [ ] Visueller Logik-Editor: Ein-/Ausgänge als Knoten verbinden – M
 
 Zusammenarbeit und Arbeitsablauf
@@ -216,6 +216,6 @@ Zusammenarbeit und Arbeitsablauf
 - [ ] Plugin-Verwaltung für Lua-Skripte – M
 
 Export und Präsentation
-- [ ] glTF-Export mit Texturen – S–M
+- [x] glTF-Export mit Texturen (0.15.0; .glb mit PNG-Texturen, Meter, Y oben; Props/Modelle noch nicht) – S–M
 - [x] Hochauflösende Screenshots und 360°-Panoramen (0.14.0; bis 7680 × 4320 mit Kantenglättung, Panorama bis 8192 × 4096) – S
 - [ ] Kamerafahrt als Video – M

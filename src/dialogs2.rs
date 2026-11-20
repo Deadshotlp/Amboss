@@ -32,6 +32,7 @@ impl App {
         self.class_picker_popover(ctx);
         self.outliner_window(ctx);
         self.notes_window(ctx);
+        self.gamemode_window(ctx);
         self.decal_gen_window(ctx);
         self.shot_window(ctx);
         self.history_window(ctx);

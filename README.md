@@ -1,6 +1,6 @@
 # Amboss – Map editor for Source 1 / Garry's Mod
 
-**Version 0.14.1** – shown next to the logo, in the window title and under Help → About Amboss. See `CHANGELOG.md` for what's new (the changelog is in German).
+**Version 0.15.0** – shown next to the logo, in the window title and under Help → About Amboss. See `CHANGELOG.md` for what's new (the changelog is in German).
 
 Amboss is a standalone level editor written in **Rust**, inspired by Hammer/Hammer++.
 It edits **VMF files**, shows the real **textures and models from the GMod/HL2 VPKs** and
@@ -81,6 +81,7 @@ Textured (incl. **blend textures** WorldVertexTransition mixed via displacement 
 * **Bezier patch** – bend a displacement smoothly with 16 control points.
 * Overlays on displacements follow the surface in the 3D view, as in game.
 * **Particle preview** – `info_particle_system` plays its effect in the 3D view (View → "Play particle effects").
+* **glTF export** (File → Export → .glb) – the map or the selection with embedded PNG textures, in metres with Y up, for Blender, Unity, Unreal or Godot (brushes and displacements; tool textures are left out).
 * **Decal/overlay from an image** (Tools menu, File → Import, or the button in the Decal/Overlay tool) – PNG with transparency or JPEG becomes a ready decal material (VTF + VMT with `$decal` and `$decalscale`) in the size you choose in units; transparent borders can be trimmed. The decal or overlay tool is then active with the new material.
 
 ### Testing and live sync
@@ -89,10 +90,12 @@ Textured (incl. **blend textures** WorldVertexTransition mixed via displacement 
 * **Live sync** (Compile → "Live sync with the game…") – changes appear instantly in the running game: move and edit entities, new props/entities, deleting, new brushes as a walkable preview, fire inputs, bring the player to the camera or let the camera follow the player. Click "Install bridge" once (creates `addons/amboss_live`) and restart GMod; data is exchanged through `garrysmod/data/amboss_live/`, single player or your own listen server only. The console command `amboss_live_status` shows whether the bridge is running.
 
 ### Entities
-**456 entity classes built in** (func_, prop_, npc_, trigger_, logic_, env_, info_, point_, filter_, game_, item_, weapon_, ai_, path_, phys_ … with keys, inputs/outputs and descriptions); a real `garrysmod.fgd` is found automatically and takes precedence · **class field with suggestions while typing** and an arrow to the **class picker** (search, favourites, recently used, groups by prefix, keyboard) · **tie to entity** (Ctrl+T) as a dialog · **sound browser with playback** (Windows), **model browser with rotatable 3D preview and textured thumbnails** (button next to every model field, also when several entities are selected – "Apply" sets the model on all of them), **particle browser** (.pcf) · FGD parser (`garrysmod.fgd` incl. `@include`; base classes and entities with the same name, like Valve's `Light`/`light`, are kept apart) · choice lists, colour picker (lights: colour + separate brightness field), spawnflags · **angle compass** · **eyedropper** and name list for targets · **outputs with validation** (red = target missing, orange = unknown input), **suggestions for targets** (names from the map with class, and `!activator`/`!player` …, arrow keys + Enter/Tab) and input selection · incoming connections · **multi-editing** · **copy/paste properties** (Ctrl+Alt+C / V) · help per class · **logical view** (entity I/O as a diagram) · **movement preview** for selected doors/buttons (func_door, func_button, func_movelinear: arrow + end position; func_door_rotating, prop_door_rotating: swing arc + opened door, both directions for doors that open both ways) · model browser directly at the model field (folder button, current model preselected, "Apply" puts it in)
+**476 entity classes built in** (func_, prop_, npc_, trigger_, logic_, env_, info_, point_, filter_, game_, item_, weapon_, ai_, path_, phys_, TTT entities … with keys, inputs/outputs and descriptions); a real `garrysmod.fgd` is found automatically and takes precedence · **Lua entities from addons and gamemodes** (`lua/entities`, `lua/weapons`, `gamemodes/*/entities`, also inside Workshop `.gma`) appear in the entity list without an FGD – with name, category, model, keys from `ENT:KeyValue`, inputs from `ENT:AcceptInput` and outputs from `TriggerOutput` (Settings → Game & paths) · **class field with suggestions while typing** and an arrow to the **class picker** (search, favourites, recently used, groups by prefix, keyboard) · **tie to entity** (Ctrl+T) as a dialog · **sound browser with playback** (Windows), **model browser with rotatable 3D preview and textured thumbnails** (button next to every model field, also when several entities are selected – "Apply" sets the model on all of them), **particle browser** (.pcf) · FGD parser (`garrysmod.fgd` incl. `@include`; base classes and entities with the same name, like Valve's `Light`/`light`, are kept apart) · choice lists, colour picker (lights: colour + separate brightness field), spawnflags · **angle compass** · **eyedropper** and name list for targets · **outputs with validation** (red = target missing, orange = unknown input), **suggestions for targets** (names from the map with class, and `!activator`/`!player` …, arrow keys + Enter/Tab) and input selection · incoming connections · **multi-editing** · **copy/paste properties** (Ctrl+Alt+C / V) · help per class · **logical view** (entity I/O as a diagram) · **movement preview** for selected doors/buttons (func_door, func_button, func_movelinear: arrow + end position; func_door_rotating, prop_door_rotating: swing arc + opened door, both directions for doors that open both ways) · model browser directly at the model field (folder button, current model preselected, "Apply" puts it in)
 Before compiling, missing keys are filled in with their FGD defaults (as Hammer does when creating an entity) – e.g. a `light` without `_light` would otherwise be black.
 
 ### Map
+**Gamemode checklist** (Map → Gamemode checklist…) for TTT, Murder, Prop Hunt, DarkRP and Deathrun – shows what the map still needs (spawn points per team, weapons and ammo, physics props, doors, trap buttons …) with an "Add" button and the usual map name prefix; ready-made **gamemode templates** under File → New from template.
+
 **Notes** (Map → Pin note, Ctrl+Shift+N; Map → Notes… lists them) – pin text to a spot in the map: a yellow pin with the first line in 2D and 3D, the full text when selected, editable in the panel. Stored as `info_null` with the key `amboss_note` – VBSP removes it when compiling, Hammer still opens the map, and in a live session everyone sees the notes.
 
 **What's new** after an update (once, patch notes of all skipped versions; Help → What's new) · **compile errors explained** ("What does this mean?" in the compile dialog: leak, engine limits, missing textures/models, broken brushes … with fix and buttons) · **open Hammer 3.x/Worldcraft `.rmf` and Quake/Valve `.map`** directly · **lightmap density** view (colours by lightmap scale, estimated lighting data size) ·
@@ -338,6 +341,9 @@ src/
   notes.rs       Notes pinned in the map (info_null with amboss_note), notes list
   decal_gen.rs   Decal/overlay material from an image (trim, VTF, VMT with $decalscale)
   screenshot.rs  High-resolution screenshots and 360° panoramas (offscreen rendering, cube → equirectangular)
+  gamemode.rs    Gamemode checklist and templates (TTT, Murder, Prop Hunt, DarkRP, Deathrun)
+  lua_ents.rs    Lua entities/weapons from addons and gamemodes → entity list
+  gltf_export.rs glTF (.glb) export with embedded textures
   sky_ui.rs      View filters (Show) and 3D skybox mode
   templates.rs   Templates for new maps, start page
   theme.rs       Dark/light colour schemes, fonts, UI building blocks

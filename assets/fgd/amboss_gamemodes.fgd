@@ -1,0 +1,58 @@
+// Amboss: Entities von Gamemodes, die in Maps vorkommen (Trouble in Terrorist Town u. a.)
+// Eigene, kurze Beschreibungen; maßgeblich ist die FGD des jeweiligen Gamemodes, falls vorhanden.
+
+@PointClass base(Targetname, Angles) studio("models/weapons/w_rif_ak47.mdl") color(255 200 0) = ttt_random_weapon : "TTT: Zufällige Waffe beim Rundenstart." [
+	auto_ammo(choices) : "Munition dazu" : 0 = [ 0 : "Keine" 1 : "1 Packung" 2 : "2 Packungen" 3 : "3 Packungen" ]
+]
+@PointClass base(Targetname, Angles) studio("models/items/boxsrounds.mdl") color(255 200 0) = ttt_random_ammo : "TTT: Zufällige Munition beim Rundenstart." []
+@PointClass base(Targetname) iconsprite("editor/logic_auto.vmt") color(200 0 0) = ttt_map_settings : "TTT: Einstellungen der Map (Brechstange an Türen/Knöpfen, Spielermodell, Requisiten-Zuschauer)." [
+	cbar_doors(choices) : "Brechstange öffnet Türen" : 0 = [ 0 : "Ja" 1 : "Nein" ]
+	cbar_buttons(choices) : "Brechstange drückt Knöpfe" : 0 = [ 0 : "Ja" 1 : "Nein" ]
+	cbar_other(choices) : "Brechstange öffnet anderes" : 0 = [ 0 : "Ja" 1 : "Nein" ]
+	plymodel(studio) : "Spielermodell" : ""
+	propspec_named(choices) : "Benannte Props als Zuschauer steuerbar" : 0 = [ 0 : "Ja" 1 : "Nein" ]
+	output MapSettingsSpawned(void) : "Einstellungen geladen"
+	output RoundPreparation(void) : "Vorbereitung beginnt"
+	output RoundStart(void) : "Runde beginnt"
+	output RoundEnd(integer) : "Runde endet (Gewinner)"
+]
+@PointClass base(Targetname, Angles) iconsprite("editor/logic_relay.vmt") color(200 0 0) = ttt_traitor_button : "TTT: Knopf nur für Verräter (z. B. Fallen), wird ihnen am Bildschirm angezeigt." [
+	description(string) : "Beschreibung" : "?"
+	wait(integer) : "Wartezeit (Sekunden, -1 = einmalig)" : 15
+	distance(integer) : "Reichweite" : 1024
+	RemoveOnPress(choices) : "Nach dem Drücken entfernen" : 0 = [ 0 : "Nein" 1 : "Ja" ]
+	spawnflags(flags) = [ 2048 : "Anfangs gesperrt" : 0 ]
+	input Lock(void) : "Sperren"
+	input Unlock(void) : "Entsperren"
+	input Toggle(void) : "Sperre umschalten"
+	input Press(void) : "Auslösen"
+	output OnPressed(void) : "Beim Drücken"
+]
+@PointClass base(Targetname) iconsprite("editor/logic_branch.vmt") color(200 0 0) = ttt_logic_role : "TTT: Prüft die Rolle des Auslösers (Verräter, Unschuldig, Detektiv)." [
+	Role(choices) : "Rolle" : -1 = [ -1 : "Jede" 0 : "Unschuldig" 1 : "Verräter" 2 : "Detektiv" ]
+	input TestActivator(void) : "Auslöser prüfen"
+	output OnPass(void) : "Rolle passt"
+	output OnFail(void) : "Rolle passt nicht"
+]
+@PointClass base(Targetname) iconsprite("editor/game_end.vmt") color(200 0 0) = ttt_win : "TTT: Beendet die Runde mit einem Sieger." [
+	input TraitorWin(void) : "Verräter gewinnen"
+	input InnocentWin(void) : "Unschuldige gewinnen"
+]
+@SolidClass base(Targetname) = ttt_traitor_check : "TTT: Zählt Spieler in diesem Bereich (z. B. Verräter-Prüfer)." [
+	output TraitorsFound(integer) : "Anzahl Verräter im Bereich"
+]
+
+// TTT-Waffen und -Munition (feste Plätze statt Zufall)
+@PointClass base(Targetname, Angles) studio("models/weapons/w_shot_xm1014.mdl") color(255 200 0) = weapon_zm_shotgun : "TTT: Schrotflinte." []
+@PointClass base(Targetname, Angles) studio("models/weapons/w_smg_mac10.mdl") color(255 200 0) = weapon_zm_mac10 : "TTT: MAC-10." []
+@PointClass base(Targetname, Angles) studio("models/weapons/w_pist_fiveseven.mdl") color(255 200 0) = weapon_zm_pistol : "TTT: Pistole." []
+@PointClass base(Targetname, Angles) studio("models/weapons/w_pist_deagle.mdl") color(255 200 0) = weapon_zm_revolver : "TTT: Deagle." []
+@PointClass base(Targetname, Angles) studio("models/weapons/w_snip_scout.mdl") color(255 200 0) = weapon_zm_rifle : "TTT: Gewehr mit Zielfernrohr." []
+@PointClass base(Targetname, Angles) studio("models/weapons/w_mach_m249para.mdl") color(255 200 0) = weapon_zm_sledge : "TTT: H.U.G.E-249 (Maschinengewehr)." []
+@PointClass base(Targetname, Angles) studio("models/weapons/w_rif_m4a1.mdl") color(255 200 0) = weapon_ttt_m16 : "TTT: M16." []
+@PointClass base(Targetname, Angles) studio("models/weapons/w_pist_glock18.mdl") color(255 200 0) = weapon_ttt_glock : "TTT: Glock." []
+@PointClass base(Targetname, Angles) studio("models/items/boxsrounds.mdl") color(255 200 0) = item_ammo_pistol_ttt : "TTT: Pistolenmunition." []
+@PointClass base(Targetname, Angles) studio("models/items/boxmrounds.mdl") color(255 200 0) = item_ammo_smg1_ttt : "TTT: MP-Munition." []
+@PointClass base(Targetname, Angles) studio("models/items/boxbuckshot.mdl") color(255 200 0) = item_box_buckshot_ttt : "TTT: Schrotmunition." []
+@PointClass base(Targetname, Angles) studio("models/items/357ammo.mdl") color(255 200 0) = item_ammo_357_ttt : "TTT: Gewehrmunition." []
+@PointClass base(Targetname, Angles) studio("models/items/357ammo.mdl") color(255 200 0) = item_ammo_revolver_ttt : "TTT: Deagle-Munition." []

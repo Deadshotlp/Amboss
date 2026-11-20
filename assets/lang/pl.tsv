@@ -1177,7 +1177,7 @@ Was zurückkommt	Co da się odzyskać
 Spielordner mit gameinfo.txt	Folder gry z gameinfo.txt
 Compiler VBSP / VVIS / VRAD	Kompilatory VBSP / VVIS / VRAD
 Spiel (zum Testen der Map)	Gra (do testowania mapy)
-Entity-Liste: eingebaut (456 Klassen)	Lista encji: wbudowana (456 klas)
+Entity-Liste: eingebaut (476 Klassen)	Lista encji: wbudowana (476 klas)
 Entity-Liste: garrysmod.fgd gefunden	Lista encji: znaleziono garrysmod.fgd
 Willkommen bei Amboss	Witaj w Amboss
 Garry's Mod finden	Znajdź Garry's Mod
@@ -2433,3 +2433,75 @@ kein Bild	brak obrazu
 Segmente	Segmenty
 Rohrdicke	Grubość rury
 info_overlay: frei skalier- und drehbar, auch über mehrere Flächen	info_overlay: dowolnie skalowalny i obracalny, także na kilku ścianach
+(keiner)	(brak)
+Beim Speichern: Name mit {} beginnen	Przy zapisie: nazwa zaczyna się od {}
+Export fehlgeschlagen: {}	Eksport nie powiódł się: {}
+Exportieren (.glb, glTF mit Texturen)	Eksportuj (.glb, glTF z teksturami)
+Exportiert: {} ({} Dreiecke, {} Materialien, Meter, Y nach oben)	Wyeksportowano: {} ({} trójkątów, {} materiałów, metry, Y w górę)
+Gamemode wählen: die Liste zeigt, welche Entities die Map dafür braucht. Fertige Vorlagen gibt es unter Datei → Neu aus Vorlage.	Wybierz tryb gry: lista pokazuje, jakich encji potrzebuje mapa. Gotowe szablony są w Plik → Nowa z szablonu.
+Gamemode	Tryb gry
+Gamemode-Checkliste	Lista kontrolna trybu gry
+Gamemode-Checkliste…	Lista kontrolna trybu gry…
+Hinzufügen	Dodaj
+Lua-Entities aus Addons und Gamemodes erkennen	Wykrywaj encje Lua z dodatków i trybów gry
+Lua-Entity	Encja Lua
+Lua-Waffe	Broń Lua
+Map-Name sollte mit {} beginnen	Nazwa mapy powinna zaczynać się od {}
+Ohne FGD erkannt; Schlüssel aus dem Lua-Code.	Wykryto bez FGD; klucze z kodu Lua.
+Scripted Entities und Waffen ohne FGD (lua/entities, lua/weapons, gamemodes/*/entities) erscheinen in der Entity-Liste – mit Name, Kategorie, Modell und den Schlüsseln aus dem Lua-Code. Eine echte FGD hat Vorrang.	Encje skryptowe i bronie bez FGD (lua/entities, lua/weapons, gamemodes/*/entities) pojawiają się na liście – z nazwą, kategorią, modelem i kluczami z kodu Lua. Prawdziwy FGD ma pierwszeństwo.
+Tipps	Wskazówki
+aus {}	z {}
+empfohlen	zalecane
+{} Lua-Entities aus Addons und Gamemodes erkannt (Entity-Liste)	Wykryto {} encji Lua z dodatków i trybów gry (lista encji)
+{} × {} dort, wohin die 3D-Kamera schaut	{} × {} tam, gdzie patrzy kamera 3D
+{} × {} hinzugefügt – verteilen und ausrichten	Dodano {} × {} – rozmieść i obróć
+✔ Map-Name passt zum Gamemode	✔ Nazwa mapy pasuje do trybu gry
+Unschuldige gegen versteckte Verräter. Braucht viele Spawnpunkte und verteilte Waffen.	Niewinni kontra ukryci zdrajcy. Potrzeba wielu punktów odrodzenia i rozrzuconej broni.
+Ein Mörder, ein Zuschauer mit Waffe, alle anderen sammeln Beweise. Kleine, verwinkelte Maps.	Jeden morderca, jeden świadek z bronią, reszta zbiera dowody. Małe, kręte mapy.
+Props verstecken sich als Gegenstände, Jäger suchen sie. Braucht viele bewegliche Props.	Propy chowają się jako przedmioty, łowcy ich szukają. Potrzeba wielu ruchomych propów.
+Rollenspiel in einer Stadt: Häuser mit Türen zum Kaufen, viel Platz.	Odgrywanie ról w mieście: domy z drzwiami do kupienia, dużo miejsca.
+Läufer rennen durch einen Fallen-Parcours, der Tod löst die Fallen mit Knöpfen aus.	Biegacze przebiegają tor z pułapkami, Śmierć uruchamia je przyciskami.
+Spawnpunkte	Punkty odrodzenia
+Waffen	Broń
+Munition	Amunicja
+Map-Einstellungen	Ustawienia mapy
+Verräter-Fallen	Pułapki zdrajców
+Spawnpunkte Jäger	Punkty odrodzenia łowców
+Spawnpunkte Props	Punkty odrodzenia propów
+Physik-Props	Propy fizyczne
+Türen	Drzwi
+Spawnpunkte Läufer	Punkty odrodzenia biegaczy
+Spawnpunkte Tod	Punkty odrodzenia Śmierci
+Fallen-Knöpfe	Przyciski pułapek
+Schadens-Bereiche	Strefy obrażeń
+Mindestens so viele wie Spieler auf dem Server; TTT nimmt alle Spawn-Arten.	Co najmniej tyle, ilu graczy na serwerze; TTT używa wszystkich rodzajów punktów.
+ttt_random_weapon oder feste TTT-Waffen, über die Map verteilt.	ttt_random_weapon lub stałe bronie TTT rozmieszczone na mapie.
+ttt_random_ammo oder feste Munition neben den Waffen.	ttt_random_ammo lub stała amunicja obok broni.
+ttt_map_settings: Brechstange an Türen und Knöpfen, Spielermodell.	ttt_map_settings: łom na drzwiach i przyciskach, model gracza.
+ttt_traitor_button: nur Verräter sehen und benutzen ihn (z. B. für Fallen).	ttt_traitor_button: widzą go i używają tylko zdrajcy (np. do pułapek).
+Verteilt, damit niemand neben dem Mörder startet.	Rozrzucone, żeby nikt nie startował obok mordercy.
+Jäger starten üblicherweise an info_player_counterterrorist.	Łowcy zwykle startują w info_player_counterterrorist.
+Props starten üblicherweise an info_player_terrorist.	Propy zwykle startują w info_player_terrorist.
+Viele verschiedene Gegenstände (Fässer, Kisten, Stühle …) zum Verwandeln.	Wiele różnych przedmiotów (beczki, skrzynie, krzesła …) do zamiany.
+Genug für volle Server; Spawns für einzelne Berufe legt man später auf dem Server fest.	Wystarczająco dla pełnych serwerów; punkty dla poszczególnych zawodów ustawia się później na serwerze.
+Türen lassen sich in DarkRP kaufen und abschließen – Häuser, Läden, Wohnungen.	W DarkRP drzwi można kupić i zamknąć – domy, sklepy, mieszkania.
+Läufer starten üblicherweise an info_player_counterterrorist.	Biegacze zwykle startują w info_player_counterterrorist.
+Der Tod startet üblicherweise an info_player_terrorist.	Śmierć zwykle startuje w info_player_terrorist.
+func_button für den Tod, verbunden mit den Fallen.	func_button dla Śmierci, połączony z pułapkami.
+trigger_hurt in Gruben und Fallen.	trigger_hurt w dołach i pułapkach.
+Den Map-Namen mit ttt_ beginnen, sonst taucht sie in der Map-Auswahl vieler Server nicht auf.	Zacznij nazwę od ttt_, inaczej mapa nie pojawi się w głosowaniu na wielu serwerach.
+Mehrere Wege und Verstecke; Lüftungsschächte und Fallen machen Verräter-Runden spannend.	Kilka dróg i kryjówek; szyby wentylacyjne i pułapki ożywiają rundy zdrajców.
+Beute-Plätze (Loot) gehören nicht in die Map – sie werden im Spiel festgelegt und auf dem Server gespeichert.	Miejsca łupów nie trafiają do mapy – ustawia się je w grze i zapisuje na serwerze.
+Dunkle Ecken, Türen und mehrere Wege; offene Flächen sind für den Mörder schwer.	Ciemne kąty, drzwi i kilka dróg; otwarte przestrzenie są trudne dla mordercy.
+Den Map-Namen mit ph_ beginnen.	Zacznij nazwę mapy od ph_.
+Props in passenden Größen mischen; zu große Props verraten sich.	Mieszaj propy odpowiednich rozmiarów; zbyt duże się zdradzają.
+Den Map-Namen mit rp_ beginnen.	Zacznij nazwę mapy od rp_.
+Gefängnis, Polizeiwache und Spawn-Bereich vorsehen; Positionen dafür werden im Spiel gesetzt.	Zaplanuj więzienie, posterunek i strefę odrodzenia; ich pozycje ustawia się w grze.
+Den Map-Namen mit deathrun_ beginnen.	Zacznij nazwę mapy od deathrun_.
+Am Ende ein Bereich, in dem die Läufer gegen den Tod kämpfen können.	Na końcu strefa, w której biegacze mogą walczyć ze Śmiercią.
+TTT (Trouble in Terrorist Town)	TTT (Trouble in Terrorist Town)
+Halle mit 16 Spawnpunkten, zufälligen Waffen und Munition, Map-Einstellungen und einem Verräter-Knopf; Checkliste unter Map → Gamemode-Checkliste.	Hala z 16 punktami odrodzenia, losową bronią i amunicją, ustawieniami mapy i przyciskiem zdrajcy; lista w Mapa → Lista kontrolna trybu gry.
+Halle mit 12 verteilten Spawnpunkten.	Hala z 12 rozrzuconymi punktami odrodzenia.
+Halle mit Spawnpunkten für Jäger und Props und 25 Physik-Props zum Verwandeln.	Hala z punktami odrodzenia łowców i propów oraz 25 propami fizycznymi.
+Halle mit 16 Spawnpunkten und zehn kleinen Häusern mit Türen.	Hala z 16 punktami odrodzenia i dziesięcioma domkami z drzwiami.
+Halle mit Läufer- und Tod-Spawns, einer Grube mit trigger_hurt und drei Fallen-Knöpfen.	Hala z punktami biegaczy i Śmierci, dołem z trigger_hurt i trzema przyciskami pułapek.

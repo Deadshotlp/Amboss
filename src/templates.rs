@@ -116,6 +116,11 @@ pub const TEMPLATES: &[Template] = &[
             ent(ed, "light", [256.0, 0.0, 160.0], &[("_light", "220 230 255 300")]);
         },
     },
+    Template { id: "gm_ttt", name: "TTT (Trouble in Terrorist Town)", description: "Halle mit 16 Spawnpunkten, zufälligen Waffen und Munition, Map-Einstellungen und einem Verräter-Knopf; Checkliste unter Map → Gamemode-Checkliste.", build: |ed| crate::gamemode::build_template(ed, "ttt") },
+    Template { id: "gm_murder", name: "Murder", description: "Halle mit 12 verteilten Spawnpunkten.", build: |ed| crate::gamemode::build_template(ed, "murder") },
+    Template { id: "gm_prophunt", name: "Prop Hunt", description: "Halle mit Spawnpunkten für Jäger und Props und 25 Physik-Props zum Verwandeln.", build: |ed| crate::gamemode::build_template(ed, "prophunt") },
+    Template { id: "gm_darkrp", name: "DarkRP", description: "Halle mit 16 Spawnpunkten und zehn kleinen Häusern mit Türen.", build: |ed| crate::gamemode::build_template(ed, "darkrp") },
+    Template { id: "gm_deathrun", name: "Deathrun", description: "Halle mit Läufer- und Tod-Spawns, einer Grube mit trigger_hurt und drei Fallen-Knöpfen.", build: |ed| crate::gamemode::build_template(ed, "deathrun") },
 ];
 
 /// Editor mit einer Vorlage füllen (ohne Rückgängig-Verlauf)
@@ -616,7 +621,7 @@ mod tests {
             assert!(ed.map.all_solids().all(|(_, s)| s.is_valid()), "{}", t.id);
             crate::map::Map::from_vmf(&ed.map.to_vmf()).unwrap();
             if t.id != "leer" {
-                assert!(ed.map.entities.iter().any(|e| e.classname() == "info_player_start"), "{}", t.id);
+                assert!(ed.map.entities.iter().any(|e| e.classname().starts_with("info_player_")), "{}", t.id);
                 // abgedichtet?
                 let r = crate::optimize::run(&mut crate::optimize::build_copy(&ed, ed.map.clone()), &crate::optimize::OptSettings { ai_nodes: false, cubemaps: false, ..Default::default() }, None, None);
                 assert!(r.leak.is_none(), "{} hat ein Leck", t.id);

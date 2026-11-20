@@ -1177,7 +1177,7 @@ Was zurückkommt	Qué se recupera
 Spielordner mit gameinfo.txt	Carpeta del juego con gameinfo.txt
 Compiler VBSP / VVIS / VRAD	Compiladores VBSP / VVIS / VRAD
 Spiel (zum Testen der Map)	Juego (para probar el mapa)
-Entity-Liste: eingebaut (456 Klassen)	Lista de entidades: integrada (456 clases)
+Entity-Liste: eingebaut (476 Klassen)	Lista de entidades: integrada (476 clases)
 Entity-Liste: garrysmod.fgd gefunden	Lista de entidades: garrysmod.fgd encontrado
 Willkommen bei Amboss	Bienvenido a Amboss
 Garry's Mod finden	Buscar Garry's Mod
@@ -2433,3 +2433,75 @@ kein Bild	sin imagen
 Segmente	Segmentos
 Rohrdicke	Grosor del tubo
 info_overlay: frei skalier- und drehbar, auch über mehrere Flächen	info_overlay: escalable y girable libremente, también sobre varias caras
+(keiner)	(ninguno)
+Beim Speichern: Name mit {} beginnen	Al guardar: empieza el nombre con {}
+Export fehlgeschlagen: {}	Error al exportar: {}
+Exportieren (.glb, glTF mit Texturen)	Exportar (.glb, glTF con texturas)
+Exportiert: {} ({} Dreiecke, {} Materialien, Meter, Y nach oben)	Exportado: {} ({} triángulos, {} materiales, metros, Y arriba)
+Gamemode wählen: die Liste zeigt, welche Entities die Map dafür braucht. Fertige Vorlagen gibt es unter Datei → Neu aus Vorlage.	Elige un modo de juego: la lista muestra qué entidades necesita el mapa. Hay plantillas listas en Archivo → Nuevo desde plantilla.
+Gamemode	Modo de juego
+Gamemode-Checkliste	Lista de comprobación del modo de juego
+Gamemode-Checkliste…	Lista de comprobación del modo de juego…
+Hinzufügen	Añadir
+Lua-Entities aus Addons und Gamemodes erkennen	Detectar entidades Lua de addons y modos de juego
+Lua-Entity	Entidad Lua
+Lua-Waffe	Arma Lua
+Map-Name sollte mit {} beginnen	El nombre del mapa debería empezar por {}
+Ohne FGD erkannt; Schlüssel aus dem Lua-Code.	Detectado sin FGD; claves del código Lua.
+Scripted Entities und Waffen ohne FGD (lua/entities, lua/weapons, gamemodes/*/entities) erscheinen in der Entity-Liste – mit Name, Kategorie, Modell und den Schlüsseln aus dem Lua-Code. Eine echte FGD hat Vorrang.	Las entidades con script y armas sin FGD (lua/entities, lua/weapons, gamemodes/*/entities) aparecen en la lista – con nombre, categoría, modelo y las claves del código Lua. Una FGD real tiene prioridad.
+Tipps	Consejos
+aus {}	de {}
+empfohlen	recomendado
+{} Lua-Entities aus Addons und Gamemodes erkannt (Entity-Liste)	{} entidades Lua detectadas en addons y modos de juego (lista de entidades)
+{} × {} dort, wohin die 3D-Kamera schaut	{} × {} donde mira la cámara 3D
+{} × {} hinzugefügt – verteilen und ausrichten	{} × {} añadidos – repártelos y oriéntalos
+✔ Map-Name passt zum Gamemode	✔ El nombre del mapa encaja con el modo de juego
+Unschuldige gegen versteckte Verräter. Braucht viele Spawnpunkte und verteilte Waffen.	Inocentes contra traidores ocultos. Necesita muchos puntos de aparición y armas repartidas.
+Ein Mörder, ein Zuschauer mit Waffe, alle anderen sammeln Beweise. Kleine, verwinkelte Maps.	Un asesino, un testigo con arma, los demás recogen pruebas. Mapas pequeños y laberínticos.
+Props verstecken sich als Gegenstände, Jäger suchen sie. Braucht viele bewegliche Props.	Los props se esconden como objetos y los cazadores los buscan. Necesita muchos props móviles.
+Rollenspiel in einer Stadt: Häuser mit Türen zum Kaufen, viel Platz.	Rol en una ciudad: casas con puertas para comprar, mucho espacio.
+Läufer rennen durch einen Fallen-Parcours, der Tod löst die Fallen mit Knöpfen aus.	Los corredores atraviesan un recorrido con trampas y la Muerte las activa con botones.
+Spawnpunkte	Puntos de aparición
+Waffen	Armas
+Munition	Munición
+Map-Einstellungen	Ajustes del mapa
+Verräter-Fallen	Trampas de traidor
+Spawnpunkte Jäger	Puntos de aparición de cazadores
+Spawnpunkte Props	Puntos de aparición de props
+Physik-Props	Props físicos
+Türen	Puertas
+Spawnpunkte Läufer	Puntos de aparición de corredores
+Spawnpunkte Tod	Puntos de aparición de la Muerte
+Fallen-Knöpfe	Botones de trampas
+Schadens-Bereiche	Zonas de daño
+Mindestens so viele wie Spieler auf dem Server; TTT nimmt alle Spawn-Arten.	Al menos tantos como jugadores en el servidor; TTT usa todos los tipos de aparición.
+ttt_random_weapon oder feste TTT-Waffen, über die Map verteilt.	ttt_random_weapon o armas TTT fijas, repartidas por el mapa.
+ttt_random_ammo oder feste Munition neben den Waffen.	ttt_random_ammo o munición fija junto a las armas.
+ttt_map_settings: Brechstange an Türen und Knöpfen, Spielermodell.	ttt_map_settings: palanca en puertas y botones, modelo de jugador.
+ttt_traitor_button: nur Verräter sehen und benutzen ihn (z. B. für Fallen).	ttt_traitor_button: solo los traidores lo ven y usan (p. ej. para trampas).
+Verteilt, damit niemand neben dem Mörder startet.	Repartidos para que nadie empiece junto al asesino.
+Jäger starten üblicherweise an info_player_counterterrorist.	Los cazadores suelen empezar en info_player_counterterrorist.
+Props starten üblicherweise an info_player_terrorist.	Los props suelen empezar en info_player_terrorist.
+Viele verschiedene Gegenstände (Fässer, Kisten, Stühle …) zum Verwandeln.	Muchos objetos distintos (barriles, cajas, sillas …) en los que transformarse.
+Genug für volle Server; Spawns für einzelne Berufe legt man später auf dem Server fest.	Suficientes para servidores llenos; las apariciones por trabajo se fijan luego en el servidor.
+Türen lassen sich in DarkRP kaufen und abschließen – Häuser, Läden, Wohnungen.	En DarkRP las puertas se compran y se cierran con llave: casas, tiendas, pisos.
+Läufer starten üblicherweise an info_player_counterterrorist.	Los corredores suelen empezar en info_player_counterterrorist.
+Der Tod startet üblicherweise an info_player_terrorist.	La Muerte suele empezar en info_player_terrorist.
+func_button für den Tod, verbunden mit den Fallen.	func_button para la Muerte, conectado a las trampas.
+trigger_hurt in Gruben und Fallen.	trigger_hurt en fosos y trampas.
+Den Map-Namen mit ttt_ beginnen, sonst taucht sie in der Map-Auswahl vieler Server nicht auf.	Empieza el nombre por ttt_; si no, no aparecerá en la votación de muchos servidores.
+Mehrere Wege und Verstecke; Lüftungsschächte und Fallen machen Verräter-Runden spannend.	Varias rutas y escondites; conductos y trampas hacen emocionantes las rondas de traidor.
+Beute-Plätze (Loot) gehören nicht in die Map – sie werden im Spiel festgelegt und auf dem Server gespeichert.	Los puntos de botín no van en el mapa: se fijan en el juego y se guardan en el servidor.
+Dunkle Ecken, Türen und mehrere Wege; offene Flächen sind für den Mörder schwer.	Rincones oscuros, puertas y varias rutas; los espacios abiertos son difíciles para el asesino.
+Den Map-Namen mit ph_ beginnen.	Empieza el nombre del mapa por ph_.
+Props in passenden Größen mischen; zu große Props verraten sich.	Mezcla props de tamaños adecuados; los demasiado grandes se delatan.
+Den Map-Namen mit rp_ beginnen.	Empieza el nombre del mapa por rp_.
+Gefängnis, Polizeiwache und Spawn-Bereich vorsehen; Positionen dafür werden im Spiel gesetzt.	Prevé cárcel, comisaría y zona de aparición; sus posiciones se fijan en el juego.
+Den Map-Namen mit deathrun_ beginnen.	Empieza el nombre del mapa por deathrun_.
+Am Ende ein Bereich, in dem die Läufer gegen den Tod kämpfen können.	Al final, una zona donde los corredores puedan luchar contra la Muerte.
+TTT (Trouble in Terrorist Town)	TTT (Trouble in Terrorist Town)
+Halle mit 16 Spawnpunkten, zufälligen Waffen und Munition, Map-Einstellungen und einem Verräter-Knopf; Checkliste unter Map → Gamemode-Checkliste.	Sala con 16 puntos de aparición, armas y munición aleatorias, ajustes del mapa y un botón de traidor; lista en Mapa → Lista de comprobación del modo de juego.
+Halle mit 12 verteilten Spawnpunkten.	Sala con 12 puntos de aparición repartidos.
+Halle mit Spawnpunkten für Jäger und Props und 25 Physik-Props zum Verwandeln.	Sala con puntos de aparición para cazadores y props y 25 props físicos.
+Halle mit 16 Spawnpunkten und zehn kleinen Häusern mit Türen.	Sala con 16 puntos de aparición y diez casitas con puertas.
+Halle mit Läufer- und Tod-Spawns, einer Grube mit trigger_hurt und drei Fallen-Knöpfen.	Sala con apariciones de corredores y Muerte, un foso con trigger_hurt y tres botones de trampas.

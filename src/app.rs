@@ -71,6 +71,8 @@ pub(crate) struct Windows {
     pub outliner: bool,
     /// Liste der Notizen
     pub notes: bool,
+    /// Gamemode-Checkliste
+    pub gamemode: bool,
     pub history: bool,
     pub palette: bool,
     pub optimize: bool,
@@ -219,6 +221,7 @@ pub struct App {
     pub(crate) last_autosave: Instant,
     pub(crate) autosave_index: u32,
     /// Tabs: an der aktiven Position steht None (die Map liegt in `ed`)
+    pub(crate) lua_ents: Vec<crate::lua_ents::LuaEnt>,
     pub(crate) tabs: Vec<Option<DocSlot>>,
     pub(crate) active_tab: usize,
     pub(crate) mcp: Option<crate::mcp::Server>,
@@ -346,6 +349,7 @@ impl App {
             last_autosave: Instant::now(),
             autosave_index: 0,
             tabs: vec![None],
+            lua_ents: Vec::new(),
             active_tab: 0,
             mcp: None,
             mcp_status: String::new(),
@@ -727,6 +731,7 @@ impl App {
         }
         let dir = self.settings.game_dir.clone();
         let with_addons = self.settings.load_addons;
+        let detect_lua = self.settings.lua_entities;
         let (tx, rx) = std::sync::mpsc::channel();
         let ctx = self.ctx.clone();
         std::thread::spawn(move || {
@@ -743,7 +748,8 @@ impl App {
                     let materials = fs.list_materials();
                     let sounds = fs.list_files("sound/", &[".wav", ".mp3", ".ogg"]);
                     let models = fs.list_files("models/", &[".mdl"]);
-                    ContentMsg { final_stage: addons || !with_addons, found: found.clone(), fs, materials, sounds, models }
+                    let lua_ents = if detect_lua { crate::lua_ents::scan(&fs) } else { Vec::new() };
+                    ContentMsg { final_stage: addons || !with_addons, found: found.clone(), fs, materials, sounds, models, lua_ents }
                 };
                 // Stufe 1: Spiel-VPKs und lose Ordner – schnell, sofort nutzbar
                 let first = scan(false);
@@ -769,7 +775,22 @@ impl App {
         let (fgd, msgs) = load_fgds(&self.settings.fgd_files);
         self.ed.fgd = fgd;
         self.fgd_messages = msgs;
+        self.apply_lua_ents();
         self.ed.touch();
+    }
+
+    /// Erkannte Lua-Entities in die Entity-Listen aller offenen Maps übernehmen (FGD hat Vorrang)
+    pub(crate) fn apply_lua_ents(&mut self) {
+        if self.lua_ents.is_empty() {
+            return;
+        }
+        let n = crate::lua_ents::apply(&mut self.ed.fgd, &self.lua_ents);
+        for slot in self.tabs.iter_mut().flatten() {
+            crate::lua_ents::apply(&mut slot.ed.fgd, &self.lua_ents);
+        }
+        if n > 0 {
+            self.ed.status = crate::i18n::tr_dyn(&format!("{n} Lua-Entities aus Addons und Gamemodes erkannt (Entity-Liste)"));
+        }
     }
 
     fn sync_camera_to_map(&mut self) {
@@ -964,8 +985,17 @@ impl App {
                 "simple" => self.settings.simple_ui = true,
                 "gameplay" => self.settings.gameplay = true,
                 "notes" => self.win.notes = true,
+                "gamemode" => {
+                    self.win.gamemode = true;
+                    if !v.is_empty() {
+                        self.ed.map.gamemode = v.to_string();
+                    }
+                }
                 "shotdlg" => self.shot.open = true,
-                "gamedir" => self.settings.game_dir = v.to_string(),
+                "gamedir" => {
+                    self.settings.game_dir = v.to_string();
+                    self.reload_content();
+                }
                 "shot" | "pano" => {
                     // shot:<datei.png> bzw. pano:<datei.png> (kleine Größe für Tests)
                     self.shot.pano = k == "pano";
@@ -1428,6 +1458,7 @@ impl App {
             });
             if ex {
                 ui.menu_button(tr("Exportieren"), |ui| {
+                    self.cmd_item(ui, ctx, Cmd::ExportGltf);
                     self.cmd_item(ui, ctx, Cmd::ExportObj);
                     crate::theme::checkbox(ui, &mut self.settings.obj_meters, tr("OBJ in Metern (statt Source-Einheiten)"));
                 });
@@ -1860,6 +1891,7 @@ impl App {
             ui.separator();
             self.cmd_item(ui, ctx, Cmd::AddNote);
             self.cmd_item(ui, ctx, Cmd::Notes);
+            self.cmd_item(ui, ctx, Cmd::GamemodeChecklist);
             ui.menu_button(tr("3D-Skybox"), |ui| {
                 let has = !crate::skybox::sky_cameras(&self.ed.map).is_empty();
                 if ui.button(if self.sky.active { tr("Skybox-Modus beenden") } else if has { tr("Bearbeiten") } else { tr("Anlegen…") }).clicked() {
@@ -2240,7 +2272,9 @@ impl App {
         if let Some(rx) = &self.content_rx {
             match rx.try_recv() {
                 Ok(Ok(msg)) => {
-                    let ContentMsg { final_stage, found, fs, materials: list, sounds, models } = msg;
+                    let ContentMsg { final_stage, found, fs, materials: list, sounds, models, lua_ents } = msg;
+                    self.lua_ents = lua_ents;
+                    self.apply_lua_ents();
                     if final_stage {
                         self.content_rx = None;
                     }
@@ -2399,6 +2433,8 @@ pub(crate) struct ContentMsg {
     materials: Vec<String>,
     sounds: Vec<String>,
     models: Vec<String>,
+    /// Lua-Entities und -Waffen aus Addons und Gamemodes
+    lua_ents: Vec<crate::lua_ents::LuaEnt>,
 }
 
 pub(crate) fn load_fgds(files: &[String]) -> (Fgd, Vec<String>) {

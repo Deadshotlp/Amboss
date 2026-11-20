@@ -1177,7 +1177,7 @@ Was zurückkommt	Ce qui est récupéré
 Spielordner mit gameinfo.txt	Dossier du jeu avec gameinfo.txt
 Compiler VBSP / VVIS / VRAD	Compilateurs VBSP / VVIS / VRAD
 Spiel (zum Testen der Map)	Jeu (pour tester la map)
-Entity-Liste: eingebaut (456 Klassen)	Liste d'entités : intégrée (456 classes)
+Entity-Liste: eingebaut (476 Klassen)	Liste d'entités : intégrée (476 classes)
 Entity-Liste: garrysmod.fgd gefunden	Liste d'entités : garrysmod.fgd trouvé
 Willkommen bei Amboss	Bienvenue dans Amboss
 Garry's Mod finden	Trouver Garry's Mod
@@ -2433,3 +2433,75 @@ kein Bild	aucune image
 Segmente	Segments
 Rohrdicke	Épaisseur du tube
 info_overlay: frei skalier- und drehbar, auch über mehrere Flächen	info_overlay : librement redimensionnable et orientable, aussi sur plusieurs faces
+(keiner)	(aucun)
+Beim Speichern: Name mit {} beginnen	À l'enregistrement : commencer le nom par {}
+Export fehlgeschlagen: {}	Échec de l'export : {}
+Exportieren (.glb, glTF mit Texturen)	Exporter (.glb, glTF avec textures)
+Exportiert: {} ({} Dreiecke, {} Materialien, Meter, Y nach oben)	Exporté : {} ({} triangles, {} matériaux, mètres, Y vers le haut)
+Gamemode wählen: die Liste zeigt, welche Entities die Map dafür braucht. Fertige Vorlagen gibt es unter Datei → Neu aus Vorlage.	Choisissez un mode de jeu : la liste montre les entités nécessaires. Des modèles prêts sont dans Fichier → Nouveau depuis un modèle.
+Gamemode	Mode de jeu
+Gamemode-Checkliste	Liste de contrôle du mode de jeu
+Gamemode-Checkliste…	Liste de contrôle du mode de jeu…
+Hinzufügen	Ajouter
+Lua-Entities aus Addons und Gamemodes erkennen	Détecter les entités Lua des addons et modes de jeu
+Lua-Entity	Entité Lua
+Lua-Waffe	Arme Lua
+Map-Name sollte mit {} beginnen	Le nom de la carte devrait commencer par {}
+Ohne FGD erkannt; Schlüssel aus dem Lua-Code.	Détecté sans FGD ; clés issues du code Lua.
+Scripted Entities und Waffen ohne FGD (lua/entities, lua/weapons, gamemodes/*/entities) erscheinen in der Entity-Liste – mit Name, Kategorie, Modell und den Schlüsseln aus dem Lua-Code. Eine echte FGD hat Vorrang.	Les entités scriptées et armes sans FGD (lua/entities, lua/weapons, gamemodes/*/entities) apparaissent dans la liste – avec nom, catégorie, modèle et les clés du code Lua. Une vraie FGD est prioritaire.
+Tipps	Conseils
+aus {}	de {}
+empfohlen	recommandé
+{} Lua-Entities aus Addons und Gamemodes erkannt (Entity-Liste)	{} entités Lua détectées dans les addons et modes de jeu (liste des entités)
+{} × {} dort, wohin die 3D-Kamera schaut	{} × {} là où regarde la caméra 3D
+{} × {} hinzugefügt – verteilen und ausrichten	{} × {} ajouté(s) – à répartir et orienter
+✔ Map-Name passt zum Gamemode	✔ Le nom de la carte correspond au mode de jeu
+Unschuldige gegen versteckte Verräter. Braucht viele Spawnpunkte und verteilte Waffen.	Innocents contre traîtres cachés. Demande beaucoup de points d'apparition et des armes réparties.
+Ein Mörder, ein Zuschauer mit Waffe, alle anderen sammeln Beweise. Kleine, verwinkelte Maps.	Un meurtrier, un témoin armé, les autres ramassent des indices. Petites cartes tortueuses.
+Props verstecken sich als Gegenstände, Jäger suchen sie. Braucht viele bewegliche Props.	Les props se cachent en objets, les chasseurs les cherchent. Demande beaucoup de props mobiles.
+Rollenspiel in einer Stadt: Häuser mit Türen zum Kaufen, viel Platz.	Jeu de rôle en ville : maisons avec portes à acheter, beaucoup d'espace.
+Läufer rennen durch einen Fallen-Parcours, der Tod löst die Fallen mit Knöpfen aus.	Les coureurs traversent un parcours piégé, la Mort déclenche les pièges avec des boutons.
+Spawnpunkte	Points d'apparition
+Waffen	Armes
+Munition	Munitions
+Map-Einstellungen	Réglages de la carte
+Verräter-Fallen	Pièges de traître
+Spawnpunkte Jäger	Points d'apparition chasseurs
+Spawnpunkte Props	Points d'apparition props
+Physik-Props	Props physiques
+Türen	Portes
+Spawnpunkte Läufer	Points d'apparition coureurs
+Spawnpunkte Tod	Points d'apparition de la Mort
+Fallen-Knöpfe	Boutons de pièges
+Schadens-Bereiche	Zones de dégâts
+Mindestens so viele wie Spieler auf dem Server; TTT nimmt alle Spawn-Arten.	Au moins autant que de joueurs sur le serveur ; TTT utilise tous les types d'apparition.
+ttt_random_weapon oder feste TTT-Waffen, über die Map verteilt.	ttt_random_weapon ou armes TTT fixes, réparties sur la carte.
+ttt_random_ammo oder feste Munition neben den Waffen.	ttt_random_ammo ou munitions fixes près des armes.
+ttt_map_settings: Brechstange an Türen und Knöpfen, Spielermodell.	ttt_map_settings : pied-de-biche sur portes et boutons, modèle de joueur.
+ttt_traitor_button: nur Verräter sehen und benutzen ihn (z. B. für Fallen).	ttt_traitor_button : seuls les traîtres le voient et l'utilisent (p. ex. pour des pièges).
+Verteilt, damit niemand neben dem Mörder startet.	Répartis pour que personne ne démarre à côté du meurtrier.
+Jäger starten üblicherweise an info_player_counterterrorist.	Les chasseurs démarrent en général sur info_player_counterterrorist.
+Props starten üblicherweise an info_player_terrorist.	Les props démarrent en général sur info_player_terrorist.
+Viele verschiedene Gegenstände (Fässer, Kisten, Stühle …) zum Verwandeln.	Beaucoup d'objets différents (barils, caisses, chaises …) en lesquels se transformer.
+Genug für volle Server; Spawns für einzelne Berufe legt man später auf dem Server fest.	Assez pour des serveurs pleins ; les apparitions par métier se règlent ensuite sur le serveur.
+Türen lassen sich in DarkRP kaufen und abschließen – Häuser, Läden, Wohnungen.	Dans DarkRP, les portes s'achètent et se verrouillent – maisons, boutiques, appartements.
+Läufer starten üblicherweise an info_player_counterterrorist.	Les coureurs démarrent en général sur info_player_counterterrorist.
+Der Tod startet üblicherweise an info_player_terrorist.	La Mort démarre en général sur info_player_terrorist.
+func_button für den Tod, verbunden mit den Fallen.	func_button pour la Mort, relié aux pièges.
+trigger_hurt in Gruben und Fallen.	trigger_hurt dans les fosses et pièges.
+Den Map-Namen mit ttt_ beginnen, sonst taucht sie in der Map-Auswahl vieler Server nicht auf.	Commencez le nom par ttt_, sinon la carte n'apparaît pas dans le vote de nombreux serveurs.
+Mehrere Wege und Verstecke; Lüftungsschächte und Fallen machen Verräter-Runden spannend.	Plusieurs chemins et cachettes ; conduits et pièges rendent les manches de traître captivantes.
+Beute-Plätze (Loot) gehören nicht in die Map – sie werden im Spiel festgelegt und auf dem Server gespeichert.	Les emplacements de butin ne vont pas dans la carte – ils se règlent en jeu et sont stockés sur le serveur.
+Dunkle Ecken, Türen und mehrere Wege; offene Flächen sind für den Mörder schwer.	Coins sombres, portes et plusieurs chemins ; les espaces ouverts sont difficiles pour le meurtrier.
+Den Map-Namen mit ph_ beginnen.	Commencez le nom de la carte par ph_.
+Props in passenden Größen mischen; zu große Props verraten sich.	Mélangez des props de tailles adaptées ; les trop grands se trahissent.
+Den Map-Namen mit rp_ beginnen.	Commencez le nom de la carte par rp_.
+Gefängnis, Polizeiwache und Spawn-Bereich vorsehen; Positionen dafür werden im Spiel gesetzt.	Prévoyez prison, commissariat et zone d'apparition ; leurs positions se règlent en jeu.
+Den Map-Namen mit deathrun_ beginnen.	Commencez le nom de la carte par deathrun_.
+Am Ende ein Bereich, in dem die Läufer gegen den Tod kämpfen können.	À la fin, une zone où les coureurs peuvent affronter la Mort.
+TTT (Trouble in Terrorist Town)	TTT (Trouble in Terrorist Town)
+Halle mit 16 Spawnpunkten, zufälligen Waffen und Munition, Map-Einstellungen und einem Verräter-Knopf; Checkliste unter Map → Gamemode-Checkliste.	Salle avec 16 points d'apparition, armes et munitions aléatoires, réglages de carte et un bouton de traître ; liste sous Carte → Liste de contrôle du mode de jeu.
+Halle mit 12 verteilten Spawnpunkten.	Salle avec 12 points d'apparition répartis.
+Halle mit Spawnpunkten für Jäger und Props und 25 Physik-Props zum Verwandeln.	Salle avec points d'apparition chasseurs et props et 25 props physiques.
+Halle mit 16 Spawnpunkten und zehn kleinen Häusern mit Türen.	Salle avec 16 points d'apparition et dix petites maisons avec portes.
+Halle mit Läufer- und Tod-Spawns, einer Grube mit trigger_hurt und drei Fallen-Knöpfen.	Salle avec apparitions coureurs et Mort, une fosse avec trigger_hurt et trois boutons de pièges.

@@ -1177,7 +1177,7 @@ Was zurückkommt	What comes back
 Spielordner mit gameinfo.txt	Game folder with gameinfo.txt
 Compiler VBSP / VVIS / VRAD	Compilers VBSP / VVIS / VRAD
 Spiel (zum Testen der Map)	Game (to test the map)
-Entity-Liste: eingebaut (456 Klassen)	Entity list: built-in (456 classes)
+Entity-Liste: eingebaut (476 Klassen)	Entity list: built-in (476 classes)
 Entity-Liste: garrysmod.fgd gefunden	Entity list: garrysmod.fgd found
 Willkommen bei Amboss	Welcome to Amboss
 Garry's Mod finden	Find Garry's Mod
@@ -2435,3 +2435,75 @@ kein Bild	no image
 Segmente	Segments
 Rohrdicke	Tube thickness
 info_overlay: frei skalier- und drehbar, auch über mehrere Flächen	info_overlay: freely scalable and rotatable, also across several faces
+(keiner)	(none)
+Beim Speichern: Name mit {} beginnen	When saving: start the name with {}
+Export fehlgeschlagen: {}	Export failed: {}
+Exportieren (.glb, glTF mit Texturen)	Export (.glb, glTF with textures)
+Exportiert: {} ({} Dreiecke, {} Materialien, Meter, Y nach oben)	Exported: {} ({} triangles, {} materials, metres, Y up)
+Gamemode wählen: die Liste zeigt, welche Entities die Map dafür braucht. Fertige Vorlagen gibt es unter Datei → Neu aus Vorlage.	Choose a gamemode: the list shows which entities the map needs for it. Ready-made templates are under File → New from template.
+Gamemode	Gamemode
+Gamemode-Checkliste	Gamemode checklist
+Gamemode-Checkliste…	Gamemode checklist…
+Hinzufügen	Add
+Lua-Entities aus Addons und Gamemodes erkennen	Detect Lua entities from addons and gamemodes
+Lua-Entity	Lua entity
+Lua-Waffe	Lua weapon
+Map-Name sollte mit {} beginnen	Map name should start with {}
+Ohne FGD erkannt; Schlüssel aus dem Lua-Code.	Detected without an FGD; keys from the Lua code.
+Scripted Entities und Waffen ohne FGD (lua/entities, lua/weapons, gamemodes/*/entities) erscheinen in der Entity-Liste – mit Name, Kategorie, Modell und den Schlüsseln aus dem Lua-Code. Eine echte FGD hat Vorrang.	Scripted entities and weapons without an FGD (lua/entities, lua/weapons, gamemodes/*/entities) appear in the entity list – with name, category, model and the keys from the Lua code. A real FGD takes precedence.
+Tipps	Tips
+aus {}	from {}
+empfohlen	recommended
+{} Lua-Entities aus Addons und Gamemodes erkannt (Entity-Liste)	{} Lua entities detected from addons and gamemodes (entity list)
+{} × {} dort, wohin die 3D-Kamera schaut	{} × {} where the 3D camera is looking
+{} × {} hinzugefügt – verteilen und ausrichten	{} × {} added – spread them out and align
+✔ Map-Name passt zum Gamemode	✔ Map name fits the gamemode
+Unschuldige gegen versteckte Verräter. Braucht viele Spawnpunkte und verteilte Waffen.	Innocents against hidden traitors. Needs many spawn points and spread-out weapons.
+Ein Mörder, ein Zuschauer mit Waffe, alle anderen sammeln Beweise. Kleine, verwinkelte Maps.	One murderer, one bystander with a gun, everyone else collects evidence. Small, twisty maps.
+Props verstecken sich als Gegenstände, Jäger suchen sie. Braucht viele bewegliche Props.	Props hide as objects, hunters look for them. Needs many movable props.
+Rollenspiel in einer Stadt: Häuser mit Türen zum Kaufen, viel Platz.	Role-play in a city: houses with doors to buy, lots of space.
+Läufer rennen durch einen Fallen-Parcours, der Tod löst die Fallen mit Knöpfen aus.	Runners race through a trap course, Death triggers the traps with buttons.
+Spawnpunkte	Spawn points
+Waffen	Weapons
+Munition	Ammo
+Map-Einstellungen	Map settings
+Verräter-Fallen	Traitor traps
+Spawnpunkte Jäger	Hunter spawn points
+Spawnpunkte Props	Prop spawn points
+Physik-Props	Physics props
+Türen	Doors
+Spawnpunkte Läufer	Runner spawn points
+Spawnpunkte Tod	Death spawn points
+Fallen-Knöpfe	Trap buttons
+Schadens-Bereiche	Damage areas
+Mindestens so viele wie Spieler auf dem Server; TTT nimmt alle Spawn-Arten.	At least as many as players on the server; TTT uses every kind of spawn.
+ttt_random_weapon oder feste TTT-Waffen, über die Map verteilt.	ttt_random_weapon or fixed TTT weapons, spread across the map.
+ttt_random_ammo oder feste Munition neben den Waffen.	ttt_random_ammo or fixed ammo next to the weapons.
+ttt_map_settings: Brechstange an Türen und Knöpfen, Spielermodell.	ttt_map_settings: crowbar on doors and buttons, player model.
+ttt_traitor_button: nur Verräter sehen und benutzen ihn (z. B. für Fallen).	ttt_traitor_button: only traitors see and use it (e.g. for traps).
+Verteilt, damit niemand neben dem Mörder startet.	Spread out so nobody starts next to the murderer.
+Jäger starten üblicherweise an info_player_counterterrorist.	Hunters usually start at info_player_counterterrorist.
+Props starten üblicherweise an info_player_terrorist.	Props usually start at info_player_terrorist.
+Viele verschiedene Gegenstände (Fässer, Kisten, Stühle …) zum Verwandeln.	Many different objects (barrels, crates, chairs …) to turn into.
+Genug für volle Server; Spawns für einzelne Berufe legt man später auf dem Server fest.	Enough for full servers; spawns for individual jobs are set later on the server.
+Türen lassen sich in DarkRP kaufen und abschließen – Häuser, Läden, Wohnungen.	Doors can be bought and locked in DarkRP – houses, shops, flats.
+Läufer starten üblicherweise an info_player_counterterrorist.	Runners usually start at info_player_counterterrorist.
+Der Tod startet üblicherweise an info_player_terrorist.	Death usually starts at info_player_terrorist.
+func_button für den Tod, verbunden mit den Fallen.	func_button for Death, connected to the traps.
+trigger_hurt in Gruben und Fallen.	trigger_hurt in pits and traps.
+Den Map-Namen mit ttt_ beginnen, sonst taucht sie in der Map-Auswahl vieler Server nicht auf.	Start the map name with ttt_, otherwise it won't show up in the map vote of many servers.
+Mehrere Wege und Verstecke; Lüftungsschächte und Fallen machen Verräter-Runden spannend.	Several routes and hiding places; vents and traps make traitor rounds exciting.
+Beute-Plätze (Loot) gehören nicht in die Map – sie werden im Spiel festgelegt und auf dem Server gespeichert.	Loot spots don't go into the map – they are set in game and stored on the server.
+Dunkle Ecken, Türen und mehrere Wege; offene Flächen sind für den Mörder schwer.	Dark corners, doors and several routes; open areas are hard for the murderer.
+Den Map-Namen mit ph_ beginnen.	Start the map name with ph_.
+Props in passenden Größen mischen; zu große Props verraten sich.	Mix props of suitable sizes; props that are too big give themselves away.
+Den Map-Namen mit rp_ beginnen.	Start the map name with rp_.
+Gefängnis, Polizeiwache und Spawn-Bereich vorsehen; Positionen dafür werden im Spiel gesetzt.	Plan a jail, police station and spawn area; their positions are set in game.
+Den Map-Namen mit deathrun_ beginnen.	Start the map name with deathrun_.
+Am Ende ein Bereich, in dem die Läufer gegen den Tod kämpfen können.	At the end, an area where the runners can fight Death.
+TTT (Trouble in Terrorist Town)	TTT (Trouble in Terrorist Town)
+Halle mit 16 Spawnpunkten, zufälligen Waffen und Munition, Map-Einstellungen und einem Verräter-Knopf; Checkliste unter Map → Gamemode-Checkliste.	Hall with 16 spawn points, random weapons and ammo, map settings and a traitor button; checklist under Map → Gamemode checklist.
+Halle mit 12 verteilten Spawnpunkten.	Hall with 12 spread-out spawn points.
+Halle mit Spawnpunkten für Jäger und Props und 25 Physik-Props zum Verwandeln.	Hall with spawn points for hunters and props and 25 physics props to turn into.
+Halle mit 16 Spawnpunkten und zehn kleinen Häusern mit Türen.	Hall with 16 spawn points and ten small houses with doors.
+Halle mit Läufer- und Tod-Spawns, einer Grube mit trigger_hurt und drei Fallen-Knöpfen.	Hall with runner and Death spawns, a pit with trigger_hurt and three trap buttons.

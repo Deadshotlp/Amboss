@@ -608,6 +608,17 @@ impl App {
                 {
                     reload = true;
                 }
+                if ui
+                    .checkbox(&mut self.settings.lua_entities, crate::i18n::tr("Lua-Entities aus Addons und Gamemodes erkennen"))
+                    .on_hover_text(crate::i18n::tr("Scripted Entities und Waffen ohne FGD (lua/entities, lua/weapons, gamemodes/*/entities) erscheinen in der Entity-Liste – mit Name, Kategorie, Modell und den Schlüsseln aus dem Lua-Code. Eine echte FGD hat Vorrang."))
+                    .changed()
+                {
+                    reload = true;
+                    if !self.settings.lua_entities {
+                        self.lua_ents.clear();
+                        self.reload_fgds();
+                    }
+                }
                 ui.horizontal(|ui| {
                     if ui.button(crate::i18n::tr("Spielinhalte neu laden")).on_hover_text(crate::i18n::tr("VPKs, Addons und Materiallisten aus dem Spielordner neu einlesen")).clicked() {
                         reload = true;

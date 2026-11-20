@@ -243,7 +243,7 @@ Für jede Optimierung: zuerst **„Nur prüfen“**, Markierungen ansehen, dann 
 | O11 | worldspawn `skyname` = `sky_day01_01` (bzw. eigener Himmel), Ansicht → Himmel-Vorschau | Himmel rundum richtig ausgerichtet (Horizont unten, Sonne wie im Spiel) – mit dem Spiel vergleichen |
 | O12 | `env_fog_controller` mit fogenable 1, Farbe, Start/Ende | Entfernte Flächen gehen in die Nebelfarbe über; Ansicht → Nebel schaltet ab |
 | O13 | `move_rope` mit NextKey auf `keyframe_rope`, Slack 50 | Seil hängt durch wie im Spiel, mit Seil-Textur; in 2D als Linie |
-| O14 | Version prüfen | „0.14.1“ neben dem Logo, im Fenstertitel und unter Hilfe → Über Amboss |
+| O14 | Version prüfen | „0.15.0“ neben dem Logo, im Fenstertitel und unter Hilfe → Über Amboss |
 | O15 | Hilfe → Tutorial…, Kapitel 6–9 mit echten Inhalten durchspielen (auch „Zeig es mir“) | Jeder Schritt wird erkannt; Gelände, Himmel, Nebel, Partikel, Overlay, Decal sehen richtig aus |
 | O16 | Trigger mit Output: Ziel-Feld anklicken und einen Buchstaben tippen | Liste passender Namen mit Klasse; Pfeiltasten + Enter oder Klick übernimmt |
 | O17 | Generatoren → Räume mit Höhenstufen 2, eigenen Texturen für Boden/Wände/Decke → Erzeugen → Kompilieren & starten | Kein Leck; Räume unterschiedlich hoch, Treppen in den Gängen begehbar; Texturen wie gewählt |
@@ -362,6 +362,20 @@ Für jede Optimierung: zuerst **„Nur prüfen“**, Markierungen ansehen, dann 
 | V3 | Große Auswahl drehen (Strg+R / Transformieren) und skalieren | Funktioniert wie vorher, ohne lange Hänger |
 | V4 | Wenige Objekte auswählen (unter 48 Brushes) | Auswahl sieht aus wie bisher (geglättete Linien) |
 | V5 | Live-Sitzung: einen Brush in einem func_detail verschieben | Beim anderen ändert sich nur dieses Objekt (keine Verzögerung durch übertragene Kopien der ganzen Map) |
+
+## W. Version 0.15.0
+
+| Nr. | Schritt | Erwartung |
+|---|---|---|
+| W1 | Datei → Neu aus Vorlage → „TTT“, dann Map → „Gamemode-Checkliste…“ | Alle Punkte grün; Map als ttt_test speichern → „Map-Name passt“ |
+| W2 | TTT-Vorlage kompilieren und in GMod mit dem Gamemode Terrortown starten | Runde startet, Waffen und Munition liegen herum, Verräter sehen den Knopf |
+| W3 | Leere Map, Checkliste „Prop Hunt“, bei „Physik-Props“ auf „Hinzufügen“ | 25 Props mit Modellen dort, wohin die 3D-Kamera schaut; ein Strg+Z entfernt alle |
+| W4 | Prop-Hunt-Vorlage in GMod mit Prop Hunt testen | Jäger und Props starten an den richtigen Spawns (sonst bitte melden, welche Klassen der Server erwartet) |
+| W5 | Deathrun- und DarkRP-Vorlage kompilieren und kurz im jeweiligen Gamemode starten | Läufer/Tod getrennt; DarkRP-Türen lassen sich kaufen |
+| W6 | Mit einem Workshop-Addon, das eigene Entities hat (z. B. DarkRP-Erweiterung), Amboss starten, Entity-Werkzeug → Klassenliste | Die Lua-Entities stehen in der Liste mit Namen und Kategorie; Hilfe („?“) zeigt erkannte Schlüssel/Ein-/Ausgänge |
+| W7 | Einstellungen → „Lua-Entities … erkennen“ aus | Die Lua-Klassen verschwinden aus der Liste |
+| W8 | Datei → Exportieren → .glb, in Blender (Datei → Importieren → glTF) öffnen | Map richtig herum (Z oben in Blender), Maßstab in Metern, Texturen sichtbar, keine nodraw-Flächen |
+| W9 | Nur einen Teil auswählen und als .glb exportieren | Nur die Auswahl in der Datei |
 
 ## L. Nach dem Test
 

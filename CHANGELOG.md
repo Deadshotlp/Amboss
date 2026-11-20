@@ -1,5 +1,23 @@
 # Änderungen
 
+## 0.15.0
+
+**Gamemode-Vorlagen und -Checkliste**
+- Map → „Gamemode-Checkliste…“ für TTT, Murder, Prop Hunt, DarkRP und Deathrun: zeigt, was die Map noch braucht – Spawnpunkte (je Team), Waffen und Munition, Physik-Props, Türen, Fallen-Knöpfe, Schadens-Bereiche – mit grünem Haken, rotem Kreuz oder „empfohlen“ und der Anzahl
+- „Hinzufügen“ setzt die fehlenden Entities dort ab, wohin die 3D-Kamera schaut (auf den Boden, als ein Rückgängig-Schritt); Props bekommen gleich Alltags-Modelle aus HL2
+- Hinweis auf das übliche Map-Präfix (ttt_, ph_, rp_, deathrun_ …) und Tipps je Gamemode; der gewählte Gamemode wird mit der Map gespeichert
+- Neue Vorlagen unter „Neu aus Vorlage“: TTT, Murder, Prop Hunt, DarkRP (Häuser mit Türen) und Deathrun (Grube mit trigger_hurt, Fallen-Knöpfe) – erfüllen ihre Checkliste
+- Die eingebaute Entity-Liste kennt jetzt die TTT-Entities (ttt_random_weapon, ttt_random_ammo, ttt_map_settings, ttt_traitor_button, ttt_logic_role, ttt_win, ttt_traitor_check, TTT-Waffen und -Munition) – 476 Klassen
+
+**Lua-Entities aus Addons erkennen**
+- Scripted Entities und Waffen ohne FGD erscheinen in der Entity-Liste: aus `lua/entities`, `lua/weapons` und `gamemodes/*/entities` – im Spielordner, in addons-Ordnern und in Workshop-Archiven (.gma)
+- Mit Anzeigename, Kategorie und Herkunft (Addon/Gamemode), Modell (`ENT.Model`, `SWEP.WorldModel` oder `SetModel`), Schlüsseln aus `ENT:KeyValue`, Eingängen aus `ENT:AcceptInput` und Ausgängen aus `TriggerOutput`
+- Eine echte FGD hat immer Vorrang; abschaltbar unter Einstellungen → Spiel & Pfade
+
+**glTF-Export mit Texturen**
+- Datei → Exportieren → „Exportieren (.glb, glTF mit Texturen)“: die ganze Map oder nur die Auswahl als eine .glb-Datei mit eingebetteten PNG-Texturen – in Metern und mit Y nach oben, für Blender, Unity, Unreal und Godot
+- Brushes und Displacements; Werkzeug-Texturen werden weggelassen, durchsichtige Materialien als transparent markiert (Props/Modelle noch nicht)
+
 ## 0.14.1
 
 **Schneller bei großen Auswahlen**

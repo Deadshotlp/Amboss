@@ -611,6 +611,8 @@ pub struct Map {
     pub grid: f64,
     /// ausgeblendete Objektarten der Ansichtsfilter („nodraw,triggers“; viewsettings → amboss_hidden)
     pub view_filter: String,
+    /// gewählter Gamemode der Checkliste (viewsettings → amboss_gamemode), leer = keiner
+    pub gamemode: String,
     /// Freie Polygon-Meshes (Begleitdatei <map>.meshes.json, nicht in der VMF)
     pub meshes: Vec<Shared<crate::mesh::MeshObj>>,
 }
@@ -641,6 +643,7 @@ impl Map {
             next_id: 2,
             grid: 16.0,
             view_filter: String::new(),
+            gamemode: String::new(),
             meshes: Vec::new(),
         }
     }
@@ -881,6 +884,9 @@ impl Map {
         if let Some(f) = map.extra.iter().find(|b| b.name.eq_ignore_ascii_case("viewsettings")).and_then(|b| b.get("amboss_hidden")) {
             map.view_filter = f.to_string();
         }
+        if let Some(g) = map.extra.iter().find(|b| b.name.eq_ignore_ascii_case("viewsettings")).and_then(|b| b.get("amboss_gamemode")) {
+            map.gamemode = g.to_string();
+        }
         map.next_id = max_id.max(map.visgroups.iter().map(|v| v.id).max().unwrap_or(0)) + 1;
         Ok(map)
     }
@@ -924,6 +930,10 @@ impl Map {
         vs.items.retain(|it| !matches!(it, KvItem::Pair(k, _) if k.eq_ignore_ascii_case("amboss_hidden")));
         if !self.view_filter.is_empty() {
             vs.push("amboss_hidden", self.view_filter.clone());
+        }
+        vs.items.retain(|it| !matches!(it, KvItem::Pair(k, _) if k.eq_ignore_ascii_case("amboss_gamemode")));
+        if !self.gamemode.is_empty() {
+            vs.push("amboss_gamemode", self.gamemode.clone());
         }
         blocks.push(vs);
         let mut world = write_entity(&self.world, "world", self);

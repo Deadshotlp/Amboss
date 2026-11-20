@@ -96,6 +96,8 @@ pub enum Cmd {
     Notes,
     DecalFromImage,
     Screenshot,
+    GamemodeChecklist,
+    ExportGltf,
     Tool(crate::editor::Tool),
 }
 
@@ -106,7 +108,7 @@ impl Cmd {
             New, Open, Save, SaveAs, NewTab, CloseTab, NextTab, MergeMap, CompareMap, Merge3, ImportMap, ImportModel, Workshop, Spline, UnifyTextures, ExportObj, Undo, Redo, History, PasteSpecial, Delete, SelectAll, Duplicate, Carve, Hollow, TieToEntity, MoveToWorld, Group, Ungroup, Hide,
             HideUnselected, UnhideAll, Lock, UnlockAll, Transform, SnapToGrid, FlipH, FlipV, RotateMouse, RotateCw, RotateCcw, ApplyTexture, ReplaceTextures, NodrawHidden, TextureBrowser, ModelBrowser, SoundBrowser, ParticleBrowser, Collab, ToggleSnap, ToggleVertexSnap, SelectTouching, CopyProps, PasteProps, CheckProblems, Optimize, OptimizeCheck, EntityReport,
             Outliner, GotoNumber, MapInfo, LogicalView, Prefabs, Compile, CompileWindow, TestFromCamera, Walk, Settings, Help, Palette, GridDown, GridUp, CenterSel2D, CenterSel3D, NextCamera, Maximize, ToggleGizmo, LoadPointfile, ClearMeasure,
-            ToggleNodraw, ToggleTriggers, ToggleToolBrushes, SkyboxMode, SkyboxCopy, SkyboxCheck, ToggleGameplay, AddNote, Notes, DecalFromImage, Screenshot,
+            ToggleNodraw, ToggleTriggers, ToggleToolBrushes, SkyboxMode, SkyboxCopy, SkyboxCheck, ToggleGameplay, AddNote, Notes, DecalFromImage, Screenshot, GamemodeChecklist, ExportGltf,
         ];
         v.extend(crate::editor::Tool::ALL.iter().map(|t| Tool(*t)));
         v
@@ -153,6 +155,7 @@ impl Cmd {
             CompareMap => crate::i18n::tr("Mit anderem Map-Stand vergleichen…"),
             Merge3 => crate::i18n::tr("3-Wege-Zusammenführen (Basis / andere Version)…"),
             ExportObj => crate::i18n::tr("Exportieren (.obj)"),
+            ExportGltf => crate::i18n::tr("Exportieren (.glb, glTF mit Texturen)"),
             Undo => crate::i18n::tr("Rückgängig"),
             Redo => crate::i18n::tr("Wiederholen"),
             History => crate::i18n::tr("Rückgängig-Verlauf"),
@@ -222,6 +225,7 @@ impl Cmd {
             Notes => crate::i18n::tr("Notizen…"),
             DecalFromImage => crate::i18n::tr("Decal/Overlay aus Bild…"),
             Screenshot => crate::i18n::tr("Screenshot in hoher Auflösung…"),
+            GamemodeChecklist => crate::i18n::tr("Gamemode-Checkliste…"),
             ToggleTriggers => crate::i18n::tr("Trigger ein-/ausblenden"),
             ToggleToolBrushes => crate::i18n::tr("Alle Werkzeug-Brushes ein-/ausblenden"),
             SkyboxMode => crate::i18n::tr("3D-Skybox bearbeiten"),
@@ -385,6 +389,7 @@ impl App {
             CompareMap => self.start_compare(),
             Merge3 => self.start_merge3(),
             ExportObj => self.export_obj(),
+            ExportGltf => self.export_gltf(),
             Undo => self.ed.undo(),
             Redo => self.ed.redo(),
             History => self.win.history = !self.win.history,
@@ -535,6 +540,7 @@ impl App {
             Notes => self.win.notes = !self.win.notes,
             DecalFromImage => self.open_decal_gen(),
             Screenshot => self.shot.open = true,
+            GamemodeChecklist => self.win.gamemode = !self.win.gamemode,
             ToggleGameplay => {
                 self.settings.gameplay = !self.settings.gameplay;
                 self.ed.gameplay = self.settings.gameplay;

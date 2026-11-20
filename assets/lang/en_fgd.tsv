@@ -982,3 +982,58 @@ Emitter Name	Emitter name
 Ton aus	Sound off
 Waffe zerfallen	Weapon dissolved
 Stoß	Push
+# Gamemodes (TTT)
+TTT: Zufällige Waffe beim Rundenstart.	TTT: random weapon at round start.
+Munition dazu	Ammo with it
+Keine	None
+1 Packung	1 box
+2 Packungen	2 boxes
+3 Packungen	3 boxes
+TTT: Zufällige Munition beim Rundenstart.	TTT: random ammo at round start.
+TTT: Einstellungen der Map (Brechstange an Türen/Knöpfen, Spielermodell, Requisiten-Zuschauer).	TTT: map settings (crowbar on doors/buttons, player model, prop spectating).
+Brechstange öffnet Türen	Crowbar opens doors
+Ja	Yes
+Nein	No
+Brechstange drückt Knöpfe	Crowbar presses buttons
+Brechstange öffnet anderes	Crowbar opens other things
+Spielermodell	Player model
+Benannte Props als Zuschauer steuerbar	Named props can be possessed by spectators
+Einstellungen geladen	Settings loaded
+Vorbereitung beginnt	Preparation begins
+Runde beginnt	Round begins
+Runde endet (Gewinner)	Round ends (winner)
+TTT: Knopf nur für Verräter (z. B. Fallen), wird ihnen am Bildschirm angezeigt.	TTT: button for traitors only (e.g. traps), shown to them on screen.
+Beschreibung	Description
+Wartezeit (Sekunden, -1 = einmalig)	Delay (seconds, -1 = once)
+Reichweite	Range
+Nach dem Drücken entfernen	Remove after pressing
+Anfangs gesperrt	Starts locked
+Entsperren	Unlock
+Sperre umschalten	Toggle lock
+TTT: Prüft die Rolle des Auslösers (Verräter, Unschuldig, Detektiv).	TTT: tests the role of the activator (traitor, innocent, detective).
+Rolle	Role
+Jede	Any
+Unschuldig	Innocent
+Verräter	Traitor
+Detektiv	Detective
+Auslöser prüfen	Test activator
+Rolle passt	Role matches
+Rolle passt nicht	Role does not match
+TTT: Beendet die Runde mit einem Sieger.	TTT: ends the round with a winner.
+Verräter gewinnen	Traitors win
+Unschuldige gewinnen	Innocents win
+TTT: Zählt Spieler in diesem Bereich (z. B. Verräter-Prüfer).	TTT: counts players in this area (e.g. traitor tester).
+Anzahl Verräter im Bereich	Number of traitors in the area
+TTT: Schrotflinte.	TTT: shotgun.
+TTT: MAC-10.	TTT: MAC-10.
+TTT: Pistole.	TTT: pistol.
+TTT: Deagle.	TTT: Deagle.
+TTT: Gewehr mit Zielfernrohr.	TTT: scoped rifle.
+TTT: H.U.G.E-249 (Maschinengewehr).	TTT: H.U.G.E-249 (machine gun).
+TTT: M16.	TTT: M16.
+TTT: Glock.	TTT: Glock.
+TTT: Pistolenmunition.	TTT: pistol ammo.
+TTT: MP-Munition.	TTT: SMG ammo.
+TTT: Schrotmunition.	TTT: buckshot.
+TTT: Gewehrmunition.	TTT: rifle ammo.
+TTT: Deagle-Munition.	TTT: Deagle ammo.

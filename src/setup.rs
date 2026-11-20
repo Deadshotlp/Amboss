@@ -29,7 +29,7 @@ fn checks(s: &crate::compile::Settings) -> Vec<(String, bool)> {
         (crate::i18n::tr("Spielordner mit gameinfo.txt").into(), gd.join("gameinfo.txt").is_file()),
         (crate::i18n::tr("Compiler VBSP / VVIS / VRAD").into(), exe_ok(&s.vbsp) && exe_ok(&s.vvis) && exe_ok(&s.vrad)),
         (crate::i18n::tr("Spiel (zum Testen der Map)").into(), exe_ok(&s.game_exe)),
-        (if s.fgd_files.is_empty() { crate::i18n::tr("Entity-Liste: eingebaut (456 Klassen)") } else { crate::i18n::tr("Entity-Liste: garrysmod.fgd gefunden") }.into(), true),
+        (if s.fgd_files.is_empty() { crate::i18n::tr("Entity-Liste: eingebaut (476 Klassen)") } else { crate::i18n::tr("Entity-Liste: garrysmod.fgd gefunden") }.into(), true),
     ]
 }
 
