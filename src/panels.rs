@@ -45,6 +45,8 @@ pub(crate) enum EdAction {
     /// Klassenliste öffnen (Ankerfläche des Knopfs)
     ClassList(egui::Rect),
     RotateYaw(f64),
+    /// Klasse wechseln (z. B. prop_static → prop_dynamic, damit der Name im Spiel gilt)
+    SetClass(String),
     CopyProps,
     PasteProps,
 }
@@ -841,6 +843,7 @@ impl App {
                     if let Some(dst) = self.ed.map.entity_mut(id) {
                         *dst = e.clone();
                     }
+                    self.ed.give_brush_if_solid_class(id);
                     self.ed.dirty = true;
                     self.ed.touch();
                 }
@@ -993,6 +996,15 @@ impl App {
                 EdAction::Help => self.win.entity_help = Some(e.classname().to_string()),
                 EdAction::ClassList(r) => self.open_class_picker_for(r, Some(id)),
                 EdAction::RotateYaw(d) => self.ed.rotate_entities_yaw(d),
+                EdAction::SetClass(c) => {
+                    self.ed.checkpoint();
+                    if let Some(x) = self.ed.map.entity_mut(id) {
+                        x.set("classname", c.clone());
+                    }
+                    self.ed.status = format!("Klasse geändert: {c}");
+                    self.ed.dirty = true;
+                    self.ed.touch();
+                }
                 EdAction::CopyProps => self.ed.copy_entity_props(),
                 EdAction::PasteProps => self.ed.paste_entity_props(),
             }
@@ -1055,7 +1067,7 @@ impl App {
                     });
                 } else {
                     // Modell-Feld: Knopf für den Modell-Browser („Übernehmen“ setzt das Modell bei allen ausgewählten Props)
-                    let is_model = def.map_or(k.eq_ignore_ascii_case("model"), |p| p.kind == "studio" || p.kind == "studioprop" || (p.name.eq_ignore_ascii_case("model") && p.kind == "string"));
+                    let is_model = k.eq_ignore_ascii_case("model") || def.is_some_and(|p| p.kind.contains("studio"));
                     let w = if is_model { (multi_w - BROWSE_W - ui.spacing().item_spacing.x - 6.0).max(50.0) } else { multi_w };
                     ui.horizontal(|ui| {
                         let mut v = cur.clone();
@@ -1190,6 +1202,15 @@ pub(crate) fn entity_editor(ui: &mut egui::Ui, fgd: &Fgd, map: &Map, e: &mut Ent
             actions.push(EdAction::PasteProps);
         }
     });
+    // prop_static mit Namen: im Spiel gibt es dafür kein Entity
+    if class.eq_ignore_ascii_case("prop_static") && e.get("targetname").is_some_and(|n| !n.trim().is_empty()) {
+        ui.horizontal_wrapped(|ui| {
+            ui.label(RichText::new(crate::i18n::tr("prop_static wird beim Kompilieren fest eingebaut – im Spiel gibt es den Namen nicht (Lua, Ausgänge).")).size(11.5).color(theme::t().warn));
+            if ui.small_button(crate::i18n::tr("In prop_dynamic umwandeln")).on_hover_text(crate::i18n::tr("prop_dynamic bleibt im Spiel ein Entity mit Namen – etwas teurer, aber über Lua und Ausgänge steuerbar")).clicked() {
+                actions.push(EdAction::SetClass("prop_dynamic".into()));
+            }
+        });
+    }
     // Beschreibung steht oben bzw. in der Hilfe („?“) – hier nur der Hinweis bei unbekannter Klasse
     if def.is_none() {
         ui.colored_label(Color32::YELLOW, crate::i18n::tr("Unbekannte Klasse (nicht in der FGD)"));
@@ -1255,7 +1276,14 @@ pub(crate) fn entity_editor(ui: &mut egui::Ui, fgd: &Fgd, map: &Map, e: &mut Ent
         }
         ui.add_space(6.0);
     }
-    let props = fgd.all_props(&class);
+    let mut props = fgd.all_props(&class);
+    // Jede Entity bekommt oben ein Namensfeld, auch wenn die FGD keins vorsieht (z. B. prop_static)
+    if !is_world && !props.iter().any(|p| p.name.eq_ignore_ascii_case("targetname")) {
+        props.insert(0, crate::fgd::Property { name: "targetname".into(), kind: "target_source".into(), display: "Name".into(), default: String::new(), description: "Name, über den Ausgänge und Lua (ents.FindByName) die Entity finden".into(), choices: Vec::new() });
+    } else if let Some(i) = props.iter().position(|p| p.name.eq_ignore_ascii_case("targetname")).filter(|&i| i > 0) {
+        let p = props.remove(i);
+        props.insert(0, p);
+    }
     // Schalter „Rohwerte“ (Schlüssel/Wert wie in der Datei) und im Einfach-Modus nur wichtige Schlüssel
     let raw_id = egui::Id::new("amboss_raw_kv");
     let all_id = egui::Id::new(("amboss_all_kv", e.id));
@@ -1353,13 +1381,14 @@ pub(crate) fn entity_editor(ui: &mut egui::Ui, fgd: &Fgd, map: &Map, e: &mut Ent
                     }
                     let target = is_target_kind(&p.kind);
                     // Modell-Feld: Typ studio, oder Schlüssel „model“ als einfacher Text
-                    let is_model = p.kind == "studio" || p.kind == "studioprop" || (p.name.eq_ignore_ascii_case("model") && p.kind == "string");
+                    let is_model = p.kind.contains("studio") || p.name.eq_ignore_ascii_case("model") || p.name.eq_ignore_ascii_case("worldmodel") || val.to_ascii_lowercase().ends_with(".mdl");
                     let missing = target && !val.is_empty() && !val.starts_with('!') && !val.contains('*') && !names.iter().any(|n| n.eq_ignore_ascii_case(&val)) && fgd.class(&val).is_none();
                     // Breite nach verfügbarem Platz, Knöpfe rechts daneben bleiben sichtbar
                     let buttons = if target { 2 } else { 0 } + usize::from(is_model || is_color || matches!(p.kind.as_str(), "sound" | "particlesystem")) + usize::from(light_key);
                     // großzügig abziehen: schneidet das Panel rechts ab, verschwinden sonst zuerst die Knöpfe
                     let w = (col_w - buttons as f32 * (BROWSE_W + ui.spacing().item_spacing.x + 6.0) - 28.0).max(50.0);
-                    let mut te = egui::TextEdit::singleline(&mut val).hint_text(crate::theme::hint(p.default.clone())).desired_width(w);
+                    // feste ID: sonst verliert das Feld den Fokus, wenn darüber etwas erscheint (z. B. Hinweise)
+                    let mut te = egui::TextEdit::singleline(&mut val).id(egui::Id::new(("kv_te", e.id, &p.name))).hint_text(crate::theme::hint(p.default.clone())).desired_width(w);
                     if missing {
                         te = te.text_color(Color32::from_rgb(255, 120, 120));
                     }

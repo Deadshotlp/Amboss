@@ -324,7 +324,7 @@ impl ClassList {
                         // Stern (Favorit) – Klick schaltet um
                         let fav = favs.contains(&e.name);
                         let sr = Rect::from_center_size(egui::pos2(br.left() - 14.0, r.center().y), Vec2::splat(18.0));
-                        let sresp = ui.interact(sr, ui.id().with(("fav", &e.name)), Sense::click());
+                        let sresp = ui.interact(sr, ui.id().with(("fav", ri, &e.name)), Sense::click());
                         if fav || sresp.hovered() || resp.hovered() {
                             star(ui.painter(), sr.center(), 6.0, if fav { th.warn } else { alpha(th.text3, 0.6) }, fav);
                         }
@@ -522,6 +522,7 @@ impl App {
                 if let Some(e) = self.ed.map.entity_mut(id) {
                     e.set("classname", c.clone());
                 }
+                self.ed.give_brush_if_solid_class(id);
                 self.ed.entity_class = c;
                 self.ed.touch();
                 close = true;

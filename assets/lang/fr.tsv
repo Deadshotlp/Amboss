@@ -2679,3 +2679,9 @@ Daten © OpenStreetMap-Mitwirkende (ODbL) – bei Veröffentlichung der Map ange
 Keine OpenStreetMap-Datei (<osm> fehlt)	Pas un fichier OpenStreetMap (<osm> manquant)
 Die Datei enthält keine Punkte	Le fichier ne contient aucun point
 Overpass ist ausgelastet oder der Ausschnitt ist zu groß – später erneut versuchen	Overpass est surchargé ou la zone est trop grande – réessayer plus tard
+prop_static wird beim Kompilieren fest eingebaut – im Spiel gibt es den Namen nicht (Lua, Ausgänge).	prop_static est intégré à la compilation – le nom n’existe pas en jeu (Lua, sorties).
+In prop_dynamic umwandeln	Convertir en prop_dynamic
+prop_dynamic bleibt im Spiel ein Entity mit Namen – etwas teurer, aber über Lua und Ausgänge steuerbar	prop_dynamic reste une entité nommée en jeu – un peu plus coûteux, mais pilotable via Lua et des sorties
+Name, über den Ausgänge und Lua (ents.FindByName) die Entity finden	Nom utilisé par les sorties et Lua (ents.FindByName) pour trouver l’entité
+{} ist eine Brush-Entity – Quader 64 × 64 × 64 angelegt, jetzt in den Ansichten aufziehen	{} est une entité brush – un bloc de 64 × 64 × 64 a été créé, l’étirer maintenant dans les vues
+Klasse geändert: {}	Classe modifiée : {}

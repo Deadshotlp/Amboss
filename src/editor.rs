@@ -1761,6 +1761,8 @@ pub fn mesh_file(vmf: &std::path::Path) -> std::path::PathBuf {
         self.sel.clear();
         self.sel.insert(Obj::Entity(id));
         self.status = format!("{class} platziert bei {}", fmt_vec(pos));
+        // Brush-Klasse (z. B. trigger_multiple) mit dem Entity-Werkzeug gesetzt: gleich mit Quader
+        self.give_brush_impl(id, true);
         self.touch();
         id
     }
@@ -1935,6 +1937,43 @@ pub fn mesh_file(vmf: &std::path::Path) -> std::path::PathBuf {
     }
 
     /// Ausgewählte Brushes zu einer Brush-Entity machen (Strg+T)
+    /// Punkt-Entity mit einer Brush-Klasse (z. B. nach dem Ändern der Klasse in trigger_multiple)
+    /// bekommt einen Quader 64³ um den Ursprung – sonst ließe es sich nicht aufziehen und VBSP
+    /// würde es verwerfen. Liefert true, wenn ein Brush angelegt wurde.
+    pub fn give_brush_if_solid_class(&mut self, id: u32) -> bool {
+        self.give_brush_impl(id, false)
+    }
+
+    /// `on_floor`: Quader steht auf dem Ursprung (beim Setzen mit dem Entity-Werkzeug), sonst mittig
+    fn give_brush_impl(&mut self, id: u32, on_floor: bool) -> bool {
+        let Some(e) = self.map.entity(id) else { return false };
+        if !e.solids.is_empty() || !self.fgd.class(e.classname()).is_some_and(|c| c.kind == ClassKind::Solid) {
+            return false;
+        }
+        let class = e.classname().to_ascii_lowercase();
+        let o = e.origin().unwrap_or_default();
+        let mat = if class.starts_with("trigger_") || class.starts_with("func_buyzone") || class == "func_bomb_target" || class == "func_hostage_rescue" {
+            "TOOLS/TOOLSTRIGGER".to_string()
+        } else if class.contains("areaportal") {
+            "TOOLS/TOOLSAREAPORTAL".to_string()
+        } else if class == "func_clip_vphysics" {
+            "TOOLS/TOOLSCLIP".to_string()
+        } else if class == "func_occluder" {
+            "TOOLS/TOOLSOCCLUDER".to_string()
+        } else {
+            self.material.clone()
+        };
+        let c = if on_floor { o + glam::DVec3::Z * 32.0 } else { o };
+        let b = crate::geometry::Aabb::new(c - glam::DVec3::splat(32.0), c + glam::DVec3::splat(32.0));
+        let s = self.map.make_box(b, &mat, self.tex_scale);
+        if let Some(e) = self.map.entity_mut(id) {
+            e.solids.push(s.into());
+        }
+        self.status = format!("{class} ist eine Brush-Entity – Quader 64 × 64 × 64 angelegt, jetzt in den Ansichten aufziehen");
+        self.touch();
+        true
+    }
+
     pub fn tie_to_entity(&mut self, class: &str) {
         let solids = self.selected_solid_ids();
         if solids.is_empty() {
@@ -3258,6 +3297,26 @@ pub fn merge_instance(target: &mut Map, inst: &Map, e: &Entity, tex_lock: bool) 
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn brush_class_gets_box() {
+        let mut ed = Editor::new(crate::fgd::Fgd::builtin());
+        // Entity-Werkzeug mit trigger_multiple: Quader steht auf dem Klickpunkt
+        ed.entity_class = "trigger_multiple".into();
+        let id = ed.create_point_entity(DVec3::new(0.0, 0.0, 16.0));
+        let e = ed.map.entity(id).unwrap();
+        assert_eq!(e.solids.len(), 1);
+        assert_eq!(e.solids[0].bounds.min, DVec3::new(-32.0, -32.0, 16.0));
+        assert!(e.solids[0].sides.iter().all(|s| s.material == "TOOLS/TOOLSTRIGGER"));
+        // Punkt-Entity wird nachträglich zur Brush-Klasse: Quader mittig um den Ursprung
+        ed.entity_class = "info_target".into();
+        let id2 = ed.create_point_entity(DVec3::new(100.0, 0.0, 0.0));
+        assert!(ed.map.entity(id2).unwrap().solids.is_empty());
+        ed.map.entity_mut(id2).unwrap().set("classname", "func_brush");
+        assert!(ed.give_brush_if_solid_class(id2));
+        assert_eq!(ed.map.entity(id2).unwrap().solids[0].bounds.center(), DVec3::new(100.0, 0.0, 0.0));
+        assert!(!ed.give_brush_if_solid_class(id2), "hat schon einen Brush");
+    }
 
     #[test]
     fn lightmap_estimate_scales() {

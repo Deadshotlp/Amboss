@@ -1,5 +1,13 @@
 # Änderungen
 
+## 0.18.1
+
+- Behoben: In der Klassenliste (Pfeil neben „Klasse“) wurde ein Klick auf manche Einträge nicht übernommen – stand eine Klasse sowohl unter „Zuletzt benutzt“ als auch in ihrer Gruppe, fing der Favoriten-Stern alle Klicks dazwischen ab
+- Behoben: Bekam ein Punkt-Entity eine Brush-Klasse (z. B. über das Klassenfeld trigger_multiple) oder wurde ein Trigger mit dem Entity-Werkzeug gesetzt, blieb es ein Würfel ohne Brush, den man nicht aufziehen konnte (und den VBSP verworfen hätte). Jetzt entsteht gleich ein Quader 64 × 64 × 64 – bei Triggern mit toolstrigger –, der sich wie jeder Brush aufziehen lässt
+- Jede Entity hat oben ein Feld „Name“, auch wenn die FGD keins vorsieht (z. B. prop_static). Bei prop_static mit Namen erscheint ein Hinweis, dass statische Props im Spiel keinen Namen haben, mit dem Knopf „In prop_dynamic umwandeln“
+- Der Knopf für den Modell-Browser erscheint jetzt bei jedem Modell-Feld (Schlüssel „model“ oder Wert mit .mdl), auch wenn eine FGD den Typ anders angibt
+- Behoben: Eingabefelder der Schlüsselwerte verloren den Fokus, wenn darüber ein Hinweis erschien (z. B. beim Tippen eines Namens)
+
 ## 0.18.0
 
 **Half-Life 1 (GoldSrc) dekompilieren**

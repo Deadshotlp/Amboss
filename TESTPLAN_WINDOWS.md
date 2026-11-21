@@ -243,7 +243,7 @@ Für jede Optimierung: zuerst **„Nur prüfen“**, Markierungen ansehen, dann 
 | O11 | worldspawn `skyname` = `sky_day01_01` (bzw. eigener Himmel), Ansicht → Himmel-Vorschau | Himmel rundum richtig ausgerichtet (Horizont unten, Sonne wie im Spiel) – mit dem Spiel vergleichen |
 | O12 | `env_fog_controller` mit fogenable 1, Farbe, Start/Ende | Entfernte Flächen gehen in die Nebelfarbe über; Ansicht → Nebel schaltet ab |
 | O13 | `move_rope` mit NextKey auf `keyframe_rope`, Slack 50 | Seil hängt durch wie im Spiel, mit Seil-Textur; in 2D als Linie |
-| O14 | Version prüfen | „0.18.0“ neben dem Logo, im Fenstertitel und unter Hilfe → Über Amboss |
+| O14 | Version prüfen | „0.18.1“ neben dem Logo, im Fenstertitel und unter Hilfe → Über Amboss |
 | O15 | Hilfe → Tutorial…, Kapitel 6–9 mit echten Inhalten durchspielen (auch „Zeig es mir“) | Jeder Schritt wird erkannt; Gelände, Himmel, Nebel, Partikel, Overlay, Decal sehen richtig aus |
 | O16 | Trigger mit Output: Ziel-Feld anklicken und einen Buchstaben tippen | Liste passender Namen mit Klasse; Pfeiltasten + Enter oder Klick übernimmt |
 | O17 | Generatoren → Räume mit Höhenstufen 2, eigenen Texturen für Boden/Wände/Decke → Erzeugen → Kompilieren & starten | Kein Leck; Räume unterschiedlich hoch, Treppen in den Gängen begehbar; Texturen wie gewählt |
@@ -414,6 +414,16 @@ Für jede Optimierung: zuerst **„Nur prüfen“**, Markierungen ansehen, dann 
 | Z8 | Kompilieren-Dialog: „Entities ohne Namen automatisch benennen“ an (Lichter, Türen), kompilieren | Log zeigt „Automatisch benannt: …“; `<map>_namen.lua` liegt neben der VMF; die eigene VMF hat **keine** neuen Namen |
 | Z9 | In GMod (Konsole): `lua_run for _,e in ipairs(ents.FindByClass("light")) do print(e:GetName()) end`, dann `lua_run ents.FindByName("light_<id>")[1]:Fire("TurnOff")` | Namen wie in der Lua-Liste; das Licht geht aus |
 | Z10 | Viele Lichter nahe beieinander benennen lassen und kompilieren | Falls VRAD „too many light styles“ meldet: bitte melden, wie viele Lichter es waren |
+
+## AA. Version 0.18.1
+
+| Nr. | Schritt | Erwartung |
+|---|---|---|
+| AA1 | Entity auswählen, Pfeil neben „Klasse“, oben unter „Zuletzt benutzt“ eine andere Klasse anklicken | Klasse wird übernommen (auch mehrmals hintereinander, auch Einträge zwischen zwei Sternen) |
+| AA2 | prop_static (mit garrysmod.fgd) auswählen | Ordner-Knopf rechts neben „World model“ öffnet den Modell-Browser; ganz oben Feld „Name“ |
+| AA3 | Bei prop_static einen Namen eintippen | Feld behält den Fokus beim Tippen; Hinweis mit „In prop_dynamic umwandeln“ erscheint, Knopf wandelt um |
+| AA4 | Entity-Werkzeug, Klasse trigger_multiple, in die 2D-Ansicht klicken; dann an den Griffen ziehen | Quader 64 × 64 × 64 mit toolstrigger, lässt sich in 2D und 3D aufziehen |
+| AA5 | Punkt-Entity (z. B. info_target) über das Klassenfeld in trigger_once ändern | Quader entsteht um den Ursprung, Statuszeile erklärt es |
 
 ## L. Nach dem Test
 
