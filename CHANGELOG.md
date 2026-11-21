@@ -1,5 +1,29 @@
 # Änderungen
 
+## 0.18.0
+
+**Half-Life 1 (GoldSrc) dekompilieren**
+- Datei → Öffnen bzw. „BSP dekompilieren…“ nimmt jetzt auch Half-Life-1-Maps (BSP Version 30, z. B. HL1, CS 1.6, Opposing Force, Blue Shift)
+- GoldSrc-BSPs enthalten keine Brushes mehr – Amboss gewinnt sie aus dem BSP-Baum zurück: jeder solide Bereich wird ein Brush, die sichtbaren Seiten bekommen Textur und Ausrichtung der Originalfläche, alle anderen nodraw. Das Ergebnis ist dicht, besteht aber aus mehr Teilen als das Original
+- Texturen aus der BSP und aus den WAD-Dateien (gesucht neben der Map, im Half-Life-Ordner von Steam und in einem frei wählbaren Ordner) werden zu VTF/VMT unter `materials/goldsrc/` – mit `$alphatest` für `{`-Texturen, Größen werden auf 2ⁿ gebracht und die Ausrichtung umgerechnet
+- Entities werden umgewandelt: func_wall/func_illusionary → func_brush, `angle` → `angles` (bei Brush-Entities `movedir`), Lichtkegel von light_spot, Werkzeugtexturen (sky, aaatrigger, clip, origin …) → Source-Werkzeuge, Wasser → Source-Wassermaterial; Monster und HL1-Waffen bleiben erhalten und werden im Bericht genannt
+
+**Quake 3**
+- `.map` aus Quake 3 (GtkRadiant/NetRadiant): gebogene Flächen (`patchDef2`, auch `patchDef3` aus Doom 3) werden zu Displacements, „Brush Primitives“ (`brushDef`) mit Texturausrichtung, Werkzeugtexturen (caulk, clip, trigger, hint …), Wasser und Nebel, func_group wird Welt, Lichter werden umgerechnet
+- Kompilierte Quake-3-Maps (IBSP 46/47) lassen sich dekompilieren: alle Brushes mit Texturausrichtung (aus den sichtbaren Flächen), func_detail, Brush-Entities, Patches als Displacements
+- Texturen kommen aus den pk3-Paketen bzw. Ordnern neben der Map (Shader-Skripte, TGA und JPG) und landen als VTF/VMT unter `materials/quake3/`
+- Der Modell-Import liest jetzt auch TGA-Bilder
+
+**OpenStreetMap**
+- Werkzeuge bzw. Datei → Importieren → „OpenStreetMap (Gebäude und Straßen)…“: eine `.osm`-Datei (Export auf openstreetmap.org) laden oder einen Ausschnitt um eine Koordinate über die Overpass-API herunterladen
+- Gebäude werden Brushes: Grundriss in konvexe Teile zerlegt, Höhe aus `height` bzw. `building:levels`; Straßen und Wege werden Straßen-Brushes wie beim Spline-Werkzeug (Breite nach Straßentyp); dazu auf Wunsch eine Bodenplatte
+- Maßstab in Einheiten je Meter (52,5 = übliches Source-Maß), Warnung, wenn der Ausschnitt über die Map-Grenze ragt; „Auf vorhandenes Gelände setzen“ stellt Häuser und Straßen auf ein Gelände, z. B. aus dem Heightmap-Import
+
+**Entities automatisch benennen (für Lua)**
+- Neue Option im Kompilieren-Dialog: Lichter, Türen & Knöpfe, Props, Sounds und Effekte ohne Namen bekommen beim Kompilieren `Klasse_ID` (z. B. `light_12`) – so lassen sie sich im Spiel über Lua (`ents.FindByName`) oder Ausgänge ansteuern. Läuft auf einer Kopie, die eigene Map bleibt unverändert, die Namen bleiben bei jedem Kompilieren gleich
+- Dazu eine Lua-Liste aller Namen mit Klasse und Position: `<map>_namen.lua` neben der VMF
+- Hinweis: Benannte Lichter sind schaltbar und brauchen je eine eigene Lightmap-Ebene (höchstens 4 pro Fläche) – bei vielen Lichtern nahe beieinander lieber nur die nötigen benennen
+
 ## 0.17.0
 
 **Animationen im Modell-Browser**

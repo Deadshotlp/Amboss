@@ -528,17 +528,33 @@ pub fn parse_rmf(b: &[u8]) -> Result<Map, String> {
 
 /// Ganze Map aus Hammer 3.x / Worldcraft (.rmf) bzw. Quake/Valve-.map laden.
 /// GoldSrc-Texturen (aus WAD-Dateien) gibt es in Source nicht – die Namen bleiben zum Ersetzen erhalten.
+#[cfg(test)]
 pub fn load_foreign_map(path: &Path, tex_scale: f64) -> Result<Map, String> {
+    load_foreign_map_ex(path, tex_scale, &[]).map(|r| r.0)
+}
+
+/// Wie `load_foreign_map`, dazu Hinweise und umgewandelte Materialien (Quake 3: Texturen aus
+/// pk3/Ordnern neben der Map oder aus `q3_dirs`; Pfade relativ zu materials/)
+pub fn load_foreign_map_ex(path: &Path, tex_scale: f64, q3_dirs: &[std::path::PathBuf]) -> Result<(Map, Vec<String>, Vec<(String, Vec<u8>)>), String> {
     let ext = path.extension().map(|e| e.to_string_lossy().to_ascii_lowercase()).unwrap_or_default();
+    let mut notes = Vec::new();
+    let mut files = Vec::new();
     let mut m = match ext.as_str() {
         "rmf" => parse_rmf(&std::fs::read(path).map_err(|e| format!("{}: {e}", path.display()))?)?,
-        "map" => crate::importexport::import_map(&std::fs::read_to_string(path).map_err(|e| format!("{}: {e}", path.display()))?, tex_scale)?,
+        "map" => {
+            let src = std::fs::read_to_string(path).map_err(|e| format!("{}: {e}", path.display()))?;
+            let mut assets = crate::quake3::Assets::load(&crate::quake3::roots(path, q3_dirs));
+            let (m, n) = crate::importexport::import_map_ex(&src, tex_scale, &mut assets)?;
+            notes = n;
+            files = std::mem::take(&mut assets.files);
+            m
+        }
         "jmf" => return Err("JMF (J.A.C.K.) wird nicht direkt gelesen – bitte in J.A.C.K. als .rmf oder .map speichern (Datei → Speichern unter) und diese Datei öffnen".into()),
         _ => return Err(format!("Unbekanntes Format: .{ext}")),
     };
     // GoldSrc-Spawnpunkte heißen in Source-Spielen meist gleich; info_player_deathmatch kennt GMod
     m.world.props.retain(|(k, _)| !k.eq_ignore_ascii_case("wad"));
-    Ok(m)
+    Ok((m, notes, files))
 }
 
 /// Texturen einer importierten Map, die es im Spiel nicht gibt (Namen ohne Ordner wie aus GoldSrc-WADs)

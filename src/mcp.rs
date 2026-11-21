@@ -243,7 +243,7 @@ pub fn tool_list() -> Vec<Value> {
         ),
         t(
             "decompile_bsp",
-            "Kompilierte Map (.bsp) wieder in eine VMF umwandeln (wie BSPSource): Brushes, func_detail, Brush-Entities, Displacements, Entities, statische Props, Overlays, Cubemaps. Ohne out: <bsp>_dekompiliert.vmf daneben. open=true öffnet sie danach.",
+            "Kompilierte Map (.bsp) wieder in eine VMF umwandeln (wie BSPSource): Brushes, func_detail, Brush-Entities, Displacements, Entities, statische Props, Overlays, Cubemaps. Auch Half-Life-1-BSPs (GoldSrc, Version 30): Brushes aus dem BSP-Baum, WAD-Texturen werden zu VTF unter materials/goldsrc. Ohne out: <bsp>_dekompiliert.vmf daneben. open=true öffnet sie danach.",
             schema(json!({"bsp": {"type": "string"}, "out": {"type": "string"}, "open": {"type": "boolean"}}), &["bsp"]),
         ),
         t(
@@ -742,7 +742,7 @@ pub(crate) fn call_tool(name: &str, a: &Value, host: &mut dyn Host) -> Result<Va
                 Some(o) => PathBuf::from(o),
                 None => bsp.with_file_name(format!("{}_dekompiliert.vmf", bsp.file_stem().map(|s| s.to_string_lossy().to_string()).unwrap_or_default())),
             };
-            let r = crate::decompile::decompile_file(&bsp, &out)?;
+            let r = crate::decompile::decompile_file(&bsp, &out, &host.game_dir(), &[])?;
             if a.get("open").and_then(|v| v.as_bool()).unwrap_or(false) {
                 host.open(out.clone())?;
             }

@@ -1,6 +1,6 @@
 # Amboss – Map editor for Source 1 / Garry's Mod
 
-**Version 0.17.0** – shown next to the logo, in the window title and under Help → About Amboss. See `CHANGELOG.md` for what's new (the changelog is in German).
+**Version 0.18.0** – shown next to the logo, in the window title and under Help → About Amboss. See `CHANGELOG.md` for what's new (the changelog is in German).
 
 Amboss is a standalone level editor written in **Rust**, inspired by Hammer/Hammer++.
 It edits **VMF files**, shows the real **textures and models from the GMod/HL2 VPKs** and
@@ -80,6 +80,7 @@ Textured (incl. **blend textures** WorldVertexTransition mixed via displacement 
 * **Tile set** – place floor, wall, corner, door, window, column, stairs … on a grid; R rotates, Shift removes.
 * **Polygon mesh** – free-form meshes from brushes or OBJ: drag points and faces in 3D, extrude, smooth, subdivide; becomes a model via studiomdl as a prop_static (mesh data is stored in `<map>.meshes.json` next to the VMF – copy it along!).
 * **Bezier patch** – bend a displacement smoothly with 16 control points.
+* **OpenStreetMap** (File → Import or Tools) – load an `.osm` export or download an area around a coordinate (Overpass API): buildings become brushes (footprint split into convex pieces, height from `height`/`building:levels`), roads and paths become road brushes like the spline tool (width by road type), optional ground slab; units per metre adjustable (52.5 = usual Source building scale), warning when the area exceeds the map limit; can be **placed on existing terrain** (e.g. from the heightmap import). Data © OpenStreetMap contributors (ODbL).
 * Overlays on displacements follow the surface in the 3D view, as in game.
 * **Particle preview** – `info_particle_system` plays its effect in the 3D view (View → "Play particle effects").
 * **glTF export** (File → Export → .glb) – the map or the selection with embedded PNG textures, in metres with Y up, for Blender, Unity, Unreal or Godot (brushes and displacements; tool textures are left out).
@@ -99,7 +100,7 @@ Before compiling, missing keys are filled in with their FGD defaults (as Hammer 
 
 **Notes** (Map → Pin note, Ctrl+Shift+N; Map → Notes… lists them) – pin text to a spot in the map: a yellow pin with the first line in 2D and 3D, the full text when selected, editable in the panel. Stored as `info_null` with the key `amboss_note` – VBSP removes it when compiling, Hammer still opens the map, and in a live session everyone sees the notes.
 
-**What's new** after an update (once, patch notes of all skipped versions; Help → What's new) · **compile errors explained** ("What does this mean?" in the compile dialog: leak, engine limits, missing textures/models, broken brushes … with fix and buttons) · **open Hammer 3.x/Worldcraft `.rmf` and Quake/Valve `.map`** directly · **lightmap density** view (colours by lightmap scale, estimated lighting data size) ·
+**What's new** after an update (once, patch notes of all skipped versions; Help → What's new) · **compile errors explained** ("What does this mean?" in the compile dialog: leak, engine limits, missing textures/models, broken brushes … with fix and buttons) · **open Hammer 3.x/Worldcraft `.rmf` and Quake/Valve `.map`** directly – including **Quake 3 maps** (curved `patchDef2`/`patchDef3` patches become displacements, brush primitives `brushDef`, tool textures, water, entities; textures are converted from pk3 files next to the map) · **lightmap density** view (colours by lightmap scale, estimated lighting data size) ·
 **3D skybox editing** (View → Edit 3D skybox, Map → 3D skybox): all views show only the room around the sky_camera, with a **player view** (picture in picture) of the whole map and the enlarged skybox behind it; the map's footprint is outlined in 2D and the status bar shows world coordinates. An assistant creates room and sky_camera if there is none; selected brushes can be **copied in scaled down** (textures scaled along); **check** for open rooms, missing sky_camera, fog mismatches, overlaps and more ·
 **Check for problems** with auto-fix (Alt+P) · **entity report** · **go to number** (e.g. from VBSP errors) · map info · map properties
 
@@ -111,7 +112,7 @@ One dialog for everything (Compile → Compile & export…): VVIS/VRAD quality, 
 **Opening BSP files:** File → Open shows VMF and BSP; a BSP opens the "Decompile BSP" dialog and then the VMF (also via drag & drop onto the window).
 
 ### Compiling
-Simple mode (VBSP/VVIS/VRAD levels, HDR, extra parameters, cubemaps, copy, launch game) and **expert mode** with freely defined steps · clickable error lines (jump to the brush) · **pointfile is loaded automatically on leaks** · cordon compiling · optional **automatic optimizations** before VBSP · **pack content into BSP** (built in, no bspzip needed; Compile → "Pack content into BSP…"): finds materials incl. bump maps/env maps, models with all files and skins, sounds, particles (.pcf by used systems + materials), soundscapes, navmesh and overview map; editable list, the selection also applies when compiling, addon content stays out by default · **decompile BSP** (File → "Decompile BSP…", like BSPSource): brushes, func_detail, brush entities, displacements, entities, static props, overlays, cubemaps → VMF
+Simple mode (VBSP/VVIS/VRAD levels, HDR, extra parameters, cubemaps, copy, launch game) and **expert mode** with freely defined steps · clickable error lines (jump to the brush) · **pointfile is loaded automatically on leaks** · cordon compiling · optional **automatic optimizations** before VBSP · **pack content into BSP** (built in, no bspzip needed; Compile → "Pack content into BSP…"): finds materials incl. bump maps/env maps, models with all files and skins, sounds, particles (.pcf by used systems + materials), soundscapes, navmesh and overview map; editable list, the selection also applies when compiling, addon content stays out by default · **decompile BSP** (File → "Decompile BSP…", like BSPSource): brushes, func_detail, brush entities, displacements, entities, static props, overlays, cubemaps → VMF · also **Half-Life 1 (GoldSrc) BSPs**: brushes are rebuilt from the BSP tree, textures from the BSP and WAD files become VTF/VMT under `materials/goldsrc/`, entities are converted (func_wall → func_brush, angle → angles/movedir, light cones), water gets a Source water material · and **Quake 3 BSPs** (IBSP 46/47): all brushes with texture alignment, func_detail, curved surfaces as displacements, textures from pk3 files/folders (shader scripts, TGA/JPG) as VTF/VMT under `materials/quake3/` · **name entities automatically for Lua** (compile option, on a copy): lights, doors, props, sounds and effects without a name get `class_ID` (e.g. `light_12`), plus a Lua table of all names in `<map>_namen.lua`; named lights become switchable but each needs its own lightmap layer (max. 4 per face)
 
 ### Automatic optimizations (Map → Automatic optimizations…)
 Run on demand ("Check only" / "Apply to map" as one undo step) or **automatically on a copy when compiling**
@@ -320,7 +321,11 @@ src/
   mcp.rs         MCP server (HTTP + stdio + headless)
   tabs.rs        Tabs, import/export, MCP binding
   editor2.rs     Duplicating, dragging/extruding faces, locking, nodraw, clipboard, live rotation
-  importexport.rs  .map import, OBJ export
+  importexport.rs  .map import (incl. Quake 3 patches/brushDef), OBJ export
+  goldsrc.rs     Half-Life 1 BSP decompiler: brushes from the BSP tree, WAD/miptex → VTF, entity conversion
+  quake3.rs      Quake 3: patches → displacements, pk3/shader/TGA textures, IBSP decompiler
+  osm.rs         OpenStreetMap import: XML reader, convex decomposition, buildings and roads, dialog
+  autoname.rs    Naming unnamed entities when compiling, Lua name list
   prefabs.rs     Prefab library: built-in prefabs, folders, .ol/.rmf, preview renderer
   prefab_ui.rs   Prefab window, drag & drop, Hammer import
   dialogs2.rs    Command palette, object list, history, shortcut editor, camera controls

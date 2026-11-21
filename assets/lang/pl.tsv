@@ -2577,3 +2577,105 @@ Frei verwendbar (CC0). Material anklicken, dann herunterladen – es landet als 
 1 Material	1 materiał
 Bibliothek…	Biblioteka…
 Freie Texturen von Poly Haven und ambientCG herunterladen	Pobierz darmowe tekstury z Poly Haven i ambientCG
+OpenStreetMap (Gebäude und Straßen)…	OpenStreetMap (budynki i drogi)…
+optional, z. B. Quake 3/baseq3	opcjonalnie, np. Quake 3/baseq3
+optional, z. B. Half-Life/valve	opcjonalnie, np. Half-Life/valve
+keine gefunden – Texturen fehlen dann	nic nie znaleziono – zabraknie tekstur
+Quake-3-Map: alle Brushes mit Texturausrichtung, func_detail, Brush-Entities, Entities (Lichter umgerechnet), gebogene Flächen als Displacements, Texturen aus pk3 oder Ordnern (Shader-Skripte, TGA/JPG) als VTF/VMT unter materials/quake3, Wasser mit Source-Wassermaterial.	Mapa Quake 3: wszystkie brushe z wyrównaniem tekstur, func_detail, encje brushowe, encje (światła przeliczone), zakrzywione powierzchnie jako displacementy, tekstury z plików pk3 lub folderów (skrypty shaderów, TGA/JPG) jako VTF/VMT w materials/quake3, woda z materiałem wody Source.
+Nicht wiederherstellbar: Nebel-Volumen, Shader-Effekte (Animation, Leuchten), Modelle (misc_model), Waffen und Gegenstände (bleiben als Entities ohne Wirkung).	Nie do odzyskania: wolumeny mgły, efekty shaderów (animacja, poświata), modele (misc_model), bronie i przedmioty (zostają jako encje bez działania).
+Half-Life-1-Map: Brushes werden aus dem BSP-Baum zurückgewonnen (dicht, aber in mehr Teile zerlegt als im Original), Texturen aus BSP und WAD-Dateien als VTF/VMT unter materials/goldsrc, Entities mit Umwandlung (func_wall → func_brush, angle → angles/movedir, Lichtkegel), Wasser mit Source-Wassermaterial.	Mapa Half-Life 1: brushe są odtwarzane z drzewa BSP (szczelne, ale podzielone na więcej części niż w oryginale), tekstury z BSP i plików WAD jako VTF/VMT w materials/goldsrc, encje przekształcone (func_wall → func_brush, angle → angles/movedir, stożki światła), woda z materiałem wody Source.
+Nicht wiederherstellbar: Clip-Brushes, Monster und HL1-Waffen (bleiben als Entities ohne Wirkung), Himmel (wird sky_day01_01).	Nie do odzyskania: brushe clip, potwory i bronie HL1 (zostają jako encje bez działania), niebo (staje się sky_day01_01).
+WAD-Ordner	Folder WAD
+WAD-Dateien	Pliki WAD
+Quake-3-Ordner	Folder Quake 3
+Spieldaten	Dane gry
+Map-Import	Import mapy
+Entities ohne Namen automatisch benennen (für Lua)	Automatycznie nazwij encje bez nazwy (dla Lua)
+Läuft auf einer Kopie: Lichter, Türen, Props … ohne Namen bekommen Klasse_ID (z. B. light_12), damit man sie im Spiel über Lua oder Ausgänge ansteuern kann. Deine Map bleibt unverändert.	Działa na kopii: światła, drzwi, propy … bez nazwy dostają klasa_ID (np. light_12), aby można je było sterować w grze przez Lua lub wyjścia. Twoja mapa pozostaje bez zmian.
+Lua-Liste aller Namen schreiben (<map>_namen.lua)	Zapisz listę Lua wszystkich nazw (<map>_namen.lua)
+Benannte Lichter sind schaltbar, brauchen aber je eine eigene Lightmap-Ebene (höchstens 4 pro Fläche). Bei vielen Lichtern nahe beieinander lieber nur die nötigen von Hand benennen.	Nazwane światła można przełączać, ale każde potrzebuje własnej warstwy lightmapy (maks. 4 na ścianę). Przy wielu światłach blisko siebie lepiej nazwać ręcznie tylko potrzebne.
+Türen & Knöpfe	Drzwi i przyciski
+Sounds	Dźwięki
+Effekte	Efekty
+light, light_spot, light_dynamic (light_environment lässt sich nicht schalten)	light, light_spot, light_dynamic (light_environment nie da się przełączać)
+Türen, Knöpfe, Züge, func_brush, func_breakable, func_physbox …	Drzwi, przyciski, pociągi, func_brush, func_breakable, func_physbox …
+prop_dynamic und prop_physics (prop_static gibt es im Spiel nicht als Entity)	prop_dynamic i prop_physics (prop_static nie istnieje w grze jako encja)
+ambient_generic, env_soundscape	ambient_generic, env_soundscape
+Partikel, Sprites, Rauch, Feuer, Funken, Scheinwerfer, projizierte Texturen, Nebel …	Cząsteczki, sprite’y, dym, ogień, iskry, reflektory, tekstury projekcyjne, mgła …
+Automatisch benannt: {}	Nazwano automatycznie: {}
+Hinweis: {} Lichter sind jetzt schaltbar. Jedes benannte Licht braucht eine eigene Lightmap-Ebene (höchstens 4 pro Fläche) – meldet VRAD „too many light styles“, weniger Lichter benennen.	Uwaga: {} świateł można teraz przełączać. Każde nazwane światło potrzebuje własnej warstwy lightmapy (maks. 4 na ścianę) – jeśli VRAD zgłasza „too many light styles”, nazwij mniej świateł.
+{} Namen → {}	{} nazw → {}
+Automatisch benennen: {}	Automatyczne nazywanie: {}
+GoldSrc-BSP (Version {})	BSP GoldSrc (wersja {})
+{} Brushes, {} Brush-Entities, {} Entities	{} brushy, {} encje brushowe, {} encje
+{} Texturen nach VTF umgewandelt	{} tekstur przekonwertowano na VTF
+{} Texturen nicht gefunden (WAD fehlt?): {}	Nie znaleziono {} tekstur (brak WAD?): {}
+Quake-1-BSP: Texturen haben keine eigene Farbpalette und werden nicht umgewandelt	BSP Quake 1: tekstury nie mają własnej palety i nie są konwertowane
+Himmel "{}" (GoldSrc) durch sky_day01_01 ersetzt	Niebo "{}" (GoldSrc) zastąpiono sky_day01_01
+func_water → nicht solider func_brush (Wasser bitte von Hand nachbauen)	func_water → niesolidny func_brush (wodę odtwórz ręcznie)
+{}: keine Brushes rekonstruierbar – bleibt als Punkt-Entity	{}: nie udało się odtworzyć brushy – zostaje encją punktową
+{}: ohne Brush-Modell	{}: bez modelu brushowego
+Klassen ohne Source-Gegenstück (bleiben erhalten, wirken im Spiel nicht): {}	Klasy bez odpowiednika w Source (zachowane, bez działania w grze): {}
+{} Wasser-Brushes mit {} (Schleim und Lava ebenfalls als Wasser)	{} brushy wody z {} (szlam i lawa również jako woda)
+Clip-Brushes stehen nur in den Kollisions-Hüllen und kommen nicht zurück	Brushe clip istnieją tylko w hullach kolizji i nie wracają
+Materialien gespeichert in {}	Materiały zapisano w {}
+WAD-Dateien: {}	Pliki WAD: {}
+Keine GoldSrc-BSP (Version 29/30)	To nie jest BSP GoldSrc (wersja 29/30)
+BSP ohne Welt-Modell	BSP bez modelu świata
+Quake-3-BSP (Version {})	BSP Quake 3 (wersja {})
+{} Brushes (davon {} func_detail), {} Brush-Entities, {} Entities	{} brushy (w tym {} func_detail), {} encje brushowe, {} encje
+{} Displacements aus gebogenen Flächen, {} Texturen nach VTF umgewandelt	{} displacementów z zakrzywionych powierzchni, {} tekstur przekonwertowano na VTF
+{} gebogene Flächen (Patches) → {} Displacements	{} zakrzywionych powierzchni (patche) → {} displacementów
+{} gebogene Flächen (Patches) → Displacements	{} zakrzywionych powierzchni (patche) → displacementy
+{} Patch-Teile ließen sich nicht als Displacement abbilden (z. B. Dreiecksform)	{} części patchy nie dało się odwzorować jako displacement (np. kształt trójkąta)
+{} Nebel-Volumen ausgelassen (in Source: env_fog_controller)	Pominięto {} wolumenów mgły (w Source: env_fog_controller)
+Keine Quake-3-Daten (pk3/textures) gefunden – Texturen behalten ihre Namen; Ordner im Dialog angeben	Nie znaleziono danych Quake 3 (pk3/textures) – tekstury zachowują nazwy; podaj folder w oknie
+{} Texturen nicht gefunden: {}	Nie znaleziono {} tekstur: {}
+Maßstab 1:1 übernommen – Quake-3-Spieler sind kleiner (56 statt 72 Einheiten); bei Bedarf mit Transformieren auf 125 % skalieren	Skala 1:1 zachowana – gracze Quake 3 są niżsi (56 zamiast 72 jednostek); w razie potrzeby przeskaluj do 125 % przez Przekształć
+Quake-3-Daten: {}	Dane Quake 3: {}
+Keine Quake-3-BSP (IBSP 46/47)	To nie jest BSP Quake 3 (IBSP 46/47)
+TGA zu kurz	TGA za krótki
+TGA unvollständig	TGA niekompletny
+TGA-Art {}/{} Bit wird nicht unterstützt	Typ TGA {}/{} bit nie jest obsługiwany
+{}: nur PNG, JPEG und TGA werden unterstützt	{}: obsługiwane są tylko PNG, JPEG i TGA
+OpenStreetMap importieren	Importuj OpenStreetMap
+OpenStreetMap	OpenStreetMap
+Koordinaten als „Breite, Länge“ eingeben, z. B. 52.5163, 13.3777	Podaj współrzędne jako „szerokość, długość”, np. 52.5163, 13.3777
+Lade von overpass-api.de…	Wczytywanie z overpass-api.de…
+Nichts zu importieren – keine Gebäude oder Straßen im Ausschnitt	Nic do zaimportowania – brak budynków i dróg w wycinku
+Gebäude (Grundriss und Höhe aus den OSM-Daten) werden zu Brushes, Straßen und Wege zu Straßen-Brushes wie beim Spline-Werkzeug.	Budynki (obrys i wysokość z danych OSM) stają się brushami, drogi i ścieżki brushami dróg jak w narzędziu spline.
+Datei (.osm)	Plik (.osm)
+Ausschnitt herunterladen	Pobierz wycinek
+Datei wählen…	Wybierz plik…
+Auf openstreetmap.org: Exportieren → Bereich wählen → Exportieren	Na openstreetmap.org: Eksport → wybierz obszar → Eksport
+Laden	Wczytaj
+Als .osm speichern…	Zapisz jako .osm…
+Über die Overpass-API (overpass-api.de). Koordinaten z. B. aus der Adresszeile von openstreetmap.org (…/#map=18/52.5163/13.3777).	Przez Overpass API (overpass-api.de). Współrzędne np. z paska adresu na openstreetmap.org (…/#map=18/52.5163/13.3777).
+Gefunden: {} Gebäude, {} Straßen, Fuß- und Radwege: {}	Znaleziono: {} budynków, {} dróg, ścieżek pieszych i rowerowych: {}
+Ausschnitt {} × {} m = {} × {} Einheiten (Map darf {} groß sein)	Wycinek {} × {} m = {} × {} jednostek (mapa może mieć {})
+52,5 ist das übliche Source-Maß für Gebäude (16 Einheiten = 1 Fuß, eine 2,1 m hohe Tür ≈ 112 Einheiten). Kleiner = mehr Fläche passt in die Map.	52,5 to zwykła skala Source dla budynków (16 jednostek = 1 stopa, drzwi 2,1 m ≈ 112 jednostek). Mniej = więcej powierzchni zmieści się w mapie.
+ohne Angabe:	bez danych:
+Stockwerke	piętra
+Gebäude	Budynki
+Straßen	Drogi
+Fuß- und Radwege	Ścieżki piesze i rowerowe
+Bodenplatte	Płyta gruntu
+Auf vorhandenes Gelände setzen (z. B. aus dem Heightmap-Import)	Postaw na istniejącym terenie (np. z importu heightmapy)
+Die Map hat noch kein Gelände (Displacements) – erst Werkzeuge → Gelände aus Heightmap	Mapa nie ma jeszcze terenu (displacementy) – najpierw Narzędzia → Teren z heightmapy
+Material nicht im Spiel gefunden	Nie znaleziono materiału w grze
+Mitte (Breite, Länge)	Środek (szer., dł.)
+Einheiten je Meter	Jednostek na metr
+Stockwerk	Wysokość piętra
+Bodenhöhe	Wysokość gruntu
+Dächer	Dachy
+Wege	Ścieżki
+Umrechnung	Przeliczenie
+Daten © OpenStreetMap-Mitwirkende · Ein Rückgängig-Schritt	Dane © współtwórcy OpenStreetMap · Jeden krok cofania
+OpenStreetMap: {} Gebäude ({} Brushes), {} Straßen und Wege, {} × {} m	OpenStreetMap: {} budynków ({} brushy), {} dróg i ścieżek, {} × {} m
+{} Gebäude übersprungen (zu klein oder ungültiger Grundriss)	Pominięto {} budynków (za małe lub błędny obrys)
+{} Innenhöfe (Löcher in Gebäuden) wurden gefüllt	Wypełniono {} dziedzińców (otworów w budynkach)
+Der Ausschnitt ist {} × {} m = {} × {} Einheiten und ragt über die Map-Grenze (±{}). Kleineren Ausschnitt wählen oder den Maßstab verringern.	Wycinek ma {} × {} m = {} × {} jednostek i wychodzi poza granicę mapy (±{}). Wybierz mniejszy wycinek lub zmniejsz skalę.
+Daten © OpenStreetMap-Mitwirkende (ODbL) – bei Veröffentlichung der Map angeben.	Dane © współtwórcy OpenStreetMap (ODbL) – podaj to przy publikacji mapy.
+Keine OpenStreetMap-Datei (<osm> fehlt)	To nie jest plik OpenStreetMap (brak <osm>)
+Die Datei enthält keine Punkte	Plik nie zawiera punktów
+Overpass ist ausgelastet oder der Ausschnitt ist zu groß – später erneut versuchen	Overpass jest przeciążony lub wycinek jest za duży – spróbuj później

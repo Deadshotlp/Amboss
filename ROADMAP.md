@@ -164,11 +164,11 @@ Ansicht und Übersicht
 
 Maps aus anderen Engines
 - [x] Ganze Maps aus Hammer 3.x (`.rmf`) und `.map` öffnen (0.13.0; `.jmf` über Speichern als `.rmf` in J.A.C.K.) (`.rmf`-Leser gibt es für Prefabs schon) – S–M
-- [ ] GoldSrc-BSP (Half-Life 1) dekompilieren, WAD-Texturen → VTF – M
-- [ ] Quake-3-Maps inkl. gebogener Flächen (→ Bezier-Patches) – M
+- [x] GoldSrc-BSP (Half-Life 1) dekompilieren, WAD-Texturen → VTF (0.18.0) – M
+- [x] Quake-3-Maps inkl. gebogener Flächen (0.18.0; .map mit patchDef2/brushDef und kompilierte IBSP, Patches → Displacements, Texturen aus pk3) – M
 - [ ] Source-2-Maps (`.vmap`) – nur eingeschränkt: Meshes → Props, konvexe Teile → Brushes – L
 - [ ] Szenen aus Unreal/Unity/Godot/Blender über glTF/FBX/OBJ (Geometrie → Props, Blockformen → Brushes per konvexer Zerlegung) – M–L
-- [ ] OpenStreetMap-Gebäude und Straßen (zusammen mit dem Heightmap-Import) – M
+- [x] OpenStreetMap-Gebäude und Straßen (0.18.0; .osm-Datei oder Overpass, auf vorhandenes Gelände setzbar) – M
 
 Modelle
 - [x] ★ glTF/GLB und OBJ per Ziehen in die Map (0.12.0; FBX/DAE noch offen): automatisch SMD/QC + VTF/VMT, studiomdl im Hintergrund, fertiges prop_static/prop_physics – M
@@ -206,6 +206,7 @@ GMod
 - [x] ★ Workshop-Vorschaubild aus der 3D-Kamera rendern (0.12.0) – S
 - [x] Gamemode-Vorlagen mit Checkliste (TTT, Murder, Prop Hunt, DarkRP, Deathrun) (0.15.0; Map → Gamemode-Checkliste, Vorlagen unter Neu aus Vorlage) – S–M
 - [x] Lua-Entities aus Addons erkennen (Scripted Entities ohne FGD) (0.15.0; lua/entities, lua/weapons, gamemodes/*/entities, auch in .gma) – M
+- [x] Beim Kompilieren unbenannte Lichter, Türen, Props … automatisch benennen (für Lua), mit Namensliste `<map>_namen.lua` (0.18.0) – S
 - [ ] Visueller Logik-Editor: Ein-/Ausgänge als Knoten verbinden – M
 
 Zusammenarbeit und Arbeitsablauf

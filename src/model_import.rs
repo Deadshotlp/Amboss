@@ -573,7 +573,10 @@ pub fn load_image(img: &Image) -> Result<Rgba, String> {
         };
         return Ok(Rgba { w: info.width as u32, h: info.height as u32, px: rgba });
     }
-    Err(format!("{label}: nur PNG und JPEG werden unterstützt"))
+    if label.to_ascii_lowercase().ends_with(".tga") || matches!(bytes.get(2), Some(2 | 3 | 10 | 11)) {
+        return crate::vtf_write::load_tga(&bytes).map_err(|e| format!("{label}: {e}"));
+    }
+    Err(format!("{label}: nur PNG, JPEG und TGA werden unterstützt"))
 }
 
 fn srgb8(c: f32, linear: bool) -> u8 {

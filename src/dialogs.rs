@@ -181,6 +181,23 @@ impl App {
                                     open_opt = true;
                                 }
                             });
+                            crate::theme::checkbox(ui, &mut s.autonames.enabled, crate::i18n::tr("Entities ohne Namen automatisch benennen (für Lua)"))
+                                .on_hover_text(crate::i18n::tr("Läuft auf einer Kopie: Lichter, Türen, Props … ohne Namen bekommen Klasse_ID (z. B. light_12), damit man sie im Spiel über Lua oder Ausgänge ansteuern kann. Deine Map bleibt unverändert."));
+                            if s.autonames.enabled {
+                                ui.indent("autonames", |ui| {
+                                    use crate::autoname::Group;
+                                    let a = &mut s.autonames;
+                                    ui.horizontal_wrapped(|ui| {
+                                        for (g, v) in [(Group::Lights, &mut a.lights), (Group::Doors, &mut a.doors), (Group::Props, &mut a.props), (Group::Sounds, &mut a.sounds), (Group::Effects, &mut a.effects)] {
+                                            crate::theme::checkbox(ui, v, crate::i18n::tr(g.label())).on_hover_text(crate::i18n::tr(g.hint()));
+                                        }
+                                    });
+                                    crate::theme::checkbox(ui, &mut a.lua_list, crate::i18n::tr("Lua-Liste aller Namen schreiben (<map>_namen.lua)"));
+                                    if a.lights {
+                                        ui.label(RichText::new(crate::i18n::tr("Benannte Lichter sind schaltbar, brauchen aber je eine eigene Lightmap-Ebene (höchstens 4 pro Fläche). Bei vielen Lichtern nahe beieinander lieber nur die nötigen von Hand benennen.")).size(11.0).color(th.warn));
+                                    }
+                                });
+                            }
                             ui.add_space(6.0);
                             crate::theme::section(ui, "Exportieren");
                             crate::theme::checkbox(ui, &mut s.opt.navmesh, crate::i18n::tr("Navmesh für NextBots erzeugen")).on_hover_text(crate::i18n::tr("Eingebauter Generator: begehbare Bereiche ab den Spawnpunkten, gespeichert als maps/<map>.nav und mit „Inhalte packen“ in die BSP"));

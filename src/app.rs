@@ -237,6 +237,7 @@ pub struct App {
     pub(crate) mb: crate::model_browser::ModelBrowserState,
     pub(crate) pb: crate::particle_browser::ParticleBrowserState,
     pub(crate) hm: crate::heightmap::HeightmapDlg,
+    pub(crate) osm: crate::osm::OsmDlg,
     pub(crate) prop: crate::propper::PropDlg,
     pub(crate) pack: crate::pack_ui::PackDlg,
     pub(crate) decomp: crate::decompile::DecompState,
@@ -369,6 +370,7 @@ impl App {
             mb: Default::default(),
             pb: Default::default(),
             hm: Default::default(),
+            osm: Default::default(),
             prop: Default::default(),
             pack: Default::default(),
             decomp: Default::default(),
@@ -631,6 +633,18 @@ impl App {
                 return;
             }
             path = cp;
+        }
+        // Unbenannte Lichter, Türen … benennen (auf einer Kopie), Lua-Liste neben die VMF
+        if self.settings.autonames.enabled {
+            if let Some(src) = self.ed.path.clone() {
+                match crate::autoname::prepare(&path, &src, &self.settings.autonames) {
+                    Ok((p, lines)) => {
+                        path = p;
+                        prelude.extend(lines.iter().map(|l| crate::i18n::tr_dyn(l)));
+                    }
+                    Err(e) => prelude.push(format!("Automatisch benennen: {e}")),
+                }
+            }
         }
         // Liste der benötigten Workshop-Addons (neben der VMF) – Hinweis oben im Compile-Log
         if let (Some(fs), Some(src)) = (self.mats.fs(), self.ed.path.clone()) {
@@ -1045,6 +1059,7 @@ impl App {
                 "prefabs" => self.win.prefabs = true,
                 "models" => self.win.models = true,
                 "mbplay" => {}
+                "autonames" => self.settings.autonames.enabled = true,
                 "texlib" => {
                     self.texlib.open = true;
                     if v == "acg" {
@@ -1091,6 +1106,12 @@ impl App {
                     }
                 }
                 "prop" => self.prop.open = true,
+                "osm" => {
+                    self.osm.open = true;
+                    if !v.is_empty() {
+                        self.osm_load_file(std::path::PathBuf::from(v));
+                    }
+                }
                 "scripts" => self.scripts.open = true,
                 "mated" => self.open_material_editor(Some(v)),
                 "parted" => self.open_particle_file(if v.is_empty() { None } else { Some(PathBuf::from(v)) }),
@@ -1496,6 +1517,7 @@ impl App {
                 }
                 if ex {
                     self.cmd_item(ui, ctx, Cmd::ImportMap);
+                    self.cmd_item(ui, ctx, Cmd::ImportOsm);
                 }
             });
             if ex {
@@ -1893,6 +1915,9 @@ impl App {
             if ex && ui.button(tr("Gelände aus Heightmap…")).clicked() {
                 self.hm.open = true;
                 ui.close_menu();
+            }
+            if ex {
+                self.cmd_item(ui, ctx, Cmd::ImportOsm);
             }
             if ex && ui.button(tr("Lua-Skripte…")).clicked() {
                 self.scripts.open = true;

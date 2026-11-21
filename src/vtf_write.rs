@@ -34,6 +34,64 @@ pub fn load_png(bytes: &[u8]) -> Result<Rgba, String> {
     Ok(Rgba { w, h, px })
 }
 
+/// TGA lesen (unkomprimiert oder RLE; Farbe 24/32 Bit, Graustufen 8 Bit) → RGBA8
+pub fn load_tga(b: &[u8]) -> Result<Rgba, String> {
+    if b.len() < 18 {
+        return Err("TGA zu kurz".into());
+    }
+    let (idlen, cmap, kind) = (b[0] as usize, b[1], b[2]);
+    let (w, h) = (u16::from_le_bytes([b[12], b[13]]) as u32, u16::from_le_bytes([b[14], b[15]]) as u32);
+    let (bpp, desc) = (b[16] as usize, b[17]);
+    if cmap != 0 || !matches!(kind, 2 | 3 | 10 | 11) || !matches!(bpp, 8 | 24 | 32) || w == 0 || h == 0 {
+        return Err(format!("TGA-Art {kind}/{bpp} Bit wird nicht unterstützt"));
+    }
+    let cmap_len = u16::from_le_bytes([b[5], b[6]]) as usize * ((b[7] as usize + 7) / 8);
+    let mut p = 18 + idlen + cmap_len;
+    let bytes = bpp / 8;
+    let n = (w * h) as usize;
+    let mut raw: Vec<u8> = Vec::with_capacity(n * bytes);
+    if kind == 2 || kind == 3 {
+        raw.extend_from_slice(b.get(p..p + n * bytes).ok_or("TGA unvollständig")?);
+    } else {
+        while raw.len() < n * bytes {
+            let hd = *b.get(p).ok_or("TGA unvollständig")? as usize;
+            p += 1;
+            let count = (hd & 0x7f) + 1;
+            if hd & 0x80 != 0 {
+                let px = b.get(p..p + bytes).ok_or("TGA unvollständig")?;
+                for _ in 0..count {
+                    raw.extend_from_slice(px);
+                }
+                p += bytes;
+            } else {
+                raw.extend_from_slice(b.get(p..p + count * bytes).ok_or("TGA unvollständig")?);
+                p += count * bytes;
+            }
+        }
+        raw.truncate(n * bytes);
+    }
+    let top_down = desc & 0x20 != 0;
+    let mut px = vec![0u8; n * 4];
+    for y in 0..h as usize {
+        let sy = if top_down { y } else { h as usize - 1 - y };
+        for x in 0..w as usize {
+            let s = &raw[(sy * w as usize + x) * bytes..][..bytes];
+            let d = &mut px[(y * w as usize + x) * 4..][..4];
+            match bytes {
+                1 => d.copy_from_slice(&[s[0], s[0], s[0], 255]),
+                3 => d.copy_from_slice(&[s[2], s[1], s[0], 255]),
+                _ => d.copy_from_slice(&[s[2], s[1], s[0], s[3]]),
+            }
+        }
+    }
+    Ok(Rgba { w, h, px })
+}
+
+/// Bild aus Bytes: PNG, JPEG oder TGA
+pub fn load_any(bytes: &[u8], label: &str) -> Result<Rgba, String> {
+    crate::model_import::load_image(&crate::model_import::Image::Bytes(bytes.to_vec(), label.to_string()))
+}
+
 /// Nächste Zweierpotenz (Source verlangt Texturgrößen 2ⁿ), höchstens `max`
 pub fn pow2(v: u32, max: u32) -> u32 {
     let mut p = 1;

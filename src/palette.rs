@@ -18,7 +18,7 @@ enum Item {
 fn category(c: Cmd) -> &'static str {
     use Cmd::*;
     match c {
-        New | Open | Save | SaveAs | NewTab | CloseTab | NextTab | MergeMap | ImportMap | ImportModel | ExportObj | ExportGltf | Screenshot | Timeline | Prefabs | Settings => crate::i18n::tr("Datei"),
+        New | Open | Save | SaveAs | NewTab | CloseTab | NextTab | MergeMap | ImportMap | ImportOsm | ImportModel | ExportObj | ExportGltf | Screenshot | Timeline | Prefabs | Settings => crate::i18n::tr("Datei"),
         Undo | Redo | History | PasteSpecial | Delete | SelectAll | Duplicate | Carve | Hollow | TieToEntity | MoveToWorld | Group | Ungroup | Transform | SnapToGrid | FlipH | FlipV | RotateMouse | RotateCw | RotateCcw | SelectTouching | CopyProps | PasteProps | Lock | UnlockAll => crate::i18n::tr("Bearbeiten"),
         Hide | HideUnselected | UnhideAll | Outliner | LogicalView | GridDown | GridUp | CenterSel2D | CenterSel3D | NextCamera | Maximize | ToggleGizmo | ToggleSnap | ToggleVertexSnap | Palette | ToggleNodraw | ToggleTriggers | ToggleToolBrushes | SkyboxMode | ToggleGameplay => crate::i18n::tr("Ansicht"),
         Spline | UnifyTextures | DecalFromImage | TextureLibrary | ApplyTexture | ReplaceTextures | NodrawHidden | TextureBrowser | ModelBrowser | SoundBrowser | ParticleBrowser => crate::i18n::tr("Texturen"),

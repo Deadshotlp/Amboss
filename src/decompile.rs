@@ -1,4 +1,4 @@
-//! Map-Decompiler (wie BSPSource): Source-BSP (Version 19–21) → VMF.
+//! Map-Decompiler (wie BSPSource): Source-BSP (Version 19–21) → VMF. GoldSrc-BSPs: `goldsrc.rs`.
 //!
 //! Zurückgewonnen werden Brushes (Welt, func_detail, Brush-Entities) mit Materialien und
 //! Texturachsen, Displacements (als dünne Brushes mit Displacement oben), Entities, statische
@@ -49,12 +49,35 @@ pub struct Report {
     pub static_props: usize,
     pub overlays: usize,
     pub cubemaps: usize,
+    /// umgewandelte Texturen (GoldSrc)
+    pub textures: usize,
     pub skipped: usize,
     pub notes: Vec<String>,
 }
 
 impl Report {
     pub fn lines(&self) -> Vec<String> {
+        if self.version == 46 || self.version == 47 {
+            let mut v = vec![
+                format!("Quake-3-BSP (Version {})", self.version),
+                format!("{} Brushes (davon {} func_detail), {} Brush-Entities, {} Entities", self.brushes, self.detail, self.brush_entities, self.entities),
+                format!("{} Displacements aus gebogenen Flächen, {} Texturen nach VTF umgewandelt", self.displacements, self.textures),
+            ];
+            v.extend(self.notes.iter().cloned());
+            return v;
+        }
+        if self.version == 29 || self.version == 30 {
+            let mut v = vec![
+                format!("GoldSrc-BSP (Version {})", self.version),
+                format!("{} Brushes, {} Brush-Entities, {} Entities", self.brushes, self.brush_entities, self.entities),
+                format!("{} Texturen nach VTF umgewandelt", self.textures),
+            ];
+            if self.skipped > 0 {
+                v.push(format!("{} Brushes ließen sich nicht rekonstruieren (ungültige Form)", self.skipped));
+            }
+            v.extend(self.notes.iter().cloned());
+            return v;
+        }
         let mut v = vec![
             format!("BSP-Version {}", self.version),
             format!("{} Brushes (davon {} func_detail), {} Brush-Entities", self.brushes, self.detail, self.brush_entities),
@@ -585,11 +608,66 @@ pub fn decompile(b: &[u8]) -> Result<(Map, Report), String> {
 }
 
 /// BSP-Datei dekompilieren und als VMF speichern
-pub fn decompile_file(bsp: &std::path::Path, out: &std::path::Path) -> Result<Report, String> {
+pub fn decompile_file(bsp: &std::path::Path, out: &std::path::Path, game_dir: &str, extra_wads: &[std::path::PathBuf]) -> Result<Report, String> {
     let b = std::fs::read(bsp).map_err(|e| format!("{}: {e}", bsp.display()))?;
+    if crate::goldsrc::version(&b).is_some() {
+        return decompile_goldsrc(&b, bsp, out, game_dir, extra_wads);
+    }
+    if crate::quake3::ibsp_version(&b).is_some() {
+        let mut assets = crate::quake3::Assets::load(&crate::quake3::roots(bsp, extra_wads));
+        let (map, mut r) = crate::quake3::decompile(&b, &mut assets)?;
+        if !assets.files.is_empty() {
+            let gd = std::path::Path::new(game_dir);
+            let root = if !game_dir.is_empty() && gd.is_dir() { gd.join("materials") } else { out.parent().unwrap_or(std::path::Path::new(".")).join("materials") };
+            crate::goldsrc::write_files(&assets.files, &root)?;
+            r.notes.insert(0, format!("Materialien gespeichert in {}", root.join("quake3").display()));
+        }
+        if assets.has_data() {
+            r.notes.insert(0, format!("Quake-3-Daten: {}", assets.summary()));
+        }
+        std::fs::write(out, map.to_vmf()).map_err(|e| format!("{}: {e}", out.display()))?;
+        return Ok(r);
+    }
     let (map, r) = decompile(&b)?;
     std::fs::write(out, map.to_vmf()).map_err(|e| format!("{}: {e}", out.display()))?;
     Ok(r)
+}
+
+/// GoldSrc-BSP: WADs suchen, dekompilieren, Materialien in den Spielordner (sonst neben die VMF) schreiben
+fn decompile_goldsrc(b: &[u8], bsp: &std::path::Path, out: &std::path::Path, game_dir: &str, extra_wads: &[std::path::PathBuf]) -> Result<Report, String> {
+    use crate::goldsrc;
+    let wad_key = {
+        let text = goldsrc_entities(b);
+        parse_entities(&text).into_iter().find(|kv| kv.iter().any(|(k, v)| k == "classname" && v == "worldspawn")).and_then(|kv| kv.into_iter().find(|(k, _)| k.eq_ignore_ascii_case("wad")).map(|(_, v)| v)).unwrap_or_default()
+    };
+    let wads = goldsrc::Wads::load(&goldsrc::find_wads(&goldsrc::wad_dirs(bsp, game_dir, extra_wads), &wad_key));
+    let map_name = bsp.file_stem().map(|s| s.to_string_lossy().to_string()).unwrap_or_default();
+    let (map, mut r, files) = goldsrc::decompile(b, &goldsrc::Opts { wads: &wads, map_name })?;
+    let gd = std::path::Path::new(game_dir);
+    let root = if !game_dir.is_empty() && gd.is_dir() { gd.join("materials") } else { out.parent().unwrap_or(std::path::Path::new(".")).join("materials") };
+    if !files.is_empty() {
+        goldsrc::write_files(&files, &root)?;
+        r.notes.insert(0, format!("Materialien gespeichert in {}", root.join("goldsrc").display()));
+    }
+    if wads.len() > 0 {
+        r.notes.insert(0, format!("WAD-Dateien: {}", wads.names().join(", ")));
+    }
+    std::fs::write(out, map.to_vmf()).map_err(|e| format!("{}: {e}", out.display()))?;
+    Ok(r)
+}
+
+/// Entity-Text einer GoldSrc-BSP (für den Schlüssel "wad")
+pub fn goldsrc_entities(b: &[u8]) -> String {
+    let rd = |o: usize| b.get(o..o + 4).map(|x| u32::from_le_bytes(x.try_into().unwrap()) as usize).unwrap_or(0);
+    for k in [0usize, 1] {
+        let (ofs, len) = (rd(4 + k * 8), rd(8 + k * 8));
+        if let Some(t) = b.get(ofs..ofs + len) {
+            if t.iter().find(|c| !c.is_ascii_whitespace()) == Some(&b'{') {
+                return String::from_utf8_lossy(t).to_string();
+            }
+        }
+    }
+    String::new()
 }
 
 type DecompResult = std::sync::Arc<std::sync::Mutex<Option<Result<(std::path::PathBuf, Report), String>>>>;
@@ -598,7 +676,8 @@ type DecompResult = std::sync::Arc<std::sync::Mutex<Option<Result<(std::path::Pa
 #[derive(Default)]
 pub struct DecompState {
     job: Option<(std::path::PathBuf, DecompResult)>,
-    pub report: Option<(String, Vec<String>)>,
+    /// (Titel, Datei, Zeilen)
+    pub report: Option<(String, String, Vec<String>)>,
     pub dialog: Option<DecompDlg>,
 }
 
@@ -608,6 +687,34 @@ pub struct DecompDlg {
     pub out: String,
     pub size: u64,
     pub version: Option<u32>,
+    /// GoldSrc: zusätzlicher WAD-Ordner und gefundene WAD-Dateien
+    pub wad_dir: String,
+    pub wads: Vec<String>,
+}
+
+impl DecompDlg {
+    fn goldsrc(&self) -> bool {
+        matches!(self.version, Some(29 | 30))
+    }
+    fn quake3(&self) -> bool {
+        matches!(self.version, Some(46 | 47))
+    }
+}
+
+/// Gefundene Quake-3-Daten (pk3-Dateien bzw. Ordner) für den Dialog
+fn q3_found(bsp: &std::path::Path, extra: &str) -> Vec<String> {
+    let extra: Vec<std::path::PathBuf> = (!extra.trim().is_empty()).then(|| std::path::PathBuf::from(extra.trim())).into_iter().collect();
+    let mut v = Vec::new();
+    for r in crate::quake3::roots(bsp, &extra) {
+        let mut paks: Vec<String> = std::fs::read_dir(&r).map(|rd| rd.flatten().filter_map(|e| e.path().extension().is_some_and(|x| x.eq_ignore_ascii_case("pk3")).then(|| e.file_name().to_string_lossy().to_string())).collect()).unwrap_or_default();
+        paks.sort();
+        if paks.is_empty() {
+            v.push(r.display().to_string());
+        } else {
+            v.extend(paks);
+        }
+    }
+    v
 }
 
 impl crate::app::App {
@@ -637,17 +744,33 @@ impl crate::app::App {
             k += 1;
         }
         let info = std::fs::metadata(&bsp).map(|m| m.len()).unwrap_or(0);
-        let version = std::fs::read(&bsp).ok().and_then(|b| (b.get(0..4) == Some(b"VBSP")).then(|| u32::from_le_bytes(b[4..8].try_into().unwrap())));
-        self.decomp.dialog = Some(DecompDlg { bsp, out: out.display().to_string(), size: info, version });
+        let bytes = std::fs::read(&bsp).unwrap_or_default();
+        let version = if bytes.get(0..4) == Some(b"VBSP") { Some(u32::from_le_bytes(bytes[4..8].try_into().unwrap())) } else { crate::goldsrc::version(&bytes).or_else(|| crate::quake3::ibsp_version(&bytes)) };
+        let mut d = DecompDlg { bsp, out: out.display().to_string(), size: info, version, wad_dir: String::new(), wads: Vec::new() };
+        if d.goldsrc() {
+            d.wads = self.goldsrc_wads(&d.bsp, &bytes, "");
+        } else if d.quake3() {
+            d.wads = q3_found(&d.bsp, "");
+        }
+        self.decomp.dialog = Some(d);
     }
 
-    pub(crate) fn run_decompile(&mut self, bsp: std::path::PathBuf, out: std::path::PathBuf) {
+    /// Gefundene WAD-Dateien (Namen) für eine GoldSrc-BSP
+    fn goldsrc_wads(&self, bsp: &std::path::Path, bytes: &[u8], extra: &str) -> Vec<String> {
+        let wad_key = parse_entities(&goldsrc_entities(bytes)).into_iter().find(|kv| kv.iter().any(|(k, v)| k == "classname" && v == "worldspawn")).and_then(|kv| kv.into_iter().find(|(k, _)| k.eq_ignore_ascii_case("wad")).map(|(_, v)| v)).unwrap_or_default();
+        let extra: Vec<std::path::PathBuf> = (!extra.trim().is_empty()).then(|| std::path::PathBuf::from(extra.trim())).into_iter().collect();
+        crate::goldsrc::find_wads(&crate::goldsrc::wad_dirs(bsp, &self.settings.game_dir, &extra), &wad_key).iter().filter_map(|p| p.file_name().map(|n| n.to_string_lossy().to_string())).collect()
+    }
+
+    pub(crate) fn run_decompile(&mut self, bsp: std::path::PathBuf, out: std::path::PathBuf, wad_dir: String) {
+        let gd = self.settings.game_dir.clone();
         let res: DecompResult = Default::default();
         let r2 = res.clone();
         let ctx = self.ctx.clone();
         let o2 = out.clone();
         std::thread::spawn(move || {
-            let r = decompile_file(&bsp, &o2).map(|rep| (o2, rep));
+            let extra: Vec<std::path::PathBuf> = (!wad_dir.trim().is_empty()).then(|| std::path::PathBuf::from(wad_dir.trim())).into_iter().collect();
+            let r = decompile_file(&bsp, &o2, &gd, &extra).map(|rep| (o2, rep));
             *r2.lock().unwrap() = Some(r);
             ctx.request_repaint();
         });
@@ -662,7 +785,7 @@ impl crate::app::App {
         let Some(d) = self.decomp.dialog.as_mut() else { return };
         let th = theme::t();
         let mut open = true;
-        let (mut go, mut pick, mut cancel) = (false, false, false);
+        let (mut go, mut pick, mut cancel, mut pick_wad, mut rescan) = (false, false, false, false, false);
         let name = d.bsp.file_name().map(|n| n.to_string_lossy().to_string()).unwrap_or_default();
         let dlg = theme::Dlg::new("BSP dekompilieren", 620.0).subtitle(name).footer();
         theme::dialog(ctx, &mut open, &dlg, |ui, part| match part {
@@ -671,7 +794,12 @@ impl crate::app::App {
                     ui.label(RichText::new(crate::i18n::tr("Die kompilierte Map wird wieder in eine bearbeitbare VMF umgewandelt und danach geöffnet.")).color(th.text2));
                     ui.add_space(8.0);
                     theme::field_row(ui, "Quelle", |ui| ui.add(egui::Label::new(RichText::new(d.bsp.display().to_string()).font(theme::mono(11.0)).color(th.text2)).truncate()).on_hover_text(d.bsp.display().to_string()));
-                    let ver = d.version.map(|v| format!("BSP v{v}")).unwrap_or_else(|| crate::i18n::tr("keine gültige BSP").into());
+                    let ver = match d.version {
+                        Some(v @ (29 | 30)) => format!("GoldSrc BSP v{v}"),
+                        Some(v @ (46 | 47)) => format!("Quake 3 BSP v{v}"),
+                        Some(v) => format!("BSP v{v}"),
+                        None => crate::i18n::tr("keine gültige BSP").into(),
+                    };
                     theme::field_row(ui, "Datei", |ui| ui.label(RichText::new(format!("{ver} · {}", crate::i18n::size(d.size as u64))).color(if d.version.is_some() { th.text2 } else { th.err })));
                     theme::field_row(ui, "Speichern als", |ui| {
                         ui.add(egui::TextEdit::singleline(&mut d.out).font(theme::mono(11.0)).desired_width(330.0));
@@ -679,6 +807,40 @@ impl crate::app::App {
                             pick = true;
                         }
                     });
+                    if d.quake3() {
+                        theme::field_row(ui, "Quake-3-Ordner", |ui| {
+                            if ui.add(egui::TextEdit::singleline(&mut d.wad_dir).hint_text(crate::i18n::tr("optional, z. B. Quake 3/baseq3")).font(theme::mono(11.0)).desired_width(330.0)).lost_focus() {
+                                rescan = true;
+                            }
+                            if ui.button("…").clicked() {
+                                pick_wad = true;
+                            }
+                        });
+                        let found = if d.wads.is_empty() { crate::i18n::tr("keine gefunden – Texturen fehlen dann").to_string() } else { d.wads.join(", ") };
+                        theme::field_row(ui, "Spieldaten", |ui| ui.add(egui::Label::new(RichText::new(found).size(11.5).color(if d.wads.is_empty() { th.warn } else { th.text2 })).wrap()));
+                        ui.add_space(8.0);
+                        theme::section(ui, "Was zurückkommt");
+                        ui.label(RichText::new(crate::i18n::tr("Quake-3-Map: alle Brushes mit Texturausrichtung, func_detail, Brush-Entities, Entities (Lichter umgerechnet), gebogene Flächen als Displacements, Texturen aus pk3 oder Ordnern (Shader-Skripte, TGA/JPG) als VTF/VMT unter materials/quake3, Wasser mit Source-Wassermaterial.")).size(12.0).color(th.text2));
+                        ui.label(RichText::new(crate::i18n::tr("Nicht wiederherstellbar: Nebel-Volumen, Shader-Effekte (Animation, Leuchten), Modelle (misc_model), Waffen und Gegenstände (bleiben als Entities ohne Wirkung).")).size(11.5).color(th.text3));
+                        return;
+                    }
+                    if d.goldsrc() {
+                        theme::field_row(ui, "WAD-Ordner", |ui| {
+                            if ui.add(egui::TextEdit::singleline(&mut d.wad_dir).hint_text(crate::i18n::tr("optional, z. B. Half-Life/valve")).font(theme::mono(11.0)).desired_width(330.0)).lost_focus() {
+                                rescan = true;
+                            }
+                            if ui.button("…").clicked() {
+                                pick_wad = true;
+                            }
+                        });
+                        let found = if d.wads.is_empty() { crate::i18n::tr("keine gefunden – Texturen fehlen dann").to_string() } else { d.wads.join(", ") };
+                        theme::field_row(ui, "WAD-Dateien", |ui| ui.add(egui::Label::new(RichText::new(found).size(11.5).color(if d.wads.is_empty() { th.warn } else { th.text2 })).wrap()));
+                        ui.add_space(8.0);
+                        theme::section(ui, "Was zurückkommt");
+                        ui.label(RichText::new(crate::i18n::tr("Half-Life-1-Map: Brushes werden aus dem BSP-Baum zurückgewonnen (dicht, aber in mehr Teile zerlegt als im Original), Texturen aus BSP und WAD-Dateien als VTF/VMT unter materials/goldsrc, Entities mit Umwandlung (func_wall → func_brush, angle → angles/movedir, Lichtkegel), Wasser mit Source-Wassermaterial.")).size(12.0).color(th.text2));
+                        ui.label(RichText::new(crate::i18n::tr("Nicht wiederherstellbar: Clip-Brushes, Monster und HL1-Waffen (bleiben als Entities ohne Wirkung), Himmel (wird sky_day01_01).")).size(11.5).color(th.text3));
+                        return;
+                    }
                     ui.add_space(8.0);
                     theme::section(ui, "Was zurückkommt");
                     ui.label(RichText::new(crate::i18n::tr("Brushes mit Materialien und Texturausrichtung · func_detail · Türen, Trigger und andere Brush-Entities · alle Entities · Displacements · statische Props · Overlays · Cubemaps")).size(12.0).color(th.text2));
@@ -712,13 +874,28 @@ impl crate::app::App {
                 d.out = p.display().to_string();
             }
         }
+        if pick_wad {
+            if let Some(p) = rfd::FileDialog::new().pick_folder() {
+                d.wad_dir = p.display().to_string();
+                rescan = true;
+            }
+        }
+        if rescan {
+            let (bsp, extra) = (d.bsp.clone(), d.wad_dir.clone());
+            let bytes = std::fs::read(&bsp).unwrap_or_default();
+            let w = if crate::quake3::ibsp_version(&bytes).is_some() { q3_found(&bsp, &extra) } else { self.goldsrc_wads(&bsp, &bytes, &extra) };
+            if let Some(d) = self.decomp.dialog.as_mut() {
+                d.wads = w;
+            }
+            return;
+        }
         if go {
-            let (bsp, mut out) = (d.bsp.clone(), std::path::PathBuf::from(d.out.trim()));
+            let (bsp, mut out, wad_dir) = (d.bsp.clone(), std::path::PathBuf::from(d.out.trim()), d.wad_dir.clone());
             if out.extension().is_none() {
                 out.set_extension("vmf");
             }
             self.decomp.dialog = None;
-            self.run_decompile(bsp, out);
+            self.run_decompile(bsp, out, wad_dir);
             return;
         }
         if cancel || !open {
@@ -727,7 +904,7 @@ impl crate::app::App {
     }
 
     pub(crate) fn decompile_window(&mut self, ctx: &eframe::egui::Context) {
-        use eframe::egui::RichText;
+        use eframe::egui::{self, RichText};
         self.decompile_ask_window(ctx);
         let done = self.decomp.job.as_ref().and_then(|(_, r)| r.lock().unwrap().take());
         if let Some(r) = done {
@@ -736,24 +913,27 @@ impl crate::app::App {
                 Ok((out, rep)) => {
                     self.open_in_tab(out.clone());
                     self.ed.status = format!("Dekompiliert: {} Brushes, {} Entities → {}", rep.brushes, rep.entities + rep.static_props, out.display());
-                    self.decomp.report = Some((out.display().to_string(), rep.lines()));
+                    self.decomp.report = Some(("Map-Decompiler".into(), out.display().to_string(), rep.lines()));
                 }
                 Err(e) => {
                     self.ed.status = format!("Dekompilieren fehlgeschlagen: {e}");
-                    self.decomp.report = Some((String::new(), vec![e]));
+                    self.decomp.report = Some(("Map-Decompiler".into(), String::new(), vec![e]));
                 }
             }
         } else if self.decomp.job.is_some() {
             ctx.request_repaint_after(std::time::Duration::from_millis(200));
         }
-        let Some((file, lines)) = self.decomp.report.clone() else { return };
+        let Some((title, file, lines)) = self.decomp.report.clone() else { return };
         let mut open = true;
-        crate::theme::dialog_simple(ctx, &mut open, &crate::theme::Dlg::new("Map-Decompiler", 560.0).subtitle(file), |ui| {
+        let source_bsp = lines.first().is_some_and(|l| l.starts_with("BSP-Version"));
+        crate::theme::dialog_simple(ctx, &mut open, &crate::theme::Dlg::new(&title, 560.0).subtitle(file), |ui| {
             for l in &lines {
-                ui.label(RichText::new(crate::i18n::tr_dyn(l)).size(12.5));
+                ui.add(egui::Label::new(RichText::new(crate::i18n::tr_dyn(l)).size(12.5)).wrap());
             }
-            ui.add_space(8.0);
-            ui.label(RichText::new(crate::i18n::tr("Nicht wiederherstellbar: Visgroups, Gruppen, Instanzen, Areaportal- und Occluder-Brushes, originale IDs. Displacements stehen als dünne Brushes mit Displacement oben in der Welt.")).small().weak());
+            if source_bsp {
+                ui.add_space(8.0);
+                ui.label(RichText::new(crate::i18n::tr("Nicht wiederherstellbar: Visgroups, Gruppen, Instanzen, Areaportal- und Occluder-Brushes, originale IDs. Displacements stehen als dünne Brushes mit Displacement oben in der Welt.")).small().weak());
+            }
             if ui.button(crate::i18n::tr("Schließen")).clicked() {
                 self.decomp.report = None;
             }

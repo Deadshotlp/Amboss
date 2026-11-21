@@ -2577,3 +2577,105 @@ Frei verwendbar (CC0). Material anklicken, dann herunterladen – es landet als 
 1 Material	1 matériau
 Bibliothek…	Bibliothèque…
 Freie Texturen von Poly Haven und ambientCG herunterladen	Télécharger des textures libres de Poly Haven et ambientCG
+OpenStreetMap (Gebäude und Straßen)…	OpenStreetMap (bâtiments et routes)…
+optional, z. B. Quake 3/baseq3	facultatif, p. ex. Quake 3/baseq3
+optional, z. B. Half-Life/valve	facultatif, p. ex. Half-Life/valve
+keine gefunden – Texturen fehlen dann	aucun trouvé – les textures manqueront
+Quake-3-Map: alle Brushes mit Texturausrichtung, func_detail, Brush-Entities, Entities (Lichter umgerechnet), gebogene Flächen als Displacements, Texturen aus pk3 oder Ordnern (Shader-Skripte, TGA/JPG) als VTF/VMT unter materials/quake3, Wasser mit Source-Wassermaterial.	Map Quake 3 : toutes les brushes avec l’alignement des textures, func_detail, entités brush, entités (lumières converties), surfaces courbes en déplacements, textures des pk3 ou dossiers (scripts de shaders, TGA/JPG) en VTF/VMT sous materials/quake3, eau avec un matériau d’eau Source.
+Nicht wiederherstellbar: Nebel-Volumen, Shader-Effekte (Animation, Leuchten), Modelle (misc_model), Waffen und Gegenstände (bleiben als Entities ohne Wirkung).	Non récupérable : volumes de brouillard, effets de shaders (animation, lueur), modèles (misc_model), armes et objets (conservés comme entités sans effet).
+Half-Life-1-Map: Brushes werden aus dem BSP-Baum zurückgewonnen (dicht, aber in mehr Teile zerlegt als im Original), Texturen aus BSP und WAD-Dateien als VTF/VMT unter materials/goldsrc, Entities mit Umwandlung (func_wall → func_brush, angle → angles/movedir, Lichtkegel), Wasser mit Source-Wassermaterial.	Map Half-Life 1 : les brushes sont reconstruites depuis l’arbre BSP (étanches, mais découpées en plus de morceaux que l’original), textures du BSP et des fichiers WAD en VTF/VMT sous materials/goldsrc, entités converties (func_wall → func_brush, angle → angles/movedir, cônes de lumière), eau avec un matériau d’eau Source.
+Nicht wiederherstellbar: Clip-Brushes, Monster und HL1-Waffen (bleiben als Entities ohne Wirkung), Himmel (wird sky_day01_01).	Non récupérable : brushes clip, monstres et armes HL1 (conservés comme entités sans effet), ciel (devient sky_day01_01).
+WAD-Ordner	Dossier WAD
+WAD-Dateien	Fichiers WAD
+Quake-3-Ordner	Dossier Quake 3
+Spieldaten	Données du jeu
+Map-Import	Import de map
+Entities ohne Namen automatisch benennen (für Lua)	Nommer automatiquement les entités sans nom (pour Lua)
+Läuft auf einer Kopie: Lichter, Türen, Props … ohne Namen bekommen Klasse_ID (z. B. light_12), damit man sie im Spiel über Lua oder Ausgänge ansteuern kann. Deine Map bleibt unverändert.	S’exécute sur une copie : lumières, portes, props … sans nom reçoivent classe_ID (p. ex. light_12) pour pouvoir les piloter en jeu via Lua ou des sorties. Ta map reste inchangée.
+Lua-Liste aller Namen schreiben (<map>_namen.lua)	Écrire une liste Lua de tous les noms (<map>_namen.lua)
+Benannte Lichter sind schaltbar, brauchen aber je eine eigene Lightmap-Ebene (höchstens 4 pro Fläche). Bei vielen Lichtern nahe beieinander lieber nur die nötigen von Hand benennen.	Les lumières nommées sont commutables, mais chacune exige sa propre couche de lightmap (4 au plus par face). Avec beaucoup de lumières proches, mieux vaut ne nommer à la main que celles nécessaires.
+Türen & Knöpfe	Portes et boutons
+Sounds	Sons
+Effekte	Effets
+light, light_spot, light_dynamic (light_environment lässt sich nicht schalten)	light, light_spot, light_dynamic (light_environment n’est pas commutable)
+Türen, Knöpfe, Züge, func_brush, func_breakable, func_physbox …	Portes, boutons, trains, func_brush, func_breakable, func_physbox …
+prop_dynamic und prop_physics (prop_static gibt es im Spiel nicht als Entity)	prop_dynamic et prop_physics (prop_static n’existe pas comme entité en jeu)
+ambient_generic, env_soundscape	ambient_generic, env_soundscape
+Partikel, Sprites, Rauch, Feuer, Funken, Scheinwerfer, projizierte Texturen, Nebel …	Particules, sprites, fumée, feu, étincelles, projecteurs, textures projetées, brouillard …
+Automatisch benannt: {}	Nommés automatiquement : {}
+Hinweis: {} Lichter sind jetzt schaltbar. Jedes benannte Licht braucht eine eigene Lightmap-Ebene (höchstens 4 pro Fläche) – meldet VRAD „too many light styles“, weniger Lichter benennen.	Remarque : {} lumières sont maintenant commutables. Chaque lumière nommée exige sa propre couche de lightmap (4 au plus par face) – si VRAD signale « too many light styles », nommer moins de lumières.
+{} Namen → {}	{} noms → {}
+Automatisch benennen: {}	Nommage automatique : {}
+GoldSrc-BSP (Version {})	BSP GoldSrc (version {})
+{} Brushes, {} Brush-Entities, {} Entities	{} brushes, {} entités brush, {} entités
+{} Texturen nach VTF umgewandelt	{} textures converties en VTF
+{} Texturen nicht gefunden (WAD fehlt?): {}	{} textures introuvables (WAD manquant ?) : {}
+Quake-1-BSP: Texturen haben keine eigene Farbpalette und werden nicht umgewandelt	BSP Quake 1 : les textures n’ont pas de palette propre et ne sont pas converties
+Himmel "{}" (GoldSrc) durch sky_day01_01 ersetzt	Ciel "{}" (GoldSrc) remplacé par sky_day01_01
+func_water → nicht solider func_brush (Wasser bitte von Hand nachbauen)	func_water → func_brush non solide (refaire l’eau à la main)
+{}: keine Brushes rekonstruierbar – bleibt als Punkt-Entity	{} : aucune brush reconstructible – reste une entité ponctuelle
+{}: ohne Brush-Modell	{} : sans modèle brush
+Klassen ohne Source-Gegenstück (bleiben erhalten, wirken im Spiel nicht): {}	Classes sans équivalent Source (conservées, sans effet en jeu) : {}
+{} Wasser-Brushes mit {} (Schleim und Lava ebenfalls als Wasser)	{} brushes d’eau avec {} (slime et lave aussi en eau)
+Clip-Brushes stehen nur in den Kollisions-Hüllen und kommen nicht zurück	Les brushes clip n’existent que dans les hulls de collision et ne sont pas récupérées
+Materialien gespeichert in {}	Matériaux enregistrés dans {}
+WAD-Dateien: {}	Fichiers WAD : {}
+Keine GoldSrc-BSP (Version 29/30)	Pas un BSP GoldSrc (version 29/30)
+BSP ohne Welt-Modell	BSP sans modèle monde
+Quake-3-BSP (Version {})	BSP Quake 3 (version {})
+{} Brushes (davon {} func_detail), {} Brush-Entities, {} Entities	{} brushes (dont {} func_detail), {} entités brush, {} entités
+{} Displacements aus gebogenen Flächen, {} Texturen nach VTF umgewandelt	{} déplacements issus de surfaces courbes, {} textures converties en VTF
+{} gebogene Flächen (Patches) → {} Displacements	{} surfaces courbes (patches) → {} déplacements
+{} gebogene Flächen (Patches) → Displacements	{} surfaces courbes (patches) → déplacements
+{} Patch-Teile ließen sich nicht als Displacement abbilden (z. B. Dreiecksform)	{} parties de patch n’ont pas pu devenir des déplacements (p. ex. forme triangulaire)
+{} Nebel-Volumen ausgelassen (in Source: env_fog_controller)	{} volumes de brouillard ignorés (dans Source : env_fog_controller)
+Keine Quake-3-Daten (pk3/textures) gefunden – Texturen behalten ihre Namen; Ordner im Dialog angeben	Aucune donnée Quake 3 (pk3/textures) trouvée – les textures gardent leur nom ; indiquer le dossier dans la boîte de dialogue
+{} Texturen nicht gefunden: {}	{} textures introuvables : {}
+Maßstab 1:1 übernommen – Quake-3-Spieler sind kleiner (56 statt 72 Einheiten); bei Bedarf mit Transformieren auf 125 % skalieren	Échelle 1:1 conservée – les joueurs de Quake 3 sont plus petits (56 au lieu de 72 unités) ; si besoin, mettre à 125 % avec Transformer
+Quake-3-Daten: {}	Données Quake 3 : {}
+Keine Quake-3-BSP (IBSP 46/47)	Pas un BSP Quake 3 (IBSP 46/47)
+TGA zu kurz	TGA trop court
+TGA unvollständig	TGA incomplet
+TGA-Art {}/{} Bit wird nicht unterstützt	Type TGA {}/{} bits non pris en charge
+{}: nur PNG, JPEG und TGA werden unterstützt	{} : seuls PNG, JPEG et TGA sont pris en charge
+OpenStreetMap importieren	Importer OpenStreetMap
+OpenStreetMap	OpenStreetMap
+Koordinaten als „Breite, Länge“ eingeben, z. B. 52.5163, 13.3777	Saisir les coordonnées sous la forme « latitude, longitude », p. ex. 52.5163, 13.3777
+Lade von overpass-api.de…	Chargement depuis overpass-api.de…
+Nichts zu importieren – keine Gebäude oder Straßen im Ausschnitt	Rien à importer – aucun bâtiment ni route dans la zone
+Gebäude (Grundriss und Höhe aus den OSM-Daten) werden zu Brushes, Straßen und Wege zu Straßen-Brushes wie beim Spline-Werkzeug.	Les bâtiments (emprise et hauteur issues des données OSM) deviennent des brushes, les routes et chemins des brushes de route comme avec l’outil spline.
+Datei (.osm)	Fichier (.osm)
+Ausschnitt herunterladen	Télécharger une zone
+Datei wählen…	Choisir un fichier…
+Auf openstreetmap.org: Exportieren → Bereich wählen → Exportieren	Sur openstreetmap.org : Exporter → choisir la zone → Exporter
+Laden	Charger
+Als .osm speichern…	Enregistrer en .osm…
+Über die Overpass-API (overpass-api.de). Koordinaten z. B. aus der Adresszeile von openstreetmap.org (…/#map=18/52.5163/13.3777).	Via l’API Overpass (overpass-api.de). Coordonnées p. ex. depuis la barre d’adresse sur openstreetmap.org (…/#map=18/52.5163/13.3777).
+Gefunden: {} Gebäude, {} Straßen, Fuß- und Radwege: {}	Trouvé : {} bâtiments, {} routes, chemins piétons et pistes cyclables : {}
+Ausschnitt {} × {} m = {} × {} Einheiten (Map darf {} groß sein)	Zone {} × {} m = {} × {} unités (la map peut mesurer {})
+52,5 ist das übliche Source-Maß für Gebäude (16 Einheiten = 1 Fuß, eine 2,1 m hohe Tür ≈ 112 Einheiten). Kleiner = mehr Fläche passt in die Map.	52,5 est l’échelle Source habituelle pour les bâtiments (16 unités = 1 pied, une porte de 2,1 m ≈ 112 unités). Plus petit = plus de surface dans la map.
+ohne Angabe:	sans indication :
+Stockwerke	étages
+Gebäude	Bâtiments
+Straßen	Routes
+Fuß- und Radwege	Chemins piétons et pistes cyclables
+Bodenplatte	Dalle de sol
+Auf vorhandenes Gelände setzen (z. B. aus dem Heightmap-Import)	Poser sur le terrain existant (p. ex. issu de l’import de heightmap)
+Die Map hat noch kein Gelände (Displacements) – erst Werkzeuge → Gelände aus Heightmap	La map n’a pas encore de terrain (déplacements) – d’abord Outils → Terrain depuis heightmap
+Material nicht im Spiel gefunden	Matériau introuvable dans le jeu
+Mitte (Breite, Länge)	Centre (lat, lon)
+Einheiten je Meter	Unités par mètre
+Stockwerk	Hauteur d’étage
+Bodenhöhe	Hauteur du sol
+Dächer	Toits
+Wege	Chemins
+Umrechnung	Conversion
+Daten © OpenStreetMap-Mitwirkende · Ein Rückgängig-Schritt	Données © contributeurs OpenStreetMap · Une seule annulation
+OpenStreetMap: {} Gebäude ({} Brushes), {} Straßen und Wege, {} × {} m	OpenStreetMap : {} bâtiments ({} brushes), {} routes et chemins, {} × {} m
+{} Gebäude übersprungen (zu klein oder ungültiger Grundriss)	{} bâtiments ignorés (trop petits ou emprise invalide)
+{} Innenhöfe (Löcher in Gebäuden) wurden gefüllt	{} cours intérieures (trous dans les bâtiments) ont été remplies
+Der Ausschnitt ist {} × {} m = {} × {} Einheiten und ragt über die Map-Grenze (±{}). Kleineren Ausschnitt wählen oder den Maßstab verringern.	La zone fait {} × {} m = {} × {} unités et dépasse la limite de la map (±{}). Choisir une zone plus petite ou réduire l’échelle.
+Daten © OpenStreetMap-Mitwirkende (ODbL) – bei Veröffentlichung der Map angeben.	Données © contributeurs OpenStreetMap (ODbL) – à mentionner lors de la publication de la map.
+Keine OpenStreetMap-Datei (<osm> fehlt)	Pas un fichier OpenStreetMap (<osm> manquant)
+Die Datei enthält keine Punkte	Le fichier ne contient aucun point
+Overpass ist ausgelastet oder der Ausschnitt ist zu groß – später erneut versuchen	Overpass est surchargé ou la zone est trop grande – réessayer plus tard

@@ -205,6 +205,8 @@ pub struct Settings {
     pub obj_meters: bool,
     /// Automatische Optimierungen (KI-Nodes, func_detail, nodraw …)
     pub opt: crate::optimize::OptSettings,
+    /// Beim Kompilieren unbenannte Entities benennen (für Lua)
+    pub autonames: crate::autoname::AutoNames,
     /// Startbildschirm mit Vorlagen anzeigen
     pub show_start: bool,
     /// Einfache Oberfläche (weniger Werkzeuge und Menüpunkte)
@@ -280,6 +282,7 @@ impl Default for Settings {
             bookmarks: Default::default(),
             obj_meters: false,
             opt: Default::default(),
+            autonames: Default::default(),
             show_start: true,
             simple_ui: false,
             setup_done: false,

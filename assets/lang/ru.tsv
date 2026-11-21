@@ -2577,3 +2577,105 @@ Frei verwendbar (CC0). Material anklicken, dann herunterladen – es landet als 
 1 Material	1 материал
 Bibliothek…	Библиотека…
 Freie Texturen von Poly Haven und ambientCG herunterladen	Скачать бесплатные текстуры с Poly Haven и ambientCG
+OpenStreetMap (Gebäude und Straßen)…	OpenStreetMap (здания и дороги)…
+optional, z. B. Quake 3/baseq3	необязательно, напр. Quake 3/baseq3
+optional, z. B. Half-Life/valve	необязательно, напр. Half-Life/valve
+keine gefunden – Texturen fehlen dann	ничего не найдено – текстур не будет
+Quake-3-Map: alle Brushes mit Texturausrichtung, func_detail, Brush-Entities, Entities (Lichter umgerechnet), gebogene Flächen als Displacements, Texturen aus pk3 oder Ordnern (Shader-Skripte, TGA/JPG) als VTF/VMT unter materials/quake3, Wasser mit Source-Wassermaterial.	Карта Quake 3: все браши с выравниванием текстур, func_detail, браш-энтити, энтити (свет пересчитан), изогнутые поверхности как дисплейсменты, текстуры из pk3 или папок (скрипты шейдеров, TGA/JPG) как VTF/VMT в materials/quake3, вода с материалом воды Source.
+Nicht wiederherstellbar: Nebel-Volumen, Shader-Effekte (Animation, Leuchten), Modelle (misc_model), Waffen und Gegenstände (bleiben als Entities ohne Wirkung).	Не восстанавливается: объёмы тумана, эффекты шейдеров (анимация, свечение), модели (misc_model), оружие и предметы (остаются энтити без действия).
+Half-Life-1-Map: Brushes werden aus dem BSP-Baum zurückgewonnen (dicht, aber in mehr Teile zerlegt als im Original), Texturen aus BSP und WAD-Dateien als VTF/VMT unter materials/goldsrc, Entities mit Umwandlung (func_wall → func_brush, angle → angles/movedir, Lichtkegel), Wasser mit Source-Wassermaterial.	Карта Half-Life 1: браши восстанавливаются из дерева BSP (герметично, но на больше частей, чем в оригинале), текстуры из BSP и WAD как VTF/VMT в materials/goldsrc, энтити преобразуются (func_wall → func_brush, angle → angles/movedir, конусы света), вода с материалом воды Source.
+Nicht wiederherstellbar: Clip-Brushes, Monster und HL1-Waffen (bleiben als Entities ohne Wirkung), Himmel (wird sky_day01_01).	Не восстанавливается: clip-браши, монстры и оружие HL1 (остаются энтити без действия), небо (станет sky_day01_01).
+WAD-Ordner	Папка WAD
+WAD-Dateien	Файлы WAD
+Quake-3-Ordner	Папка Quake 3
+Spieldaten	Данные игры
+Map-Import	Импорт карты
+Entities ohne Namen automatisch benennen (für Lua)	Автоматически называть энтити без имени (для Lua)
+Läuft auf einer Kopie: Lichter, Türen, Props … ohne Namen bekommen Klasse_ID (z. B. light_12), damit man sie im Spiel über Lua oder Ausgänge ansteuern kann. Deine Map bleibt unverändert.	Работает с копией: свет, двери, пропы … без имени получают класс_ID (напр. light_12), чтобы управлять ими в игре через Lua или выходы. Твоя карта не меняется.
+Lua-Liste aller Namen schreiben (<map>_namen.lua)	Записать Lua-список всех имён (<map>_namen.lua)
+Benannte Lichter sind schaltbar, brauchen aber je eine eigene Lightmap-Ebene (höchstens 4 pro Fläche). Bei vielen Lichtern nahe beieinander lieber nur die nötigen von Hand benennen.	Именованный свет можно переключать, но каждому нужен свой слой лайтмапы (не больше 4 на грань). Если источников много и они близко, лучше назвать вручную только нужные.
+Türen & Knöpfe	Двери и кнопки
+Sounds	Звуки
+Effekte	Эффекты
+light, light_spot, light_dynamic (light_environment lässt sich nicht schalten)	light, light_spot, light_dynamic (light_environment переключать нельзя)
+Türen, Knöpfe, Züge, func_brush, func_breakable, func_physbox …	Двери, кнопки, поезда, func_brush, func_breakable, func_physbox …
+prop_dynamic und prop_physics (prop_static gibt es im Spiel nicht als Entity)	prop_dynamic и prop_physics (prop_static в игре не является энтити)
+ambient_generic, env_soundscape	ambient_generic, env_soundscape
+Partikel, Sprites, Rauch, Feuer, Funken, Scheinwerfer, projizierte Texturen, Nebel …	Частицы, спрайты, дым, огонь, искры, прожекторы, проецируемые текстуры, туман …
+Automatisch benannt: {}	Названо автоматически: {}
+Hinweis: {} Lichter sind jetzt schaltbar. Jedes benannte Licht braucht eine eigene Lightmap-Ebene (höchstens 4 pro Fläche) – meldet VRAD „too many light styles“, weniger Lichter benennen.	Внимание: источников света, которые теперь можно переключать: {}. Каждому именованному свету нужен свой слой лайтмапы (не больше 4 на грань) – если VRAD сообщает «too many light styles», назови меньше источников.
+{} Namen → {}	Имён: {} → {}
+Automatisch benennen: {}	Автоматическое именование: {}
+GoldSrc-BSP (Version {})	BSP GoldSrc (версия {})
+{} Brushes, {} Brush-Entities, {} Entities	Брашей: {}, браш-энтити: {}, энтити: {}
+{} Texturen nach VTF umgewandelt	Текстур преобразовано в VTF: {}
+{} Texturen nicht gefunden (WAD fehlt?): {}	Текстур не найдено: {} (нет WAD?): {}
+Quake-1-BSP: Texturen haben keine eigene Farbpalette und werden nicht umgewandelt	BSP Quake 1: у текстур нет своей палитры, они не преобразуются
+Himmel "{}" (GoldSrc) durch sky_day01_01 ersetzt	Небо "{}" (GoldSrc) заменено на sky_day01_01
+func_water → nicht solider func_brush (Wasser bitte von Hand nachbauen)	func_water → нетвёрдый func_brush (воду нужно сделать вручную)
+{}: keine Brushes rekonstruierbar – bleibt als Punkt-Entity	{}: браши восстановить не удалось – остаётся точечной энтити
+{}: ohne Brush-Modell	{}: без браш-модели
+Klassen ohne Source-Gegenstück (bleiben erhalten, wirken im Spiel nicht): {}	Классы без аналога в Source (сохранены, в игре не действуют): {}
+{} Wasser-Brushes mit {} (Schleim und Lava ebenfalls als Wasser)	Брашей воды: {} с {} (слизь и лава тоже как вода)
+Clip-Brushes stehen nur in den Kollisions-Hüllen und kommen nicht zurück	Clip-браши есть только в оболочках столкновений и не восстанавливаются
+Materialien gespeichert in {}	Материалы сохранены в {}
+WAD-Dateien: {}	Файлы WAD: {}
+Keine GoldSrc-BSP (Version 29/30)	Это не BSP GoldSrc (версия 29/30)
+BSP ohne Welt-Modell	BSP без модели мира
+Quake-3-BSP (Version {})	BSP Quake 3 (версия {})
+{} Brushes (davon {} func_detail), {} Brush-Entities, {} Entities	Брашей: {} (из них func_detail: {}), браш-энтити: {}, энтити: {}
+{} Displacements aus gebogenen Flächen, {} Texturen nach VTF umgewandelt	Дисплейсментов из изогнутых поверхностей: {}, текстур преобразовано в VTF: {}
+{} gebogene Flächen (Patches) → {} Displacements	Изогнутых поверхностей (патчей): {} → дисплейсментов: {}
+{} gebogene Flächen (Patches) → Displacements	Изогнутых поверхностей (патчей): {} → дисплейсменты
+{} Patch-Teile ließen sich nicht als Displacement abbilden (z. B. Dreiecksform)	Частей патчей, не ставших дисплейсментами (напр. треугольная форма): {}
+{} Nebel-Volumen ausgelassen (in Source: env_fog_controller)	Пропущено объёмов тумана: {} (в Source: env_fog_controller)
+Keine Quake-3-Daten (pk3/textures) gefunden – Texturen behalten ihre Namen; Ordner im Dialog angeben	Данные Quake 3 (pk3/textures) не найдены – текстуры сохраняют имена; укажи папку в диалоге
+{} Texturen nicht gefunden: {}	Текстур не найдено: {}: {}
+Maßstab 1:1 übernommen – Quake-3-Spieler sind kleiner (56 statt 72 Einheiten); bei Bedarf mit Transformieren auf 125 % skalieren	Масштаб 1:1 сохранён – игроки Quake 3 ниже (56 вместо 72 единиц); при необходимости увеличь до 125 % через «Трансформировать»
+Quake-3-Daten: {}	Данные Quake 3: {}
+Keine Quake-3-BSP (IBSP 46/47)	Это не BSP Quake 3 (IBSP 46/47)
+TGA zu kurz	TGA слишком короткий
+TGA unvollständig	TGA неполный
+TGA-Art {}/{} Bit wird nicht unterstützt	Тип TGA {}/{} бит не поддерживается
+{}: nur PNG, JPEG und TGA werden unterstützt	{}: поддерживаются только PNG, JPEG и TGA
+OpenStreetMap importieren	Импорт OpenStreetMap
+OpenStreetMap	OpenStreetMap
+Koordinaten als „Breite, Länge“ eingeben, z. B. 52.5163, 13.3777	Введи координаты как «широта, долгота», напр. 52.5163, 13.3777
+Lade von overpass-api.de…	Загрузка с overpass-api.de…
+Nichts zu importieren – keine Gebäude oder Straßen im Ausschnitt	Нечего импортировать – в области нет зданий и дорог
+Gebäude (Grundriss und Höhe aus den OSM-Daten) werden zu Brushes, Straßen und Wege zu Straßen-Brushes wie beim Spline-Werkzeug.	Здания (контур и высота из данных OSM) становятся брашами, дороги и тропинки – брашами дорог, как в инструменте сплайна.
+Datei (.osm)	Файл (.osm)
+Ausschnitt herunterladen	Скачать область
+Datei wählen…	Выбрать файл…
+Auf openstreetmap.org: Exportieren → Bereich wählen → Exportieren	На openstreetmap.org: Экспорт → выбрать область → Экспорт
+Laden	Загрузить
+Als .osm speichern…	Сохранить как .osm…
+Über die Overpass-API (overpass-api.de). Koordinaten z. B. aus der Adresszeile von openstreetmap.org (…/#map=18/52.5163/13.3777).	Через Overpass API (overpass-api.de). Координаты, напр., из адресной строки openstreetmap.org (…/#map=18/52.5163/13.3777).
+Gefunden: {} Gebäude, {} Straßen, Fuß- und Radwege: {}	Найдено: зданий {}, дорог {}, пешеходных и велодорожек: {}
+Ausschnitt {} × {} m = {} × {} Einheiten (Map darf {} groß sein)	Область {} × {} м = {} × {} единиц (карта может быть {})
+52,5 ist das übliche Source-Maß für Gebäude (16 Einheiten = 1 Fuß, eine 2,1 m hohe Tür ≈ 112 Einheiten). Kleiner = mehr Fläche passt in die Map.	52,5 – обычный масштаб Source для зданий (16 единиц = 1 фут, дверь 2,1 м ≈ 112 единиц). Меньше = на карту помещается больше площади.
+ohne Angabe:	без данных:
+Stockwerke	этажей
+Gebäude	Здания
+Straßen	Дороги
+Fuß- und Radwege	Пешеходные и велодорожки
+Bodenplatte	Плита земли
+Auf vorhandenes Gelände setzen (z. B. aus dem Heightmap-Import)	Поставить на имеющийся ландшафт (напр. из импорта карты высот)
+Die Map hat noch kein Gelände (Displacements) – erst Werkzeuge → Gelände aus Heightmap	На карте ещё нет ландшафта (дисплейсментов) – сначала Инструменты → Ландшафт из карты высот
+Material nicht im Spiel gefunden	Материал не найден в игре
+Mitte (Breite, Länge)	Центр (шир., долг.)
+Einheiten je Meter	Единиц на метр
+Stockwerk	Высота этажа
+Bodenhöhe	Высота земли
+Dächer	Крыши
+Wege	Дорожки
+Umrechnung	Пересчёт
+Daten © OpenStreetMap-Mitwirkende · Ein Rückgängig-Schritt	Данные © участники OpenStreetMap · Один шаг отмены
+OpenStreetMap: {} Gebäude ({} Brushes), {} Straßen und Wege, {} × {} m	OpenStreetMap: зданий {} (брашей {}), дорог и дорожек {}, {} × {} м
+{} Gebäude übersprungen (zu klein oder ungültiger Grundriss)	Пропущено зданий: {} (слишком малы или неверный контур)
+{} Innenhöfe (Löcher in Gebäuden) wurden gefüllt	Заполнено внутренних дворов (дыр в зданиях): {}
+Der Ausschnitt ist {} × {} m = {} × {} Einheiten und ragt über die Map-Grenze (±{}). Kleineren Ausschnitt wählen oder den Maßstab verringern.	Область {} × {} м = {} × {} единиц и выходит за границу карты (±{}). Выбери область меньше или уменьши масштаб.
+Daten © OpenStreetMap-Mitwirkende (ODbL) – bei Veröffentlichung der Map angeben.	Данные © участники OpenStreetMap (ODbL) – укажи это при публикации карты.
+Keine OpenStreetMap-Datei (<osm> fehlt)	Это не файл OpenStreetMap (нет <osm>)
+Die Datei enthält keine Punkte	В файле нет точек
+Overpass ist ausgelastet oder der Ausschnitt ist zu groß – später erneut versuchen	Overpass перегружен или область слишком велика – попробуй позже

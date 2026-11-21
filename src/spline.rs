@@ -185,7 +185,7 @@ fn round(p: DVec3) -> DVec3 {
     (p * 4.0).round() / 4.0
 }
 
-fn right_of(t: DVec3) -> DVec3 {
+pub(crate) fn right_of(t: DVec3) -> DVec3 {
     let h = DVec3::new(t.x, t.y, 0.0);
     h.normalize_or(DVec3::X).cross(DVec3::Z).normalize_or(DVec3::NEG_Y)
 }

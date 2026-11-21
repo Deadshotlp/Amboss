@@ -11,6 +11,7 @@ impl App {
         self.convert_dialog(ctx);
         self.particle_browser(ctx);
         self.heightmap_window(ctx);
+        self.osm_window(ctx);
         self.prop_window(ctx);
         self.import_window(ctx);
         self.workshop_window(ctx);

@@ -243,7 +243,7 @@ Für jede Optimierung: zuerst **„Nur prüfen“**, Markierungen ansehen, dann 
 | O11 | worldspawn `skyname` = `sky_day01_01` (bzw. eigener Himmel), Ansicht → Himmel-Vorschau | Himmel rundum richtig ausgerichtet (Horizont unten, Sonne wie im Spiel) – mit dem Spiel vergleichen |
 | O12 | `env_fog_controller` mit fogenable 1, Farbe, Start/Ende | Entfernte Flächen gehen in die Nebelfarbe über; Ansicht → Nebel schaltet ab |
 | O13 | `move_rope` mit NextKey auf `keyframe_rope`, Slack 50 | Seil hängt durch wie im Spiel, mit Seil-Textur; in 2D als Linie |
-| O14 | Version prüfen | „0.17.0“ neben dem Logo, im Fenstertitel und unter Hilfe → Über Amboss |
+| O14 | Version prüfen | „0.18.0“ neben dem Logo, im Fenstertitel und unter Hilfe → Über Amboss |
 | O15 | Hilfe → Tutorial…, Kapitel 6–9 mit echten Inhalten durchspielen (auch „Zeig es mir“) | Jeder Schritt wird erkannt; Gelände, Himmel, Nebel, Partikel, Overlay, Decal sehen richtig aus |
 | O16 | Trigger mit Output: Ziel-Feld anklicken und einen Buchstaben tippen | Liste passender Namen mit Klasse; Pfeiltasten + Enter oder Klick übernimmt |
 | O17 | Generatoren → Räume mit Höhenstufen 2, eigenen Texturen für Boden/Wände/Decke → Erzeugen → Kompilieren & starten | Kein Leck; Räume unterschiedlich hoch, Treppen in den Gängen begehbar; Texturen wie gewählt |
@@ -399,6 +399,21 @@ Für jede Optimierung: zuerst **„Nur prüfen“**, Markierungen ansehen, dann 
 | Y4 | Werkzeuge → „Textur-Bibliothek…“, Poly Haven, Suche „brick“, ein Material doppelklicken | Vorschaubilder laden; danach Meldung „Material amboss/lib/… gespeichert“, Material ist aktiv und sieht im 3D-Fenster richtig aus |
 | Y5 | ambientCG, Suche „wood floor“ + Enter, „Mehr laden“, ein Material in 2K herunterladen | Liste wird länger; Material liegt unter garrysmod/materials/amboss/lib/ |
 | Y6 | Beide Materialien auf Wände legen, kompilieren mit „Eigene Inhalte in die BSP packen“, in GMod ansehen | Texturen sichtbar (kein Schachbrett), Normalmap wirkt (Licht von der Seite), Glanz nicht übertrieben |
+
+## Z. Version 0.18.0
+
+| Nr. | Schritt | Erwartung |
+|---|---|---|
+| Z1 | Half-Life (Steam) installiert: Datei → Öffnen → `Half-Life/valve/maps/c1a0.bsp` (oder eine CS-1.6-Map aus `cstrike/maps`) | Dialog zeigt „GoldSrc BSP v30“ und die gefundenen WAD-Dateien (halflife.wad, liquids.wad …) |
+| Z2 | „Dekompilieren & öffnen“ | Map öffnet sich, Räume und Texturen sehen aus wie im Original (Ausrichtung stimmt), Bericht nennt Brush-Zahl und umgewandelte Texturen; `garrysmod/materials/goldsrc/…` enthält VTF/VMT |
+| Z3 | Diese Map kompilieren und in GMod laden | Kein Leck, man kann herumlaufen; Türen (func_door) gehen auf; Wasser ist begehbar und sieht nach Wasser aus; Brush-Zahl unter dem VBSP-Limit (sonst Zahl melden) |
+| Z4 | Quake-3-Map (falls vorhanden: `baseq3/maps/*.bsp` aus pak0.pk3 entpackt oder eine .map-Quelle): öffnen bzw. importieren | Texturen aus den pk3 werden umgewandelt (Bericht), gebogene Flächen erscheinen als Displacements und zeigen **nach außen** (nicht unsichtbar von der Spielseite – sonst bitte melden) |
+| Z5 | Werkzeuge → „OpenStreetMap…“ → „Ausschnitt herunterladen“, eigene Adresse als „Breite, Länge“, 300 m, Laden | Zeile „Gefunden: … Gebäude …“, Ausschnittgröße in Einheiten |
+| Z6 | Importieren, in 3D ansehen, kompilieren | Häuser mit richtiger Grundform (L-/U-Formen ohne Löcher), Straßen liegen auf dem Boden, kein Leck außer an der offenen Umgebung (Skybox drumherum bauen) |
+| Z7 | Gelände aus Heightmap (Rauschen) erzeugen, dann OSM mit „Auf vorhandenes Gelände setzen“ | Häuser stehen auf dem Gelände (leicht eingesunken, nicht schwebend), Straßen folgen dem Gelände |
+| Z8 | Kompilieren-Dialog: „Entities ohne Namen automatisch benennen“ an (Lichter, Türen), kompilieren | Log zeigt „Automatisch benannt: …“; `<map>_namen.lua` liegt neben der VMF; die eigene VMF hat **keine** neuen Namen |
+| Z9 | In GMod (Konsole): `lua_run for _,e in ipairs(ents.FindByClass("light")) do print(e:GetName()) end`, dann `lua_run ents.FindByName("light_<id>")[1]:Fire("TurnOff")` | Namen wie in der Lua-Liste; das Licht geht aus |
+| Z10 | Viele Lichter nahe beieinander benennen lassen und kompilieren | Falls VRAD „too many light styles“ meldet: bitte melden, wie viele Lichter es waren |
 
 ## L. Nach dem Test
 

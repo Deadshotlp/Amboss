@@ -117,8 +117,24 @@ impl App {
 
     /// .map / .rmf als neue (ungespeicherte) Map übernehmen
     pub(crate) fn import_foreign(&mut self, p: std::path::PathBuf) {
-        match crate::prefabs::load_foreign_map(&p, self.ed.tex_scale) {
-            Ok(m) => {
+        match crate::prefabs::load_foreign_map_ex(&p, self.ed.tex_scale, &[]) {
+            Ok((m, mut notes, files)) => {
+                if !files.is_empty() {
+                    let gd = std::path::Path::new(&self.settings.game_dir);
+                    let root = if !self.settings.game_dir.is_empty() && gd.is_dir() { gd.join("materials") } else { p.parent().unwrap_or(std::path::Path::new(".")).join("materials") };
+                    match crate::goldsrc::write_files(&files, &root) {
+                        Ok(()) => notes.insert(0, format!("Materialien gespeichert in {}", root.join("quake3").display())),
+                        Err(e) => notes.insert(0, e),
+                    }
+                    for (f, _) in &files {
+                        if let Some(stem) = f.strip_suffix(".vmt") {
+                            self.mats.forget(stem);
+                        }
+                    }
+                }
+                if !notes.is_empty() {
+                    self.decomp.report = Some(("Map-Import".into(), p.display().to_string(), notes));
+                }
                 if !self.is_pristine() {
                     self.new_tab();
                 }
