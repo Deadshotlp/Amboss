@@ -11,6 +11,8 @@ pub struct ModelMesh {
     /// pos(3) normal(3) uv(2)
     pub verts: Vec<[f32; 8]>,
     pub indices: Vec<u32>,
+    /// Knochen-Gewichte je Vertex: (Knochen, Gewicht) für bis zu drei Knochen
+    pub weights: Vec<[(u8, f32); 3]>,
 }
 
 #[derive(Debug, Clone)]
@@ -213,10 +215,25 @@ pub fn parse(name: &str, mdl_b: &[u8], vvd_b: &[u8], vtx_b: &[u8], exists: &dyn 
             vvd.f32(o + 44)?,
         ])
     };
+    // Knochen-Gewichte (boneweight_t: 3 × float, 3 × Knochen, Anzahl)
+    let read_bw = |i: usize| -> Result<[(u8, f32); 3], String> {
+        let o = vert_start + i * 48;
+        let n = vvd_b.get(o + 15).copied().unwrap_or(1).clamp(1, 3) as usize;
+        let mut w = [(0u8, 0.0f32); 3];
+        for (k, x) in w.iter_mut().enumerate().take(n) {
+            *x = (vvd_b.get(o + 12 + k).copied().unwrap_or(0), vvd.f32(o + k * 4)?);
+        }
+        if n == 1 {
+            w[0].1 = 1.0;
+        }
+        Ok(w)
+    };
     let mut verts: Vec<[f32; 8]> = Vec::with_capacity(lod0_count);
+    let mut bws: Vec<[(u8, f32); 3]> = Vec::with_capacity(lod0_count);
     if num_fixups == 0 {
         for i in 0..lod0_count {
             verts.push(read_vert(i)?);
+            bws.push(read_bw(i)?);
         }
     } else {
         for f in 0..num_fixups {
@@ -227,6 +244,7 @@ pub fn parse(name: &str, mdl_b: &[u8], vvd_b: &[u8], vtx_b: &[u8], exists: &dyn 
             if lod >= 0 {
                 for i in 0..n {
                     verts.push(read_vert(src + i)?);
+                    bws.push(read_bw(src + i)?);
                 }
             }
         }
@@ -272,6 +290,7 @@ pub fn parse(name: &str, mdl_b: &[u8], vvd_b: &[u8], vtx_b: &[u8], exists: &dyn 
             let nsg = vtx.i32(vmesh)?.max(0) as usize;
             let sg_base = vtx.off(vmesh, vtx.i32(vmesh + 4)?)?;
             let mut out_verts: Vec<[f32; 8]> = Vec::new();
+            let mut out_w: Vec<[(u8, f32); 3]> = Vec::new();
             let mut out_idx: Vec<u32> = Vec::new();
             for g in 0..nsg.min(64) {
                 let sg = sg_base + g * sg_size;
@@ -284,6 +303,7 @@ pub fn parse(name: &str, mdl_b: &[u8], vvd_b: &[u8], vtx_b: &[u8], exists: &dyn 
                     let orig = vtx.u16(v_off + v * 9 + 4)? as usize;
                     let gi = model_vert_index + mesh_vert_off + orig;
                     out_verts.push(*verts.get(gi).ok_or("Vertex-Index außerhalb")?);
+                    out_w.push(bws.get(gi).copied().unwrap_or([(0, 1.0), (0, 0.0), (0, 0.0)]));
                 }
                 for i in 0..ni {
                     let idx = vtx.u16(i_off + i * 2)? as u32;
@@ -295,7 +315,7 @@ pub fn parse(name: &str, mdl_b: &[u8], vvd_b: &[u8], vtx_b: &[u8], exists: &dyn 
             }
             out_idx.truncate(out_idx.len() / 3 * 3);
             if !out_idx.is_empty() {
-                meshes.push(ModelMesh { skinref, verts: out_verts, indices: out_idx });
+                meshes.push(ModelMesh { skinref, verts: out_verts, indices: out_idx, weights: out_w });
             }
         }
     }
@@ -477,5 +497,9 @@ mod writer {
         std::fs::write(dir.join("kiste.mdl"), mdl).unwrap();
         std::fs::write(dir.join("kiste.vvd"), vvd).unwrap();
         std::fs::write(dir.join("kiste.dx90.vtx"), vtx).unwrap();
+        let (mdl, vvd, vtx) = crate::mdl_anim::tests::make_animated_model();
+        std::fs::write(dir.join("winker.mdl"), mdl).unwrap();
+        std::fs::write(dir.join("winker.vvd"), vvd).unwrap();
+        std::fs::write(dir.join("winker.dx90.vtx"), vtx).unwrap();
     }
 }

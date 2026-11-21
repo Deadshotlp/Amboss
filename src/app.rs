@@ -277,6 +277,7 @@ pub struct App {
     pub(crate) ws: crate::workshop::WorkshopUi,
     pub(crate) whatsnew: crate::whatsnew::WhatsNew,
     pub(crate) dgen: crate::decal_gen::DecalGen,
+    pub(crate) texlib: crate::texlib::TexLib,
     pub(crate) shot: crate::screenshot::ShotUi,
     pub(crate) timeline: crate::timeline::TimelineUi,
     /// Schätzung der Lichtdaten (Map-Stand, Text) für die Lightmap-Ansicht
@@ -402,6 +403,7 @@ impl App {
             ws: Default::default(),
             whatsnew: Default::default(),
             dgen: Default::default(),
+            texlib: Default::default(),
             shot: Default::default(),
             timeline: Default::default(),
             lm_estimate: (0, String::new()),
@@ -1042,6 +1044,17 @@ impl App {
                 "goto" => self.win.goto = true,
                 "prefabs" => self.win.prefabs = true,
                 "models" => self.win.models = true,
+                "mbplay" => {}
+                "texlib" => {
+                    self.texlib.open = true;
+                    if v == "acg" {
+                        self.texlib.source = crate::texlib::Source::AmbientCg;
+                    }
+                }
+                "mbsel" => {
+                    self.win.models = true;
+                    self.mb.selected = Some(v.to_string());
+                }
                 "sounds" => self.win.sounds = true,
                 "logical" => self.win.logical = true,
                 "outliner" => self.win.outliner = true,
@@ -1476,6 +1489,7 @@ impl App {
             ui.menu_button(tr("Importieren"), |ui| {
                 self.cmd_item(ui, ctx, Cmd::ImportModel);
                 self.cmd_item(ui, ctx, Cmd::DecalFromImage);
+                self.cmd_item(ui, ctx, Cmd::TextureLibrary);
                 if ui.button(tr("BSP dekompilieren…")).clicked() {
                     ui.close_menu();
                     self.start_decompile();
@@ -1851,6 +1865,7 @@ impl App {
             }
             self.cmd_item(ui, ctx, Cmd::Spline);
             self.cmd_item(ui, ctx, Cmd::DecalFromImage);
+            self.cmd_item(ui, ctx, Cmd::TextureLibrary);
             if ui.button(tr("Polygon-Mesh…")).on_hover_text(tr("Freie Netze: aus Brushes erstellen oder OBJ importieren, Punkte und Flächen ziehen, extrudieren")).clicked() {
                 self.win.mesh = true;
                 self.mesh_page = 0;

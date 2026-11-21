@@ -175,7 +175,7 @@ Modelle
 - [ ] Kollisionsmodell automatisch (konvexe Hülle gibt es beim Modell-Import seit 0.12.0; Zerlegung in mehrere konvexe Teile noch offen) – M
 - [ ] LODs automatisch erzeugen – M
 - [x] Skins und Bodygroups im Import-Dialog (0.16.0) – S–M
-- [ ] Animationen im Modell-Browser abspielen – M
+- [x] Animationen im Modell-Browser abspielen (0.17.0) – M
 - [ ] MDL dekompilieren und als glTF/OBJ exportieren (wie Crowbar) – M
 
 Texturen und Materialien
@@ -185,7 +185,7 @@ Texturen und Materialien
 - [x] ★ PBR-Texturen (Roughness/Metallic) in Source-Materialien umwandeln (0.12.0) (Phong, Envmap-Maske) – M
 - [x] Decal-/Overlay-Generator aus einem Bild (0.14.0; Werkzeuge → „Decal/Overlay aus Bild…“, Größe in Einheiten über `$decalscale`) – S
 - [ ] Texturen in 3D direkt auf Flächen malen – L
-- [ ] Freie Textur-Bibliotheken (Poly Haven, ambientCG) durchsuchen und als VTF einbinden – M
+- [x] Freie Textur-Bibliotheken (Poly Haven, ambientCG) durchsuchen und als VTF einbinden (0.17.0) – M
 
 Bauwerkzeuge
 - [x] ★ Spline-Werkzeug (0.12.0): Straßen, Schienen, Rohre, Zäune, Kabel entlang einer Kurve – M

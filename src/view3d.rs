@@ -895,12 +895,19 @@ fn static_from_map(m: &Map, mats: &mut MaterialSystem, textured: bool) -> (Vec<f
 
 /// Statisches Mesh eines Modells (eine Skin-Familie)
 pub fn static_from_model(model: &crate::mdl::Model, skin: usize) -> (Vec<f32>, Vec<Batch>) {
+    static_from_model_posed(model, skin, None)
+}
+
+/// Mesh eines Modells, optional mit Skinning-Matrizen eines Animationsbilds verformt
+pub fn static_from_model_posed(model: &crate::mdl::Model, skin: usize, pose: Option<&[Mat4]>) -> (Vec<f32>, Vec<Batch>) {
     let mut b = Bucketed::default();
     for mesh in &model.meshes {
         let mat = model.material_for(skin, mesh.skinref).map(normalize);
+        let posed = pose.map(|m| crate::mdl_anim::skin(&mesh.verts, &mesh.weights, m));
+        let verts = posed.as_deref().unwrap_or(&mesh.verts);
         let buf = b.buf(mat);
         for idx in &mesh.indices {
-            let v = mesh.verts[*idx as usize];
+            let v = verts[*idx as usize];
             push(buf, V { p: [v[0], v[1], v[2]], n: [v[3], v[4], v[5]], c: [0.8, 0.8, 0.8, 1.0], uv: [v[6], v[7]], ..Default::default() });
         }
     }
@@ -1020,6 +1027,8 @@ pub struct Renderer {
     pending: Option<MeshData>,
     statics: HashMap<String, StaticMesh>,
     pending_statics: Vec<(String, Vec<f32>, Vec<Batch>)>,
+    /// Puffer der animierten Modell-Vorschau (jedes Bild neu befüllt)
+    anim_preview: Option<GpuBuffer>,
     textures: HashMap<String, glow::Texture>,
     tex_meta: HashMap<String, TexMeta>,
     pending_tex: Vec<crate::materials::TexData>,
@@ -1355,6 +1364,7 @@ impl Renderer {
                 pending: None,
                 statics: HashMap::new(),
                 pending_statics: Vec::new(),
+                anim_preview: None,
                 textures: HashMap::new(),
                 pending_tex: Vec::new(),
                 tex_meta: HashMap::new(),
@@ -1464,6 +1474,23 @@ impl Renderer {
 
     /// Einzelnes statisches Mesh (Modell-Vorschau im Browser) in das aktuelle Viewport-Rechteck zeichnen
     pub fn paint_static_preview(&mut self, gl: &glow::Context, key: &str, mvp: Mat4, cam: Vec3) {
+        self.paint_preview(gl, Some(key), None, mvp, cam);
+    }
+
+    /// Verformtes Mesh (Animationsbild) in der Modell-Vorschau zeichnen; der Puffer wird wiederverwendet
+    pub fn paint_anim_preview(&mut self, gl: &glow::Context, data: &[f32], batches: &[Batch], mvp: Mat4, cam: Vec3) {
+        unsafe {
+            if self.anim_preview.is_none() {
+                self.anim_preview = Self::make_buffer(gl).ok();
+            }
+            if let Some(buf) = self.anim_preview.as_mut() {
+                Self::fill(gl, buf, data);
+            }
+        }
+        self.paint_preview(gl, None, Some(batches), mvp, cam);
+    }
+
+    fn paint_preview(&mut self, gl: &glow::Context, key: Option<&str>, anim: Option<&[Batch]>, mvp: Mat4, cam: Vec3) {
         unsafe {
             self.upload(gl);
             gl.enable(glow::DEPTH_TEST);
@@ -1483,8 +1510,11 @@ impl Renderer {
             gl.uniform_1_i32(u.tex2.as_ref(), 1);
             gl.uniform_4_f32(u.tint.as_ref(), 0.0, 0.0, 0.0, 0.0);
             gl.active_texture(glow::TEXTURE0);
-            if let Some(sm) = self.statics.get(key) {
+            if let Some(sm) = key.and_then(|k| self.statics.get(k)) {
                 self.draw_batches(gl, &sm.buf, &sm.batches, 0, 3, None);
+            }
+            if let (Some(b), Some(buf)) = (anim, self.anim_preview.as_ref()) {
+                self.draw_batches(gl, buf, b, 0, 3, None);
             }
             gl.bind_texture(glow::TEXTURE_2D, None);
             gl.bind_vertex_array(None);

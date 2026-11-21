@@ -19,11 +19,20 @@ pub struct ModelBrowserState {
     thumbs: HashMap<String, egui::TextureHandle>,
     /// Texturen für die Vorschaubilder (Material → RGBA), None = nicht gefunden
     thumb_tex: HashMap<String, Option<std::sync::Arc<(u32, u32, Vec<u8>, bool)>>>,
+    /// Animationen des ausgewählten Modells (wird im Hintergrund gelesen)
+    anim_path: Option<String>,
+    anim: Option<std::sync::Arc<crate::mdl_anim::Anim>>,
+    anim_rx: Option<std::sync::mpsc::Receiver<(String, Option<std::sync::Arc<crate::mdl_anim::Anim>>)>>,
+    /// gewählte Sequenz (None = Grundhaltung), Abspielen, aktuelles Bild
+    seq: Option<usize>,
+    playing: bool,
+    frame: f32,
+    last_t: Option<f64>,
 }
 
 impl Default for ModelBrowserState {
     fn default() -> Self {
-        ModelBrowserState { filter: String::new(), grid: true, selected: None, skin: 0, yaw: 0.8, pitch: 0.35, zoom: 1.0, collision: false, thumbs: HashMap::new(), thumb_tex: HashMap::new() }
+        ModelBrowserState { filter: String::new(), grid: true, selected: None, skin: 0, yaw: 0.8, pitch: 0.35, zoom: 1.0, collision: false, thumbs: HashMap::new(), thumb_tex: HashMap::new(), anim_path: None, anim: None, anim_rx: None, seq: None, playing: false, frame: 0.0, last_t: None }
     }
 }
 
@@ -148,9 +157,11 @@ impl App {
         let mut cancel = false;
         let sel = self.mb.selected.clone();
         let sel_model = sel.as_ref().and_then(|p| self.models.get(p));
-        let d = theme::Dlg::new(crate::i18n::tr("Modell-Browser"), 800.0).subtitle(crate::i18n::count(items.len(), "Modell", "Modelle")).height(560.0).footer().header_extra().no_scroll();
+        let body_h = if self.anim_ready() { 512.0 } else { 448.0 };
+        let d = theme::Dlg::new(crate::i18n::tr("Modell-Browser"), 800.0).subtitle(crate::i18n::count(items.len(), "Modell", "Modelle")).height(body_h + 112.0).footer().header_extra().no_scroll();
         let renderer = self.view3d.renderer.clone();
         let fs = self.mats.fs();
+        self.update_anim(ctx, sel.as_deref(), fs.clone());
         theme::dialog(ctx, &mut open, &d, |ui, part| match part {
             theme::Part::Header => {
                 // Umschalter Liste/Raster und Filter (rechts im Kopf, Layout rechts-nach-links)
@@ -171,7 +182,7 @@ impl App {
                     ui.spacing_mut().item_spacing.x = 0.0;
                     // ---- links: Raster oder Liste
                     let left_w = 800.0 - 312.0 - 1.0;
-                    ui.allocate_ui_with_layout(Vec2::new(left_w, 448.0), egui::Layout::top_down(egui::Align::Min), |ui| {
+                    ui.allocate_ui_with_layout(Vec2::new(left_w, body_h), egui::Layout::top_down(egui::Align::Min), |ui| {
                         ui.set_width(left_w);
                         if items.is_empty() {
                             ui.add_space(40.0);
@@ -224,10 +235,10 @@ impl App {
                             }
                         });
                     });
-                    let (sep, _) = ui.allocate_exact_size(Vec2::new(1.0, 448.0), Sense::hover());
+                    let (sep, _) = ui.allocate_exact_size(Vec2::new(1.0, body_h), Sense::hover());
                     ui.painter().rect_filled(sep, 0.0, th.line);
                     // ---- rechts: Vorschau und Infos
-                    ui.allocate_ui_with_layout(Vec2::new(312.0, 448.0), egui::Layout::top_down(egui::Align::Min), |ui| {
+                    ui.allocate_ui_with_layout(Vec2::new(312.0, body_h), egui::Layout::top_down(egui::Align::Min), |ui| {
                         ui.set_width(312.0);
                         egui::Frame::new().inner_margin(egui::Margin { left: 16, right: 16, top: 14, bottom: 8 }).show(ui, |ui| {
                             ui.spacing_mut().item_spacing.y = 10.0;
@@ -262,6 +273,7 @@ impl App {
                                             ui.label(RichText::new(crate::i18n::tr_dyn(&format!("{} / {nskins}", self.mb.skin + 1))).font(mono(11.5)).color(th.text3));
                                         });
                                     });
+                                    self.anim_controls(ui);
                                     let s = m.bounds.size();
                                     let phy = sel.as_ref().map(|p| p.trim_end_matches(".mdl").to_string() + ".phy");
                                     let has_phy = phy.as_ref().zip(fs.as_ref()).is_some_and(|(p, fs)| fs.exists(p));
@@ -437,7 +449,15 @@ impl App {
         if let (Some(path), Some(m), Some(renderer)) = (path, model, renderer) {
             let skin = if self.mb.collision { usize::MAX } else { self.mb.skin };
             let key = format!("mdl:{path}#{skin}");
-            {
+            // Animationsbild: Vertices auf der CPU verformen und jedes Bild neu hochladen
+            let posed = match (&self.mb.anim, self.mb.seq) {
+                (Some(a), Some(seq)) if !self.mb.collision && self.mb.anim_path.as_deref() == Some(path) => {
+                    let mats = a.skin_matrices(seq, self.mb.frame);
+                    Some(std::sync::Arc::new(crate::view3d::static_from_model_posed(m, skin, Some(&mats))))
+                }
+                _ => None,
+            };
+            if posed.is_none() {
                 let mut rr = renderer.lock().unwrap();
                 if !rr.has_static(&key) {
                     let (d, b) = crate::view3d::static_from_model(m, skin);
@@ -462,8 +482,9 @@ impl App {
             let proj = Mat4::perspective_rh_gl(40f32.to_radians(), 1.0, (dist - radius * 2.0).max(radius * 0.02), dist + radius * 3.0);
             let view = Mat4::look_at_rh(eye, center, Vec3::Z);
             let mvp = proj * view;
-            let cb = eframe::egui_glow::CallbackFn::new(move |_info, painter| {
-                renderer.lock().unwrap().paint_static_preview(painter.gl(), &key, mvp, eye);
+            let cb = eframe::egui_glow::CallbackFn::new(move |_info, painter| match &posed {
+                Some(p) => renderer.lock().unwrap().paint_anim_preview(painter.gl(), &p.0, &p.1, mvp, eye),
+                None => renderer.lock().unwrap().paint_static_preview(painter.gl(), &key, mvp, eye),
             });
             ui.painter().add(egui::PaintCallback { rect: r.shrink(1.0), callback: std::sync::Arc::new(cb) });
             ui.ctx().request_repaint_after(std::time::Duration::from_millis(250));
@@ -514,5 +535,123 @@ impl App {
             self.mb.pitch = 0.35;
             self.mb.zoom = 1.0;
         }
+    }
+
+    /// Hat das ausgewählte Modell abspielbare Animationen (mehr als ein Bild)?
+    fn anim_ready(&self) -> bool {
+        self.mb.anim.as_ref().is_some_and(|a| a.seqs.iter().any(|s| s.frames > 1)) && self.mb.anim_path == self.mb.selected
+    }
+
+    /// Animationen des ausgewählten Modells im Hintergrund laden und das Bild weiterzählen
+    fn update_anim(&mut self, ctx: &egui::Context, sel: Option<&str>, fs: Option<std::sync::Arc<crate::gamefs::GameFs>>) {
+        if self.mb.anim_path.as_deref() != sel {
+            self.mb.anim_path = sel.map(|s| s.to_string());
+            self.mb.anim = None;
+            self.mb.anim_rx = None;
+            self.mb.seq = None;
+            self.mb.playing = false;
+            self.mb.frame = 0.0;
+            if let (Some(path), Some(fs)) = (sel, fs) {
+                let (tx, rx) = std::sync::mpsc::channel();
+                let path = path.to_string();
+                let c = ctx.clone();
+                std::thread::spawn(move || {
+                    let a = fs.read(&path).and_then(|b| crate::mdl_anim::load(&fs, &b));
+                    let _ = tx.send((path, a));
+                    c.request_repaint();
+                });
+                self.mb.anim_rx = Some(rx);
+            }
+        }
+        if let Some(rx) = &self.mb.anim_rx {
+            if let Ok((p, a)) = rx.try_recv() {
+                if Some(p.as_str()) == sel {
+                    // Test/Bildschirmfotos: AMBOSS_DEBUG_OPEN=mbsel:…,mbplay spielt die erste Animation ab
+                    if std::env::var("AMBOSS_DEBUG_OPEN").is_ok_and(|v| v.contains("mbplay")) {
+                        self.mb.seq = a.as_ref().and_then(|a| a.seqs.iter().position(|s| s.frames > 1));
+                        self.mb.playing = true;
+                    }
+                    self.mb.anim = a;
+                }
+                self.mb.anim_rx = None;
+            }
+        }
+        let now = ctx.input(|i| i.time);
+        let dt = self.mb.last_t.map(|t| (now - t) as f32).unwrap_or(0.0).min(0.25);
+        self.mb.last_t = Some(now);
+        if !self.mb.playing {
+            return;
+        }
+        let Some(s) = self.mb.seq.and_then(|k| self.mb.anim.as_ref()?.seqs.get(k).cloned()) else { return };
+        let n = s.frames.max(1) as f32;
+        // Nicht schleifende Sequenzen bleiben am letzten Bild kurz stehen und beginnen dann neu
+        let end = if s.looping { n } else { n - 1.0 + s.fps * 0.5 };
+        self.mb.frame += dt * s.fps;
+        if self.mb.frame >= end {
+            self.mb.frame = self.mb.frame.rem_euclid(end.max(1.0));
+        }
+        ctx.request_repaint();
+    }
+
+    /// Bedienelemente unter der Vorschau: Sequenz, Abspielen/Anhalten, Bild-Regler
+    fn anim_controls(&mut self, ui: &mut egui::Ui) {
+        if !self.anim_ready() {
+            return;
+        }
+        let Some(a) = self.mb.anim.clone() else { return };
+        let th = t();
+        ui.horizontal(|ui| {
+            ui.spacing_mut().item_spacing.x = 6.0;
+            ui.label(RichText::new(crate::i18n::tr("Animation")).color(th.text2));
+            let (r, resp) = ui.allocate_exact_size(Vec2::splat(26.0), Sense::click());
+            ui.painter().rect_filled(r, 6.0, if resp.hovered() { th.hover } else { th.raised });
+            if self.mb.playing {
+                for dx in [-3.5f32, 3.5] {
+                    ui.painter().rect_filled(Rect::from_center_size(r.center() + Vec2::new(dx, 0.0), Vec2::new(3.0, 11.0)), 1.0, th.text);
+                }
+            } else {
+                crate::icons::draw(ui.painter(), r.shrink(7.0), "play", th.text, 1.4);
+            }
+            let tip = if self.mb.playing { crate::i18n::tr("Anhalten") } else { crate::i18n::tr("Abspielen") };
+            if resp.on_hover_text(tip).clicked() {
+                self.mb.playing = !self.mb.playing;
+                if self.mb.playing && self.mb.seq.is_none() {
+                    self.mb.seq = a.seqs.iter().position(|s| s.frames > 1);
+                    self.mb.frame = 0.0;
+                }
+            }
+            let cur = match self.mb.seq.and_then(|k| a.seqs.get(k)) {
+                Some(s) => s.name.clone(),
+                None => crate::i18n::tr("Grundhaltung").to_string(),
+            };
+            egui::ComboBox::from_id_salt("mb_seq").width(ui.available_width() - 4.0).height(320.0).selected_text(cur).show_ui(ui, |ui| {
+                if ui.selectable_label(self.mb.seq.is_none(), crate::i18n::tr("Grundhaltung")).clicked() {
+                    self.mb.seq = None;
+                    self.mb.playing = false;
+                }
+                for (k, s) in a.seqs.iter().enumerate() {
+                    let label = format!("{}  ({})", s.name, s.frames);
+                    if ui.selectable_label(self.mb.seq == Some(k), label).clicked() {
+                        self.mb.seq = Some(k);
+                        self.mb.frame = 0.0;
+                        self.mb.playing = s.frames > 1;
+                    }
+                }
+            });
+        });
+        let Some(s) = self.mb.seq.and_then(|k| a.seqs.get(k)) else {
+            ui.label(RichText::new(crate::i18n::count(a.seqs.len(), "Sequenz", "Sequenzen")).font(mono(11.5)).color(th.text3));
+            return;
+        };
+        ui.horizontal(|ui| {
+            let n = s.frames.max(1);
+            let mut f = self.mb.frame.min((n - 1) as f32);
+            ui.spacing_mut().slider_width = ui.available_width() - 96.0;
+            if ui.add(egui::Slider::new(&mut f, 0.0..=(n - 1) as f32).show_value(false)).changed() {
+                self.mb.frame = f;
+                self.mb.playing = false;
+            }
+            ui.label(RichText::new(format!("{} / {n} · {} fps", f.floor() as usize + 1, s.fps.round())).font(mono(11.0)).color(th.text3));
+        });
     }
 }

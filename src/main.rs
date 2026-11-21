@@ -65,6 +65,8 @@ mod whatsnew;
 mod ropes;
 mod merge_ui;
 mod mdl;
+mod mdl_anim;
+mod texlib;
 mod model_browser;
 mod navmesh;
 mod notes;

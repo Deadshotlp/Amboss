@@ -1,5 +1,18 @@
 # Änderungen
 
+## 0.17.0
+
+**Animationen im Modell-Browser**
+- Hat ein Modell Animationen, erscheint unter der Vorschau die Zeile „Animation“: Sequenz wählen, abspielen/anhalten, mit dem Regler Bild für Bild durchgehen (mit Bildnummer und fps); „Grundhaltung“ zeigt das Modell wie bisher
+- Amboss liest dafür Skelett, Knochen-Gewichte der Vertices, Sequenzen und die komprimierten Animationsdaten – auch aus .ani-Dateien und aus per `$includemodel` eingebundenen Modellen (z. B. die gemeinsamen Animationen der Spielermodelle) – und verformt das Modell in jedem Bild
+- Mischsequenzen (z. B. Zielen) zeigen die mittlere Stellung; Modelle mit nur einer starren Sequenz (die meisten Props) bekommen keine Animationszeile
+
+**Textur-Bibliothek: Poly Haven und ambientCG**
+- Werkzeuge bzw. Datei → Importieren → „Textur-Bibliothek (Poly Haven, ambientCG)…“ (auch über „Bibliothek…“ im Textur-Browser und die Befehlspalette): Tausende freie PBR-Materialien (CC0, auch kommerziell frei) mit Vorschaubildern durchsuchen – Poly Haven nach Beliebtheit, ambientCG mit Suche auf dem Server und „Mehr laden“
+- „Herunterladen und einbinden“ (oder Doppelklick) lädt das Set in 1K oder 2K und wandelt es um: Grundfarbe × AO als `$basetexture`, DirectX-Normalmap als `$bumpmap` mit Glanzmaske aus Rauheit/Metall, Spiegelung über `env_cubemap`, passender `$surfaceprop` aus den Schlagwörtern
+- Gespeichert unter `materials/amboss/lib/` im Spielordner; das Material ist danach sofort die aktive Textur. Beim Kompilieren mit „Eigene Inhalte in die BSP packen“ kommt es mit in die Map
+- Braucht eine Internetverbindung (wie die Update-Prüfung über curl)
+
 ## 0.16.0
 
 **Modell-Import: Bodygroups und Skins**

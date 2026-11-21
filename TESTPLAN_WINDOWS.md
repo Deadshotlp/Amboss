@@ -243,7 +243,7 @@ Für jede Optimierung: zuerst **„Nur prüfen“**, Markierungen ansehen, dann 
 | O11 | worldspawn `skyname` = `sky_day01_01` (bzw. eigener Himmel), Ansicht → Himmel-Vorschau | Himmel rundum richtig ausgerichtet (Horizont unten, Sonne wie im Spiel) – mit dem Spiel vergleichen |
 | O12 | `env_fog_controller` mit fogenable 1, Farbe, Start/Ende | Entfernte Flächen gehen in die Nebelfarbe über; Ansicht → Nebel schaltet ab |
 | O13 | `move_rope` mit NextKey auf `keyframe_rope`, Slack 50 | Seil hängt durch wie im Spiel, mit Seil-Textur; in 2D als Linie |
-| O14 | Version prüfen | „0.16.0“ neben dem Logo, im Fenstertitel und unter Hilfe → Über Amboss |
+| O14 | Version prüfen | „0.17.0“ neben dem Logo, im Fenstertitel und unter Hilfe → Über Amboss |
 | O15 | Hilfe → Tutorial…, Kapitel 6–9 mit echten Inhalten durchspielen (auch „Zeig es mir“) | Jeder Schritt wird erkannt; Gelände, Himmel, Nebel, Partikel, Overlay, Decal sehen richtig aus |
 | O16 | Trigger mit Output: Ziel-Feld anklicken und einen Buchstaben tippen | Liste passender Namen mit Klasse; Pfeiltasten + Enter oder Klick übernimmt |
 | O17 | Generatoren → Räume mit Höhenstufen 2, eigenen Texturen für Boden/Wände/Decke → Erzeugen → Kompilieren & starten | Kein Leck; Räume unterschiedlich hoch, Treppen in den Gängen begehbar; Texturen wie gewählt |
@@ -388,6 +388,17 @@ Für jede Optimierung: zuerst **„Nur prüfen“**, Markierungen ansehen, dann 
 | X5 | „In neuem Tab öffnen“, dort speichern | Fragt nach einem Dateinamen (überschreibt nicht die Verlaufsdatei) |
 | X6 | Generatoren → „Höhle“ mit Standardwerten, kompilieren, im Spiel herumlaufen | Kein Leck; Boden und Decke uneben, man kann laufen (nicht an Kanten hängen bleiben), Licht vorhanden; Texturen NATURE/ROCKWALL021A und DIRTFLOOR006A vorhanden (sonst bitte melden) |
 | X7 | Raum mit Hohl-Brush (512 × 384) auswählen, „Innenausbau“ Wohnung, Büro, Lager | Möbel stehen auf dem Boden, Rücken an der Wand, nichts steckt in Wänden oder ineinander; in GMod alle Modelle vorhanden |
+
+## Y. Version 0.17.0
+
+| Nr. | Schritt | Erwartung |
+|---|---|---|
+| Y1 | Modell-Browser, ein Spielermodell wählen (z. B. models/player/kleiner.mdl), Zeile „Animation“ → Sequenz „run_all_01“ oder „idle_all_01“ | Figur bewegt sich flüssig, steht aufrecht und richtig herum; Arme und Beine reißen nicht ab (sonst bitte Modell und Sequenz melden) |
+| Y2 | Ein HL2-NPC-Modell (z. B. models/combine_soldier.mdl, models/alyx.mdl) und eine Tür (models/props_c17/door01_left.mdl) | Sequenzen werden gelistet und spielen ab; Regler zeigt Bildnummer, Anhalten friert das Bild ein |
+| Y3 | Ein normales Prop (z. B. models/props_junk/wood_crate001a.mdl) | Keine Animationszeile, Vorschau wie bisher |
+| Y4 | Werkzeuge → „Textur-Bibliothek…“, Poly Haven, Suche „brick“, ein Material doppelklicken | Vorschaubilder laden; danach Meldung „Material amboss/lib/… gespeichert“, Material ist aktiv und sieht im 3D-Fenster richtig aus |
+| Y5 | ambientCG, Suche „wood floor“ + Enter, „Mehr laden“, ein Material in 2K herunterladen | Liste wird länger; Material liegt unter garrysmod/materials/amboss/lib/ |
+| Y6 | Beide Materialien auf Wände legen, kompilieren mit „Eigene Inhalte in die BSP packen“, in GMod ansehen | Texturen sichtbar (kein Schachbrett), Normalmap wirkt (Licht von der Seite), Glanz nicht übertrieben |
 
 ## L. Nach dem Test
 

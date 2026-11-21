@@ -902,6 +902,9 @@ impl App {
                 if ui.small_button(crate::i18n::tr("Zuletzt")).clicked() {
                     self.browser_filter = "@recent".into();
                 }
+                if ui.small_button(crate::i18n::tr("Bibliothek…")).on_hover_text(crate::i18n::tr("Freie Texturen von Poly Haven und ambientCG herunterladen")).clicked() {
+                    self.texlib.open = true;
+                }
             });
             ui.label(RichText::new(crate::i18n::tr("Rechtsklick auf eine Textur: Favorit an/aus")).small());
             let filter = self.browser_filter.to_ascii_lowercase();

@@ -34,6 +34,7 @@ impl App {
         self.notes_window(ctx);
         self.gamemode_window(ctx);
         self.decal_gen_window(ctx);
+        self.texlib_window(ctx);
         self.shot_window(ctx);
         self.timeline_window(ctx);
         self.history_window(ctx);

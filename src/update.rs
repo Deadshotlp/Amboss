@@ -57,6 +57,36 @@ fn curl() -> Command {
     c
 }
 
+/// Datei aus dem Netz laden (z. B. Textur-Bibliotheken); eigener Programmname als User-Agent
+pub fn http_get(url: &str, max_secs: u32) -> Result<Vec<u8>, String> {
+    let out = curl().args(["-A", "Amboss-Map-Editor", "--max-time", &max_secs.to_string(), url]).output().map_err(|e| format!("curl nicht gefunden ({e})"))?;
+    if !out.status.success() {
+        let err = String::from_utf8_lossy(&out.stderr).trim().to_string();
+        return Err(if err.is_empty() { "Keine Verbindung".into() } else { err });
+    }
+    Ok(out.stdout)
+}
+
+/// Namen aller Dateien in einem ZIP (ohne Ordner)
+pub fn zip_names(zip: &[u8]) -> Vec<String> {
+    let mut out = Vec::new();
+    let Some(eocd) = (0..zip.len().saturating_sub(21)).rev().find(|&i| zip[i..].starts_with(&[0x50, 0x4b, 0x05, 0x06])) else { return out };
+    let (Some(count), Some(mut p)) = (u16le(zip, eocd + 10), u32le(zip, eocd + 16)) else { return out };
+    for _ in 0..count {
+        if !zip.get(p..).is_some_and(|s| s.starts_with(&[0x50, 0x4b, 0x01, 0x02])) {
+            break;
+        }
+        let (nlen, xlen, clen) = (u16le(zip, p + 28).unwrap_or(0), u16le(zip, p + 30).unwrap_or(0), u16le(zip, p + 32).unwrap_or(0));
+        let Some(name) = zip.get(p + 46..p + 46 + nlen) else { break };
+        let name = String::from_utf8_lossy(name).to_string();
+        if let Some(n) = name.rsplit('/').next().filter(|n| !n.is_empty()) {
+            out.push(n.to_string());
+        }
+        p += 46 + nlen + xlen + clen;
+    }
+    out
+}
+
 /// Seite laden (Text)
 fn get(url: &str, max_secs: u32) -> Result<Vec<u8>, String> {
     let out = curl().args(["--max-time", &max_secs.to_string(), url]).output().map_err(|e| format!("curl nicht gefunden ({e})"))?;

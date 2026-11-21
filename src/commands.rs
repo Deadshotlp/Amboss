@@ -99,6 +99,7 @@ pub enum Cmd {
     GamemodeChecklist,
     ExportGltf,
     Timeline,
+    TextureLibrary,
     Tool(crate::editor::Tool),
 }
 
@@ -109,7 +110,7 @@ impl Cmd {
             New, Open, Save, SaveAs, NewTab, CloseTab, NextTab, MergeMap, CompareMap, Merge3, ImportMap, ImportModel, Workshop, Spline, UnifyTextures, ExportObj, Undo, Redo, History, PasteSpecial, Delete, SelectAll, Duplicate, Carve, Hollow, TieToEntity, MoveToWorld, Group, Ungroup, Hide,
             HideUnselected, UnhideAll, Lock, UnlockAll, Transform, SnapToGrid, FlipH, FlipV, RotateMouse, RotateCw, RotateCcw, ApplyTexture, ReplaceTextures, NodrawHidden, TextureBrowser, ModelBrowser, SoundBrowser, ParticleBrowser, Collab, ToggleSnap, ToggleVertexSnap, SelectTouching, CopyProps, PasteProps, CheckProblems, Optimize, OptimizeCheck, EntityReport,
             Outliner, GotoNumber, MapInfo, LogicalView, Prefabs, Compile, CompileWindow, TestFromCamera, Walk, Settings, Help, Palette, GridDown, GridUp, CenterSel2D, CenterSel3D, NextCamera, Maximize, ToggleGizmo, LoadPointfile, ClearMeasure,
-            ToggleNodraw, ToggleTriggers, ToggleToolBrushes, SkyboxMode, SkyboxCopy, SkyboxCheck, ToggleGameplay, AddNote, Notes, DecalFromImage, Screenshot, GamemodeChecklist, ExportGltf, Timeline,
+            ToggleNodraw, ToggleTriggers, ToggleToolBrushes, SkyboxMode, SkyboxCopy, SkyboxCheck, ToggleGameplay, AddNote, Notes, DecalFromImage, Screenshot, GamemodeChecklist, ExportGltf, Timeline, TextureLibrary,
         ];
         v.extend(crate::editor::Tool::ALL.iter().map(|t| Tool(*t)));
         v
@@ -228,6 +229,7 @@ impl Cmd {
             Screenshot => crate::i18n::tr("Screenshot in hoher Auflösung…"),
             GamemodeChecklist => crate::i18n::tr("Gamemode-Checkliste…"),
             Timeline => crate::i18n::tr("Zeitleiste der Speicherstände…"),
+            TextureLibrary => crate::i18n::tr("Textur-Bibliothek (Poly Haven, ambientCG)…"),
             ToggleTriggers => crate::i18n::tr("Trigger ein-/ausblenden"),
             ToggleToolBrushes => crate::i18n::tr("Alle Werkzeug-Brushes ein-/ausblenden"),
             SkyboxMode => crate::i18n::tr("3D-Skybox bearbeiten"),
@@ -544,6 +546,7 @@ impl App {
             Screenshot => self.shot.open = true,
             GamemodeChecklist => self.win.gamemode = !self.win.gamemode,
             Timeline => self.open_timeline(),
+            TextureLibrary => self.open_texlib(),
             ToggleGameplay => {
                 self.settings.gameplay = !self.settings.gameplay;
                 self.ed.gameplay = self.settings.gameplay;

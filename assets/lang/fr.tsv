@@ -2554,3 +2554,26 @@ wie Skin 0	comme le skin 0
 {} Dreiecke	{} triangles
 {} Varianten	{} variantes
 Vergleich mit dem Stand {}	Comparaison avec la version {}
+Animation	Animation
+Anhalten	Pause
+Grundhaltung	Pose de référence
+1 Sequenz	1 séquence
+{} Sequenzen	{} séquences
+Textur-Bibliothek (Poly Haven, ambientCG)…	Bibliothèque de textures (Poly Haven, ambientCG)…
+Lade Bild {} von {}…	Chargement de l'image {} sur {}…
+Lade Paket…	Chargement du paquet…
+Wandle um…	Conversion…
+Liste konnte nicht geladen werden: {}	Impossible de charger la liste : {}
+Material {} gespeichert ({}) – ist jetzt die aktive Textur	Matériau {} enregistré ({}) – c'est maintenant la texture active
+Fehlgeschlagen: {}	Échec : {}
+Lade…	Chargement…
+Textur-Bibliothek	Bibliothèque de textures
+Suchen, z. B. brick, wood floor	Rechercher, p. ex. brick, wood floor
+Lade Liste…	Chargement de la liste…
+Nichts gefunden.	Rien trouvé.
+Mehr laden	Charger plus
+Herunterladen und einbinden	Télécharger et intégrer
+Frei verwendbar (CC0). Material anklicken, dann herunterladen – es landet als VMT/VTF unter materials/amboss/lib.	Libre d'utilisation (CC0). Cliquez sur un matériau puis téléchargez-le – il est enregistré en VMT/VTF dans materials/amboss/lib.
+1 Material	1 matériau
+Bibliothek…	Bibliothèque…
+Freie Texturen von Poly Haven und ambientCG herunterladen	Télécharger des textures libres de Poly Haven et ambientCG

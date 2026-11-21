@@ -49,7 +49,7 @@ for path in sorted(glob.glob(os.path.join(ROOT, "src/**/*.rs"), recursive=True))
         continue
     src = open(path, encoding="utf-8").read()
     # Tests und Kommentare ausblenden
-    src_nc = re.sub(r"#\[cfg\(test\)\][\s\S]*$", "", src)
+    src_nc = re.sub(r"#\[cfg\(test\)\]\s*(pub(\([^)]*\))?\s+)?mod\b[\s\S]*$", "", src)
     lines = src_nc.split("\n")
     for i, line in enumerate(lines, 1):
         code = re.sub(r"//.*$", "", line) if '"' not in line.split("//")[0][-1:] else line
